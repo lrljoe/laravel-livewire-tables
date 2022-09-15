@@ -123,7 +123,11 @@ class MakeCommand extends Command
         if (File::exists(app_path('Models/' . $this->model . '.php'))) {
             return 'App\Models\\' . $this->model;
         }
-
+        
+        if (File::exists(app_path('Projections/' . $this->model . '.php'))) {
+           return 'App\Projections\\' . $this->model;
+        }
+        
         if (File::exists(app_path($this->model . '.php'))) {
             return 'App\\' . $this->model;
         }
