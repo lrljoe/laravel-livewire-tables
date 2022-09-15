@@ -124,6 +124,7 @@ class MakeCommand extends Command
             return 'App\Models\\' . $this->model;
         }
         
+        /* Update your Path Here */
         if (File::exists(app_path('Projections/' . $this->model . '.php'))) {
            return 'App\Projections\\' . $this->model;
         }
