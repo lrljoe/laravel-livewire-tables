@@ -38,6 +38,7 @@ jobs:
                 rm -rf database
                 rm -rf resources
                 rm -rf public
+                rm -rf src
                 rm -rf tests
                 rm codecov.yml
                 rm coverage.xml
