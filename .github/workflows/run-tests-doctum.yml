@@ -69,7 +69,7 @@ jobs:
                 # Optional. Local and remote branch name where commit is going to be pushed
                 #  to. Defaults to the current branch.
                 #  You might need to set `create_branch: true` if the branch does not exist.
-                branch: doctum-docs-newest-2
+                branch: doctum-docs-final
 
                 # Optional. Options used by `git-add`.
                 # See https://git-scm.com/docs/git-add#_options
