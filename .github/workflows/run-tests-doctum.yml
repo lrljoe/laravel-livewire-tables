@@ -34,29 +34,37 @@ jobs:
 
           - name: Remove Unrequired Items
             run: | 
+                rm -rf build/cache
+                rm -rf cache
                 rm -rf config
+                rm -rf docs
                 rm -rf database
                 rm -rf resources
                 rm -rf public
                 rm -rf src
                 rm -rf tests
+                rm composer.json
                 rm codecov.yml
                 rm coverage.xml
+                rm doctum-config.php
                 rm phpstan.neon
                 rm phpunit.xml.dist
                 rm psalm.xml.dist
-                rm -rf cache
-                rm -rf build/cache
-                rm -rf docs
-            
+                rm CHANGELOG.md
+                rm CONTRIBUTORS.md
+                rm LICENSE.md
+                rm README.md
+
+
           - name: Move Doctum Docs
             run: |
                 mv build docs
-
-          - name: Git Add
-            run: |
                 git add docs/*
 
+          - name: Restore Readme
+            run: | 
+              echo "This branch is used solely to store Doctum Documents)" >> README.md
+              
           - uses: stefanzweifel/git-auto-commit-action@v4
             with:
                 # Optional. Commit message for the created commit.
