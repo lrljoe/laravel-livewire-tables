@@ -27,7 +27,10 @@ jobs:
               # (optional) defaults to '--output-format=github --no-ansi --no-progress -v'
               cli-args: "--output-format=github --no-ansi --no-progress -v"
 
-      
+        - name: Git Add
+          run: |
+            git add ./doctum/build/*
+
         - uses: stefanzweifel/git-auto-commit-action@v4
           with:
             # Optional. Commit message for the created commit.
