@@ -18,7 +18,8 @@ $iterator = Finder::create()
 $versions = GitVersionCollection::create($dir)
     // In a non case-sensitive way, tags containing "PR", "RC", "BETA" and "ALPHA" will be filtered out
     // To change this, use: `$versions->setFilter(static function (string $version): bool { // ... });`
-    ->add('doctum-test', '3.x branch');
+    ->add('doctum-test', '3.x branch')
+    ->add('master', 'main branch');
 
 return new Doctum($iterator, [
     'versions' => $versions,
