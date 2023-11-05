@@ -36,12 +36,16 @@ jobs:
             # Optional. Local and remote branch name where commit is going to be pushed
             #  to. Defaults to the current branch.
             #  You might need to set `create_branch: true` if the branch does not exist.
-            branch: doctum-test doctum-docs
+            branch: doctum-docs
         
             # Optional. Options used by `git-commit`.
             # See https://git-scm.com/docs/git-commit#_options
             commit_options: '--no-verify --signoff'
                 
+            # Optional. Options used by `git-push`.
+            # See https://git-scm.com/docs/git-push#_options
+            push_options: '--force'
+
             # Optional. Local file path to the repository.
             # Defaults to the root of the repository.
             repository: .

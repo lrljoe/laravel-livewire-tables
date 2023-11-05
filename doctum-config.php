@@ -24,7 +24,7 @@ return new Doctum($iterator, [
     'versions' => $versions,
     'title' => 'Rappasoft - Laravel Livewire Tables API',
     'build_dir' => __DIR__.'/doctum/build/%version%',
-    'cache_dir' => __DIR__.'/doctum/cache/%version%',
+    'cache_dir' => '/tmp/doctum/cache/%version%',
     'source_dir' => dirname($dir).'/',
     'remote_repository' => new GitHubRemoteRepository('rappasoft/laravel-livewire-tables', dirname($dir)),
     'default_opened_level' => 2, // optional, 2 is the default value
