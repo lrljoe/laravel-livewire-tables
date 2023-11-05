@@ -1,14 +1,6 @@
 <?php
 
 use Twig\Environment;
-use Twig\Error\LoaderError;
-use Twig\Error\RuntimeError;
-use Twig\Extension\SandboxExtension;
-use Twig\Markup;
-use Twig\Sandbox\SecurityError;
-use Twig\Sandbox\SecurityNotAllowedTagError;
-use Twig\Sandbox\SecurityNotAllowedFilterError;
-use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
@@ -16,6 +8,7 @@ use Twig\Template;
 class __TwigTemplate_6a7a377c4ba2fa66c83050de8da56d5c extends Template
 {
     private $source;
+
     private $macros = [];
 
     public function __construct(Environment $env)
@@ -35,16 +28,16 @@ class __TwigTemplate_6a7a377c4ba2fa66c83050de8da56d5c extends Template
     protected function doGetParent(array $context)
     {
         // line 1
-        return "layout/layout.twig";
+        return 'layout/layout.twig';
     }
 
     protected function doDisplay(array $context, array $blocks = [])
     {
         $macros = $this->macros;
         // line 2
-        $macros["__internal_parse_0"] = $this->macros["__internal_parse_0"] = $this->loadTemplate("macros.twig", "search.twig", 2)->unwrap();
+        $macros['__internal_parse_0'] = $this->macros['__internal_parse_0'] = $this->loadTemplate('macros.twig', 'search.twig', 2)->unwrap();
         // line 1
-        $this->parent = $this->loadTemplate("layout/layout.twig", "search.twig", 1);
+        $this->parent = $this->loadTemplate('layout/layout.twig', 'search.twig', 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
@@ -52,16 +45,16 @@ class __TwigTemplate_6a7a377c4ba2fa66c83050de8da56d5c extends Template
     public function block_title($context, array $blocks = [])
     {
         $macros = $this->macros;
-echo \Wdes\phpI18nL10n\Launcher::getPlugin()->gettext("Search");
-        echo " | ";
-        $this->displayParentBlock("title", $context, $blocks);
+        echo \Wdes\phpI18nL10n\Launcher::getPlugin()->gettext('Search');
+        echo ' | ';
+        $this->displayParentBlock('title', $context, $blocks);
     }
 
     // line 4
     public function block_body_class($context, array $blocks = [])
     {
         $macros = $this->macros;
-        echo "search-page";
+        echo 'search-page';
     }
 
     // line 6
@@ -69,61 +62,61 @@ echo \Wdes\phpI18nL10n\Launcher::getPlugin()->gettext("Search");
     {
         $macros = $this->macros;
         // line 7
-        echo "
-    <div class=\"page-header\">
-        <h1>";
-echo \Wdes\phpI18nL10n\Launcher::getPlugin()->gettext("Search");
+        echo '
+    <div class="page-header">
+        <h1>';
+        echo \Wdes\phpI18nL10n\Launcher::getPlugin()->gettext('Search');
         // line 9
-        echo "</h1>
+        echo '</h1>
     </div>
 
-    <p>";
-echo \Wdes\phpI18nL10n\Launcher::getPlugin()->gettext("This page allows you to search through the API documentation for
+    <p>';
+        echo \Wdes\phpI18nL10n\Launcher::getPlugin()->gettext('This page allows you to search through the API documentation for
     specific terms. Enter your search words into the box below and click
-    \"submit\". The search will be performed on namespaces, classes, interfaces,
-    traits, functions, and methods.");
+    "submit". The search will be performed on namespaces, classes, interfaces,
+    traits, functions, and methods.');
         // line 15
-        echo "</p>
+        echo '</p>
 
-    <form class=\"form-inline\" role=\"form\" action=\"";
+    <form class="form-inline" role="form" action="';
         // line 17
-        echo twig_escape_filter($this->env, $this->extensions['Doctum\Renderer\TwigExtension']->pathForStaticFile($context, "search.html"), "html", null, true);
-        echo "\">
-        <div class=\"form-group\">
-            <label class=\"sr-only\" for=\"search\">";
-echo \Wdes\phpI18nL10n\Launcher::getPlugin()->gettext("Search");
+        echo twig_escape_filter($this->env, $this->extensions['Doctum\Renderer\TwigExtension']->pathForStaticFile($context, 'search.html'), 'html', null, true);
+        echo '">
+        <div class="form-group">
+            <label class="sr-only" for="search">';
+        echo \Wdes\phpI18nL10n\Launcher::getPlugin()->gettext('Search');
         // line 19
-        echo "</label>
-            <input type=\"search\" class=\"form-control\" name=\"search\" id=\"search\" placeholder=\"";
-echo \Wdes\phpI18nL10n\Launcher::getPlugin()->gettext("Search");
+        echo '</label>
+            <input type="search" class="form-control" name="search" id="search" placeholder="';
+        echo \Wdes\phpI18nL10n\Launcher::getPlugin()->gettext('Search');
         // line 20
-        echo "\" spellcheck=\"false\" autocorrect=\"off\" autocomplete=\"off\" autocapitalize=\"off\">
+        echo '" spellcheck="false" autocorrect="off" autocomplete="off" autocapitalize="off">
         </div>
-        <button type=\"submit\" class=\"btn btn-default\">";
-echo \Wdes\phpI18nL10n\Launcher::getPlugin()->gettext("submit");
+        <button type="submit" class="btn btn-default">';
+        echo \Wdes\phpI18nL10n\Launcher::getPlugin()->gettext('submit');
         // line 22
-        echo "</button>
+        echo '</button>
     </form>
 
-    <h2 id=\"search-results-header\">";
-echo \Wdes\phpI18nL10n\Launcher::getPlugin()->gettext("Search Results");
+    <h2 id="search-results-header">';
+        echo \Wdes\phpI18nL10n\Launcher::getPlugin()->gettext('Search Results');
         // line 25
-        echo "</h2>
-    <div class=\"search-bar hidden\" id=\"search-page-progress-bar-container\">
-        <div class=\"progress\">
-            <div class=\"progress-bar\" role=\"progressbar\" id=\"search-page-progress-bar\"
-                aria-valuenow=\"0\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width: 0%\"></div>
+        echo '</h2>
+    <div class="search-bar hidden" id="search-page-progress-bar-container">
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" id="search-page-progress-bar"
+                aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
         </div>
     </div>
-    <div class=\"container-fluid\" id=\"search-results-container\">
+    <div class="container-fluid" id="search-results-container">
     </div>
 
-    ";
+    ';
         // line 35
-        $this->displayBlock("js_search", $context, $blocks);
-        echo "
+        $this->displayBlock('js_search', $context, $blocks);
+        echo '
 
-";
+';
     }
 
     // line 39
@@ -146,54 +139,54 @@ echo \Wdes\phpI18nL10n\Launcher::getPlugin()->gettext("Search Results");
             searchTypeClasses: {
                 '";
         // line 53
-        echo twig_escape_filter($this->env, twig_escape_filter($this->env, \Wdes\phpI18nL10n\Launcher::gettext("Namespace"), "js"), "html", null, true);
+        echo twig_escape_filter($this->env, twig_escape_filter($this->env, \Wdes\phpI18nL10n\Launcher::gettext('Namespace'), 'js'), 'html', null, true);
         echo "': 'label-default',
                 '";
         // line 54
-        echo twig_escape_filter($this->env, twig_escape_filter($this->env, \Wdes\phpI18nL10n\Launcher::gettext("Class"), "js"), "html", null, true);
+        echo twig_escape_filter($this->env, twig_escape_filter($this->env, \Wdes\phpI18nL10n\Launcher::gettext('Class'), 'js'), 'html', null, true);
         echo "': 'label-info',
                 '";
         // line 55
-        echo twig_escape_filter($this->env, twig_escape_filter($this->env, \Wdes\phpI18nL10n\Launcher::gettext("Trait"), "js"), "html", null, true);
+        echo twig_escape_filter($this->env, twig_escape_filter($this->env, \Wdes\phpI18nL10n\Launcher::gettext('Trait'), 'js'), 'html', null, true);
         echo "': 'label-success',
                 '";
         // line 56
-        echo twig_escape_filter($this->env, twig_escape_filter($this->env, \Wdes\phpI18nL10n\Launcher::gettext("Interface"), "js"), "html", null, true);
+        echo twig_escape_filter($this->env, twig_escape_filter($this->env, \Wdes\phpI18nL10n\Launcher::gettext('Interface'), 'js'), 'html', null, true);
         echo "': 'label-primary',
                 '";
         // line 57
-        echo twig_escape_filter($this->env, twig_escape_filter($this->env, \Wdes\phpI18nL10n\Launcher::gettext("Method"), "js"), "html", null, true);
+        echo twig_escape_filter($this->env, twig_escape_filter($this->env, \Wdes\phpI18nL10n\Launcher::gettext('Method'), 'js'), 'html', null, true);
         echo "': 'label-danger',
                 '";
         // line 58
-        echo twig_escape_filter($this->env, twig_escape_filter($this->env, \Wdes\phpI18nL10n\Launcher::gettext("Function"), "js"), "html", null, true);
+        echo twig_escape_filter($this->env, twig_escape_filter($this->env, \Wdes\phpI18nL10n\Launcher::gettext('Function'), 'js'), 'html', null, true);
         echo "': 'label-danger',
                 '_': 'label-warning'
             },
             longTypes: {
                 'N': '";
         // line 62
-        echo twig_escape_filter($this->env, twig_escape_filter($this->env, \Wdes\phpI18nL10n\Launcher::gettext("Namespace"), "js"), "html", null, true);
+        echo twig_escape_filter($this->env, twig_escape_filter($this->env, \Wdes\phpI18nL10n\Launcher::gettext('Namespace'), 'js'), 'html', null, true);
         echo "',
                 'C': '";
         // line 63
-        echo twig_escape_filter($this->env, twig_escape_filter($this->env, \Wdes\phpI18nL10n\Launcher::gettext("Class"), "js"), "html", null, true);
+        echo twig_escape_filter($this->env, twig_escape_filter($this->env, \Wdes\phpI18nL10n\Launcher::gettext('Class'), 'js'), 'html', null, true);
         echo "',
                 'T': '";
         // line 64
-        echo twig_escape_filter($this->env, twig_escape_filter($this->env, \Wdes\phpI18nL10n\Launcher::gettext("Trait"), "js"), "html", null, true);
+        echo twig_escape_filter($this->env, twig_escape_filter($this->env, \Wdes\phpI18nL10n\Launcher::gettext('Trait'), 'js'), 'html', null, true);
         echo "',
                 'I': '";
         // line 65
-        echo twig_escape_filter($this->env, twig_escape_filter($this->env, \Wdes\phpI18nL10n\Launcher::gettext("Interface"), "js"), "html", null, true);
+        echo twig_escape_filter($this->env, twig_escape_filter($this->env, \Wdes\phpI18nL10n\Launcher::gettext('Interface'), 'js'), 'html', null, true);
         echo "',
                 'M': '";
         // line 66
-        echo twig_escape_filter($this->env, twig_escape_filter($this->env, \Wdes\phpI18nL10n\Launcher::gettext("Method"), "js"), "html", null, true);
+        echo twig_escape_filter($this->env, twig_escape_filter($this->env, \Wdes\phpI18nL10n\Launcher::gettext('Method'), 'js'), 'html', null, true);
         echo "',
                 'F': '";
         // line 67
-        echo twig_escape_filter($this->env, twig_escape_filter($this->env, \Wdes\phpI18nL10n\Launcher::gettext("Function"), "js"), "html", null, true);
+        echo twig_escape_filter($this->env, twig_escape_filter($this->env, \Wdes\phpI18nL10n\Launcher::gettext('Function'), 'js'), 'html', null, true);
         echo "',
                 '_': 'label-warning'
             },
@@ -238,7 +231,7 @@ echo \Wdes\phpI18nL10n\Launcher::getPlugin()->gettext("Search Results");
             showNoResults: function() {
                 document.getElementById('search-results-container').innerText = '";
         // line 109
-        echo twig_escape_filter($this->env, twig_escape_filter($this->env, \Wdes\phpI18nL10n\Launcher::gettext("No results were found"), "js"), "html", null, true);
+        echo twig_escape_filter($this->env, twig_escape_filter($this->env, \Wdes\phpI18nL10n\Launcher::gettext('No results were found'), 'js'), 'html', null, true);
         echo "';
             },
             launchSearch: function (event) {
@@ -321,7 +314,7 @@ echo \Wdes\phpI18nL10n\Launcher::getPlugin()->gettext("Search Results");
                                     fromElement.className = 'search-from';
                                     fromElement.innerText = '";
         // line 189
-        echo twig_escape_filter($this->env, twig_escape_filter($this->env, \Wdes\phpI18nL10n\Launcher::gettext("from "), "js"), "html", null, true);
+        echo twig_escape_filter($this->env, twig_escape_filter($this->env, \Wdes\phpI18nL10n\Launcher::gettext('from '), 'js'), 'html', null, true);
         echo "';
                                     var fromElementLink = document.createElement('a');
                                     fromElementLink.href = data.value.f.p;
@@ -335,7 +328,7 @@ echo \Wdes\phpI18nL10n\Launcher::getPlugin()->gettext("Search Results");
                                 if (data.value.t === 'N') {// Is a namespace
                                     data.value.d = '";
         // line 200
-        echo twig_escape_filter($this->env, twig_escape_filter($this->env, \Wdes\phpI18nL10n\Launcher::gettext("Namespace %s"), "js"), "html", null, true);
+        echo twig_escape_filter($this->env, twig_escape_filter($this->env, \Wdes\phpI18nL10n\Launcher::gettext('Namespace %s'), 'js'), 'html', null, true);
         echo "'.replace('%s', data.value.n);
                                 }
                                 if (typeof data.value.d === 'string') {
@@ -365,7 +358,7 @@ echo \Wdes\phpI18nL10n\Launcher::getPlugin()->gettext("Search Results");
 
     public function getTemplateName()
     {
-        return "search.twig";
+        return 'search.twig';
     }
 
     public function isTraitable()
@@ -375,7 +368,7 @@ echo \Wdes\phpI18nL10n\Launcher::getPlugin()->gettext("Search Results");
 
     public function getDebugInfo()
     {
-        return array (  338 => 200,  324 => 189,  241 => 109,  196 => 67,  192 => 66,  188 => 65,  184 => 64,  180 => 63,  176 => 62,  169 => 58,  165 => 57,  161 => 56,  157 => 55,  153 => 54,  149 => 53,  134 => 40,  130 => 39,  123 => 35,  111 => 25,  105 => 22,  100 => 20,  96 => 19,  90 => 17,  86 => 15,  77 => 9,  72 => 7,  68 => 6,  61 => 4,  52 => 3,  47 => 1,  45 => 2,  38 => 1,);
+        return [338 => 200,  324 => 189,  241 => 109,  196 => 67,  192 => 66,  188 => 65,  184 => 64,  180 => 63,  176 => 62,  169 => 58,  165 => 57,  161 => 56,  157 => 55,  153 => 54,  149 => 53,  134 => 40,  130 => 39,  123 => 35,  111 => 25,  105 => 22,  100 => 20,  96 => 19,  90 => 17,  86 => 15,  77 => 9,  72 => 7,  68 => 6,  61 => 4,  52 => 3,  47 => 1,  45 => 2,  38 => 1];
     }
 
     public function getSourceContext()
@@ -604,6 +597,6 @@ echo \Wdes\phpI18nL10n\Launcher::getPlugin()->gettext("Search Results");
         };
     </script>
 {% endblock %}
-", "search.twig", "phar:///bin/doctum/src/Resources/themes/default/search.twig");
+", 'search.twig', 'phar:///bin/doctum/src/Resources/themes/default/search.twig');
     }
 }

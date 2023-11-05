@@ -1,14 +1,7 @@
 <?php
 
 use Twig\Environment;
-use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
-use Twig\Extension\SandboxExtension;
-use Twig\Markup;
-use Twig\Sandbox\SecurityError;
-use Twig\Sandbox\SecurityNotAllowedTagError;
-use Twig\Sandbox\SecurityNotAllowedFilterError;
-use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
@@ -16,6 +9,7 @@ use Twig\Template;
 class __TwigTemplate_6b2b69ed3ede54cfab8262884a39952c extends Template
 {
     private $source;
+
     private $macros = [];
 
     public function __construct(Environment $env)
@@ -32,19 +26,23 @@ class __TwigTemplate_6b2b69ed3ede54cfab8262884a39952c extends Template
     protected function doGetParent(array $context)
     {
         // line 7
-        return $this->loadTemplate((isset($context["extension"]) || array_key_exists("extension", $context) ? $context["extension"] : (function () { throw new RuntimeError('Variable "extension" does not exist.', 7, $this->source); })()), "index.twig", 7);
+        return $this->loadTemplate((isset($context['extension']) || array_key_exists('extension', $context) ? $context['extension'] : (function () {
+            throw new RuntimeError('Variable "extension" does not exist.', 7, $this->source);
+        })()), 'index.twig', 7);
     }
 
     protected function doDisplay(array $context, array $blocks = [])
     {
         $macros = $this->macros;
         // line 1
-        if ((isset($context["has_namespaces"]) || array_key_exists("has_namespaces", $context) ? $context["has_namespaces"] : (function () { throw new RuntimeError('Variable "has_namespaces" does not exist.', 1, $this->source); })())) {
+        if ((isset($context['has_namespaces']) || array_key_exists('has_namespaces', $context) ? $context['has_namespaces'] : (function () {
+            throw new RuntimeError('Variable "has_namespaces" does not exist.', 1, $this->source);
+        })())) {
             // line 2
-            $context["extension"] = "namespaces.twig";
+            $context['extension'] = 'namespaces.twig';
         } else {
             // line 4
-            $context["extension"] = "classes.twig";
+            $context['extension'] = 'classes.twig';
         }
         // line 7
         $this->getParent($context)->display($context, array_merge($this->blocks, $blocks));
@@ -54,12 +52,12 @@ class __TwigTemplate_6b2b69ed3ede54cfab8262884a39952c extends Template
     public function block_body_class($context, array $blocks = [])
     {
         $macros = $this->macros;
-        echo "index";
+        echo 'index';
     }
 
     public function getTemplateName()
     {
-        return "index.twig";
+        return 'index.twig';
     }
 
     public function isTraitable()
@@ -69,7 +67,7 @@ class __TwigTemplate_6b2b69ed3ede54cfab8262884a39952c extends Template
 
     public function getDebugInfo()
     {
-        return array (  54 => 9,  50 => 7,  47 => 4,  44 => 2,  42 => 1,  35 => 7,);
+        return [54 => 9,  50 => 7,  47 => 4,  44 => 2,  42 => 1,  35 => 7];
     }
 
     public function getSourceContext()
@@ -83,6 +81,6 @@ class __TwigTemplate_6b2b69ed3ede54cfab8262884a39952c extends Template
 {% extends extension %}
 
 {% block body_class 'index' %}
-", "index.twig", "phar:///bin/doctum/src/Resources/themes/default/index.twig");
+", 'index.twig', 'phar:///bin/doctum/src/Resources/themes/default/index.twig');
     }
 }

@@ -1,14 +1,7 @@
 <?php
 
 use Twig\Environment;
-use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
-use Twig\Extension\SandboxExtension;
-use Twig\Markup;
-use Twig\Sandbox\SecurityError;
-use Twig\Sandbox\SecurityNotAllowedTagError;
-use Twig\Sandbox\SecurityNotAllowedFilterError;
-use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
@@ -16,6 +9,7 @@ use Twig\Template;
 class __TwigTemplate_9f20c0f9dfc25eec9542c33be36c5c0b extends Template
 {
     private $source;
+
     private $macros = [];
 
     public function __construct(Environment $env)
@@ -34,16 +28,16 @@ class __TwigTemplate_9f20c0f9dfc25eec9542c33be36c5c0b extends Template
     protected function doGetParent(array $context)
     {
         // line 1
-        return "layout/layout.twig";
+        return 'layout/layout.twig';
     }
 
     protected function doDisplay(array $context, array $blocks = [])
     {
         $macros = $this->macros;
         // line 2
-        $macros["__internal_parse_0"] = $this->macros["__internal_parse_0"] = $this->loadTemplate("macros.twig", "traits.twig", 2)->unwrap();
+        $macros['__internal_parse_0'] = $this->macros['__internal_parse_0'] = $this->loadTemplate('macros.twig', 'traits.twig', 2)->unwrap();
         // line 1
-        $this->parent = $this->loadTemplate("layout/layout.twig", "traits.twig", 1);
+        $this->parent = $this->loadTemplate('layout/layout.twig', 'traits.twig', 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
@@ -51,16 +45,16 @@ class __TwigTemplate_9f20c0f9dfc25eec9542c33be36c5c0b extends Template
     public function block_title($context, array $blocks = [])
     {
         $macros = $this->macros;
-echo \Wdes\phpI18nL10n\Launcher::getPlugin()->gettext("Traits");
-        echo " | ";
-        $this->displayParentBlock("title", $context, $blocks);
+        echo \Wdes\phpI18nL10n\Launcher::getPlugin()->gettext('Traits');
+        echo ' | ';
+        $this->displayParentBlock('title', $context, $blocks);
     }
 
     // line 4
     public function block_body_class($context, array $blocks = [])
     {
         $macros = $this->macros;
-        echo "traits";
+        echo 'traits';
     }
 
     // line 6
@@ -68,53 +62,55 @@ echo \Wdes\phpI18nL10n\Launcher::getPlugin()->gettext("Traits");
     {
         $macros = $this->macros;
         // line 7
-        echo "    <div class=\"page-header\">
-        <h1>";
-echo \Wdes\phpI18nL10n\Launcher::getPlugin()->gettext("Traits");
+        echo '    <div class="page-header">
+        <h1>';
+        echo \Wdes\phpI18nL10n\Launcher::getPlugin()->gettext('Traits');
         // line 8
-        echo "</h1>
+        echo '</h1>
     </div>
 
-    <div class=\"container-fluid underlined\">
-        ";
+    <div class="container-fluid underlined">
+        ';
         // line 12
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["classes"]) || array_key_exists("classes", $context) ? $context["classes"] : (function () { throw new RuntimeError('Variable "classes" does not exist.', 12, $this->source); })()));
-        foreach ($context['_seq'] as $context["_key"] => $context["class"]) {
+        $context['_seq'] = twig_ensure_traversable((isset($context['classes']) || array_key_exists('classes', $context) ? $context['classes'] : (function () {
+            throw new RuntimeError('Variable "classes" does not exist.', 12, $this->source);
+        })()));
+        foreach ($context['_seq'] as $context['_key'] => $context['class']) {
             // line 13
-            echo "            ";
-            if (twig_get_attribute($this->env, $this->source, $context["class"], "trait", [], "any", false, false, false, 13)) {
+            echo '            ';
+            if (twig_get_attribute($this->env, $this->source, $context['class'], 'trait', [], 'any', false, false, false, 13)) {
                 // line 14
-                echo "                <div class=\"row\">
-                    <div class=\"col-md-6\">
-                        ";
+                echo '                <div class="row">
+                    <div class="col-md-6">
+                        ';
                 // line 16
-                echo twig_call_macro($macros["__internal_parse_0"], "macro_class_link", [$context["class"], true], 16, $context, $this->getSourceContext());
-                echo "
+                echo twig_call_macro($macros['__internal_parse_0'], 'macro_class_link', [$context['class'], true], 16, $context, $this->getSourceContext());
+                echo '
                     </div>
-                    <div class=\"col-md-6\">
-                        ";
+                    <div class="col-md-6">
+                        ';
                 // line 19
-                echo $this->extensions['Doctum\Renderer\TwigExtension']->markdownToHtml($this->extensions['Doctum\Renderer\TwigExtension']->parseDesc(twig_get_attribute($this->env, $this->source, $context["class"], "shortdesc", [], "any", false, false, false, 19), $context["class"]));
-                echo "
+                echo $this->extensions['Doctum\Renderer\TwigExtension']->markdownToHtml($this->extensions['Doctum\Renderer\TwigExtension']->parseDesc(twig_get_attribute($this->env, $this->source, $context['class'], 'shortdesc', [], 'any', false, false, false, 19), $context['class']));
+                echo '
                     </div>
                 </div>
-            ";
+            ';
             }
             // line 23
-            echo "        ";
+            echo '        ';
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['class'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 24
-        echo "    </div>
-";
+        echo '    </div>
+';
     }
 
     public function getTemplateName()
     {
-        return "traits.twig";
+        return 'traits.twig';
     }
 
     public function isTraitable()
@@ -124,7 +120,7 @@ echo \Wdes\phpI18nL10n\Launcher::getPlugin()->gettext("Traits");
 
     public function getDebugInfo()
     {
-        return array (  111 => 24,  105 => 23,  98 => 19,  92 => 16,  88 => 14,  85 => 13,  81 => 12,  75 => 8,  71 => 7,  67 => 6,  60 => 4,  51 => 3,  46 => 1,  44 => 2,  37 => 1,);
+        return [111 => 24,  105 => 23,  98 => 19,  92 => 16,  88 => 14,  85 => 13,  81 => 12,  75 => 8,  71 => 7,  67 => 6,  60 => 4,  51 => 3,  46 => 1,  44 => 2,  37 => 1];
     }
 
     public function getSourceContext()
@@ -154,6 +150,6 @@ echo \Wdes\phpI18nL10n\Launcher::getPlugin()->gettext("Traits");
         {% endfor %}
     </div>
 {% endblock %}
-", "traits.twig", "phar:///bin/doctum/src/Resources/themes/default/traits.twig");
+", 'traits.twig', 'phar:///bin/doctum/src/Resources/themes/default/traits.twig');
     }
 }

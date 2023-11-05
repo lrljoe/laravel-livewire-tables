@@ -1,14 +1,7 @@
 <?php
 
 use Twig\Environment;
-use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
-use Twig\Extension\SandboxExtension;
-use Twig\Markup;
-use Twig\Sandbox\SecurityError;
-use Twig\Sandbox\SecurityNotAllowedTagError;
-use Twig\Sandbox\SecurityNotAllowedFilterError;
-use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
@@ -16,6 +9,7 @@ use Twig\Template;
 class __TwigTemplate_fa03f5ff8323bc14531fa7cacd4b51a0 extends Template
 {
     private $source;
+
     private $macros = [];
 
     public function __construct(Environment $env)
@@ -34,16 +28,16 @@ class __TwigTemplate_fa03f5ff8323bc14531fa7cacd4b51a0 extends Template
     protected function doGetParent(array $context)
     {
         // line 1
-        return "layout/layout.twig";
+        return 'layout/layout.twig';
     }
 
     protected function doDisplay(array $context, array $blocks = [])
     {
         $macros = $this->macros;
         // line 2
-        $macros["__internal_parse_0"] = $this->macros["__internal_parse_0"] = $this->loadTemplate("macros.twig", "doc-index.twig", 2)->unwrap();
+        $macros['__internal_parse_0'] = $this->macros['__internal_parse_0'] = $this->loadTemplate('macros.twig', 'doc-index.twig', 2)->unwrap();
         // line 1
-        $this->parent = $this->loadTemplate("layout/layout.twig", "doc-index.twig", 1);
+        $this->parent = $this->loadTemplate('layout/layout.twig', 'doc-index.twig', 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
@@ -51,16 +45,16 @@ class __TwigTemplate_fa03f5ff8323bc14531fa7cacd4b51a0 extends Template
     public function block_title($context, array $blocks = [])
     {
         $macros = $this->macros;
-echo \Wdes\phpI18nL10n\Launcher::getPlugin()->gettext("Index");
-        echo " | ";
-        $this->displayParentBlock("title", $context, $blocks);
+        echo \Wdes\phpI18nL10n\Launcher::getPlugin()->gettext('Index');
+        echo ' | ';
+        $this->displayParentBlock('title', $context, $blocks);
     }
 
     // line 4
     public function block_body_class($context, array $blocks = [])
     {
         $macros = $this->macros;
-        echo "doc-index";
+        echo 'doc-index';
     }
 
     // line 6
@@ -68,122 +62,158 @@ echo \Wdes\phpI18nL10n\Launcher::getPlugin()->gettext("Index");
     {
         $macros = $this->macros;
         // line 7
-        echo "
-    <div class=\"page-header\">
-        <h1>";
-echo \Wdes\phpI18nL10n\Launcher::getPlugin()->gettext("Index");
+        echo '
+    <div class="page-header">
+        <h1>';
+        echo \Wdes\phpI18nL10n\Launcher::getPlugin()->gettext('Index');
         // line 9
-        echo "</h1>
+        echo '</h1>
     </div>
 
-    <ul class=\"pagination\">
-        ";
+    <ul class="pagination">
+        ';
         // line 13
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(range("A", "Z"));
-        foreach ($context['_seq'] as $context["_key"] => $context["letter"]) {
+        $context['_seq'] = twig_ensure_traversable(range('A', 'Z'));
+        foreach ($context['_seq'] as $context['_key'] => $context['letter']) {
             // line 14
-            echo "            ";
-            if ((twig_get_attribute($this->env, $this->source, ($context["items"] ?? null), $context["letter"], [], "array", true, true, false, 14) && (twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["items"]) || array_key_exists("items", $context) ? $context["items"] : (function () { throw new RuntimeError('Variable "items" does not exist.', 14, $this->source); })()), $context["letter"], [], "array", false, false, false, 14)) > 1))) {
+            echo '            ';
+            if ((twig_get_attribute($this->env, $this->source, ($context['items'] ?? null), $context['letter'], [], 'array', true, true, false, 14) && (twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context['items']) || array_key_exists('items', $context) ? $context['items'] : (function () {
+                throw new RuntimeError('Variable "items" does not exist.', 14, $this->source);
+            })()), $context['letter'], [], 'array', false, false, false, 14)) > 1))) {
                 // line 15
-                echo "                <li><a href=\"#letter";
-                echo $context["letter"];
-                echo "\">";
-                echo $context["letter"];
-                echo "</a></li>
-            ";
+                echo '                <li><a href="#letter';
+                echo $context['letter'];
+                echo '">';
+                echo $context['letter'];
+                echo '</a></li>
+            ';
             } else {
                 // line 17
-                echo "                <li class=\"disabled\"><a href=\"#letter";
-                echo $context["letter"];
-                echo "\">";
-                echo $context["letter"];
-                echo "</a></li>
-            ";
+                echo '                <li class="disabled"><a href="#letter';
+                echo $context['letter'];
+                echo '">';
+                echo $context['letter'];
+                echo '</a></li>
+            ';
             }
             // line 19
-            echo "        ";
+            echo '        ';
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['letter'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 20
-        echo "    </ul>
+        echo '    </ul>
 
-    ";
+    ';
         // line 22
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["items"]) || array_key_exists("items", $context) ? $context["items"] : (function () { throw new RuntimeError('Variable "items" does not exist.', 22, $this->source); })()));
-        foreach ($context['_seq'] as $context["letter"] => $context["elements"]) {
+        $context['_seq'] = twig_ensure_traversable((isset($context['items']) || array_key_exists('items', $context) ? $context['items'] : (function () {
+            throw new RuntimeError('Variable "items" does not exist.', 22, $this->source);
+        })()));
+        foreach ($context['_seq'] as $context['letter'] => $context['elements']) {
             // line 23
-            echo "<h2 id=\"letter";
-            echo $context["letter"];
-            echo "\">";
-            echo $context["letter"];
-            echo "</h2>
-        <dl id=\"index";
+            echo '<h2 id="letter';
+            echo $context['letter'];
+            echo '">';
+            echo $context['letter'];
+            echo '</h2>
+        <dl id="index';
             // line 24
-            echo $context["letter"];
-            echo "\">";
+            echo $context['letter'];
+            echo '">';
             // line 25
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable($context["elements"]);
-            foreach ($context['_seq'] as $context["_key"] => $context["element"]) {
+            $context['_seq'] = twig_ensure_traversable($context['elements']);
+            foreach ($context['_seq'] as $context['_key'] => $context['element']) {
                 // line 26
-                $context["type"] = twig_get_attribute($this->env, $this->source, $context["element"], 0, [], "array", false, false, false, 26);
+                $context['type'] = twig_get_attribute($this->env, $this->source, $context['element'], 0, [], 'array', false, false, false, 26);
                 // line 27
-                $context["value"] = twig_get_attribute($this->env, $this->source, $context["element"], 1, [], "array", false, false, false, 27);
+                $context['value'] = twig_get_attribute($this->env, $this->source, $context['element'], 1, [], 'array', false, false, false, 27);
                 // line 28
-                if (("class" == (isset($context["type"]) || array_key_exists("type", $context) ? $context["type"] : (function () { throw new RuntimeError('Variable "type" does not exist.', 28, $this->source); })()))) {
+                if (('class' == (isset($context['type']) || array_key_exists('type', $context) ? $context['type'] : (function () {
+                    throw new RuntimeError('Variable "type" does not exist.', 28, $this->source);
+                })()))) {
                     // line 29
-                    echo "<dt>";
-                    echo twig_call_macro($macros["__internal_parse_0"], "macro_class_link", [(isset($context["value"]) || array_key_exists("value", $context) ? $context["value"] : (function () { throw new RuntimeError('Variable "value" does not exist.', 29, $this->source); })())], 29, $context, $this->getSourceContext());
-                    if ((isset($context["has_namespaces"]) || array_key_exists("has_namespaces", $context) ? $context["has_namespaces"] : (function () { throw new RuntimeError('Variable "has_namespaces" does not exist.', 29, $this->source); })())) {
-                        echo " &mdash; <em>";
-                        echo twig_sprintf(\Wdes\phpI18nL10n\Launcher::gettext("Class in namespace %s"), twig_call_macro($macros["__internal_parse_0"], "macro_namespace_link", [twig_get_attribute($this->env, $this->source,                         // line 30
-(isset($context["value"]) || array_key_exists("value", $context) ? $context["value"] : (function () { throw new RuntimeError('Variable "value" does not exist.', 30, $this->source); })()), "namespace", [], "any", false, false, false, 30)], 30, $context, $this->getSourceContext()));
+                    echo '<dt>';
+                    echo twig_call_macro($macros['__internal_parse_0'], 'macro_class_link', [(isset($context['value']) || array_key_exists('value', $context) ? $context['value'] : (function () {
+                        throw new RuntimeError('Variable "value" does not exist.', 29, $this->source);
+                    })())], 29, $context, $this->getSourceContext());
+                    if ((isset($context['has_namespaces']) || array_key_exists('has_namespaces', $context) ? $context['has_namespaces'] : (function () {
+                        throw new RuntimeError('Variable "has_namespaces" does not exist.', 29, $this->source);
+                    })())) {
+                        echo ' &mdash; <em>';
+                        echo twig_sprintf(\Wdes\phpI18nL10n\Launcher::gettext('Class in namespace %s'), twig_call_macro($macros['__internal_parse_0'], 'macro_namespace_link', [twig_get_attribute($this->env, $this->source,                         // line 30
+                            (isset($context['value']) || array_key_exists('value', $context) ? $context['value'] : (function () {
+                                throw new RuntimeError('Variable "value" does not exist.', 30, $this->source);
+                            })()), 'namespace', [], 'any', false, false, false, 30)], 30, $context, $this->getSourceContext()));
                     }
                     // line 31
-                    echo "</em></dt>
-                    <dd>";
+                    echo '</em></dt>
+                    <dd>';
                     // line 32
-                    echo $this->extensions['Doctum\Renderer\TwigExtension']->markdownToHtml($this->extensions['Doctum\Renderer\TwigExtension']->parseDesc(twig_get_attribute($this->env, $this->source, (isset($context["value"]) || array_key_exists("value", $context) ? $context["value"] : (function () { throw new RuntimeError('Variable "value" does not exist.', 32, $this->source); })()), "shortdesc", [], "any", false, false, false, 32), (isset($context["value"]) || array_key_exists("value", $context) ? $context["value"] : (function () { throw new RuntimeError('Variable "value" does not exist.', 32, $this->source); })())));
-                    echo "</dd>";
-                } elseif (("method" ==                 // line 33
-(isset($context["type"]) || array_key_exists("type", $context) ? $context["type"] : (function () { throw new RuntimeError('Variable "type" does not exist.', 33, $this->source); })()))) {
+                    echo $this->extensions['Doctum\Renderer\TwigExtension']->markdownToHtml($this->extensions['Doctum\Renderer\TwigExtension']->parseDesc(twig_get_attribute($this->env, $this->source, (isset($context['value']) || array_key_exists('value', $context) ? $context['value'] : (function () {
+                        throw new RuntimeError('Variable "value" does not exist.', 32, $this->source);
+                    })()), 'shortdesc', [], 'any', false, false, false, 32), (isset($context['value']) || array_key_exists('value', $context) ? $context['value'] : (function () {
+                        throw new RuntimeError('Variable "value" does not exist.', 32, $this->source);
+                    })())));
+                    echo '</dd>';
+                } elseif (('method' ==                 // line 33
+(isset($context['type']) || array_key_exists('type', $context) ? $context['type'] : (function () {
+    throw new RuntimeError('Variable "type" does not exist.', 33, $this->source);
+})()))) {
                     // line 34
-                    echo "<dt>";
-                    echo twig_call_macro($macros["__internal_parse_0"], "macro_method_link", [(isset($context["value"]) || array_key_exists("value", $context) ? $context["value"] : (function () { throw new RuntimeError('Variable "value" does not exist.', 34, $this->source); })())], 34, $context, $this->getSourceContext());
-                    echo "() &mdash; <em>";
-                    echo twig_sprintf(\Wdes\phpI18nL10n\Launcher::gettext("Method in class %s"), twig_call_macro($macros["__internal_parse_0"], "macro_class_link", [twig_get_attribute($this->env, $this->source,                     // line 35
-(isset($context["value"]) || array_key_exists("value", $context) ? $context["value"] : (function () { throw new RuntimeError('Variable "value" does not exist.', 35, $this->source); })()), "class", [], "any", false, false, false, 35)], 35, $context, $this->getSourceContext()));
+                    echo '<dt>';
+                    echo twig_call_macro($macros['__internal_parse_0'], 'macro_method_link', [(isset($context['value']) || array_key_exists('value', $context) ? $context['value'] : (function () {
+                        throw new RuntimeError('Variable "value" does not exist.', 34, $this->source);
+                    })())], 34, $context, $this->getSourceContext());
+                    echo '() &mdash; <em>';
+                    echo twig_sprintf(\Wdes\phpI18nL10n\Launcher::gettext('Method in class %s'), twig_call_macro($macros['__internal_parse_0'], 'macro_class_link', [twig_get_attribute($this->env, $this->source,                     // line 35
+                        (isset($context['value']) || array_key_exists('value', $context) ? $context['value'] : (function () {
+                            throw new RuntimeError('Variable "value" does not exist.', 35, $this->source);
+                        })()), 'class', [], 'any', false, false, false, 35)], 35, $context, $this->getSourceContext()));
                     // line 36
-                    echo "</em></dt>
-                    <dd>";
+                    echo '</em></dt>
+                    <dd>';
                     // line 37
-                    echo $this->extensions['Doctum\Renderer\TwigExtension']->markdownToHtml($this->extensions['Doctum\Renderer\TwigExtension']->parseDesc(twig_get_attribute($this->env, $this->source, (isset($context["value"]) || array_key_exists("value", $context) ? $context["value"] : (function () { throw new RuntimeError('Variable "value" does not exist.', 37, $this->source); })()), "shortdesc", [], "any", false, false, false, 37), twig_get_attribute($this->env, $this->source, (isset($context["value"]) || array_key_exists("value", $context) ? $context["value"] : (function () { throw new RuntimeError('Variable "value" does not exist.', 37, $this->source); })()), "class", [], "any", false, false, false, 37)));
-                    echo "</dd>";
-                } elseif (("property" ==                 // line 38
-(isset($context["type"]) || array_key_exists("type", $context) ? $context["type"] : (function () { throw new RuntimeError('Variable "type" does not exist.', 38, $this->source); })()))) {
+                    echo $this->extensions['Doctum\Renderer\TwigExtension']->markdownToHtml($this->extensions['Doctum\Renderer\TwigExtension']->parseDesc(twig_get_attribute($this->env, $this->source, (isset($context['value']) || array_key_exists('value', $context) ? $context['value'] : (function () {
+                        throw new RuntimeError('Variable "value" does not exist.', 37, $this->source);
+                    })()), 'shortdesc', [], 'any', false, false, false, 37), twig_get_attribute($this->env, $this->source, (isset($context['value']) || array_key_exists('value', $context) ? $context['value'] : (function () {
+                        throw new RuntimeError('Variable "value" does not exist.', 37, $this->source);
+                    })()), 'class', [], 'any', false, false, false, 37)));
+                    echo '</dd>';
+                } elseif (('property' ==                 // line 38
+(isset($context['type']) || array_key_exists('type', $context) ? $context['type'] : (function () {
+    throw new RuntimeError('Variable "type" does not exist.', 38, $this->source);
+})()))) {
                     // line 39
-                    echo "<dt>\$";
-                    echo twig_call_macro($macros["__internal_parse_0"], "macro_property_link", [(isset($context["value"]) || array_key_exists("value", $context) ? $context["value"] : (function () { throw new RuntimeError('Variable "value" does not exist.', 39, $this->source); })())], 39, $context, $this->getSourceContext());
-                    echo " &mdash; <em>";
-                    echo twig_sprintf(\Wdes\phpI18nL10n\Launcher::gettext("Property in class %s"), twig_call_macro($macros["__internal_parse_0"], "macro_class_link", [twig_get_attribute($this->env, $this->source,                     // line 40
-(isset($context["value"]) || array_key_exists("value", $context) ? $context["value"] : (function () { throw new RuntimeError('Variable "value" does not exist.', 40, $this->source); })()), "class", [], "any", false, false, false, 40)], 40, $context, $this->getSourceContext()));
+                    echo '<dt>$';
+                    echo twig_call_macro($macros['__internal_parse_0'], 'macro_property_link', [(isset($context['value']) || array_key_exists('value', $context) ? $context['value'] : (function () {
+                        throw new RuntimeError('Variable "value" does not exist.', 39, $this->source);
+                    })())], 39, $context, $this->getSourceContext());
+                    echo ' &mdash; <em>';
+                    echo twig_sprintf(\Wdes\phpI18nL10n\Launcher::gettext('Property in class %s'), twig_call_macro($macros['__internal_parse_0'], 'macro_class_link', [twig_get_attribute($this->env, $this->source,                     // line 40
+                        (isset($context['value']) || array_key_exists('value', $context) ? $context['value'] : (function () {
+                            throw new RuntimeError('Variable "value" does not exist.', 40, $this->source);
+                        })()), 'class', [], 'any', false, false, false, 40)], 40, $context, $this->getSourceContext()));
                     // line 41
-                    echo "</em></dt>
-                    <dd>";
+                    echo '</em></dt>
+                    <dd>';
                     // line 42
-                    echo $this->extensions['Doctum\Renderer\TwigExtension']->markdownToHtml($this->extensions['Doctum\Renderer\TwigExtension']->parseDesc(twig_get_attribute($this->env, $this->source, (isset($context["value"]) || array_key_exists("value", $context) ? $context["value"] : (function () { throw new RuntimeError('Variable "value" does not exist.', 42, $this->source); })()), "shortdesc", [], "any", false, false, false, 42), twig_get_attribute($this->env, $this->source, (isset($context["value"]) || array_key_exists("value", $context) ? $context["value"] : (function () { throw new RuntimeError('Variable "value" does not exist.', 42, $this->source); })()), "class", [], "any", false, false, false, 42)));
-                    echo "</dd>";
+                    echo $this->extensions['Doctum\Renderer\TwigExtension']->markdownToHtml($this->extensions['Doctum\Renderer\TwigExtension']->parseDesc(twig_get_attribute($this->env, $this->source, (isset($context['value']) || array_key_exists('value', $context) ? $context['value'] : (function () {
+                        throw new RuntimeError('Variable "value" does not exist.', 42, $this->source);
+                    })()), 'shortdesc', [], 'any', false, false, false, 42), twig_get_attribute($this->env, $this->source, (isset($context['value']) || array_key_exists('value', $context) ? $context['value'] : (function () {
+                        throw new RuntimeError('Variable "value" does not exist.', 42, $this->source);
+                    })()), 'class', [], 'any', false, false, false, 42)));
+                    echo '</dd>';
                 }
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['element'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
             // line 45
-            echo "        </dl>";
+            echo '        </dl>';
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['letter'], $context['elements'], $context['_parent'], $context['loop']);
@@ -192,7 +222,7 @@ echo \Wdes\phpI18nL10n\Launcher::getPlugin()->gettext("Index");
 
     public function getTemplateName()
     {
-        return "doc-index.twig";
+        return 'doc-index.twig';
     }
 
     public function isTraitable()
@@ -202,7 +232,7 @@ echo \Wdes\phpI18nL10n\Launcher::getPlugin()->gettext("Index");
 
     public function getDebugInfo()
     {
-        return array (  186 => 45,  178 => 42,  175 => 41,  173 => 40,  169 => 39,  167 => 38,  164 => 37,  161 => 36,  159 => 35,  155 => 34,  153 => 33,  150 => 32,  147 => 31,  144 => 30,  139 => 29,  137 => 28,  135 => 27,  133 => 26,  129 => 25,  126 => 24,  119 => 23,  115 => 22,  111 => 20,  105 => 19,  97 => 17,  89 => 15,  86 => 14,  82 => 13,  76 => 9,  71 => 7,  67 => 6,  60 => 4,  51 => 3,  46 => 1,  44 => 2,  37 => 1,);
+        return [186 => 45,  178 => 42,  175 => 41,  173 => 40,  169 => 39,  167 => 38,  164 => 37,  161 => 36,  159 => 35,  155 => 34,  153 => 33,  150 => 32,  147 => 31,  144 => 30,  139 => 29,  137 => 28,  135 => 27,  133 => 26,  129 => 25,  126 => 24,  119 => 23,  115 => 22,  111 => 20,  105 => 19,  97 => 17,  89 => 15,  86 => 14,  82 => 13,  76 => 9,  71 => 7,  67 => 6,  60 => 4,  51 => 3,  46 => 1,  44 => 2,  37 => 1];
     }
 
     public function getSourceContext()
@@ -254,6 +284,6 @@ echo \Wdes\phpI18nL10n\Launcher::getPlugin()->gettext("Index");
         </dl>
     {%- endfor %}
 {% endblock %}
-", "doc-index.twig", "phar:///bin/doctum/src/Resources/themes/default/doc-index.twig");
+", 'doc-index.twig', 'phar:///bin/doctum/src/Resources/themes/default/doc-index.twig');
     }
 }

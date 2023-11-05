@@ -1,14 +1,7 @@
 <?php
 
 use Twig\Environment;
-use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
-use Twig\Extension\SandboxExtension;
-use Twig\Markup;
-use Twig\Sandbox\SecurityError;
-use Twig\Sandbox\SecurityNotAllowedTagError;
-use Twig\Sandbox\SecurityNotAllowedFilterError;
-use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
@@ -16,6 +9,7 @@ use Twig\Template;
 class __TwigTemplate_c92019cd0de8c12a71f941986ed759b7 extends Template
 {
     private $source;
+
     private $macros = [];
 
     public function __construct(Environment $env)
@@ -34,16 +28,16 @@ class __TwigTemplate_c92019cd0de8c12a71f941986ed759b7 extends Template
     protected function doGetParent(array $context)
     {
         // line 1
-        return "layout/layout.twig";
+        return 'layout/layout.twig';
     }
 
     protected function doDisplay(array $context, array $blocks = [])
     {
         $macros = $this->macros;
         // line 2
-        $macros["__internal_parse_0"] = $this->macros["__internal_parse_0"] = $this->loadTemplate("macros.twig", "namespaces.twig", 2)->unwrap();
+        $macros['__internal_parse_0'] = $this->macros['__internal_parse_0'] = $this->loadTemplate('macros.twig', 'namespaces.twig', 2)->unwrap();
         // line 1
-        $this->parent = $this->loadTemplate("layout/layout.twig", "namespaces.twig", 1);
+        $this->parent = $this->loadTemplate('layout/layout.twig', 'namespaces.twig', 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
@@ -51,16 +45,16 @@ class __TwigTemplate_c92019cd0de8c12a71f941986ed759b7 extends Template
     public function block_title($context, array $blocks = [])
     {
         $macros = $this->macros;
-echo \Wdes\phpI18nL10n\Launcher::getPlugin()->gettext("Namespaces");
-        echo " | ";
-        $this->displayParentBlock("title", $context, $blocks);
+        echo \Wdes\phpI18nL10n\Launcher::getPlugin()->gettext('Namespaces');
+        echo ' | ';
+        $this->displayParentBlock('title', $context, $blocks);
     }
 
     // line 4
     public function block_body_class($context, array $blocks = [])
     {
         $macros = $this->macros;
-        echo "namespaces";
+        echo 'namespaces';
     }
 
     // line 6
@@ -68,73 +62,87 @@ echo \Wdes\phpI18nL10n\Launcher::getPlugin()->gettext("Namespaces");
     {
         $macros = $this->macros;
         // line 7
-        echo "    <div class=\"page-header\">
-        <h1>";
-echo \Wdes\phpI18nL10n\Launcher::getPlugin()->gettext("Namespaces");
+        echo '    <div class="page-header">
+        <h1>';
+        echo \Wdes\phpI18nL10n\Launcher::getPlugin()->gettext('Namespaces');
         // line 8
-        echo "</h1>
+        echo '</h1>
     </div>
 
-    ";
+    ';
         // line 11
-        if ((isset($context["namespaces"]) || array_key_exists("namespaces", $context) ? $context["namespaces"] : (function () { throw new RuntimeError('Variable "namespaces" does not exist.', 11, $this->source); })())) {
+        if ((isset($context['namespaces']) || array_key_exists('namespaces', $context) ? $context['namespaces'] : (function () {
+            throw new RuntimeError('Variable "namespaces" does not exist.', 11, $this->source);
+        })())) {
             // line 12
-            echo "        <div class=\"namespaces clearfix\">
-            ";
+            echo '        <div class="namespaces clearfix">
+            ';
             // line 13
-            $context["last_name"] = "";
+            $context['last_name'] = '';
             // line 14
-            echo "            ";
+            echo '            ';
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable((isset($context["namespaces"]) || array_key_exists("namespaces", $context) ? $context["namespaces"] : (function () { throw new RuntimeError('Variable "namespaces" does not exist.', 14, $this->source); })()));
-            foreach ($context['_seq'] as $context["_key"] => $context["namespace"]) {
+            $context['_seq'] = twig_ensure_traversable((isset($context['namespaces']) || array_key_exists('namespaces', $context) ? $context['namespaces'] : (function () {
+                throw new RuntimeError('Variable "namespaces" does not exist.', 14, $this->source);
+            })()));
+            foreach ($context['_seq'] as $context['_key'] => $context['namespace']) {
                 // line 15
-                echo "                ";
-                $context["top_level"] = twig_first($this->env, twig_split_filter($this->env, $context["namespace"], "\\"));
+                echo '                ';
+                $context['top_level'] = twig_first($this->env, twig_split_filter($this->env, $context['namespace'], '\\'));
                 // line 16
-                echo "                ";
-                if (((isset($context["top_level"]) || array_key_exists("top_level", $context) ? $context["top_level"] : (function () { throw new RuntimeError('Variable "top_level" does not exist.', 16, $this->source); })()) != (isset($context["last_name"]) || array_key_exists("last_name", $context) ? $context["last_name"] : (function () { throw new RuntimeError('Variable "last_name" does not exist.', 16, $this->source); })()))) {
+                echo '                ';
+                if (((isset($context['top_level']) || array_key_exists('top_level', $context) ? $context['top_level'] : (function () {
+                    throw new RuntimeError('Variable "top_level" does not exist.', 16, $this->source);
+                })()) != (isset($context['last_name']) || array_key_exists('last_name', $context) ? $context['last_name'] : (function () {
+                    throw new RuntimeError('Variable "last_name" does not exist.', 16, $this->source);
+                })()))) {
                     // line 17
-                    echo "                    ";
-                    if ((isset($context["last_name"]) || array_key_exists("last_name", $context) ? $context["last_name"] : (function () { throw new RuntimeError('Variable "last_name" does not exist.', 17, $this->source); })())) {
-                        echo "</ul></div>";
+                    echo '                    ';
+                    if ((isset($context['last_name']) || array_key_exists('last_name', $context) ? $context['last_name'] : (function () {
+                        throw new RuntimeError('Variable "last_name" does not exist.', 17, $this->source);
+                    })())) {
+                        echo '</ul></div>';
                     }
                     // line 18
-                    echo "                    <div class=\"namespace-container\">
-                        <h2>";
+                    echo '                    <div class="namespace-container">
+                        <h2>';
                     // line 19
-                    echo (isset($context["top_level"]) || array_key_exists("top_level", $context) ? $context["top_level"] : (function () { throw new RuntimeError('Variable "top_level" does not exist.', 19, $this->source); })());
-                    echo "</h2>
+                    echo isset($context['top_level']) || array_key_exists('top_level', $context) ? $context['top_level'] : (function () {
+                        throw new RuntimeError('Variable "top_level" does not exist.', 19, $this->source);
+                    })();
+                    echo '</h2>
                         <ul>
-                    ";
+                    ';
                     // line 21
-                    $context["last_name"] = (isset($context["top_level"]) || array_key_exists("top_level", $context) ? $context["top_level"] : (function () { throw new RuntimeError('Variable "top_level" does not exist.', 21, $this->source); })());
+                    $context['last_name'] = (isset($context['top_level']) || array_key_exists('top_level', $context) ? $context['top_level'] : (function () {
+                        throw new RuntimeError('Variable "top_level" does not exist.', 21, $this->source);
+                    })());
                     // line 22
-                    echo "                ";
+                    echo '                ';
                 }
                 // line 23
-                echo "                <li>";
-                echo twig_call_macro($macros["__internal_parse_0"], "macro_namespace_link", [$context["namespace"]], 23, $context, $this->getSourceContext());
-                echo "</li>
-            ";
+                echo '                <li>';
+                echo twig_call_macro($macros['__internal_parse_0'], 'macro_namespace_link', [$context['namespace']], 23, $context, $this->getSourceContext());
+                echo '</li>
+            ';
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['namespace'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
             // line 25
-            echo "                </ul>
+            echo '                </ul>
             </div>
         </div>
-    ";
+    ';
         }
         // line 29
-        echo "
-";
+        echo '
+';
     }
 
     public function getTemplateName()
     {
-        return "namespaces.twig";
+        return 'namespaces.twig';
     }
 
     public function isTraitable()
@@ -144,7 +152,7 @@ echo \Wdes\phpI18nL10n\Launcher::getPlugin()->gettext("Namespaces");
 
     public function getDebugInfo()
     {
-        return array (  131 => 29,  125 => 25,  116 => 23,  113 => 22,  111 => 21,  106 => 19,  103 => 18,  98 => 17,  95 => 16,  92 => 15,  87 => 14,  85 => 13,  82 => 12,  80 => 11,  75 => 8,  71 => 7,  67 => 6,  60 => 4,  51 => 3,  46 => 1,  44 => 2,  37 => 1,);
+        return [131 => 29,  125 => 25,  116 => 23,  113 => 22,  111 => 21,  106 => 19,  103 => 18,  98 => 17,  95 => 16,  92 => 15,  87 => 14,  85 => 13,  82 => 12,  80 => 11,  75 => 8,  71 => 7,  67 => 6,  60 => 4,  51 => 3,  46 => 1,  44 => 2,  37 => 1];
     }
 
     public function getSourceContext()
@@ -179,6 +187,6 @@ echo \Wdes\phpI18nL10n\Launcher::getPlugin()->gettext("Namespaces");
     {% endif %}
 
 {% endblock %}
-", "namespaces.twig", "phar:///bin/doctum/src/Resources/themes/default/namespaces.twig");
+", 'namespaces.twig', 'phar:///bin/doctum/src/Resources/themes/default/namespaces.twig');
     }
 }

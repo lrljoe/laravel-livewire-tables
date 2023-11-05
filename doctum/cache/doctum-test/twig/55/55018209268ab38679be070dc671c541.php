@@ -1,14 +1,7 @@
 <?php
 
 use Twig\Environment;
-use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
-use Twig\Extension\SandboxExtension;
-use Twig\Markup;
-use Twig\Sandbox\SecurityError;
-use Twig\Sandbox\SecurityNotAllowedTagError;
-use Twig\Sandbox\SecurityNotAllowedFilterError;
-use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
@@ -16,6 +9,7 @@ use Twig\Template;
 class __TwigTemplate_6b67aa843b6a3c6e0a5c1fabce516b29 extends Template
 {
     private $source;
+
     private $macros = [];
 
     public function __construct(Environment $env)
@@ -34,12 +28,14 @@ class __TwigTemplate_6b67aa843b6a3c6e0a5c1fabce516b29 extends Template
     {
         $macros = $this->macros;
         // line 1
-        echo "var Doctum = {
-    treeJson: ";
+        echo 'var Doctum = {
+    treeJson: ';
         // line 2
-        echo (isset($context["tree"]) || array_key_exists("tree", $context) ? $context["tree"] : (function () { throw new RuntimeError('Variable "tree" does not exist.', 2, $this->source); })());
-        echo ",
-    ";
+        echo isset($context['tree']) || array_key_exists('tree', $context) ? $context['tree'] : (function () {
+            throw new RuntimeError('Variable "tree" does not exist.', 2, $this->source);
+        })();
+        echo ',
+    ';
         // line 75
         echo "/** @var boolean */
     treeLoaded: false,
@@ -112,9 +108,11 @@ class __TwigTemplate_6b67aa843b6a3c6e0a5c1fabce516b29 extends Template
             return;
         }
         ";
-        if ((twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["project"]) || array_key_exists("project", $context) ? $context["project"] : (function () { throw new RuntimeError('Variable "project" does not exist.', 75, $this->source); })()), "versions", [], "any", false, false, false, 75)) > 1)) {
+        if ((twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context['project']) || array_key_exists('project', $context) ? $context['project'] : (function () {
+            throw new RuntimeError('Variable "project" does not exist.', 75, $this->source);
+        })()), 'versions', [], 'any', false, false, false, 75)) > 1)) {
             // line 76
-            echo "        ";
+            echo '        ';
             // line 77
             echo "        var versionSwitcher = document.getElementById('version-switcher');
         if (versionSwitcher !== null) {
@@ -125,7 +123,7 @@ class __TwigTemplate_6b67aa843b6a3c6e0a5c1fabce516b29 extends Template
         ";
         }
         // line 84
-        echo "        ";
+        echo '        ';
         // line 259
         echo "Doctum.listenersRegistered = true;
     },
@@ -378,7 +376,7 @@ window.addEventListener('load', Doctum.pageFullyLoaded, false);
 
     public function getTemplateName()
     {
-        return "doctum.js.twig";
+        return 'doctum.js.twig';
     }
 
     public function isTraitable()
@@ -388,7 +386,7 @@ window.addEventListener('load', Doctum.pageFullyLoaded, false);
 
     public function getDebugInfo()
     {
-        return array (  305 => 339,  130 => 259,  128 => 84,  119 => 77,  117 => 76,  44 => 75,  40 => 2,  37 => 1,);
+        return [305 => 339,  130 => 259,  128 => 84,  119 => 77,  117 => 76,  44 => 75,  40 => 2,  37 => 1];
     }
 
     public function getSourceContext()
@@ -731,6 +729,6 @@ window.addEventListener('load', Doctum.pageFullyLoaded, false);
 document.addEventListener('DOMContentLoaded', Doctum.pagePartiallyLoaded, false);
 window.addEventListener('load', Doctum.pageFullyLoaded, false);
 {% endverbatim -%}
-", "doctum.js.twig", "phar:///bin/doctum/src/Resources/themes/default/doctum.js.twig");
+", 'doctum.js.twig', 'phar:///bin/doctum/src/Resources/themes/default/doctum.js.twig');
     }
 }
