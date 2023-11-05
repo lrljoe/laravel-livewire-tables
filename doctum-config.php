@@ -5,7 +5,7 @@ use Doctum\RemoteRepository\GitHubRemoteRepository;
 use Doctum\Version\GitVersionCollection;
 use Symfony\Component\Finder\Finder;
 
-$dir = '.';
+$dir = './src';
 
 $iterator = Finder::create()
     ->files()
@@ -19,16 +19,16 @@ $versions = GitVersionCollection::create($dir)
     // In a non case-sensitive way, tags containing "PR", "RC", "BETA" and "ALPHA" will be filtered out
     // To change this, use: `$versions->setFilter(static function (string $version): bool { // ... });`
     ->add('doctum-test', 'doctum-test branch')
-    ->addFromTags('v3.0.*')
-    ->addFromTags('v2.0.*')
-    ->addFromTags('v1.0.*');
+    ->addFromTags('v3.*')
+    ->addFromTags('v2.*')
+    ->addFromTags('v1.*');
 
 return new Doctum($iterator, [
     'versions' => $versions,
-    'title' => 'Rappasoft - Laravel Livewire Tables',
-    'build_dir' => '/tmp/doctum/build/%version%',
+    'title' => 'Rappasoft - Laravel Livewire Tables API',
+    'build_dir' => __DIR__.'/doctum/build/%version%',
     'cache_dir' => __DIR__.'/doctum/cache/%version%',
-    'source_dir' => dirname($dir).'/src',
+    'source_dir' => dirname($dir).'/',
     'remote_repository' => new GitHubRemoteRepository('rappasoft/laravel-livewire-tables', dirname($dir)),
     'default_opened_level' => 2, // optional, 2 is the default value
 ]);
