@@ -23,7 +23,7 @@ $versions = GitVersionCollection::create($dir)
 return new Doctum($iterator, [
     'versions' => $versions,
     'title' => 'Rappasoft - Laravel Livewire Tables API',
-    'build_dir' => __DIR__.'/docs/%version%',
+    'build_dir' => __DIR__.'/doctum/build/%version%',
     'cache_dir' => __DIR__.'/doctum/cache/%version%',
     'source_dir' => dirname($dir).'/',
     'remote_repository' => new GitHubRemoteRepository('rappasoft/laravel-livewire-tables', dirname($dir)),
