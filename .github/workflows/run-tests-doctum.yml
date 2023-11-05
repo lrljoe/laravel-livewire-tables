@@ -16,43 +16,22 @@ jobs:
         name: Update-DoctumDocs-Branch
 
         steps:
-          - uses: actions/checkout@v4
-
-          - name: build doctum docs
-            uses: sudo-bot/action-doctum@v5
+          - uses: actions/checkout@v3
             with:
-              config-file: doctum-config.php
-              # parse, render or update
-              method: "update"
-              # (optional) defaults to '--output-format=github --no-ansi --no-progress -v'
-              cli-args: "--output-format=github --no-ansi --no-progress -v"
-
-          - name: Remove Unrelated Files
-            run: |
-                rm -rf database
-                rm -rf config
-                rm -rf docs
-                rm -rf public
-                rm -rf resources
-                rm -rf src
-                rm -rf tests
-                rm psalm.xml.dist
-                rm phpunit.xml.dist
-                rm phpstan.neon
-                rm coverage.xml
-                rm composer.json
-                rm codecov.yml
-                rm doctum-config.php
-                rm .editorconfig
-              
-          - name: Move New Docs To docs
-            run: |
-                cp -R doctum/build docs
-  
-          - name: Git Add
-            run: |
-                git add docs
-            
+              # The branch, tag or SHA to checkout. When checking out the repository that
+              # triggered a workflow, this defaults to the reference or SHA for that event.
+              # Otherwise, uses the default branch.
+              ref: 'doctum-test'
+        
+          - name: build doctum docs
+            uses: sudo-bot/action-doctum@latest
+            with:
+                config-file: doctum-config.php
+                # parse, render or update
+                method: "update"
+                # (optional) defaults to '--output-format=github --no-ansi --no-progress -v'
+                cli-args: "--output-format=github --no-ansi --no-progress -v"
+        
           - uses: stefanzweifel/git-auto-commit-action@v4
             with:
                 # Optional. Commit message for the created commit.
@@ -70,7 +49,7 @@ jobs:
                 # Optional. Local and remote branch name where commit is going to be pushed
                 #  to. Defaults to the current branch.
                 #  You might need to set `create_branch: true` if the branch does not exist.
-                branch: doctum-docs-latest
+                branch: doctum-docs-newest-2
 
                 # Optional. Options used by `git-add`.
                 # See https://git-scm.com/docs/git-add#_options
