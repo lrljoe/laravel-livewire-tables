@@ -28,7 +28,7 @@ jobs:
               cli-args: "--output-format=github --no-ansi --no-progress -v"
 
         - name: Remove Unrelated Files
-          run: rm -rf ./docs && mv ./doctum/build ./docs
+          run: rm -rf ./docs && cp -R ./doctum/build ./docs
       
         - uses: stefanzweifel/git-auto-commit-action@v4
           with:
