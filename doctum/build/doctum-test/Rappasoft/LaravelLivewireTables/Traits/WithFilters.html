@@ -1,0 +1,2960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>Rappasoft\LaravelLivewireTables\Traits\WithFilters | Rappasoft - Laravel Livewire Tables API</title>
+
+            <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/doctum.css">
+        <link rel="stylesheet" type="text/css" href="../../../fonts/doctum-font.css">
+        <script src="../../../js/jquery-3.5.1.slim.min.js"></script>
+        <script async defer src="../../../doctum.js"></script>
+        <script async defer src="../../../js/bootstrap.min.js"></script>
+        <script async defer src="../../../js/autocomplete.min.js"></script>
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+
+    </head>
+
+    <body id="class" data-name="class:Rappasoft_LaravelLivewireTables_Traits_WithFilters" data-root-path="../../../" data-search-index-url="../../../doctum-search.json">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                <div class="search-bar hidden" id="search-progress-bar-container">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" id="search-progress-bar"
+                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+            </div>
+        </div>
+        <form id="search-form" action="../../../search.html">
+            <span class="icon icon-search"></span>
+            <input name="search"
+                   id="doctum-search-auto-complete"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search"
+                   spellcheck="false"
+                   autocorrect="off"
+                   autocomplete="off"
+                   autocapitalize="off">
+            <div class="auto-complete-results" id="auto-complete-results"></div>
+        </form>
+    </div>
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../../../index.html">Rappasoft - Laravel Livewire Tables API</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                    <li><a href="../../../classes.html">Classes</a></li>
+                    <li><a href="../../../namespaces.html">Namespaces</a></li>
+                    <li><a href="../../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../../traits.html">Traits</a></li>
+                    <li><a href="../../../doc-index.html">Index</a></li>
+                    <li><a href="../../../search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">trait</span></li>
+                        <li><a href="../../../Rappasoft.html">Rappasoft</a></li><li class="backslash">\</li><li><a href="../../../Rappasoft/LaravelLivewireTables.html">LaravelLivewireTables</a></li><li class="backslash">\</li><li><a href="../../../Rappasoft/LaravelLivewireTables/Traits.html">Traits</a></li><li class="backslash">\</li><li>WithFilters</li>
+            </ol>
+        </div>
+                <div id="page-content">
+    <div class="page-header">
+        <h1>WithFilters    
+            </h1>
+    </div>
+
+    
+    <p>        trait
+    <strong>WithFilters</strong>
+</p>
+
+        
+    
+        
+
+            
+                <h2>Traits</h2>
+
+        
+    <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-6">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a>    </div>
+                <div class="col-md-6"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-6">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a>    </div>
+                <div class="col-md-6"></div>
+            </div>
+            </div>
+    
+    
+            <h2>Properties</h2>
+
+            <table class="table table-condensed">
+                    <tr>
+                <td class="type" id="property_filtersStatus">
+                                                                                
+                                                                                
+                                    </td>
+                <td>$filtersStatus</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_filtersVisibilityStatus">
+                                                                                
+                                                                                
+                                    </td>
+                <td>$filtersVisibilityStatus</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_filterPillsStatus">
+                                                                                
+                                                                                
+                                    </td>
+                <td>$filterPillsStatus</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_filterSlideDownDefaultVisible">
+                                                                                
+                                                                                
+                                    </td>
+                <td>$filterSlideDownDefaultVisible</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_filterLayout">
+                                                                                
+                                                                                
+                                    </td>
+                <td>$filterLayout</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_filterCount">
+                                                                                
+                                                                                
+                                    </td>
+                <td>$filterCount</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_filterCollection">
+                                        protected                                        
+                                                                                
+                                    </td>
+                <td>$filterCollection</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_filterComponents">
+                                                                                
+                                                                                
+                                    </td>
+                <td>$filterComponents</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_appliedFilters">
+                                                                                
+                                                                                
+                                    </td>
+                <td>$appliedFilters</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_filterGenericData">
+                                                                                
+                                                                                
+                                    </td>
+                <td>$filterGenericData</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+            </table>
+
+    
+            <h2>Methods</h2>
+
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setFiltersStatus">setFiltersStatus</a>(bool $status)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html#method_setFiltersStatus">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setFiltersEnabled">setFiltersEnabled</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html#method_setFiltersEnabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setFiltersDisabled">setFiltersDisabled</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html#method_setFiltersDisabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setFiltersVisibilityStatus">setFiltersVisibilityStatus</a>(bool $status)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html#method_setFiltersVisibilityStatus">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setFiltersVisibilityEnabled">setFiltersVisibilityEnabled</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html#method_setFiltersVisibilityEnabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setFiltersVisibilityDisabled">setFiltersVisibilityDisabled</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html#method_setFiltersVisibilityDisabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setFilterPillsStatus">setFilterPillsStatus</a>(bool $status)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html#method_setFilterPillsStatus">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setFilterPillsEnabled">setFilterPillsEnabled</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html#method_setFilterPillsEnabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setFilterPillsDisabled">setFilterPillsDisabled</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html#method_setFilterPillsDisabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setFilterLayout">setFilterLayout</a>(string $type)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html#method_setFilterLayout">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setFilterLayoutPopover">setFilterLayoutPopover</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html#method_setFilterLayoutPopover">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setFilterLayoutSlideDown">setFilterLayoutSlideDown</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html#method_setFilterLayoutSlideDown">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setFilterSlideDownDefaultStatus">setFilterSlideDownDefaultStatus</a>(bool $status)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html#method_setFilterSlideDownDefaultStatus">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setFilterSlideDownDefaultStatusDisabled">setFilterSlideDownDefaultStatusDisabled</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html#method_setFilterSlideDownDefaultStatusDisabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setFilterSlideDownDefaultStatusEnabled">setFilterSlideDownDefaultStatusEnabled</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html#method_setFilterSlideDownDefaultStatusEnabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_generateFilterGenericData">generateFilterGenericData</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html#method_generateFilterGenericData">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setFilterGenericData">setFilterGenericData</a>(array $filterGenericData = [])
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html#method_setFilterGenericData">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_mountFilterHelpers">mountFilterHelpers</a>()
+        
+                                            <p><p>Sets Filter Default Values</p></p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_mountFilterHelpers">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getFiltersStatus">getFiltersStatus</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_getFiltersStatus">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_filtersAreEnabled">filtersAreEnabled</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_filtersAreEnabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_filtersAreDisabled">filtersAreDisabled</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_filtersAreDisabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getFiltersVisibilityStatus">getFiltersVisibilityStatus</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_getFiltersVisibilityStatus">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_filtersVisibilityIsEnabled">filtersVisibilityIsEnabled</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_filtersVisibilityIsEnabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_filtersVisibilityIsDisabled">filtersVisibilityIsDisabled</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_filtersVisibilityIsDisabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getFilterSlideDownDefaultStatus">getFilterSlideDownDefaultStatus</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_getFilterSlideDownDefaultStatus">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_filtersSlideDownIsDefaultVisible">filtersSlideDownIsDefaultVisible</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_filtersSlideDownIsDefaultVisible">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_filtersSlideDownIsDefaultHidden">filtersSlideDownIsDefaultHidden</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_filtersSlideDownIsDefaultHidden">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getFilterPillsStatus">getFilterPillsStatus</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_getFilterPillsStatus">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_filterPillsAreEnabled">filterPillsAreEnabled</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_filterPillsAreEnabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_filterPillsAreDisabled">filterPillsAreDisabled</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_filterPillsAreDisabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_hasFilters">hasFilters</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_hasFilters">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_hasVisibleFilters">hasVisibleFilters</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_hasVisibleFilters">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Illuminate\Support\Collection">Collection</abbr>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getFilters">getFilters</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_getFilters">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getFiltersCount">getFiltersCount</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_getFiltersCount">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getFilterByKey">getFilterByKey</a>(string $key)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_getFilterByKey">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setFilter">setFilter</a>(string $filterKey, mixed $value)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_setFilter">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_selectAllFilterOptions">selectAllFilterOptions</a>(string $filterKey)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_selectAllFilterOptions">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setFilterDefaults">setFilterDefaults</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_setFilterDefaults">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getAppliedFilters">getAppliedFilters</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_getAppliedFilters">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_hasAppliedFiltersWithValues">hasAppliedFiltersWithValues</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_hasAppliedFiltersWithValues">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_hasAppliedVisibleFiltersWithValuesThatCanBeCleared">hasAppliedVisibleFiltersWithValuesThatCanBeCleared</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_hasAppliedVisibleFiltersWithValuesThatCanBeCleared">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getFilterBadgeCount">getFilterBadgeCount</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_getFilterBadgeCount">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_hasAppliedVisibleFiltersForPills">hasAppliedVisibleFiltersForPills</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_hasAppliedVisibleFiltersForPills">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getAppliedFiltersWithValues">getAppliedFiltersWithValues</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_getAppliedFiltersWithValues">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getAppliedFilterWithValue">getAppliedFilterWithValue</a>(string $filterKey)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_getAppliedFilterWithValue">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getAppliedFiltersWithValuesCount">getAppliedFiltersWithValuesCount</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_getAppliedFiltersWithValuesCount">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_resetFilter">resetFilter</a>(mixed $filter)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_resetFilter">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getFilterLayout">getFilterLayout</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_getFilterLayout">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_isFilterLayoutPopover">isFilterLayoutPopover</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_isFilterLayoutPopover">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_isFilterLayoutSlideDown">isFilterLayoutSlideDown</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_isFilterLayoutSlideDown">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_hasFiltersWithSlidedownRows">hasFiltersWithSlidedownRows</a>()
+        
+                                            <p><p>Get whether any filter has a configured slide down row.</p></p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_hasFiltersWithSlidedownRows">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Illuminate\Support\Collection">Collection</abbr>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getVisibleFilters">getVisibleFilters</a>()
+        
+                                            <p><p>Get whether filter has a configured slide down row.</p></p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_getVisibleFilters">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getFiltersByRow">getFiltersByRow</a>()
+        
+                                            <p><p>Get filters sorted by row</p></p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_getFiltersByRow">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_hasFilterGenericData">hasFilterGenericData</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_hasFilterGenericData">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getFilterGenericData">getFilterGenericData</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_getFilterGenericData">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_filters">filters</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_queryStringWithFilters">queryStringWithFilters</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Illuminate\Database\Eloquent\Builder">Builder</abbr>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_applyFilters">applyFilters</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+            </div>
+
+
+        <h2>Details</h2>
+
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method_setFiltersStatus">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html#method_setFiltersStatus">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a> at line 10</div>
+        <code>                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a>
+    <strong>setFiltersStatus</strong>(bool $status)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>bool</td>
+                <td>$status</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setFiltersEnabled">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html#method_setFiltersEnabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a> at line 17</div>
+        <code>                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a>
+    <strong>setFiltersEnabled</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setFiltersDisabled">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html#method_setFiltersDisabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a> at line 24</div>
+        <code>                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a>
+    <strong>setFiltersDisabled</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setFiltersVisibilityStatus">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html#method_setFiltersVisibilityStatus">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a> at line 31</div>
+        <code>                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a>
+    <strong>setFiltersVisibilityStatus</strong>(bool $status)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>bool</td>
+                <td>$status</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setFiltersVisibilityEnabled">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html#method_setFiltersVisibilityEnabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a> at line 38</div>
+        <code>                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a>
+    <strong>setFiltersVisibilityEnabled</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setFiltersVisibilityDisabled">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html#method_setFiltersVisibilityDisabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a> at line 45</div>
+        <code>                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a>
+    <strong>setFiltersVisibilityDisabled</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setFilterPillsStatus">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html#method_setFilterPillsStatus">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a> at line 52</div>
+        <code>                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a>
+    <strong>setFilterPillsStatus</strong>(bool $status)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>bool</td>
+                <td>$status</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setFilterPillsEnabled">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html#method_setFilterPillsEnabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a> at line 59</div>
+        <code>                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a>
+    <strong>setFilterPillsEnabled</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setFilterPillsDisabled">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html#method_setFilterPillsDisabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a> at line 66</div>
+        <code>                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a>
+    <strong>setFilterPillsDisabled</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setFilterLayout">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html#method_setFilterLayout">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a> at line 73</div>
+        <code>                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a>
+    <strong>setFilterLayout</strong>(string $type)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$type</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setFilterLayoutPopover">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html#method_setFilterLayoutPopover">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a> at line 84</div>
+        <code>                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a>
+    <strong>setFilterLayoutPopover</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setFilterLayoutSlideDown">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html#method_setFilterLayoutSlideDown">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a> at line 91</div>
+        <code>                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a>
+    <strong>setFilterLayoutSlideDown</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setFilterSlideDownDefaultStatus">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html#method_setFilterSlideDownDefaultStatus">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a> at line 98</div>
+        <code>                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a>
+    <strong>setFilterSlideDownDefaultStatus</strong>(bool $status)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>bool</td>
+                <td>$status</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setFilterSlideDownDefaultStatusDisabled">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html#method_setFilterSlideDownDefaultStatusDisabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a> at line 105</div>
+        <code>                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a>
+    <strong>setFilterSlideDownDefaultStatusDisabled</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setFilterSlideDownDefaultStatusEnabled">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html#method_setFilterSlideDownDefaultStatusEnabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a> at line 112</div>
+        <code>                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a>
+    <strong>setFilterSlideDownDefaultStatusEnabled</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_generateFilterGenericData">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html#method_generateFilterGenericData">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a> at line 119</div>
+        <code>                    array
+    <strong>generateFilterGenericData</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setFilterGenericData">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/FilterConfiguration.html#method_setFilterGenericData">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\FilterConfiguration">FilterConfiguration</abbr></a> at line 124</div>
+        <code>                    
+    <strong>setFilterGenericData</strong>(array $filterGenericData = [])
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$filterGenericData</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_mountFilterHelpers">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_mountFilterHelpers">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a> at line 17</div>
+        <code>                    void
+    <strong>mountFilterHelpers</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Sets Filter Default Values</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getFiltersStatus">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_getFiltersStatus">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a> at line 32</div>
+        <code>                    bool
+    <strong>getFiltersStatus</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_filtersAreEnabled">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_filtersAreEnabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a> at line 37</div>
+        <code>                    bool
+    <strong>filtersAreEnabled</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_filtersAreDisabled">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_filtersAreDisabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a> at line 42</div>
+        <code>                    bool
+    <strong>filtersAreDisabled</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getFiltersVisibilityStatus">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_getFiltersVisibilityStatus">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a> at line 47</div>
+        <code>                    bool
+    <strong>getFiltersVisibilityStatus</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_filtersVisibilityIsEnabled">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_filtersVisibilityIsEnabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a> at line 52</div>
+        <code>                    bool
+    <strong>filtersVisibilityIsEnabled</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_filtersVisibilityIsDisabled">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_filtersVisibilityIsDisabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a> at line 57</div>
+        <code>                    bool
+    <strong>filtersVisibilityIsDisabled</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getFilterSlideDownDefaultStatus">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_getFilterSlideDownDefaultStatus">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a> at line 62</div>
+        <code>                    bool
+    <strong>getFilterSlideDownDefaultStatus</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_filtersSlideDownIsDefaultVisible">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_filtersSlideDownIsDefaultVisible">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a> at line 67</div>
+        <code>                    bool
+    <strong>filtersSlideDownIsDefaultVisible</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_filtersSlideDownIsDefaultHidden">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_filtersSlideDownIsDefaultHidden">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a> at line 72</div>
+        <code>                    bool
+    <strong>filtersSlideDownIsDefaultHidden</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getFilterPillsStatus">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_getFilterPillsStatus">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a> at line 77</div>
+        <code>                    bool
+    <strong>getFilterPillsStatus</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_filterPillsAreEnabled">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_filterPillsAreEnabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a> at line 82</div>
+        <code>                    bool
+    <strong>filterPillsAreEnabled</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_filterPillsAreDisabled">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_filterPillsAreDisabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a> at line 87</div>
+        <code>                    bool
+    <strong>filterPillsAreDisabled</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_hasFilters">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_hasFilters">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a> at line 92</div>
+        <code>                    bool
+    <strong>hasFilters</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_hasVisibleFilters">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_hasVisibleFilters">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a> at line 97</div>
+        <code>                    bool
+    <strong>hasVisibleFilters</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getFilters">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_getFilters">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a> at line 104</div>
+        <code>                    <abbr title="Illuminate\Support\Collection">Collection</abbr>
+    <strong>getFilters</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Illuminate\Support\Collection">Collection</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getFiltersCount">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_getFiltersCount">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a> at line 114</div>
+        <code>                    int
+    <strong>getFiltersCount</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getFilterByKey">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_getFilterByKey">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a> at line 127</div>
+        <code>                    mixed
+    <strong>getFilterByKey</strong>(string $key)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$key</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setFilter">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_setFilter">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a> at line 134</div>
+        <code>                    void
+    <strong>setFilter</strong>(string $filterKey, mixed $value)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$filterKey</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>mixed</td>
+                <td>$value</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_selectAllFilterOptions">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_selectAllFilterOptions">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a> at line 140</div>
+        <code>                    void
+    <strong>selectAllFilterOptions</strong>(string $filterKey)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$filterKey</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setFilterDefaults">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_setFilterDefaults">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a> at line 157</div>
+        <code>                    void
+    <strong>setFilterDefaults</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getAppliedFilters">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_getAppliedFilters">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a> at line 170</div>
+        <code>                    array
+    <strong>getAppliedFilters</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_hasAppliedFiltersWithValues">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_hasAppliedFiltersWithValues">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a> at line 181</div>
+        <code>                    bool
+    <strong>hasAppliedFiltersWithValues</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_hasAppliedVisibleFiltersWithValuesThatCanBeCleared">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_hasAppliedVisibleFiltersWithValuesThatCanBeCleared">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a> at line 186</div>
+        <code>                    bool
+    <strong>hasAppliedVisibleFiltersWithValuesThatCanBeCleared</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getFilterBadgeCount">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_getFilterBadgeCount">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a> at line 194</div>
+        <code>                    int
+    <strong>getFilterBadgeCount</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_hasAppliedVisibleFiltersForPills">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_hasAppliedVisibleFiltersForPills">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a> at line 202</div>
+        <code>                    bool
+    <strong>hasAppliedVisibleFiltersForPills</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getAppliedFiltersWithValues">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_getAppliedFiltersWithValues">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a> at line 213</div>
+        <code>                    array
+    <strong>getAppliedFiltersWithValues</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getAppliedFilterWithValue">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_getAppliedFilterWithValue">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a> at line 223</div>
+        <code>                    mixed
+    <strong>getAppliedFilterWithValue</strong>(string $filterKey)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$filterKey</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getAppliedFiltersWithValuesCount">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_getAppliedFiltersWithValuesCount">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a> at line 228</div>
+        <code>                    int
+    <strong>getAppliedFiltersWithValuesCount</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_resetFilter">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_resetFilter">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a> at line 236</div>
+        <code>                    void
+    <strong>resetFilter</strong>(mixed $filter)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>mixed</td>
+                <td>$filter</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getFilterLayout">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_getFilterLayout">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a> at line 245</div>
+        <code>                    string
+    <strong>getFilterLayout</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_isFilterLayoutPopover">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_isFilterLayoutPopover">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a> at line 250</div>
+        <code>                    bool
+    <strong>isFilterLayoutPopover</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_isFilterLayoutSlideDown">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_isFilterLayoutSlideDown">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a> at line 255</div>
+        <code>                    bool
+    <strong>isFilterLayoutSlideDown</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_hasFiltersWithSlidedownRows">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_hasFiltersWithSlidedownRows">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a> at line 263</div>
+        <code>                    bool
+    <strong>hasFiltersWithSlidedownRows</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Get whether any filter has a configured slide down row.</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getVisibleFilters">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_getVisibleFilters">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a> at line 273</div>
+        <code>                    <abbr title="Illuminate\Support\Collection">Collection</abbr>
+    <strong>getVisibleFilters</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Get whether filter has a configured slide down row.</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Illuminate\Support\Collection">Collection</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getFiltersByRow">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_getFiltersByRow">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a> at line 283</div>
+        <code>                    array
+    <strong>getFiltersByRow</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Get filters sorted by row</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_hasFilterGenericData">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_hasFilterGenericData">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a> at line 310</div>
+        <code>                    
+    <strong>hasFilterGenericData</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getFilterGenericData">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/FilterHelpers.html#method_getFilterGenericData">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\FilterHelpers">FilterHelpers</abbr></a> at line 315</div>
+        <code>                    
+    <strong>getFilterGenericData</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_filters">
+        <div class="location">at line 34</div>
+        <code>                    array
+    <strong>filters</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_queryStringWithFilters">
+        <div class="location">at line 39</div>
+        <code>            protected        
+    <strong>queryStringWithFilters</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_applyFilters">
+        <div class="location">at line 50</div>
+        <code>                    <abbr title="Illuminate\Database\Eloquent\Builder">Builder</abbr>
+    <strong>applyFilters</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Illuminate\Database\Eloquent\Builder">Builder</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+            </div>
+
+    
+</div><div id="footer">
+        Generated by <a href="https://github.com/code-lts/doctum">Doctum, a API Documentation generator and fork of Sami</a>.</div></div>
+    </div>
+    </body>
+
+</html>
