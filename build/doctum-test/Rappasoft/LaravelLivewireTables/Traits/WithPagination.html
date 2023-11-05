@@ -1,0 +1,2015 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>Rappasoft\LaravelLivewireTables\Traits\WithPagination | Rappasoft - Laravel Livewire Tables API</title>
+
+            <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/doctum.css">
+        <link rel="stylesheet" type="text/css" href="../../../fonts/doctum-font.css">
+        <script src="../../../js/jquery-3.5.1.slim.min.js"></script>
+        <script async defer src="../../../doctum.js"></script>
+        <script async defer src="../../../js/bootstrap.min.js"></script>
+        <script async defer src="../../../js/autocomplete.min.js"></script>
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+
+    </head>
+
+    <body id="class" data-name="class:Rappasoft_LaravelLivewireTables_Traits_WithPagination" data-root-path="../../../" data-search-index-url="../../../doctum-search.json">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                    <form action="#">
+                <select class="form-control" id="version-switcher" name="version">
+                                            <option
+                            value="../../../../doctum-test/index.html"
+                            data-version="doctum-test" selected>3.x branch</option>
+                                            <option
+                            value="../../../../doctum-test-main/index.html"
+                            data-version="doctum-test-main" >2.x branch</option>
+                                    </select>
+            </form>
+                <div class="search-bar hidden" id="search-progress-bar-container">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" id="search-progress-bar"
+                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+            </div>
+        </div>
+        <form id="search-form" action="../../../search.html">
+            <span class="icon icon-search"></span>
+            <input name="search"
+                   id="doctum-search-auto-complete"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search"
+                   spellcheck="false"
+                   autocorrect="off"
+                   autocomplete="off"
+                   autocapitalize="off">
+            <div class="auto-complete-results" id="auto-complete-results"></div>
+        </form>
+    </div>
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../../../index.html">Rappasoft - Laravel Livewire Tables API</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                                        <li role="presentation" class="dropdown visible-xs-block visible-sm-block">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="true" aria-expanded="false">Versions&nbsp;<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                        <li class="active"><a href="../../../../doctum-test/index.html" data-version="doctum-test">3.x branch</a></li>
+                        <li ><a href="../../../../doctum-test-main/index.html" data-version="doctum-test-main">2.x branch</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../../../classes.html">Classes</a></li>
+                    <li><a href="../../../namespaces.html">Namespaces</a></li>
+                    <li><a href="../../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../../traits.html">Traits</a></li>
+                    <li><a href="../../../doc-index.html">Index</a></li>
+                    <li><a href="../../../search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">trait</span></li>
+                        <li><a href="../../../Rappasoft.html">Rappasoft</a></li><li class="backslash">\</li><li><a href="../../../Rappasoft/LaravelLivewireTables.html">LaravelLivewireTables</a></li><li class="backslash">\</li><li><a href="../../../Rappasoft/LaravelLivewireTables/Traits.html">Traits</a></li><li class="backslash">\</li><li>WithPagination</li>
+            </ol>
+        </div>
+                <div id="page-content">
+    <div class="page-header">
+        <h1>WithPagination    
+            </h1>
+    </div>
+
+    
+    <p>        trait
+    <strong>WithPagination</strong>
+</p>
+
+        
+    
+        
+
+            
+                <h2>Traits</h2>
+
+        
+    <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-6">
+                    <abbr title="Livewire\WithPagination">WithPagination</abbr>    </div>
+                <div class="col-md-6"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-6">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a>    </div>
+                <div class="col-md-6"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-6">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/PaginationHelpers.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\PaginationHelpers">PaginationHelpers</abbr></a>    </div>
+                <div class="col-md-6"></div>
+            </div>
+            </div>
+    
+    
+            <h2>Properties</h2>
+
+            <table class="table table-condensed">
+                    <tr>
+                <td class="type" id="property_pageName">
+                                                                                string|null
+                                                                                
+                                    </td>
+                <td>$pageName</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_perPage">
+                                                                                int
+                                                                                
+                                    </td>
+                <td>$perPage</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_perPageAccepted">
+                                                                                array
+                                                                                
+                                    </td>
+                <td>$perPageAccepted</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_paginationTheme">
+                                                                                string
+                                                                                
+                                    </td>
+                <td>$paginationTheme</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_paginationStatus">
+                                                                                bool
+                                                                                
+                                    </td>
+                <td>$paginationStatus</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_paginationVisibilityStatus">
+                                                                                bool
+                                                                                
+                                    </td>
+                <td>$paginationVisibilityStatus</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_perPageVisibilityStatus">
+                                                                                bool
+                                                                                
+                                    </td>
+                <td>$perPageVisibilityStatus</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_paginationMethod">
+                                                                                string
+                                                                                
+                                    </td>
+                <td>$paginationMethod</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_paginationCurrentItems">
+                                                                                array
+                                                                                
+                                    </td>
+                <td>$paginationCurrentItems</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_paginationCurrentCount">
+                                                                                int
+                                                                                
+                                    </td>
+                <td>$paginationCurrentCount</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_paginationTotalItemCount">
+                                                                                int|null
+                                                                                
+                                    </td>
+                <td>$paginationTotalItemCount</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_numberOfPaginatorsRendered">
+                                                                                array
+                                                                                
+                                    </td>
+                <td>$numberOfPaginatorsRendered</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+            </table>
+
+    
+            <h2>Methods</h2>
+
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setPageName">setPageName</a>(string $name)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html#method_setPageName">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setPaginationTheme">setPaginationTheme</a>(string $theme)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html#method_setPaginationTheme">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setPaginationStatus">setPaginationStatus</a>(bool $status)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html#method_setPaginationStatus">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setPaginationEnabled">setPaginationEnabled</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html#method_setPaginationEnabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setPaginationDisabled">setPaginationDisabled</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html#method_setPaginationDisabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setPaginationVisibilityStatus">setPaginationVisibilityStatus</a>(bool $status)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html#method_setPaginationVisibilityStatus">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setPaginationVisibilityEnabled">setPaginationVisibilityEnabled</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html#method_setPaginationVisibilityEnabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setPaginationVisibilityDisabled">setPaginationVisibilityDisabled</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html#method_setPaginationVisibilityDisabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setPerPageVisibilityStatus">setPerPageVisibilityStatus</a>(bool $status)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html#method_setPerPageVisibilityStatus">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setPerPageVisibilityEnabled">setPerPageVisibilityEnabled</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html#method_setPerPageVisibilityEnabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setPerPageVisibilityDisabled">setPerPageVisibilityDisabled</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html#method_setPerPageVisibilityDisabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setPerPageAccepted">setPerPageAccepted</a>(array $accepted)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html#method_setPerPageAccepted">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setPerPage">setPerPage</a>(int $perPage)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html#method_setPerPage">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setPaginationMethod">setPaginationMethod</a>(string $paginationMethod)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html#method_setPaginationMethod">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string|null
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getPageName">getPageName</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/PaginationHelpers.html#method_getPageName">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\PaginationHelpers">PaginationHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_hasPageName">hasPageName</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/PaginationHelpers.html#method_hasPageName">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\PaginationHelpers">PaginationHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getPaginationStatus">getPaginationStatus</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/PaginationHelpers.html#method_getPaginationStatus">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\PaginationHelpers">PaginationHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getPaginationTheme">getPaginationTheme</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/PaginationHelpers.html#method_getPaginationTheme">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\PaginationHelpers">PaginationHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_paginationIsEnabled">paginationIsEnabled</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/PaginationHelpers.html#method_paginationIsEnabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\PaginationHelpers">PaginationHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_paginationIsDisabled">paginationIsDisabled</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/PaginationHelpers.html#method_paginationIsDisabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\PaginationHelpers">PaginationHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getPaginationVisibilityStatus">getPaginationVisibilityStatus</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/PaginationHelpers.html#method_getPaginationVisibilityStatus">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\PaginationHelpers">PaginationHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_paginationVisibilityIsEnabled">paginationVisibilityIsEnabled</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/PaginationHelpers.html#method_paginationVisibilityIsEnabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\PaginationHelpers">PaginationHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_paginationVisibilityIsDisabled">paginationVisibilityIsDisabled</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/PaginationHelpers.html#method_paginationVisibilityIsDisabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\PaginationHelpers">PaginationHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getComputedPageName">getComputedPageName</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/PaginationHelpers.html#method_getComputedPageName">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\PaginationHelpers">PaginationHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getPerPage">getPerPage</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/PaginationHelpers.html#method_getPerPage">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\PaginationHelpers">PaginationHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getPerPageAccepted">getPerPageAccepted</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/PaginationHelpers.html#method_getPerPageAccepted">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\PaginationHelpers">PaginationHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getPerPageVisibilityStatus">getPerPageVisibilityStatus</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/PaginationHelpers.html#method_getPerPageVisibilityStatus">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\PaginationHelpers">PaginationHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_perPageVisibilityIsEnabled">perPageVisibilityIsEnabled</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/PaginationHelpers.html#method_perPageVisibilityIsEnabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\PaginationHelpers">PaginationHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_perPageVisibilityIsDisabled">perPageVisibilityIsDisabled</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/PaginationHelpers.html#method_perPageVisibilityIsDisabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\PaginationHelpers">PaginationHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_isPaginationMethod">isPaginationMethod</a>(string $paginationMethod)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/PaginationHelpers.html#method_isPaginationMethod">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\PaginationHelpers">PaginationHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getPerPageDisplayedItemIds">getPerPageDisplayedItemIds</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/PaginationHelpers.html#method_getPerPageDisplayedItemIds">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\PaginationHelpers">PaginationHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getPerPageDisplayedItemCount">getPerPageDisplayedItemCount</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/PaginationHelpers.html#method_getPerPageDisplayedItemCount">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\PaginationHelpers">PaginationHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setupPagination">setupPagination</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_updatedPerPage">updatedPerPage</a>($value)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_resetComputedPage">resetComputedPage</a>()
+        
+                                            <p><p>Reset the page using the custom page name</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_renderingWithPagination">renderingWithPagination</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+            </div>
+
+
+        <h2>Details</h2>
+
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method_setPageName">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html#method_setPageName">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a> at line 9</div>
+        <code>                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a>
+    <strong>setPageName</strong>(string $name)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setPaginationTheme">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html#method_setPaginationTheme">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a> at line 16</div>
+        <code>                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a>
+    <strong>setPaginationTheme</strong>(string $theme)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$theme</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setPaginationStatus">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html#method_setPaginationStatus">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a> at line 23</div>
+        <code>                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a>
+    <strong>setPaginationStatus</strong>(bool $status)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>bool</td>
+                <td>$status</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setPaginationEnabled">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html#method_setPaginationEnabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a> at line 30</div>
+        <code>                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a>
+    <strong>setPaginationEnabled</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setPaginationDisabled">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html#method_setPaginationDisabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a> at line 37</div>
+        <code>                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a>
+    <strong>setPaginationDisabled</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setPaginationVisibilityStatus">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html#method_setPaginationVisibilityStatus">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a> at line 44</div>
+        <code>                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a>
+    <strong>setPaginationVisibilityStatus</strong>(bool $status)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>bool</td>
+                <td>$status</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setPaginationVisibilityEnabled">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html#method_setPaginationVisibilityEnabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a> at line 51</div>
+        <code>                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a>
+    <strong>setPaginationVisibilityEnabled</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setPaginationVisibilityDisabled">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html#method_setPaginationVisibilityDisabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a> at line 58</div>
+        <code>                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a>
+    <strong>setPaginationVisibilityDisabled</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setPerPageVisibilityStatus">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html#method_setPerPageVisibilityStatus">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a> at line 65</div>
+        <code>                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a>
+    <strong>setPerPageVisibilityStatus</strong>(bool $status)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>bool</td>
+                <td>$status</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setPerPageVisibilityEnabled">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html#method_setPerPageVisibilityEnabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a> at line 72</div>
+        <code>                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a>
+    <strong>setPerPageVisibilityEnabled</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setPerPageVisibilityDisabled">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html#method_setPerPageVisibilityDisabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a> at line 79</div>
+        <code>                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a>
+    <strong>setPerPageVisibilityDisabled</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setPerPageAccepted">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html#method_setPerPageAccepted">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a> at line 89</div>
+        <code>                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a>
+    <strong>setPerPageAccepted</strong>(array $accepted)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$accepted</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setPerPage">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html#method_setPerPage">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a> at line 99</div>
+        <code>                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a>
+    <strong>setPerPage</strong>(int $perPage)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>int</td>
+                <td>$perPage</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../../Rappasoft/LaravelLivewireTables/Exceptions/DataTableConfigurationException.html"><abbr title="Rappasoft\LaravelLivewireTables\Exceptions\DataTableConfigurationException">DataTableConfigurationException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setPaginationMethod">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html#method_setPaginationMethod">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a> at line 110</div>
+        <code>                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a>
+    <strong>setPaginationMethod</strong>(string $paginationMethod)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$paginationMethod</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/PaginationConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration">PaginationConfiguration</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getPageName">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/PaginationHelpers.html#method_getPageName">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\PaginationHelpers">PaginationHelpers</abbr></a> at line 7</div>
+        <code>                    string|null
+    <strong>getPageName</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_hasPageName">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/PaginationHelpers.html#method_hasPageName">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\PaginationHelpers">PaginationHelpers</abbr></a> at line 12</div>
+        <code>                    bool
+    <strong>hasPageName</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getPaginationStatus">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/PaginationHelpers.html#method_getPaginationStatus">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\PaginationHelpers">PaginationHelpers</abbr></a> at line 17</div>
+        <code>                    bool
+    <strong>getPaginationStatus</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getPaginationTheme">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/PaginationHelpers.html#method_getPaginationTheme">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\PaginationHelpers">PaginationHelpers</abbr></a> at line 22</div>
+        <code>                    string
+    <strong>getPaginationTheme</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_paginationIsEnabled">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/PaginationHelpers.html#method_paginationIsEnabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\PaginationHelpers">PaginationHelpers</abbr></a> at line 27</div>
+        <code>                    bool
+    <strong>paginationIsEnabled</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_paginationIsDisabled">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/PaginationHelpers.html#method_paginationIsDisabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\PaginationHelpers">PaginationHelpers</abbr></a> at line 32</div>
+        <code>                    bool
+    <strong>paginationIsDisabled</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getPaginationVisibilityStatus">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/PaginationHelpers.html#method_getPaginationVisibilityStatus">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\PaginationHelpers">PaginationHelpers</abbr></a> at line 37</div>
+        <code>                    bool
+    <strong>getPaginationVisibilityStatus</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_paginationVisibilityIsEnabled">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/PaginationHelpers.html#method_paginationVisibilityIsEnabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\PaginationHelpers">PaginationHelpers</abbr></a> at line 42</div>
+        <code>                    bool
+    <strong>paginationVisibilityIsEnabled</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_paginationVisibilityIsDisabled">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/PaginationHelpers.html#method_paginationVisibilityIsDisabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\PaginationHelpers">PaginationHelpers</abbr></a> at line 47</div>
+        <code>                    bool
+    <strong>paginationVisibilityIsDisabled</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getComputedPageName">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/PaginationHelpers.html#method_getComputedPageName">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\PaginationHelpers">PaginationHelpers</abbr></a> at line 52</div>
+        <code>                    string
+    <strong>getComputedPageName</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getPerPage">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/PaginationHelpers.html#method_getPerPage">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\PaginationHelpers">PaginationHelpers</abbr></a> at line 67</div>
+        <code>                    int
+    <strong>getPerPage</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getPerPageAccepted">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/PaginationHelpers.html#method_getPerPageAccepted">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\PaginationHelpers">PaginationHelpers</abbr></a> at line 75</div>
+        <code>                    array
+    <strong>getPerPageAccepted</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getPerPageVisibilityStatus">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/PaginationHelpers.html#method_getPerPageVisibilityStatus">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\PaginationHelpers">PaginationHelpers</abbr></a> at line 80</div>
+        <code>                    bool
+    <strong>getPerPageVisibilityStatus</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_perPageVisibilityIsEnabled">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/PaginationHelpers.html#method_perPageVisibilityIsEnabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\PaginationHelpers">PaginationHelpers</abbr></a> at line 85</div>
+        <code>                    bool
+    <strong>perPageVisibilityIsEnabled</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_perPageVisibilityIsDisabled">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/PaginationHelpers.html#method_perPageVisibilityIsDisabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\PaginationHelpers">PaginationHelpers</abbr></a> at line 90</div>
+        <code>                    bool
+    <strong>perPageVisibilityIsDisabled</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_isPaginationMethod">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/PaginationHelpers.html#method_isPaginationMethod">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\PaginationHelpers">PaginationHelpers</abbr></a> at line 95</div>
+        <code>                    bool
+    <strong>isPaginationMethod</strong>(string $paginationMethod)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$paginationMethod</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getPerPageDisplayedItemIds">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/PaginationHelpers.html#method_getPerPageDisplayedItemIds">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\PaginationHelpers">PaginationHelpers</abbr></a> at line 103</div>
+        <code>                    array
+    <strong>getPerPageDisplayedItemIds</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getPerPageDisplayedItemCount">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/PaginationHelpers.html#method_getPerPageDisplayedItemCount">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\PaginationHelpers">PaginationHelpers</abbr></a> at line 108</div>
+        <code>                    int
+    <strong>getPerPageDisplayedItemCount</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setupPagination">
+        <div class="location">at line 41</div>
+        <code>                    void
+    <strong>setupPagination</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_updatedPerPage">
+        <div class="location">at line 55</div>
+        <code>                    void
+    <strong>updatedPerPage</strong>($value)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td></td>
+                <td>$value</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_resetComputedPage">
+        <div class="location">at line 73</div>
+        <code>                    void
+    <strong>resetComputedPage</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Reset the page using the custom page name</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_renderingWithPagination">
+        <div class="location">at line 83</div>
+        <code>                    
+    <strong>renderingWithPagination</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+            </div>
+
+    
+</div><div id="footer">
+        Generated by <a href="https://github.com/code-lts/doctum">Doctum, a API Documentation generator and fork of Sami</a>.</div></div>
+    </div>
+    </body>
+
+</html>
