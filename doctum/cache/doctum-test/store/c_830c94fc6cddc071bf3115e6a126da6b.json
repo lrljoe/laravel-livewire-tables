@@ -1,0 +1,376 @@
+{
+    "name": "Rappasoft\\LaravelLivewireTables\\Traits\\WithFilters",
+    "line": 9,
+    "short_desc": null,
+    "long_desc": null,
+    "hint": null,
+    "tags": [],
+    "namespace": "Rappasoft\\LaravelLivewireTables\\Traits",
+    "file": ".\/src\/Traits\/WithFilters.php",
+    "relative_file": null,
+    "hash": "bc5976880778ed176dfe1363928cf921a02b2610",
+    "parent": null,
+    "modifiers": 0,
+    "is_trait": true,
+    "is_interface": false,
+    "is_read_only": false,
+    "aliases": {
+        "Builder": "Illuminate\\Database\\Eloquent\\Builder",
+        "FilterConfiguration": "Rappasoft\\LaravelLivewireTables\\Traits\\Configuration\\FilterConfiguration",
+        "FilterHelpers": "Rappasoft\\LaravelLivewireTables\\Traits\\Helpers\\FilterHelpers"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": {
+        "Rappasoft\\LaravelLivewireTables\\Traits\\Configuration\\FilterConfiguration": "Rappasoft\\LaravelLivewireTables\\Traits\\Configuration\\FilterConfiguration",
+        "Rappasoft\\LaravelLivewireTables\\Traits\\Helpers\\FilterHelpers": "Rappasoft\\LaravelLivewireTables\\Traits\\Helpers\\FilterHelpers"
+    },
+    "properties": {
+        "filtersStatus": {
+            "name": "filtersStatus",
+            "line": 14,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "default": {
+                "nodeType": "Expr_ConstFetch",
+                "attributes": {
+                    "startLine": 14,
+                    "endLine": 14
+                },
+                "name": {
+                    "nodeType": "Name",
+                    "attributes": {
+                        "startLine": 14,
+                        "endLine": 14,
+                        "namespacedName": {
+                            "nodeType": "Name_FullyQualified",
+                            "attributes": {
+                                "startLine": 14,
+                                "endLine": 14
+                            },
+                            "parts": [
+                                "Rappasoft",
+                                "LaravelLivewireTables",
+                                "Traits",
+                                "true"
+                            ]
+                        }
+                    },
+                    "parts": [
+                        "true"
+                    ]
+                }
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        },
+        "filtersVisibilityStatus": {
+            "name": "filtersVisibilityStatus",
+            "line": 16,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "default": {
+                "nodeType": "Expr_ConstFetch",
+                "attributes": {
+                    "startLine": 16,
+                    "endLine": 16
+                },
+                "name": {
+                    "nodeType": "Name",
+                    "attributes": {
+                        "startLine": 16,
+                        "endLine": 16,
+                        "namespacedName": {
+                            "nodeType": "Name_FullyQualified",
+                            "attributes": {
+                                "startLine": 16,
+                                "endLine": 16
+                            },
+                            "parts": [
+                                "Rappasoft",
+                                "LaravelLivewireTables",
+                                "Traits",
+                                "true"
+                            ]
+                        }
+                    },
+                    "parts": [
+                        "true"
+                    ]
+                }
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        },
+        "filterPillsStatus": {
+            "name": "filterPillsStatus",
+            "line": 18,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "default": {
+                "nodeType": "Expr_ConstFetch",
+                "attributes": {
+                    "startLine": 18,
+                    "endLine": 18
+                },
+                "name": {
+                    "nodeType": "Name",
+                    "attributes": {
+                        "startLine": 18,
+                        "endLine": 18,
+                        "namespacedName": {
+                            "nodeType": "Name_FullyQualified",
+                            "attributes": {
+                                "startLine": 18,
+                                "endLine": 18
+                            },
+                            "parts": [
+                                "Rappasoft",
+                                "LaravelLivewireTables",
+                                "Traits",
+                                "true"
+                            ]
+                        }
+                    },
+                    "parts": [
+                        "true"
+                    ]
+                }
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        },
+        "filterSlideDownDefaultVisible": {
+            "name": "filterSlideDownDefaultVisible",
+            "line": 20,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "default": {
+                "nodeType": "Expr_ConstFetch",
+                "attributes": {
+                    "startLine": 20,
+                    "endLine": 20
+                },
+                "name": {
+                    "nodeType": "Name",
+                    "attributes": {
+                        "startLine": 20,
+                        "endLine": 20,
+                        "namespacedName": {
+                            "nodeType": "Name_FullyQualified",
+                            "attributes": {
+                                "startLine": 20,
+                                "endLine": 20
+                            },
+                            "parts": [
+                                "Rappasoft",
+                                "LaravelLivewireTables",
+                                "Traits",
+                                "false"
+                            ]
+                        }
+                    },
+                    "parts": [
+                        "false"
+                    ]
+                }
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        },
+        "filterLayout": {
+            "name": "filterLayout",
+            "line": 22,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "default": {
+                "nodeType": "Scalar_String",
+                "attributes": {
+                    "startLine": 22,
+                    "endLine": 22,
+                    "kind": 1
+                },
+                "value": "popover"
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        },
+        "filterCount": {
+            "name": "filterCount",
+            "line": 24,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "default": null,
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        },
+        "filterCollection": {
+            "name": "filterCollection",
+            "line": 26,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 2,
+            "default": null,
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        },
+        "filterComponents": {
+            "name": "filterComponents",
+            "line": 28,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "default": {
+                "nodeType": "Expr_Array",
+                "attributes": {
+                    "startLine": 28,
+                    "endLine": 28,
+                    "kind": 2
+                },
+                "items": []
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        },
+        "appliedFilters": {
+            "name": "appliedFilters",
+            "line": 30,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "default": {
+                "nodeType": "Expr_Array",
+                "attributes": {
+                    "startLine": 30,
+                    "endLine": 30,
+                    "kind": 2
+                },
+                "items": []
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        },
+        "filterGenericData": {
+            "name": "filterGenericData",
+            "line": 32,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "default": {
+                "nodeType": "Expr_Array",
+                "attributes": {
+                    "startLine": 32,
+                    "endLine": 32,
+                    "kind": 2
+                },
+                "items": []
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        }
+    },
+    "methods": {
+        "filters": {
+            "name": "filters",
+            "line": 34,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "array",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "queryStringWithFilters": {
+            "name": "queryStringWithFilters",
+            "line": 39,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 2,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "applyFilters": {
+            "name": "applyFilters",
+            "line": 50,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "\\Illuminate\\Database\\Eloquent\\Builder",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

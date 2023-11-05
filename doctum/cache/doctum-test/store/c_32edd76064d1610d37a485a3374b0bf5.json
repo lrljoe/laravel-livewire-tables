@@ -1,0 +1,282 @@
+{
+    "name": "Rappasoft\\LaravelLivewireTables\\Features\\AutoInjectRappasoftAssets",
+    "line": 11,
+    "short_desc": null,
+    "long_desc": null,
+    "hint": null,
+    "tags": [],
+    "namespace": "Rappasoft\\LaravelLivewireTables\\Features",
+    "file": ".\/src\/Features\/AutoInjectRappasoftAssets.php",
+    "relative_file": null,
+    "hash": "fbed98924525c2d4024d9970dfb209b6bc87f5a3",
+    "parent": "Livewire\\ComponentHook",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "is_read_only": false,
+    "aliases": {
+        "RequestHandled": "Illuminate\\Foundation\\Http\\Events\\RequestHandled",
+        "ComponentHook": "Livewire\\ComponentHook",
+        "RappasoftFrontendAssets": "Rappasoft\\LaravelLivewireTables\\Mechanisms\\RappasoftFrontendAssets",
+        "on": "Livewire\\on"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": {
+        "hasRenderedAComponentThisRequest": {
+            "name": "hasRenderedAComponentThisRequest",
+            "line": 13,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 9,
+            "default": {
+                "nodeType": "Expr_ConstFetch",
+                "attributes": {
+                    "startLine": 13,
+                    "endLine": 13
+                },
+                "name": {
+                    "nodeType": "Name",
+                    "attributes": {
+                        "startLine": 13,
+                        "endLine": 13,
+                        "namespacedName": {
+                            "nodeType": "Name_FullyQualified",
+                            "attributes": {
+                                "startLine": 13,
+                                "endLine": 13
+                            },
+                            "parts": [
+                                "Rappasoft",
+                                "LaravelLivewireTables",
+                                "Features",
+                                "false"
+                            ]
+                        }
+                    },
+                    "parts": [
+                        "false"
+                    ]
+                }
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        },
+        "forceAssetInjection": {
+            "name": "forceAssetInjection",
+            "line": 15,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 9,
+            "default": {
+                "nodeType": "Expr_ConstFetch",
+                "attributes": {
+                    "startLine": 15,
+                    "endLine": 15
+                },
+                "name": {
+                    "nodeType": "Name",
+                    "attributes": {
+                        "startLine": 15,
+                        "endLine": 15,
+                        "namespacedName": {
+                            "nodeType": "Name_FullyQualified",
+                            "attributes": {
+                                "startLine": 15,
+                                "endLine": 15
+                            },
+                            "parts": [
+                                "Rappasoft",
+                                "LaravelLivewireTables",
+                                "Features",
+                                "false"
+                            ]
+                        }
+                    },
+                    "parts": [
+                        "false"
+                    ]
+                }
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        },
+        "shouldInjectRappasoftThirdPartyAssets": {
+            "name": "shouldInjectRappasoftThirdPartyAssets",
+            "line": 17,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 9,
+            "default": {
+                "nodeType": "Expr_ConstFetch",
+                "attributes": {
+                    "startLine": 17,
+                    "endLine": 17
+                },
+                "name": {
+                    "nodeType": "Name",
+                    "attributes": {
+                        "startLine": 17,
+                        "endLine": 17,
+                        "namespacedName": {
+                            "nodeType": "Name_FullyQualified",
+                            "attributes": {
+                                "startLine": 17,
+                                "endLine": 17
+                            },
+                            "parts": [
+                                "Rappasoft",
+                                "LaravelLivewireTables",
+                                "Features",
+                                "false"
+                            ]
+                        }
+                    },
+                    "parts": [
+                        "false"
+                    ]
+                }
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        },
+        "shouldInjectRappasoftAssets": {
+            "name": "shouldInjectRappasoftAssets",
+            "line": 19,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 9,
+            "default": {
+                "nodeType": "Expr_ConstFetch",
+                "attributes": {
+                    "startLine": 19,
+                    "endLine": 19
+                },
+                "name": {
+                    "nodeType": "Name",
+                    "attributes": {
+                        "startLine": 19,
+                        "endLine": 19,
+                        "namespacedName": {
+                            "nodeType": "Name_FullyQualified",
+                            "attributes": {
+                                "startLine": 19,
+                                "endLine": 19
+                            },
+                            "parts": [
+                                "Rappasoft",
+                                "LaravelLivewireTables",
+                                "Features",
+                                "false"
+                            ]
+                        }
+                    },
+                    "parts": [
+                        "false"
+                    ]
+                }
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        }
+    },
+    "methods": {
+        "provide": {
+            "name": "provide",
+            "line": 21,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 9,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "dehydrate": {
+            "name": "dehydrate",
+            "line": 74,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "injectAssets": {
+            "name": "injectAssets",
+            "line": 79,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "string",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 9,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "html": {
+                    "name": "html",
+                    "line": 79,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "mixed",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                }
+            }
+        }
+    },
+    "constants": []
+}

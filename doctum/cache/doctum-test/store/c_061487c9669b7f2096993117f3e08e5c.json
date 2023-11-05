@@ -1,0 +1,299 @@
+{
+    "name": "Rappasoft\\LaravelLivewireTables\\Traits\\Configuration\\LoadingPlaceholderConfiguration",
+    "line": 5,
+    "short_desc": null,
+    "long_desc": null,
+    "hint": null,
+    "tags": [],
+    "namespace": "Rappasoft\\LaravelLivewireTables\\Traits\\Configuration",
+    "file": ".\/src\/Traits\/Configuration\/LoadingPlaceholderConfiguration.php",
+    "relative_file": null,
+    "hash": "58f656352b82a0f99b79207a32a99d7abe35f9c0",
+    "parent": null,
+    "modifiers": 0,
+    "is_trait": true,
+    "is_interface": false,
+    "is_read_only": false,
+    "aliases": [],
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "setLoadingPlaceholderStatus": {
+            "name": "setLoadingPlaceholderStatus",
+            "line": 7,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "Rappasoft\\LaravelLivewireTables\\Traits\\Configuration\\LoadingPlaceholderConfiguration",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "status": {
+                    "name": "status",
+                    "line": 7,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "bool",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                }
+            }
+        },
+        "setLoadingPlaceholderEnabled": {
+            "name": "setLoadingPlaceholderEnabled",
+            "line": 14,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "Rappasoft\\LaravelLivewireTables\\Traits\\Configuration\\LoadingPlaceholderConfiguration",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "setLoadingPlaceholderDisabled": {
+            "name": "setLoadingPlaceholderDisabled",
+            "line": 21,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "Rappasoft\\LaravelLivewireTables\\Traits\\Configuration\\LoadingPlaceholderConfiguration",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "setLoadingPlaceholderContent": {
+            "name": "setLoadingPlaceholderContent",
+            "line": 28,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "Rappasoft\\LaravelLivewireTables\\Traits\\Configuration\\LoadingPlaceholderConfiguration",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "content": {
+                    "name": "content",
+                    "line": 28,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                }
+            }
+        },
+        "setLoadingPlaceHolderAttributes": {
+            "name": "setLoadingPlaceHolderAttributes",
+            "line": 35,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "Rappasoft\\LaravelLivewireTables\\Traits\\Configuration\\LoadingPlaceholderConfiguration",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "attributes": {
+                    "name": "attributes",
+                    "line": 35,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "array",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                }
+            }
+        },
+        "setLoadingPlaceHolderIconAttributes": {
+            "name": "setLoadingPlaceHolderIconAttributes",
+            "line": 42,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "Rappasoft\\LaravelLivewireTables\\Traits\\Configuration\\LoadingPlaceholderConfiguration",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "attributes": {
+                    "name": "attributes",
+                    "line": 42,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "array",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                }
+            }
+        },
+        "setLoadingPlaceHolderWrapperAttributes": {
+            "name": "setLoadingPlaceHolderWrapperAttributes",
+            "line": 49,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "Rappasoft\\LaravelLivewireTables\\Traits\\Configuration\\LoadingPlaceholderConfiguration",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "attributes": {
+                    "name": "attributes",
+                    "line": 49,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "array",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                }
+            }
+        },
+        "setLoadingPlaceholderBlade": {
+            "name": "setLoadingPlaceholderBlade",
+            "line": 56,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "Rappasoft\\LaravelLivewireTables\\Traits\\Configuration\\LoadingPlaceholderConfiguration",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "customBlade": {
+                    "name": "customBlade",
+                    "line": 56,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                }
+            }
+        }
+    },
+    "constants": []
+}

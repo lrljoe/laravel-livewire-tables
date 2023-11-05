@@ -1,0 +1,2252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>Rappasoft\LaravelLivewireTables\Traits\WithSorting | Rappasoft - Laravel Livewire Tables API</title>
+
+            <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/doctum.css">
+        <link rel="stylesheet" type="text/css" href="../../../fonts/doctum-font.css">
+        <script src="../../../js/jquery-3.5.1.slim.min.js"></script>
+        <script async defer src="../../../doctum.js"></script>
+        <script async defer src="../../../js/bootstrap.min.js"></script>
+        <script async defer src="../../../js/autocomplete.min.js"></script>
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+
+    </head>
+
+    <body id="class" data-name="class:Rappasoft_LaravelLivewireTables_Traits_WithSorting" data-root-path="../../../" data-search-index-url="../../../doctum-search.json">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                <div class="search-bar hidden" id="search-progress-bar-container">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" id="search-progress-bar"
+                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+            </div>
+        </div>
+        <form id="search-form" action="../../../search.html">
+            <span class="icon icon-search"></span>
+            <input name="search"
+                   id="doctum-search-auto-complete"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search"
+                   spellcheck="false"
+                   autocorrect="off"
+                   autocomplete="off"
+                   autocapitalize="off">
+            <div class="auto-complete-results" id="auto-complete-results"></div>
+        </form>
+    </div>
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../../../index.html">Rappasoft - Laravel Livewire Tables API</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                    <li><a href="../../../classes.html">Classes</a></li>
+                    <li><a href="../../../namespaces.html">Namespaces</a></li>
+                    <li><a href="../../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../../traits.html">Traits</a></li>
+                    <li><a href="../../../doc-index.html">Index</a></li>
+                    <li><a href="../../../search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">trait</span></li>
+                        <li><a href="../../../Rappasoft.html">Rappasoft</a></li><li class="backslash">\</li><li><a href="../../../Rappasoft/LaravelLivewireTables.html">LaravelLivewireTables</a></li><li class="backslash">\</li><li><a href="../../../Rappasoft/LaravelLivewireTables/Traits.html">Traits</a></li><li class="backslash">\</li><li>WithSorting</li>
+            </ol>
+        </div>
+                <div id="page-content">
+    <div class="page-header">
+        <h1>WithSorting    
+            </h1>
+    </div>
+
+    
+    <p>        trait
+    <strong>WithSorting</strong>
+</p>
+
+        
+    
+        
+
+            
+                <h2>Traits</h2>
+
+        
+    <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-6">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a>    </div>
+                <div class="col-md-6"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-6">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a>    </div>
+                <div class="col-md-6"></div>
+            </div>
+            </div>
+    
+    
+            <h2>Properties</h2>
+
+            <table class="table table-condensed">
+                    <tr>
+                <td class="type" id="property_sorts">
+                                                                                
+                                                                                
+                                    </td>
+                <td>$sorts</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_sortableColumns">
+                                                                                
+                                                                                
+                                    </td>
+                <td>$sortableColumns</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_sortingStatus">
+                                                                                
+                                                                                
+                                    </td>
+                <td>$sortingStatus</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_singleColumnSortingStatus">
+                                                                                
+                                                                                
+                                    </td>
+                <td>$singleColumnSortingStatus</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_sortingPillsStatus">
+                                                                                
+                                                                                
+                                    </td>
+                <td>$sortingPillsStatus</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_defaultSortColumn">
+                                                                                
+                                                                                
+                                    </td>
+                <td>$defaultSortColumn</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_defaultSortDirection">
+                                                                                
+                                                                                
+                                    </td>
+                <td>$defaultSortDirection</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_defaultSortingLabelAsc">
+                                                                                
+                                                                                
+                                    </td>
+                <td>$defaultSortingLabelAsc</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_defaultSortingLabelDesc">
+                                                                                
+                                                                                
+                                    </td>
+                <td>$defaultSortingLabelDesc</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+            </table>
+
+    
+            <h2>Methods</h2>
+
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setSortingStatus">setSortingStatus</a>(bool $status)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html#method_setSortingStatus">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setSortingEnabled">setSortingEnabled</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html#method_setSortingEnabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setSortingDisabled">setSortingDisabled</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html#method_setSortingDisabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setSingleSortingStatus">setSingleSortingStatus</a>(bool $status)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html#method_setSingleSortingStatus">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setSingleSortingEnabled">setSingleSortingEnabled</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html#method_setSingleSortingEnabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setSingleSortingDisabled">setSingleSortingDisabled</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html#method_setSingleSortingDisabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setDefaultSort">setDefaultSort</a>(string $field, string $direction = &#039;asc&#039;)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html#method_setDefaultSort">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_removeDefaultSort">removeDefaultSort</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html#method_removeDefaultSort">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setSortingPillsStatus">setSortingPillsStatus</a>(bool $status)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html#method_setSortingPillsStatus">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setSortingPillsEnabled">setSortingPillsEnabled</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html#method_setSortingPillsEnabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setSortingPillsDisabled">setSortingPillsDisabled</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html#method_setSortingPillsDisabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setDefaultSortingLabels">setDefaultSortingLabels</a>(string $asc, string $desc)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html#method_setDefaultSortingLabels">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getSortingStatus">getSortingStatus</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_getSortingStatus">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getSingleSortingStatus">getSingleSortingStatus</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_getSingleSortingStatus">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getSorts">getSorts</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_getSorts">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setSorts">setSorts</a>(array $sorts = [])
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_setSorts">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string|null
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getSort">getSort</a>(string $field)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_getSort">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setSort">setSort</a>(string $field, string $direction)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_setSort">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_hasSorts">hasSorts</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_hasSorts">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_hasSort">hasSort</a>(string $field)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_hasSort">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_clearSorts">clearSorts</a>()
+        
+                                            <p><p>Clear the sorts array</p></p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_clearSorts">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_clearSort">clearSort</a>(string $field)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_clearSort">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setSortAsc">setSortAsc</a>(string $field)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_setSortAsc">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setSortDesc">setSortDesc</a>(string $field)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_setSortDesc">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_isSortAsc">isSortAsc</a>(string $field)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_isSortAsc">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_isSortDesc">isSortDesc</a>(string $field)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_isSortDesc">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_sortingIsEnabled">sortingIsEnabled</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_sortingIsEnabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_sortingIsDisabled">sortingIsDisabled</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_sortingIsDisabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_singleSortingIsEnabled">singleSortingIsEnabled</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_singleSortingIsEnabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_singleSortingIsDisabled">singleSortingIsDisabled</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_singleSortingIsDisabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_hasDefaultSort">hasDefaultSort</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_hasDefaultSort">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string|null
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getDefaultSortColumn">getDefaultSortColumn</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_getDefaultSortColumn">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getDefaultSortDirection">getDefaultSortDirection</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_getDefaultSortDirection">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getSortingPillsStatus">getSortingPillsStatus</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_getSortingPillsStatus">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_sortingPillsAreEnabled">sortingPillsAreEnabled</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_sortingPillsAreEnabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_sortingPillsAreDisabled">sortingPillsAreDisabled</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_sortingPillsAreDisabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getDefaultSortingLabelAsc">getDefaultSortingLabelAsc</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_getDefaultSortingLabelAsc">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getDefaultSortingLabelDesc">getDefaultSortingLabelDesc</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_getDefaultSortingLabelDesc">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_queryStringWithSorting">queryStringWithSorting</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string|null
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_sortBy">sortBy</a>(string $columnSelectName)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Illuminate\Database\Eloquent\Builder">Builder</abbr>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_applySorting">applySorting</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+            </div>
+
+
+        <h2>Details</h2>
+
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method_setSortingStatus">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html#method_setSortingStatus">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a> at line 7</div>
+        <code>                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a>
+    <strong>setSortingStatus</strong>(bool $status)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>bool</td>
+                <td>$status</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setSortingEnabled">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html#method_setSortingEnabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a> at line 14</div>
+        <code>                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a>
+    <strong>setSortingEnabled</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setSortingDisabled">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html#method_setSortingDisabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a> at line 21</div>
+        <code>                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a>
+    <strong>setSortingDisabled</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setSingleSortingStatus">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html#method_setSingleSortingStatus">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a> at line 29</div>
+        <code>                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a>
+    <strong>setSingleSortingStatus</strong>(bool $status)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>bool</td>
+                <td>$status</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setSingleSortingEnabled">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html#method_setSingleSortingEnabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a> at line 36</div>
+        <code>                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a>
+    <strong>setSingleSortingEnabled</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setSingleSortingDisabled">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html#method_setSingleSortingDisabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a> at line 43</div>
+        <code>                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a>
+    <strong>setSingleSortingDisabled</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setDefaultSort">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html#method_setDefaultSort">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a> at line 50</div>
+        <code>                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a>
+    <strong>setDefaultSort</strong>(string $field, string $direction = &#039;asc&#039;)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$field</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$direction</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_removeDefaultSort">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html#method_removeDefaultSort">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a> at line 58</div>
+        <code>                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a>
+    <strong>removeDefaultSort</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setSortingPillsStatus">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html#method_setSortingPillsStatus">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a> at line 66</div>
+        <code>                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a>
+    <strong>setSortingPillsStatus</strong>(bool $status)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>bool</td>
+                <td>$status</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setSortingPillsEnabled">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html#method_setSortingPillsEnabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a> at line 73</div>
+        <code>                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a>
+    <strong>setSortingPillsEnabled</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setSortingPillsDisabled">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html#method_setSortingPillsDisabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a> at line 80</div>
+        <code>                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a>
+    <strong>setSortingPillsDisabled</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setDefaultSortingLabels">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html#method_setDefaultSortingLabels">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a> at line 87</div>
+        <code>                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a>
+    <strong>setDefaultSortingLabels</strong>(string $asc, string $desc)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$asc</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$desc</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/SortingConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration">SortingConfiguration</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getSortingStatus">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_getSortingStatus">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a> at line 9</div>
+        <code>                    bool
+    <strong>getSortingStatus</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getSingleSortingStatus">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_getSingleSortingStatus">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a> at line 14</div>
+        <code>                    bool
+    <strong>getSingleSortingStatus</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getSorts">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_getSorts">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a> at line 19</div>
+        <code>                    array
+    <strong>getSorts</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setSorts">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_setSorts">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a> at line 28</div>
+        <code>                    array
+    <strong>setSorts</strong>(array $sorts = [])
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$sorts</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getSort">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_getSort">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a> at line 36</div>
+        <code>                    string|null
+    <strong>getSort</strong>(string $field)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$field</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setSort">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_setSort">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a> at line 41</div>
+        <code>                    string
+    <strong>setSort</strong>(string $field, string $direction)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$field</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$direction</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_hasSorts">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_hasSorts">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a> at line 47</div>
+        <code>                    bool
+    <strong>hasSorts</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_hasSort">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_hasSort">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a> at line 52</div>
+        <code>                    bool
+    <strong>hasSort</strong>(string $field)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$field</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_clearSorts">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_clearSorts">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a> at line 60</div>
+        <code>                    void
+    <strong>clearSorts</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Clear the sorts array</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_clearSort">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_clearSort">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a> at line 66</div>
+        <code>                    void
+    <strong>clearSort</strong>(string $field)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$field</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setSortAsc">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_setSortAsc">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a> at line 71</div>
+        <code>                    string
+    <strong>setSortAsc</strong>(string $field)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$field</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setSortDesc">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_setSortDesc">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a> at line 76</div>
+        <code>                    string
+    <strong>setSortDesc</strong>(string $field)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$field</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_isSortAsc">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_isSortAsc">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a> at line 81</div>
+        <code>                    bool
+    <strong>isSortAsc</strong>(string $field)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$field</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_isSortDesc">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_isSortDesc">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a> at line 86</div>
+        <code>                    bool
+    <strong>isSortDesc</strong>(string $field)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$field</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_sortingIsEnabled">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_sortingIsEnabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a> at line 91</div>
+        <code>                    bool
+    <strong>sortingIsEnabled</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_sortingIsDisabled">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_sortingIsDisabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a> at line 96</div>
+        <code>                    bool
+    <strong>sortingIsDisabled</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_singleSortingIsEnabled">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_singleSortingIsEnabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a> at line 101</div>
+        <code>                    bool
+    <strong>singleSortingIsEnabled</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_singleSortingIsDisabled">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_singleSortingIsDisabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a> at line 106</div>
+        <code>                    bool
+    <strong>singleSortingIsDisabled</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_hasDefaultSort">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_hasDefaultSort">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a> at line 111</div>
+        <code>                    bool
+    <strong>hasDefaultSort</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getDefaultSortColumn">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_getDefaultSortColumn">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a> at line 116</div>
+        <code>                    string|null
+    <strong>getDefaultSortColumn</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getDefaultSortDirection">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_getDefaultSortDirection">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a> at line 121</div>
+        <code>                    string
+    <strong>getDefaultSortDirection</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getSortingPillsStatus">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_getSortingPillsStatus">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a> at line 126</div>
+        <code>                    bool
+    <strong>getSortingPillsStatus</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_sortingPillsAreEnabled">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_sortingPillsAreEnabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a> at line 131</div>
+        <code>                    bool
+    <strong>sortingPillsAreEnabled</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_sortingPillsAreDisabled">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_sortingPillsAreDisabled">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a> at line 136</div>
+        <code>                    bool
+    <strong>sortingPillsAreDisabled</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getDefaultSortingLabelAsc">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_getDefaultSortingLabelAsc">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a> at line 141</div>
+        <code>                    string
+    <strong>getDefaultSortingLabelAsc</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getDefaultSortingLabelDesc">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/SortingHelpers.html#method_getDefaultSortingLabelDesc">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\SortingHelpers">SortingHelpers</abbr></a> at line 146</div>
+        <code>                    string
+    <strong>getDefaultSortingLabelDesc</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_queryStringWithSorting">
+        <div class="location">at line 33</div>
+        <code>            protected        
+    <strong>queryStringWithSorting</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_sortBy">
+        <div class="location">at line 44</div>
+        <code>                    string|null
+    <strong>sortBy</strong>(string $columnSelectName)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$columnSelectName</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_applySorting">
+        <div class="location">at line 76</div>
+        <code>                    <abbr title="Illuminate\Database\Eloquent\Builder">Builder</abbr>
+    <strong>applySorting</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Illuminate\Database\Eloquent\Builder">Builder</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+            </div>
+
+    
+</div><div id="footer">
+        Generated by <a href="https://github.com/code-lts/doctum">Doctum, a API Documentation generator and fork of Sami</a>.</div></div>
+    </div>
+    </body>
+
+</html>

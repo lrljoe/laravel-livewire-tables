@@ -1,0 +1,26 @@
+{
+    "name": "Rappasoft\\LaravelLivewireTables\\Views\\Traits\\Helpers\\LivewireComponentColumnHelpers",
+    "line": 5,
+    "short_desc": null,
+    "long_desc": null,
+    "hint": null,
+    "tags": [],
+    "namespace": "Rappasoft\\LaravelLivewireTables\\Views\\Traits\\Helpers",
+    "file": ".\/src\/Views\/Traits\/Helpers\/LivewireComponentColumnHelpers.php",
+    "relative_file": null,
+    "hash": "73cad04755f4979b3e15b10d7d4d53e6b1899f77",
+    "parent": null,
+    "modifiers": 0,
+    "is_trait": true,
+    "is_interface": false,
+    "is_read_only": false,
+    "aliases": [],
+    "errors": [],
+    "interfaces": [],
+    "traits": {
+        "Rappasoft\\LaravelLivewireTables\\Views\\Traits\\Helpers\\ComponentColumnHelpers": "Rappasoft\\LaravelLivewireTables\\Views\\Traits\\Helpers\\ComponentColumnHelpers"
+    },
+    "properties": [],
+    "methods": [],
+    "constants": []
+}

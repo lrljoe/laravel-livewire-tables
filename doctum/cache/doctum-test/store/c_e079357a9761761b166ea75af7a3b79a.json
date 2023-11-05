@@ -1,0 +1,143 @@
+{
+    "name": "Rappasoft\\LaravelLivewireTables\\Traits\\Configuration\\ConfigurableAreasConfiguration",
+    "line": 5,
+    "short_desc": null,
+    "long_desc": null,
+    "hint": null,
+    "tags": [],
+    "namespace": "Rappasoft\\LaravelLivewireTables\\Traits\\Configuration",
+    "file": ".\/src\/Traits\/Configuration\/ConfigurableAreasConfiguration.php",
+    "relative_file": null,
+    "hash": "76386a1f1062c0b0a6218127b73343d26578c1bb",
+    "parent": null,
+    "modifiers": 0,
+    "is_trait": true,
+    "is_interface": false,
+    "is_read_only": false,
+    "aliases": [],
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "setConfigurableAreas": {
+            "name": "setConfigurableAreas",
+            "line": 10,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": [
+                [
+                    "Rappasoft\\LaravelLivewireTables\\Traits\\Configuration\\ConfigurableAreasConfiguration",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "areas": {
+                    "name": "areas",
+                    "line": 10,
+                    "short_desc": "",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "array",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                }
+            }
+        },
+        "setHideConfigurableAreasWhenReorderingStatus": {
+            "name": "setHideConfigurableAreasWhenReorderingStatus",
+            "line": 17,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "Rappasoft\\LaravelLivewireTables\\Traits\\Configuration\\ConfigurableAreasConfiguration",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "status": {
+                    "name": "status",
+                    "line": 17,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "bool",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                }
+            }
+        },
+        "setHideConfigurableAreasWhenReorderingEnabled": {
+            "name": "setHideConfigurableAreasWhenReorderingEnabled",
+            "line": 24,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "Rappasoft\\LaravelLivewireTables\\Traits\\Configuration\\ConfigurableAreasConfiguration",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "setHideConfigurableAreasWhenReorderingDisabled": {
+            "name": "setHideConfigurableAreasWhenReorderingDisabled",
+            "line": 31,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "Rappasoft\\LaravelLivewireTables\\Traits\\Configuration\\ConfigurableAreasConfiguration",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

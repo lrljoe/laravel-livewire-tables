@@ -1,0 +1,1765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>Rappasoft\LaravelLivewireTables\Traits\WithColumns | Rappasoft - Laravel Livewire Tables API</title>
+
+            <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/doctum.css">
+        <link rel="stylesheet" type="text/css" href="../../../fonts/doctum-font.css">
+        <script src="../../../js/jquery-3.5.1.slim.min.js"></script>
+        <script async defer src="../../../doctum.js"></script>
+        <script async defer src="../../../js/bootstrap.min.js"></script>
+        <script async defer src="../../../js/autocomplete.min.js"></script>
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+
+    </head>
+
+    <body id="class" data-name="class:Rappasoft_LaravelLivewireTables_Traits_WithColumns" data-root-path="../../../" data-search-index-url="../../../doctum-search.json">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                <div class="search-bar hidden" id="search-progress-bar-container">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" id="search-progress-bar"
+                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+            </div>
+        </div>
+        <form id="search-form" action="../../../search.html">
+            <span class="icon icon-search"></span>
+            <input name="search"
+                   id="doctum-search-auto-complete"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search"
+                   spellcheck="false"
+                   autocorrect="off"
+                   autocomplete="off"
+                   autocapitalize="off">
+            <div class="auto-complete-results" id="auto-complete-results"></div>
+        </form>
+    </div>
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../../../index.html">Rappasoft - Laravel Livewire Tables API</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                    <li><a href="../../../classes.html">Classes</a></li>
+                    <li><a href="../../../namespaces.html">Namespaces</a></li>
+                    <li><a href="../../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../../traits.html">Traits</a></li>
+                    <li><a href="../../../doc-index.html">Index</a></li>
+                    <li><a href="../../../search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">trait</span></li>
+                        <li><a href="../../../Rappasoft.html">Rappasoft</a></li><li class="backslash">\</li><li><a href="../../../Rappasoft/LaravelLivewireTables.html">LaravelLivewireTables</a></li><li class="backslash">\</li><li><a href="../../../Rappasoft/LaravelLivewireTables/Traits.html">Traits</a></li><li class="backslash">\</li><li>WithColumns</li>
+            </ol>
+        </div>
+                <div id="page-content">
+    <div class="page-header">
+        <h1>WithColumns    
+            </h1>
+    </div>
+
+    
+    <p>        trait
+    <strong>WithColumns</strong>
+</p>
+
+        
+    
+        
+
+            
+                <h2>Traits</h2>
+
+        
+    <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-6">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/ColumnConfiguration.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\ColumnConfiguration">ColumnConfiguration</abbr></a>    </div>
+                <div class="col-md-6"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-6">
+                    <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html"><abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a>    </div>
+                <div class="col-md-6"></div>
+            </div>
+            </div>
+    
+    
+            <h2>Properties</h2>
+
+            <table class="table table-condensed">
+                    <tr>
+                <td class="type" id="property_columns">
+                                        protected                                        
+                                                                                
+                                    </td>
+                <td>$columns</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_prependedColumns">
+                                        protected                                        
+                                                                                
+                                    </td>
+                <td>$prependedColumns</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_appendedColumns">
+                                        protected                                        
+                                                                                
+                                    </td>
+                <td>$appendedColumns</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_shouldAlwaysCollapse">
+                                        protected                                        
+                                                                                
+                                    </td>
+                <td>$shouldAlwaysCollapse</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_shouldMobileCollapse">
+                                        protected                                        
+                                                                                
+                                    </td>
+                <td>$shouldMobileCollapse</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_shouldTabletCollapse">
+                                        protected                                        
+                                                                                
+                                    </td>
+                <td>$shouldTabletCollapse</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_columnSelectStats2">
+                                                                                
+                                                                                
+                                    </td>
+                <td>$columnSelectStats2</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_defaultVisibleColumnCount">
+                                                                                
+                                                                                
+                                    </td>
+                <td>$defaultVisibleColumnCount</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_visibleColumnCount">
+                                                                                
+                                                                                
+                                    </td>
+                <td>$visibleColumnCount</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+            </table>
+
+    
+            <h2>Methods</h2>
+
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setPrependedColumns">setPrependedColumns</a>(array $prependedColumns)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/ColumnConfiguration.html#method_setPrependedColumns">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\ColumnConfiguration">ColumnConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setAppendedColumns">setAppendedColumns</a>(array $appendedColumns)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/ColumnConfiguration.html#method_setAppendedColumns">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\ColumnConfiguration">ColumnConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_unsetCollapsedStatuses">unsetCollapsedStatuses</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/ColumnConfiguration.html#method_unsetCollapsedStatuses">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\ColumnConfiguration">ColumnConfiguration</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_setColumns">setColumns</a>()
+        
+                                            <p><p>Set the user defined columns</p></p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_setColumns">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Illuminate\Support\Collection">Collection</abbr>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getColumns">getColumns</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_getColumns">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\Rappasoft\LaravelLivewireTables\Views\Column">Column</abbr>|null
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getColumn">getColumn</a>(string $qualifiedColumn)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_getColumn">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\Rappasoft\LaravelLivewireTables\Views\Column">Column</abbr>|null
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getColumnBySelectName">getColumnBySelectName</a>(string $qualifiedColumn)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_getColumnBySelectName">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\Rappasoft\LaravelLivewireTables\Views\Column">Column</abbr>|null
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getColumnBySlug">getColumnBySlug</a>(string $columnSlug)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_getColumnBySlug">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getColumnRelations">getColumnRelations</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_getColumnRelations">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getColumnRelationStrings">getColumnRelationStrings</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_getColumnRelationStrings">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Illuminate\Support\Collection">Collection</abbr>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getSearchableColumns">getSearchableColumns</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_getSearchableColumns">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Illuminate\Support\Collection">Collection</abbr>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getSortableColumns">getSortableColumns</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_getSortableColumns">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getColumnCount">getColumnCount</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_getColumnCount">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_hasCollapsedColumns">hasCollapsedColumns</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_hasCollapsedColumns">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_shouldCollapseOnMobile">shouldCollapseOnMobile</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_shouldCollapseOnMobile">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Illuminate\Support\Collection">Collection</abbr>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getCollapsedMobileColumns">getCollapsedMobileColumns</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_getCollapsedMobileColumns">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getCollapsedMobileColumnsCount">getCollapsedMobileColumnsCount</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_getCollapsedMobileColumnsCount">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Illuminate\Support\Collection">Collection</abbr>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getVisibleMobileColumns">getVisibleMobileColumns</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_getVisibleMobileColumns">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getVisibleMobileColumnsCount">getVisibleMobileColumnsCount</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_getVisibleMobileColumnsCount">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_shouldCollapseOnTablet">shouldCollapseOnTablet</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_shouldCollapseOnTablet">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Illuminate\Support\Collection">Collection</abbr>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getCollapsedTabletColumns">getCollapsedTabletColumns</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_getCollapsedTabletColumns">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getCollapsedTabletColumnsCount">getCollapsedTabletColumnsCount</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_getCollapsedTabletColumnsCount">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Illuminate\Support\Collection">Collection</abbr>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getVisibleTabletColumns">getVisibleTabletColumns</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_getVisibleTabletColumns">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getVisibleTabletColumnsCount">getVisibleTabletColumnsCount</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_getVisibleTabletColumnsCount">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getColspanCount">getColspanCount</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_getColspanCount">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Illuminate\Support\Collection">Collection</abbr>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getPrependedColumns">getPrependedColumns</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_getPrependedColumns">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Illuminate\Support\Collection">Collection</abbr>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getAppendedColumns">getAppendedColumns</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_getAppendedColumns">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Illuminate\Support\Collection">Collection</abbr>
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getCollapsedAlwaysColumns">getCollapsedAlwaysColumns</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_getCollapsedAlwaysColumns">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_getCollapsedAlwaysColumnsCount">getCollapsedAlwaysColumnsCount</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_getCollapsedAlwaysColumnsCount">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_shouldCollapseAlways">shouldCollapseAlways</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_shouldCollapseAlways">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_bootWithColumns">bootWithColumns</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_prependColumns">prependColumns</a>()
+        
+                                            <p><p>Prepend columns.</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8">
+                    <a href="#method_appendColumns">appendColumns</a>()
+        
+                                            <p><p>Append columns.</p></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+            </div>
+
+
+        <h2>Details</h2>
+
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method_setPrependedColumns">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/ColumnConfiguration.html#method_setPrependedColumns">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\ColumnConfiguration">ColumnConfiguration</abbr></a> at line 9</div>
+        <code>                    void
+    <strong>setPrependedColumns</strong>(array $prependedColumns)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$prependedColumns</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setAppendedColumns">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/ColumnConfiguration.html#method_setAppendedColumns">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\ColumnConfiguration">ColumnConfiguration</abbr></a> at line 28</div>
+        <code>                    void
+    <strong>setAppendedColumns</strong>(array $appendedColumns)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$appendedColumns</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_unsetCollapsedStatuses">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Configuration/ColumnConfiguration.html#method_unsetCollapsedStatuses">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Configuration\ColumnConfiguration">ColumnConfiguration</abbr></a> at line 47</div>
+        <code>                    void
+    <strong>unsetCollapsedStatuses</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setColumns">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_setColumns">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a> at line 13</div>
+        <code>                    void
+    <strong>setColumns</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Set the user defined columns</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getColumns">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_getColumns">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a> at line 38</div>
+        <code>                    <abbr title="Illuminate\Support\Collection">Collection</abbr>
+    <strong>getColumns</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Illuminate\Support\Collection">Collection</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getColumn">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_getColumn">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a> at line 43</div>
+        <code>                    <abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\Rappasoft\LaravelLivewireTables\Views\Column">Column</abbr>|null
+    <strong>getColumn</strong>(string $qualifiedColumn)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$qualifiedColumn</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\Rappasoft\LaravelLivewireTables\Views\Column">Column</abbr>|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getColumnBySelectName">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_getColumnBySelectName">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a> at line 50</div>
+        <code>                    <abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\Rappasoft\LaravelLivewireTables\Views\Column">Column</abbr>|null
+    <strong>getColumnBySelectName</strong>(string $qualifiedColumn)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$qualifiedColumn</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\Rappasoft\LaravelLivewireTables\Views\Column">Column</abbr>|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getColumnBySlug">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_getColumnBySlug">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a> at line 57</div>
+        <code>                    <abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\Rappasoft\LaravelLivewireTables\Views\Column">Column</abbr>|null
+    <strong>getColumnBySlug</strong>(string $columnSlug)
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$columnSlug</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\Rappasoft\LaravelLivewireTables\Views\Column">Column</abbr>|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getColumnRelations">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_getColumnRelations">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a> at line 67</div>
+        <code>                    array
+    <strong>getColumnRelations</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getColumnRelationStrings">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_getColumnRelationStrings">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a> at line 79</div>
+        <code>                    array
+    <strong>getColumnRelationStrings</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getSearchableColumns">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_getSearchableColumns">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a> at line 88</div>
+        <code>                    <abbr title="Illuminate\Support\Collection">Collection</abbr>
+    <strong>getSearchableColumns</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Illuminate\Support\Collection">Collection</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getSortableColumns">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_getSortableColumns">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a> at line 95</div>
+        <code>                    <abbr title="Illuminate\Support\Collection">Collection</abbr>
+    <strong>getSortableColumns</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Illuminate\Support\Collection">Collection</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getColumnCount">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_getColumnCount">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a> at line 103</div>
+        <code>                    int
+    <strong>getColumnCount</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_hasCollapsedColumns">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_hasCollapsedColumns">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a> at line 108</div>
+        <code>                    bool
+    <strong>hasCollapsedColumns</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_shouldCollapseOnMobile">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_shouldCollapseOnMobile">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a> at line 117</div>
+        <code>                    bool
+    <strong>shouldCollapseOnMobile</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getCollapsedMobileColumns">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_getCollapsedMobileColumns">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a> at line 128</div>
+        <code>                    <abbr title="Illuminate\Support\Collection">Collection</abbr>
+    <strong>getCollapsedMobileColumns</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Illuminate\Support\Collection">Collection</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getCollapsedMobileColumnsCount">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_getCollapsedMobileColumnsCount">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a> at line 137</div>
+        <code>                    int
+    <strong>getCollapsedMobileColumnsCount</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getVisibleMobileColumns">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_getVisibleMobileColumns">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a> at line 142</div>
+        <code>                    <abbr title="Illuminate\Support\Collection">Collection</abbr>
+    <strong>getVisibleMobileColumns</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Illuminate\Support\Collection">Collection</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getVisibleMobileColumnsCount">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_getVisibleMobileColumnsCount">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a> at line 149</div>
+        <code>                    int
+    <strong>getVisibleMobileColumnsCount</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_shouldCollapseOnTablet">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_shouldCollapseOnTablet">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a> at line 154</div>
+        <code>                    bool
+    <strong>shouldCollapseOnTablet</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getCollapsedTabletColumns">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_getCollapsedTabletColumns">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a> at line 164</div>
+        <code>                    <abbr title="Illuminate\Support\Collection">Collection</abbr>
+    <strong>getCollapsedTabletColumns</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Illuminate\Support\Collection">Collection</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getCollapsedTabletColumnsCount">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_getCollapsedTabletColumnsCount">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a> at line 173</div>
+        <code>                    int
+    <strong>getCollapsedTabletColumnsCount</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getVisibleTabletColumns">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_getVisibleTabletColumns">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a> at line 178</div>
+        <code>                    <abbr title="Illuminate\Support\Collection">Collection</abbr>
+    <strong>getVisibleTabletColumns</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Illuminate\Support\Collection">Collection</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getVisibleTabletColumnsCount">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_getVisibleTabletColumnsCount">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a> at line 185</div>
+        <code>                    int
+    <strong>getVisibleTabletColumnsCount</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getColspanCount">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_getColspanCount">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a> at line 190</div>
+        <code>                    int
+    <strong>getColspanCount</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getPrependedColumns">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_getPrependedColumns">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a> at line 195</div>
+        <code>                    <abbr title="Illuminate\Support\Collection">Collection</abbr>
+    <strong>getPrependedColumns</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Illuminate\Support\Collection">Collection</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getAppendedColumns">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_getAppendedColumns">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a> at line 214</div>
+        <code>                    <abbr title="Illuminate\Support\Collection">Collection</abbr>
+    <strong>getAppendedColumns</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Illuminate\Support\Collection">Collection</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getCollapsedAlwaysColumns">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_getCollapsedAlwaysColumns">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a> at line 234</div>
+        <code>                    <abbr title="Illuminate\Support\Collection">Collection</abbr>
+    <strong>getCollapsedAlwaysColumns</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Illuminate\Support\Collection">Collection</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getCollapsedAlwaysColumnsCount">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_getCollapsedAlwaysColumnsCount">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a> at line 243</div>
+        <code>                    int
+    <strong>getCollapsedAlwaysColumnsCount</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_shouldCollapseAlways">
+        <div class="location">in <a href="../../../Rappasoft/LaravelLivewireTables/Traits/Helpers/ColumnHelpers.html#method_shouldCollapseAlways">
+<abbr title="Rappasoft\LaravelLivewireTables\Traits\Helpers\ColumnHelpers">ColumnHelpers</abbr></a> at line 248</div>
+        <code>                    bool
+    <strong>shouldCollapseAlways</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_bootWithColumns">
+        <div class="location">at line 32</div>
+        <code>                    void
+    <strong>bootWithColumns</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_prependColumns">
+        <div class="location">at line 40</div>
+        <code>                    
+    <strong>prependColumns</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Prepend columns.</p></p>                        
+        </div>
+        <div class="tags">
+            
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_appendColumns">
+        <div class="location">at line 48</div>
+        <code>                    array
+    <strong>appendColumns</strong>()
+        </code>
+    </h3>
+    <div class="details">    
+    
+            
+
+        <div class="method-description">
+                            <p><p>Append columns.</p></p>                        
+        </div>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+            </div>
+
+    
+</div><div id="footer">
+        Generated by <a href="https://github.com/code-lts/doctum">Doctum, a API Documentation generator and fork of Sami</a>.</div></div>
+    </div>
+    </body>
+
+</html>

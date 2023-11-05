@@ -1,0 +1,87 @@
+{
+    "name": "Rappasoft\\LaravelLivewireTables\\LaravelLivewireTablesServiceProvider",
+    "line": 12,
+    "short_desc": null,
+    "long_desc": null,
+    "hint": null,
+    "tags": [],
+    "namespace": "Rappasoft\\LaravelLivewireTables",
+    "file": ".\/src\/LaravelLivewireTablesServiceProvider.php",
+    "relative_file": null,
+    "hash": "61f09257a65cbe5a5dd68c4749cfcfcdf23ba96c",
+    "parent": "Illuminate\\Support\\ServiceProvider",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "is_read_only": false,
+    "aliases": {
+        "AboutCommand": "Illuminate\\Foundation\\Console\\AboutCommand",
+        "ServiceProvider": "Illuminate\\Support\\ServiceProvider",
+        "ComponentHookRegistry": "Livewire\\ComponentHookRegistry",
+        "MakeCommand": "Rappasoft\\LaravelLivewireTables\\Commands\\MakeCommand",
+        "AutoInjectRappasoftAssets": "Rappasoft\\LaravelLivewireTables\\Features\\AutoInjectRappasoftAssets",
+        "RappasoftFrontendAssets": "Rappasoft\\LaravelLivewireTables\\Mechanisms\\RappasoftFrontendAssets"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "boot": {
+            "name": "boot",
+            "line": 14,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "consoleCommands": {
+            "name": "consoleCommands",
+            "line": 43,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "register": {
+            "name": "register",
+            "line": 70,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

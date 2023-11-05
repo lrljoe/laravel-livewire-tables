@@ -1,0 +1,111 @@
+{
+    "name": "Rappasoft\\LaravelLivewireTables\\Views\\Traits\\Helpers\\ButtonGroupColumnHelpers",
+    "line": 7,
+    "short_desc": null,
+    "long_desc": null,
+    "hint": null,
+    "tags": [],
+    "namespace": "Rappasoft\\LaravelLivewireTables\\Views\\Traits\\Helpers",
+    "file": ".\/src\/Views\/Traits\/Helpers\/ButtonGroupColumnHelpers.php",
+    "relative_file": null,
+    "hash": "92d04d94e7b4e81d558678e2b87cf5c794b87664",
+    "parent": null,
+    "modifiers": 0,
+    "is_trait": true,
+    "is_interface": false,
+    "is_read_only": false,
+    "aliases": {
+        "LinkColumn": "Rappasoft\\LaravelLivewireTables\\Views\\Columns\\LinkColumn"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "getView": {
+            "name": "getView",
+            "line": 9,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "string",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "getButtons": {
+            "name": "getButtons",
+            "line": 14,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "array",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "getAttributesCallback": {
+            "name": "getAttributesCallback",
+            "line": 21,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "callable",
+                    false
+                ],
+                [
+                    "null",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "hasAttributesCallback": {
+            "name": "hasAttributesCallback",
+            "line": 26,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "bool",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

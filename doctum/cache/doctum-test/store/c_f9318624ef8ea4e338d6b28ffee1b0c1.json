@@ -1,0 +1,171 @@
+{
+    "name": "Rappasoft\\LaravelLivewireTables\\Mechanisms\\RappasoftFrontendAssets",
+    "line": 13,
+    "short_desc": null,
+    "long_desc": null,
+    "hint": null,
+    "tags": [],
+    "namespace": "Rappasoft\\LaravelLivewireTables\\Mechanisms",
+    "file": ".\/src\/Mechanisms\/RappasoftFrontendAssets.php",
+    "relative_file": null,
+    "hash": "7e9cb1957ef43c8cae00bde7bf138b9804911882",
+    "parent": null,
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "is_read_only": false,
+    "aliases": {
+        "Blade": "Illuminate\\Support\\Facades\\Blade",
+        "Route": "Illuminate\\Support\\Facades\\Route",
+        "Utils": "Livewire\\Drawer\\Utils",
+        "WithRappasoftTableScripts": "Rappasoft\\LaravelLivewireTables\\Traits\\Mechanisms\\WithRappasoftTableScripts",
+        "WithRappasoftTableStyles": "Rappasoft\\LaravelLivewireTables\\Traits\\Mechanisms\\WithRappasoftTableStyles",
+        "WithRappasoftTableThirdPartyScripts": "Rappasoft\\LaravelLivewireTables\\Traits\\Mechanisms\\WithRappasoftTableThirdPartyScripts",
+        "WithRappasoftTableThirdPartyStyles": "Rappasoft\\LaravelLivewireTables\\Traits\\Mechanisms\\WithRappasoftTableThirdPartyStyles"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": {
+        "Rappasoft\\LaravelLivewireTables\\Traits\\Mechanisms\\WithRappasoftTableScripts": "Rappasoft\\LaravelLivewireTables\\Traits\\Mechanisms\\WithRappasoftTableScripts",
+        "Rappasoft\\LaravelLivewireTables\\Traits\\Mechanisms\\WithRappasoftTableStyles": "Rappasoft\\LaravelLivewireTables\\Traits\\Mechanisms\\WithRappasoftTableStyles",
+        "Rappasoft\\LaravelLivewireTables\\Traits\\Mechanisms\\WithRappasoftTableThirdPartyScripts": "Rappasoft\\LaravelLivewireTables\\Traits\\Mechanisms\\WithRappasoftTableThirdPartyScripts",
+        "Rappasoft\\LaravelLivewireTables\\Traits\\Mechanisms\\WithRappasoftTableThirdPartyStyles": "Rappasoft\\LaravelLivewireTables\\Traits\\Mechanisms\\WithRappasoftTableThirdPartyStyles"
+    },
+    "properties": [],
+    "methods": {
+        "register": {
+            "name": "register",
+            "line": 20,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "boot": {
+            "name": "boot",
+            "line": 25,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "registerBladeDirectives": {
+            "name": "registerBladeDirectives",
+            "line": 59,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 2,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "pretendResponseIsJs": {
+            "name": "pretendResponseIsJs",
+            "line": 67,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "\\Symfony\\Component\\HttpFoundation\\Response",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 2,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "file": {
+                    "name": "file",
+                    "line": 67,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                }
+            }
+        },
+        "pretendResponseIsCSS": {
+            "name": "pretendResponseIsCSS",
+            "line": 90,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "\\Symfony\\Component\\HttpFoundation\\Response",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 2,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "file": {
+                    "name": "file",
+                    "line": 90,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "string",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                }
+            }
+        }
+    },
+    "constants": []
+}

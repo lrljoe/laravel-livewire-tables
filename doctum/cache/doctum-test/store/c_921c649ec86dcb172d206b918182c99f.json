@@ -1,0 +1,224 @@
+{
+    "name": "Rappasoft\\LaravelLivewireTables\\Traits\\WithFooter",
+    "line": 8,
+    "short_desc": null,
+    "long_desc": null,
+    "hint": null,
+    "tags": [],
+    "namespace": "Rappasoft\\LaravelLivewireTables\\Traits",
+    "file": ".\/src\/Traits\/WithFooter.php",
+    "relative_file": null,
+    "hash": "c70cc43dfb92b49746ccaec7350be2ecc3de4ef3",
+    "parent": null,
+    "modifiers": 0,
+    "is_trait": true,
+    "is_interface": false,
+    "is_read_only": false,
+    "aliases": {
+        "FooterConfiguration": "Rappasoft\\LaravelLivewireTables\\Traits\\Configuration\\FooterConfiguration",
+        "FooterHelpers": "Rappasoft\\LaravelLivewireTables\\Traits\\Helpers\\FooterHelpers"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": {
+        "Rappasoft\\LaravelLivewireTables\\Traits\\Configuration\\FooterConfiguration": "Rappasoft\\LaravelLivewireTables\\Traits\\Configuration\\FooterConfiguration",
+        "Rappasoft\\LaravelLivewireTables\\Traits\\Helpers\\FooterHelpers": "Rappasoft\\LaravelLivewireTables\\Traits\\Helpers\\FooterHelpers"
+    },
+    "properties": {
+        "footerStatus": {
+            "name": "footerStatus",
+            "line": 13,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Expr_ConstFetch",
+                "attributes": {
+                    "startLine": 13,
+                    "endLine": 13
+                },
+                "name": {
+                    "nodeType": "Name",
+                    "attributes": {
+                        "startLine": 13,
+                        "endLine": 13,
+                        "namespacedName": {
+                            "nodeType": "Name_FullyQualified",
+                            "attributes": {
+                                "startLine": 13,
+                                "endLine": 13
+                            },
+                            "parts": [
+                                "Rappasoft",
+                                "LaravelLivewireTables",
+                                "Traits",
+                                "true"
+                            ]
+                        }
+                    },
+                    "parts": [
+                        "true"
+                    ]
+                }
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        },
+        "useHeaderAsFooterStatus": {
+            "name": "useHeaderAsFooterStatus",
+            "line": 15,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Expr_ConstFetch",
+                "attributes": {
+                    "startLine": 15,
+                    "endLine": 15
+                },
+                "name": {
+                    "nodeType": "Name",
+                    "attributes": {
+                        "startLine": 15,
+                        "endLine": 15,
+                        "namespacedName": {
+                            "nodeType": "Name_FullyQualified",
+                            "attributes": {
+                                "startLine": 15,
+                                "endLine": 15
+                            },
+                            "parts": [
+                                "Rappasoft",
+                                "LaravelLivewireTables",
+                                "Traits",
+                                "false"
+                            ]
+                        }
+                    },
+                    "parts": [
+                        "false"
+                    ]
+                }
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        },
+        "columnsWithFooter": {
+            "name": "columnsWithFooter",
+            "line": 17,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Expr_ConstFetch",
+                "attributes": {
+                    "startLine": 17,
+                    "endLine": 17
+                },
+                "name": {
+                    "nodeType": "Name",
+                    "attributes": {
+                        "startLine": 17,
+                        "endLine": 17,
+                        "namespacedName": {
+                            "nodeType": "Name_FullyQualified",
+                            "attributes": {
+                                "startLine": 17,
+                                "endLine": 17
+                            },
+                            "parts": [
+                                "Rappasoft",
+                                "LaravelLivewireTables",
+                                "Traits",
+                                "false"
+                            ]
+                        }
+                    },
+                    "parts": [
+                        "false"
+                    ]
+                }
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        },
+        "footerTrAttributesCallback": {
+            "name": "footerTrAttributesCallback",
+            "line": 19,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 2,
+            "default": null,
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        },
+        "footerTdAttributesCallback": {
+            "name": "footerTdAttributesCallback",
+            "line": 21,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 2,
+            "default": null,
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        }
+    },
+    "methods": {
+        "setupFooter": {
+            "name": "setupFooter",
+            "line": 23,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "renderingWithFooter": {
+            "name": "renderingWithFooter",
+            "line": 32,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

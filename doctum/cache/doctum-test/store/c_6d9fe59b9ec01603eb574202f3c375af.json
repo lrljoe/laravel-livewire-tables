@@ -1,0 +1,550 @@
+{
+    "name": "Rappasoft\\LaravelLivewireTables\\Traits\\WithPagination",
+    "line": 9,
+    "short_desc": null,
+    "long_desc": null,
+    "hint": null,
+    "tags": [],
+    "namespace": "Rappasoft\\LaravelLivewireTables\\Traits",
+    "file": ".\/src\/Traits\/WithPagination.php",
+    "relative_file": null,
+    "hash": "e08fe76ff0b2f34292f376d2e31ee8840dd6fc48",
+    "parent": null,
+    "modifiers": 0,
+    "is_trait": true,
+    "is_interface": false,
+    "is_read_only": false,
+    "aliases": {
+        "LivewirePagination": "Livewire\\WithPagination",
+        "PaginationConfiguration": "Rappasoft\\LaravelLivewireTables\\Traits\\Configuration\\PaginationConfiguration",
+        "PaginationHelpers": "Rappasoft\\LaravelLivewireTables\\Traits\\Helpers\\PaginationHelpers"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": {
+        "Livewire\\WithPagination": "Livewire\\WithPagination",
+        "Rappasoft\\LaravelLivewireTables\\Traits\\Configuration\\PaginationConfiguration": "Rappasoft\\LaravelLivewireTables\\Traits\\Configuration\\PaginationConfiguration",
+        "Rappasoft\\LaravelLivewireTables\\Traits\\Helpers\\PaginationHelpers": "Rappasoft\\LaravelLivewireTables\\Traits\\Helpers\\PaginationHelpers"
+    },
+    "properties": {
+        "pageName": {
+            "name": "pageName",
+            "line": 15,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "default": {
+                "nodeType": "Expr_ConstFetch",
+                "attributes": {
+                    "startLine": 15,
+                    "endLine": 15
+                },
+                "name": {
+                    "nodeType": "Name",
+                    "attributes": {
+                        "startLine": 15,
+                        "endLine": 15,
+                        "namespacedName": {
+                            "nodeType": "Name_FullyQualified",
+                            "attributes": {
+                                "startLine": 15,
+                                "endLine": 15
+                            },
+                            "parts": [
+                                "Rappasoft",
+                                "LaravelLivewireTables",
+                                "Traits",
+                                "null"
+                            ]
+                        }
+                    },
+                    "parts": [
+                        "null"
+                    ]
+                }
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        },
+        "perPage": {
+            "name": "perPage",
+            "line": 17,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "default": {
+                "nodeType": "Scalar_LNumber",
+                "attributes": {
+                    "startLine": 17,
+                    "endLine": 17,
+                    "kind": 10
+                },
+                "value": 10
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        },
+        "perPageAccepted": {
+            "name": "perPageAccepted",
+            "line": 19,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "default": {
+                "nodeType": "Expr_Array",
+                "attributes": {
+                    "startLine": 19,
+                    "endLine": 19,
+                    "kind": 2
+                },
+                "items": [
+                    {
+                        "nodeType": "Expr_ArrayItem",
+                        "attributes": {
+                            "startLine": 19,
+                            "endLine": 19
+                        },
+                        "key": null,
+                        "value": {
+                            "nodeType": "Scalar_LNumber",
+                            "attributes": {
+                                "startLine": 19,
+                                "endLine": 19,
+                                "kind": 10
+                            },
+                            "value": 10
+                        },
+                        "byRef": false,
+                        "unpack": false
+                    },
+                    {
+                        "nodeType": "Expr_ArrayItem",
+                        "attributes": {
+                            "startLine": 19,
+                            "endLine": 19
+                        },
+                        "key": null,
+                        "value": {
+                            "nodeType": "Scalar_LNumber",
+                            "attributes": {
+                                "startLine": 19,
+                                "endLine": 19,
+                                "kind": 10
+                            },
+                            "value": 25
+                        },
+                        "byRef": false,
+                        "unpack": false
+                    },
+                    {
+                        "nodeType": "Expr_ArrayItem",
+                        "attributes": {
+                            "startLine": 19,
+                            "endLine": 19
+                        },
+                        "key": null,
+                        "value": {
+                            "nodeType": "Scalar_LNumber",
+                            "attributes": {
+                                "startLine": 19,
+                                "endLine": 19,
+                                "kind": 10
+                            },
+                            "value": 50
+                        },
+                        "byRef": false,
+                        "unpack": false
+                    }
+                ]
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        },
+        "paginationTheme": {
+            "name": "paginationTheme",
+            "line": 21,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "default": {
+                "nodeType": "Scalar_String",
+                "attributes": {
+                    "startLine": 21,
+                    "endLine": 21,
+                    "kind": 1
+                },
+                "value": "tailwind"
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        },
+        "paginationStatus": {
+            "name": "paginationStatus",
+            "line": 23,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "default": {
+                "nodeType": "Expr_ConstFetch",
+                "attributes": {
+                    "startLine": 23,
+                    "endLine": 23
+                },
+                "name": {
+                    "nodeType": "Name",
+                    "attributes": {
+                        "startLine": 23,
+                        "endLine": 23,
+                        "namespacedName": {
+                            "nodeType": "Name_FullyQualified",
+                            "attributes": {
+                                "startLine": 23,
+                                "endLine": 23
+                            },
+                            "parts": [
+                                "Rappasoft",
+                                "LaravelLivewireTables",
+                                "Traits",
+                                "true"
+                            ]
+                        }
+                    },
+                    "parts": [
+                        "true"
+                    ]
+                }
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        },
+        "paginationVisibilityStatus": {
+            "name": "paginationVisibilityStatus",
+            "line": 25,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "default": {
+                "nodeType": "Expr_ConstFetch",
+                "attributes": {
+                    "startLine": 25,
+                    "endLine": 25
+                },
+                "name": {
+                    "nodeType": "Name",
+                    "attributes": {
+                        "startLine": 25,
+                        "endLine": 25,
+                        "namespacedName": {
+                            "nodeType": "Name_FullyQualified",
+                            "attributes": {
+                                "startLine": 25,
+                                "endLine": 25
+                            },
+                            "parts": [
+                                "Rappasoft",
+                                "LaravelLivewireTables",
+                                "Traits",
+                                "true"
+                            ]
+                        }
+                    },
+                    "parts": [
+                        "true"
+                    ]
+                }
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        },
+        "perPageVisibilityStatus": {
+            "name": "perPageVisibilityStatus",
+            "line": 27,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "default": {
+                "nodeType": "Expr_ConstFetch",
+                "attributes": {
+                    "startLine": 27,
+                    "endLine": 27
+                },
+                "name": {
+                    "nodeType": "Name",
+                    "attributes": {
+                        "startLine": 27,
+                        "endLine": 27,
+                        "namespacedName": {
+                            "nodeType": "Name_FullyQualified",
+                            "attributes": {
+                                "startLine": 27,
+                                "endLine": 27
+                            },
+                            "parts": [
+                                "Rappasoft",
+                                "LaravelLivewireTables",
+                                "Traits",
+                                "true"
+                            ]
+                        }
+                    },
+                    "parts": [
+                        "true"
+                    ]
+                }
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        },
+        "paginationMethod": {
+            "name": "paginationMethod",
+            "line": 30,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "default": {
+                "nodeType": "Scalar_String",
+                "attributes": {
+                    "startLine": 30,
+                    "endLine": 30,
+                    "kind": 1
+                },
+                "value": "standard"
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        },
+        "paginationCurrentItems": {
+            "name": "paginationCurrentItems",
+            "line": 32,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "default": {
+                "nodeType": "Expr_Array",
+                "attributes": {
+                    "startLine": 32,
+                    "endLine": 32,
+                    "kind": 2
+                },
+                "items": []
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        },
+        "paginationCurrentCount": {
+            "name": "paginationCurrentCount",
+            "line": 34,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "default": {
+                "nodeType": "Scalar_LNumber",
+                "attributes": {
+                    "startLine": 34,
+                    "endLine": 34,
+                    "kind": 10
+                },
+                "value": 0
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        },
+        "paginationTotalItemCount": {
+            "name": "paginationTotalItemCount",
+            "line": 36,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "default": {
+                "nodeType": "Expr_ConstFetch",
+                "attributes": {
+                    "startLine": 36,
+                    "endLine": 36
+                },
+                "name": {
+                    "nodeType": "Name",
+                    "attributes": {
+                        "startLine": 36,
+                        "endLine": 36,
+                        "namespacedName": {
+                            "nodeType": "Name_FullyQualified",
+                            "attributes": {
+                                "startLine": 36,
+                                "endLine": 36
+                            },
+                            "parts": [
+                                "Rappasoft",
+                                "LaravelLivewireTables",
+                                "Traits",
+                                "null"
+                            ]
+                        }
+                    },
+                    "parts": [
+                        "null"
+                    ]
+                }
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        },
+        "numberOfPaginatorsRendered": {
+            "name": "numberOfPaginatorsRendered",
+            "line": 38,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "default": {
+                "nodeType": "Expr_Array",
+                "attributes": {
+                    "startLine": 38,
+                    "endLine": 38,
+                    "kind": 2
+                },
+                "items": []
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        }
+    },
+    "methods": {
+        "setupPagination": {
+            "name": "setupPagination",
+            "line": 41,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "updatedPerPage": {
+            "name": "updatedPerPage",
+            "line": 55,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "value": {
+                    "name": "value",
+                    "line": 55,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": 0,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false,
+                    "is_read_only": false
+                }
+            }
+        },
+        "resetComputedPage": {
+            "name": "resetComputedPage",
+            "line": 73,
+            "short_desc": "Reset the page using the custom page name",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "renderingWithPagination": {
+            "name": "renderingWithPagination",
+            "line": 83,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "see": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

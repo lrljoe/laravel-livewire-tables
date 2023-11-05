@@ -1,0 +1,69 @@
+{
+    "name": "Rappasoft\\LaravelLivewireTables\\Views\\Traits\\Configuration\\LivewireComponentColumnConfiguration",
+    "line": 5,
+    "short_desc": null,
+    "long_desc": null,
+    "hint": null,
+    "tags": [],
+    "namespace": "Rappasoft\\LaravelLivewireTables\\Views\\Traits\\Configuration",
+    "file": ".\/src\/Views\/Traits\/Configuration\/LivewireComponentColumnConfiguration.php",
+    "relative_file": null,
+    "hash": "1c64e7c72810a3966c7e7276a393f2424332619c",
+    "parent": null,
+    "modifiers": 0,
+    "is_trait": true,
+    "is_interface": false,
+    "is_read_only": false,
+    "aliases": [],
+    "errors": [],
+    "interfaces": [],
+    "traits": {
+        "Rappasoft\\LaravelLivewireTables\\Views\\Traits\\Configuration\\ComponentColumnConfiguration": "Rappasoft\\LaravelLivewireTables\\Views\\Traits\\Configuration\\ComponentColumnConfiguration"
+    },
+    "properties": {
+        "componentView": {
+            "name": "componentView",
+            "line": 9,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 2,
+            "default": null,
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        },
+        "attributesCallback": {
+            "name": "attributesCallback",
+            "line": 11,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 2,
+            "default": null,
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        },
+        "slotCallback": {
+            "name": "slotCallback",
+            "line": 13,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 2,
+            "default": null,
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        }
+    },
+    "methods": [],
+    "constants": []
+}

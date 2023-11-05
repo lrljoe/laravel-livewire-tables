@@ -1,0 +1,74 @@
+{
+    "name": "Rappasoft\\LaravelLivewireTables\\Traits\\WithCollapsingColumns",
+    "line": 8,
+    "short_desc": null,
+    "long_desc": null,
+    "hint": null,
+    "tags": [],
+    "namespace": "Rappasoft\\LaravelLivewireTables\\Traits",
+    "file": ".\/src\/Traits\/WithCollapsingColumns.php",
+    "relative_file": null,
+    "hash": "9d4b9ddcb60b12c92ffaa1a657d35f0651398aaf",
+    "parent": null,
+    "modifiers": 0,
+    "is_trait": true,
+    "is_interface": false,
+    "is_read_only": false,
+    "aliases": {
+        "CollapsingColumnConfiguration": "Rappasoft\\LaravelLivewireTables\\Traits\\Configuration\\CollapsingColumnConfiguration",
+        "CollapsingColumnHelpers": "Rappasoft\\LaravelLivewireTables\\Traits\\Helpers\\CollapsingColumnHelpers"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": {
+        "Rappasoft\\LaravelLivewireTables\\Traits\\Configuration\\CollapsingColumnConfiguration": "Rappasoft\\LaravelLivewireTables\\Traits\\Configuration\\CollapsingColumnConfiguration",
+        "Rappasoft\\LaravelLivewireTables\\Traits\\Helpers\\CollapsingColumnHelpers": "Rappasoft\\LaravelLivewireTables\\Traits\\Helpers\\CollapsingColumnHelpers"
+    },
+    "properties": {
+        "collapsingColumnsStatus": {
+            "name": "collapsingColumnsStatus",
+            "line": 13,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Expr_ConstFetch",
+                "attributes": {
+                    "startLine": 13,
+                    "endLine": 13
+                },
+                "name": {
+                    "nodeType": "Name",
+                    "attributes": {
+                        "startLine": 13,
+                        "endLine": 13,
+                        "namespacedName": {
+                            "nodeType": "Name_FullyQualified",
+                            "attributes": {
+                                "startLine": 13,
+                                "endLine": 13
+                            },
+                            "parts": [
+                                "Rappasoft",
+                                "LaravelLivewireTables",
+                                "Traits",
+                                "true"
+                            ]
+                        }
+                    },
+                    "parts": [
+                        "true"
+                    ]
+                }
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        }
+    },
+    "methods": [],
+    "constants": []
+}

@@ -1,0 +1,205 @@
+{
+    "name": "Rappasoft\\LaravelLivewireTables\\Traits\\WithLoadingPlaceholder",
+    "line": 8,
+    "short_desc": null,
+    "long_desc": null,
+    "hint": null,
+    "tags": [],
+    "namespace": "Rappasoft\\LaravelLivewireTables\\Traits",
+    "file": ".\/src\/Traits\/WithLoadingPlaceholder.php",
+    "relative_file": null,
+    "hash": "0e42a834e9bc9c2ab7ca04435445d278c4188d48",
+    "parent": null,
+    "modifiers": 0,
+    "is_trait": true,
+    "is_interface": false,
+    "is_read_only": false,
+    "aliases": {
+        "LoadingPlaceholderConfiguration": "Rappasoft\\LaravelLivewireTables\\Traits\\Configuration\\LoadingPlaceholderConfiguration",
+        "LoadingPlaceholderHelpers": "Rappasoft\\LaravelLivewireTables\\Traits\\Helpers\\LoadingPlaceholderHelpers"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": {
+        "Rappasoft\\LaravelLivewireTables\\Traits\\Configuration\\LoadingPlaceholderConfiguration": "Rappasoft\\LaravelLivewireTables\\Traits\\Configuration\\LoadingPlaceholderConfiguration",
+        "Rappasoft\\LaravelLivewireTables\\Traits\\Helpers\\LoadingPlaceholderHelpers": "Rappasoft\\LaravelLivewireTables\\Traits\\Helpers\\LoadingPlaceholderHelpers"
+    },
+    "properties": {
+        "displayLoadingPlaceholder": {
+            "name": "displayLoadingPlaceholder",
+            "line": 13,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Expr_ConstFetch",
+                "attributes": {
+                    "startLine": 13,
+                    "endLine": 13
+                },
+                "name": {
+                    "nodeType": "Name",
+                    "attributes": {
+                        "startLine": 13,
+                        "endLine": 13,
+                        "namespacedName": {
+                            "nodeType": "Name_FullyQualified",
+                            "attributes": {
+                                "startLine": 13,
+                                "endLine": 13
+                            },
+                            "parts": [
+                                "Rappasoft",
+                                "LaravelLivewireTables",
+                                "Traits",
+                                "false"
+                            ]
+                        }
+                    },
+                    "parts": [
+                        "false"
+                    ]
+                }
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        },
+        "loadingPlaceholderContent": {
+            "name": "loadingPlaceholderContent",
+            "line": 15,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Scalar_String",
+                "attributes": {
+                    "startLine": 15,
+                    "endLine": 15,
+                    "kind": 1
+                },
+                "value": "Loading"
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        },
+        "loadingPlaceholderBlade": {
+            "name": "loadingPlaceholderBlade",
+            "line": 17,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Expr_ConstFetch",
+                "attributes": {
+                    "startLine": 17,
+                    "endLine": 17
+                },
+                "name": {
+                    "nodeType": "Name",
+                    "attributes": {
+                        "startLine": 17,
+                        "endLine": 17,
+                        "namespacedName": {
+                            "nodeType": "Name_FullyQualified",
+                            "attributes": {
+                                "startLine": 17,
+                                "endLine": 17
+                            },
+                            "parts": [
+                                "Rappasoft",
+                                "LaravelLivewireTables",
+                                "Traits",
+                                "null"
+                            ]
+                        }
+                    },
+                    "parts": [
+                        "null"
+                    ]
+                }
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        },
+        "loadingPlaceHolderAttributes": {
+            "name": "loadingPlaceHolderAttributes",
+            "line": 19,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Expr_Array",
+                "attributes": {
+                    "startLine": 19,
+                    "endLine": 19,
+                    "kind": 2
+                },
+                "items": []
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        },
+        "loadingPlaceHolderIconAttributes": {
+            "name": "loadingPlaceHolderIconAttributes",
+            "line": 21,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Expr_Array",
+                "attributes": {
+                    "startLine": 21,
+                    "endLine": 21,
+                    "kind": 2
+                },
+                "items": []
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        },
+        "loadingPlaceHolderWrapperAttributes": {
+            "name": "loadingPlaceHolderWrapperAttributes",
+            "line": 23,
+            "short_desc": null,
+            "long_desc": null,
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Expr_Array",
+                "attributes": {
+                    "startLine": 23,
+                    "endLine": 23,
+                    "kind": 2
+                },
+                "items": []
+            },
+            "errors": [],
+            "is_read_only": false,
+            "is_write_only": false
+        }
+    },
+    "methods": [],
+    "constants": []
+}
