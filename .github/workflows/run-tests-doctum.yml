@@ -26,6 +26,9 @@ jobs:
               method: "update"
               # (optional) defaults to '--output-format=github --no-ansi --no-progress -v'
               cli-args: "--output-format=github --no-ansi --no-progress -v"
+
+        - name: Remove Unrelated Files
+          run: rm -rf ./docs && mv ./doctum/build ./docs
       
         - uses: stefanzweifel/git-auto-commit-action@v4
           with:
