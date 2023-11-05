@@ -27,19 +27,6 @@ jobs:
               # (optional) defaults to '--output-format=github --no-ansi --no-progress -v'
               cli-args: "--output-format=github --no-ansi --no-progress -v"
 
-        - name: Remove Unrelated Files
-          run: |
-            rm -rf database
-            rm -rf config
-            rm -rf docs
-            rm -rf public
-            rm -rf resources
-            rm -rf src
-            rm -rf tests
-
-        - name: Move New Docs To docs
-          run: |
-            cp -R ./doctum/build docs
       
         - uses: stefanzweifel/git-auto-commit-action@v4
           with:
