@@ -36,15 +36,22 @@ jobs:
             rm -rf resources
             rm -rf src
             rm -rf tests
+            rm psalm.xml.dist
+            rm phpunit.xml.dist
+            rm phpstan.neon
+            rm coverage.xml
+            rm composer.json
+            rm codecov.yml
+            rm doctum-config.php
+            rm .editorconfig
             
         - name: Move New Docs To docs
           run: |
-            cp -R doctum/build docs
+            cp -R doctum/build/doctum-test docs
   
         - name: Git Add
           run: |
             git add docs/*
-            git add doctum/build/*
 
         - uses: stefanzweifel/git-auto-commit-action@v4
           with:
@@ -63,7 +70,7 @@ jobs:
             # Optional. Local and remote branch name where commit is going to be pushed
             #  to. Defaults to the current branch.
             #  You might need to set `create_branch: true` if the branch does not exist.
-            branch: doctum-docs-new2
+            branch: doctum-docs-latest
 
             # Optional. Options used by `git-add`.
             # See https://git-scm.com/docs/git-add#_options
