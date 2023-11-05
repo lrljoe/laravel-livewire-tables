@@ -16,25 +16,14 @@ jobs:
     name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }} - ${{ matrix.os }}
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-          
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: ${{ matrix.php }}
-          extensions: dom, curl, libxml, mbstring, pcntl, pdo, sqlite, pdo_sqlite, bcmath, intl, iconv, fileinfo
-          ini-values: memory_limit=512M
-          coverage: none
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
-      - name: build doctum docs
-        uses: sudo-bot/action-doctum@latest
-        with:
-          config-file: doctum-config.php
-          # parse, render or update
-          method: "update"
-          # (optional) defaults to '--output-format=github --no-ansi --no-progress -v'
-          cli-args: "--output-format=github --no-ansi --no-progress -v"
+        - uses: actions/checkout@v4
+        - name: build doctum docs
+          uses: sudo-bot/action-doctum@v5
+          with:
+              config-file: doctum-config.php
+              # parse, render or update
+              method: "update"
+              # (optional) defaults to '--output-format=github --no-ansi --no-progress -v'
+              cli-args: "--output-format=github --no-ansi --no-progress -v"
+      
   
