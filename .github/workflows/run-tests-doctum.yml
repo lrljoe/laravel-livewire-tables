@@ -1,6 +1,6 @@
 name: build-doctum-docs
 
-on:
+on: 
     # Runs on pushes targeting the default branch
     push:
       branches: ["doctum-test"]
@@ -51,7 +51,7 @@ jobs:
   
           - name: Git Add
             run: |
-                git add docs/*
+                git add docs
             
           - uses: stefanzweifel/git-auto-commit-action@v4
             with:
