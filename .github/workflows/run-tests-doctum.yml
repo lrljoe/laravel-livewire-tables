@@ -51,9 +51,10 @@ jobs:
               rm CONTRIBUTORS.md
               rm LICENSE.md
               rm README.md
-              
+
           - name: Remove Package Directories
             run: | 
+                rm -rf .github
                 rm -rf build/cache
                 rm -rf cache
                 rm -rf config
