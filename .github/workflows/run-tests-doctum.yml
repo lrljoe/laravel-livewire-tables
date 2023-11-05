@@ -47,10 +47,6 @@ jobs:
                 rm -rf cache
                 rm -rf build/cache
 
-          - name: Git Remove
-            run: |
-              git rm build/cache
-
           - name: Git Add
             run: |
                 git add docs/*
