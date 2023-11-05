@@ -23,12 +23,17 @@ jobs:
           with:
               config-file: doctum-config.php
               # parse, render or update
-              method: "update"
+              method: "parse"
               # (optional) defaults to '--output-format=github --no-ansi --no-progress -v'
               cli-args: "--output-format=github --no-ansi --no-progress -v"
 
         - name: Remove Unrelated Files
-          run: rm -rf ./docs && cp -R ./doctum/build ./docs
+          run: |
+            rm -rf database
+            rm -rf docs
+            rm -rf resources
+            rm -rf src
+            cp -R doctum/build docs
       
         - uses: stefanzweifel/git-auto-commit-action@v4
           with:
@@ -39,7 +44,7 @@ jobs:
             # Optional. Local and remote branch name where commit is going to be pushed
             #  to. Defaults to the current branch.
             #  You might need to set `create_branch: true` if the branch does not exist.
-            branch: doctum-docs-new
+            branch: doctum-test doctum-docs-new
         
             # Optional. Options used by `git-commit`.
             # See https://git-scm.com/docs/git-commit#_options
