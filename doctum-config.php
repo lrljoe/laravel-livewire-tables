@@ -5,7 +5,7 @@ use Doctum\RemoteRepository\GitHubRemoteRepository;
 use Doctum\Version\GitVersionCollection;
 use Symfony\Component\Finder\Finder;
 
-$dir = './src';
+$dir = '.';
 
 $iterator = Finder::create()
     ->files()
@@ -28,7 +28,7 @@ return new Doctum($iterator, [
     'title' => 'Rappasoft - Laravel Livewire Tables',
     'build_dir' => __DIR__.'/doctum/build/%version%',
     'cache_dir' => __DIR__.'/doctum/cache/%version%',
-    'source_dir' => dirname($dir).'/',
+    'source_dir' => dirname($dir).'/src',
     'remote_repository' => new GitHubRemoteRepository('rappasoft/laravel-livewire-tables', dirname($dir)),
     'default_opened_level' => 2, // optional, 2 is the default value
 ]);
