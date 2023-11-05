@@ -26,4 +26,7 @@ jobs:
               # (optional) defaults to '--output-format=github --no-ansi --no-progress -v'
               cli-args: "--output-format=github --no-ansi --no-progress -v"
       
-  
+        - name: Commit changes
+          uses: stefanzweifel/git-auto-commit-action@v4
+          with:
+            commit_message: Add Doctum Output
