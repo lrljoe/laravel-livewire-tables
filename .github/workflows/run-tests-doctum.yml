@@ -49,7 +49,6 @@ jobs:
 
           - name: Git Remove
             run: |
-              git rm cache
               git rm build/cache
 
           - name: Git Add
