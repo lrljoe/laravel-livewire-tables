@@ -39,6 +39,11 @@ jobs:
                 rm -rf resources
                 rm -rf public
                 rm -rf tests
+                rm codecov.yml
+                rm coverage.xml
+                rm phpstan.neon
+                rm phpunit.xml.dist
+                rm psalm.xml.dist
 
           - name: Git Add
             run: |
