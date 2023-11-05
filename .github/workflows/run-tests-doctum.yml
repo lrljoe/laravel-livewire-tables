@@ -1,19 +1,33 @@
 name: run-tests-doctum
 
-on: [push]
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["doctum-test"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   test:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest]
-        php: [8.2]
-        laravel: [10]
-        stability: [prefer-dist]
+    runs-on: unbuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
-    name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }} - ${{ matrix.os }}
+
+    name: LatestDeploymentToPages
 
     steps:
         - uses: actions/checkout@v4
@@ -94,3 +108,16 @@ jobs:
             commit_user_email: my-github-actions-bot@example.org # defaults to "41898282+github-actions[bot]@users.noreply.github.com"
             commit_author: Author <actions@github.com> # defaults to author of the commit that triggered the run
             create_branch: true
+
+        - name: Setup Pages
+          uses: actions/configure-pages@v3
+
+        - name: Upload artifact
+          uses: actions/upload-pages-artifact@v2
+          with:
+            # Upload docs only
+            path: './docs'
+
+        - name: Deploy to GitHub Pages
+          id: deployment
+          uses: actions/deploy-pages@v2
