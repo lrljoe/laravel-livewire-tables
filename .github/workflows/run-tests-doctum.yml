@@ -54,7 +54,7 @@ jobs:
 
           - name: Git Add
             run: |
-                git add build/*
+                git add docs/*
 
           - uses: stefanzweifel/git-auto-commit-action@v4
             with:
