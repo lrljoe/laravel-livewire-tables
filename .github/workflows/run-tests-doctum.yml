@@ -34,9 +34,12 @@ jobs:
 
           - name: Remove Unrequired Items
             run: | 
-                rm -rf resources
+                rm -rf config
                 rm -rf database
-                
+                rm -rf resources
+                rm -rf public
+                rm -rf tests
+
           - name: Git Add
             run: |
                 git add docs/*
