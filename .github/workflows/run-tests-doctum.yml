@@ -32,6 +32,11 @@ jobs:
                 # (optional) defaults to '--output-format=github --no-ansi --no-progress -v'
                 cli-args: "--output-format=github --no-ansi --no-progress -v"
 
+          - name: Remove Unrequired Items
+            run: | 
+                rm -rf resources
+                rm -rf database
+                
           - name: Git Add
             run: |
                 git add docs/*
