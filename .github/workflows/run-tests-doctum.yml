@@ -32,7 +32,27 @@ jobs:
                 # (optional) defaults to '--output-format=github --no-ansi --no-progress -v'
                 cli-args: "--output-format=github --no-ansi --no-progress -v"
 
-          - name: Remove Unrequired Items
+          - name: Remove GitHub Specific Issues
+            run: | 
+              rm .editorconfig
+              rm .gitattributes
+              rm .gitignore
+
+          - name: Remove Package Specific Items
+            run: |
+              rm composer.json
+              rm codecov.yml
+              rm coverage.xml
+              rm doctum-config.php
+              rm phpstan.neon
+              rm phpunit.xml.dist
+              rm psalm.xml.dist
+              rm CHANGELOG.md
+              rm CONTRIBUTORS.md
+              rm LICENSE.md
+              rm README.md
+              
+          - name: Remove Package Directories
             run: | 
                 rm -rf build/cache
                 rm -rf cache
@@ -43,19 +63,7 @@ jobs:
                 rm -rf public
                 rm -rf src
                 rm -rf tests
-                rm composer.json
-                rm codecov.yml
-                rm coverage.xml
-                rm doctum-config.php
-                rm phpstan.neon
-                rm phpunit.xml.dist
-                rm psalm.xml.dist
-                rm CHANGELOG.md
-                rm CONTRIBUTORS.md
-                rm LICENSE.md
-                rm README.md
-
-
+                
           - name: Move Doctum Docs
             run: |
                 mv build docs
