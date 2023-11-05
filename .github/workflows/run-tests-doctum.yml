@@ -47,7 +47,7 @@ jobs:
               
           - name: Move New Docs To docs
             run: |
-                cp -R doctum/build docs
+                cp -R /tmp/doctum//build docs
   
           - name: Git Add
             run: |
