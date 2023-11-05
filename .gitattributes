@@ -24,7 +24,6 @@
 /testbench.yaml                                         export-ignore
 /codecov.yml                                            export-ignore
 /coverage.xml                                           export-ignore
-/doctum                                                 export-ignore
 # Exclude unminified versions of files
 /resources/js/laravel-livewire-tables-thirdparty.js     export-ignore
 /resources/js/laravel-livewire-tables.js                export-ignore
