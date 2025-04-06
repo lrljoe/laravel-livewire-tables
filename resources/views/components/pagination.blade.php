@@ -11,7 +11,7 @@
         @if ($isTailwind)
             <div class="mt-4 px-4 md:p-0 sm:flex justify-between items-center space-y-4 sm:space-y-0">
                 <div>
-                    @if ($this->paginationIsEnabled && $this->isPaginationMethod('standard') && $currentRows->lastPage() > 1 && $this->showPaginationDetails)
+                    @if ($this->paginationIsEnabled() && $this->isPaginationMethod('standard') && $currentRows->lastPage() > 1 && $this->showPaginationDetails())
                         <p class="paged-pagination-results text-sm text-gray-700 leading-5 dark:text-white">
                                 <span>{{ __($localisationPath.'Showing') }}</span>
                                 <span class="font-medium">{{ $currentRows->firstItem() }}</span>
@@ -21,16 +21,16 @@
                                 <span class="font-medium"><span x-text="paginationTotalItemCount"></span></span>
                                 <span>{{ __($localisationPath.'results') }}</span>
                         </p>
-                    @elseif ($this->paginationIsEnabled && $this->isPaginationMethod('simple') && $this->showPaginationDetails)
+                    @elseif ($this->paginationIsEnabled() && $this->isPaginationMethod('simple') && $this->showPaginationDetails())
                         <p class="paged-pagination-results text-sm text-gray-700 leading-5 dark:text-white">
                             <span>{{ __($localisationPath.'Showing') }}</span>
                             <span class="font-medium">{{ $currentRows->firstItem() }}</span>
                             <span>{{ __($localisationPath.'to') }}</span>
                             <span class="font-medium">{{ $currentRows->lastItem() }}</span>
                         </p>
-                    @elseif ($this->paginationIsEnabled && $this->isPaginationMethod('cursor'))
+                    @elseif ($this->paginationIsEnabled() && $this->isPaginationMethod('cursor'))
                     @else
-                        @if($this->showPaginationDetails)
+                        @if($this->showPaginationDetails())
                             <p class="total-pagination-results text-sm text-gray-700 leading-5 dark:text-white">
                                 <span>{{ __($localisationPath.'Showing') }}</span>
                                 <span class="font-medium">{{ $currentRows->count() }}</span>
@@ -40,12 +40,12 @@
                     @endif
                 </div>
 
-                @if ($this->paginationIsEnabled)
+                @if ($this->paginationIsEnabled())
                     {{ $currentRows->links('livewire-tables::specific.tailwind.'.(!$this->isPaginationMethod('standard') ? 'simple-' : '').'pagination') }}
                 @endif
             </div>
         @else
-            @if ($this->paginationIsEnabled && $this->isPaginationMethod('standard') && $currentRows->lastPage() > 1)
+            @if ($this->paginationIsEnabled() && $this->isPaginationMethod('standard') && $currentRows->lastPage() > 1)
                 <div class="row mt-3">
                     <div class="col-12 col-md-6 overflow-auto">
                         {{ $currentRows->links('livewire-tables::specific.bootstrap-4.pagination') }}
@@ -56,7 +56,7 @@
                         "text-md-right" => $isBootstrap4,
                         "text-md-end" => $isBootstrap5,
                         ])>
-                        @if($this->showPaginationDetails)
+                        @if($this->showPaginationDetails())
                             <span>{{ __($localisationPath.'Showing') }}</span>
                             <strong>{{ $currentRows->count() ? $currentRows->firstItem() : 0 }}</strong>
                             <span>{{ __($localisationPath.'to') }}</span>
@@ -67,7 +67,7 @@
                         @endif
                     </div>
                 </div>
-            @elseif ($this->paginationIsEnabled && $this->isPaginationMethod('simple'))
+            @elseif ($this->paginationIsEnabled() && $this->isPaginationMethod('simple'))
                 <div class="row mt-3">
                     <div class="col-12 col-md-6 overflow-auto">
                         {{ $currentRows->links('livewire-tables::specific.bootstrap-4.simple-pagination') }}
@@ -78,7 +78,7 @@
                         "text-md-right" => $isBootstrap4,
                         "text-md-end" => $isBootstrap5,
                     ])>
-                        @if($this->showPaginationDetails)
+                        @if($this->showPaginationDetails())
                             <span>{{ __($localisationPath.'Showing') }}</span>
                             <strong>{{ $currentRows->count() ? $currentRows->firstItem() : 0 }}</strong>
                             <span>{{ __($localisationPath.'to') }}</span>
@@ -86,7 +86,7 @@
                         @endif
                     </div>
                 </div>
-            @elseif ($this->paginationIsEnabled && $this->isPaginationMethod('cursor'))
+            @elseif ($this->paginationIsEnabled() && $this->isPaginationMethod('cursor'))
                 <div class="row mt-3">
                     <div class="col-12 col-md-6 overflow-auto">
                         {{ $currentRows->links('livewire-tables::specific.bootstrap-4.simple-pagination') }}
@@ -95,7 +95,7 @@
             @else
                 <div class="row mt-3">
                     <div class="col-12 text-muted">
-                        @if($this->showPaginationDetails)
+                        @if($this->showPaginationDetails())
                             {{ __($localisationPath.'Showing') }}
                             <strong>{{ $currentRows->count() }}</strong>
                             {{ __($localisationPath.'results') }}

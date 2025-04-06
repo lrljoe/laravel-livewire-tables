@@ -41,6 +41,15 @@ document.addEventListener('alpine:init', () => {
         showFilterPillLabel: [],
         filterPillsSeparator: ', ',
         showFilterPillsSection: true,
+        stripLivewireTags(data) { 
+            let localHtml = data.innerHTML; 
+            localHtml = localHtml.replace('<!--[if BLOCK]>', '')
+                    .replace('<![endif]-->','')
+                    .replace('<!--[if ENDBLOCK]>','')
+                    .replace('<![endif]-->','')
+                    .trim();
+            return localHtml;
+        },
         removeHTMLTags(htmlString) {
             // Create a new DOMParser instance
             const parser = new DOMParser();
@@ -966,10 +975,5 @@ document.addEventListener('alpine:init', () => {
             this.syncItems(this.selectedItems);
             this.$watch('selectedItems', value => this.syncItems(value)); 
         } 
-
-
     }));
-
-
-
 });

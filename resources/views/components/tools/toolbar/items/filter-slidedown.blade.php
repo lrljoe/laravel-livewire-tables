@@ -2,7 +2,7 @@
 @props([])
 
 <div x-cloak x-show="filtersOpen" {{ $attributes
-            ->merge($this->getFilterSlidedownWrapperAttributes)
+            ->merge($this->getFilterSlidedownWrapperAttributes())
             ->merge($isTailwind ? [
                 'x-transition:enter' => 'transition ease-out duration-100',
                 'x-transition:enter-start' => 'transform opacity-0',
@@ -12,7 +12,7 @@
                 'x-transition:leave-end' => 'transform opacity-0',
             ] : [])
             ->class([
-                'container' => $isBootstrap && ($this->getFilterSlidedownWrapperAttributes['default'] ?? true),
+                'container' => $isBootstrap && ($this->getFilterSlidedownWrapperAttributes()['default'] ?? true),
             ])
             ->except(['default','default-colors','default-styling'])
         }} 

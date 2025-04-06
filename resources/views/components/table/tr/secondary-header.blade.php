@@ -1,6 +1,6 @@
 @aware([ 'tableName'])
 
-<x-livewire-tables::table.tr.plain
+<x-livewire-tables::table.tr.plain :rowIndex="-1"
     :customAttributes="$this->getSecondaryHeaderTrAttributes($this->getRows)"
     wire:key="{{ $tableName .'-secondary-header' }}"
 >
@@ -12,7 +12,7 @@
     @endif
 
     @if ($this->collapsingColumnsAreEnabled() && $this->hasCollapsedColumns())
-        <x-livewire-tables::table.td.collapsed-columns :hidden=true :displayMinimisedOnReorder="true" wire:key="{{ $tableName .'header-collapsed-hide' }}" rowIndex="-1"  />
+        <x-livewire-tables::table.td.collapsed-columns :hidden=true :displayMinimisedOnReorder="true" wire:key="{{ $tableName .'header-collapsed-hide' }}"  />
     @endif
 
     @foreach($this->selectedVisibleColumns as $colIndex => $column)

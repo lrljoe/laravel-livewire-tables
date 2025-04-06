@@ -1,9 +1,16 @@
 <?php
 
 namespace Rappasoft\LaravelLivewireTables\Traits\Helpers;
+use Livewire\Attributes\Computed;
 
 trait SecondaryHeaderHelpers
 {
+    #[Computed]
+    public function shouldShowSecondaryHeader(): bool
+    {
+        return ($this->secondaryHeaderIsEnabled() && $this->hasColumnsWithSecondaryHeader());
+    }
+
     public function hasColumnsWithSecondaryHeader(): bool
     {
         return $this->columnsWithSecondaryHeader === true;

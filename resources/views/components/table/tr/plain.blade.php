@@ -1,5 +1,5 @@
 @aware(['isTailwind','isBootstrap'])
-@props(['customAttributes' => [], 'displayMinimisedOnReorder' => true])
+@props(['customAttributes' => [], 'displayMinimisedOnReorder' => true, 'rowIndex' => "-1" ])
 
 @if ($isTailwind)
     <tr {{ $attributes

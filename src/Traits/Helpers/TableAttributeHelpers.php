@@ -10,33 +10,45 @@ use Rappasoft\LaravelLivewireTables\Views\Column;
 trait TableAttributeHelpers
 {
     #[Computed]
+    public function getCoreTableAttributes(): array
+    {
+        return [
+            'wrapper' => $this->getTableWrapperAttributes(),
+            'table' => $this->getTableAttributes(),
+            'thead' => $this->getTheadAttributes(),
+            'tbody' => $this->getTbodyAttributes(),
+        ];
+    }
+
+
+    #[Computed]
     public function getComponentWrapperAttributes(): array
     {
         return count($this->componentWrapperAttributes) ? $this->componentWrapperAttributes : ['id' => 'datatable-'.$this->getId()];
     }
-
+    
     #[Computed]
     public function getTableWrapperAttributes(): array
     {
-        return count($this->tableWrapperAttributes) ? $this->tableWrapperAttributes : ['default' => true];
+        return array_merge(['wire:key' => $this->getTableName() . '-twrap'], (count($this->tableWrapperAttributes) ? $this->tableWrapperAttributes : ['default' => true]));
     }
 
     #[Computed]
     public function getTableAttributes(): array
     {
-        return count($this->tableAttributes) ? $this->tableAttributes : ['id' => 'table-'.$this->getTableName(), 'default' => true];
+        return array_merge(['wire:key' => $this->getTableName() . '-table', 'id' => 'table-'.$this->getTableName()], (count($this->tableAttributes) ? $this->tableAttributes : ['default' => true]));
     }
 
     #[Computed]
     public function getTheadAttributes(): array
     {
-        return count($this->theadAttributes) ? $this->theadAttributes : ['default' => true];
+        return array_merge(['wire:key' => $this->getTableName() . '-thead'], (count($this->theadAttributes) ? $this->theadAttributes : ['default' => true]));
     }
 
     #[Computed]
     public function getTbodyAttributes(): array
     {
-        return count($this->tbodyAttributes) ? $this->tbodyAttributes : ['default' => true];
+        return array_merge(['wire:key' => $this->getTableName() . '-tbody', 'id' => $this->getTableName()."-tbody"], (count($this->tbodyAttributes) ? $this->tbodyAttributes : ['default' => true]));
     }
 
     /**

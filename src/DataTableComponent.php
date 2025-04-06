@@ -27,6 +27,15 @@ abstract class DataTableComponent extends Component
 
     public function render(): \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
     {
+        //dd($this->getCollapsedColumnsForContentNew());
+        /*
+        [
+            "shouldCollapseAlways" => false
+    "shouldCollapseOnTablet" => true
+    "shouldCollapseOnMobile" => false
+    "isHtml" => false
+    "title" => "Created At"
+    ]*/
         return view('livewire-tables::datatable');
     }
 }

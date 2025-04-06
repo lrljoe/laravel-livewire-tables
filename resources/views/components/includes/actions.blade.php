@@ -1,17 +1,20 @@
 @aware(['isTailwind', 'isBootstrap'])
 @php($actionWrapperAttributes = $this->getActionWrapperAttributes())
+@php($actionsPosition = $this->getActionsPosition())
+@php($showActionsInToolbar = $this->showActionsInToolbar())
+
 <div {{ $attributes
-            ->merge($this->actionWrapperAttributes)
+            ->merge($actionWrapperAttributes)
             ->class([
                 'flex flex-cols py-2 space-x-2' => $isTailwind && ($actionWrapperAttributes['default-styling'] ?? true),
                 '' => $isTailwind && ($actionWrapperAttributes['default-colors'] ?? true),
-                'd-flex flex-cols py-2 space-x-2' => $isBootstrap && ($this->actionWrapperAttributes['default-styling'] ?? true),
+                'd-flex flex-cols py-2 space-x-2' => $isBootstrap && ($actionWrapperAttributes['default-styling'] ?? true),
                 '' => $isBootstrap && ($actionWrapperAttributes['default-colors'] ?? true),
-                'justify-start' => $this->getActionsPosition === 'left',
-                'justify-center' => $this->getActionsPosition === 'center',
-                'justify-end' => $this->getActionsPosition === 'right',
-                'pl-2' => $this->showActionsInToolbar && $this->getActionsPosition === 'left',
-                'pr-2' => $this->showActionsInToolbar && $this->getActionsPosition === 'right',
+                'justify-start' => $actionsPosition === 'left',
+                'justify-center' => $actionsPosition === 'center',
+                'justify-end' => $actionsPosition === 'right',
+                'pl-2' => $showActionsInToolbar && $actionsPosition === 'left',
+                'pr-2' => $showActionsInToolbar && $actionsPosition === 'right',
             ])
             ->except(['default','default-styling','default-colors'])
         }} >

@@ -1,34 +1,27 @@
-@aware([ 'tableName','isTailwind','isBootstrap'])
+@aware(['tableName','isTailwind','isBootstrap'])
+@props(['bulkActionsTdAttributes','bulkActionsTdCheckboxAttributes'])
 
-@php
-    $customAttributes = [
-        'wrapper' => $this->getTableWrapperAttributes(),
-        'table' => $this->getTableAttributes(),
-        'thead' => $this->getTheadAttributes(),
-        'tbody' => $this->getTbodyAttributes(),
-    ];
-@endphp
+@php($coreTableAttributes = $this->getCoreTableAttributes())
 
 @if ($isTailwind)
-    <div
-        wire:key="{{ $tableName }}-twrap"
-        {{ $attributes->merge($customAttributes['wrapper'])
+    <div {{ $attributes->merge($coreTableAttributes['wrapper'])
             ->class([
-                'shadow overflow-y-auto border-b border-gray-200 dark:border-gray-700 sm:rounded-lg' => $customAttributes['wrapper']['default'] ?? true
+                'border-gray-200 dark:border-gray-700' => $coreTableAttributes['wrapper']['default-colors'] ?? ($coreTableAttributes['wrapper']['default'] ?? false),
+                'shadow overflow-y-auto border-b sm:rounded-lg' => $coreTableAttributes['wrapper']['default-styling'] ?? ($coreTableAttributes['wrapper']['default'] ?? false),
             ])
-            ->except(['default','default-styling','default-colors']) }}
-    >
-        <table
-            wire:key="{{ $tableName }}-table"
-            {{ $attributes->merge($customAttributes['table'])
-                ->class(['min-w-full divide-y divide-gray-200 dark:divide-none' => $customAttributes['table']['default'] ?? true])
+            ->except(['default','default-styling','default-colors'])
+    }}>
+        <table {{ $attributes->merge($coreTableAttributes['table'])
+                ->class([
+                    'divide-gray-200 dark:divide-none' => $coreTableAttributes['table']['default-colors'] ?? ($coreTableAttributes['table']['default'] ?? true),
+                    'min-w-full divide-y' => $coreTableAttributes['table']['default-styling'] ?? ($coreTableAttributes['table']['default'] ?? true),
+                ])
                 ->except(['default','default-styling','default-colors']) }}
-
         >
-            <thead wire:key="{{ $tableName }}-thead"
-                {{ $attributes->merge($customAttributes['thead'])
+            <thead {{ $attributes->merge($coreTableAttributes['thead'])
                     ->class([
-                        'bg-gray-50 dark:bg-gray-800' => $customAttributes['thead']['default'] ?? true
+                        'bg-gray-50 dark:bg-gray-800' => $coreTableAttributes['thead']['default-colors'] ?? ($coreTableAttributes['thead']['default'] ?? true),
+                        '' => $coreTableAttributes['thead']['default-styling'] ?? ($coreTableAttributes['thead']['default'] ?? true),
                     ])
                     ->except(['default','default-styling','default-colors']) }}
             >
@@ -37,17 +30,8 @@
                 </tr>
             </thead>
 
-            <tbody
-                wire:key="{{ $tableName }}-tbody"
-                id="{{ $tableName }}-tbody"
-                {{ $attributes->merge($customAttributes['tbody'])
-                        ->class([
-                            'bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-none' => $customAttributes['tbody']['default'] ?? true
-                        ])
-                        ->except(['default','default-styling','default-colors']) }}
-            >
-                {{ $slot }}
-            </tbody>
+            {{ $slot }}
+
 
             @isset($tfoot)
                 <tfoot wire:key="{{ $tableName }}-tfoot">
@@ -57,22 +41,27 @@
         </table>
     </div>
 @elseif ($isBootstrap)
-    <div wire:key="{{ $tableName }}-twrap"
-        {{ $attributes->merge($customAttributes['wrapper'])
-            ->class(['table-responsive' => $customAttributes['wrapper']['default'] ?? true])
-            ->except(['default','default-styling','default-colors']) }}
+    <div {{ $attributes->merge($coreTableAttributes['wrapper'])
+            ->class([
+                '' => $coreTableAttributes['wrapper']['default-colors'] ?? ($coreTableAttributes['wrapper']['default'] ?? true),
+                'table-responsive' => $coreTableAttributes['wrapper']['default-styling'] ?? ($coreTableAttributes['wrapper']['default'] ?? true),
+            ])
+            ->except(['default','default-styling','default-colors']) 
+        }}
     >
-        <table
-            wire:key="{{ $tableName }}-table"
-            {{ $attributes->merge($customAttributes['table'])
-                ->class(['laravel-livewire-table table' => $customAttributes['table']['default'] ?? true])
+        <table {{ $attributes->merge($coreTableAttributes['table'])
+                ->class([
+                    '' => $coreTableAttributes['table']['default-colors'] ?? ($coreTableAttributes['table']['default'] ?? true),
+                    'laravel-livewire-table table' => $coreTableAttributes['table']['default-styling'] ?? ($coreTableAttributes['table']['default'] ?? true),
+                ])
                 ->except(['default','default-styling','default-colors'])
             }}
         >
-            <thead
-                wire:key="{{ $tableName }}-thead"
-                {{ $attributes->merge($customAttributes['thead'])
-                    ->class(['' => $customAttributes['thead']['default'] ?? true])
+            <thead {{ $attributes->merge($coreTableAttributes['thead'])
+                    ->class([
+                        '' => $coreTableAttributes['thead']['default-colors'] ?? ($coreTableAttributes['thead']['default'] ?? true),
+                        '' => $coreTableAttributes['thead']['default-styling'] ?? ($coreTableAttributes['thead']['default'] ?? true),
+                    ])
                     ->except(['default','default-styling','default-colors']) }}
             >
                 <tr>
@@ -80,12 +69,12 @@
                 </tr>
             </thead>
 
-            <tbody
-                wire:key="{{ $tableName }}-tbody"
-                id="{{ $tableName }}-tbody"
-                {{ $attributes->merge($customAttributes['tbody'])
-                        ->class(['' => $customAttributes['tbody']['default'] ?? true])
-                        ->except(['default','default-styling','default-colors']) }}
+            <tbody {{ $attributes->merge($coreTableAttributes['tbody'])
+                    ->class([
+                        '' => $coreTableAttributes['tbody']['default-colors'] ?? ($coreTableAttributes['tbody']['default'] ?? true),
+                        '' => $coreTableAttributes['tbody']['default-styling'] ?? ($coreTableAttributes['tbody']['default'] ?? true),
+                    ])
+                    ->except(['default','default-styling','default-colors']) }}
             >
                 {{ $slot }}
             </tbody>

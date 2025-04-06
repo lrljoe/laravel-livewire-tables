@@ -1,6 +1,6 @@
 @aware([ 'tableName'])
 
-<x-livewire-tables::table.tr.plain
+<x-livewire-tables::table.tr.plain :rowIndex="-1"
     :customAttributes="$this->getFooterTrAttributes($this->getRows)"
     wire:key="{{ $tableName .'-footer' }}"
 >
@@ -13,7 +13,7 @@
 
     {{-- Adds a Column If Collapsing Columns Exist --}}
     @if ($this->collapsingColumnsAreEnabled() && $this->hasCollapsedColumns())
-        <x-livewire-tables::table.td.collapsed-columns :displayMinimisedOnReorder="true" rowIndex="-1" :hidden="true" wire:key="{{ $tableName.'-footer-collapse' }}" />
+        <x-livewire-tables::table.td.collapsed-columns :displayMinimisedOnReorder="true"  :hidden="true" wire:key="{{ $tableName.'-footer-collapse' }}" />
     @endif
 
     @foreach($this->selectedVisibleColumns as $colIndex => $column)

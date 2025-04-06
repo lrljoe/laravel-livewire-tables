@@ -155,4 +155,25 @@ trait CollapsingColumnHelpers
 
         return $columns;
     }
+
+    #[Computed]
+    public function getCollapsedColumnsForContentNew(): array
+    {
+        $extras = [];
+
+        foreach($this->getCollapsedColumnsForContent() as $index => $col)
+        {
+            $extras[$index] = [
+                'shouldCollapseAlways' => $col->shouldCollapseAlways(),
+                'shouldCollapseOnTablet' => $col->shouldCollapseOnTablet(),
+                'shouldCollapseOnMobile' => $col->shouldCollapseOnMobile(),
+                'isHtml' => $col->isHtml(),
+                'title' => $col->getTitle(),
+            ];
+
+        }
+
+        return $extras;
+    }
+
 }

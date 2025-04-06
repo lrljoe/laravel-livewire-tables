@@ -2,8 +2,8 @@
 @props(['row', 'rowIndex'])
 
 @php
-    $tdAttributes = $this->getBulkActionsTdAttributes;
-    $tdCheckboxAttributes = $this->getBulkActionsTdCheckboxAttributes;
+    $tdAttributes = $this->getBulkActionsTdAttributes();
+    $tdCheckboxAttributes = $this->getBulkActionsTdCheckboxAttributes();
 @endphp
 
 @if ($this->showBulkActionsSections())
