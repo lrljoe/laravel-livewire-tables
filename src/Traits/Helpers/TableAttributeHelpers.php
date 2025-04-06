@@ -20,35 +20,34 @@ trait TableAttributeHelpers
         ];
     }
 
-
     #[Computed]
     public function getComponentWrapperAttributes(): array
     {
         return count($this->componentWrapperAttributes) ? $this->componentWrapperAttributes : ['id' => 'datatable-'.$this->getId()];
     }
-    
+
     #[Computed]
     public function getTableWrapperAttributes(): array
     {
-        return array_merge(['wire:key' => $this->getTableName() . '-twrap'], (count($this->tableWrapperAttributes) ? $this->tableWrapperAttributes : ['default' => true]));
+        return array_merge(['wire:key' => $this->getTableName().'-twrap'], (count($this->tableWrapperAttributes) ? $this->tableWrapperAttributes : ['default' => true]));
     }
 
     #[Computed]
     public function getTableAttributes(): array
     {
-        return array_merge(['wire:key' => $this->getTableName() . '-table', 'id' => 'table-'.$this->getTableName()], (count($this->tableAttributes) ? $this->tableAttributes : ['default' => true]));
+        return array_merge(['wire:key' => $this->getTableName().'-table', 'id' => 'table-'.$this->getTableName()], (count($this->tableAttributes) ? $this->tableAttributes : ['default' => true]));
     }
 
     #[Computed]
     public function getTheadAttributes(): array
     {
-        return array_merge(['wire:key' => $this->getTableName() . '-thead'], (count($this->theadAttributes) ? $this->theadAttributes : ['default' => true]));
+        return array_merge(['wire:key' => $this->getTableName().'-thead'], (count($this->theadAttributes) ? $this->theadAttributes : ['default' => true]));
     }
 
     #[Computed]
     public function getTbodyAttributes(): array
     {
-        return array_merge(['wire:key' => $this->getTableName() . '-tbody', 'id' => $this->getTableName()."-tbody"], (count($this->tbodyAttributes) ? $this->tbodyAttributes : ['default' => true]));
+        return array_merge(['wire:key' => $this->getTableName().'-tbody', 'id' => $this->getTableName().'-tbody'], (count($this->tbodyAttributes) ? $this->tbodyAttributes : ['default' => true]));
     }
 
     /**

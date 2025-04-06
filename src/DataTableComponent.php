@@ -27,7 +27,7 @@ abstract class DataTableComponent extends Component
 
     public function render(): \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
     {
-        //dd($this->getCollapsedColumnsForContentNew());
+        // dd($this->getCollapsedColumnsForContentNew());
         /*
         [
             "shouldCollapseAlways" => false

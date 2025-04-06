@@ -2,15 +2,15 @@
 
 namespace Rappasoft\LaravelLivewireTables\Traits\Helpers;
 
-use Rappasoft\LaravelLivewireTables\Views\Column;
 use Livewire\Attributes\Computed;
+use Rappasoft\LaravelLivewireTables\Views\Column;
 
 trait FooterHelpers
 {
     #[Computed]
     public function shouldShowFooter(): bool
     {
-        return ($this->footerIsEnabled() && $this->hasColumnsWithFooter());
+        return $this->footerIsEnabled() && $this->hasColumnsWithFooter();
     }
 
     public function hasColumnsWithFooter(): bool
@@ -37,7 +37,7 @@ trait FooterHelpers
     {
         return $this->useHeaderAsFooterStatus;
     }
-    
+
     #[Computed]
     public function useHeaderAsFooterIsEnabled(): bool
     {

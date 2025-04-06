@@ -161,8 +161,7 @@ trait CollapsingColumnHelpers
     {
         $extras = [];
 
-        foreach($this->getCollapsedColumnsForContent() as $index => $col)
-        {
+        foreach ($this->getCollapsedColumnsForContent() as $index => $col) {
             $extras[$index] = [
                 'shouldCollapseAlways' => $col->shouldCollapseAlways(),
                 'shouldCollapseOnTablet' => $col->shouldCollapseOnTablet(),
@@ -175,5 +174,4 @@ trait CollapsingColumnHelpers
 
         return $extras;
     }
-
 }
