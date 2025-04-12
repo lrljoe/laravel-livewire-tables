@@ -12,6 +12,15 @@
 @php($showCollapsingColumnSections = $this->showCollapsingColumnSections)
 @php($selectedVisibleColumns = $this->selectedVisibleColumns)
 @php($collapsingColumnDetails = $this->getCollapsedColumnsForContentNew())
+@php($tdAttributes = $this->getBulkActionsTdAttributes())
+@php($tdCheckboxAttributes = $this->getBulkActionsTdCheckboxAttributes())
+@php($collapsingColumnButtonExpandAttributes = $this->getCollapsingColumnButtonExpandAttributes())
+@php($collapsingColumnButtonCollapseAttributes = $this->getCollapsingColumnButtonCollapseAttributes())
+@php($hasCollapsingColumns = ($this->collapsingColumnsAreEnabled() && $this->hasCollapsedColumns()))
+@php($shouldCollapseAlways = $this->shouldCollapseAlways())
+@php($shouldCollapseOnTablet = $this->shouldCollapseOnTablet())
+@php($shouldCollapseOnMobile = $this->shouldCollapseOnMobile())
+
 
 <div>
     <div x-data="{ currentlyReorderingStatus: false }">
@@ -23,7 +32,7 @@
                 $this->getParametersForConfigurableArea('before-wrapper')
             )
 
-            <x-livewire-tables::wrapper :$tableName :$primaryKey :$isTailwind :$isBootstrap :$isBootstrap4 :$isBootstrap5 :$localisationPath :$collapsingColumnDetails>
+            <x-livewire-tables::wrapper :$tableName :$primaryKey :$isTailwind :$isBootstrap :$isBootstrap4 :$isBootstrap5 :$localisationPath :$collapsingColumnDetails :$tdAttributes :$tdCheckboxAttributes :$collapsingColumnButtonExpandAttributes :$collapsingColumnButtonCollapseAttributes :$hasCollapsingColumns :$shouldCollapseAlways :$shouldCollapseOnTablet :$shouldCollapseOnMobile>
                 @if($this->hasActions() && !$this->showActionsInToolbar())
                     <x-livewire-tables::includes.actions/>
                 @endif

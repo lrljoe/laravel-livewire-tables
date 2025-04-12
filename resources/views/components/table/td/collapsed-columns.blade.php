@@ -1,8 +1,6 @@
-@aware([ 'tableName','isTailwind','isBootstrap','rowIndex'])
+@aware([ 'tableName','isTailwind','isBootstrap','rowIndex', 'collapsingColumnButtonExpandAttributes','collapsingColumnButtonCollapseAttributes','hasCollapsingColumns', 'shouldCollapseAlways','shouldCollapseOnTablet','shouldCollapseOnMobile'])
 @props(['hidden' => false])
-@if ($this->collapsingColumnsAreEnabled() && $this->hasCollapsedColumns())
-    @php($collapsingColumnButtonExpandAttributes= $this->getCollapsingColumnButtonExpandAttributes())
-    @php($collapsingColumnButtonCollapseAttributes= $this->getCollapsingColumnButtonCollapseAttributes())
+@if ($hasCollapsingColumns)
 
     <td x-data="{open:false}" wire:key="{{ $tableName }}-collapsingIcon-{{ $rowIndex }}-{{ md5(now()) }}"
         {{
@@ -10,14 +8,14 @@
                 ->merge()
                 ->class($isTailwind ? [
                     'p-3 table-cell text-center',
-                    'sm:hidden' => !$this->shouldCollapseAlways() && !$this->shouldCollapseOnTablet(),
-                    'md:hidden' => !$this->shouldCollapseAlways() && !$this->shouldCollapseOnTablet() && $this->shouldCollapseOnMobile(),
-                    'lg:hidden' => !$this->shouldCollapseAlways() && ($this->shouldCollapseOnTablet() || $this->shouldCollapseOnMobile()),
+                    'sm:hidden' => !$shouldCollapseAlways && !$shouldCollapseOnTablet,
+                    'md:hidden' => !$shouldCollapseAlways && !$shouldCollapseOnTablet && $shouldCollapseOnMobile,
+                    'lg:hidden' => !$shouldCollapseAlways && ($shouldCollapseOnTablet || $shouldCollapseOnMobile),
                 ] :
                 [
-                    'd-sm-none' => !$this->shouldCollapseAlways() && !$this->shouldCollapseOnTablet(),
-                    'd-md-none' => !$this->shouldCollapseAlways() && !$this->shouldCollapseOnTablet() && $this->shouldCollapseOnMobile(),
-                    'd-lg-none' => !$this->shouldCollapseAlways() && ($this->shouldCollapseOnTablet() || $this->shouldCollapseOnMobile()),
+                    'd-sm-none' => !$shouldCollapseAlways && !$shouldCollapseOnTablet,
+                    'd-md-none' => !$shouldCollapseAlways && !$shouldCollapseOnTablet && $shouldCollapseOnMobile,
+                    'd-lg-none' => !$shouldCollapseAlways && ($shouldCollapseOnTablet || $shouldCollapseOnMobile),
 
                 ])
         }}

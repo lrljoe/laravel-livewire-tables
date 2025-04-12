@@ -1,4 +1,4 @@
-@props(['component', 'tableName', 'primaryKey', 'isTailwind', 'isBootstrap','isBootstrap4', 'isBootstrap5', 'collapsingColumnDetails'])
+@props(['component', 'tableName', 'primaryKey', 'isTailwind', 'isBootstrap','isBootstrap4', 'isBootstrap5', 'collapsingColumnDetails', 'tdAttributes', 'tdCheckboxAttributes', 'collapsingColumnButtonExpandAttributes', 'collapsingColumnButtonCollapseAttributes', 'hasCollapsingColumns', 'shouldCollapseAlways', 'shouldCollapseOnTablet', 'shouldCollapseOnMobile'])
 <div wire:key="{{ $tableName }}-wrapper" >
     <div {{ $attributes->merge($this->getComponentWrapperAttributes()) }}
         @if ($this->hasRefresh()) wire:poll{{ $this->getRefreshOptions() }} @endif
