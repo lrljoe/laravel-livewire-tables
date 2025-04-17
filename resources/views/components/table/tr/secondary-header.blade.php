@@ -5,10 +5,10 @@
     wire:key="{{ $tableName .'-secondary-header' }}"
 >
     {{-- TODO: Remove --}}
-    <x-livewire-tables::table.td.plain :colIndex="bulkactions" x-cloak x-show="currentlyReorderingStatus" :displayMinimisedOnReorder="true" wire:key="{{ $tableName .'-header-test' }}" />
+    <x-livewire-tables::table.td.plain :colIndex="'bulkactions'" x-cloak x-show="currentlyReorderingStatus" :displayMinimisedOnReorder="true" wire:key="{{ $tableName .'-header-test' }}" />
 
     @if ($this->showBulkActionsSections)
-        <x-livewire-tables::table.td.plain :colIndex="bulkactions" :displayMinimisedOnReorder="true" wire:key="{{ $tableName .'-header-hasBulkActions' }}" />
+        <x-livewire-tables::table.td.plain :colIndex="'bulkactions'" :displayMinimisedOnReorder="true" wire:key="{{ $tableName .'-header-hasBulkActions' }}" />
     @endif
 
     @if ($this->collapsingColumnsAreEnabled() && $this->hasCollapsedColumns())

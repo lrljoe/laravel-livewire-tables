@@ -6,9 +6,9 @@
 >
     {{-- Adds a Column For Bulk Actions--}}
     @if (!$this->bulkActionsAreEnabled() || !$this->hasBulkActions())
-        <x-livewire-tables::table.td.plain :colIndex="bulkactions" x-cloak x-show="currentlyReorderingStatus" wire:key="{{ $tableName . '-footer-bulkactions-1' }}" />
+        <x-livewire-tables::table.td.plain :colIndex="'bulkactions'" x-cloak x-show="currentlyReorderingStatus" wire:key="{{ $tableName . '-footer-bulkactions-1' }}" />
     @elseif ($this->bulkActionsAreEnabled() && $this->hasBulkActions())
-        <x-livewire-tables::table.td.plain :colIndex="bulkactions" wire:key="{{ $tableName . '-footer-bulkactions-2' }}" />
+        <x-livewire-tables::table.td.plain :colIndex="'bulkactions'" wire:key="{{ $tableName . '-footer-bulkactions-2' }}" />
     @endif
 
     {{-- Adds a Column If Collapsing Columns Exist --}}
