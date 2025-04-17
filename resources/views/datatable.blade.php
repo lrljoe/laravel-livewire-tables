@@ -20,6 +20,8 @@
 @php($shouldCollapseAlways = $this->shouldCollapseAlways())
 @php($shouldCollapseOnTablet = $this->shouldCollapseOnTablet())
 @php($shouldCollapseOnMobile = $this->shouldCollapseOnMobile())
+@php($collapsingColumnClasses = $this->getCollapsingColumnClasses())
+
 
 
 <div>
@@ -32,7 +34,7 @@
                 $this->getParametersForConfigurableArea('before-wrapper')
             )
 
-            <x-livewire-tables::wrapper :$tableName :$primaryKey :$isTailwind :$isBootstrap :$isBootstrap4 :$isBootstrap5 :$localisationPath :$collapsingColumnDetails :$tdAttributes :$tdCheckboxAttributes :$collapsingColumnButtonExpandAttributes :$collapsingColumnButtonCollapseAttributes :$hasCollapsingColumns :$shouldCollapseAlways :$shouldCollapseOnTablet :$shouldCollapseOnMobile>
+            <x-livewire-tables::wrapper :$tableName :$primaryKey :$isTailwind :$isBootstrap :$isBootstrap4 :$isBootstrap5 :$localisationPath :$collapsingColumnDetails :$tdAttributes :$tdCheckboxAttributes :$collapsingColumnButtonExpandAttributes :$collapsingColumnButtonCollapseAttributes :$hasCollapsingColumns :$shouldCollapseAlways :$shouldCollapseOnTablet :$shouldCollapseOnMobile :$collapsingColumnClasses>
                 @if($this->hasActions() && !$this->showActionsInToolbar())
                     <x-livewire-tables::includes.actions/>
                 @endif

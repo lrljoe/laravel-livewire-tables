@@ -5,10 +5,10 @@
     wire:key="{{ $tableName .'-secondary-header' }}"
 >
     {{-- TODO: Remove --}}
-    <x-livewire-tables::table.td.plain x-cloak x-show="currentlyReorderingStatus" :displayMinimisedOnReorder="true" wire:key="{{ $tableName .'-header-test' }}" />
+    <x-livewire-tables::table.td.plain :colIndex="bulkactions" x-cloak x-show="currentlyReorderingStatus" :displayMinimisedOnReorder="true" wire:key="{{ $tableName .'-header-test' }}" />
 
     @if ($this->showBulkActionsSections)
-        <x-livewire-tables::table.td.plain :displayMinimisedOnReorder="true" wire:key="{{ $tableName .'-header-hasBulkActions' }}" />
+        <x-livewire-tables::table.td.plain :colIndex="bulkactions" :displayMinimisedOnReorder="true" wire:key="{{ $tableName .'-header-hasBulkActions' }}" />
     @endif
 
     @if ($this->collapsingColumnsAreEnabled() && $this->hasCollapsedColumns())
@@ -16,7 +16,7 @@
     @endif
 
     @foreach($this->selectedVisibleColumns as $colIndex => $column)
-        <x-livewire-tables::table.td.plain :column="$column" :displayMinimisedOnReorder="true" wire:key="{{ $tableName .'-secondary-header-show-'.$column->getSlug() }}"  :customAttributes="$this->getSecondaryHeaderTdAttributes($column, $this->getRows, $colIndex)">
+        <x-livewire-tables::table.td.plain :$colIndex :column="$column" :displayMinimisedOnReorder="true" wire:key="{{ $tableName .'-secondary-header-show-'.$column->getSlug() }}"  :customAttributes="$this->getSecondaryHeaderTdAttributes($column, $this->getRows, $colIndex)">
             @if($column->hasSecondaryHeader() && $column->hasSecondaryHeaderCallback())
                 @if( $column->secondaryHeaderCallbackIsFilter())
                     {{ $column->getSecondaryHeaderFilter($column->getSecondaryHeaderCallback(), $this->getFilterGenericData) }}    

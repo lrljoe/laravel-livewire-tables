@@ -130,7 +130,8 @@ trait ColumnSelectHelpers
         foreach ($this->getColumns() as $column) {
             $this->selectedColumns[] = $column->getSlug();
         }
-        $this->forgetColumnSelectSession();
+        $this->storeColumnSelectValues();
+
         if ($this->getEventStatusColumnSelect()) {
             event(new ColumnsSelected($this->getTableName(), $this->getColumnSelectSessionKey(), $this->selectedColumns));
         }

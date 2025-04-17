@@ -25,29 +25,19 @@
                 'text-left pt-4 pb-2 px-4' => $isTailwind,
                 'text-start pt-3 p-2' => $isBootstrap,
         ])>
-            <div>
+            <div >
 
 
                 @tableloop($collapsingColumnDetails as $colIndex => $columnData)
+                @php($key = $tableName . '_' . $rowIndex.'_'.$colIndex)
                     <div wire:key="{{ $tableName }}-row-{{ $row->{$primaryKey} }}-collapsed-contents-{{ $colIndex }}" 
                         x-data="{ value: '', 
-                            init() { 
-                                $nextTick(() => { 
-                                    this.value = stripLivewireTags($refs.{{ $tableName . '_' . $rowIndex.'_'.$colIndex }});
-                                });
-                            }
-                            }" @class($isTailwind ? [
-                                'block mb-2 hidden',
-                                'sm:block' => $columnData['shouldCollapseAlways'],
-                                'sm:block md:hidden' => !$columnData['shouldCollapseAlways'] && !$columnData['shouldCollapseOnTablet'] && $columnData['shouldCollapseOnMobile'],
-                                'sm:block lg:hidden' => !$columnData['shouldCollapseAlways'] && ($columnData['shouldCollapseOnTablet'] || $columnData['shouldCollapseOnMobile']),
-                        ] : [
-                                'd-block mb-2',
-                                'd-sm-none' => !$columnData['shouldCollapseAlways'] && !$columnData['shouldCollapseOnTablet'] && !$columnData['shouldCollapseOnMobile'],
-                                'd-md-none' => !$columnData['shouldCollapseAlways'] && !$columnData['shouldCollapseOnTablet'] && $columnData['shouldCollapseOnMobile'],
-                                'd-lg-none' => !$columnData['houldCollapseAlway'] && ($columnData['shouldCollapseOnTablet'] || $columnData['shouldCollapseOnMobile']),
-
-                        ])>
+                                init() { 
+                                    $watch('opening', val => {
+                                        this.value = stripLivewireTags($refs.{{ $tableName . '_' . $rowIndex.'_'.$colIndex }});
+                                    });
+                                }
+                            }" @class($columnData['classes'])>
                                 <strong>{{ $columnData['title'] }}</strong>: <br />
                                 <span @if($columnData['isHtml'])x-html="value" @else x-text="value"@endif></span>
                     </div>

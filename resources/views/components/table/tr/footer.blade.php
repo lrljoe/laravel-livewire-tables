@@ -6,9 +6,9 @@
 >
     {{-- Adds a Column For Bulk Actions--}}
     @if (!$this->bulkActionsAreEnabled() || !$this->hasBulkActions())
-        <x-livewire-tables::table.td.plain x-cloak x-show="currentlyReorderingStatus" wire:key="{{ $tableName . '-footer-bulkactions-1' }}" />
+        <x-livewire-tables::table.td.plain :colIndex="bulkactions" x-cloak x-show="currentlyReorderingStatus" wire:key="{{ $tableName . '-footer-bulkactions-1' }}" />
     @elseif ($this->bulkActionsAreEnabled() && $this->hasBulkActions())
-        <x-livewire-tables::table.td.plain wire:key="{{ $tableName . '-footer-bulkactions-2' }}" />
+        <x-livewire-tables::table.td.plain :colIndex="bulkactions" wire:key="{{ $tableName . '-footer-bulkactions-2' }}" />
     @endif
 
     {{-- Adds a Column If Collapsing Columns Exist --}}
@@ -17,7 +17,7 @@
     @endif
 
     @foreach($this->selectedVisibleColumns as $colIndex => $column)
-        <x-livewire-tables::table.td.plain :displayMinimisedOnReorder="true"  wire:key="{{ $tableName .'-footer-shown-'.$colIndex }}" :column="$column" :customAttributes="$this->getFooterTdAttributes($column, $this->getRows, $colIndex)">
+        <x-livewire-tables::table.td.plain :displayMinimisedOnReorder="true"  wire:key="{{ $tableName .'-footer-shown-'.$colIndex }}" :column="$column" :$colIndex :customAttributes="$this->getFooterTdAttributes($column, $this->getRows, $colIndex)">
 
             @if($column->hasFooter() && $column->hasFooterCallback())
                 @if($column->footerCallbackIsFilter())

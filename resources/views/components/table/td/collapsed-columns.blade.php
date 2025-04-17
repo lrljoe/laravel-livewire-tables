@@ -24,7 +24,8 @@
         @if (! $hidden)
             <button
                 x-cloak x-show="!currentlyReorderingStatus"
-                x-on:click.prevent="$dispatch('toggle-row-content', {'tableName': '{{ $tableName }}', 'row': {{ $rowIndex }}}); open = !open"
+                @mouseover="if(opening != true) { opening = true }; "
+                x-on:click.prevent="if(opening != true) { opening = true }; $dispatch('toggle-row-content', {'tableName': '{{ $tableName }}', 'row': {{ $rowIndex }}}); open = !open;"
                 @class([
                     'border-0 bg-transparent p-0' => $isBootstrap
                 ])

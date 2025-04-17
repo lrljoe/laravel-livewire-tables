@@ -6,9 +6,7 @@
 
 @if ($this->bulkActionsAreEnabled() && $this->hasBulkActions())
     <x-livewire-tables::table.th.plain  :displayMinimisedOnReorder="true" wire:key="{{ $tableName }}-thead-bulk-actions" :$customAttributes>
-        <div
-            x-data="{newSelectCount: 0, indeterminateCheckbox: false, bulkActionHeaderChecked: false}"
-            x-init="$watch('selectedItems', value => indeterminateCheckbox = (value.length > 0 && value.length < paginationTotalItemCount))"
+        <div x-init="$watch('selectedItems', value => indeterminateCheckbox = (value.length > 0 && value.length < paginationTotalItemCount))"
             x-cloak x-show="currentlyReorderingStatus !== true"
             @class([
                 'inline-flex rounded-md shadow-sm' => $isTailwind,

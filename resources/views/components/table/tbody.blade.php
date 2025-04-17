@@ -13,7 +13,7 @@
             'divide-y' => $coreTableAttributes['tbody']['default-styling'] ?? ($coreTableAttributes['tbody']['default'] ?? true),
         ])
         ->except(['default','default-styling','default-colors']) 
-    }} x-data
+    }} x-data="{ opening: false, }" 
 >
     <x-livewire-tables::table.tr wire:key="{{ $tableName }}-row-wrap-{{ $rowPk }}" :$row :$rowIndex :$rowPk>
                             
@@ -25,6 +25,7 @@
         @endif
         @if ($showCollapsingColumnSections)
             <x-livewire-tables::table.td.collapsed-columns  />
+
         @endif
 
         @tableloop($selectedVisibleColumns as $colIndex => $column)

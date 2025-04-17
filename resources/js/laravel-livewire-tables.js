@@ -41,6 +41,9 @@ document.addEventListener('alpine:init', () => {
         showFilterPillLabel: [],
         filterPillsSeparator: ', ',
         showFilterPillsSection: true,
+        newSelectCount: 0, 
+        indeterminateCheckbox: false, 
+        bulkActionHeaderChecked: false,
         stripLivewireTags(data) { 
             let localHtml = data.innerHTML; 
             localHtml = localHtml.replace('<!--[if BLOCK]>', '')

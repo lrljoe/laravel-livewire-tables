@@ -156,22 +156,100 @@ trait CollapsingColumnHelpers
         return $columns;
     }
 
+    public function getCollapsingColumnClasses(): array
+    {
+        $classes = '';
+        $extras = [];
+        foreach ($this->getCollapsedColumnsForContent() as $index => $col) {
+            if($this->isTailwind())
+            {
+                if($col->shouldCollapseAlways())
+                {
+                   $classes  = "hidden";
+                }
+                if($col->shouldCollapseOnMobile())
+                {
+                   $classes  = "hidden md:table-cell";
+                }
+                if($col->shouldCollapseOnTablet())
+                {
+                   $classes  = "hidden lg:table-cell";
+                }
+
+            }
+            else
+            {
+                if($col->shouldCollapseAlways())
+                {
+                   $classes  = "d-none";
+                }
+                if($col->shouldCollapseOnMobile())
+                {
+                   $classes  = "d-none d-md-table-cell";
+                }
+                if($col->shouldCollapseOnTablet())
+                {
+                   $classes  = "d-none d-lg-table-cell";
+                }
+ 
+            }
+
+            $extras[$index] = $classes;
+        }
+        return $extras;
+    }
+
     #[Computed]
     public function getCollapsedColumnsForContentNew(): array
     {
         $extras = [];
 
         foreach ($this->getCollapsedColumnsForContent() as $index => $col) {
+            if($this->isTailwind())
+            {
+                $classes = 'block mb-2';
+                if(!$col->shouldCollapseAlways() && $col->shouldCollapseOnMobile() && !$col->shouldCollapseOnTablet())
+                {
+                    $classes .= " sm:block md:hidden";
+                }
+                if(!$col->shouldCollapseAlways() && ($col->shouldCollapseOnMobile() || $col->shouldCollapseOnTablet()))
+                {
+                    $classes .= " sm:block lg:hidden";
+                }
+    
+            }
+            else
+            {
+                $classes = 'd-block mb-2';
+
+                if(!$col->shouldCollapseAlways() && !$col->shouldCollapseOnMobile() && !$col->shouldCollapseOnTablet())
+                {
+                    $classes .= " d-sm-none";
+
+                }
+                if(!$col->shouldCollapseAlways() && $col->shouldCollapseOnMobile() && !$col->shouldCollapseOnTablet())
+                {
+                    $classes .= " d-md-none";
+                }
+
+                if(!$col->shouldCollapseAlways() && ($col->shouldCollapseOnMobile() || $col->shouldCollapseOnTablet()))
+                {
+                    $classes .= " d-lg-none";
+                }
+
+
+            }
+
             $extras[$index] = [
                 'shouldCollapseAlways' => $col->shouldCollapseAlways(),
                 'shouldCollapseOnTablet' => $col->shouldCollapseOnTablet(),
                 'shouldCollapseOnMobile' => $col->shouldCollapseOnMobile(),
                 'isHtml' => $col->isHtml(),
                 'title' => $col->getTitle(),
+                'classes' => $classes,
             ];
 
         }
-
         return $extras;
     }
 }

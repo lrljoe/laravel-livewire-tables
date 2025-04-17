@@ -14,7 +14,7 @@
             'bg-indigo-50 dark:bg-gray-900 dark:text-white' => $isTailwind,
         ])
     >
-        <x-livewire-tables::table.td.plain :colspan="$colspan">
+        <x-livewire-tables::table.td.plain :colIndex="'bulkactions'" :colspan="$colspan">
             <template x-if="selectedItems.length == paginationTotalItemCount || selectAllStatus">
                 <div wire:key="{{ $tableName }}-all-selected">
                     <span>
