@@ -78,7 +78,7 @@ class FilterPillData
 
     public function shouldWatchForEvents(): int
     {
-        return intval($this->watchForEvents );
+        return intval($this->watchForEvents);
     }
 
     public function isPillValueAnArray(): bool
