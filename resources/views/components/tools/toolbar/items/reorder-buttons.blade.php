@@ -14,7 +14,7 @@
         ])
     >
         <span x-cloak x-show="currentlyReorderingStatus">
-         {{ __($localisationPath.'cancel') }}
+         {{ __($localisationPath.'Cancel') }}
         </span>
 
         <span x-cloak x-show="!currentlyReorderingStatus">

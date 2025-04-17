@@ -16,7 +16,7 @@ trait LoadingPlaceholderHelpers
 
     public function getLoadingPlaceholderContent(): string
     {
-        return $this->loadingPlaceholderContent ?? __($this->getLocalisationPath().'loading');
+        return $this->loadingPlaceholderContent ?? __($this->getLocalisationPath().'Loading');
     }
 
     public function hasLoadingPlaceholderBlade(): bool

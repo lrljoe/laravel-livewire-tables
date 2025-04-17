@@ -14,7 +14,7 @@ return [
     'Deselect All' => 'لغو انتخاب همه',
     'Done Reordering' => 'مرتب‌سازی تمام شد',
     'Filters' => 'فیلترها',
-    'loading' => 'در حال بارگذاری',
+    'Loading' => 'در حال بارگذاری',
     'max' => 'حداکثر',
     'min' => 'حداقل',
     'not_applicable' => 'نامعتبر',
