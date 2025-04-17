@@ -27,8 +27,8 @@ trait CollapsingColumnConfiguration
 
     public function unsetCollapsedStatuses(): void
     {
-        $this->shouldAlwaysCollapse = false;
-        $this->shouldMobileCollapse = false;
-        $this->shouldTabletCollapse = false;
+        unset($this->shouldAlwaysCollapse); /* @phpstan-ignore unset.possiblyHookedProperty */
+        unset($this->shouldMobileCollapse); /* @phpstan-ignore unset.possiblyHookedProperty */
+        unset($this->shouldTabletCollapse); /* @phpstan-ignore unset.possiblyHookedProperty */
     }
 }

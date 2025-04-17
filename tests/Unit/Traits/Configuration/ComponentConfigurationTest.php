@@ -20,47 +20,47 @@ final class ComponentConfigurationTest extends TestCase
 
     public function test_can_set_table_wrapper_attributes(): void
     {
-        $this->assertSame($this->basicTable->getTableWrapperAttributes(), ['default' => true]);
+        $this->assertSame($this->basicTable->getTableWrapperAttributes(), ['wire:key' => 'table-twrap', 'default' => true]);
 
         $this->basicTable->setTableWrapperAttributes(['this' => 'that']);
 
-        $this->assertSame($this->basicTable->getTableWrapperAttributes(), ['this' => 'that']);
+        $this->assertSame($this->basicTable->getTableWrapperAttributes(), ['wire:key' => 'table-twrap', 'this' => 'that']);
     }
 
     public function test_can_set_table_attributes(): void
     {
-        $this->assertSame($this->basicTable->getTableAttributes(), ['id' => 'table-'.$this->basicTable->getTableName(), 'default' => true]);
+        $this->assertSame($this->basicTable->getTableAttributes(), ['wire:key' => 'table-table', 'id' => 'table-'.$this->basicTable->getTableName(), 'default' => true]);
 
         $this->basicTable->setTableAttributes(['this' => 'that']);
 
-        $this->assertSame($this->basicTable->getTableAttributes(), ['id' => 'table-'.$this->basicTable->getTableName(), 'this' => 'that']);
+        $this->assertSame($this->basicTable->getTableAttributes(), ['wire:key' => 'table-table', 'id' => 'table-'.$this->basicTable->getTableName(), 'this' => 'that']);
     }
 
     public function test_can_override_table_default_id(): void
     {
-        $this->assertSame($this->basicTable->getTableAttributes(), ['id' => 'table-'.$this->basicTable->getTableName(), 'default' => true]);
+        $this->assertSame($this->basicTable->getTableAttributes(), ['wire:key' => 'table-table', 'id' => 'table-'.$this->basicTable->getTableName(), 'default' => true]);
 
         $this->basicTable->setTableAttributes(['id' => 'newTableID', 'this' => 'that']);
 
-        $this->assertSame($this->basicTable->getTableAttributes(), ['id' => 'newTableID', 'this' => 'that']);
+        $this->assertSame($this->basicTable->getTableAttributes(), ['wire:key' => 'table-table', 'id' => 'newTableID', 'this' => 'that']);
     }
 
     public function test_can_set_thead_attributes(): void
     {
-        $this->assertSame($this->basicTable->getTheadAttributes(), ['default' => true]);
+        $this->assertSame($this->basicTable->getTheadAttributes(), ['wire:key' => 'table-thead', 'default' => true]);
 
         $this->basicTable->setTheadAttributes(['this' => 'that']);
 
-        $this->assertSame($this->basicTable->getTheadAttributes(), ['this' => 'that']);
+        $this->assertSame($this->basicTable->getTheadAttributes(), ['wire:key' => 'table-thead', 'this' => 'that']);
     }
 
     public function test_can_set_tbody_attributes(): void
     {
-        $this->assertSame($this->basicTable->getTbodyAttributes(), ['default' => true]);
+        $this->assertSame($this->basicTable->getTbodyAttributes(), ['wire:key' => 'table-tbody', 'id' => 'table-tbody', 'default' => true]);
 
         $this->basicTable->setTbodyAttributes(['this' => 'that']);
 
-        $this->assertSame($this->basicTable->getTbodyAttributes(), ['this' => 'that']);
+        $this->assertSame($this->basicTable->getTbodyAttributes(), ['wire:key' => 'table-tbody', 'id' => 'table-tbody', 'this' => 'that']);
     }
 
     public function test_can_set_th_attributes(): void
