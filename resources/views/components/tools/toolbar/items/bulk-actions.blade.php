@@ -28,10 +28,10 @@
             
                         
             @if($isTailwind)
-                        x-on:click="open = !open"
-                        @else
-                        data-toggle="dropdown" data-bs-toggle="dropdown"
-                        @endif
+                x-on:click="open = !open"
+            @else
+                data-toggle="dropdown" data-bs-toggle="dropdown"
+            @endif
             aria-haspopup="true" aria-expanded="false">
 
             {{ __($localisationPath.'Bulk Actions') }}

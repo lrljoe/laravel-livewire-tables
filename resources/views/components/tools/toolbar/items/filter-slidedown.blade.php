@@ -1,8 +1,10 @@
 @aware([ 'tableName', 'isTailwind', 'isBootstrap'])
 @props([])
+@php($filterSlidedownWrapperAttributes = $this->getFilterSlidedownWrapperAttributes())
+@php($filterGenericData = $this->getFilterGenericData())
 
 <div x-cloak x-show="filtersOpen" {{ $attributes
-            ->merge($this->getFilterSlidedownWrapperAttributes())
+            ->merge($filterSlidedownWrapperAttributes)
             ->merge($isTailwind ? [
                 'x-transition:enter' => 'transition ease-out duration-100',
                 'x-transition:enter-start' => 'transform opacity-0',
@@ -12,7 +14,7 @@
                 'x-transition:leave-end' => 'transform opacity-0',
             ] : [])
             ->class([
-                'container' => $isBootstrap && ($this->getFilterSlidedownWrapperAttributes()['default'] ?? true),
+                'container' => $isBootstrap && ($filterSlidedownWrapperAttributes['default'] ?? true),
             ])
             ->except(['default','default-colors','default-styling'])
         }} 
@@ -68,7 +70,7 @@
                     ])
                     id="{{ $tableName }}-filter-{{ $filter->getKey() }}-wrapper"
                 >
-                    {{ $filter->setGenericDisplayData($this->getFilterGenericData)->render() }}
+                    {{ $filter->setGenericDisplayData($filterGenericData)->render() }}
                 </div>
             @endforeach
         </div>
