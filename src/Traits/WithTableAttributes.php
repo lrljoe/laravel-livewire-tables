@@ -10,7 +10,7 @@ trait WithTableAttributes
 {
     use TableAttributeConfiguration,
         TableAttributeHelpers;
-
+    
     protected array $componentWrapperAttributes = [];
 
     protected array $tableWrapperAttributes = [];

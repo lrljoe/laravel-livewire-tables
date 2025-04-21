@@ -17,6 +17,7 @@ trait HasColumnView
     {
         return $this->getColumnView()
             ->withIsTailwind($this->isTailwind())
+            ->withIsTailwind4($this->isTailwind4())
             ->withIsBootstrap($this->isBootstrap())
             ->withLocalisationPath($this->getLocalisationPath());
 

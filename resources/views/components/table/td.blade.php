@@ -1,14 +1,15 @@
-@aware([ 'row', 'rowIndex', 'tableName', 'primaryKey','isTailwind','isBootstrap', 'collapsingColumnClasses'])
+@aware([ 'row', 'rowIndex', 'rowPk', 'tableName', 'primaryKey','isTailwind','isBootstrap', 'collapsingColumnClasses'])
 @props(['column', 'colIndex'])
 
 @php
     $customAttributes = $this->getTdAttributes($column, $row, $colIndex, $rowIndex)
 @endphp
 
-<td wire:key="{{ $tableName . '-table-td-'.$row->{$primaryKey}.'-'.$column->getSlug() }}" x-ref="{{ $tableName . "_" . $rowIndex."_".$colIndex}}"
+<td wire:key="{{ $tableName . '-table-td-'.$rowPk.'-'.$column->getSlug() }}" x-ref="{{ $tableName . '_' . $rowIndex . '_' . $colIndex }}"
     @if ($column->isClickable())
-        @if($this->getTableRowUrlTarget($row) === 'navigate') wire:navigate href="{{ $this->getTableRowUrl($row) }}"
-        @else onclick="window.open('{{ $this->getTableRowUrl($row) }}', '{{ $this->getTableRowUrlTarget($row) ?? '_self' }}')"
+        @php($rowTarget = $this->getTableRowUrlTarget($row) ?? '_self');
+        @if($rowTarget === 'navigate') wire:navigate href="{{ $this->getTableRowUrl($row) }}"
+        @else onclick="window.open('{{ $this->getTableRowUrl($row) }}', '{{ $rowTarget }}')"
         @endif
     @endif
         {{

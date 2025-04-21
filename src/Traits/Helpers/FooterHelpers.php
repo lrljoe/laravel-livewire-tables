@@ -48,4 +48,9 @@ trait FooterHelpers
     {
         return $this->getUseHeaderAsFooterStatus() === false;
     }
+
+    public function shouldShowColumnTitlesInFooter(): bool
+    {
+        return $this->showColumnTitlesInFooter;
+    }
 }

@@ -18,4 +18,6 @@ trait WithFooter
     protected bool $useHeaderAsFooterStatus = false;
 
     protected bool $columnsWithFooter = false;
+
+    protected bool $showColumnTitlesInFooter = false;
 }

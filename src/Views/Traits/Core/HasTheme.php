@@ -28,7 +28,7 @@ trait HasTheme
     #[Computed]
     public function isTailwind(): bool
     {
-        return ! $this->isBootstrap4() && ! $this->isBootstrap5();
+        return ! $this->isBootstrap4() && ! $this->isBootstrap5() && ! $this->isTailwind4();
     }
 
     #[Computed]
@@ -47,5 +47,11 @@ trait HasTheme
     public function isBootstrap5(): bool
     {
         return $this->getTheme() === 'bootstrap-5';
+    }
+
+    #[Computed]
+    public function isTailwind4(): bool
+    {
+        return $this->getTheme() === 'tailwind-4';
     }
 }

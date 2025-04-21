@@ -10,6 +10,7 @@ trait FilterConfiguration
             'filterLayout' => $genericDisplayData['filterLayout'],
             'tableName' => $genericDisplayData['tableName'],
             'isTailwind' => $genericDisplayData['isTailwind'],
+            'isTailwind4' => $genericDisplayData['isTailwind4'] ?? false,
             'isBootstrap' => ($genericDisplayData['isBootstrap4'] || $genericDisplayData['isBootstrap5']),
             'isBootstrap4' => $genericDisplayData['isBootstrap4'],
             'isBootstrap5' => $genericDisplayData['isBootstrap5'],

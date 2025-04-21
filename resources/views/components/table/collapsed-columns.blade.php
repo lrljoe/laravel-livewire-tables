@@ -1,19 +1,17 @@
-@aware([ 'tableName', 'primaryKey','isTailwind','isBootstrap', 'collapsingColumnDetails'])
-@props(['row', 'rowIndex'])
+@aware([ 'tableName', 'primaryKey','isTailwind','isBootstrap', 'collapsingColumnDetails', 'row', 'rowIndex', 'rowPk', 'hasCollapsingColumns', 'hasTrAttributes'])
 
-@if ($this->collapsingColumnsAreEnabled() && $this->hasCollapsedColumns())
-    @php($customAttributes = $this->getTrAttributes($row, $rowIndex))
+@if ($hasCollapsingColumns)
+    @php($customAttributes = $hasTrAttributes ? $this->getTrAttributes($row, $rowIndex) : ['default' => true])
     <tr x-data
         @toggle-row-content.window="($event.detail.tableName === '{{ $tableName }}' && $event.detail.row === {{ $rowIndex }}) ? $el.classList.toggle('{{ $isBootstrap ? 'd-none' : 'hidden' }}') : null"
         {{
             $attributes->merge([
                     'wire:loading.class.delay' => 'opacity-50 dark:bg-gray-900 dark:opacity-60',
-                    'wire:key' => $tableName.'-row-'.$row->{$primaryKey}.'-collapsed-contents',
+                    'wire:key' => $tableName.'-row-'.$rowPk.'-collapsed-contents',
                 ])
                 ->merge($customAttributes)
                 ->class($isTailwind ? [
-                    'hidden bg-white dark:bg-gray-700 dark:text-white rappasoft-striped-row' => (($customAttributes['default'] ?? true) && $rowIndex % 2 === 0),
-                    'hidden bg-gray-50 dark:bg-gray-800 dark:text-white rappasoft-striped-row' => (($customAttributes['default'] ?? true) && $rowIndex % 2 !== 0),
+                    'hidden rappasoft-striped-row' => $customAttributes['default'] ?? true,
                 ] : [
                     'd-none bg-light rappasoft-striped-row' => ($rowIndex % 2 === 0 && ($customAttributes['default'] ?? true)),
                     'd-none bg-white rappasoft-striped-row' => ($rowIndex % 2 !== 0 && ($customAttributes['default'] ?? true)),
@@ -30,7 +28,7 @@
 
                 @tableloop($collapsingColumnDetails as $colIndex => $columnData)
                 @php($key = $tableName . '_' . $rowIndex.'_'.$colIndex)
-                    <div wire:key="{{ $tableName }}-row-{{ $row->{$primaryKey} }}-collapsed-contents-{{ $colIndex }}" 
+                    <div wire:key="{{ $tableName }}-row-{{ $rowPk }}-collapsed-contents-{{ $colIndex }}" 
                         x-data="{ value: '', 
                                 init() { 
                                     $watch('opening', val => {

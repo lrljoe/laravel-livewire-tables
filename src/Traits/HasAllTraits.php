@@ -4,6 +4,7 @@ namespace Rappasoft\LaravelLivewireTables\Traits;
 
 use Rappasoft\LaravelLivewireTables\Traits\Core\{HasCustomAttributes, HasLocalisations};
 use Rappasoft\LaravelLivewireTables\Views\Traits\Core\HasTheme;
+use Rappasoft\LaravelLivewireTables\Traits\Styling\HasHeaderStyling;
 
 trait HasAllTraits
 {
@@ -37,4 +38,6 @@ trait HasAllTraits
         WithSessionStorage,
         WithTableAttributes,
         WithTools;
+    use HasHeaderStyling;
+
 }

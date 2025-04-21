@@ -1,29 +1,32 @@
-@aware(['tableName'])
+@aware(['tableName', 'isTailwind', 'isBootstrap', 'coreTableAttributes', 'currentlyReorderingStatus', 'showBulkActionsSections', 'showCollapsingColumnSections', 'selectedVisibleColumns', 'selectedVisibleColumns'])
 @props(['row','rowIndex','rowPk'])
-@php($coreTableAttributes = $this->getCoreTableAttributes())
-@php($currentlyReorderingStatus = $this->getCurrentlyReorderingStatus())
-@php($showBulkActionsSections = $this->showBulkActionsSections())
-@php($showCollapsingColumnSections = $this->showCollapsingColumnSections())
-@php($selectedVisibleColumns = $this->selectedVisibleColumns())
+
 
 
 <tbody {{ $attributes->merge($coreTableAttributes['tbody'])
-        ->class([
-            'bg-white divide-gray-200 dark:bg-gray-800 dark:divide-none' => $coreTableAttributes['tbody']['default-colors'] ?? ($coreTableAttributes['tbody']['default'] ?? true),
+        ->merge($currentlyReorderingStatus ? [
+            'x-sort:item' => $rowPk,
+            'data-id' => $rowPk,
+        ] : [])
+        ->class($isTailwind ? [
+            'odd:bg-white odd:dark:bg-gray-700 even:bg-gray-50 even:dark:bg-gray-800 dark:text-white',
+            'divide-gray-200 dark:divide-none' => $coreTableAttributes['tbody']['default-colors'] ?? ($coreTableAttributes['tbody']['default'] ?? true),
             'divide-y' => $coreTableAttributes['tbody']['default-styling'] ?? ($coreTableAttributes['tbody']['default'] ?? true),
+        ] : [
+
         ])
         ->except(['default','default-styling','default-colors']) 
     }} x-data="{ opening: false, }" 
 >
-    <x-livewire-tables::table.tr wire:key="{{ $tableName }}-row-wrap-{{ $rowPk }}" :$row :$rowIndex :$rowPk>
+    <x-livewire-tables::table.tr wire:key="{{ $tableName }}-row-wrap-{{ $rowPk }}">
                             
         @if($currentlyReorderingStatus)
             <x-livewire-tables::table.td.reorder x-cloak x-show="currentlyReorderingStatus" />
         @endif
-        @if($showBulkActionsSections)
+        @if(!$currentlyReorderingStatus && $showBulkActionsSections)
             <x-livewire-tables::table.td.bulk-actions  />
         @endif
-        @if ($showCollapsingColumnSections)
+        @if (!$currentlyReorderingStatus && $showCollapsingColumnSections)
             <x-livewire-tables::table.td.collapsed-columns  />
 
         @endif
@@ -40,6 +43,6 @@
     </x-livewire-tables::table.tr>
 
     @if ($showCollapsingColumnSections)
-        <x-livewire-tables::table.collapsed-columns :$row :$rowIndex />
+        <x-livewire-tables::table.collapsed-columns  />
     @endif
 </tbody>

@@ -1,0 +1,20 @@
+@aware(['tableName','isTailwind', 'isTailwind4', 'isBootstrap', 'currentlyReorderingStatus', 'showBulkActionsSections', 'showCollapsingColumnSections','selectedVisibleColumns'])
+
+<x-livewire-tables::table.tr.plain :rowIndex="-1" data-id="tfoot"
+    :customAttributes="$this->getFooterTrAttributes($this->getRows)"
+    wire:key="{{ $tableName .'-footer' }}"
+>
+    @if($currentlyReorderingStatus)
+        <x-livewire-tables::table.th.reorder  />
+    @endif
+    @if(!$currentlyReorderingStatus && $showBulkActionsSections)
+        <x-livewire-tables::table.th.bulk-actions :displayMinimisedOnReorder="true" />
+    @endif
+    @if ($showCollapsingColumnSections)
+        <x-livewire-tables::table.th.collapsed-columns />
+    @endif
+
+    @tableloop($selectedVisibleColumns as $index => $column)
+        <x-livewire-tables::table.th wire:key="{{ $tableName.'-table-foot-'.$index }}" :$column :$index />
+    @endtableloop
+</x-livewire-tables::table.tr.plain>

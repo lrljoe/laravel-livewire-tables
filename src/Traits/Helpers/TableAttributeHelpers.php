@@ -105,6 +105,12 @@ trait TableAttributeHelpers
     }
 
     #[Computed]
+    public function hasTrAttributes(): bool
+    {
+        return isset($this->trAttributesCallback);
+    }
+
+    #[Computed]
     public function getTrAttributes(Model $row, int $index): array
     {
         return isset($this->trAttributesCallback) ? call_user_func($this->trAttributesCallback, $row, $index) : ['default' => true];

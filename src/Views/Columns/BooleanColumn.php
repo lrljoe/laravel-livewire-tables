@@ -41,6 +41,7 @@ class BooleanColumn extends Column
             ->withHasConfirmMessage($this->hasConfirmMessage())
             ->withConfirmMessage($this->hasConfirmMessage() ? $this->getConfirmMessage() : '')
             ->withIsTailwind($this->isTailwind())
+            ->withIsTailwind4($this->isTailwind4())
             ->withIsBootstrap($this->isBootstrap())
             ->withSuccessValue($this->getSuccessValue())
             ->withValue($value)

@@ -172,6 +172,16 @@ trait CollapsingColumnHelpers
                     $classes = 'hidden lg:table-cell';
                 }
 
+            } elseif($this->isTailwind4()) {
+                if ($col->shouldCollapseAlways()) {
+                    $classes = 'hidden';
+                }
+                if ($col->shouldCollapseOnMobile()) {
+                    $classes = 'hidden md:table-cell';
+                }
+                if ($col->shouldCollapseOnTablet()) {
+                    $classes = 'hidden lg:table-cell';
+                }
             } else {
                 if ($col->shouldCollapseAlways()) {
                     $classes = 'd-none';
@@ -198,6 +208,15 @@ trait CollapsingColumnHelpers
 
         foreach ($this->getCollapsedColumnsForContent() as $index => $col) {
             if ($this->isTailwind()) {
+                $classes = 'block mb-2';
+                if (! $col->shouldCollapseAlways() && $col->shouldCollapseOnMobile() && ! $col->shouldCollapseOnTablet()) {
+                    $classes .= ' sm:block md:hidden';
+                }
+                if (! $col->shouldCollapseAlways() && ($col->shouldCollapseOnMobile() || $col->shouldCollapseOnTablet())) {
+                    $classes .= ' sm:block lg:hidden';
+                }
+
+            } elseif ($this->isTailwind4()) {
                 $classes = 'block mb-2';
                 if (! $col->shouldCollapseAlways() && $col->shouldCollapseOnMobile() && ! $col->shouldCollapseOnTablet()) {
                     $classes .= ' sm:block md:hidden';

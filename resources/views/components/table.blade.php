@@ -1,89 +1,60 @@
-@aware(['tableName','isTailwind','isBootstrap'])
+@aware(['tableName','isTailwind', 'isTailwind4', 'isBootstrap', 'currentlyReorderingStatus', 'showCollapsingColumnSections','selectedVisibleColumns'])
 @props(['bulkActionsTdAttributes','bulkActionsTdCheckboxAttributes'])
 
 @php($coreTableAttributes = $this->getCoreTableAttributes())
 
-@if ($isTailwind)
-    <div {{ $attributes->merge($coreTableAttributes['wrapper'])
-            ->class([
-                'border-gray-200 dark:border-gray-700' => $coreTableAttributes['wrapper']['default-colors'] ?? ($coreTableAttributes['wrapper']['default'] ?? false),
-                'shadow overflow-y-auto border-b sm:rounded-lg' => $coreTableAttributes['wrapper']['default-styling'] ?? ($coreTableAttributes['wrapper']['default'] ?? false),
+<div >
+<div {{ $attributes->merge($coreTableAttributes['wrapper'])
+        ->class($isTailwind ? [
+            'border-gray-200 dark:border-gray-700' => $coreTableAttributes['wrapper']['default-colors'] ?? ($coreTableAttributes['wrapper']['default'] ?? false),
+            'shadow overflow-y-auto border-b sm:rounded-lg' => $coreTableAttributes['wrapper']['default-styling'] ?? ($coreTableAttributes['wrapper']['default'] ?? false),
+        ] :
+        [
+            '' => $coreTableAttributes['wrapper']['default-colors'] ?? ($coreTableAttributes['wrapper']['default'] ?? true),
+            'table-responsive' => $coreTableAttributes['wrapper']['default-styling'] ?? ($coreTableAttributes['wrapper']['default'] ?? true),
+        ])
+        ->except(['default','default-styling','default-colors'])
+}}>
+    <table {{ $attributes->merge($coreTableAttributes['table'])
+            ->class($isTailwind ? [
+                'rappasoft-livewire-table-new',
+                'divide-gray-200 dark:divide-none' => $coreTableAttributes['table']['default-colors'] ?? ($coreTableAttributes['table']['default'] ?? true),
+                'min-w-full divide-y' => $coreTableAttributes['table']['default-styling'] ?? ($coreTableAttributes['table']['default'] ?? true),
+            ] : [
+                '' => $coreTableAttributes['table']['default-colors'] ?? ($coreTableAttributes['table']['default'] ?? true),
+                'laravel-livewire-table table' => $coreTableAttributes['table']['default-styling'] ?? ($coreTableAttributes['table']['default'] ?? true),
             ])
-            ->except(['default','default-styling','default-colors'])
-    }}>
-        <table {{ $attributes->merge($coreTableAttributes['table'])
-                ->class([
-                    'divide-gray-200 dark:divide-none' => $coreTableAttributes['table']['default-colors'] ?? ($coreTableAttributes['table']['default'] ?? true),
-                    'min-w-full divide-y' => $coreTableAttributes['table']['default-styling'] ?? ($coreTableAttributes['table']['default'] ?? true),
-                ])
-                ->except(['default','default-styling','default-colors']) }}
-        >
-            <thead {{ $attributes->merge($coreTableAttributes['thead'])
-                    ->class([
-                        'bg-gray-50 dark:bg-gray-800' => $coreTableAttributes['thead']['default-colors'] ?? ($coreTableAttributes['thead']['default'] ?? true),
-                        '' => $coreTableAttributes['thead']['default-styling'] ?? ($coreTableAttributes['thead']['default'] ?? true),
-                    ])
-                    ->except(['default','default-styling','default-colors']) }}
-            >
-                <tr>
-                    {{ $thead }}
-                </tr>
-            </thead>
+            ->except(['default','default-styling','default-colors']) }} 
+            @if($currentlyReorderingStatus) 
+            x-sort
+            x-sort:config="{ 
+                group: 'table-{{ $tableName }}',
+                filter: '.unsortable',
+                onMove: function (e) { 
+                    return e.related.className.indexOf('unsortable') === -1;  
+                },
+                store: {
+                    /**
+                    * Save the order of elements. Called onEnd (when the item is dropped).
+                    * @param {Sortable}  sortable
+                    */
+                    set: function (sortable) {
+                        var order = sortable.toArray();
+                        console.log('Storing Order');
+                        const result = order.filter((word) => (word !== 'thead' && word !== 'tfoot' && word !== 'loading'));
+                        console.log(result);
 
-            {{ $slot }}
-
-
-            @isset($tfoot)
-                <tfoot wire:key="{{ $tableName }}-tfoot">
-                    {{ $tfoot }}
-                </tfoot>
-            @endisset
-        </table>
-    </div>
-@elseif ($isBootstrap)
-    <div {{ $attributes->merge($coreTableAttributes['wrapper'])
-            ->class([
-                '' => $coreTableAttributes['wrapper']['default-colors'] ?? ($coreTableAttributes['wrapper']['default'] ?? true),
-                'table-responsive' => $coreTableAttributes['wrapper']['default-styling'] ?? ($coreTableAttributes['wrapper']['default'] ?? true),
-            ])
-            ->except(['default','default-styling','default-colors']) 
-        }}
+                        localStorage.setItem(sortable.options.group.name, result.join('|'));
+                    }
+	} }" @endif
     >
-        <table {{ $attributes->merge($coreTableAttributes['table'])
-                ->class([
-                    '' => $coreTableAttributes['table']['default-colors'] ?? ($coreTableAttributes['table']['default'] ?? true),
-                    'laravel-livewire-table table' => $coreTableAttributes['table']['default-styling'] ?? ($coreTableAttributes['table']['default'] ?? true),
-                ])
-                ->except(['default','default-styling','default-colors'])
-            }}
-        >
-            <thead {{ $attributes->merge($coreTableAttributes['thead'])
-                    ->class([
-                        '' => $coreTableAttributes['thead']['default-colors'] ?? ($coreTableAttributes['thead']['default'] ?? true),
-                        '' => $coreTableAttributes['thead']['default-styling'] ?? ($coreTableAttributes['thead']['default'] ?? true),
-                    ])
-                    ->except(['default','default-styling','default-colors']) }}
-            >
-                <tr>
-                    {{ $thead }}
-                </tr>
-            </thead>
+        <x-livewire-tables::table.thead.thead :$coreTableAttributes />
 
-            <tbody {{ $attributes->merge($coreTableAttributes['tbody'])
-                    ->class([
-                        '' => $coreTableAttributes['tbody']['default-colors'] ?? ($coreTableAttributes['tbody']['default'] ?? true),
-                        '' => $coreTableAttributes['tbody']['default-styling'] ?? ($coreTableAttributes['tbody']['default'] ?? true),
-                    ])
-                    ->except(['default','default-styling','default-colors']) }}
-            >
-                {{ $slot }}
-            </tbody>
+        {{ $slot }}
 
-            @isset($tfoot)
-                <tfoot wire:key="{{ $tableName }}-tfoot">
-                    {{ $tfoot }}
-                </tfoot>
-            @endisset
-        </table>
-    </div>
-@endif
+        <x-livewire-tables::table.tfoot.tfoot :$coreTableAttributes />
+
+
+    </table>
+</div>
+                </div>

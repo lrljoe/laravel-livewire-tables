@@ -36,6 +36,36 @@ abstract class DataTableComponent extends Component
     "isHtml" => false
     "title" => "Created At"
     ]*/
-        return view('livewire-tables::datatable');
+
+        return view('livewire-tables::datatable')->with(
+            [
+                'tableName' => $this->getTableName(),
+                'tableId' => $this->getTableId(),
+                'primaryKey' => $this->getPrimaryKey(),
+                'localisationPath' => $this->getLocalisationPath(),
+                'getCurrentlyReorderingStatus' => $this->getCurrentlyReorderingStatus(),
+                'showBulkActionsSections' => $this->showBulkActionsSections(),
+                'showCollapsingColumnSections' => $this->showCollapsingColumnSections(),
+                'selectedVisibleColumns' => $this->selectedVisibleColumns(),
+                'collapsingColumnDetails' => $this->getCollapsedColumnsForContentNew(),
+                'tdAttributes' => $this->getBulkActionsTdAttributes(),
+                'tdCheckboxAttributes' => $this->getBulkActionsTdCheckboxAttributes(),
+                'collapsingColumnButtonExpandAttributes' => $this->getCollapsingColumnButtonExpandAttributes(),
+                'collapsingColumnButtonCollapseAttributes' => $this->getCollapsingColumnButtonCollapseAttributes(),
+                'hasCollapsingColumns' => ($this->collapsingColumnsAreEnabled() && $this->hasCollapsedColumns()),
+                'shouldCollapseAlways' => $this->shouldCollapseAlways(),
+                'shouldCollapseOnTablet' => $this->shouldCollapseOnTablet(),
+                'shouldCollapseOnMobile' => $this->shouldCollapseOnMobile(),
+                'collapsingColumnClasses' => $this->getCollapsingColumnClasses(),
+                'hasDisplayLoadingPlaceholder' => $this->hasDisplayLoadingPlaceholder(),
+                'coreTableAttributes' => $this->getCoreTableAttributes(),
+                'isTailwind' => $this->isTailwind(),
+                'isTailwind4' => $this->isTailwind4(),
+                'isBootstrap' => $this->isBootstrap(),
+                'isBootstrap4' => $this->isBootstrap4(),
+                'isBootstrap5' => $this->isBootstrap5(),
+                'hasTrAttributes' => $this->hasTrAttributes(),
+            ]
+        );
     }
 }

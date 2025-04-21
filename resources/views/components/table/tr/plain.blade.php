@@ -4,6 +4,7 @@
 <tr {{ $attributes
         ->merge($customAttributes)
         ->class($isTailwind ? [
+            'unsortable',
             'laravel-livewire-tables-reorderingMinimised',
             'bg-white dark:bg-gray-700 dark:text-white' => ($customAttributes['default'] ?? true),
         ] : 

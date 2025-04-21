@@ -47,4 +47,22 @@ trait FooterConfiguration
 
         return $this;
     }
+
+    public function setShowColumnTitlesInFooter(bool $showColumnTitlesInFooter): self
+    {
+        $this->showColumnTitlesInFooter = $showColumnTitlesInFooter;
+
+        return $this;
+    }
+    
+    public function setShowColumnTitlesInFooterEnabled(): self
+    {
+        return $this->setShowColumnTitlesInFooter(true);
+    }
+
+    public function setShowColumnTitlesInFooterDisabled(): self
+    {
+        return $this->setShowColumnTitlesInFooter(false);
+    }
+
 }
