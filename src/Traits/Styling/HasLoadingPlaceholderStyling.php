@@ -69,4 +69,21 @@ trait HasLoadingPlaceholderStyling
 
         return $this;
     }
+
+    /**
+     * Returns an array of Loading Placeholder relevant information for use in loading
+     *
+     * @return array<mixed>
+     */
+    protected function getLoadingPlaceHolderDetails(): array
+    {
+        return [
+            'loaderRow' => $this->getLoadingPlaceHolderRowAttributes(),
+            'loaderCell' => $this->getLoadingPlaceHolderCellAttributes(),
+            'loaderIcon' => $this->getLoadingPlaceHolderIconAttributes(),
+            'hasLoadingPlaceholderBlade' => $this->hasLoadingPlaceholderBlade(),
+            'loadingPlaceHolderBlade' => $this->getLoadingPlaceHolderBlade() ?? '' ,
+            'loadingPlaceholderContent' => $this->getLoadingPlaceholderContent(),
+        ];
+    }
 }

@@ -5,13 +5,13 @@
     wire:key="{{ $tableName .'-footer' }}"
 >
     @if($currentlyReorderingStatus)
-        <x-livewire-tables::table.th.reorder  />
+        <x-livewire-tables::reorder.th  />
     @endif
     @if(!$currentlyReorderingStatus && $showBulkActionsSections)
-        <x-livewire-tables::table.th.bulk-actions :displayMinimisedOnReorder="true" />
+        <x-livewire-tables::bulk-actions.th :displayMinimisedOnReorder="true" />
     @endif
     @if ($showCollapsingColumnSections)
-        <x-livewire-tables::table.th.collapsed-columns />
+        <x-livewire-tables::collapsed-columns.th />
     @endif
 
     @tableloop($selectedVisibleColumns as $index => $column)

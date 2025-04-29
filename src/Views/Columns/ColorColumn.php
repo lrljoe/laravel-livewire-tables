@@ -4,14 +4,12 @@ namespace Rappasoft\LaravelLivewireTables\Views\Columns;
 
 use Illuminate\Database\Eloquent\Model;
 use Rappasoft\LaravelLivewireTables\Exceptions\DataTableConfigurationException;
-use Rappasoft\LaravelLivewireTables\Views\Column;
 use Rappasoft\LaravelLivewireTables\Views\Columns\Traits\Configuration\ColorColumnConfiguration;
 use Rappasoft\LaravelLivewireTables\Views\Columns\Traits\{HasDefaultStringValue, IsColumn};
 use Rappasoft\LaravelLivewireTables\Views\Columns\Traits\Helpers\ColorColumnHelpers;
 
-class ColorColumn extends Column
+class ColorColumn extends BaseColumn
 {
-    use IsColumn;
     use ColorColumnConfiguration,
         ColorColumnHelpers;
     use HasDefaultStringValue;
@@ -31,10 +29,7 @@ class ColorColumn extends Column
 
     public function getContents(Model $row): null|string|\Illuminate\Support\HtmlString|DataTableConfigurationException|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
     {
-        return view($this->getView())
-            ->withIsTailwind($this->isTailwind())
-            ->withIsTailwind4($this->isTailwind4())
-            ->withIsBootstrap($this->isBootstrap())
+        return $this->getColumnViewWithDefaults()
             ->withColor($this->getColor($row))
             ->withAttributeBag($this->getAttributeBag($row));
     }

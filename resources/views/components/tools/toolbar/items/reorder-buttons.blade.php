@@ -1,7 +1,8 @@
 @aware(['tableName','isTailwind','isBootstrap','isBootstrap4','isBootstrap5','localisationPath'])
-@php($reorderButtonStartAttributes = $this->getReorderButtonStartAttributes())
-@php($reorderButtonSaveAttributes = $this->getReorderButtonSaveAttributes())
-@php($reorderButtonCancelAttributes = $this->getReorderButtonCancelAttributes())
+@php($allReorderButtonAttributes = $this->getAllReorderButtonAttributes())
+@php($reorderButtonStartAttributes = $allReorderButtonAttributes['start'])
+@php($reorderButtonSaveAttributes = $allReorderButtonAttributes['save'])
+@php($reorderButtonCancelAttributes = $allReorderButtonAttributes['cancel'])
 
 <div x-data x-cloak x-show="reorderStatus"
     @class([

@@ -7,11 +7,10 @@ use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\HtmlString;
 use Illuminate\Support\Str;
 use Rappasoft\LaravelLivewireTables\Exceptions\DataTableConfigurationException;
-use Rappasoft\LaravelLivewireTables\Views\Column;
 use Rappasoft\LaravelLivewireTables\Views\Columns\Traits\Configuration\LivewireComponentColumnConfiguration;
 use Rappasoft\LaravelLivewireTables\Views\Columns\Traits\Helpers\LivewireComponentColumnHelpers;
 
-class LivewireComponentColumn extends Column
+class LivewireComponentColumn extends BaseColumn
 {
     use LivewireComponentColumnConfiguration,
         LivewireComponentColumnHelpers;

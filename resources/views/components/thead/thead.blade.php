@@ -1,5 +1,4 @@
-@aware(['tableName', 'isTailwind', 'isBootstrap', 'isBootstrap4', 'isBootstrap5', 'currentlyReorderingStatus', 'showBulkActionsSections', 'showCollapsingColumnSections', 'selectedVisibleColumns'])
-@props(['coreTableAttributes' => []])
+@aware(['isTailwind', 'currentlyReorderingStatus', 'showBulkActionsSections', 'coreTableAttributes'])
 
 <thead {{ $attributes->merge($coreTableAttributes['thead'])
                 ->class($isTailwind ? [
@@ -13,12 +12,12 @@
                 ->except(['default','default-styling','default-colors']) }}
                 data-id="thead"
         >
-        <x-livewire-tables::table.thead.tr.header-titles  />
-@if(!$currentlyReorderingStatus && $this->shouldShowSecondaryHeader())
-    <x-livewire-tables::table.thead.tr.secondary-header  />
-@endif
+        <x-livewire-tables::thead.tr.header-titles  />
+        @if(!$currentlyReorderingStatus && $this->shouldShowSecondaryHeader())
+            <x-livewire-tables::thead.tr.secondary-header  />
+        @endif
 
-@if(!$currentlyReorderingStatus && $showBulkActionsSections)
-    <x-livewire-tables::table.thead.tr.bulk-actions  :displayMinimisedOnReorder="true" />
-@endif
+        @if(!$currentlyReorderingStatus && $showBulkActionsSections)
+            <x-livewire-tables::bulk-actions.thead  :displayMinimisedOnReorder="true" />
+        @endif
 </thead>

@@ -10,5 +10,10 @@ trait HasFilterGenericData
     use FilterGenericDataConfiguration,
         FilterGenericDataHelpers;
 
+    /**
+     * Generic Data for Filters
+     *
+     * @var array<mixed>
+     */
     public array $filterGenericData = [];
 }

@@ -4,12 +4,11 @@ namespace Rappasoft\LaravelLivewireTables\Views\Columns;
 
 use Illuminate\Database\Eloquent\Model;
 use Rappasoft\LaravelLivewireTables\Exceptions\DataTableConfigurationException;
-use Rappasoft\LaravelLivewireTables\Views\Column;
 use Rappasoft\LaravelLivewireTables\Views\Columns\Traits\Configuration\LinkColumnConfiguration;
 use Rappasoft\LaravelLivewireTables\Views\Columns\Traits\Helpers\LinkColumnHelpers;
 use Rappasoft\LaravelLivewireTables\Views\Traits\Core\{HasLocationCallback,HasTitleCallback};
 
-class LinkColumn extends Column
+class LinkColumn extends BaseColumn
 {
     use LinkColumnConfiguration,
         LinkColumnHelpers,
@@ -37,11 +36,8 @@ class LinkColumn extends Column
             throw new DataTableConfigurationException('You must specify a location callback for an link column.');
         }
 
-        return view($this->getView())
+        return $this->getColumnViewWithDefaults()
             ->withColumn($this)
-            ->withIsTailwind($this->isTailwind())
-            ->withIsTailwind4($this->isTailwind4())
-            ->withIsBootstrap($this->isBootstrap())
             ->withTitle(app()->call($this->getTitleCallback(), ['row' => $row]))
             ->withPath(app()->call($this->getLocationCallback(), ['row' => $row]))
             ->withAttributes($this->hasAttributesCallback() ? app()->call($this->getAttributesCallback(), ['row' => $row]) : []);

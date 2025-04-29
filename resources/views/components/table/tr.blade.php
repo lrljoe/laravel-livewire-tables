@@ -1,7 +1,4 @@
-@aware([ 'tableName','primaryKey','isTailwind','isBootstrap', 'rowPk', 'row', 'rowIndex', 'hasDisplayLoadingPlaceholder', 'hasTrAttributes'])
-@php
-    $customAttributes = $hasTrAttributes ? $this->getTrAttributes($row, $rowIndex) : ['default' => true];
-@endphp
+@aware([ 'tableName','primaryKey','isTailwind','isBootstrap', 'rowPk', 'row', 'rowIndex', 'hasDisplayLoadingPlaceholder', 'hasTrAttributes', 'tableRowDetails'])
 
 
 <tr
@@ -15,14 +12,14 @@
     wire:key="{{ $tableName }}-tablerow-tr-{{ $rowPk }}"
     loopType="{{ ($rowIndex % 2 === 0) ? 'even' : 'odd' }}"
     {{
-        $attributes->merge($customAttributes)
+        $attributes->merge($tableRowDetails['attributes'])
                 ->class($isTailwind ? [
-                    'rappasoft-striped-row' => $customAttributes['default'] ?? true,
-                    'cursor-pointer' => ($this->hasTableRowUrl() && ($customAttributes['default'] ?? true)),
+                    'rappasoft-striped-row' => $tableRowDetails['attributes']['default'] ?? true,
+                    'cursor-pointer' => ($tableRowDetails['url'] !== null && ($tableRowDetails['attributes']['default'] ?? true)),
                 ] : 
                 [
-                    'bg-light rappasoft-striped-row' => ($rowIndex % 2 === 0 && ($customAttributes['default'] ?? true)),
-                    'bg-white rappasoft-striped-row' => ($rowIndex % 2 !== 0 && ($customAttributes['default'] ?? true)),
+                    'bg-light rappasoft-striped-row' => ($rowIndex % 2 === 0 && ($tableRowDetails['attributes']['default'] ?? true)),
+                    'bg-white rappasoft-striped-row' => ($rowIndex % 2 !== 0 && ($tableRowDetails['attributes']['default'] ?? true)),
 
                 ])
                 ->except(['default','default-styling','default-colors'])

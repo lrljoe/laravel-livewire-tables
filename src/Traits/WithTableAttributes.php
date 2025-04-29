@@ -36,4 +36,9 @@ trait WithTableAttributes
     protected ?Closure $trUrlTargetCallback;
 
     public bool $shouldBeDisplayed = true;
+
+    public function renderingWithTableAttributes(\Illuminate\View\View $view, array $data = []): void
+    {
+        $view->with($this->getDefaultViewCustomData());
+    }
 }

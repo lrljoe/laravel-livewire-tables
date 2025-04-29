@@ -398,7 +398,7 @@ final class ComponentConfigurationTest extends TestCase
 
     public function test_can_set_collapsing_column_button_collapse_attributes(): void
     {
-        $this->assertSame(['default-styling' => true, 'default-colors' => true], $this->basicTable->getCollapsingColumnButtonCollapseAttributes());
+        $this->assertSame(['class' => 'text-yellow-600 h-6 w-6', 'default-styling' => true, 'default-colors' => true], $this->basicTable->getCollapsingColumnButtonCollapseAttributes());
 
         $this->basicTable->setCollapsingColumnButtonCollapseAttributes(['class' => 'text-blue-500']);
         $this->assertSame(['default-styling' => false, 'default-colors' => false, 'class' => 'text-blue-500'], $this->basicTable->getCollapsingColumnButtonCollapseAttributes());

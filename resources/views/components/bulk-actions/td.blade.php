@@ -1,6 +1,6 @@
-@aware([ 'tableName', 'isTailwind', 'rowPk', 'tdAttributes', 'tdCheckboxAttributes'])
+@aware([ 'tableName', 'isTailwind', 'rowPk', 'tdAttributes', 'tdCheckboxAttributes', 'showBulkActionsSections'])
 
-@if ($this->showBulkActionsSections())
+@if ($showBulkActionsSections)
     <x-livewire-tables::table.td.plain wire:key="{{ $tableName }}-tbody-td-bulk-actions-td-{{ $rowPk }}" :displayMinimisedOnReorder="true"  :customAttributes=$tdAttributes>
         <div @class($isTailwind ? [
             'inline-flex rounded-md shadow-sm',

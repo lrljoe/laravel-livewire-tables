@@ -7,12 +7,11 @@ use DateTime;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\HtmlString;
 use Rappasoft\LaravelLivewireTables\Exceptions\DataTableConfigurationException;
-use Rappasoft\LaravelLivewireTables\Views\Column;
 use Rappasoft\LaravelLivewireTables\Views\Columns\Traits\Configuration\DateColumnConfiguration;
 use Rappasoft\LaravelLivewireTables\Views\Columns\Traits\{HasInputOutputFormat, IsColumn};
 use Rappasoft\LaravelLivewireTables\Views\Columns\Traits\Helpers\DateColumnHelpers;
 
-class DateColumn extends Column
+class DateColumn extends BaseColumn
 {
     use IsColumn,
         HasInputOutputFormat,

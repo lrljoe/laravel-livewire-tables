@@ -285,7 +285,7 @@ trait WithData
     {
         if (! $this->getComputedPropertiesStatus()) {
             $view->with([
-                'filterGenericData' => $this->getFilterGenericData,
+                'filterGenericData' => $this->getFilterGenericData(),
                 'rows' => $this->getRows(),
             ]);
         }

@@ -1,4 +1,4 @@
-@aware(['isTailwind','isBootstrap','collapsingColumnClasses'])
+@aware(['isTailwind','isBootstrap','collapsingColumnInfo'])
 @props(['column', 'index'])
 
 @php
@@ -18,7 +18,7 @@
             ] : [
             '' => ($customThAttributes['default'] ?? true),
         ])
-        ->class($collapsingColumnClasses[$index] ?? '')
+        ->class($collapsingColumnInfo['collapsingColumnClasses'][$index] ?? '')
         ->except(['default', 'default-colors', 'default-styling'])
 }}>
     @if($column->getColumnLabelStatus())

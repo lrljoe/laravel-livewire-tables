@@ -41,3 +41,4 @@ parameters:
             - src/Views/Filters/Traits/HasOptions.php
             - src/Views/Traits/Core/HasTheme.php
             - src/Views/Traits/Core/HasView.php
+        - message: '# \$view of function view expects view-string\|null, string given.#'

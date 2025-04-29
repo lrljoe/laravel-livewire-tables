@@ -1,4 +1,4 @@
-@aware([ 'rowIndex', 'rowID','isTailwind','isBootstrap','collapsingColumnClasses'])
+@aware([ 'rowIndex', 'rowID','isTailwind','isBootstrap', 'collapsingColumnInfo'])
 @props(['column' => null, 'colIndex' => null, 'customAttributes' => [], 'displayMinimisedOnReorder' => false, 'hideUntilReorder' => false])
 
 <td  {{ $attributes
@@ -11,7 +11,7 @@
     ] : [
         '' => $customAttributes['default'] ?? true,
     ])
-    ->class($collapsingColumnClasses[$colIndex] ?? '')
+    ->class($collapsingColumnInfo['collapsingColumnClasses'][$colIndex] ?? '')
     ->except(['default','default-styling','default-colors'])
 }} @if($hideUntilReorder) x-show="reorderDisplayColumn" @endif >
     {{ $slot }}

@@ -1,13 +1,12 @@
 @aware(['tableName', 'isTailwind', 'isBootstrap', 'coreTableAttributes', 'currentlyReorderingStatus', 'showBulkActionsSections', 'showCollapsingColumnSections', 'selectedVisibleColumns', 'selectedVisibleColumns'])
-@props(['row','rowIndex','rowPk'])
-
-
+@props(['row','rowIndex','rowPk', 'tableRowDetails'])
 
 <tbody {{ $attributes->merge($coreTableAttributes['tbody'])
         ->merge($currentlyReorderingStatus ? [
             'x-sort:item' => $rowPk,
             'data-id' => $rowPk,
         ] : [])
+        ->merge($tableRowDetails['attributes'])
         ->class($isTailwind ? [
             'odd:bg-white odd:dark:bg-gray-700 even:bg-gray-50 even:dark:bg-gray-800 dark:text-white',
             'divide-gray-200 dark:divide-none' => $coreTableAttributes['tbody']['default-colors'] ?? ($coreTableAttributes['tbody']['default'] ?? true),
@@ -16,18 +15,18 @@
 
         ])
         ->except(['default','default-styling','default-colors']) 
-    }} x-data="{ opening: false, }" 
->
-    <x-livewire-tables::table.tr wire:key="{{ $tableName }}-row-wrap-{{ $rowPk }}">
+    }} x-data="{ opening: false, }" >
+
+    <x-livewire-tables::table.tr wire:key="{{ $tableName }}-row-wrap-{{ $rowPk }}"  >
                             
         @if($currentlyReorderingStatus)
-            <x-livewire-tables::table.td.reorder x-cloak x-show="currentlyReorderingStatus" />
+            <x-livewire-tables::reorder.td x-cloak x-show="currentlyReorderingStatus" />
         @endif
         @if(!$currentlyReorderingStatus && $showBulkActionsSections)
-            <x-livewire-tables::table.td.bulk-actions  />
+            <x-livewire-tables::bulk-actions.td  />
         @endif
         @if (!$currentlyReorderingStatus && $showCollapsingColumnSections)
-            <x-livewire-tables::table.td.collapsed-columns  />
+            <x-livewire-tables::collapsed-columns.td  />
 
         @endif
 
@@ -43,6 +42,6 @@
     </x-livewire-tables::table.tr>
 
     @if ($showCollapsingColumnSections)
-        <x-livewire-tables::table.collapsed-columns  />
+        <x-livewire-tables::collapsed-columns.tr />
     @endif
 </tbody>

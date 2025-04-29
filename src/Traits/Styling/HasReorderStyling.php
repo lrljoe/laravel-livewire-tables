@@ -103,6 +103,11 @@ trait HasReorderStyling
         return $this->reorderButtonCancelAttributes;
     }
 
+    /**
+     * Determines if ReorderButtonCancelAttributes Have Been Set
+     *
+     * @return boolean
+     */
     #[Computed]
     public function hasReorderButtonCancelAttributes(): bool
     {
@@ -119,5 +124,19 @@ trait HasReorderStyling
         return $this;
     }
 
+    /**
+     * Gets Reorder Button Attributes
+     *
+     * @return array<mixed>
+     */
+    #[Computed]
+    public function getAllReorderButtonAttributes(): array
+    {
+        return [
+            'start' => $this->getReorderButtonStartAttributes(),
+            'save' => $this->getReorderButtonSaveAttributes(),
+            'cancel' => $this->getReorderButtonCancelAttributes(),
+        ];
+    }
 
 }

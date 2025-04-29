@@ -1,4 +1,4 @@
-@aware([ 'tableName','showBulkActionsSections', 'selectedVisibleColumns', 'hasCollapsingColumns'])
+@aware([ 'tableName','showBulkActionsSections', 'selectedVisibleColumns', 'hasCollapsingColumns', 'filterGenericData'])
 
 <x-livewire-tables::table.tr.plain :rowIndex="-1"
     :customAttributes="$this->getSecondaryHeaderTrAttributes($this->getRows)"
@@ -9,10 +9,9 @@
     @endif
 
     @if ($hasCollapsingColumns)
-        <x-livewire-tables::table.td.collapsed-columns :hidden=true :displayMinimisedOnReorder="true" wire:key="{{ $tableName .'header-collapsed-hide' }}"  />
+        <x-livewire-tables::collapsed-columns.td :hidden=true :displayMinimisedOnReorder="true" wire:key="{{ $tableName .'header-collapsed-hide' }}"  />
     @endif
 
-    @php($filterGenericData = $this->getFilterGenericData())
     @tableloop($selectedVisibleColumns as $colIndex => $column)
     <x-livewire-tables::table.td.plain wire:key="{{ $tableName . '-secondary-header-datatable-td-' . $column->getSlug() }}"  :$column :$colIndex  :customAttributes="$this->getSecondaryHeaderTdAttributes($column, $this->getRows, $colIndex)">
         @if($column->hasSecondaryHeader() && $column->hasSecondaryHeaderCallback())

@@ -5,15 +5,12 @@ namespace Rappasoft\LaravelLivewireTables\Views\Columns;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\HtmlString;
 use Rappasoft\LaravelLivewireTables\Exceptions\DataTableConfigurationException;
-use Rappasoft\LaravelLivewireTables\Views\Column;
 use Rappasoft\LaravelLivewireTables\Views\Columns\Traits\Configuration\ArrayColumnConfiguration;
 use Rappasoft\LaravelLivewireTables\Views\Columns\Traits\Helpers\ArrayColumnHelpers;
-use Rappasoft\LaravelLivewireTables\Views\Columns\Traits\IsColumn;
 
-class ArrayColumn extends Column
+class ArrayColumn extends BaseColumn
 {
-    use IsColumn,
-        ArrayColumnConfiguration,
+    use ArrayColumnConfiguration,
         ArrayColumnHelpers;
 
     public string $separator = '<br />';

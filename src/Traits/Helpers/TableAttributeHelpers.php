@@ -160,4 +160,61 @@ trait TableAttributeHelpers
     {
         return new ComponentAttributeBag($this->getTopLevelAttributesArray());
     }
+
+    /**
+     * Adds Default Custom Data to the Table View
+     *
+     * @return array<mixed>
+     */
+    protected function getDefaultViewCustomData(): array
+    {
+        return [
+            'tableName' => $this->getTableName(),
+            'tableId' => $this->getTableId(),
+            'primaryKey' => $this->getPrimaryKey(),
+            'collapsingColumnInfo' => $this->getCollapsingColumnDetailsForView(),
+            'filterGenericData' => $this->getFilterGenericData(),
+
+            'collapsingColumnClasses' => $this->getCollapsingColumnClasses(),
+            'collapsingColumnDetails' => $this->getCollapsedColumnsForContentNew(),
+            'collapsingColumnButtonExpandAttributes' => $this->getCollapsingColumnButtonExpandAttributes(),
+            'collapsingColumnButtonCollapseAttributes' => $this->getCollapsingColumnButtonCollapseAttributes(),
+            'hasCollapsingColumns' => ($this->collapsingColumnsAreEnabled() && $this->hasCollapsedColumns()),
+            'showCollapsingColumnSections' => $this->showCollapsingColumnSections(),
+            'shouldCollapseAlways' => $this->shouldCollapseAlways(),
+            'shouldCollapseOnTablet' => $this->shouldCollapseOnTablet(),
+            'shouldCollapseOnMobile' => $this->shouldCollapseOnMobile(),
+
+            'coreTableAttributes' => $this->getCoreTableAttributes(),
+            
+            'getCurrentlyReorderingStatus' => $this->getCurrentlyReorderingStatus(),
+
+            'hasDisplayLoadingPlaceholder' => $this->hasDisplayLoadingPlaceholder(),
+            'hasTrAttributes' => $this->hasTrAttributes(),
+
+            'isBootstrap' => $this->isBootstrap(),
+            'isBootstrap4' => $this->isBootstrap4(),
+            'isBootstrap5' => $this->isBootstrap5(),
+            'isTailwind' => $this->isTailwind(),
+            'isTailwind4' => $this->isTailwind4(),            
+
+            'localisationPath' => $this->getLocalisationPath(),
+            
+            'selectedVisibleColumns' => $this->selectedVisibleColumns(),
+            'showBulkActionsSections' => $this->showBulkActionsSections(),
+            
+            'tdAttributes' => $this->getBulkActionsTdAttributes(),
+            'tdCheckboxAttributes' => $this->getBulkActionsTdCheckboxAttributes(),
+        ];
+    }
+
+    public function getTableRowDetails(Model $row, int $rowIndex): array
+    {
+        return [
+            'attributes' => $this->getTrAttributes($row, $rowIndex),
+            'url' => isset($this->trUrlCallback) ? call_user_func($this->trUrlCallback, $row) : null,
+            'target' => isset($this->trUrlTargetCallback) ? call_user_func($this->trUrlTargetCallback, $row) : null,
+        ];
+    }
+
 }

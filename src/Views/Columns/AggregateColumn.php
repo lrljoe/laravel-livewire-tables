@@ -2,10 +2,9 @@
 
 namespace Rappasoft\LaravelLivewireTables\Views\Columns;
 
-use Rappasoft\LaravelLivewireTables\Views\Column;
 use Rappasoft\LaravelLivewireTables\Views\Columns\Traits\IsAggregateColumn;
 
-class AggregateColumn extends Column
+class AggregateColumn extends BaseColumn
 {
     use IsAggregateColumn;
 

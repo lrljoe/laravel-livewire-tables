@@ -8,18 +8,27 @@ trait HasColumnView
 {
     use HasView;
 
-    public function getColumnView(): null|string|\Illuminate\Support\HtmlString|\Rappasoft\LaravelLivewireTables\Exceptions\DataTableConfigurationException|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+    public function getColumnView(): \Illuminate\View\View
     {
         return view($this->getView());
     }
 
-    public function getColumnViewWithDefaults(): null|string|\Illuminate\Support\HtmlString|\Rappasoft\LaravelLivewireTables\Exceptions\DataTableConfigurationException|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+    public function getColumnViewWithDefaults(): \Illuminate\View\View
     {
         return $this->getColumnView()
-            ->withIsTailwind($this->isTailwind())
-            ->withIsTailwind4($this->isTailwind4())
-            ->withIsBootstrap($this->isBootstrap())
-            ->withLocalisationPath($this->getLocalisationPath());
+        ->with($this->addColumnViewDefaults());
 
     }
+
+    protected function addColumnViewDefaults(): array
+    {
+        return [
+            'isTailwind' => $this->isTailwind(),
+            'isTailwind4' => $this->isTailwind4(),
+            'isBootstrap' => $this->isBootstrap(),
+            'localisationPath' => $this->getLocalisationPath(),
+        ];
+
+    }
+
 }

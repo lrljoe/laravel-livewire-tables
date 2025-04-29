@@ -5,11 +5,10 @@ namespace Rappasoft\LaravelLivewireTables\Views\Columns;
 use Closure;
 use Illuminate\Database\Eloquent\Model;
 use Rappasoft\LaravelLivewireTables\Exceptions\DataTableConfigurationException;
-use Rappasoft\LaravelLivewireTables\Views\Column;
 use Rappasoft\LaravelLivewireTables\Views\Columns\Traits\Configuration\IconColumnConfiguration;
 use Rappasoft\LaravelLivewireTables\Views\Columns\Traits\Helpers\IconColumnHelpers;
 
-class IconColumn extends Column
+class IconColumn extends BaseColumn
 {
     use IconColumnConfiguration,
         IconColumnHelpers;

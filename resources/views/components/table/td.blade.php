@@ -1,4 +1,4 @@
-@aware([ 'row', 'rowIndex', 'rowPk', 'tableName', 'primaryKey','isTailwind','isBootstrap', 'collapsingColumnClasses'])
+@aware([ 'row', 'rowIndex', 'rowPk', 'tableName', 'primaryKey','isTailwind','isBootstrap', 'collapsingColumnInfo', 'tableRowDetails'])
 @props(['column', 'colIndex'])
 
 @php
@@ -7,9 +7,8 @@
 
 <td wire:key="{{ $tableName . '-table-td-'.$rowPk.'-'.$column->getSlug() }}" x-ref="{{ $tableName . '_' . $rowIndex . '_' . $colIndex }}"
     @if ($column->isClickable())
-        @php($rowTarget = $this->getTableRowUrlTarget($row) ?? '_self');
-        @if($rowTarget === 'navigate') wire:navigate href="{{ $this->getTableRowUrl($row) }}"
-        @else onclick="window.open('{{ $this->getTableRowUrl($row) }}', '{{ $rowTarget }}')"
+        @if($tableRowDetails['target'] === 'navigate') wire:navigate href="{{ $tableRowDetails['url'] }}"
+        @else onclick="window.open('{{ $tableRowDetails['url'] }}', '{{ $tableRowDetails['target'] }}')"
         @endif
     @endif
         {{
@@ -20,7 +19,7 @@
                         '' => ($customAttributes['default'] ?? true),
                         'laravel-livewire-tables-cursor' => $column && $column->isClickable(),
                     ])
-                ->class($collapsingColumnClasses[$colIndex] ?? '')
+                ->class($collapsingColumnInfo['collapsingColumnClasses'][$colIndex] ?? '')
                 ->except(['default','default-styling','default-colors'])
         }}
     >

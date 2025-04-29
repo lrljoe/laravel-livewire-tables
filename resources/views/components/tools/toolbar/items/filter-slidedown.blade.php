@@ -1,7 +1,5 @@
-@aware([ 'tableName', 'isTailwind', 'isBootstrap'])
-@props([])
+@aware([ 'tableName', 'isTailwind', 'isBootstrap', 'filterGenericData'])
 @php($filterSlidedownWrapperAttributes = $this->getFilterSlidedownWrapperAttributes())
-@php($filterGenericData = $this->getFilterGenericData())
 
 <div x-cloak x-show="filtersOpen" {{ $attributes
             ->merge($filterSlidedownWrapperAttributes)

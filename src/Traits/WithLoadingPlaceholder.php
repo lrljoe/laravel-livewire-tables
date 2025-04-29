@@ -17,4 +17,13 @@ trait WithLoadingPlaceholder
     protected string $loadingPlaceholderContent = 'Loading';
 
     protected ?string $loadingPlaceholderBlade = null;
+
+
+    public function renderingWithLoadingPlaceholder(\Illuminate\View\View $view, array $data = []): void
+    {
+        $view->with([
+            'loadingPlaceholderDetails' => $this->getLoadingPlaceHolderDetails()
+        ]);
+    }
+
 }

@@ -1,6 +1,5 @@
-@aware(['tableName','isBootstrap','isBootstrap4','isBootstrap5'])
+@aware(['tableName','isBootstrap','isBootstrap4','isBootstrap5', 'filterGenericData'])
 @php($filterPopoverAttributes = $this->getFilterPopoverAttributes())
-@php($filterGenericData = $this->getFilterGenericData())
 
 @if($isBootstrap)
     <ul x-cloak {{ $attributes

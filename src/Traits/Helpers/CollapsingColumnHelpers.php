@@ -8,23 +8,44 @@ use Rappasoft\LaravelLivewireTables\Views\Column;
 
 trait CollapsingColumnHelpers
 {
+    
+    /**
+     * Determines if Collapsing Columns Status Is True
+     *
+     * @return boolean
+     */
     public function getCollapsingColumnsStatus(): bool
     {
         return $this->collapsingColumnsStatus;
     }
 
+    /**
+     * Determines if Current Table has any Collapsing Columns
+     *
+     * @return boolean
+     */
     #[Computed]
     public function hasCollapsingColumns(): bool
     {
         return $this->getCollapsingColumnsStatus() === true;
     }
 
+    /**
+     * Determines that Current Table has any Collapsing Columns
+     *
+     * @return boolean
+     */
     #[Computed]
     public function collapsingColumnsAreEnabled(): bool
     {
         return $this->getCollapsingColumnsStatus() === true;
     }
 
+    /**
+     * Determines that Current Table does not have any Collapsing Columns
+     *
+     * @return boolean
+     */
     #[Computed]
     public function collapsingColumnsAreDisabled(): bool
     {
@@ -55,6 +76,11 @@ trait CollapsingColumnHelpers
 
     }
 
+    /**
+     * Gets Columns that Collapse On Mobile
+     *
+     * @return Collection
+     */
     public function getCollapsedMobileColumns(): Collection
     {
         return $this->getColumns()
@@ -91,6 +117,11 @@ trait CollapsingColumnHelpers
 
     }
 
+    /**
+     * Gets Columns that Collapse On Tablet
+     *
+     * @return Collection
+     */
     public function getCollapsedTabletColumns(): Collection
     {
         return $this->getColumns()
@@ -116,6 +147,11 @@ trait CollapsingColumnHelpers
         return $this->getVisibleTabletColumns()->count();
     }
 
+    /**
+     * Gets Columns that Collapse Always
+     *
+     * @return Collection
+     */
     public function getCollapsedAlwaysColumns(): Collection
     {
         return $this->getColumns()
@@ -154,51 +190,6 @@ trait CollapsingColumnHelpers
             ->reject(fn (Column $column) => $column->shouldNeverCollapse());
 
         return $columns;
-    }
-
-    public function getCollapsingColumnClasses(): array
-    {
-        $classes = '';
-        $extras = [];
-        foreach ($this->getCollapsedColumnsForContent() as $index => $col) {
-            if ($this->isTailwind()) {
-                if ($col->shouldCollapseAlways()) {
-                    $classes = 'hidden';
-                }
-                if ($col->shouldCollapseOnMobile()) {
-                    $classes = 'hidden md:table-cell';
-                }
-                if ($col->shouldCollapseOnTablet()) {
-                    $classes = 'hidden lg:table-cell';
-                }
-
-            } elseif($this->isTailwind4()) {
-                if ($col->shouldCollapseAlways()) {
-                    $classes = 'hidden';
-                }
-                if ($col->shouldCollapseOnMobile()) {
-                    $classes = 'hidden md:table-cell';
-                }
-                if ($col->shouldCollapseOnTablet()) {
-                    $classes = 'hidden lg:table-cell';
-                }
-            } else {
-                if ($col->shouldCollapseAlways()) {
-                    $classes = 'd-none';
-                }
-                if ($col->shouldCollapseOnMobile()) {
-                    $classes = 'd-none d-md-table-cell';
-                }
-                if ($col->shouldCollapseOnTablet()) {
-                    $classes = 'd-none d-lg-table-cell';
-                }
-
-            }
-
-            $extras[$index] = $classes;
-        }
-
-        return $extras;
     }
 
     #[Computed]
@@ -255,4 +246,21 @@ trait CollapsingColumnHelpers
 
         return $extras;
     }
+
+        
+    protected function getCollapsingColumnDetailsForView(): array
+    {
+        return [
+            'hasCollapsingColumns' => ($this->collapsingColumnsAreEnabled() && $this->hasCollapsedColumns()),
+            'showCollapsingColumnSections' => $this->showCollapsingColumnSections(),
+            'shouldCollapseAlways' => $this->shouldCollapseAlways(),
+            'shouldCollapseOnTablet' => $this->shouldCollapseOnTablet(),
+            'shouldCollapseOnMobile' => $this->shouldCollapseOnMobile(),
+            'collapsingColumnDetails' => $this->getCollapsedColumnsForContentNew(),
+            'collapsingColumnClasses' => $this->getCollapsingColumnClasses(),
+            'buttonExpandAttributes' => $this->getCollapsingColumnButtonExpandAttributes(),
+            'buttonCollapseAttributes' => $this->getCollapsingColumnButtonCollapseAttributes(),
+        ];
+    }
+
 }

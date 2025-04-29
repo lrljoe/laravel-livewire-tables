@@ -3,11 +3,54 @@
 namespace Rappasoft\LaravelLivewireTables\Views;
 
 use Illuminate\Support\Str;
-use Rappasoft\LaravelLivewireTables\Views\Columns\Traits\IsColumn;
+use Rappasoft\LaravelLivewireTables\Traits\Core\HasLocalisations;
+use Rappasoft\LaravelLivewireTables\Views\Columns\Traits\{HasDataTableComponent,IsReorderColumn,HasColumnLabelStatus,HasRelations,HasLabelFormat,HasClickable,HasSlug,IsCollapsible,IsSearchable,IsSelectable,IsSortable,HasColumnView,HasFooter,HasSecondaryHeader,HasVisibility, Configuration\ColumnConfiguration, Helpers\ColumnHelpers};
+use Rappasoft\LaravelLivewireTables\Views\Traits\Core\{HasAttributes, HasLabelAttributes, HasTheme};
 
 class Column
 {
-    use IsColumn;
+    use HasLocalisations,
+        HasDataTableComponent,
+        IsReorderColumn,
+        HasColumnLabelStatus,
+        HasRelations,
+        HasLabelFormat,
+        HasClickable,
+        HasSlug,
+        ColumnConfiguration,
+        ColumnHelpers,
+        IsCollapsible,
+        IsSearchable,
+        IsSelectable,
+        IsSortable,
+        HasAttributes,
+        HasColumnView,
+        HasFooter,
+        HasLabelAttributes,
+        HasSecondaryHeader,
+        HasTheme,
+        HasVisibility;
+
+    // What displays in the columns header
+    protected string $title;
+
+    // Act as a unique identifier for the column
+    protected string $hash;
+
+    // The columns or relationship location: i.e. name, or address.group.name
+    protected ?string $from = null;
+
+    // The underlying columns name: i.e. name
+    protected ?string $field = null;
+
+    // The table of the columns or relationship
+    protected ?string $table = null;
+
+    protected bool $html = false;
+
+    protected ?int $columnIndex;
+
+    protected ?int $rowIndex;
 
     protected string $view = '';
 
