@@ -2,12 +2,6 @@
 <div wire:key="{{ $tableName }}-wrapper" >
     <div {{ $attributes
             ->merge($this->getComponentWrapperAttributes())
-            ->merge($this->hasRefresh() ? [
-                'wire:poll'.$this->getRefreshOptions() => '',
-            ] : [])
-            ->merge($this->isFilterLayoutSlideDown() ? [
-                'wire:ignore.self'  => '',
-            ] : [])
         }}>
 
         <div>

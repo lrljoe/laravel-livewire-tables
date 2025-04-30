@@ -1,7 +1,7 @@
-@aware(['tableName','isTailwind', 'isTailwind4', 'isBootstrap', 'currentlyReorderingStatus', 'showBulkActionsSections', 'showCollapsingColumnSections','selectedVisibleColumns'])
+@aware(['tableName','isTailwind', 'isTailwind4', 'isBootstrap', 'currentlyReorderingStatus', 'showBulkActionsSections', 'showCollapsingColumnSections','selectedVisibleColumns', 'currentRows'])
 
 <x-livewire-tables::table.tr.plain :rowIndex="-1" data-id="thead"
-    :customAttributes="$this->getHeaderTrAttributes($this->getRows)"
+    :customAttributes="$this->getHeaderTrAttributes($currentRows)"
     wire:key="{{ $tableName .'-header' }}"
 >
     @if($currentlyReorderingStatus)

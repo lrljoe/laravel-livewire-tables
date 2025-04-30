@@ -1,7 +1,7 @@
-@aware([ 'tableName','showBulkActionsSections', 'selectedVisibleColumns', 'hasCollapsingColumns', 'filterGenericData'])
+@aware([ 'tableName','showBulkActionsSections', 'selectedVisibleColumns', 'hasCollapsingColumns', 'filterGenericData', 'currentRows'])
 
 <x-livewire-tables::table.tr.plain :rowIndex="-1"
-    :customAttributes="$this->getSecondaryHeaderTrAttributes($this->getRows)"
+    :customAttributes="$this->getSecondaryHeaderTrAttributes($currentRows)"
     wire:key="{{ $tableName .'-secondary-header' }}" data-id="temp"
 >
     @if ($showBulkActionsSections)
@@ -13,14 +13,14 @@
     @endif
 
     @tableloop($selectedVisibleColumns as $colIndex => $column)
-    <x-livewire-tables::table.td.plain wire:key="{{ $tableName . '-secondary-header-datatable-td-' . $column->getSlug() }}"  :$column :$colIndex  :customAttributes="$this->getSecondaryHeaderTdAttributes($column, $this->getRows, $colIndex)">
+    <x-livewire-tables::table.td.plain wire:key="{{ $tableName . '-secondary-header-datatable-td-' . $column->getSlug() }}"  :$column :$colIndex  :customAttributes="$this->getSecondaryHeaderTdAttributes($column, $currentRows, $colIndex)">
         @if($column->hasSecondaryHeader() && $column->hasSecondaryHeaderCallback())
             @if( $column->secondaryHeaderCallbackIsFilter())
                 {{ $column->getSecondaryHeaderFilter($column->getSecondaryHeaderCallback(), $filterGenericData) }}    
             @elseif($column->secondaryHeaderCallbackIsString())
                 {{ $column->getSecondaryHeaderFilter($this->getFilterByKey($column->getSecondaryHeaderCallback()), $filterGenericData) }}
             @else
-                {{ $column->getNewSecondaryHeaderContents($this->getRows) }}
+                {{ $column->getNewSecondaryHeaderContents($currentRows) }}
             @endif
         @endif
     </x-livewire-tables::table.td.plain>

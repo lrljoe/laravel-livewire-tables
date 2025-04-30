@@ -13,7 +13,12 @@ trait HandlesSearchVisibility
         return $this->searchVisibilityStatus;
     }
 
-    #[Computed]
+    
+    /**
+     * Undocumented function
+     * #[Computed]
+     * @return boolean
+     */
     public function searchVisibilityIsEnabled(): bool
     {
         return $this->getSearchVisibilityStatus() === true;

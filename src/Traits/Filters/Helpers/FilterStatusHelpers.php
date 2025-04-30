@@ -11,7 +11,11 @@ trait FilterStatusHelpers
         return $this->filtersStatus;
     }
 
-    #[Computed]
+    /**
+     * Undocumented function
+     * #[Computed]
+     * @return boolean
+     */
     public function filtersAreEnabled(): bool
     {
         return $this->getFiltersStatus() === true;

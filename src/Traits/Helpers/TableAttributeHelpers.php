@@ -9,7 +9,6 @@ use Rappasoft\LaravelLivewireTables\Views\Column;
 
 trait TableAttributeHelpers
 {
-    #[Computed]
     public function getCoreTableAttributes(): array
     {
         return [
@@ -20,31 +19,41 @@ trait TableAttributeHelpers
         ];
     }
 
-    #[Computed]
     public function getComponentWrapperAttributes(): array
     {
-        return count($this->componentWrapperAttributes) ? $this->componentWrapperAttributes : ['id' => 'datatable-'.$this->getId()];
+        $coreAttribs = [
+            'id' => 'datatable-'.$this->getId(),   
+        ];
+
+        if ($this->hasRefresh())
+        {
+            $coreAttribs['wire:poll'.$this->getRefreshOptions()] = '';
+        }
+        if($this->isFilterLayoutSlideDown())
+        {
+            $coreAttribs['wire:ignore.self'] = '';
+        }
+
+        return([
+            ...$coreAttribs, 
+        ...$this->componentWrapperAttributes]);
     }
 
-    #[Computed]
     public function getTableWrapperAttributes(): array
     {
         return array_merge(['wire:key' => $this->getTableName().'-twrap'], (count($this->tableWrapperAttributes) ? $this->tableWrapperAttributes : ['default' => true]));
     }
 
-    #[Computed]
     public function getTableAttributes(): array
     {
         return array_merge(['wire:key' => $this->getTableName().'-table', 'id' => 'table-'.$this->getTableName()], (count($this->tableAttributes) ? $this->tableAttributes : ['default' => true]));
     }
 
-    #[Computed]
     public function getTheadAttributes(): array
     {
         return array_merge(['wire:key' => $this->getTableName().'-thead'], (count($this->theadAttributes) ? $this->theadAttributes : ['default' => true]));
     }
 
-    #[Computed]
     public function getTbodyAttributes(): array
     {
         return array_merge(['wire:key' => $this->getTableName().'-tbody', 'id' => $this->getTableName().'-tbody'], (count($this->tbodyAttributes) ? $this->tbodyAttributes : ['default' => true]));
@@ -53,7 +62,6 @@ trait TableAttributeHelpers
     /**
      * Used in resources/views/components/table/th.blade.php
      */
-    #[Computed]
     public function getThAttributes(Column $column): array
     {
 
@@ -67,7 +75,6 @@ trait TableAttributeHelpers
     /**
      * Used in resources/views/components/table/th.blade.php
      */
-    #[Computed]
     public function getThSortButtonAttributes(Column $column): array
     {
         if (isset($this->thSortButtonAttributesCallback)) {
@@ -80,7 +87,6 @@ trait TableAttributeHelpers
     /**
      * Used in resources/views/components/table/th.blade.php
      */
-    #[Computed]
     public function getThSortIconAttributes(Column $column): array
     {
         if (isset($this->thSortIconAttributesCallback)) {
@@ -93,7 +99,6 @@ trait TableAttributeHelpers
     /**
      * Used in resources/views/components/table/th.blade.php
      */
-    #[Computed]
     public function getAllThAttributes(Column $column): array
     {
         return [
@@ -104,19 +109,16 @@ trait TableAttributeHelpers
         ];
     }
 
-    #[Computed]
     public function hasTrAttributes(): bool
     {
         return isset($this->trAttributesCallback);
     }
 
-    #[Computed]
     public function getTrAttributes(Model $row, int $index): array
     {
         return isset($this->trAttributesCallback) ? call_user_func($this->trAttributesCallback, $row, $index) : ['default' => true];
     }
 
-    #[Computed]
     public function getTdAttributes(Column $column, Model $row, int $colIndex, int $rowIndex): array
     {
         return isset($this->tdAttributesCallback) ? call_user_func($this->tdAttributesCallback, $column, $row, $colIndex, $rowIndex) : ['default' => true];

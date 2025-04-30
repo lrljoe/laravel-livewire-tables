@@ -11,13 +11,23 @@ trait HasToolsStyling
 
     protected array $toolBarAttributes = ['class' => '', 'default-colors' => true, 'default-styling' => true];
 
-    #[Computed]
+    
+    
+    /**
+     * Undocumented function
+     * #[Computed]
+     * @return array
+     */
     public function getToolsAttributes(): array
     {
         return $this->getCustomAttributes(propertyName: 'toolsAttributes', default: false, classicMode: false);
     }
 
-    #[Computed]
+    /**
+     * Undocumented function
+     * #[Computed]
+     * @return ComponentAttributeBag
+     */
     public function getToolsAttributesBag(): ComponentAttributeBag
     {
         return $this->getCustomAttributesBagFromArray($this->getToolsAttributes());
@@ -28,7 +38,13 @@ trait HasToolsStyling
         return $this->getCustomAttributes(propertyName: 'toolBarAttributes', default: false, classicMode: false);
     }
 
-    #[Computed]
+    
+    /**
+     * Undocumented function
+     *     #[Computed]
+
+     * @return ComponentAttributeBag
+     */
     public function getToolBarAttributesBag(): ComponentAttributeBag
     {
         return $this->getCustomAttributesBagFromArray($this->getToolBarAttributes());

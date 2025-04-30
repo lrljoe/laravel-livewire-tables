@@ -68,13 +68,23 @@ trait WithSearch
         }
     }
 
-    #[Computed]
+    
+    /**
+     * hasSearch
+     *
+     * @return boolean
+     *     #[Computed]
+     */
     public function hasSearch(): bool
     {
         return $this->search != '';
     }
 
-    #[Computed]
+    /**
+     * getSearch
+     *  #[Computed]
+     * @return string
+     */
     public function getSearch(): string
     {
         if ($this->shouldTrimSearchString() && $this->search != trim($this->search)) {

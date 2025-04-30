@@ -12,32 +12,53 @@ trait HasSearchIcon
 
     protected array $searchIconAttributes = ['class' => 'h-4 w-4', 'style' => 'color: #000000'];
 
-    #[Computed]
+    
+    /**
+     * Undocumented function
+     * #[Computed]
+     * @return boolean
+     */
     public function hasSearchIcon(): bool
     {
         return $this->searchIconSet;
     }
 
-    #[Computed]
+    /**
+     * Undocumented function
+     * #[Computed]
+     * @return string
+     */
     public function getSearchIcon(): string
     {
         return $this->hasSearchIcon() ? $this->searchIcon : 'heroicon-m-magnifying-glass';
     }
 
-    #[Computed]
+    /**
+     * Undocumented function
+     * #[Computed]
+     * @return string
+     */
     public function getSearchIconClasses(): string
     {
         return $this->getSearchIconAttributes()['class'];
 
     }
 
-    #[Computed]
+    /**
+     * Undocumented function
+     * #[Computed]
+     * @return array
+     */
     public function getSearchIconAttributes(): array
     {
         return $this->searchIconAttributes;
     }
 
-    #[Computed]
+    /**
+     * Undocumented function
+     * #[Computed]
+     * @return array
+     */
     public function getSearchIconOtherAttributes(): array
     {
         return collect($this->getSearchIconAttributes())->except('class')->toArray();

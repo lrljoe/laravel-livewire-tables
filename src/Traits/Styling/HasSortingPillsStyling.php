@@ -12,19 +12,33 @@ trait HasSortingPillsStyling
 
     protected array $sortingPillsClearAllButtonAttributes = ['default-styling' => true, 'default-colors' => true, 'class' => ''];
 
-    #[Computed]
+    
+    /**
+     * Undocumented function
+     * #[Computed]
+     * @return array
+     */
     public function getSortingPillsItemAttributes(): array
     {
         return $this->sortingPillsItemAttributes;
     }
 
-    #[Computed]
+    /**
+     * Undocumented function
+     *     #[Computed]
+     * @return array
+     */
     public function getSortingPillsClearSortButtonAttributes(): array
     {
         return $this->sortingPillsClearSortButtonAttributes;
     }
 
-    #[Computed]
+    
+    /**
+     * Undocumented function
+     * #[Computed]
+     * @return array
+     */
     public function getSortingPillsClearAllButtonAttributes(): array
     {
         return $this->sortingPillsClearAllButtonAttributes;

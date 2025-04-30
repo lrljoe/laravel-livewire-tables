@@ -36,10 +36,9 @@ trait HasCollapsingColumnsStyling
 
     /**
      * Retrieves attributes for the Collapsed Column Collapse Button
-     *
+     *     #[Computed]
      * @return array<mixed>
      */
-    #[Computed]
     public function getCollapsingColumnButtonCollapseAttributes(): array
     {
         return [...['default-styling' => true, 'default-colors' => true], ...$this->collapsingColumnButtonCollapseAttributes];
@@ -47,10 +46,10 @@ trait HasCollapsingColumnsStyling
 
     /**
      * Retrieves attributes for the Collapsed Column Expand Button
-     *
+     *     #[Computed]
+
      * @return array<mixed>
      */
-    #[Computed]
     public function getCollapsingColumnButtonExpandAttributes(): array
     {
         return [...['default-styling' => true, 'default-colors' => true], ...$this->collapsingColumnButtonExpandAttributes];
