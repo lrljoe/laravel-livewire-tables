@@ -1,5 +1,4 @@
-@aware([ 'tableName','primaryKey','isTailwind','isBootstrap', 'rowPk', 'row', 'rowIndex', 'hasDisplayLoadingPlaceholder', 'hasTrAttributes', 'tableRowDetails'])
-
+@aware([ 'tableName','isTailwind', 'rowPk', 'rowIndex', 'hasDisplayLoadingPlaceholder', 'tableRowDetails'])
 
 <tr
     rowpk='{{ $rowPk }}'
