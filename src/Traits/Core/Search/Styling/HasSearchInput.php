@@ -40,4 +40,20 @@ trait HasSearchInput
     {
         return $this->searchPlaceholder !== null;
     }
+    
+    public function getSearchViewAttributes(): array
+    {
+        return [
+            'hasSearch' => $this->hasSearch(),
+            'icon' => [
+                'classes' => $this->getSearchIconClasses(),
+                'hasSearchIcon' => $this->hasSearchIcon(),
+                'searchIcon' => $this->getSearchIcon(),
+                'otherAttributes' => $this->getSearchIconOtherAttributes(),
+            ],
+            'searchFieldAttributes' => $this->getSearchFieldAttributes(),           
+            'searchOptions' => $this->getSearchOptions(),
+            'searchPlaceholder' => $this->getSearchPlaceholder(),
+        ];
+    }
 }

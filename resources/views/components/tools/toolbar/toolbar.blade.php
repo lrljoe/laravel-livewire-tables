@@ -1,6 +1,6 @@
 @aware([ 'tableName','isTailwind','isBootstrap'])
 @props([])
-@php($toolBarAttributes = $this->getToolBarAttributesBag)
+@php($toolBarAttributes = $this->getToolBarAttributesBag())
 
 <div
     {{
@@ -31,7 +31,7 @@
         @endif
 
         @if ($this->showSearchField())
-            <x-livewire-tables::tools.toolbar.items.search-field />
+            <x-livewire-tables::tools.toolbar.items.search.search :searchViewAttributes="$this->getSearchViewAttributes()" />
         @endif
 
         @if ($this->showFiltersButton())

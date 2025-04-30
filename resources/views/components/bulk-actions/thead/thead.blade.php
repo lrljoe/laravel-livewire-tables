@@ -1,8 +1,8 @@
-@aware([ 'tableName', 'isTailwind', 'isBootstrap', 'localisationPath'])
+@aware([ 'tableName', 'isTailwind', 'isBootstrap', 'localisationPath', 'collapsingColumnInfo'])
 
 @if ($this->bulkActionsAreEnabled() && $this->hasBulkActions())
     @php
-        $colspan = $this->getColspanCount();
+        $colspan = $collapsingColumnInfo['colspanCount'];
         $selectAll = $this->selectAllIsEnabled();
         $simplePagination = $this->isPaginationMethod('simple');
     @endphp

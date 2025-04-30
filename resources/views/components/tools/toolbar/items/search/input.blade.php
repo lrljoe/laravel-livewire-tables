@@ -1,23 +1,23 @@
-@aware(['isTailwind', 'isBootstrap'])
+@aware(['isTailwind', 'isBootstrap', 'searchViewAttributes'])
 <input
-    wire:model{{ $this->getSearchOptions() }}="search"
-    placeholder="{{ $this->getSearchPlaceholder() }}"
+    wire:model{{ $searchViewAttributes['searchOptions'] }}="search"
+    placeholder="{{ $searchViewAttributes['searchPlaceholder'] }}"
     type="text"
     {{ 
-        $attributes->merge($this->getSearchFieldAttributes())
+        $attributes->merge($searchViewAttributes['searchFieldAttributes'])
         ->class($isTailwind ?
             [
-                'rounded-md shadow-sm transition duration-150 ease-in-out sm:text-sm sm:leading-5 rounded-none rounded-l-md focus:ring-0 focus:border-gray-300' => $this->hasSearch() && (($this->getSearchFieldAttributes()['default'] ?? true) || ($this->getSearchFieldAttributes()['default-styling'] ?? true)),
-                'rounded-md shadow-sm transition duration-150 ease-in-out sm:text-sm sm:leading-5 rounded-md focus:ring focus:ring-opacity-50' => !$this->hasSearch()  && (($this->getSearchFieldAttributes()['default'] ?? true) || ($this->getSearchFieldAttributes()['default-styling'] ?? true)),
-                'border-gray-300 dark:bg-gray-700 dark:text-white dark:border-gray-600 focus:border-gray-300' =>$this->hasSearch()  && (($this->getSearchFieldAttributes()['default'] ?? true) || ($this->getSearchFieldAttributes()['default-colors'] ?? true)),
-                'border-gray-300 dark:bg-gray-700 dark:text-white dark:border-gray-600 focus:border-indigo-300 focus:ring-indigo-200' =>!$this->hasSearch()  && (($this->getSearchFieldAttributes()['default'] ?? true) || ($this->getSearchFieldAttributes()['default-colors'] ?? true)),
-                'block w-full' => !$this->hasSearchIcon(),
-                'pl-8 pr-4' => $this->hasSearchIcon(),
+                'rounded-md shadow-sm transition duration-150 ease-in-out sm:text-sm sm:leading-5 rounded-none rounded-l-md focus:ring-0 focus:border-gray-300' => $searchViewAttributes['hasSearch'] && (($searchViewAttributes['searchFieldAttributes']['default'] ?? true) || ($searchViewAttributes['searchFieldAttributes']['default-styling'] ?? true)),
+                'rounded-md shadow-sm transition duration-150 ease-in-out sm:text-sm sm:leading-5 rounded-md focus:ring focus:ring-opacity-50' => !$searchViewAttributes['hasSearch']  && (($searchViewAttributes['searchFieldAttributes']['default'] ?? true) || ($searchViewAttributes['searchFieldAttributes']['default-styling'] ?? true)),
+                'border-gray-300 dark:bg-gray-700 dark:text-white dark:border-gray-600 focus:border-gray-300' =>$searchViewAttributes['hasSearch']  && (($searchViewAttributes['searchFieldAttributes']['default'] ?? true) || ($searchViewAttributes['searchFieldAttributes']['default-colors'] ?? true)),
+                'border-gray-300 dark:bg-gray-700 dark:text-white dark:border-gray-600 focus:border-indigo-300 focus:ring-indigo-200' =>!$searchViewAttributes['hasSearch']  && (($searchViewAttributes['searchFieldAttributes']['default'] ?? true) || ($searchViewAttributes['searchFieldAttributes']['default-colors'] ?? true)),
+                'block w-full' => !$searchViewAttributes['icon']['hasSearchIcon'],
+                'pl-8 pr-4' => $searchViewAttributes['icon']['hasSearchIcon'],
             ] :
             [
-                'form-control' => $this->getSearchFieldAttributes()['default'] ?? true,
-                'block w-full' => !$this->hasSearchIcon(),
-                'pl-8 pr-4' => $this->hasSearchIcon(),
+                'form-control' => $searchViewAttributes['searchFieldAttributes']['default'] ?? true,
+                'block w-full' => !$searchViewAttributes['icon']['hasSearchIcon'],
+                'pl-8 pr-4' => $searchViewAttributes['icon']['hasSearchIcon'],
             ],
         )
         ->except(['default','default-styling','default-colors']) 

@@ -246,11 +246,12 @@ trait CollapsingColumnHelpers
 
         return $extras;
     }
-
+    
         
     protected function getCollapsingColumnDetailsForView(): array
     {
         return [
+            'colspanCount' => $this->getColspanCount(),
             'hasCollapsingColumns' => ($this->collapsingColumnsAreEnabled() && $this->hasCollapsedColumns()),
             'showCollapsingColumnSections' => $this->showCollapsingColumnSections(),
             'shouldCollapseAlways' => $this->shouldCollapseAlways(),

@@ -18,7 +18,7 @@
                 ->except(['default','default-styling','default-colors'])
         }}
     >
-        <td colspan="{{ $this->getColspanCount() }}" @class([
+        <td colspan="{{ $collapsingColumnInfo['colspanCount'] }}" @class([
                 'text-left pt-4 pb-2 px-4' => $isTailwind,
                 'text-start pt-3 p-2' => $isBootstrap,
         ])>
