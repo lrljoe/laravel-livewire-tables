@@ -202,9 +202,8 @@ trait TableAttributeHelpers
             
             'selectedVisibleColumns' => $this->selectedVisibleColumns(),
             'showBulkActionsSections' => $this->showBulkActionsSections(),
-            
-            'tdAttributes' => $this->getBulkActionsTdAttributes(),
-            'tdCheckboxAttributes' => $this->getBulkActionsTdCheckboxAttributes(),
+            'bulkActionsTdAttributes' => $this->getBulkActionsTdAttributes(),
+            'bulkActionsTdCheckboxAttributes' => $this->getBulkActionsTdCheckboxAttributes(),
         ];
     }
 

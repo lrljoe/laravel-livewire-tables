@@ -1,8 +1,8 @@
-@aware(['tableName','isTailwind', 'isTailwind4', 'isBootstrap', 'currentlyReorderingStatus', 'selectedVisibleColumns','coreTableAttributes'])
-@props(['bulkActionsTdAttributes','bulkActionsTdCheckboxAttributes'])
+@aware(['tableName','primaryKey', 'isTailwind', 'isTailwind4', 'isBootstrap', 'currentlyReorderingStatus', 'selectedVisibleColumns','coreTableAttributes', 'rows', 'loadingPlaceholderDetails'])
+@props(['bulkActionsTdAttributes','bulkActionsTdCheckboxAttributes', 'currentRows'])
+
 
 <div>
-
     <div {{ $attributes->merge($coreTableAttributes['wrapper'])
             ->class($isTailwind ? [
                 'border-gray-200 dark:border-gray-700' => $coreTableAttributes['wrapper']['default-colors'] ?? ($coreTableAttributes['wrapper']['default'] ?? false),
@@ -14,7 +14,8 @@
             ])
             ->except(['default','default-styling','default-colors'])
     }}>
-        <table {{ $attributes->merge($coreTableAttributes['table'])
+        <table 
+            {{ $attributes->merge($coreTableAttributes['table'])
                 ->class($isTailwind ? [
                     'rappasoft-livewire-table-new',
                     'divide-gray-200 dark:divide-none' => $coreTableAttributes['table']['default-colors'] ?? ($coreTableAttributes['table']['default'] ?? true),
@@ -25,33 +26,44 @@
                 ])
                 ->except(['default','default-styling','default-colors']) }} 
                 @if($currentlyReorderingStatus) 
-                x-sort
-                x-sort:config="{ 
-                    group: 'table-{{ $tableName }}',
-                    filter: '.unsortable',
-                    onMove: function (e) { 
-                        return e.related.className.indexOf('unsortable') === -1;  
-                    },
-                    store: {
-                        /**
-                        * Save the order of elements. Called onEnd (when the item is dropped).
-                        * @param {Sortable}  sortable
-                        */
-                        set: function (sortable) {
-                            var order = sortable.toArray();
-                            console.log('Storing Order');
-                            const result = order.filter((word) => (word !== 'thead' && word !== 'tfoot' && word !== 'loading'));
-                            console.log(result);
+                    x-sort
+                    x-sort:config="{ 
+                        group: 'table-{{ $tableName }}',
+                        filter: '.unsortable',
+                        onMove: function (e) { 
+                            return e.related.className.indexOf('unsortable') === -1;  
+                        },
+                        store: {
+                            /**
+                            * Save the order of elements. Called onEnd (when the item is dropped).
+                            * @param {Sortable}  sortable
+                            */
+                            set: function (sortable) {
+                                var order = sortable.toArray();
+                                console.log('Storing Order');
+                                const result = order.filter((word) => (word !== 'thead' && word !== 'tfoot' && word !== 'loading'));
+                                console.log(result);
 
-                            localStorage.setItem(sortable.options.group.name, result.join('|'));
-                        }
-        } }" @endif
-        >
-            <x-livewire-tables::thead />
+                                localStorage.setItem(sortable.options.group.name, result.join('|'));
+                            }
+                        } 
+                    }"
+                @endif
+            >
+                <x-livewire-tables::thead />
 
-            {{ $slot }}
+                @if(count($currentRows) > 0)
+                    @tableloop ($currentRows as $rowIndex => $row)
+                        @php($rowPk = $row->{$primaryKey})
+                        @php($tableRowDetails = $this->getTableRowDetails($row, $rowIndex))
 
-            <x-livewire-tables::tfoot />
+                        <x-livewire-tables::tbody wire:key="{{ $tableName }}-row-wrap-{{ $rowPk }}" :$row :$rowIndex :$rowPk :$tableRowDetails />
+                    @endtableloop
+                @else
+                    <x-livewire-tables::table.empty />
+                @endif
+                    
+                <x-livewire-tables::tfoot />
 
         </table>
     </div>
