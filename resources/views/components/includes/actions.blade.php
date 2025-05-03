@@ -18,7 +18,7 @@
             ])
             ->except(['default','default-styling','default-colors'])
         }} >
-    @foreach($this->getActions as $action)
+    @foreach($this->getActions() as $action)
         {{ $action->render() }}
     @endforeach
 </div>

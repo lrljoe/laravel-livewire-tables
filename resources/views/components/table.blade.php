@@ -2,7 +2,7 @@
 @props(['bulkActionsTdAttributes','bulkActionsTdCheckboxAttributes', 'currentRows'])
 
 
-<div>
+<div >
     <div {{ $attributes->merge($coreTableAttributes['wrapper'])
             ->class($isTailwind ? [
                 'border-gray-200 dark:border-gray-700' => $coreTableAttributes['wrapper']['default-colors'] ?? ($coreTableAttributes['wrapper']['default'] ?? false),
@@ -40,11 +40,8 @@
                             */
                             set: function (sortable) {
                                 var order = sortable.toArray();
-                                console.log('Storing Order');
                                 const result = order.filter((word) => (word !== 'thead' && word !== 'tfoot' && word !== 'loading'));
-                                console.log(result);
-
-                                localStorage.setItem(sortable.options.group.name, result.join('|'));
+                                updateOrderOfItems(result);
                             }
                         } 
                     }"

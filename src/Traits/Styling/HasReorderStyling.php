@@ -8,7 +8,7 @@ trait HasReorderStyling
 {
     protected array $reorderThAttributes = ['default' => true];
     protected array $reorderButtonStartAttributes = ['class' => '', 'default-colors' => true, 'default-styling' => true, 'type' => 'button', 'x-on:click' => 'reorderToggle'];
-    protected array $reorderButtonSaveAttributes = ['class' => '', 'default-colors' => true, 'default-styling' => true, 'type' => 'button', 'x-on:click' => 'updateOrderedItems'];
+    protected array $reorderButtonSaveAttributes = ['class' => '', 'default-colors' => true, 'default-styling' => true, 'type' => 'button', 'x-on:click' => 'storeOrderedItems'];
     protected array $reorderButtonCancelAttributes = ['class' => '', 'default-colors' => true, 'default-styling' => true, 'type' => 'button', 'x-on:click' => 'reorderToggle'];
 
     /**

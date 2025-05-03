@@ -1,6 +1,6 @@
 @aware(['tableName','isTailwind', 'isBootstrap'])
 @php
-    $customAttributes = $this->hasBulkActionsThAttributes ? $this->getBulkActionsThAttributes : $this->getAllThAttributes($this->getBulkActionsColumn())['customAttributes'];
+    $customAttributes = $this->hasBulkActionsThAttributes() ? $this->getBulkActionsThAttributes() : $this->getAllThAttributes($this->getBulkActionsColumn())['customAttributes'];
     $bulkActionsThCheckboxAttributes = $this->getBulkActionsThCheckboxAttributes();
 @endphp
 

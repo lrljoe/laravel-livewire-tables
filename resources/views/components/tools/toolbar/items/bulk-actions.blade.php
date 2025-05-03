@@ -92,7 +92,7 @@
         @else
             <div
                 {{ 
-                    $attributes->merge($this->getBulkActionsMenuAttributes)
+                    $attributes->merge($this->getBulkActionsMenuAttributes())
                     ->class([
                         'dropdown-menu dropdown-menu-right w-100' => $isBootstrap4 && ($this->getBulkActionsMenuAttributes['default-styling'] ?? true),
                         'dropdown-menu dropdown-menu-end w-100' => $isBootstrap5 && ($this->getBulkActionsMenuAttributes['default-styling'] ?? true),

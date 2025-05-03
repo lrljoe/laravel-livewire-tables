@@ -11,7 +11,7 @@
 
                     @continue(is_null($column))
                     @continue($column->isHidden())
-                    @continue($this->columnSelectIsEnabled && ! $this->columnSelectIsEnabledForColumn($column))
+                    @continue($this->columnSelectIsEnabled() && ! $this->columnSelectIsEnabledForColumn($column))
 
                     <span
                         wire:key="{{ $tableName }}-sorting-pill-{{ $columnSelectName }}"
@@ -24,7 +24,7 @@
                             ->except(['default-styling', 'default-colors'])
                         }}
                     >
-                        {{ $column->getSortingPillTitle() }}: {{ $column->getSortingPillDirectionLabel($direction, $this->getDefaultSortingLabelAsc, $this->getDefaultSortingLabelDesc) }}
+                        {{ $column->getSortingPillTitle() }}: {{ $column->getSortingPillDirectionLabel($direction, $this->getDefaultSortingLabelAsc(), $this->getDefaultSortingLabelDesc()) }}
 
                         <button
                             wire:click="clearSort('{{ $columnSelectName }}')"
@@ -75,7 +75,7 @@
 
                     @continue(is_null($column))
                     @continue($column->isHidden())
-                    @continue($this->columnSelectIsEnabled && ! $this->columnSelectIsEnabledForColumn($column))
+                    @continue($this->columnSelectIsEnabled() && ! $this->columnSelectIsEnabledForColumn($column))
 
                     <span
                         wire:key="{{ $tableName . '-sorting-pill-' . $columnSelectName }}"
@@ -87,7 +87,7 @@
                             ->except(['default-styling', 'default-colors'])
                         }}
                     >
-                        {{ $column->getSortingPillTitle() }}: {{ $column->getSortingPillDirectionLabel($direction, $this->getDefaultSortingLabelAsc, $this->getDefaultSortingLabelDesc) }}
+                        {{ $column->getSortingPillTitle() }}: {{ $column->getSortingPillDirectionLabel($direction, $this->getDefaultSortingLabelAsc(), $this->getDefaultSortingLabelDesc()) }}
 
                         <a
                             href="#"
@@ -133,7 +133,7 @@
 
                     @continue(is_null($column))
                     @continue($column->isHidden())
-                    @continue($this->columnSelectIsEnabled && ! $this->columnSelectIsEnabledForColumn($column))
+                    @continue($this->columnSelectIsEnabled() && ! $this->columnSelectIsEnabledForColumn($column))
 
                     <span
                         wire:key="{{ $tableName }}-sorting-pill-{{ $columnSelectName }}"
@@ -145,7 +145,7 @@
                             ->except(['default-styling', 'default-colors'])
                         }}
                     >
-                        {{ $column->getSortingPillTitle() }}: {{ $column->getSortingPillDirectionLabel($direction, $this->getDefaultSortingLabelAsc, $this->getDefaultSortingLabelDesc) }}
+                        {{ $column->getSortingPillTitle() }}: {{ $column->getSortingPillDirectionLabel($direction, $this->getDefaultSortingLabelAsc(), $this->getDefaultSortingLabelDesc()) }}
 
                         <a
                             href="#"

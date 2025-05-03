@@ -1,6 +1,6 @@
 @php($currentlyReorderingStatus = $this->getCurrentlyReorderingStatus())
 <div>
-    <div x-data="{ currentlyReorderingStatus: false }">
+    <div x-data="{ currentlyReorderingStatus: false, currentOrderOfItems: null, updateOrderOfItems(items) { this.currentOrderOfItems = items; }, storeOrderedItems() { this.$wire.storeReorder(this.currentOrderOfItems) } }">
         <div {{ $this->getTopLevelAttributes() }}>
 
             @includeWhen(

@@ -13,16 +13,20 @@
     @endif
 
     @tableloop($selectedVisibleColumns as $colIndex => $column)
-    <x-livewire-tables::table.td.plain wire:key="{{ $tableName . '-secondary-header-datatable-td-' . $column->getSlug() }}"  :$column :$colIndex  :customAttributes="$this->getSecondaryHeaderTdAttributes($column, $currentRows, $colIndex)">
         @if($column->hasSecondaryHeader() && $column->hasSecondaryHeaderCallback())
-            @if( $column->secondaryHeaderCallbackIsFilter())
-                {{ $column->getSecondaryHeaderFilter($column->getSecondaryHeaderCallback(), $filterGenericData) }}    
-            @elseif($column->secondaryHeaderCallbackIsString())
-                {{ $column->getSecondaryHeaderFilter($this->getFilterByKey($column->getSecondaryHeaderCallback()), $filterGenericData) }}
-            @else
-                {{ $column->getNewSecondaryHeaderContents($currentRows) }}
-            @endif
+            <x-livewire-tables::table.td.plain wire:key="{{ $tableName . '-secondary-header-datatable-td-' . $column->getSlug() }}"  :$column :$colIndex  :customAttributes="$this->getSecondaryHeaderTdAttributes($column, $currentRows, $colIndex)">
+                    @if( $column->secondaryHeaderCallbackIsFilter())
+                        {{ $column->getSecondaryHeaderFilter($column->getSecondaryHeaderCallback(), $filterGenericData) }}    
+                    @elseif($column->secondaryHeaderCallbackIsString())
+                        {{ $column->getSecondaryHeaderFilter($this->getFilterByKey($column->getSecondaryHeaderCallback()), $filterGenericData) }}
+                    @else
+                        {{ $column->getNewSecondaryHeaderContents($currentRows) }}
+                    @endif
+            </x-livewire-tables::table.td.plain>
+        @else
+            <x-livewire-tables::table.td.plain wire:key="{{ $tableName . '-secondary-header-datatable-td-' . $column->getSlug() }}"  :$column :$colIndex />
+
         @endif
-    </x-livewire-tables::table.td.plain>
+
     @endtableloop
 </x-livewire-tables::table.tr.plain>

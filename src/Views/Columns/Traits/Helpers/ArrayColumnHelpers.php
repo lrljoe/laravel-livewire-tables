@@ -38,4 +38,25 @@ trait ArrayColumnHelpers
     {
         return $this->outputFormat;
     }
+
+    
+    public function hasOutputWrapperStart(): bool
+    {
+        return $this->outputWrapperStart !== null && is_string($this->outputWrapperStart);
+    }
+
+    public function getOutputWrapperStart(): string
+    {
+        return $this->outputWrapperStart;
+    }
+
+    public function hasOutputWrapperEnd(): bool
+    {
+        return $this->outputWrapperEnd !== null && is_string($this->outputWrapperEnd);
+    }
+
+    public function getOutputWrapperEnd(): string
+    {
+        return $this->outputWrapperEnd;
+    }
 }

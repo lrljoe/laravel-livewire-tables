@@ -68,7 +68,7 @@
             <x-livewire-tables::tools.toolbar.items.bulk-actions />
         @endif
 
-        @if ($this->columnSelectIsEnabled)
+        @if ($this->columnSelectIsEnabled())
             <x-livewire-tables::tools.toolbar.items.column-select />
         @endif
 

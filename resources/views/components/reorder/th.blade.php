@@ -1,9 +1,9 @@
-@aware(['isTailwind', 'isBootstrap'])
+@aware(['isTailwind', 'isBootstrap', 'tableName'])
 @php
     $customThAttributes = $this->hasReorderThAttributes() ? $this->getReorderThAttributes() : $this->getAllThAttributes($this->getReorderColumn())['customAttributes'];
 @endphp
 
-<x-livewire-tables::table.th.plain x-cloak x-show="currentlyReorderingStatus" wire:key="{{ $this->getTableName }}-thead-reorder" :displayMinimisedOnReorder="false" 
+<x-livewire-tables::table.th.plain x-cloak x-show="currentlyReorderingStatus" wire:key="{{ $tableName }}-thead-reorder" :displayMinimisedOnReorder="false" 
     {{ 
         $attributes->merge($customThAttributes)
             ->class($isTailwind ? [

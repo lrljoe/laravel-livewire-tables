@@ -21,6 +21,10 @@ class ArrayColumn extends BaseColumn
 
     protected mixed $outputFormat = null;
 
+    public ?string $outputWrapperStart = null;
+
+    public ?string $outputWrapperEnd = null;
+
     public function __construct(string $title, ?string $from = null)
     {
         parent::__construct($title, $from);
@@ -28,6 +32,7 @@ class ArrayColumn extends BaseColumn
             $this->label(fn () => null);
         }
     }
+
 
     public function getContents(Model $row): null|string|\BackedEnum|HtmlString|DataTableConfigurationException|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
     {
@@ -46,6 +51,12 @@ class ArrayColumn extends BaseColumn
             $outputValues[] = call_user_func($this->getOutputFormatCallback(), $i, $v);
         }
 
-        return new HtmlString((! empty($outputValues) ? implode($this->getSeparator(), $outputValues) : $this->getEmptyValue()));
+        $returnedValue = (! empty($outputValues) ? implode($this->getSeparator(), $outputValues) : $this->getEmptyValue());
+
+        if ($this->hasOutputWrapperStart() && $this->hasOutputWrapperEnd())
+        {
+            $returnedValue = $this->getOutputWrapperStart() . $returnedValue . $this->getOutputWrapperEnd();
+        }
+        return new HtmlString($returnedValue);
     }
 }
