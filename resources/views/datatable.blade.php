@@ -1,38 +1,37 @@
 @php($currentlyReorderingStatus = $this->getCurrentlyReorderingStatus())
-<div>
-    <div x-data="{ currentlyReorderingStatus: false, currentOrderOfItems: null, updateOrderOfItems(items) { this.currentOrderOfItems = items; }, storeOrderedItems() { this.$wire.storeReorder(this.currentOrderOfItems) } }">
-        <div {{ $this->getTopLevelAttributes() }}>
+@php($hasTdAttributes = $this->hasTdAttributes())
+<div x-data="{ currentlyReorderingStatus: false }">
+    <div {{ $this->getTopLevelAttributes() }}>
 
-            @includeWhen(
-                $this->hasConfigurableAreaFor('before-wrapper'),
-                $this->getConfigurableAreaFor('before-wrapper'),
-                $this->getParametersForConfigurableArea('before-wrapper')
-            )
+        @includeWhen(
+            $this->hasConfigurableAreaFor('before-wrapper'),
+            $this->getConfigurableAreaFor('before-wrapper'),
+            $this->getParametersForConfigurableArea('before-wrapper')
+        )
 
-            <x-livewire-tables::wrapper :$tableName :$primaryKey :$isTailwind :$isTailwind4 :$isBootstrap :$isBootstrap4 :$isBootstrap5 :$localisationPath :$collapsingColumnDetails  :$collapsingColumnButtonExpandAttributes :$collapsingColumnButtonCollapseAttributes :$hasCollapsingColumns :$currentlyReorderingStatus :$hasDisplayLoadingPlaceholder :$coreTableAttributes :$selectedVisibleColumns :$showBulkActionsSections :$showCollapsingColumnSections :$hasTrAttributes :$collapsingColumnInfo :$filterGenericData >
-                @if($this->hasActions() && !$this->showActionsInToolbar())
-                    <x-livewire-tables::includes.actions/>
-                @endif
+        <x-livewire-tables::wrapper :$tableName :$primaryKey :$isTailwind :$isTailwind4 :$isBootstrap :$isBootstrap4 :$isBootstrap5 :$localisationPath :$collapsingColumnDetails  :$collapsingColumnButtonExpandAttributes :$collapsingColumnButtonCollapseAttributes :$hasCollapsingColumns :$currentlyReorderingStatus :$hasDisplayLoadingPlaceholder :$coreTableAttributes :$selectedVisibleColumns :$showBulkActionsSections :$showCollapsingColumnSections :$hasTrAttributes :$collapsingColumnInfo :$filterGenericData :$hasTdAttributes >
+            @if($this->hasActions() && !$this->showActionsInToolbar())
+                <x-livewire-tables::includes.actions/>
+            @endif
 
-                @if($this->shouldShowTools())
-                    <x-livewire-tables::tools />
-                @endif
+            @if($this->shouldShowTools())
+                <x-livewire-tables::tools />
+            @endif
 
-                @php($currentRows = isset($rows) ? $rows : $this->getRows)
+            @php($currentRows = isset($rows) ? $rows : $this->getRows)
 
-                <x-livewire-tables::table :$bulkActionsTdAttributes :$bulkActionsTdCheckboxAttributes :$currentRows />
+            <x-livewire-tables::table :$bulkActionsTdAttributes :$bulkActionsTdCheckboxAttributes :$currentRows />
 
-                <x-livewire-tables::pagination :$currentRows />
+            <x-livewire-tables::pagination :$currentRows />
 
-                @includeIf($customView)
+            @includeIf($customView)
 
-            </x-livewire-tables::wrapper>
+        </x-livewire-tables::wrapper>
 
-            @includeWhen(
-                $this->hasConfigurableAreaFor('after-wrapper'),
-                $this->getConfigurableAreaFor('after-wrapper'),
-                $this->getParametersForConfigurableArea('after-wrapper')
-            )
-        </div>
+        @includeWhen(
+            $this->hasConfigurableAreaFor('after-wrapper'),
+            $this->getConfigurableAreaFor('after-wrapper'),
+            $this->getParametersForConfigurableArea('after-wrapper')
+        )
     </div>
 </div>

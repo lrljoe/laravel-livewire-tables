@@ -1,23 +1,16 @@
-@aware([ 'row', 'rowIndex', 'rowPk', 'tableName', 'primaryKey','isTailwind','isBootstrap', 'collapsingColumnInfo', 'tableRowDetails'])
-@props(['column', 'colIndex'])
+@aware(['isTailwind','isBootstrap', 'collapsingColumnInfo', 'tableRowDetails'])
+@props(['colIndex', 'isClickable' => false, 'customAttributes' => ['default' => true]])
 
-@php
-    $customAttributes = $this->getTdAttributes($column, $row, $colIndex, $rowIndex)
-@endphp
 
-<td wire:key="{{ $tableName . '-table-td-'.$rowPk.'-'.$column->getSlug() }}" x-ref="{{ $tableName . '_' . $rowIndex . '_' . $colIndex }}"
-    @if ($column->isClickable())
-        @if($tableRowDetails['target'] === 'navigate') wire:navigate href="{{ $tableRowDetails['url'] }}"
-        @else onclick="window.open('{{ $tableRowDetails['url'] }}', '{{ $tableRowDetails['target'] }}')"
-        @endif
-    @endif
+<td
         {{
-            $attributes->merge($customAttributes)
+            $attributes->merge($isClickable ? $tableRowDetails['tdAttribs'] : [])->merge($customAttributes)
                 ->class($isTailwind ? [
-                        'px-6 py-4 whitespace-nowrap text-sm font-medium dark:text-white' => $isTailwind && ($customAttributes['default'] ?? true),
+                        'px-6 py-4 whitespace-nowrap text-sm font-medium dark:text-white' => ($customAttributes['default'] ?? true),
+                        'cursor-pointer' => $isClickable && ($tableRowDetails['url'] !== null && ($tableRowDetails['attributes']['default'] ?? true)),
                     ] : [
                         '' => ($customAttributes['default'] ?? true),
-                        'laravel-livewire-tables-cursor' => $column && $column->isClickable(),
+                        'laravel-livewire-tables-cursor' => $isClickable,
                     ])
                 ->class($collapsingColumnInfo['collapsingColumnClasses'][$colIndex] ?? '')
                 ->except(['default','default-styling','default-colors'])

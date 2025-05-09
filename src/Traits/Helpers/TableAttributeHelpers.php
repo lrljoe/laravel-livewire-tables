@@ -22,7 +22,8 @@ trait TableAttributeHelpers
     public function getComponentWrapperAttributes(): array
     {
         $coreAttribs = [
-            'id' => 'datatable-'.$this->getId(),   
+            'id' => 'datatable-'.$this->getId(),
+            'wire:key' => $this->getTableName() . '-wrapper',
         ];
 
         if ($this->hasRefresh())
@@ -123,6 +124,11 @@ trait TableAttributeHelpers
     {
         return isset($this->tdAttributesCallback) ? call_user_func($this->tdAttributesCallback, $column, $row, $colIndex, $rowIndex) : ['default' => true];
     }
+    
+    public function hasTdAttributes(): bool
+    {
+        return isset($this->tdAttributesCallback);
+    }
 
     public function hasTableRowUrl(): bool
     {
@@ -211,11 +217,39 @@ trait TableAttributeHelpers
 
     public function getTableRowDetails(Model $row, int $rowIndex): array
     {
+        $url = isset($this->trUrlCallback) ? call_user_func($this->trUrlCallback, $row) : null;
+        $target = isset($this->trUrlTargetCallback) ? call_user_func($this->trUrlTargetCallback, $row) : null;
+
         return [
             'attributes' => $this->getTrAttributes($row, $rowIndex),
-            'url' => isset($this->trUrlCallback) ? call_user_func($this->trUrlCallback, $row) : null,
-            'target' => isset($this->trUrlTargetCallback) ? call_user_func($this->trUrlTargetCallback, $row) : null,
+            'url' => $url,
+            'target' => $target,
+            'tdAttribs' => ($target == 'navigate' ? ['wire:navigate' => '','href' => $url] : ['onclick' => "window.open('".$url."', '".$target."')"]),
         ];
+
+
     }
+
+    public function getTdAttributesNew(Column $column, Model $row, int $colIndex, int $rowIndex, array $tableRowDetails = []): array
+    {
+        $tdAttribs = isset($this->tdAttributesCallback) ? call_user_func($this->tdAttributesCallback, $column, $row, $colIndex, $rowIndex) : ['default' => true];
+        if($column->isClickable() && !empty($tableRowDetails))
+        {   
+            if($tableRowDetails['target'] === 'navigate') 
+            {
+                $tdAttribs['wire:navigate'] = '';
+                $tdAttribs['href'] = $tableRowDetails['url'];
+            }
+            else
+            {
+                $tdAttribs['onclick'] = "window.open('".$tableRowDetails['url']."', '".$tableRowDetails['target']."')";
+
+            }
+    
+        }
+
+        return $tdAttribs;
+    }
+
 
 }

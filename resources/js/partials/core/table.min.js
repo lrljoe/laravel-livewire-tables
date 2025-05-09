@@ -9,8 +9,6 @@ function table() {
         tableName: wire.entangle('tableName'),
         dataTableFingerprint: wire.entangle('dataTableFingerprint'),
         listeners: [],
-        childElementOpen: false,
-        filtersOpen: wire.entangle('filterSlideDownDefaultVisible'),
         paginationCurrentCount: wire.entangle('paginationCurrentCount'),
         paginationTotalItemCount: wire.entangle('paginationTotalItemCount'),
         paginationCurrentItems: wire.entangle('paginationCurrentItems'),
@@ -18,25 +16,22 @@ function table() {
         selectAllStatus: wire.entangle('selectAll'),
         delaySelectAll: wire.entangle('delaySelectAll'),
         hideBulkActionsWhenEmpty: wire.entangle('hideBulkActionsWhenEmpty'),
-        dragging: false,
         reorderEnabled: false,
-        sourceID: '',
-        targetID: '',
-        currentlyHighlightedElement: '',
-        orderedRows: [],
         defaultReorderColumn: wire.entangle('defaultReorderColumn'),
         reorderStatus: wire.entangle('reorderStatus'),
         currentlyReorderingStatus: wire.entangle('currentlyReorderingStatus'),
         hideReorderColumnUnlessReorderingStatus: wire.entangle('hideReorderColumnUnlessReorderingStatus'),
         reorderDisplayColumn: wire.entangle('reorderDisplayColumn'),
-        externalFilterPillsVals: wire.entangle('externalFilterPillsValues'),
-        internalFilterPillsVals: wire.entangle('internalFilterPillsVals'),
-        showFilterPillLabel: [],
-        filterPillsSeparator: ', ',
-        showFilterPillsSection: true,
         newSelectCount: 0, 
         indeterminateCheckbox: false, 
         bulkActionHeaderChecked: false,
+        currentOrderOfItems: null, 
+        updateOrderOfItems(items) { 
+            this.currentOrderOfItems = items; 
+        }, 
+        storeOrderedItems() { 
+            wire.storeReorder(this.currentOrderOfItems) 
+        },
         stripLivewireTags(data) { 
             let localHtml = data.innerHTML; 
             localHtml = localHtml.replace('<!--[if BLOCK]>', '')
@@ -58,78 +53,6 @@ function table() {
 
             return trimmedContent;
         },        
-        resetSpecificFilter(filterKey)
-        {
-            this.externalFilterPillsVals[filterKey] = [];
-            wire.call('resetFilter',filterKey);
-        },
-        resetAllFilters()
-        {
-            this.externalFilterPillsVals = [];
-            wire.call('setFilterDefaults');
-        },
-        setInternalFilterPillVal(filterKey, filterValues)
-        {
-
-            if(typeof(filterValues) !== 'undefined')
-            {
-                this.internalFilterPillsVals[filterKey] = filterValues;
-            }
-        },
-        syncExternalFilterPillsValues(filterKey,filterValues) {
-            this.externalFilterPillsVals[filterKey] = filterValues;
-            this.showFilterPillLabel[filterKey] = this.getFilterPillsLength(filterKey);
-        },
-        getFilterPillsLength(filterKey)
-        {
-            return Object.keys(this.externalFilterPillsVals[filterKey]).length ?? 0;
-        },
-        showFilterPillsValue(filterKey, filterPillValue)
-        {
-            if(typeof(filterPillValue) !== "undefined")
-            {
-                this.externalFilterPillsVals[filterKey] = filterPillValue;
-            }
-            else
-            {
-                this.externalFilterPillsVals[filterKey] = null;
-            }
-            
-        },
-        setFilterPillsLength(externalFilterPillsValues)
-        {
-            let filterValueLength = 0;
-            if (typeof(externalFilterPillsValues) !== 'undefined')
-            {
-                filterValueLength = Object.keys(externalFilterPillsValues).length ?? 0;
-            }
-            else
-            {
-                filterValueLength = 0;
-            }
-            return filterValueLength; 
-        },
-        showFilterPillsLabel(filterKey)
-        {
-            let pillsLength = this.getFilterPillsLength(filterKey);
-            return (this.getFilterPillsLength(filterKey) > 0);
-        },
-        getFilterPillImplodedValues(filterKey, separator)
-        {
-            let filterPillValues = this.externalFilterPillsVals[filterKey];
-            if(filterPillValues !== 'undefined')
-            {
-                let joinedValues = filterPillValues.join(separator);
-
-                return joinedValues;
-            }
-
-            return '';
-        },
-        showFilterPillsSeparator(filterKey,index)
-        {
-            return ((index+1) < (this.getFilterPillsLength(filterKey)));
-        },
         reorderToggle() {
             if (this.currentlyReorderingStatus) {
                 wire.disableReordering();
@@ -147,9 +70,7 @@ function table() {
             }
 
             wire.disableReordering();
-
         },
-
         toggleSelectAll() {
             if (!this.showBulkActionsAlpine) {
                 return;

@@ -15,14 +15,11 @@ trait WithQueryString
     public array $queryStringConfig = [
         'columns' => ['status' => false, 'alias' => null],
         'filters' => ['status' => true, 'alias' => null],
+        'pagination' => ['status' => true, 'alias' => 'perPage'],
         'search' => ['status' => true, 'alias' => null],
         'sorts' => ['status' => true, 'alias' => null],
     ];
 
-    #[Locked]
-    public ?bool $queryStringStatus;
-
-    protected ?string $queryStringAlias;
 
     /**
      * Set the custom query string array for this specific table

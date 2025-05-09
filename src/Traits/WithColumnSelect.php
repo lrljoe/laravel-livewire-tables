@@ -39,17 +39,6 @@ trait WithColumnSelect
 
     protected bool $columnSelectHiddenOnTablet = false;
 
-    /*protected function queryStringWithColumnSelect(): array
-    {
-        if ($this->queryStringIsEnabled() && $this->columnSelectIsEnabled()) {
-            return [
-                'columns' => ['except' => null, 'history' => false, 'keep' => false, 'as' => $this->getQueryStringAlias().'-columns'],
-            ];
-        }
-
-        return [];
-    }*/
-
     public function bootedWithColumnSelect(): void
     {
         $this->callHook('configuringColumnSelect');

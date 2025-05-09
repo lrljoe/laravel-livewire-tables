@@ -6,7 +6,7 @@ trait HasQueryStringForColumnSelect
 {
     protected function queryStringHasQueryStringForColumnSelect(): array
     {
-        return (($this->queryStringIsEnabled() || $this->queryStringForColumnSelectEnabled()) && $this->columnSelectIsEnabled()) ? ['selectedColumns' => ['except' => null, 'history' => false, 'keep' => false, 'as' => $this->getQueryStringAliasForColumnSelect()]] : [];
+        return ($this->queryStringForColumnSelectEnabled() && $this->columnSelectIsEnabled()) ? ['selectedColumns' => ['except' => null, 'history' => false, 'keep' => false, 'as' => $this->getQueryStringAliasForColumnSelect()]] : [];
 
     }
 

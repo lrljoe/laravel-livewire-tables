@@ -7,12 +7,14 @@ use Livewire\WithPagination as LivewirePagination;
 use Rappasoft\LaravelLivewireTables\Traits\Configuration\PaginationConfiguration;
 use Rappasoft\LaravelLivewireTables\Traits\Helpers\PaginationHelpers;
 use Rappasoft\LaravelLivewireTables\Traits\Styling\HasPaginationStyling;
+use Rappasoft\LaravelLivewireTables\Traits\Core\QueryStrings\HasQueryStringForPagination;
 
 trait WithPagination
 {
     use LivewirePagination,
         PaginationConfiguration,
         PaginationHelpers,
+        HasQueryStringForPagination,
         HasPaginationStyling;
 
     public ?string $pageName = null;
@@ -79,18 +81,6 @@ trait WithPagination
         $this->setPerPage($value);
         $this->resetPage($this->getComputedPageName());
 
-    }
-
-    protected function queryStringWithPagination(): array
-    {
-
-        if ($this->queryStringIsEnabled()) {
-            return [
-                'perPage' => ['except' => null, 'history' => false, 'keep' => false, 'as' => $this->getQueryStringAlias().'perPage'],
-            ];
-        }
-
-        return [];
     }
 
     public function renderingWithPagination(): void

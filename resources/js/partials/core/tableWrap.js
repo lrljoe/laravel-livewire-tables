@@ -4,8 +4,6 @@ function tableWrap() {
     Alpine.data('tableWrapper', (wire, showBulkActionsAlpine) => ({
         shouldBeDisplayed: wire.entangle('shouldBeDisplayed'),
         listeners: [],
-        childElementOpen: false,
-        filtersOpen: wire.entangle('filterSlideDownDefaultVisible'),
         paginationCurrentCount: wire.entangle('paginationCurrentCount'),
         paginationTotalItemCount: wire.entangle('paginationTotalItemCount'),
         paginationCurrentItems: wire.entangle('paginationCurrentItems'),

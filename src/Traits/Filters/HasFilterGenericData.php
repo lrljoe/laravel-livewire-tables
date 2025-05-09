@@ -15,5 +15,5 @@ trait HasFilterGenericData
      *
      * @var array<mixed>
      */
-    public array $filterGenericData = [];
+    protected array $filterGenericData = [];
 }
