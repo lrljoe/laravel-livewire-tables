@@ -12,12 +12,32 @@ class SelectFilter extends Filter
         IsStringFilter;
     use HasWireables;
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     public string $wireMethod = 'live';
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     protected string $view = 'livewire-tables::components.tools.filters.select';
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     protected string $configPath = 'livewire-tables.selectFilter.defaultConfig';
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     protected string $optionsPath = 'livewire-tables.selectFilter.defaultOptions';
 
     /**
@@ -69,16 +89,14 @@ class SelectFilter extends Filter
     /**
      * Undocumented function
      *
-     * @return array<mixed>
+     * @return array<string,mixed>
      */
     protected function getCoreInputAttributes(): array
     {
-        $attributes = array_merge(parent::getCoreInputAttributes(),
+        return $this->mergeCoreInputAttributes(
             [
                 'wire:key' => $this->generateWireKey($this->getGenericDisplayData()['tableName'], 'select'),
-            ]);
-        ksort($attributes);
-
-        return $attributes;
+            ]
+        );
     }
 }

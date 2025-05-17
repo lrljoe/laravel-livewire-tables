@@ -14,10 +14,26 @@ class ColorColumn extends BaseColumn
         ColorColumnHelpers;
     use HasDefaultStringValue;
 
+    /**
+     * Undocumented variable
+     *
+     * @var \Closure|null
+     */
     public ?\Closure $colorCallback;
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     protected string $view = 'livewire-tables::includes.columns.color';
 
+    /**
+     * Undocumented function
+     *
+     * @param string $title
+     * @param string|null $from
+     */
     public function __construct(string $title, ?string $from = null)
     {
         parent::__construct($title, $from);
@@ -27,6 +43,12 @@ class ColorColumn extends BaseColumn
 
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param Model $row
+     * @return null|string|\Illuminate\Support\HtmlString|DataTableConfigurationException|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function getContents(Model $row): null|string|\Illuminate\Support\HtmlString|DataTableConfigurationException|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
     {
         return $this->getColumnViewWithDefaults()
@@ -34,6 +56,12 @@ class ColorColumn extends BaseColumn
             ->withAttributeBag($this->getAttributeBag($row));
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param Model $row
+     * @return string
+     */
     public function getValue(Model $row): string
     {
         return parent::getValue($row) ?? $this->getDefaultValue();

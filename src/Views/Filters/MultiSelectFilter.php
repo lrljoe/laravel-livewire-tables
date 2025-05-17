@@ -11,12 +11,32 @@ class MultiSelectFilter extends Filter
         IsArrayFilter;
     use HasWireables;
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     public string $wireMethod = 'live.debounce.250ms';
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     protected string $view = 'livewire-tables::components.tools.filters.multi-select';
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     protected string $configPath = 'livewire-tables.multiSelectFilter.defaultConfig';
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     protected string $optionsPath = 'livewire-tables.multiSelectFilter.defaultOptions';
 
     /**

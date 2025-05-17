@@ -2,7 +2,7 @@
 
 function fpf() {
     Alpine.data('flatpickrFilter', (wire, filterKey, filterConfig, refLocation, locale) => ({
-        wireValues: wire.entangle('filterComponents.' + filterKey),
+        wireValues: wire.entangle('appliedFilters.' + filterKey),
         flatpickrInstance: flatpickr(refLocation, {
         mode: 'range',
         altFormat: filterConfig['altFormat'] ?? "F j, Y",
@@ -35,7 +35,7 @@ function fpf() {
                 window.childElementOpen = false;
                 window.filterPopoverOpen = false;
                 wireDateArray = { 'minDate': dates[0], 'maxDate': (typeof dates[2] === "undefined") ? dates[0] : dates[2] };
-                wire.set('filterComponents.' + filterKey, wireDateArray);
+                wire.set('appliedFilters.' + filterKey, wireDateArray);
             }
         },
     }),
@@ -43,7 +43,7 @@ function fpf() {
         if (value.length < 5)
         {
             this.flatpickrInstance.setDate([]);   
-            wire.set('filterComponents.' + filterKey, {});
+            wire.set('appliedFilters.' + filterKey, {});
         }
     },
     setupWire() {

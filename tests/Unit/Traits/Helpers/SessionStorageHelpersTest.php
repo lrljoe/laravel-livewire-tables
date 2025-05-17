@@ -44,7 +44,7 @@ final class SessionStorageHelpersTest extends TestCase
             'last_visit_date_filter' => null,
             'last_visit_datetime_filter' => null,
             'breed_select_filter' => null,
-        ], $this->basicTable->filterComponents);
+        ], $this->basicTable->appliedFilters);
         $this->assertSame(['breed' => ['1'],
             'species' => [],
             'breed_id_filter' => null,
@@ -60,7 +60,7 @@ final class SessionStorageHelpersTest extends TestCase
             'pet_name_filter' => null,
             'last_visit_date_filter' => null,
             'last_visit_datetime_filter' => null,
-            'breed_select_filter' => null], $this->basicTable->filterComponents);
+            'breed_select_filter' => null], $this->basicTable->appliedFilters);
         $this->assertSame(['2'], $this->basicTable->getAppliedFilterWithValue('breed'));
         $this->assertSame(['breed' => ['2']], $this->basicTable->getStoredFilterValues());
 
@@ -80,12 +80,12 @@ final class SessionStorageHelpersTest extends TestCase
         $this->basicTable->storeFilterValues();
         $this->assertSame(['4'], $this->basicTable->getAppliedFilterWithValue('breed'));
 
-        $this->basicTable->filterComponents = [];
+        $this->basicTable->appliedFilters = [];
         $this->assertNull($this->basicTable->getAppliedFilterWithValue('breed'));
-        $this->assertSame([], $this->basicTable->filterComponents);
+        $this->assertSame([], $this->basicTable->appliedFilters);
 
         $this->basicTable->restoreFilterValues();
-        $this->assertSame(['breed' => ['4']], $this->basicTable->filterComponents);
+        $this->assertSame(['breed' => ['4']], $this->basicTable->appliedFilters);
         $this->assertSame(['4'], $this->basicTable->getAppliedFilterWithValue('breed'));
         $this->assertSame(['breed' => ['4']], $this->basicTable->getStoredFilterValues());
 

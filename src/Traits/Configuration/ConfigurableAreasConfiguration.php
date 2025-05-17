@@ -7,9 +7,10 @@ trait ConfigurableAreasConfiguration
     /**
      * Set all configurable areas to this array of configuration data
      *
-     * @param  array<mixed>  $areas
+     * @param array<mixed> $areas
+     * @return self
      */
-    public function setConfigurableAreas(array $areas): self
+     public function setConfigurableAreas(array $areas): self
     {
         $this->configurableAreas = $areas;
 
@@ -19,9 +20,11 @@ trait ConfigurableAreasConfiguration
     /**
      * Configure a specific Configurable Area
      *
-     * @param  array<mixed>  $config
+     * @param string $configurableArea
+     * @param array<mixed> $config
+     * @return self
      */
-    public function setConfigurableArea(string $configurableArea, mixed $config): self
+    public function setConfigurableArea(string $configurableArea, array $config): self
     {
         if (array_key_exists($configurableArea, $this->configurableAreas)) {
             $this->configurableAreas[$configurableArea] = $config;
@@ -30,6 +33,12 @@ trait ConfigurableAreasConfiguration
         return $this;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param boolean $status
+     * @return self
+     */
     public function setHideConfigurableAreasWhenReorderingStatus(bool $status): self
     {
         $this->hideConfigurableAreasWhenReorderingStatus = $status;
@@ -37,17 +46,23 @@ trait ConfigurableAreasConfiguration
         return $this;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return self
+     */
     public function setHideConfigurableAreasWhenReorderingEnabled(): self
     {
-        $this->setHideConfigurableAreasWhenReorderingStatus(true);
-
-        return $this;
+        return $this->setHideConfigurableAreasWhenReorderingStatus(true);
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return self
+     */
     public function setHideConfigurableAreasWhenReorderingDisabled(): self
     {
-        $this->setHideConfigurableAreasWhenReorderingStatus(false);
-
-        return $this;
+        return $this->setHideConfigurableAreasWhenReorderingStatus(false);
     }
 }

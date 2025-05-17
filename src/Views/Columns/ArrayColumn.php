@@ -13,18 +13,54 @@ class ArrayColumn extends BaseColumn
     use ArrayColumnConfiguration,
         ArrayColumnHelpers;
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     public string $separator = '<br />';
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     public string $emptyValue = '';
 
+    /**
+     * Undocumented variable
+     *
+     * @var mixed
+     */
     protected mixed $dataCallback = null;
 
+    /**
+     * Undocumented variable
+     *
+     * @var mixed
+     */
     protected mixed $outputFormat = null;
 
-    public ?string $outputWrapperStart = null;
+    /**
+     * Undocumented variable
+     *
+     * @var string|null
+     */
+    public ?string $outputWrapperStart;
 
-    public ?string $outputWrapperEnd = null;
+    /**
+     * Undocumented variable
+     *
+     * @var string|null
+     */
+    public ?string $outputWrapperEnd;
 
+    /**
+     * Undocumented function
+     *
+     * @param string $title
+     * @param string|null $from
+     */
     public function __construct(string $title, ?string $from = null)
     {
         parent::__construct($title, $from);
@@ -33,7 +69,12 @@ class ArrayColumn extends BaseColumn
         }
     }
 
-
+    /**
+     * Undocumented function
+     *
+     * @param Model $row
+     * @return null|string|\BackedEnum|HtmlString|DataTableConfigurationException|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function getContents(Model $row): null|string|\BackedEnum|HtmlString|DataTableConfigurationException|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
     {
         $outputValues = [];

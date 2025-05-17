@@ -5,7 +5,7 @@
         'rounded-md shadow-sm' => $isTailwind,
         'mb-3 mb-md-0 input-group' => $isBootstrap,
     ])>
-        <input {!! $filter->getWireMethod('filterComponents.'.$filter->getKey()) !!} {{ 
+        <input {!! $filter->getWireMethod('appliedFilters.'.$filter->getKey()) !!} {{ 
                 $filterInputAttributes->merge()
                 ->class([
                     'block w-full rounded-md shadow-sm transition duration-150 ease-in-out focus:ring focus:ring-opacity-50' => $isTailwind && ($filterInputAttributes['default-styling'] ?? true),

@@ -10,7 +10,7 @@ trait HandlesFilterInputAttributes
     /**
      * Undocumented variable
      *
-     * @var array<mixed>
+     * @var array<string,mixed>
      */
     protected array $filterInputAttributes = [];
 
@@ -30,7 +30,7 @@ trait HandlesFilterInputAttributes
     /**
      * Undocumented function
      *
-     * @return array<mixed>
+     * @return array<string,mixed>
      */
     protected function getInputAttributes(): array
     {
@@ -40,7 +40,7 @@ trait HandlesFilterInputAttributes
     /**
      * Undocumented function
      *
-     * @return array<mixed>
+     * @return array<string,mixed>
      */
     protected function getCoreInputAttributes(): array
     {
@@ -54,16 +54,54 @@ trait HandlesFilterInputAttributes
     /**
      * Undocumented function
      *
-     * @param array<mixed> $filterInputAttributes
+     * @param array<string,mixed> $filterInputAttributes
      * @return self
      */
     public function setInputAttributes(array $filterInputAttributes): self
     {
         $this->filterInputAttributes = array_merge([
-            'default-styling' => false,
-            'default-colors' => false,
+            'default-styling' => true,
+            'default-colors' => true,
         ], $filterInputAttributes);
 
         return $this;
     }
+
+    /**
+     * Undocumented function
+     *
+     * @return array<string,mixed>
+     */
+    protected function getFilterInputAttributes(): array
+    {
+        return $this->filterInputAttributes;
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @return array<string,mixed>
+     */
+    protected function getDefaultInputAttributes(): array
+    {
+        return [
+            'id' => $this->getGenericDisplayData()['tableName'].'-filter-'.$this->getKey().($this->hasCustomPosition() ? '-'.$this->getCustomPosition() : ''),
+            'default-styling' => true,
+            'default-colors' => true,
+        ];
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param array<string,mixed> $customAttributes
+     * @return array<string,mixed>
+     */
+    protected function mergeCoreInputAttributes(array $customAttributes = []): array
+    {
+        $attributes = array_merge($this->getDefaultInputAttributes(), $customAttributes, $this->getFilterInputAttributes());
+        ksort($attributes);
+        return $attributes;
+    }
+
 }

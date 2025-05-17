@@ -13,9 +13,6 @@ trait HasFilterPills
         FilterPillsHelpers,
         HasFilterPillsStyling;
 
-    #[Locked]
-    public bool $filterPillsStatus = true;
-
     /**
      * Undocumented variable
      *

@@ -14,12 +14,32 @@ class DateRangeFilter extends Filter
         HasConfig;
     use HasWireables;
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     public string $wireMethod = 'blur';
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     protected string $view = 'livewire-tables::components.tools.filters.date-range';
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     protected string $configPath = 'livewire-tables.dateRange.defaultConfig';
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     protected string $optionsPath = 'livewire-tables.dateRange.defaultOptions';
 
     /**
@@ -178,11 +198,22 @@ class DateRangeFilter extends Filter
         return $this->filterDefaultValue ?? [];
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return boolean
+     */
     public function hasFilterDefaultValue(): bool
     {
         return ! is_null($this->filterDefaultValue);
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param mixed $value
+     * @return self
+     */
     public function setFilterDefaultValue($value): self
     {
         if (is_array($value)) {

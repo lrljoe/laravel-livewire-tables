@@ -6,7 +6,7 @@ trait ArrayColumnHelpers
 {
     public function hasSeparator(): bool
     {
-        return $this->separator !== null && is_string($this->separator);
+        return $this->separator !== "";
     }
 
     public function getSeparator(): string

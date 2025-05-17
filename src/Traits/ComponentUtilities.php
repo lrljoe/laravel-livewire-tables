@@ -25,12 +25,13 @@ trait ComponentUtilities
      * @var array<mixed>
      */
     public array $table = [];
-
+    
     /**
-     * Undocumented variable
+     * Model Type
      *
+     * @var \Illuminate\Database\Eloquent\Model|null
      */
-    protected $model;
+     protected $model;
 
     /**
      * Undocumented variable

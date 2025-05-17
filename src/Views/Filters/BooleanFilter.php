@@ -9,10 +9,26 @@ class BooleanFilter extends Filter
 {
     use HasWireables;
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     public string $wireMethod = 'live';
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     protected string $view = 'livewire-tables::components.tools.filters.boolean';
 
+    /**
+     * Undocumented function
+     *
+     * @param string $name
+     * @param string|null $key
+     */
     public function __construct(string $name, ?string $key = null)
     {
         parent::__construct($name,$key);
@@ -22,6 +38,12 @@ class BooleanFilter extends Filter
         ];
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param boolean|integer|string|null $value
+     * @return boolean
+     */
     public function validate(bool|int|string|null $value): bool
     {
         if ($value === null) {
@@ -55,6 +77,12 @@ class BooleanFilter extends Filter
         return $this->getCustomFilterPillValue($value);
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param boolean|integer|string|null $value
+     * @return boolean
+     */
     public function isEmpty(bool|int|string|null $value): bool
     {
         if (is_null($value)) {
@@ -73,11 +101,11 @@ class BooleanFilter extends Filter
     /**
      * Undocumented function
      *
-     * @return array<mixed>
+     * @return array<string,mixed>
      */
     protected function getCoreInputAttributes(): array
     {
-        $attributes = array_merge(parent::getCoreInputAttributes(),
+        return $this->mergeCoreInputAttributes(
             [
                 '@click' => 'toggleStatusWithUpdate',
                 'activeColor' => 'bg-blue-600',
@@ -85,14 +113,14 @@ class BooleanFilter extends Filter
                 'inactiveColor' => 'bg-neutral-200',
                 'type' => 'button',
                 'x-ref' => 'switchButton',
-            ]);
-        ksort($attributes);
-
-        return $attributes;
+            ]
+        );
     }
 
     /**
      * Gets the Default Value for this Filter via the Component
+     *
+     * @return boolean|null
      */
     public function getFilterDefaultValue(): ?bool
     {

@@ -18,14 +18,40 @@ class DateColumn extends BaseColumn
         DateColumnConfiguration,
         DateColumnHelpers { DateColumnHelpers::getValue insteadof IsColumn; }
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     public string $inputFormat = 'Y-m-d';
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     public string $outputFormat = 'Y-m-d';
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     public string $emptyValue = '';
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     protected string $view = 'livewire-tables::includes.columns.date';
 
+    /**
+     * Undocumented function
+     *
+     * @param Model $row
+     * @return null|string|\BackedEnum|HtmlString|DataTableConfigurationException|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function getContents(Model $row): null|string|\BackedEnum|HtmlString|DataTableConfigurationException|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
     {
         try {

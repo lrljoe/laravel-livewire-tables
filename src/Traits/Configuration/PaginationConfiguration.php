@@ -6,6 +6,12 @@ use Rappasoft\LaravelLivewireTables\Exceptions\DataTableConfigurationException;
 
 trait PaginationConfiguration
 {
+    /**
+     * Undocumented function
+     *
+     * @param string $name
+     * @return self
+     */
     public function setPageName(string $name): self
     {
         $this->pageName = $name;
@@ -13,13 +19,12 @@ trait PaginationConfiguration
         return $this;
     }
 
-    public function setPaginationTheme(string $theme): self
-    {
-        $this->paginationTheme = $theme;
-
-        return $this;
-    }
-
+    /**
+     * Undocumented function
+     *
+     * @param boolean $status
+     * @return self
+     */
     public function setPaginationStatus(bool $status): self
     {
         $this->paginationStatus = $status;
@@ -27,20 +32,32 @@ trait PaginationConfiguration
         return $this;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return self
+     */
     public function setPaginationEnabled(): self
     {
-        $this->setPaginationStatus(true);
-
-        return $this;
+        return $this->setPaginationStatus(true);
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return self
+     */
     public function setPaginationDisabled(): self
     {
-        $this->setPaginationStatus(false);
-
-        return $this;
+        return $this->setPaginationStatus(false);
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param boolean $status
+     * @return self
+     */
     public function setPaginationVisibilityStatus(bool $status): self
     {
         $this->paginationVisibilityStatus = $status;
@@ -48,20 +65,32 @@ trait PaginationConfiguration
         return $this;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return self
+     */
     public function setPaginationVisibilityEnabled(): self
     {
-        $this->setPaginationVisibilityStatus(true);
-
-        return $this;
+        return $this->setPaginationVisibilityStatus(true);
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return self
+     */
     public function setPaginationVisibilityDisabled(): self
     {
-        $this->setPaginationVisibilityStatus(false);
-
-        return $this;
+        return $this->setPaginationVisibilityStatus(false);
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param boolean $status
+     * @return self
+     */
     public function setPerPageVisibilityStatus(bool $status): self
     {
         $this->perPageVisibilityStatus = $status;
@@ -69,22 +98,31 @@ trait PaginationConfiguration
         return $this;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return self
+     */
     public function setPerPageVisibilityEnabled(): self
     {
-        $this->setPerPageVisibilityStatus(true);
-
-        return $this;
-    }
-
-    public function setPerPageVisibilityDisabled(): self
-    {
-        $this->setPerPageVisibilityStatus(false);
-
-        return $this;
+        return $this->setPerPageVisibilityStatus(true);
     }
 
     /**
-     * @param  array<mixed>  $accepted
+     * Undocumented function
+     *
+     * @return self
+     */
+    public function setPerPageVisibilityDisabled(): self
+    {
+        return $this->setPerPageVisibilityStatus(false);
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $accepted
+     * @return self
      */
     public function setPerPageAccepted(array $accepted): self
     {
@@ -94,7 +132,11 @@ trait PaginationConfiguration
     }
 
     /**
+     * Undocumented function
+     *
+     * @param integer $perPage
      * @throws DataTableConfigurationException
+     * @return self
      */
     public function setPerPage(int $perPage): self
     {
@@ -107,6 +149,11 @@ trait PaginationConfiguration
         return $this;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return self
+     */
     public function unsetPerPage(): self
     {
         $this->perPage = null;
@@ -114,6 +161,12 @@ trait PaginationConfiguration
         return $this;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param string $paginationMethod
+     * @return self
+     */
     public function setPaginationMethod(string $paginationMethod): self
     {
         $this->paginationMethod = $paginationMethod;
@@ -121,6 +174,12 @@ trait PaginationConfiguration
         return $this;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param boolean $status
+     * @return self
+     */
     public function setDisplayPaginationDetails(bool $status): self
     {
         $this->shouldShowPaginationDetails = $status;
@@ -128,22 +187,31 @@ trait PaginationConfiguration
         return $this;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return self
+     */
     public function setDisplayPaginationDetailsEnabled(): self
     {
-        $this->setDisplayPaginationDetails(true);
-
-        return $this;
+        return $this->setDisplayPaginationDetails(true);
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return self
+     */
     public function setDisplayPaginationDetailsDisabled(): self
     {
-        $this->setDisplayPaginationDetails(false);
-
-        return $this;
+        return $this->setDisplayPaginationDetails(false);
     }
 
     /**
      * Set a default per-page value (if not set already by session or querystring)
+     *
+     * @param integer $defaultPerPage
+     * @return self
      */
     public function setDefaultPerPage(int $defaultPerPage): self
     {
@@ -154,25 +222,36 @@ trait PaginationConfiguration
         return $this;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param boolean $status
+     * @return self
+     */
     public function setShouldRetrieveTotalItemCountStatus(bool $status): self
     {
         $this->shouldRetrieveTotalItemCount = $status;
 
         return $this;
-
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return self
+     */
     public function setShouldRetrieveTotalItemCountEnabled(): self
     {
-        $this->setShouldRetrieveTotalItemCountStatus(true);
-
-        return $this;
+        return $this->setShouldRetrieveTotalItemCountStatus(true);
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return self
+     */
     public function setShouldRetrieveTotalItemCountDisabled(): self
     {
-        $this->setShouldRetrieveTotalItemCountStatus(false);
-
-        return $this;
+        return $this->setShouldRetrieveTotalItemCountStatus(false);
     }
 }

@@ -11,10 +11,25 @@ class NumberRangeFilter extends Filter
     use HasOptions;
     use HasWireables;
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     public string $wireMethod = 'blur';
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     protected string $view = 'livewire-tables::components.tools.filters.number-range';
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     protected string $configPath = 'livewire-tables.numberRange.defaultConfig';
 
     /**

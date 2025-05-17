@@ -32,7 +32,7 @@
             <div @class([
                 'form-check' => $isBootstrap,
                 ]) wire:key="{{ $tableName }}-filter-{{ $filter->getKey() }}-multiselect-{{ $key }}{{ $filter->hasCustomPosition() ? '-'.$filter->getCustomPosition() : null }}">
-                <input {!! $filter->getWireMethod('filterComponents.'.$filter->getKey()) !!} 
+                <input {!! $filter->getWireMethod('appliedFilters.'.$filter->getKey()) !!} 
                 id="{{ $tableName }}-filter-{{ $filter->getKey() }}-{{ $loop->index }}{{ $filter->hasCustomPosition() ? '-'.$filter->getCustomPosition() : null }}" 
                 
                 wire:key="{{ $tableName }}-filter-{{ $filter->getKey() }}-{{ $loop->index }}{{ $filter->hasCustomPosition() ? '-'.$filter->getCustomPosition() : null }}" value="{{ $key }}" {{ 

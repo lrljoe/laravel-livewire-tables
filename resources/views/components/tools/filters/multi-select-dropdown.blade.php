@@ -5,7 +5,7 @@
     <div class="rounded-md shadow-sm">
     @endif
         <select multiple
-            {!! $filter->getWireMethod('filterComponents.'.$filter->getKey()) !!} {{ 
+            {!! $filter->getWireMethod('appliedFilters.'.$filter->getKey()) !!} {{ 
                 $filterInputAttributes->merge([
                     'wire:key' => $filter->generateWireKey($tableName, 'multiselectdropdown'),
                 ])

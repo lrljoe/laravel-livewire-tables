@@ -168,7 +168,10 @@ trait WithSorting
             } else {
                 $value = $this->getBuilder()->getGrammar()->wrap($column->getColumn().' as '.$column->getColumnSelectName());
                 $segments = preg_split('/\s+as\s+/i', $value);
+                if(array_key_exists(1,$segments))
+                {
                 $this->setBuilder($this->getBuilder()->orderByRaw($segments[1].' '.$direction));
+                }
             }
         }
 

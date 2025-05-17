@@ -8,6 +8,11 @@ use Rappasoft\LaravelLivewireTables\Views\Filter;
 
 trait FilterHelpers
 {
+    /**
+     * Undocumented function
+     *
+     * @return boolean
+     */
     public function hasFilters(): bool
     {
         return $this->getFiltersCount() > 0;
@@ -16,7 +21,7 @@ trait FilterHelpers
     /**
      * Undocumented function
      *
-     * @return Collection
+     * @return Collection<int,Filter>
      */
     public function getFilters(): Collection
     {
@@ -27,19 +32,28 @@ trait FilterHelpers
         return $this->filterCollection;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return integer
+     */
     public function getFiltersCount(): int
     {
-        if (! isset($this->filterCount)) {
-            $this->filterCount = $this->getFilters()->count();
+        if (! isset($this->filterConfiguration['filterCount'])) {
+            $this->filterConfiguration['filterCount'] = $this->getFilters()->count();
         }
 
-        return $this->filterCount;
+
+        return $this->filterConfiguration['filterCount'];
     }
 
     /**
+     * Undocumented function
+     *
+     * @param string $key
      * @return mixed
      */
-    public function getFilterByKey(string $key)
+    public function getFilterByKey(string $key): mixed
     {
         return $this->getFilters()->first(function ($filter) use ($key) {
             return $filter->getKey() === $key;
@@ -47,6 +61,8 @@ trait FilterHelpers
     }
 
     /**
+     * Undocumented function
+     *
      * @return array<mixed>
      */
     public function getAppliedFilters(): array
@@ -55,16 +71,26 @@ trait FilterHelpers
             ->map(fn (Filter $filter) => $filter->getKey())
             ->toArray();
 
-        return collect($this->filterComponents ?? [])
+        return collect($this->appliedFilters ?? [])
             ->filter(fn ($value, $key) => in_array($key, $validFilterKeys, true))
             ->toArray();
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return boolean
+     */
     public function hasAppliedFiltersWithValues(): bool
     {
         return count($this->getAppliedFiltersWithValues()) > 0;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return boolean
+     */
     public function hasAppliedVisibleFiltersWithValuesThatCanBeCleared(): bool
     {
         return collect($this->getAppliedFiltersWithValues())
@@ -73,6 +99,11 @@ trait FilterHelpers
             ->count() > 0;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return integer
+     */
     public function getFilterBadgeCount(): int
     {
         return collect($this->getAppliedFiltersWithValues())
@@ -82,16 +113,8 @@ trait FilterHelpers
     }
 
     /**
-     * @return array<mixed>
-     */
-    /*public function getAppliedFiltersWithValuesOld(): array
-    {
-        return $this->appliedFilters = array_filter($this->getAppliedFilters(), function ($item, $key) {
-            return ! $this->getFilterByKey($key)->isEmpty($item) && (is_array($item) ? count($item) : $item !== null);
-        }, ARRAY_FILTER_USE_BOTH);
-    }*/
-
-    /**
+     * Undocumented function
+     *
      * @return array<mixed>
      */
     public function getAppliedFiltersWithValues(): array
@@ -105,13 +128,21 @@ trait FilterHelpers
     }
 
     /**
+     * Undocumented function
+     *
+     * @param string $filterKey
      * @return mixed
      */
-    public function getAppliedFilterWithValue(string $filterKey)
+    public function getAppliedFilterWithValue(string $filterKey): mixed
     {
         return $this->getAppliedFiltersWithValues()[$filterKey] ?? null;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return integer
+     */
     public function getAppliedFiltersWithValuesCount(): int
     {
         return count($this->getAppliedFiltersWithValues());
@@ -120,7 +151,7 @@ trait FilterHelpers
     /**
      * Undocumented function
      *
-     * @return Collection
+     * @return Collection<int,Filter>
      */
     public function getAppliedFiltersCollection(): Collection
     {
@@ -128,7 +159,7 @@ trait FilterHelpers
             ->map(fn (Filter $filter) => $filter->getKey())
             ->toArray();
 
-        return collect($this->filterComponents ?? [])
+        return collect($this->appliedFilters ?? [])
             ->filter(fn ($value, $key) => in_array($key, $validFilterKeys, true));
     }
 }

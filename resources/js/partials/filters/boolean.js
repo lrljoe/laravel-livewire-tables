@@ -8,7 +8,7 @@ function newBf() {
         value: false, 
         toggleStatus()
         {
-            let tempValue = Boolean(Number(this.$wire.get('filterComponents.'+this.booleanFilterKey) ?? this.value));
+            let tempValue = Boolean(Number(this.$wire.get('appliedFilters.'+this.booleanFilterKey) ?? this.value));
             let newBoolean = !tempValue;
             this.switchOn = this.value = newBoolean;
             return Number(newBoolean);
@@ -16,7 +16,7 @@ function newBf() {
         toggleStatusWithUpdate()
         {
             let newValue = this.toggleStatus();
-            this.$wire.set('filterComponents.'+this.booleanFilterKey, newValue);
+            this.$wire.set('appliedFilters.'+this.booleanFilterKey, newValue);
         },
         toggleStatusWithReset()
         {
@@ -31,7 +31,7 @@ function newBf() {
         init() { 
 
             this.$nextTick(() => { 
-                this.value = this.$wire.get('filterComponents.'+this.booleanFilterKey) ?? defaultValue;
+                this.value = this.$wire.get('appliedFilters.'+this.booleanFilterKey) ?? defaultValue;
                 this.setSwitchOn(this.value ?? 0);
             });
 

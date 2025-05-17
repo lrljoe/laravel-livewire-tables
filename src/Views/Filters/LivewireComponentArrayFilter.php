@@ -12,8 +12,18 @@ class LivewireComponentArrayFilter extends Filter
     use HasOptions;
     use IsLivewireComponentFilter;
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     public string $wireMethod = 'blur';
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     protected string $view = 'livewire-tables::components.tools.filters.livewire-component-array-filter';
 
     /**
@@ -45,10 +55,12 @@ class LivewireComponentArrayFilter extends Filter
 
     /**
      * Gets the Default Value for this Filter via the Component
+     *
+     * @return array<mixed>
      */
-    public function getFilterDefaultValue(): ?string
+    public function getFilterDefaultValue(): array
     {
-        return $this->filterDefaultValue ?? null;
+        return [];
     }
 
     /**

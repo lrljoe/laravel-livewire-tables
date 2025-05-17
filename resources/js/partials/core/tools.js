@@ -2,10 +2,10 @@
 
 function tools() {
     Alpine.data('tools', (wire) => ({
-        filtersOpen: wire.entangle('filterSlideDownDefaultVisible'),
+        filtersOpen: wire.entangle('filterConfiguration.filterSlideDownDefaultVisible'),
         externalFilterPillsVals: wire.entangle('externalFilterPillsValues'),
         internalFilterPillsVals: wire.entangle('internalFilterPillsVals'),
-        showFilterPillLabel: [],
+        showFilterPillLabel: [], 
         filterPillsSeparator: ', ',
         showFilterPillsSection: true,
         resetSpecificFilter(filterKey)

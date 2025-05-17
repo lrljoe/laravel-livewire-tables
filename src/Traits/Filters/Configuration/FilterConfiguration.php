@@ -14,24 +14,55 @@ trait FilterConfiguration
      * Undocumented function
      *
      * @param string $filterKey
-     * @param string|array<mixed>|null $value
+     * @param mixed $value
      * @return void
      */
     #[On('setFilter')]
     #[On('set-filter')]
-    public function setFilter(string $filterKey, string|array|null $value): void
+    public function setFilter(string $filterKey, mixed $value): void
     {
-        $this->appliedFilters[$filterKey] = $this->filterComponents[$filterKey] = $value;
-
-        $this->callHook('filterSet', ['filter' => $filterKey, 'value' => $value]);
-        $this->callTraitHook('filterSet', ['filter' => $filterKey, 'value' => $value]);
-        if ($this->getEventStatusFilterApplied() && $filterKey != null && $value != null) {
-            event(new FilterApplied($this->getTableName(), $filterKey, $value));
+        if(is_array($value) && empty($value))
+        {
+            $this->appliedFilters[$filterKey] = [];
+            $this->availableFilters[$filterKey] = [];
+            $this->dispatch('filter-was-set', tableName: $this->getTableName(), filterKey: $filterKey, value: $value);
+            
         }
-        $this->dispatch('filter-was-set', tableName: $this->getTableName(), filterKey: $filterKey, value: $value);
-        $this->storeFilterValues();
+        elseif((is_array($value) && !empty($value)) || !is_array($value))
+        {
+            $this->appliedFilters[$filterKey] =  $value;
+            $this->callHook('filterSet', ['filter' => $filterKey, 'value' => $value]);
+            $this->callTraitHook('filterSet', ['filter' => $filterKey, 'value' => $value]);
+            if ($this->getEventStatusFilterApplied() && $filterKey != null && $value != null) {
+                event(new FilterApplied($this->getTableName(), $filterKey, $value));
+            }
+            $this->dispatch('filter-was-set', tableName: $this->getTableName(), filterKey: $filterKey, value: $value);
+            $this->storeFilterValues();
+        }
+        
 
     }
+
+    /**
+     * Undocumented function
+     *
+     * @param string $tableName
+     * @param string $filterKey
+     * @param array<mixed> $values
+     * @return void
+     */
+    #[On('livewireExternalArrayFilterUpdate')]
+    public function setLivewireExternalArrayFilterValues(string $tableName, string $filterKey, array $values = [])
+    {
+        if($tableName == $this->getTableName())
+        {
+            $filter = $this->getFilterByKey($filterKey);
+            $filter->options($values);
+            $this->appliedFilters[$filterKey] = $values;
+        }
+    }
+
+
 
     #[On('clearFilters')]
     #[On('clear-filters')]
@@ -56,6 +87,10 @@ trait FilterConfiguration
         $this->callHook('filterReset', ['filter' => $filter->getKey()]);
         $this->callTraitHook('filterReset', ['filter' => $filter->getKey()]);
         $this->setFilter($filter->getKey(), $filter->getDefaultValue());
+        if(array_key_exists($filter->getKey(), $this->availableFilters))
+        {
+            $this->availableFilters[$filter->getKey()] = [];
+        }
 
     }
 
@@ -84,24 +119,29 @@ trait FilterConfiguration
     public function applyFilters(): Builder
     {
         if ($this->filtersAreEnabled() && $this->hasFilters() && $this->hasAppliedFiltersWithValues()) {
+            $appliedFilters = $this->getAppliedFiltersWithValues();
+
             foreach ($this->getFilters() as $filter) {
-                foreach ($this->getAppliedFiltersWithValues() as $key => $value) {
-                    if ($filter->getKey() === $key && $filter->hasFilterCallback()) {
-                        // Let the filter class validate the value
-                        $value = $filter->validate($value);
-                        if (! ($filter instanceof BooleanFilter) && ($value === false)) {
-                            continue;
-                        }
+                $filterKey = $filter->getKey();
+                if(array_key_exists($filterKey, $appliedFilters) && !is_null($appliedFilters[$filterKey]) && $filter->hasFilterCallback())
+                {
+                    $value = method_exists($filter, 'validate') ? $filter->validate($appliedFilters[$filterKey]) : $appliedFilters[$filterKey];
 
-                        $this->callHook('filterApplying', ['filter' => $filter->getKey(), 'value' => $value]);
-                        $this->callTraitHook('filterApplying', ['filter' => $filter->getKey(), 'value' => $value]);
+                    // If validate returns false, and it is not a BooleanFilter - do not apply the filter.
+                    if (! ($filter instanceof BooleanFilter) && ($value === false)) {
+                        $this->resetFilter($filterKey);
 
-                        ($filter->getFilterCallback())($this->getBuilder(), $value);
+                        continue;
                     }
+                    $this->callHook('filterApplying', ['filter' => $filter->getKey(), 'value' => $value]);
+                    $this->callTraitHook('filterApplying', ['filter' => $filter->getKey(), 'value' => $value]);
+
+                    ($filter->getFilterCallback())($this->getBuilder(), $value);
                 }
             }
             $this->storeFilterValues();
         }
+
 
         return $this->getBuilder();
     }
@@ -113,7 +153,7 @@ trait FilterConfiguration
      * @param string $filterName
      * @return void
      */
-    public function updatedFilterComponents(string|array|null $value, string $filterName): void
+    public function updatedTestAppliedFilters(string|array|null $value, string $filterName): void
     {
         $this->resetComputedPage();
 

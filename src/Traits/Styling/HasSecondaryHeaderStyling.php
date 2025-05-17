@@ -7,12 +7,24 @@ use Rappasoft\LaravelLivewireTables\Views\Column;
 
 trait HasSecondaryHeaderStyling
 {
+    /**
+     * Undocumented variable
+     *
+     * @var Closure|null
+     */
     protected ?Closure $secondaryHeaderTrAttributesCallback;
 
+    /**
+     * Undocumented variable
+     *
+     * @var Closure|null
+     */
     protected ?Closure $secondaryHeaderTdAttributesCallback;
 
     /**
-     * @param  mixed  $rows
+     * Undocumented function
+     *
+     * @param mixed $rows
      * @return array<mixed>
      */
     public function getSecondaryHeaderTrAttributes($rows): array
@@ -21,7 +33,11 @@ trait HasSecondaryHeaderStyling
     }
 
     /**
-     * @param  mixed  $rows
+     * Undocumented function
+     *
+     * @param Column $column
+     * @param mixed $rows
+     * @param integer $index
      * @return array<mixed>
      */
     public function getSecondaryHeaderTdAttributes(Column $column, $rows, int $index): array
@@ -29,6 +45,12 @@ trait HasSecondaryHeaderStyling
         return isset($this->secondaryHeaderTdAttributesCallback) ? call_user_func($this->secondaryHeaderTdAttributesCallback, $column, $rows, $index) : ['default' => true];
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param Closure $callback
+     * @return self
+     */
     public function setSecondaryHeaderTrAttributes(Closure $callback): self
     {
         $this->secondaryHeaderTrAttributesCallback = $callback;
@@ -36,6 +58,12 @@ trait HasSecondaryHeaderStyling
         return $this;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param Closure $callback
+     * @return self
+     */
     public function setSecondaryHeaderTdAttributes(Closure $callback): self
     {
         $this->secondaryHeaderTdAttributesCallback = $callback;

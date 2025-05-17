@@ -11,8 +11,18 @@ class TextFilter extends Filter
     use HasWireables;
     use HandlesWildcardStrings;
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     public string $wireMethod = 'blur';
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     protected string $view = 'livewire-tables::components.tools.filters.text-field';
 
     /**
@@ -33,20 +43,17 @@ class TextFilter extends Filter
     /**
      * Undocumented function
      *
-     * @return array<mixed>
+     * @return array<string,mixed>
      */
     protected function getCoreInputAttributes(): array
     {
-        $attributes = array_merge(parent::getCoreInputAttributes(),
+        return $this->mergeCoreInputAttributes(
             [
                 'type' => 'text',
                 'placeholder' => $this->hasConfig('placeholder') ? $this->getConfig('placeholder') : null,
                 'maxlength' => $this->hasConfig('maxlength') ? $this->getConfig('maxlength') : null,
                 'wire:key' => $this->generateWireKey($this->getGenericDisplayData()['tableName'], 'text'),
-
-            ]);
-        ksort($attributes);
-
-        return $attributes;
+            ]
+        );
     }
 }

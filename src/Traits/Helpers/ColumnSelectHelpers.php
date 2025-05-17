@@ -9,37 +9,73 @@ use Rappasoft\LaravelLivewireTables\Views\Column;
 
 trait ColumnSelectHelpers
 {
+    /**
+     * Undocumented function
+     *
+     * @return boolean
+     */
     public function getColumnSelectStatus(): bool
     {
         return $this->columnSelectStatus;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return boolean
+     */
     #[Computed]
     public function columnSelectIsEnabled(): bool
     {
         return $this->getColumnSelectStatus() === true;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return boolean
+     */
     public function columnSelectIsDisabled(): bool
     {
         return $this->getColumnSelectStatus() === false;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param mixed $column
+     * @return boolean
+     */
     public function columnSelectIsEnabledForColumn(mixed $column): bool
     {
         return in_array($column instanceof Column ? $column->getSlug() : $column, $this->selectedColumns, true);
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return boolean
+     */
     public function getColumnSelectIsHiddenOnTablet(): bool
     {
         return $this->columnSelectHiddenOnTablet;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return boolean
+     */
     public function getExcludeDeselectedColumnsFromQuery(): bool
     {
         return $this->excludeDeselectedColumnsFromQuery;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return boolean
+     */
     public function getColumnSelectIsHiddenOnMobile(): bool
     {
         return $this->columnSelectHiddenOnMobile;
@@ -48,7 +84,7 @@ trait ColumnSelectHelpers
     /**
      * Undocumented function
      *
-     * @return Collection
+     * @return Collection<int,Column>
      */
     public function getSelectableColumns(): Collection
     {
@@ -61,7 +97,7 @@ trait ColumnSelectHelpers
     /**
      * Undocumented function
      *
-     * @return Collection
+     * @return Collection<int,Column>
      */
     public function getSelectableSelectedColumns(): Collection
     {
@@ -75,7 +111,7 @@ trait ColumnSelectHelpers
     /**
      * Undocumented function
      *
-     * @return Collection
+     * @return Collection<int,Column>
      */
     public function getUnSelectableColumns(): Collection
     {
@@ -144,6 +180,11 @@ trait ColumnSelectHelpers
             ->toArray();
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return boolean
+     */
     public function getAllColumnsAreSelected(): bool
     {
         return $this->getSelectableSelectedColumns()->count() === $this->getSelectableColumns()->count();
@@ -164,6 +205,11 @@ trait ColumnSelectHelpers
             ->toArray();
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
     public function selectAllColumns(): void
     {
         $this->selectedColumns = [];
@@ -177,6 +223,11 @@ trait ColumnSelectHelpers
         }
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
     public function deselectAllColumns(): void
     {
         $this->selectedColumns = [];
@@ -186,16 +237,31 @@ trait ColumnSelectHelpers
         }
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return boolean
+     */
     public function allVisibleColumnsAreSelected(): bool
     {
         return count($this->selectedColumns) === count($this->getDefaultVisibleColumns());
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return boolean
+     */
     public function allSelectedColumnsAreVisibleByDefault(): bool
     {
         return count($this->selectedColumns) === count($this->getDefaultVisibleColumns());
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
     public function setupColumnSelect(): void
     {
 
@@ -231,6 +297,11 @@ trait ColumnSelectHelpers
         // $this->storeColumnSelectValues();
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
     protected function setupFirstColumnSelectRun(): void
     {
         if (! $this->columnSelectColumns['setupRun']) {
@@ -240,14 +311,5 @@ trait ColumnSelectHelpers
 
     }
 
-    /** To Be Removed */
-    /*
-    public function getVisibleColumns(): array
-    {
-        return $this->selectedVisibleColumns();
-    }
-
-    public function getCurrentlySelectedCols(): void {}
-    */
 
 }

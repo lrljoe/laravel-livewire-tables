@@ -12,14 +12,18 @@ trait HandlesTableEventsForExternalFilter
      *
      * @param string $tableName
      * @param string $filterKey
-     * @param array<mixed> $value
+     * @param string|array<mixed>|null $value
      * @return void
      */
     #[On('filter-was-set')]
     public function setFilterValues(string $tableName, string $filterKey, string|array|null $value = []): void
     {
-        if (! is_null($value) && $tableName == $this->tableName && $filterKey == $this->filterKey && $this->optionsSelected != $value) {
-            $this->optionsSelected = $value;
+        if(!is_array($value))
+        {
+            $value = [$value];
+        }
+        if ($tableName == $this->tableName && $filterKey == $this->filterKey && $this->optionsSelected != $value) {
+            $this->selectedItems = $this->optionsSelected = $value;
         }
     }
 
@@ -36,7 +40,8 @@ trait HandlesTableEventsForExternalFilter
     {
         if ($this->needsUpdating) {
             $this->needsUpdating = false;
-            $this->dispatch('livewireArrayFilterUpdateValuesNew', tableName: $this->tableName, filterKey: $this->filterKey, values: $this->optionsSelected)->to($this->tableComponent);
+            $this->dispatch('livewireExternalArrayFilterUpdate', tableName: $this->tableName, filterKey: $this->filterKey, values: $this->optionsSelected)->to($this->tableComponent);
         }
     }
-}
+}            
+

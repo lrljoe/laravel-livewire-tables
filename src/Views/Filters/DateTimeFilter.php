@@ -12,12 +12,33 @@ class DateTimeFilter extends Filter
         IsStringFilter;
     use HasWireables;
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     public string $wireMethod = 'live';
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     protected string $view = 'livewire-tables::components.tools.filters.datetime';
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     protected string $configPath = 'livewire-tables.dateTimeFilter.defaultConfig';
 
+    /**
+     * Undocumented function
+     *
+     * @param string $value
+     * @return string|boolean
+     */
     public function validate(string $value): string|bool
     {
         $this->setInputDateFormat('Y-m-d\TH:i')->setOutputDateFormat($this->getConfig('pillFormat'));
@@ -30,6 +51,12 @@ class DateTimeFilter extends Filter
         return false;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param mixed $value
+     * @return string|null
+     */
     public function getFilterPillValue($value): ?string
     {
         if ($this->validate($value)) {
@@ -42,18 +69,21 @@ class DateTimeFilter extends Filter
         return null;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<string,mixed>
+     */
     protected function getCoreInputAttributes(): array
     {
-        $attributes = array_merge(parent::getCoreInputAttributes(),
+        return $this->mergeCoreInputAttributes(
             [
                 'min' => $this->hasConfig('min') ? $this->getConfig('min') : null,
                 'max' => $this->hasConfig('max') ? $this->getConfig('max') : null,
                 'placeholder' => $this->hasConfig('placeholder') ? $this->getConfig('placeholder') : null,
                 'type' => 'datetime-local',
                 'wire:key' => $this->generateWireKey($this->getGenericDisplayData()['tableName'], 'datetime'),
-            ]);
-        ksort($attributes);
-
-        return $attributes;
+            ]
+        );
     }
 }

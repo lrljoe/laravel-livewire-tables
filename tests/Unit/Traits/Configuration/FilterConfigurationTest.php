@@ -94,23 +94,23 @@ final class FilterConfigurationTest extends TestCase
 
     public function test_filters_layout_popover_default_can_be_set(): void
     {
-        $this->assertFalse($this->basicTable->filterSlideDownDefaultVisible);
+        $this->assertFalse($this->basicTable->filterConfiguration['filterSlideDownDefaultVisible']);
 
         $this->basicTable->setFilterSlideDownDefaultStatusEnabled();
 
-        $this->assertTrue($this->basicTable->filterSlideDownDefaultVisible);
+        $this->assertTrue($this->basicTable->filterConfiguration['filterSlideDownDefaultVisible']);
 
         $this->basicTable->setFilterSlideDownDefaultStatusDisabled();
 
-        $this->assertFalse($this->basicTable->filterSlideDownDefaultVisible);
+        $this->assertFalse($this->basicTable->filterConfiguration['filterSlideDownDefaultVisible']);
 
         $this->basicTable->setFilterSlideDownDefaultStatus(true);
 
-        $this->assertTrue($this->basicTable->filterSlideDownDefaultVisible);
+        $this->assertTrue($this->basicTable->filterConfiguration['filterSlideDownDefaultVisible']);
 
         $this->basicTable->setFilterSlideDownDefaultStatus(false);
 
-        $this->assertFalse($this->basicTable->filterSlideDownDefaultVisible);
+        $this->assertFalse($this->basicTable->filterConfiguration['filterSlideDownDefaultVisible']);
 
         $this->assertSame('slide-down', $this->basicTable->setFilterLayout('slide-down')->getFilterLayout());
 

@@ -12,12 +12,33 @@ class DateFilter extends Filter
         IsStringFilter;
     use HasWireables;
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     public string $wireMethod = 'live';
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     protected string $view = 'livewire-tables::components.tools.filters.date';
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     protected string $configPath = 'livewire-tables.dateFilter.defaultConfig';
 
+    /**
+     * Undocumented function
+     *
+     * @param string $value
+     * @return string|boolean
+     */
     public function validate(string $value): string|bool
     {
         $this->setInputDateFormat('Y-m-d')->setOutputDateFormat($this->getConfig('pillFormat') ?? 'Y-m-d');
@@ -29,6 +50,12 @@ class DateFilter extends Filter
         return false;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param mixed $value
+     * @return string|null
+     */
     public function getFilterPillValue($value): ?string
     {
         if ($this->validate($value)) {
@@ -44,20 +71,18 @@ class DateFilter extends Filter
     /**
      * Undocumented function
      *
-     * @return array<mixed>
+     * @return array<string,mixed>
      */
     protected function getCoreInputAttributes(): array
     {
-        $attributes = array_merge(parent::getCoreInputAttributes(),
+        return $this->mergeCoreInputAttributes(
             [
                 'min' => $this->hasConfig('min') ? $this->getConfig('min') : null,
                 'max' => $this->hasConfig('max') ? $this->getConfig('max') : null,
                 'placeholder' => $this->hasConfig('placeholder') ? $this->getConfig('placeholder') : null,
                 'type' => 'date',
                 'wire:key' => $this->generateWireKey($this->getGenericDisplayData()['tableName'], 'date'),
-            ]);
-        ksort($attributes);
-
-        return $attributes;
+            ]
+        );
     }
 }

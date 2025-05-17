@@ -48,13 +48,6 @@ trait WithPagination
     #[Locked]
     public array $perPageAccepted = [10, 25, 50];
 
-    /**
-     * Undocumented variable
-     *
-     * @var string
-     */
-    #[Locked]
-    public string $paginationTheme = 'tailwind';
 
     /**
      * Undocumented variable

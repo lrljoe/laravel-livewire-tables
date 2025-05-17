@@ -246,14 +246,14 @@ final class FilterHelpersTest extends TestCase
         $testTable->bootAll();
 
         $testTable->setFilter('breed_id_filter', '2');
-        $testTable->updatedFilterComponents('2', 'breed_id_filter');
+        $testTable->updatedappliedFilters('2', 'breed_id_filter');
         $this->assertSame(['breed_id_filter' => '2'], $testTable->getAppliedFiltersWithValues());
         Event::assertNotDispatched(FilterApplied::class);
 
         $testTable->enableFilterAppliedEvent();
 
         $testTable->setFilter('breed_id_filter', '3');
-        $testTable->updatedFilterComponents('3', 'breed_id_filter');
+        $testTable->updatedappliedFilters('3', 'breed_id_filter');
         $this->assertSame(['breed_id_filter' => '3'], $testTable->getAppliedFiltersWithValues());
         Event::assertDispatched(FilterApplied::class);
 

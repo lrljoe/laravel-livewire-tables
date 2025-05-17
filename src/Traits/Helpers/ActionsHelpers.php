@@ -8,30 +8,55 @@ use Rappasoft\LaravelLivewireTables\Views\Action;
 
 trait ActionsHelpers
 {
+    /**
+     * Undocumented function
+     *
+     * @return boolean
+     */
     #[Computed]
     public function showActionsInToolbarLeft(): bool
     {
         return $this->hasActions() && $this->showActionsInToolbar() && $this->getActionsPosition() === 'left';
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return boolean
+     */
     #[Computed]
     public function showActionsInToolbarRight(): bool
     {
         return $this->hasActions() && $this->showActionsInToolbar() && $this->getActionsPosition() === 'right';
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return boolean
+     */
     #[Computed]
     public function showActionsInToolbar(): bool
     {
         return $this->displayActionsInToolbar ?? false;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return string
+     */
     #[Computed]
     public function getActionsPosition(): string
     {
         return $this->actionsPosition ?? 'right';
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return boolean
+     */
     #[Computed]
     public function hasActions(): bool
     {
@@ -42,6 +67,11 @@ trait ActionsHelpers
         return $this->validActions->count() > 0;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return Collection<int,Action>
+     */
     #[Computed]
     public function getActions(): Collection
     {

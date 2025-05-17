@@ -38,7 +38,36 @@ class FilterPillData
         protected array $customResetButtonAttributes,
         protected bool $renderPillsTitleAsHtml) {}
 
-    public static function make(string $filterKey, string $filterPillTitle, string|array|null $filterPillValue, string $separator = ', ', bool $isAnExternalLivewireFilter = false, bool $hasCustomPillBlade = false, ?string $customPillBlade = null, array $filterPillsItemAttributes = [], bool $renderPillsAsHtml = false, bool $watchForEvents = false, array $customResetButtonAttributes = [], bool $renderPillsTitleAsHtml = false): FilterPillData
+   /**
+     * Undocumented function
+     *
+     * @param string $filterKey
+     * @param string $filterPillTitle
+     * @param string|array<mixed>|null $filterPillValue
+     * @param string $separator
+     * @param boolean $isAnExternalLivewireFilter
+     * @param boolean $hasCustomPillBlade
+     * @param string|null $customPillBlade
+     * @param array<mixed> $filterPillsItemAttributes
+     * @param boolean $renderPillsAsHtml
+     * @param boolean $watchForEvents
+     * @param array<mixed> $customResetButtonAttributes
+     * @param boolean $renderPillsTitleAsHtml
+     */
+    public static function make(
+        string $filterKey, 
+        string $filterPillTitle, 
+        string|array|null $filterPillValue, 
+        string $separator = ', ', 
+        bool $isAnExternalLivewireFilter = false, 
+        bool $hasCustomPillBlade = false, 
+        ?string $customPillBlade = null, 
+        array $filterPillsItemAttributes = [], 
+        bool $renderPillsAsHtml = false, 
+        bool $watchForEvents = false, 
+        array $customResetButtonAttributes = [], 
+        bool $renderPillsTitleAsHtml = false
+    ): FilterPillData
     {
         if ($isAnExternalLivewireFilter) {
             $watchForEvents = true;

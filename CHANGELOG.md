@@ -204,7 +204,7 @@ All notable changes to `laravel-livewire-tables` will be documented in this file
 - In LaravelLivewireTablesEvent, change the type to Illuminate\Contracts\Auth\Authenticatable by @khwadj in https://github.com/rappasoft/laravel-livewire-tables/pull/1963
 - Fix for Search Field Attribute Defaults by @lrljoe in https://github.com/rappasoft/laravel-livewire-tables/pull/1962
 - Fix Filter Pills Icon - Tailwind by @lrljoe in https://github.com/rappasoft/laravel-livewire-tables/pull/1961
-- Add filterComponents into queryString to ensure they're maintained by @lrljoe in https://github.com/rappasoft/laravel-livewire-tables/pull/1957
+- Add appliedFilters into queryString to ensure they're maintained by @lrljoe in https://github.com/rappasoft/laravel-livewire-tables/pull/1957
 - Reset Current Page on "Per Page" changing by @lrljoe in https://github.com/rappasoft/laravel-livewire-tables/pull/1953
 
 ### New Features
@@ -302,7 +302,7 @@ All notable changes to `laravel-livewire-tables` will be documented in this file
 
 ## [v3.4.8] - 2024-08-18
 ### New Features
-- Add an event dispatch for Filter Was Set when filterComponents is updated by @lrljoe in https://github.com/rappasoft/laravel-livewire-tables/pull/1861
+- Add an event dispatch for Filter Was Set when appliedFilters is updated by @lrljoe in https://github.com/rappasoft/laravel-livewire-tables/pull/1861
 
 ## [v3.4.7] - 2024-08-18
 ### Bug Fixes
@@ -483,7 +483,7 @@ All notable changes to `laravel-livewire-tables` will be documented in this file
 - Fix collapsing columns not respecting view point collapse points by @lrljoe in https://github.com/rappasoft/laravel-livewire-tables/pull/1665
 
 ### Tweaks
-- Migrate "updated" Search and FilterComponents calls to WithSearch and WithFilters by @lrljoe in https://github.com/rappasoft/laravel-livewire-tables/pull/1666
+- Migrate "updated" Search and appliedFilters calls to WithSearch and WithFilters by @lrljoe in https://github.com/rappasoft/laravel-livewire-tables/pull/1666
 - Allow nullable search/filter values by @lrljoe in https://github.com/rappasoft/laravel-livewire-tables/pull/1666
 
 ## [v3.2.0] - 2024-01-04
@@ -697,7 +697,7 @@ All notable changes to `laravel-livewire-tables` will be documented in this file
             - DateFilter & DateTimeFilter fully support setFilterDefaultValue
             - MultiSelectFilter & MultiSelectDropdownFilter both support setFirstOption()
             - There are now two arrays relating to Filters:
-                - A wireable one ($filterComponents)
+                - A wireable one ($appliedFilters)
                 - An unwired one - only keeps track of those filters that have a value ($appliedFilters).  This is what is bound to the query string, and populates the filters on mount if they are present in the query string.
         
         - Livewire 3 Specific

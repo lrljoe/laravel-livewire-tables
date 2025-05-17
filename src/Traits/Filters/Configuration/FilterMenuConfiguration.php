@@ -12,7 +12,7 @@ trait FilterMenuConfiguration
             throw new DataTableConfigurationException('Invalid filter layout type');
         }
 
-        $this->filterLayout = $type;
+       $this->filterConfiguration['filterLayout'] = $type;
 
         return $this;
     }
@@ -29,7 +29,7 @@ trait FilterMenuConfiguration
 
     public function setFilterSlideDownDefaultStatus(bool $status): self
     {
-        $this->filterSlideDownDefaultVisible = $status;
+        $this->filterConfiguration['filterSlideDownDefaultVisible'] = $status;
 
         return $this;
     }

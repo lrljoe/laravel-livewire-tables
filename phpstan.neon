@@ -14,9 +14,9 @@ parameters:
     reportUnmatchedIgnoredErrors: false
     ignoreErrors:
         - identifier: argument.type
+        - identifier: argument.templateType
         - identifier: new.static
         - identifier: trait.unused
-        - identifier: deadCode.unreachable
         - identifier: booleanNot.alwaysTrue
           paths:
             - src/Views/Columns/Traits/HasDataTableComponent.php
@@ -26,19 +26,23 @@ parameters:
             - src/Traits/Helpers/CustomisationsHelpers.php
             - src/Traits/Helpers/QueryHelpers.php
             - src/Views/Columns/Traits/HasSlot.php
-            - src/Views/Columns/Traits/Helpers/ArrayColumnHelpers.php
         - identifier: instanceof.alwaysTrue
           paths:
+            - src/Traits/Helpers/ColumnHelpers.php
             - src/Views/Columns/Traits/HasFooter.php
             - src/Views/Columns/Traits/HasSecondaryHeader.php
         - identifier: function.alreadyNarrowedType
           paths: 
-            - src/Views/Columns/Traits/Helpers/ArrayColumnHelpers.php
-            - src/Features/AutoInjectRappasoftAssets.php
-            - src/Traits/WithBulkActions.php
-            - src/Views/Actions/Traits/HasActionAttributes.php
             - src/Views/Filters/MultiSelectDropdownFilter.php
             - src/Views/Filters/Traits/HasOptions.php
-            - src/Views/Traits/Core/HasTheme.php
             - src/Views/Traits/Core/HasView.php
+        - identifier: missingType.generics
+          paths:
+            - src/Traits/WithData.php
+        - identifier: empty.offset
+          paths:
+            - src/Traits/Filters/Helpers/FilterMenuHelpers.php
+        - identifier: isset.offset
+          paths:
+            - src/Traits/Filters/Helpers/FilterMenuHelpers.php
         - message: '# \$view of function view expects view-string\|null, string given.#'

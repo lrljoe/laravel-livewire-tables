@@ -10,8 +10,18 @@ class NumberFilter extends Filter
     use IsNumericFilter;
     use HasWireables;
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     public string $wireMethod = 'blur';
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     protected string $view = 'livewire-tables::components.tools.filters.number';
 
     /**
@@ -43,21 +53,18 @@ class NumberFilter extends Filter
     /**
      * Undocumented function
      *
-     * @return array<mixed>
+     * @return array<string,mixed>
      */
     protected function getCoreInputAttributes(): array
     {
-        $attributes = array_merge(parent::getCoreInputAttributes(),
+        return $this->mergeCoreInputAttributes(
             [
                 'min' => $this->hasConfig('min') ? $this->getConfig('min') : null,
                 'max' => $this->hasConfig('max') ? $this->getConfig('max') : null,
                 'placeholder' => $this->hasConfig('placeholder') ? $this->getConfig('placeholder') : null,
                 'type' => 'number',
                 'wire:key' => $this->generateWireKey($this->getGenericDisplayData()['tableName'], 'number'),
-
-            ]);
-        ksort($attributes);
-
-        return $attributes;
+            ]
+        );
     }
 }

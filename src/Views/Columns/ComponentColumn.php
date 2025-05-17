@@ -17,11 +17,23 @@ class ComponentColumn extends BaseColumn
         ComponentColumnConfiguration,
         ComponentColumnHelpers;
 
+    /**
+     * Undocumented function
+     *
+     * @param string $title
+     * @param string|null $from
+     */
     public function __construct(string $title, ?string $from = null)
     {
         parent::__construct($title, $from);
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param Model $row
+     * @return null|string|HtmlString|DataTableConfigurationException|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function getContents(Model $row): null|string|HtmlString|DataTableConfigurationException|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
     {
         if ($this->isLabel()) {

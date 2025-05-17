@@ -16,7 +16,7 @@ trait FilterPillsHelpers
 
     public function getFilterPillsStatus(): bool
     {
-        return $this->filterPillsStatus;
+        return $this->filterConfiguration['filterPillsStatus'];
     }
 
     public function filterPillsAreEnabled(): bool

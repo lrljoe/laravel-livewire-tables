@@ -61,7 +61,7 @@ trait ColumnHelpers
     /**
      * Undocumented function
      *
-     * @return Collection
+     * @return Collection<int,Column>
      */
     public function getColumns(): Collection
     {
@@ -138,19 +138,18 @@ trait ColumnHelpers
     /**
      * Undocumented function
      *
-     * @return Collection
+     * @return Collection<int,Column>
      */
     public function getSearchableColumns(): Collection
     {
         return $this->getColumns()
-            ->filter(fn (Column $column) => $column->isSearchable() || $column->hasSearchCallback())
-            ->values();
+            ->filter(fn (Column $column) => $column->isSearchable() || $column->hasSearchCallback());
     }
 
     /**
      * Undocumented function
      *
-     * @return Collection
+     * @return Collection<int,string>
      */
     public function getSortableColumns(): Collection
     {
@@ -168,7 +167,7 @@ trait ColumnHelpers
     /**
      * Undocumented function
      *
-     * @return Collection
+     * @return Collection<int,Column>
      */
     public function getPrependedColumns(): Collection
     {
@@ -178,7 +177,7 @@ trait ColumnHelpers
     /**
      * Undocumented function
      *
-     * @return Collection
+     * @return Collection<int,Column>
      */
     public function getAppendedColumns(): Collection
     {

@@ -31,7 +31,7 @@ trait HasActionAttributes
     {
         $actionAttributes = [...['class' => '', 'default-styling' => true, 'default-colors' => true], ...$this->actionAttributes];
 
-        if (! $this->hasWireAction() && method_exists($this, 'getRoute')) {
+        if (! $this->hasWireAction()) {
             $actionAttributes['href'] = $this->getRoute();
         } else {
             $actionAttributes['href'] = '#';

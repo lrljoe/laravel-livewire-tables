@@ -6,7 +6,7 @@ trait FilterPillsConfiguration
 {
     public function setFilterPillsStatus(bool $status): self
     {
-        $this->filterPillsStatus = $status;
+        $this->filterConfiguration['filterPillsStatus'] = $status;
 
         return $this;
     }

@@ -63,14 +63,10 @@ trait LivewireComponentColumnHelpers
     {
         if (! $this->hasLivewireComponent()) {
             throw new DataTableConfigurationException('You must define a Livewire Component for this column');
-
-            return false;
         }
 
         if ($this->isLabel()) {
             throw new DataTableConfigurationException('You can not use a label column with a Livewire Component column');
-
-            return false;
         }
 
         return true;

@@ -39,7 +39,7 @@ trait FilterVisibilityHelpers
     /**
      * Get whether filter has a configured slide down row.
      *
-     * @return Collection
+     * @return Collection<int,Filter>
      */
     public function getVisibleFilters(): Collection
     {

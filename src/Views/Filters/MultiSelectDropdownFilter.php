@@ -12,12 +12,32 @@ class MultiSelectDropdownFilter extends Filter
         IsArrayFilter;
     use HasWireables;
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     public string $wireMethod = 'live.debounce.250ms';
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     protected string $view = 'livewire-tables::components.tools.filters.multi-select-dropdown';
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     protected string $configPath = 'livewire-tables.multiSelectDropdownFilter.defaultConfig';
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     protected string $optionsPath = 'livewire-tables.multiSelectDropdownFilter.defaultOptions';
 
     /**
@@ -66,6 +86,12 @@ class MultiSelectDropdownFilter extends Filter
         return $values;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param mixed $value
+     * @return boolean
+     */
     public function isEmpty(mixed $value): bool
     {
         if (! is_array($value)) {

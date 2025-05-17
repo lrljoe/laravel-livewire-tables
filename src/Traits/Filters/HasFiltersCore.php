@@ -4,6 +4,7 @@ namespace Rappasoft\LaravelLivewireTables\Traits\Filters;
 
 use Rappasoft\LaravelLivewireTables\Traits\Filters\Configuration\FilterConfiguration;
 use Rappasoft\LaravelLivewireTables\Traits\Filters\Helpers\FilterHelpers;
+use Rappasoft\LaravelLivewireTables\Views\Filters\LivewireComponentArrayFilter;
 
 trait HasFiltersCore
 {
@@ -20,7 +21,7 @@ trait HasFiltersCore
         foreach ($this->getFilters() as $filter) {
             if (! isset($this->appliedFilters[$filter->getKey()])) {
                 if ($filter->hasFilterDefaultValue()) {
-                    $this->setFilter($filter->getKey(), $filter->getFilterDefaultValue());
+                    $this->setFilter($filter->getKey(), method_exists($filter, 'getFilterDefaultValue') ? $filter->getFilterDefaultValue() : null);
                 } else {
                     $this->resetFilter($filter);
                 }
@@ -34,8 +35,13 @@ trait HasFiltersCore
     {
         $this->setBuilder($this->builder());
 
-        foreach ($this->filterComponents as $filterKey => $value) {
-            $this->appliedFilters[$filterKey] = $value;
+        foreach ($this->getFilters() as $filter) {
+            $filterKey = $filter->getKey();
+            if($filter instanceof LivewireComponentArrayFilter && !array_key_exists($filterKey,$this->availableFilters))
+            {
+                $this->availableFilters[$filterKey] = $this->appliedFilters[$filterKey] ?? [];
+            }
         }
+
     }
 }

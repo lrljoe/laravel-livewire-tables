@@ -47,14 +47,14 @@ final class FilterVisualsTest extends TestCase
     public function test_filter_pills_show_when_enabled(): void
     {
         Livewire::test(PetsTable::class)
-            ->set('filterComponents.breed', [1])
+            ->set('appliedFilters.breed', [1])
             ->assertSee('Applied Filters');
     }
 
     public function test_event_dispatched_when_filter_components_set(): void
     {
         Livewire::test(PetsTable::class)
-            ->set('filterComponents.breed', [1])
+            ->set('appliedFilters.breed', [1])
             ->assertDispatched('filter-was-set');
     }
 
@@ -69,14 +69,14 @@ final class FilterVisualsTest extends TestCase
     {
         Livewire::test(PetsTable::class)
             ->call('setFiltersVisibilityEnabled')
-            ->set('filterComponents.breed', [1])
+            ->set('appliedFilters.breed', [1])
             ->assertSee('Applied Filters');
     }
 
     public function test_filter_pills_dont_show_when_disabled(): void
     {
         Livewire::test(PetsTable::class)
-            ->set('filterComponents.breed', [1])
+            ->set('appliedFilters.breed', [1])
             ->call('setFilterPillsDisabled')
             ->assertDontSee('Applied Filters');
     }
@@ -84,7 +84,7 @@ final class FilterVisualsTest extends TestCase
     public function test_filter_pills_dont_show_when_hidden(): void
     {
         Livewire::test(PetsTable::class)
-            ->set('filterComponents.breed', [1])
+            ->set('appliedFilters.breed', [1])
             ->call('setFilterPillsDisabled')
             ->assertDontSee('Applied Filters');
     }
@@ -98,7 +98,7 @@ final class FilterVisualsTest extends TestCase
     public function test_filters_with_invalid_key_dont_error(): void
     {
         Livewire::test(PetsTable::class)
-            ->set('filterComponents.invalid-filter', [1])
+            ->set('appliedFilters.invalid-filter', [1])
             ->assertHasNoErrors()
             ->assertDontSee('Applied Filters');
     }
@@ -149,14 +149,14 @@ final class FilterVisualsTest extends TestCase
                 ];
             }
         })
-            ->set('filterComponents.species', [1, 2])
+            ->set('appliedFilters.species', [1, 2])
             ->assertSeeHtmlInOrder([
                 'wire:key="table-filter-pill-species"',
                 'Cat',
                 '<br />',
                 'Dog',
             ])
-            ->set('filterComponents.breed', [1, 2])
+            ->set('appliedFilters.breed', [1, 2])
             ->assertSeeHtmlInOrder([
                 'wire:key="table-filter-pill-breed"',
                 'American Shorthair,',

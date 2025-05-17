@@ -22,11 +22,6 @@ trait PaginationHelpers
         return $this->paginationStatus;
     }
 
-    public function getPaginationTheme(): string
-    {
-        return $this->paginationTheme;
-    }
-
     #[Computed]
     public function showPaginationDropdown(): bool
     {

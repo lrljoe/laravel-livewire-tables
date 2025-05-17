@@ -29,8 +29,8 @@ trait SessionStorageHelpers
 
     public function restoreFilterValues(): void
     {
-        if (empty($this->filterComponents) || empty($this->appliedFilters)) {
-            $this->filterComponents = $this->appliedFilters = $this->getStoredFilterValues();
+        if (empty($this->appliedFilters)) {
+            $this->appliedFilters = $this->getStoredFilterValues();
         }
     }
 

@@ -12,10 +12,4 @@ trait HasFilterMenu
     use FilterMenuConfiguration,
         FilterMenuHelpers,
         HasFilterMenuStyling;
-
-    #[Locked]
-    public string $filterLayout = 'popover';
-
-    // Entangled in JS
-    public bool $filterSlideDownDefaultVisible = false;
 }

@@ -18,6 +18,8 @@ trait WithData
 {
     /**
      * Retrieves the rows for the executed query
+     *
+     * @return Collection|CursorPaginator|Paginator|LengthAwarePaginator
      */
     #[Computed]
     public function getRows(): Collection|CursorPaginator|Paginator|LengthAwarePaginator
@@ -86,6 +88,11 @@ trait WithData
 
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return Collection|CursorPaginator|Paginator|LengthAwarePaginator
+     */
     protected function executeQuery(): Collection|CursorPaginator|Paginator|LengthAwarePaginator
     {
         // Moved these from baseQuery to here to avoid pulling all fields when cloning baseQuery.
@@ -263,6 +270,9 @@ trait WithData
 
     /**
      * Gets the table for a given Column
+     *
+     * @param Column $column
+     * @return string|null
      */
     protected function getTableForColumn(Column $column): ?string
     {
@@ -284,6 +294,10 @@ trait WithData
 
     /**
      * Retrieves table aliases
+     *
+     * @param string|null $currentTableAlias
+     * @param string $relationPart
+     * @return string
      */
     protected function getTableAlias(?string $currentTableAlias, string $relationPart): string
     {

@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Builder;
 
 trait QueryConfiguration
 {
+    /**
+     * Undocumented function
+     *
+     * @param Builder<\Illuminate\Database\Eloquent\Model> $builder
+     * @return void
+     */
     public function setBuilder(Builder $builder): void
     {
         $this->builder = $builder;

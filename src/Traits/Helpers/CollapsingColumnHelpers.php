@@ -79,7 +79,7 @@ trait CollapsingColumnHelpers
     /**
      * Gets Columns that Collapse On Mobile
      *
-     * @return Collection
+     * @return Collection<int,Column>
      */
     public function getCollapsedMobileColumns(): Collection
     {
@@ -97,7 +97,7 @@ trait CollapsingColumnHelpers
     /**
      * Undocumented function
      *
-     * @return Collection
+     * @return Collection<int,Column>
      */
     public function getVisibleMobileColumns(): Collection
     {
@@ -125,7 +125,7 @@ trait CollapsingColumnHelpers
     /**
      * Gets Columns that Collapse On Tablet
      *
-     * @return Collection
+     * @return Collection<int,Column>
      */
     public function getCollapsedTabletColumns(): Collection
     {
@@ -143,7 +143,7 @@ trait CollapsingColumnHelpers
     /**
      * Undocumented function
      *
-     * @return Collection
+     * @return Collection<int,Column>
      */
     public function getVisibleTabletColumns(): Collection
     {
@@ -160,7 +160,7 @@ trait CollapsingColumnHelpers
     /**
      * Gets Columns that Collapse Always
      *
-     * @return Collection
+     * @return Collection<int,Column>
      */
     public function getCollapsedAlwaysColumns(): Collection
     {
@@ -194,7 +194,7 @@ trait CollapsingColumnHelpers
     /**
      * Undocumented function
      *
-     * @return Collection
+     * @return Collection<int,Column>
      */
     #[Computed]
     public function getCollapsedColumnsForContent(): Collection

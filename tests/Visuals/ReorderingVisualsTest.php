@@ -105,7 +105,7 @@ final class ReorderingVisualsTest extends TestCase
             ->assertSet('sortingStatus', true)
             ->call('sortBy', 'id')
             ->assertSet('sorts', ['id' => 'asc'])
-            ->assertSet('filterComponents', $filterDefaultArray)
+            ->assertSet('appliedFilters', $filterDefaultArray)
             ->assertSeeHtml('wire:click="sortBy(\'id\')"')
             ->call('enableReordering')
             ->assertSet('sortingStatus', false)
@@ -113,7 +113,7 @@ final class ReorderingVisualsTest extends TestCase
             ->assertDontSeeHtml('wire:click="sortBy(\'id\')"')
             ->call('disableReordering')
             ->assertSet('sortingStatus', true)
-            ->assertSet('filterComponents', $filterDefaultArray)
+            ->assertSet('appliedFilters', $filterDefaultArray)
             ->assertSet('sorts', ['id' => 'asc'])
 
             ->assertSeeHtml('wire:click="sortBy(\'id\')"');
@@ -278,8 +278,8 @@ final class ReorderingVisualsTest extends TestCase
         Livewire::test(PetsTable::class)
             ->call('setReorderEnabled')
             ->assertSet('filtersStatus', true)
-            ->set('filterComponents.breed', [1])
-            ->assertSet('filterComponents', $customisedFilterArray)
+            ->set('appliedFilters.breed', [1])
+            ->assertSet('appliedFilters', $customisedFilterArray)
             ->assertSee('Filters')
             ->call('enableReordering')
             ->assertSet('filtersStatus', false)
@@ -287,8 +287,8 @@ final class ReorderingVisualsTest extends TestCase
             ->assertDontSeeHtml('Filters')
             ->call('disableReordering')
             ->assertSet('filtersStatus', true)
-            ->set('filterComponents.breed', [])
-            ->assertSet('filterComponents', $filterDefaultArray)
+            ->set('appliedFilters.breed', [])
+            ->assertSet('appliedFilters', $filterDefaultArray)
             ->assertSeeHtml('Filters');
     }
 
@@ -299,8 +299,8 @@ final class ReorderingVisualsTest extends TestCase
 
         Livewire::test(PetsTable::class)
             ->call('setReorderEnabled')
-            ->set('filterComponents.breed', [1])
-            ->assertSet('filterComponents', $filterDefaultArray)
+            ->set('appliedFilters.breed', [1])
+            ->assertSet('appliedFilters', $filterDefaultArray)
             ->assertSee('Applied Filters')
             ->call('enableReordering')
             ->assertDontSee('Applied Filters');

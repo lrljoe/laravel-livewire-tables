@@ -9,7 +9,7 @@ trait FilterMenuHelpers
 {
     public function getFilterSlideDownDefaultStatus(): bool
     {
-        return $this->filterSlideDownDefaultVisible;
+        return $this->filterConfiguration['filterSlideDownDefaultVisible'];
     }
 
     public function filtersSlideDownIsDefaultVisible(): bool
@@ -24,7 +24,7 @@ trait FilterMenuHelpers
 
     public function getFilterLayout(): string
     {
-        return $this->filterLayout;
+        return $this->filterConfiguration['filterLayout'];
     }
 
     public function isFilterLayoutPopover(): bool
