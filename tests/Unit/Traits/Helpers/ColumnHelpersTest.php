@@ -77,7 +77,12 @@ final class ColumnHelpersTest extends TestCase
             ->map(fn (Column $column) => $column->getColumnSelectName())
             ->toArray();
 
-        $this->assertSame(['name', 'breed.name'], $selectable);
+        ksort($selectable);
+
+        $default = ['name','breed.name'];
+        ksort($default);
+
+        $this->assertSame(array_values($default), array_values($selectable));
     }
 
     public function test_can_get_a_list_of_column_relations(): void

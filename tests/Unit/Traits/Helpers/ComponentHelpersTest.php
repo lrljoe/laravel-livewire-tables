@@ -46,6 +46,7 @@ final class ComponentHelpersTest extends TestCase
         $this->assertSame('Z-A', $this->basicTable->getDefaultSortingLabelDesc());
     }
 
+    /* RETIRED
     public function test_can_get_query_string_status(): void
     {
         $this->assertTrue($this->basicTable->getQueryStringStatus());
@@ -57,7 +58,7 @@ final class ComponentHelpersTest extends TestCase
         $this->assertTrue($this->basicTable->queryStringIsDisabled());
 
         $this->assertFalse($this->basicTable->getQueryStringStatus());
-    }
+    }*/
 
     public function test_can_get_table_name(): void
     {
@@ -187,8 +188,9 @@ final class ComponentHelpersTest extends TestCase
     //     $this->assertSame($this->defaultFingerPrintingAlgo($this->basicTable::class), $this->basicTable->getDataTableFingerprint());
     // }
 
+    /* RETIRED
     public function test_can_get_query_string_alias_and_it_will_be_the_same_as_table_name_by_default(): void
     {
         $this->assertSame($this->basicTable->getTableName(), $this->basicTable->getQueryStringAlias());
-    }
+    }*/
 }

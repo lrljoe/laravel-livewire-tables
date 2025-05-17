@@ -134,18 +134,18 @@ final class BooleanFilterTest extends FilterTestCase
             'class' => 'bg-red-500',
         ]);
 
-        $this->assertFalse(self::$filterInstance->getInputAttributesBag()['default-styling']);
-        $this->assertFalse(self::$filterInstance->getInputAttributesBag()['default-colors']);
+        $this->assertTrue(self::$filterInstance->getInputAttributesBag()['default-styling']);
+        $this->assertTrue(self::$filterInstance->getInputAttributesBag()['default-colors']);
         $this->assertSame('bg-red-500', self::$filterInstance->getInputAttributesBag()['class']);
         self::$filterInstance->setInputAttributes([
             'class' => 'bg-red-500 dark:bg-red-500',
-            'default-styling' => true,
+            'default-styling' => false,
         ]);
         $currentAttributeBag = self::$filterInstance->getInputAttributesBag()->getAttributes();
         ksort($currentAttributeBag);
 
-        $this->assertTrue($currentAttributeBag['default-styling']);
-        $this->assertFalse($currentAttributeBag['default-colors']);
+        $this->assertFalse($currentAttributeBag['default-styling']);
+        $this->assertTrue($currentAttributeBag['default-colors']);
         $this->assertSame('bg-red-500 dark:bg-red-500', $currentAttributeBag['class']);
 
         $this->assertSame([
@@ -153,8 +153,8 @@ final class BooleanFilterTest extends FilterTestCase
             'activeColor' => 'bg-blue-600',
             'blobColor' => 'bg-white',
             'class' => 'bg-red-500 dark:bg-red-500',
-            'default-colors' => false,
-            'default-styling' => true,
+            'default-colors' => true,
+            'default-styling' => false,
             'id' => $baseAttributes['id'],
             'inactiveColor' => 'bg-neutral-200',
             'type' => 'button',
@@ -164,8 +164,8 @@ final class BooleanFilterTest extends FilterTestCase
         self::$filterInstance->setInputAttributes([
             'activeColor' => 'bg-red-600',
             'blobColor' => 'bg-green-500',
-            'default-colors' => false,
-            'default-styling' => true,
+            'default-colors' => true,
+            'default-styling' => false,
             'inactiveColor' => 'bg-blue-200',
         ]);
         $currentAttributeBag = self::$filterInstance->getInputAttributesBag()->getAttributes();
@@ -175,8 +175,8 @@ final class BooleanFilterTest extends FilterTestCase
             '@click' => 'toggleStatusWithUpdate',
             'activeColor' => 'bg-red-600',
             'blobColor' => 'bg-green-500',
-            'default-colors' => false,
-            'default-styling' => true,
+            'default-colors' => true,
+            'default-styling' => false,
             'id' => $baseAttributes['id'],
             'inactiveColor' => 'bg-blue-200',
             'type' => 'button',

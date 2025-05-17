@@ -53,7 +53,8 @@ final class QueryStringHelpersTest extends TestCase
 
     }
 
-    public function test_check_querystring_alias_returns_default_if_enabled(): void
+    // Retired - as now specific per-feature
+   /* public function test_check_querystring_alias_returns_default_if_enabled(): void
     {
 
         $testTableQueryString = new class extends PetsTable
@@ -82,5 +83,5 @@ final class QueryStringHelpersTest extends TestCase
         $this->assertSame('test123', $testTableQueryString->getQueryStringAlias());
         $this->assertSame(['table' => ['except' => null, 'history' => false, 'keep' => false, 'as' => 'test123']], $testTableQueryString->getCurrentQueryStringBinding());
 
-    }
+    }*/
 }

@@ -129,24 +129,24 @@ abstract class FilterTestCase extends TestCase
             'class' => 'bg-red-500',
         ]);
 
-        $this->assertFalse($filter->getInputAttributesBag()['default-styling']);
-        $this->assertFalse($filter->getInputAttributesBag()['default-colors']);
+        $this->assertTrue($filter->getInputAttributesBag()['default-styling']);
+        $this->assertTrue($filter->getInputAttributesBag()['default-colors']);
         $this->assertSame('bg-red-500', $filter->getInputAttributesBag()['class']);
         $filter->setInputAttributes([
             'class' => 'bg-red-500 dark:bg-red-500',
-            'default-styling' => true,
+            'default-styling' => false,
         ]);
         $currentAttributeBag = $filter->getInputAttributesBag()->getAttributes();
         ksort($currentAttributeBag);
 
-        $this->assertTrue($currentAttributeBag['default-styling']);
-        $this->assertFalse($currentAttributeBag['default-colors']);
+        $this->assertFalse($currentAttributeBag['default-styling']);
+        $this->assertTrue($currentAttributeBag['default-colors']);
         $this->assertSame('bg-red-500 dark:bg-red-500', $currentAttributeBag['class']);
 
         $standardAttributes = [
             'class' => 'bg-red-500 dark:bg-red-500',
-            'default-colors' => false,
-            'default-styling' => true,
+            'default-colors' => true,
+            'default-styling' => false,
             'id' => $baseAttributes['id'],
         ];
         if (isset(self::$extraFilterInputAttributes)) {

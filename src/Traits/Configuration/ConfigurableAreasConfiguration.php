@@ -21,10 +21,10 @@ trait ConfigurableAreasConfiguration
      * Configure a specific Configurable Area
      *
      * @param string $configurableArea
-     * @param array<mixed> $config
+     * @param string|array<mixed> $config
      * @return self
      */
-    public function setConfigurableArea(string $configurableArea, array $config): self
+    public function setConfigurableArea(string $configurableArea, string|array $config = []): self
     {
         if (array_key_exists($configurableArea, $this->configurableAreas)) {
             $this->configurableAreas[$configurableArea] = $config;
