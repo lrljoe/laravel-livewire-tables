@@ -26,6 +26,11 @@ class FilterGenericData
         $this->isBootstrap5 = $isBootstrap5;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     public function toArray(): array
     {
         return [

@@ -15,6 +15,12 @@ class TextFilter extends Filter
 
     protected string $view = 'livewire-tables::components.tools.filters.text-field';
 
+    /**
+     * Undocumented function
+     *
+     * @param string $value
+     * @return string|boolean
+     */
     public function validate(string $value): string|bool
     {
         if ($this->hasConfig('maxlength')) {
@@ -24,6 +30,11 @@ class TextFilter extends Filter
         return strlen($value) ? $value : false;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     protected function getCoreInputAttributes(): array
     {
         $attributes = array_merge(parent::getCoreInputAttributes(),

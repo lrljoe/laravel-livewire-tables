@@ -24,6 +24,12 @@ trait WithPagination
     #[Locked]
     public int $defaultPerPage = 10;
 
+    
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     #[Locked]
     public array $perPageAccepted = [10, 25, 50];
 
@@ -39,7 +45,12 @@ trait WithPagination
     #[Locked]
     public bool $perPageVisibilityStatus = true;
 
-    // Entangled in JS
+    
+    /**
+     * Undocumented variable
+     *Entangled in JS
+     * @var array<mixed>
+     */
     public array $paginationCurrentItems = [];
 
     // Entangled in JS
@@ -48,6 +59,11 @@ trait WithPagination
     // Entangled in JS
     public ?int $paginationTotalItemCount = null;
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     public array $numberOfPaginatorsRendered = [];
 
     // standard, simple, cursor

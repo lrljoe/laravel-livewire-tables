@@ -17,11 +17,25 @@ trait WithBulkActions
     // Entangled in JS
     public bool $selectAll = false;
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     public array $bulkActions = [];
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     public array $bulkActionConfirms = [];
 
-    // Entangled in JS
+    /**
+     * Undocumented variable
+     * Entangled in JS
+     * @var array<mixed>
+     */
     public array $selected = [];
 
     // Entangled in JS
@@ -38,6 +52,11 @@ trait WithBulkActions
     // Entangled in JS
     public bool $delaySelectAll = false;
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     public function bulkActions(): array
     {
         return property_exists($this, 'bulkActions') ? $this->bulkActions : [];

@@ -18,10 +18,18 @@ trait WithFilters
         HasFiltersCore,
         HandlesLivewireComponentFilters;
 
-    // Set in JS
+    /**
+     * Undocumented variable
+     * Set in JS
+     * @var array<mixed>
+     */
     public array $filterComponents = [];
 
-    // Set in Frontend
+    /**
+     * Set in Frontend
+     *
+     * @var array<mixed>
+     */
     public array $appliedFilters = [];
 
     #[Locked]
@@ -29,6 +37,11 @@ trait WithFilters
 
     protected ?Collection $filterCollection;
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     public function filters(): array
     {
         return [];

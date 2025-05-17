@@ -13,6 +13,11 @@ class DebuggableData
         $this->component = $component;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     public function toArray(): array
     {
         return [

@@ -7,22 +7,67 @@ use Livewire\Attributes\Computed;
 
 trait HasBulkActionsStyling
 {
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     protected array $bulkActionsCheckboxAttributes = [];
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     protected array $bulkActionsThAttributes = ['default' => null, 'default-colors' => null, 'default-styling' => null];
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     protected array $bulkActionsThCheckboxAttributes = ['default' => null, 'default-colors' => null, 'default-styling' => null];
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     protected array $bulkActionsTdAttributes = ['default' => null, 'default-colors' => null, 'default-styling' => null];
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     protected array $bulkActionsTdCheckboxAttributes = ['default' => null, 'default-colors' => null, 'default-styling' => null];
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     protected array $bulkActionsButtonAttributes = ['default-colors' => true, 'default-styling' => true];
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     protected array $bulkActionsMenuAttributes = ['default-colors' => true, 'default-styling' => true];
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     protected array $bulkActionsMenuItemAttributes = ['default-colors' => true, 'default-styling' => true];
 
+    /**
+     * Undocumented variable
+     *
+     * @var array
+     */
     protected array $bulkActionsRowButtonAttributes = ['default-colors' => true, 'default-styling' => true];
 
     /**
@@ -144,7 +189,13 @@ trait HasBulkActionsStyling
     /**
      * Used to set attributes for the Bulk Actions Menu Button
      */
-    public function setBulkActionsButtonAttributes(array $bulkActionsButtonAttributes): self
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $bulkActionsButtonAttributes
+     * @return self
+     */
+     public function setBulkActionsButtonAttributes(array $bulkActionsButtonAttributes): self
     {
         return $this->setCustomAttributes('bulkActionsButtonAttributes', $bulkActionsButtonAttributes);
     }
@@ -152,13 +203,25 @@ trait HasBulkActionsStyling
     /**
      * Used to set attributes for the Bulk Actions Menu
      */
-    public function setBulkActionsMenuAttributes(array $bulkActionsMenuAttributes): self
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $bulkActionsMenuAttributes
+     * @return self
+     */
+     public function setBulkActionsMenuAttributes(array $bulkActionsMenuAttributes): self
     {
         return $this->setCustomAttributes('bulkActionsMenuAttributes', $bulkActionsMenuAttributes);
     }
 
     /**
      * Used to set attributes for the Bulk Actions Menu Items
+     */
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $bulkActionsMenuItemAttributes
+     * @return self
      */
     public function setBulkActionsMenuItemAttributes(array $bulkActionsMenuItemAttributes): self
     {
@@ -167,6 +230,12 @@ trait HasBulkActionsStyling
 
     /**
      * Used to set attributes for the Bulk Actions TD in the Row
+     */
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $bulkActionsTdAttributes
+     * @return self
      */
     public function setBulkActionsTdAttributes(array $bulkActionsTdAttributes): self
     {
@@ -177,6 +246,12 @@ trait HasBulkActionsStyling
     /**
      * Used to set attributes for the Bulk Actions Checkbox in the Row
      */
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $bulkActionsTdCheckboxAttributes
+     * @return self
+     */
     public function setBulkActionsTdCheckboxAttributes(array $bulkActionsTdCheckboxAttributes): self
     {
         return $this->setCustomAttributesDefaults('bulkActionsTdCheckboxAttributes', $bulkActionsTdCheckboxAttributes);
@@ -184,6 +259,12 @@ trait HasBulkActionsStyling
 
     /**
      * Used to set attributes for the <th> for Bulk Actions
+     */
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $bulkActionsThAttributes
+     * @return self
      */
     public function setBulkActionsThAttributes(array $bulkActionsThAttributes): self
     {
@@ -193,6 +274,12 @@ trait HasBulkActionsStyling
     /**
      * Used to set attributes for the Bulk Actions Checkbox in the <th>
      */
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $bulkActionsThCheckboxAttributes
+     * @return self
+     */
     public function setBulkActionsThCheckboxAttributes(array $bulkActionsThCheckboxAttributes): self
     {
         return $this->setCustomAttributesDefaults('bulkActionsThCheckboxAttributes', $bulkActionsThCheckboxAttributes);
@@ -200,6 +287,12 @@ trait HasBulkActionsStyling
 
     /**
      * Used to set attributes for the Bulk Actions Row Buttons
+     */
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $bulkActionsRowButtonAttributes
+     * @return self
      */
     public function setBulkActionsRowButtonAttributes(array $bulkActionsRowButtonAttributes): self
     {

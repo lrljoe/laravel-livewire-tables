@@ -4,6 +4,7 @@ namespace Rappasoft\LaravelLivewireTables\Views\Filters\Traits\Styling;
 
 use Illuminate\View\ComponentAttributeBag;
 
+
 trait HandlesFilterPillsAttributes
 {
     /**
@@ -22,18 +23,28 @@ trait HandlesFilterPillsAttributes
 
     protected bool $pillTitleAsHtml = false;
 
+    /**
+     * Undocumented function
+     *
+     * @return ComponentAttributeBag
+     */
     public function getPillAttributesBag(): ComponentAttributeBag
     {
         return new ComponentAttributeBag($this->getPillAttributes());
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return boolean
+     */
     public function hasPillAttributes(): bool
     {
         return ! empty($this->pillAttributes);
     }
 
     /**
-     * [Description for getPillAttributes]
+     * Undocumented function
      *
      * @return array<mixed>
      */
@@ -45,6 +56,12 @@ trait HandlesFilterPillsAttributes
         return $attributes;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $pillAttributes
+     * @return self
+     */
     public function setPillAttributes(array $pillAttributes): self
     {
         $this->pillAttributes = array_merge([
@@ -55,6 +72,12 @@ trait HandlesFilterPillsAttributes
         return $this;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $attributes
+     * @return self
+     */
     public function setPillResetButtonAttributes(array $attributes = []): self
     {
         $this->pillResetButtonAttributes = [...$this->getPillResetButtonAttributes(), ...$attributes];
@@ -62,13 +85,18 @@ trait HandlesFilterPillsAttributes
         return $this;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     public function getPillResetButtonAttributes(): array
     {
         return $this->pillResetButtonAttributes ?? [];
     }
 
     /**
-     * [Description for getFilterPillResetButtonAttributesMerged]
+     * Undocumented function
      *
      * @param  array<mixed>  $resetFilterButtonAttributes
      * @return array<mixed>
@@ -85,6 +113,12 @@ trait HandlesFilterPillsAttributes
         );
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param boolean $pillTitleAsHtml
+     * @return self
+     */
     public function setFilterPillTitleAsHtml(bool $pillTitleAsHtml): self
     {
         $this->pillTitleAsHtml = $pillTitleAsHtml;
@@ -92,6 +126,11 @@ trait HandlesFilterPillsAttributes
         return $this;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return boolean
+     */
     public function getFilterPillTitleAsHtml(): bool
     {
         return $this->pillTitleAsHtml;

@@ -15,16 +15,46 @@ trait WithQuery
 
     protected ?string $primaryKey;
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     protected array $relationships = [];
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     protected array $additionalSelects = [];
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     protected array $extraWiths = [];
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     protected array $extraWithCounts = [];
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     protected array $extraWithSums = [];
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     protected array $extraWithAvgs = [];
 
     protected bool $eagerLoadAllRelationsStatus = false;

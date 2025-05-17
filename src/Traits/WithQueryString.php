@@ -11,6 +11,12 @@ trait WithQueryString
     use QueryStringConfiguration,
         QueryStringHelpers;
 
+    
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     #[Locked]
     public array $queryStringConfig = [
         'columns' => ['status' => false, 'alias' => null],

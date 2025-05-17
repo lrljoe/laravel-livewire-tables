@@ -8,6 +8,11 @@ trait HasIcon
 {
     public ?string $icon;
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     public array $iconAttributes = ['class' => '', 'default-styling' => true];
 
     public bool $iconRight = true;
@@ -29,6 +34,12 @@ trait HasIcon
         return $this->icon;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $iconAttributes
+     * @return self
+     */
     public function setIconAttributes(array $iconAttributes): self
     {
         $this->iconAttributes = [...$this->iconAttributes, ...$iconAttributes];
@@ -36,6 +47,11 @@ trait HasIcon
         return $this;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return ComponentAttributeBag
+     */
     public function getIconAttributes(): ComponentAttributeBag
     {
         return new ComponentAttributeBag([...['class' => '', 'default-styling' => true], ...$this->iconAttributes]);

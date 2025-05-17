@@ -9,6 +9,11 @@ trait WithRappasoftTableThirdPartyStyles
 
     public mixed $rappasoftTableThirdPartyStyleRoute;
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     public array $rappasoftTableThirdPartyStyleTagAttributes = [];
 
     /**

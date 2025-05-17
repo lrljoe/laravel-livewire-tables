@@ -51,6 +51,11 @@ class FilterPillData
         return $this->customPillBlade;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     public function getCustomResetButtonAttributes(): array
     {
         return $this->customResetButtonAttributes;
@@ -103,11 +108,21 @@ class FilterPillData
 
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     public function getFilterPillsItemAttributes(): array
     {
         return array_merge(['default' => true, 'default-colors' => true, 'default-styling' => true, 'default-text' => true], $this->filterPillsItemAttributes);
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     public function getFilterPillDisplayDataArray(): array
     {
         $array = [];
@@ -118,6 +133,12 @@ class FilterPillData
         return $this->getInternalFilterPillDisplayDataArray($array);
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $array
+     * @return array<mixed>
+     */
     public function getExternalFilterPillDisplayDataArray(array $array = []): array
     {
         $array[$this->shouldUsePillsAsHtml() ? 'x-html' : 'x-text'] = 'displayString';
@@ -125,6 +146,12 @@ class FilterPillData
         return $array;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $array
+     * @return array<mixed>
+     */
     public function getInternalFilterPillDisplayDataArray(array $array = []): array
     {
 
@@ -135,6 +162,12 @@ class FilterPillData
         return $array;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $array
+     * @return array<mixed>
+     */
     public function getFilterTitleDisplayDataArray(array $array = []): array
     {
         $array[$this->shouldUsePillsTitleAsHtml() ? 'x-html' : 'x-text'] = 'localFilterTitle';
@@ -142,6 +175,13 @@ class FilterPillData
         return $array;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param string $filterKey
+     * @param boolean $shouldWatch
+     * @return array<mixed>
+     */
     public function getPillSetupData(string $filterKey = '', bool $shouldWatch = false): array
     {
         $array = array_merge(['filterKey' => $filterKey, 'watchForEvents' => $shouldWatch], $this->toArray());
@@ -149,6 +189,13 @@ class FilterPillData
         return $array;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param string $filterKey
+     * @param array<mixed> $filterPillsResetFilterButtonAttributes
+     * @return array<mixed>
+     */
     public function getCalculatedCustomResetButtonAttributes(string $filterKey, array $filterPillsResetFilterButtonAttributes): array
     {
         return array_merge(
@@ -165,6 +212,11 @@ class FilterPillData
         );
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     public function toArray(): array
     {
         return [

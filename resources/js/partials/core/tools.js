@@ -1,7 +1,7 @@
 /*jshint esversion: 6 */
 
-function toolbar() {
-    Alpine.data('toolbar', (wire) => ({
+function tools() {
+    Alpine.data('tools', (wire) => ({
         filtersOpen: wire.entangle('filterSlideDownDefaultVisible'),
         externalFilterPillsVals: wire.entangle('externalFilterPillsValues'),
         internalFilterPillsVals: wire.entangle('internalFilterPillsVals'),
@@ -10,6 +10,7 @@ function toolbar() {
         showFilterPillsSection: true,
         resetSpecificFilter(filterKey)
         {
+            console.log("tools - resetSpecificFilter");
             this.externalFilterPillsVals[filterKey] = [];
             wire.call('resetFilter',filterKey);
         },
@@ -79,9 +80,9 @@ function toolbar() {
         showFilterPillsSeparator(filterKey,index)
         {
             return ((index+1) < (this.getFilterPillsLength(filterKey)));
-        },
+        }
 
     }));
 }
 
-export default toolbar;
+export default tools;

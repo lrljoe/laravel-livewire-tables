@@ -4,10 +4,21 @@ namespace Rappasoft\LaravelLivewireTables\Views\Filters\Traits\Styling;
 
 use Illuminate\View\ComponentAttributeBag;
 
+
 trait HandlesFilterInputAttributes
 {
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     protected array $filterInputAttributes = [];
 
+    /**
+     * Undocumented function
+     *
+     * @return ComponentAttributeBag
+     */
     public function getInputAttributesBag(): ComponentAttributeBag
     {
         $attributes = array_merge($this->getCoreInputAttributes(), $this->getInputAttributes());
@@ -16,11 +27,21 @@ trait HandlesFilterInputAttributes
         return new ComponentAttributeBag($attributes);
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     protected function getInputAttributes(): array
     {
         return $this->filterInputAttributes;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     protected function getCoreInputAttributes(): array
     {
         return [
@@ -30,6 +51,12 @@ trait HandlesFilterInputAttributes
         ];
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $filterInputAttributes
+     * @return self
+     */
     public function setInputAttributes(array $filterInputAttributes): self
     {
         $this->filterInputAttributes = array_merge([

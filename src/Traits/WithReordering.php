@@ -27,6 +27,11 @@ trait WithReordering
     // Retrieved in JS
     public string $defaultReorderColumn = 'sort';
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     public array $orderedItems = [];
 
     protected string $reorderMethod = 'reorder';

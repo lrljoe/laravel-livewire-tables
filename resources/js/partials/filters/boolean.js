@@ -37,8 +37,29 @@ function newBf() {
 
             this.listeners.push(
                 Livewire.on('filter-was-set', (detail) => {
-                    if(detail.tableName == this.tableName && detail.filterKey == this.booleanFilterKey) { 
-                        this.switchOn = detail.value ?? defaultValue; 
+                    console.log('filter-was-set-in-boolean');
+                    console.log('detail');
+                    console.log(detail);
+
+                    if(detail.tableName == tableName && detail.filterKey == this.booleanFilterKey) { 
+                        console.log('applies-to-this-table');
+                        console.log('typeof');
+                        console.log(typeof detail.value);
+                        console.log(detail.value);
+
+                        if(typeof detail.value === null || detail.value === null)
+                        {
+                            console.log("Null Setting to False");
+                            this.value = this.switchOn = false; 
+                        }
+                        else
+                        {
+                            let number = Number(detail.value ?? 0);
+                            let boolVal = Boolean(number);
+                            console.log("Setting to "+boolVal);
+                            this.value = this.switchOn = boolVal; 
+                            this.setSwitchOn(number);
+                        }
                     }
                 })
             );

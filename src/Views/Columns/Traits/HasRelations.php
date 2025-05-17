@@ -7,6 +7,11 @@ use Illuminate\Support\Collection;
 trait HasRelations
 {
     // An array of relationships: i.e. address.group.name => ['address', 'group']
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     protected array $relations = [];
 
     protected bool $eagerLoadRelations = false;

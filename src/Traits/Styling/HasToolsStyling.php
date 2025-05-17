@@ -7,8 +7,18 @@ use Livewire\Attributes\Computed;
 
 trait HasToolsStyling
 {
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     protected array $toolsAttributes = ['class' => '', 'default-colors' => true, 'default-styling' => true];
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     protected array $toolBarAttributes = ['class' => '', 'default-colors' => true, 'default-styling' => true];
 
     
@@ -16,7 +26,7 @@ trait HasToolsStyling
     /**
      * Undocumented function
      * #[Computed]
-     * @return array
+     * @return array<mixed>
      */
     public function getToolsAttributes(): array
     {
@@ -33,6 +43,11 @@ trait HasToolsStyling
         return $this->getCustomAttributesBagFromArray($this->getToolsAttributes());
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     protected function getToolBarAttributes(): array
     {
         return $this->getCustomAttributes(propertyName: 'toolBarAttributes', default: false, classicMode: false);
@@ -51,6 +66,12 @@ trait HasToolsStyling
 
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $toolsAttributes
+     * @return self
+     */
     public function setToolsAttributes(array $toolsAttributes = []): self
     {
         $this->setCustomAttributes(propertyName: 'toolsAttributes', customAttributes: $toolsAttributes);
@@ -58,6 +79,12 @@ trait HasToolsStyling
         return $this;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $toolBarAttributes
+     * @return self
+     */
     public function setToolBarAttributes(array $toolBarAttributes = []): self
     {
         $this->setCustomAttributes(propertyName: 'toolBarAttributes', customAttributes: $toolBarAttributes);

@@ -10,6 +10,11 @@ trait WithSessionStorage
     use SessionStorageConfiguration,
         SessionStorageHelpers;
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     public array $sessionStorageStatus = [
         'columnselect' => true,
         'filters' => false,

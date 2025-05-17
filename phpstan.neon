@@ -13,8 +13,6 @@ parameters:
     treatPhpDocTypesAsCertain: false
     reportUnmatchedIgnoredErrors: false
     ignoreErrors:
-        - identifier: missingType.generics
-        - identifier: missingType.iterableValue
         - identifier: trait.unused
         - identifier: deadCode.unreachable
         - identifier: booleanNot.alwaysTrue

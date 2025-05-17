@@ -7,17 +7,21 @@ use Rappasoft\LaravelLivewireTables\Views\Filter;
 trait FilterHelpers
 {
     /**
-     * Get the filter name.
+     * Get the filter name
+     *
+     * @return string
      */
-    public function getName(): string
+     public function getName(): string
     {
         return $this->name;
     }
 
     /**
-     * Get the filter key.
+     * Get the filter key
+     *
+     * @return string
      */
-    public function getKey(): string
+     public function getKey(): string
     {
         return $this->key;
     }
@@ -32,6 +36,12 @@ trait FilterHelpers
         return [];
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param callable $callback
+     * @return Filter
+     */
     public function filter(callable $callback): Filter
     {
         $this->filterCallback = $callback;
@@ -39,31 +49,64 @@ trait FilterHelpers
         return $this;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return boolean
+     */
     public function hasFilterCallback(): bool
     {
         return $this->filterCallback !== null;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return callable
+     */
     public function getFilterCallback(): callable
     {
         return $this->filterCallback;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param string $tableName
+     * @param string $filterType
+     * @param string $extraData
+     * @return string
+     */
     public function generateWireKey(string $tableName, string $filterType, string $extraData = ''): string
     {
         return $tableName.'-filter-'.$filterType.'-'.$this->getKey().($extraData != '' ? '-'.$extraData : '').($this->hasCustomPosition() ? '-'.$this->getCustomPosition() : '');
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     public function getGenericDisplayData(): array
     {
         return $this->genericDisplayData;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     public function getFilterDisplayData(): array
     {
         return array_merge($this->getGenericDisplayData(), ['filter' => $this]);
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return string|\Illuminate\Contracts\Foundation\Application|\Illuminate\View\View|\Illuminate\View\Factory
+     */
     public function render(): string|\Illuminate\Contracts\Foundation\Application|\Illuminate\View\View|\Illuminate\View\Factory
     {
         return view($this->getViewPath())

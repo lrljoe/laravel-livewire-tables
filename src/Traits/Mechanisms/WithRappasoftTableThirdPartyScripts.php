@@ -11,6 +11,11 @@ trait WithRappasoftTableThirdPartyScripts
 
     public mixed $rappasoftTableScriptThirdPartyRoute;
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     public array $rappasoftTableScriptThirdPartyTagAttributes = [];
 
     /**

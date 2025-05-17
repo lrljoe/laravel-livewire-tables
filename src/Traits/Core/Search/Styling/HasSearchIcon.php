@@ -4,6 +4,7 @@ namespace Rappasoft\LaravelLivewireTables\Traits\Core\Search\Styling;
 
 use Livewire\Attributes\Computed;
 
+
 trait HasSearchIcon
 {
     protected bool $searchIconSet = false;
@@ -47,7 +48,7 @@ trait HasSearchIcon
     /**
      * Undocumented function
      * #[Computed]
-     * @return array
+     * @return array<mixed>
      */
     public function getSearchIconAttributes(): array
     {
@@ -57,7 +58,7 @@ trait HasSearchIcon
     /**
      * Undocumented function
      * #[Computed]
-     * @return array
+     * @return array<mixed>
      */
     public function getSearchIconOtherAttributes(): array
     {

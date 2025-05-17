@@ -17,24 +17,6 @@
             ->except(['default','default-styling','default-colors'])
         }}
     >
-    <div><div>Test124561</div>
-    <div class="flex flex-row">
-        <template x-for="(value, index) in internalFilterPillsVals">
-            <div class="flex flex-col">
-                <div><span x-text="index"></span></div>
-                <div class="flex flex-row">
-
-                    <template x-for="(value2, index2) in value">
-                        <div class="flex flex-col">
-                            <div><span x-text="index2"></span>:</div>
-                            <div><span x-text="value2"></span></div>
-                        </div>
-                    </template>
-                </div>
-            </div>
-    </template>
-</ul>
-</div>
         @if ($this->showSortPillsSection())
             <x-livewire-tables::tools.sorting-pills />
         @endif

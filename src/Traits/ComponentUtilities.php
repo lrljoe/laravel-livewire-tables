@@ -19,6 +19,11 @@ trait ComponentUtilities
         ComponentConfiguration,
         ComponentHelpers;
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     public array $table = [];
 
     protected $model;

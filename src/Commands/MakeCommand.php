@@ -141,9 +141,14 @@ class MakeCommand extends Command implements PromptsForMissingInput
         return 'App\Models\\'.$this->model;
     }
 
-    /*
-    * Credits to Harm Smits: https://stackoverflow.com/a/67099502/2263114
-    */
+    /**
+     * Undocumented function
+     * Credits to Harm Smits: https://stackoverflow.com/a/67099502/2263114
+     * 
+     * @param string $file
+     * 
+     * @return array<mixed>
+     */
     private function getClassesList(string $file): array
     {
         $classes = [];

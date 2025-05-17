@@ -6,6 +6,12 @@ use Livewire\Attributes\{Modelable, On, Renderless};
 
 trait IsExternalArrayFilter
 {
+    
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     #[Modelable]
     public array $value = [];
 
@@ -17,12 +23,35 @@ trait IsExternalArrayFilter
 
     protected bool $needsUpdating = false;
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     protected array $returnValues = [];
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     public array $selectedItems = [];
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     public array $selectOptions = [];
 
+    /**
+     * Undocumented function
+     *
+     * @param string $tableName
+     * @param string $filterKey
+     * @param array<mixed> $value
+     * @return void
+     */
     #[On('filter-was-set')]
     public function setFilterValues(string $tableName, string $filterKey, array $value): void
     {
@@ -44,6 +73,12 @@ trait IsExternalArrayFilter
         }
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed>  $returnValues
+     * @return void
+     */
     #[Renderless]
     protected function sendUpdateDispatch(array $returnValues): void
     {

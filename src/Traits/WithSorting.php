@@ -16,6 +16,11 @@ trait WithSorting
         HasQueryStringForSort,
         HasSortingPillsStyling;
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     public array $sorts = [];
 
     public Collection $sortableColumns;

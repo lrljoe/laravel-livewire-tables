@@ -11,14 +11,39 @@ trait WithTableAttributes
     use TableAttributeConfiguration,
         TableAttributeHelpers;
     
+        /**
+         * Undocumented variable
+         *
+         * @var array<mixed>
+         */
     protected array $componentWrapperAttributes = [];
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     protected array $tableWrapperAttributes = [];
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     protected array $tableAttributes = [];
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     protected array $theadAttributes = [];
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     protected array $tbodyAttributes = [];
 
     protected ?Closure $thAttributesCallback;

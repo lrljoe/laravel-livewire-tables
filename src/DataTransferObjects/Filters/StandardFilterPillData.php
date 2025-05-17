@@ -31,6 +31,11 @@ class StandardFilterPillData
         return $this->renderPillsAsHtml;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     public function toArray(): array
     {
         return [

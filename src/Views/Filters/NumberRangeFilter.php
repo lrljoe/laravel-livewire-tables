@@ -5,6 +5,7 @@ namespace Rappasoft\LaravelLivewireTables\Views\Filters;
 use Rappasoft\LaravelLivewireTables\Views\Filter;
 use Rappasoft\LaravelLivewireTables\Views\Filters\Traits\{HasOptions, HasWireables};
 
+
 class NumberRangeFilter extends Filter
 {
     use HasOptions;
@@ -16,6 +17,12 @@ class NumberRangeFilter extends Filter
 
     protected string $configPath = 'livewire-tables.numberRange.defaultConfig';
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $options
+     * @return NumberRangeFilter
+     */
     public function options(array $options = []): NumberRangeFilter
     {
         $this->options = [...config('livewire-tables.numberRange.defaultOptions'), ...$options];
@@ -23,11 +30,22 @@ class NumberRangeFilter extends Filter
         return $this;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     public function getOptions(): array
     {
         return ! empty($this->options) ? $this->options : $this->options = config('livewire-tables.numberRange.defaultOptions');
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $config
+     * @return NumberRangeFilter
+     */
     public function config(array $config = []): NumberRangeFilter
     {
         $this->config = [...config('livewire-tables.numberRange.defaultConfig'), ...$config];
@@ -35,11 +53,22 @@ class NumberRangeFilter extends Filter
         return $this;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     public function getConfigs(): array
     {
         return ! empty($this->config) ? $this->config : $this->config = config('livewire-tables.numberRange.defaultConfig');
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $values
+     * @return array<mixed>|boolean
+     */
     public function validate(array $values): array|bool
     {
         $values['min'] = isset($values['min']) ? intval($values['min']) : null;
@@ -63,6 +92,12 @@ class NumberRangeFilter extends Filter
         return ['min' => $values['min'], 'max' => $values['max']];
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed>|string $value
+     * @return boolean
+     */
     public function isEmpty(array|string $value): bool
     {
         if (! is_array($value)) {
@@ -80,11 +115,22 @@ class NumberRangeFilter extends Filter
         return false;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>|string
+     */
     public function getDefaultValue(): array|string
     {
         return [];
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param mixed $values
+     * @return array<mixed>|string|boolean|null
+     */
     public function getFilterPillValue($values): array|string|bool|null
     {
         if ($this->validate($values)) {

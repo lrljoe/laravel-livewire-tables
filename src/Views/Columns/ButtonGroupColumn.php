@@ -11,6 +11,11 @@ class ButtonGroupColumn extends BaseColumn
     use ButtonGroupColumnConfiguration,
         ButtonGroupColumnHelpers;
 
+        /**
+         * Undocumented variable
+         *
+         * @var array<mixed>
+         */
     protected array $buttons = [];
 
     protected string $view = 'livewire-tables::includes.columns.button-group';

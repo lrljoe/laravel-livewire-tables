@@ -22,11 +22,22 @@ class DateRangeFilter extends Filter
 
     protected string $optionsPath = 'livewire-tables.dateRange.defaultOptions';
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     public function getKeys(): array
     {
         return ['minDate' => '', 'maxDate' => ''];
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed>|string|null $values
+     * @return array<mixed>|boolean
+     */
     public function validate(array|string|null $values): array|bool
     {
         $this->getOptions();
@@ -89,6 +100,12 @@ class DateRangeFilter extends Filter
         return [];
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param string|array<mixed> $values
+     * @return array<mixed>
+     */
     protected function populateReturnedValues(string|array $values): array
     {
         $returnedValues = ['minDate' => '', 'maxDate' => ''];
@@ -115,6 +132,13 @@ class DateRangeFilter extends Filter
         return $returnedValues;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $returnedValues
+     * @param string $dateFormat
+     * @return boolean
+     */
     protected function validateDateFormat(array $returnedValues, string $dateFormat): bool
     {
         $validator = Validator::make($returnedValues, [
@@ -128,11 +152,21 @@ class DateRangeFilter extends Filter
         return true;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     public function getDefaultValue(): array
     {
         return $this->getFilterDefaultValue();
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     public function getFilterDefaultValue(): array
     {
         return $this->filterDefaultValue ?? [];
@@ -172,6 +206,12 @@ class DateRangeFilter extends Filter
         return $this;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param mixed $value
+     * @return array<mixed>|string|boolean|null
+     */
     public function getFilterPillValue($value): array|string|bool|null
     {
         $validatedValue = $this->validate($value);
@@ -194,6 +234,12 @@ class DateRangeFilter extends Filter
         return '';
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed>|string|null $value
+     * @return boolean
+     */
     public function isEmpty(array|string|null $value): bool
     {
         if (is_null($value) || empty($value)) {
@@ -223,6 +269,12 @@ class DateRangeFilter extends Filter
         return false;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param string|array<mixed> $dateInput
+     * @return string
+     */
     public function getDateString(string|array $dateInput): string
     {
         if ($dateInput != '') {

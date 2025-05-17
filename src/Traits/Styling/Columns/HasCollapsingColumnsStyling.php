@@ -6,8 +6,18 @@ use Livewire\Attributes\Computed;
 
 trait HasCollapsingColumnsStyling
 {
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     protected array $collapsingColumnButtonCollapseAttributes = ['default-styling' => true, 'default-colors' => true];
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     protected array $collapsingColumnButtonExpandAttributes = ['default-styling' => true, 'default-colors' => true];
 
     /**

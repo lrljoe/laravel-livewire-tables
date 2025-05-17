@@ -16,15 +16,40 @@ trait WithColumnSelect
         HasQueryStringForColumnSelect,
         HasColumnSelectStyling;
 
-    #[Locked]
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
+    #[Locked]    
     public array $columnSelectColumns = ['setupRun' => false, 'selected' => [], 'deselected' => [], 'defaultdeselected' => []];
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     public array $selectedColumns = [];
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     public array $deselectedColumns = [];
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     public array $selectableColumns = [];
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     public array $defaultDeselectedColumns = [];
 
     #[Locked]

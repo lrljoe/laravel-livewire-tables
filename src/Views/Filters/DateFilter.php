@@ -41,6 +41,11 @@ class DateFilter extends Filter
         return null;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     protected function getCoreInputAttributes(): array
     {
         $attributes = array_merge(parent::getCoreInputAttributes(),

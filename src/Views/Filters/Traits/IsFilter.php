@@ -28,5 +28,10 @@ trait IsFilter
 
     protected mixed $filterCallback = null;
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     public array $genericDisplayData = [];
 }

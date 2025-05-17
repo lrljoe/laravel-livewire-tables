@@ -16,6 +16,12 @@ class LivewireComponentArrayFilter extends Filter
 
     protected string $view = 'livewire-tables::components.tools.filters.livewire-component-array-filter';
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $value
+     * @return array<mixed>|boolean
+     */
     public function validate(array $value): array|bool
     {
         if (! $this->isEmpty($value)) {
@@ -25,6 +31,13 @@ class LivewireComponentArrayFilter extends Filter
         return [];
     }
 
+    
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $value
+     * @return boolean
+     */
     public function isEmpty(array $value = []): bool
     {
         return empty($value) || (count($value) == 1 && (is_null($value[0]) || $value[0] == '' || $value[0] == 'null'));
@@ -38,6 +51,12 @@ class LivewireComponentArrayFilter extends Filter
         return $this->filterDefaultValue ?? null;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param mixed$value
+     * @return array<mixed>|string|boolean|null
+     */
     public function getFilterPillValue($value): array|string|bool|null
     {
         $values = [];
@@ -52,6 +71,11 @@ class LivewireComponentArrayFilter extends Filter
         return $values;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     public function getKeys(): array
     {
         return array_keys($this->options ?? []);

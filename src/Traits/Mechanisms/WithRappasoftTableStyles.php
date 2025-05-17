@@ -9,6 +9,11 @@ trait WithRappasoftTableStyles
 
     public mixed $rappasoftTableStylesRoute;
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     public array $rappasoftTableStyleTagAttributes = [];
 
     /**

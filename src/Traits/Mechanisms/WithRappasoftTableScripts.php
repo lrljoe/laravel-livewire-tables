@@ -11,6 +11,11 @@ trait WithRappasoftTableScripts
 
     public mixed $rappasoftTableScriptRoute;
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     public array $rappasoftTableScriptTagAttributes = [];
 
     public function useRappasoftTableScriptTagAttributes(array $attributes): void

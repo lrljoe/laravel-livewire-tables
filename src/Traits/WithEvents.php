@@ -10,6 +10,11 @@ trait WithEvents
     use EventConfiguration,
         EventHelpers;
 
+        /**
+         * Undocumented variable
+         *
+         * @var array<mixed>
+         */
     protected array $eventStatuses = ['columnSelected' => true, 'searchApplied' => false, 'filterApplied' => false];
 
     // No Longer Used

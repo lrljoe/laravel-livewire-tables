@@ -12,6 +12,11 @@ trait WithConfigurableAreas
 
     protected bool $hideConfigurableAreasWhenReorderingStatus = true;
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     protected array $configurableAreas = [
         'before-tools' => null,
         'toolbar-left-start' => null,

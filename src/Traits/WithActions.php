@@ -19,6 +19,11 @@ trait WithActions
 
     protected ?Collection $validActions;
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     protected function actions(): array
     {
         return [];

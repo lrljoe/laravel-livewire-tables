@@ -16,11 +16,31 @@ trait HasFilterPills
     #[Locked]
     public bool $filterPillsStatus = true;
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     public array $externalFilterPillsValues = [];
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     public array $internalFilterPillsVals = ['name' => null];
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     public array $externalFilterPillsLength = [];
 
+ /**
+  * Undocumented variable
+  *
+  * @var array<mixed>
+  */
     public array $internalFilterPillsLength = [];
 }

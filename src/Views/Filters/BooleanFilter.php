@@ -13,6 +13,15 @@ class BooleanFilter extends Filter
 
     protected string $view = 'livewire-tables::components.tools.filters.boolean';
 
+    public function __construct(string $name, ?string $key = null)
+    {
+        parent::__construct($name,$key);
+        $this->filterPillValues = [
+            true => __('livewire-tables::core.Enabled'),
+            false => __('livewire-tables::core.Disabled'),
+        ];
+    }
+
     public function validate(bool|int|string|null $value): bool
     {
         if ($value === null) {
@@ -35,6 +44,12 @@ class BooleanFilter extends Filter
         return false;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param mixed $value
+     * @return array<mixed>|string|boolean|null
+     */
     public function getFilterPillValue($value): array|string|bool|null
     {
         return $this->getCustomFilterPillValue($value);
@@ -55,6 +70,11 @@ class BooleanFilter extends Filter
         return true;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     protected function getCoreInputAttributes(): array
     {
         $attributes = array_merge(parent::getCoreInputAttributes(),

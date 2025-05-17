@@ -13,14 +13,32 @@ abstract class LivewireArrayExternalFilter extends Component
         HandlesTableEventsForExternalFilter,
         HandlesUpdateStatusForExternalFilter;
 
+        /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     #[Modelable]
     public array $value = [];
 
-    #[Locked]
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
+     #[Locked]
     public array $optionsAvailable = [];
-
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     public array $optionsSelected = [];
-
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     public array $selectedItems = [];
 
     #[Renderless]

@@ -20,6 +20,11 @@ class SelectFilter extends Filter
 
     protected string $optionsPath = 'livewire-tables.selectFilter.defaultOptions';
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     public function getKeys(): array
     {
         return (new Collection($this->getOptions()))
@@ -31,6 +36,12 @@ class SelectFilter extends Filter
             ->toArray();
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param string $value
+     * @return array<mixed>|string|boolean
+     */
     public function validate(string $value): array|string|bool
     {
         if (! in_array($value, $this->getKeys())) {
@@ -40,6 +51,12 @@ class SelectFilter extends Filter
         return $value;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param mixed $value
+     * @return array<mixed>|string|boolean|null
+     */
     public function getFilterPillValue($value): array|string|bool|null
     {
 
@@ -49,6 +66,11 @@ class SelectFilter extends Filter
             ?? null;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     protected function getCoreInputAttributes(): array
     {
         $attributes = array_merge(parent::getCoreInputAttributes(),

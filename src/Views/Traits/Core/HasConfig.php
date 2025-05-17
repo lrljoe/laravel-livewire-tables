@@ -4,12 +4,21 @@ namespace Rappasoft\LaravelLivewireTables\Views\Traits\Core;
 
 use Rappasoft\LaravelLivewireTables\Views\Filter;
 
+
 trait HasConfig
 {
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     public array $config = [];
 
     /**
-     * @param  array<mixed>  $config
+     * Undocumented function
+     *
+     * @param array<mixed> $config
+     * @return Filter
      */
     public function config(array $config = []): Filter
     {
@@ -38,11 +47,22 @@ trait HasConfig
         return $this->config[$key] ?? null;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return boolean
+     */
     public function hasConfigs(): bool
     {
         return count($this->getConfigs()) > 0;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param string $key
+     * @return boolean
+     */
     public function hasConfig(string $key): bool
     {
         return array_key_exists($key, $this->getConfigs()) && $this->getConfig($key) !== null;
