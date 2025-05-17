@@ -4,6 +4,11 @@ namespace Rappasoft\LaravelLivewireTables\Traits\Core\QueryStrings;
 
 trait HasQueryStringForPagination
 {
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     protected function queryStringHasQueryStringForPagination(): array
     {
         return ($this->queryStringForPaginationEnabled()) ? 

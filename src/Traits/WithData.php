@@ -42,6 +42,11 @@ trait WithData
         return $executedQuery;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return Builder<\Illuminate\Database\Eloquent\Model>
+     */
     protected function baseQuery(): Builder
     {
         $this->setBuilder($this->builder());
@@ -126,6 +131,11 @@ trait WithData
         return $this->getBuilder()->get();
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return Builder<\Illuminate\Database\Eloquent\Model>
+     */
     protected function joinRelations(): Builder
     {
         if ($this->getExcludeDeselectedColumnsFromQuery()) {
@@ -146,6 +156,12 @@ trait WithData
         return $this->getBuilder();
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param Column $column
+     * @return Builder<\Illuminate\Database\Eloquent\Model>
+     */
     protected function joinRelation(Column $column): Builder
     {
         if ($column->eagerLoadRelationsIsEnabled() || $this->eagerLoadAllRelationsIsEnabled()) {
@@ -196,6 +212,15 @@ trait WithData
         return $this->getBuilder();
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param string $table
+     * @param string $foreign
+     * @param string $other
+     * @param string $type
+     * @return Builder<\Illuminate\Database\Eloquent\Model>
+     */
     protected function performJoin(string $table, string $foreign, string $other, string $type = 'left'): Builder
     {
         $joins = [];
@@ -211,6 +236,11 @@ trait WithData
         return $this->getBuilder();
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return Builder<\Illuminate\Database\Eloquent\Model>
+     */
     protected function selectFields(): Builder
     {
         // Load any additional selects that were not already columns
@@ -266,6 +296,8 @@ trait WithData
 
     /**
      * The base query - typically overridden in child components
+     *
+     * @return Builder<\Illuminate\Database\Eloquent\Model>
      */
     public function builder(): Builder
     {
@@ -280,6 +312,10 @@ trait WithData
 
     /**
      * Add Rows And Generic Data to View
+     *
+     * @param \Illuminate\View\View $view
+     * @param array<mixed> $data
+     * @return void
      */
     public function renderingWithData(\Illuminate\View\View $view, array $data = []): void
     {

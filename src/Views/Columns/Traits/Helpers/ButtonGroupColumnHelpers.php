@@ -6,6 +6,11 @@ use Rappasoft\LaravelLivewireTables\Views\Columns\LinkColumn;
 
 trait ButtonGroupColumnHelpers
 {
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     public function getButtons(): array
     {
         return collect($this->buttons)

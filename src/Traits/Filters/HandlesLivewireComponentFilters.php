@@ -13,6 +13,14 @@ trait HandlesLivewireComponentFilters
         return $this->hasExternalFilters;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param string $filterKey
+     * @param string $tableName
+     * @param array<mixed> $values
+     * @return void
+     */
     #[On('livewireArrayFilterUpdateValues')]
     public function updateLivewireArrayFilterValues(string $filterKey, string $tableName, array $values): void
     {
@@ -22,6 +30,14 @@ trait HandlesLivewireComponentFilters
         }
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param string $filterKey
+     * @param string $tableName
+     * @param array<mixed> $values
+     * @return void
+     */
     #[On('livewireArrayFilterUpdateValuesNew')]
     public function updateLivewireArrayFilterValuesNew(string $filterKey, string $tableName, array $values): void
     {

@@ -20,6 +20,9 @@ trait QueryConfiguration
 
     /**
      * Allows adding a single set of additional selects to the query
+     *
+     * @param string|array<mixed> $selects
+     * @return self
      */
     public function setAdditionalSelects(string|array $selects): self
     {
@@ -35,7 +38,13 @@ trait QueryConfiguration
     /**
      * Allows appending more additional selects
      */
-    public function addAdditionalSelects(string|array $selects): self
+    /**
+     * Undocumented function
+     *
+     * @param string|array<mixed> $selects
+     * @return self
+     */
+     public function addAdditionalSelects(string|array $selects): self
     {
         if (! is_array($selects)) {
             $selects = [$selects];
@@ -45,6 +54,12 @@ trait QueryConfiguration
         return $this;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $extraWiths
+     * @return self
+     */
     public function setExtraWiths(array $extraWiths): self
     {
         $this->extraWiths = $extraWiths;
@@ -59,6 +74,12 @@ trait QueryConfiguration
         return $this;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $extraWiths
+     * @return self
+     */
     public function addExtraWiths(array $extraWiths): self
     {
         $this->extraWiths = [...$this->extraWiths, ...$extraWiths];
@@ -66,6 +87,12 @@ trait QueryConfiguration
         return $this;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $extraWithCounts
+     * @return self
+     */
     public function setExtraWithCounts(array $extraWithCounts): self
     {
         $this->extraWithCounts = $extraWithCounts;
@@ -80,6 +107,12 @@ trait QueryConfiguration
         return $this;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $extraWithCounts
+     * @return self
+     */
     public function addExtraWithCounts(array $extraWithCounts): self
     {
         $this->extraWithCounts = [...$this->extraWithCounts, ...$extraWithCounts];

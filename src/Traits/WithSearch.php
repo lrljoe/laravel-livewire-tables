@@ -17,9 +17,18 @@ trait WithSearch
         HasQueryStringForSearch,
         HandlesSearchFieldStyling;
 
+    /**
+    * Undocumented variable
+    *
+    * @var string
+    */
     public string $search = '';
 
-    // TODO
+    /**
+     * Undocumented function
+     *
+     * @return Builder<\Illuminate\Database\Eloquent\Model>
+     */
     public function applySearch(): Builder
     {
         if ($this->searchIsEnabled() && $this->hasSearch()) {
@@ -49,6 +58,12 @@ trait WithSearch
         return $this->getBuilder();
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param string|array<mixed>|null $value
+     * @return void
+     */
     public function updatedSearch(string|array|null $value): void
     {
         if ($this->shouldTrimSearchString() && $this->search != trim($value)) {
@@ -96,12 +111,20 @@ trait WithSearch
 
     /**
      * Search the search query from the table array
+     *
+     * @return void
      */
-    public function clearSearch(): void
+     public function clearSearch(): void
     {
         $this->search = '';
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param string $query
+     * @return self
+     */
     public function setSearch(string $query): self
     {
         if ($this->shouldTrimSearchString()) {

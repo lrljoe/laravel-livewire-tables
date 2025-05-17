@@ -72,12 +72,12 @@ trait HasSortingPillsStyling
         return $this;
     }
 
-/**
- * Undocumented function
- *
- * @param array<mixed> $attributes
- * @return self
- */
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $attributes
+     * @return self
+     */
     public function setSortingPillsClearSortButtonAttributes(array $attributes = []): self
     {
         $this->sortingPillsClearSortButtonAttributes = [...$this->sortingPillsClearSortButtonAttributes, ...$attributes];

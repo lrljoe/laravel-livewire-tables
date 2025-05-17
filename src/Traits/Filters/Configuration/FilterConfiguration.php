@@ -10,6 +10,13 @@ use Rappasoft\LaravelLivewireTables\Views\Filters\{BooleanFilter,MultiSelectDrop
 
 trait FilterConfiguration
 {
+    /**
+     * Undocumented function
+     *
+     * @param string $filterKey
+     * @param string|array<mixed>|null $value
+     * @return void
+     */
     #[On('setFilter')]
     #[On('set-filter')]
     public function setFilter(string $filterKey, string|array|null $value): void
@@ -69,6 +76,11 @@ trait FilterConfiguration
         $this->setFilter($filterKey, array_keys($filter->getOptions()));
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return Builder<\Illuminate\Database\Eloquent\Model>
+     */
     public function applyFilters(): Builder
     {
         if ($this->filtersAreEnabled() && $this->hasFilters() && $this->hasAppliedFiltersWithValues()) {
@@ -94,6 +106,13 @@ trait FilterConfiguration
         return $this->getBuilder();
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param string|array<mixed>|null $value
+     * @param string $filterName
+     * @return void
+     */
     public function updatedFilterComponents(string|array|null $value, string $filterName): void
     {
         $this->resetComputedPage();

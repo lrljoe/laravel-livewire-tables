@@ -36,6 +36,12 @@ trait QueryStringHelpers
         return $this->queryStringAlias ?? $this->getTableName();
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param string $type
+     * @return array<mixed>
+     */
     protected function getQueryStringConfig(string $type): array
     {
         return array_merge(['status' => null, 'alias' => null], ($this->queryStringConfig[$type] ?? []));

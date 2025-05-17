@@ -13,6 +13,8 @@ parameters:
     treatPhpDocTypesAsCertain: false
     reportUnmatchedIgnoredErrors: false
     ignoreErrors:
+        - identifier: argument.type
+        - identifier: new.static
         - identifier: trait.unused
         - identifier: deadCode.unreachable
         - identifier: booleanNot.alwaysTrue

@@ -52,6 +52,12 @@ trait ArrayColumnConfiguration
         return $this;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $attribs
+     * @return self
+     */
     public function flexCol(array $attribs = []): self
     {
         $bag = new ComponentAttributeBag(['class' => $this->isTailwind() ? 'flex flex-col' : 'd-flex d-flex-col']);
@@ -61,6 +67,12 @@ trait ArrayColumnConfiguration
         ->separator("");
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $attribs
+     * @return self
+     */
     public function flexRow(array $attribs = []): self
     {
         $bag = new ComponentAttributeBag(['class' => $this->isTailwind() ? 'flex flex-row' : 'd-flex d-flex-row']);

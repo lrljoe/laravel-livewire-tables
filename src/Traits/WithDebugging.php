@@ -12,6 +12,8 @@ trait WithDebugging
 
     /**
      * Dump table properties for debugging
+     *
+     * @var boolean
      */
     protected bool $debugStatus = false;
 }

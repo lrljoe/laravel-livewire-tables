@@ -8,11 +8,21 @@ trait HasColumnView
 {
     use HasView;
 
+    /**
+     * Undocumented function
+     *
+     * @return \Illuminate\View\View
+     */
     public function getColumnView(): \Illuminate\View\View
     {
         return view($this->getView());
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return \Illuminate\View\View
+     */
     public function getColumnViewWithDefaults(): \Illuminate\View\View
     {
         return $this->getColumnView()
@@ -20,6 +30,11 @@ trait HasColumnView
 
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     protected function addColumnViewDefaults(): array
     {
         return [

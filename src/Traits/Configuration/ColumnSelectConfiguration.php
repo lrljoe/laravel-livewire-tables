@@ -83,6 +83,11 @@ trait ColumnSelectConfiguration
         return $this;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     public function setDefaultDeselectedColumns(): array
     {
         return collect($this->getColumns()

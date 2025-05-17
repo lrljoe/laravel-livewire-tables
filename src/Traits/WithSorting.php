@@ -23,27 +23,78 @@ trait WithSorting
      */
     public array $sorts = [];
 
+    /**
+     * Undocumented variable
+     *
+     * @var Collection<int,string>
+     */
     public Collection $sortableColumns;
 
+    /**
+     * Undocumented variable
+     *
+     * @var boolean
+     */
     public bool $sortingStatus = true;
 
+    /**
+     * Undocumented variable
+     *
+     * @var boolean
+     */
     public bool $singleColumnSortingStatus = true;
 
+    /**
+     * Undocumented variable
+     *
+     * @var boolean
+     */
     public bool $sortingPillsStatus = true;
 
+    /**
+     * Undocumented variable
+     *
+     * @var string|null
+     */
     public ?string $defaultSortColumn = null;
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     public string $defaultSortDirection = 'asc';
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     public string $defaultSortingLabelAsc = 'A-Z';
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     public string $defaultSortingLabelDesc = 'Z-A';
 
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
     public function mountWithSorting(): void
     {
         $this->setupDefaultSorting();
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param string $columnSelectName
+     * @return string|null
+     */
     public function sortBy(string $columnSelectName): ?string
     {
 
@@ -76,6 +127,11 @@ trait WithSorting
         return null;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return Builder<\Illuminate\Database\Eloquent\Model>
+     */
     public function applySorting(): Builder
     {
 

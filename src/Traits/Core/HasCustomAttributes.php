@@ -6,11 +6,25 @@ use Illuminate\View\ComponentAttributeBag;
 
 trait HasCustomAttributes
 {
+    /**
+     * Undocumented function
+     *
+     * @param string $propertyName
+     * @return boolean
+     */
     public function hasCustomAttributes(string $propertyName): bool
     {
         return property_exists($this, $propertyName) && isset($this->{$propertyName});
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param string $propertyName
+     * @param boolean $default
+     * @param boolean $classicMode
+     * @return array<mixed>
+     */
     public function getCustomAttributes(string $propertyName, bool $default = false, bool $classicMode = true): array
     {
         if ($classicMode) {
@@ -35,11 +49,24 @@ trait HasCustomAttributes
         }
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param string $propertyName
+     * @return ComponentAttributeBag
+     */
     public function getCustomAttributesBag(string $propertyName): ComponentAttributeBag
     {
         return new ComponentAttributeBag($this->getCustomAttributes($propertyName));
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param string $propertyName
+     * @param array<mixed> $customAttributes
+     * @return self
+     */
     public function setCustomAttributes(string $propertyName, array $customAttributes): self
     {
         $this->{$propertyName} = $customAttributes;
@@ -47,6 +74,13 @@ trait HasCustomAttributes
         return $this;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param string $propertyName
+     * @param array<mixed> $customAttributes
+     * @return self
+     */
     protected function mergeCustomAttributes(string $propertyName, array $customAttributes): self
     {
         $mergedArray = array_merge($this->{$propertyName}, $customAttributes);
@@ -56,6 +90,13 @@ trait HasCustomAttributes
         return $this;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param string $propertyName
+     * @param array<mixed> $customAttributes
+     * @return self
+     */
     protected function mergeCustomAttributesClassic(string $propertyName, array $customAttributes): self
     {
         $attributes = [...$this->getCustomAttributes(propertyName: $propertyName, default: false, classicMode: true), ...$customAttributes];
@@ -64,6 +105,13 @@ trait HasCustomAttributes
         return $this->setCustomAttributes($propertyName, $attributes);
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param string $propertyName
+     * @param array<mixed> $customAttributes
+     * @return self
+     */
     protected function mergeCustomAttributesModern(string $propertyName, array $customAttributes): self
     {
         $attributes = [...$this->getCustomAttributes(propertyName: $propertyName, default: false, classicMode: false), ...$customAttributes];
@@ -72,11 +120,25 @@ trait HasCustomAttributes
         return $this->setCustomAttributes($propertyName, $attributes);
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $attributesArray
+     * @return ComponentAttributeBag
+     */
     public function getCustomAttributesBagFromArray(array $attributesArray): ComponentAttributeBag
     {
         return new ComponentAttributeBag($attributesArray);
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param string $propertyName
+     * @param boolean $default
+     * @param boolean $classicMode
+     * @return array<mixed>
+     */
     public function getCustomAttributesNew(string $propertyName, bool $default = false, bool $classicMode = true): array
     {
 
@@ -119,6 +181,15 @@ trait HasCustomAttributes
         }
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param string $propertyName
+     * @param array<mixed> $customAttributes
+     * @param boolean $default
+     * @param boolean $classicMode
+     * @return self
+     */
     public function setCustomAttributesDefaults(string $propertyName, array $customAttributes, bool $default = false, bool $classicMode = true): self
     {
 

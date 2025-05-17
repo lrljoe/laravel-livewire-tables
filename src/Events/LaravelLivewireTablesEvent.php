@@ -14,6 +14,11 @@ class LaravelLivewireTablesEvent
 
     public ?string $key;
 
+    /**
+     * Undocumented variable
+     *
+     * @var string|array<mixed>|null
+     */
     public string|array|null $value;
 
     public ?Authenticatable $user;
@@ -25,6 +30,12 @@ class LaravelLivewireTablesEvent
         return $this;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param string|array<mixed> $value
+     * @return self
+     */
     public function setValueForEvent(string|array $value): self
     {
         $this->value = $value;

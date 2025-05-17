@@ -10,11 +10,11 @@ trait WithEvents
     use EventConfiguration,
         EventHelpers;
 
-        /**
-         * Undocumented variable
-         *
-         * @var array<mixed>
-         */
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     protected array $eventStatuses = ['columnSelected' => true, 'searchApplied' => false, 'filterApplied' => false];
 
     // No Longer Used
@@ -35,11 +35,17 @@ trait WithEvents
         $this->clearSorts();
     }
 
-    // No Longer Used
     /**
+     * No Longer Used
      * @codeCoverageIgnore
+
+     * Undocumented function
+     *
+     * @param string $filter
+     * @param string|array<mixed>|null $value
+     * @return void
      */
-    public function setFilterEvent(string $filter, string|array|null $value): void
+     public function setFilterEvent(string $filter, string|array|null $value): void
     {
         $this->setFilter($filter, $value);
     }

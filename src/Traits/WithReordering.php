@@ -12,19 +12,49 @@ trait WithReordering
         ReorderingHelpers,
         HasReorderStyling;
 
-    // Entangled in JS
+    /**
+     * Undocumented variable
+     * 
+     * Entangled in JS
+     *
+     * @var boolean
+     */
     public bool $reorderStatus = false;
 
-    // Entangled in JS
+    /**
+     * Undocumented variable
+     * 
+     * Entangled in JS
+     *
+     * @var boolean
+     */
     public bool $currentlyReorderingStatus = false;
 
-    // Entangled in JS
+    /**
+     * Undocumented variable
+     * 
+     * Entangled in JS
+     *
+     * @var boolean
+     */
     public bool $hideReorderColumnUnlessReorderingStatus = false;
 
-    // Entangled in JS
+    /**
+     * Undocumented variable
+     * 
+     * Entangled in JS
+     *
+     * @var boolean
+     */
     public bool $reorderDisplayColumn = false;
 
-    // Retrieved in JS
+    /**
+     * Undocumented variable
+     * 
+     * Retrieved in JS
+     *
+     * @var string
+     */
     public string $defaultReorderColumn = 'sort';
 
     /**
@@ -34,10 +64,25 @@ trait WithReordering
      */
     public array $orderedItems = [];
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     protected string $reorderMethod = 'reorder';
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     protected string $defaultReorderDirection = 'asc';
 
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
     public function setupReordering(): void
     {
         if ($this->reorderIsDisabled()) {
@@ -52,8 +97,18 @@ trait WithReordering
         $this->restartReorderingIfNecessary();
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
     public function enablePaginatedReordering(): void {}
 
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
     public function enableReordering(): void
     {
         $this->setReorderingSession();
@@ -62,6 +117,11 @@ trait WithReordering
         $this->reorderStatus = $this->currentlyReorderingStatus = $this->reorderDisplayColumn = true;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
     public function disableReordering(): void
     {
 
@@ -72,6 +132,11 @@ trait WithReordering
 
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
     private function restartReorderingIfNecessary(): void
     {
         // If the page loads with the session, enable reordering
@@ -82,6 +147,11 @@ trait WithReordering
         }
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
     private function resetReorderFields(): void
     {
         $this->{$this->getTableName()} = [];
@@ -101,6 +171,11 @@ trait WithReordering
         $this->resetComputedPage();
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
     private function setReorderingBackup(): void
     {
         if (session()->has($this->getReorderingBackupSessionKey())) {
@@ -109,6 +184,11 @@ trait WithReordering
         session([$this->getReorderingBackupSessionKey() => $this->getTableStateToArray()]);
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     protected function getTableStateToArray(): array
     {
         return [
@@ -134,6 +214,12 @@ trait WithReordering
         ];
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $tableState
+     * @return void
+     */
     protected function restoreStateFromArray(array $tableState): void
     {
         $this->{$this->getTableName()} = $tableState[$this->getTableName()];
@@ -158,6 +244,11 @@ trait WithReordering
 
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
     private function getReorderingBackup(): void
     {
         // TODO: Why won't secondary header and footer come back?
@@ -169,6 +260,12 @@ trait WithReordering
 
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $rows
+     * @return void
+     */
     public function storeReorder(array $rows = []): void
     {
         $this->{$this->getReorderMethod()}($rows);
@@ -176,6 +273,11 @@ trait WithReordering
         $this->getReorderingBackup();
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
     public function renderingWithReordering(): void
     {
         $this->setupReordering();

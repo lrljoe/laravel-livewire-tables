@@ -66,7 +66,12 @@ trait HasCollapsingColumnsStyling
     }
 
     
-
+/**
+ * Undocumented function
+ *
+ * @param array<mixed> $buttonAttributes
+ * @return self
+ */
     public function setCollapsingColumnButtonAttributes(array $buttonAttributes): self
     {
         if(array_key_exists('collapse', $buttonAttributes) || array_key_exists('expand', $buttonAttributes))
@@ -90,6 +95,11 @@ trait HasCollapsingColumnsStyling
 
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     public function getCollapsingColumnClasses(): array
     {
         $classes = '';

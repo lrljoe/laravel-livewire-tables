@@ -32,6 +32,12 @@ trait ConfigurableAreasHelpers
         return $area;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param string $area
+     * @return array<mixed>
+     */
     public function getParametersForConfigurableArea(string $area): array
     {
         $area = array_key_exists($area, $this->configurableAreas) ? $this->configurableAreas[$area] : null;

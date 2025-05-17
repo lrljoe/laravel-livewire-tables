@@ -77,6 +77,12 @@ trait BulkActionsConfiguration
         return $this;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $bulkActionConfirms
+     * @return self
+     */
     public function setBulkActionConfirms(array $bulkActionConfirms): self
     {
         foreach ($bulkActionConfirms as $bulkAction) {
@@ -95,6 +101,12 @@ trait BulkActionsConfiguration
         return $this;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $bulkActionMessages
+     * @return self
+     */
     public function setBulkActionConfirmMessages(array $bulkActionMessages): self
     {
         foreach ($bulkActionMessages as $bulkAction => $confirmationMessage) {

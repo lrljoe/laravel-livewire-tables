@@ -12,9 +12,20 @@ trait WithBulkActions
         BulkActionsHelpers,
         HasBulkActionsStyling;
 
+    /**
+     * Undocumented variable
+     *
+     * @var boolean
+     */
     public bool $bulkActionsStatus = true;
 
-    // Entangled in JS
+    /**
+     * Undocumented variable
+     *
+     * Entangled in JS
+     * 
+     * @var boolean
+     */
     public bool $selectAll = false;
 
     /**
@@ -33,23 +44,57 @@ trait WithBulkActions
 
     /**
      * Undocumented variable
+     * 
      * Entangled in JS
+     * 
      * @var array<mixed>
      */
     public array $selected = [];
 
-    // Entangled in JS
+    /**
+     * Undocumented variable
+     *
+     * Entangled in JS
+     * 
+     * @var boolean
+     */
     public bool $hideBulkActionsWhenEmpty = false;
 
+    /**
+     * Undocumented variable
+     *
+     * @var string|null
+     */
     public ?string $bulkActionConfirmDefaultMessage;
 
+    /**
+     * Undocumented variable
+     *
+     * @var boolean
+     */
     protected bool $alwaysHideBulkActionsDropdownOption = false;
 
+    /**
+     * Undocumented variable
+     *
+     * @var boolean
+     */
     protected bool $clearSelectedOnSearch = true;
 
+    /**
+     * Undocumented variable
+     *
+     * @var boolean
+     */
     protected bool $clearSelectedOnFilter = true;
 
-    // Entangled in JS
+    /**
+     * Undocumented variable
+     *
+     * Entangled in JS
+     * 
+     * @var boolean
+     */
     public bool $delaySelectAll = false;
 
     /**

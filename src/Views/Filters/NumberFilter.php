@@ -14,6 +14,12 @@ class NumberFilter extends Filter
 
     protected string $view = 'livewire-tables::components.tools.filters.number';
 
+    /**
+     * Undocumented function
+     *
+     * @param float|integer|string|array<mixed> $value
+     * @return float|integer|string|false
+     */
     public function validate(float|int|string|array $value): float|int|string|false
     {
         $floatValue = (float) $value;
@@ -34,6 +40,11 @@ class NumberFilter extends Filter
         return false;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     protected function getCoreInputAttributes(): array
     {
         $attributes = array_merge(parent::getCoreInputAttributes(),

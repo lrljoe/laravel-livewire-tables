@@ -21,6 +21,12 @@ trait FilterPillsStylingConfiguration
         return $this->setShowFilterPillsWhileLoading(false);
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $attributes
+     * @return self
+     */
     public function setFilterPillsItemAttributes(array $attributes = []): self
     {
         $this->filterPillsItemAttributes = [...$this->filterPillsItemAttributes, ...$attributes];
@@ -28,6 +34,12 @@ trait FilterPillsStylingConfiguration
         return $this;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $attributes
+     * @return self
+     */
     public function setFilterPillsResetFilterButtonAttributes(array $attributes = []): self
     {
         $this->filterPillsResetFilterButtonAttributes = [...$this->filterPillsResetFilterButtonAttributes, ...$attributes];
@@ -35,6 +47,12 @@ trait FilterPillsStylingConfiguration
         return $this;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $attributes
+     * @return self
+     */
     public function setFilterPillsResetAllButtonAttributes(array $attributes = []): self
     {
         $this->filterPillsResetAllButtonAttributes = [...$this->filterPillsResetAllButtonAttributes, ...$attributes];

@@ -217,6 +217,11 @@ class MakeCommand extends Command implements PromptsForMissingInput
         return $columns;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     protected function possibleModels(): array
     {
         $modelPath = is_dir(app_path('Models')) ? app_path('Models') : app_path();

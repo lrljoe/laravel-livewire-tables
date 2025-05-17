@@ -13,6 +13,13 @@ trait HasActionAttributes
      */
     protected array $actionAttributes = ['class' => '', 'default-styling' => true, 'default-colors' => true];
 
+    
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $actionAttributes
+     * @return self
+     */
     public function setActionAttributes(array $actionAttributes): self
     {
         $this->actionAttributes = [...$this->actionAttributes, ...$actionAttributes];

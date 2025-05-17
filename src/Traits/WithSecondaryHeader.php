@@ -12,7 +12,17 @@ trait WithSecondaryHeader
         SecondaryHeaderHelpers,
         HasSecondaryHeaderStyling;
 
+    /**
+     * Undocumented variable
+     *
+     * @var boolean
+     */
     protected bool $secondaryHeaderStatus = true;
 
+    /**
+     * Undocumented variable
+     *
+     * @var boolean
+     */
     protected bool $columnsWithSecondaryHeader = false;
 }

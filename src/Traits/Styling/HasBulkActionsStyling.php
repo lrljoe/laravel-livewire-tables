@@ -66,7 +66,7 @@ trait HasBulkActionsStyling
     /**
      * Undocumented variable
      *
-     * @var array
+     * @var array<mixed>
      */
     protected array $bulkActionsRowButtonAttributes = ['default-colors' => true, 'default-styling' => true];
 
@@ -188,9 +188,6 @@ trait HasBulkActionsStyling
 
     /**
      * Used to set attributes for the Bulk Actions Menu Button
-     */
-    /**
-     * Undocumented function
      *
      * @param array<mixed> $bulkActionsButtonAttributes
      * @return self
@@ -202,9 +199,6 @@ trait HasBulkActionsStyling
 
     /**
      * Used to set attributes for the Bulk Actions Menu
-     */
-    /**
-     * Undocumented function
      *
      * @param array<mixed> $bulkActionsMenuAttributes
      * @return self
@@ -216,9 +210,6 @@ trait HasBulkActionsStyling
 
     /**
      * Used to set attributes for the Bulk Actions Menu Items
-     */
-    /**
-     * Undocumented function
      *
      * @param array<mixed> $bulkActionsMenuItemAttributes
      * @return self
@@ -230,9 +221,6 @@ trait HasBulkActionsStyling
 
     /**
      * Used to set attributes for the Bulk Actions TD in the Row
-     */
-    /**
-     * Undocumented function
      *
      * @param array<mixed> $bulkActionsTdAttributes
      * @return self
@@ -245,9 +233,6 @@ trait HasBulkActionsStyling
 
     /**
      * Used to set attributes for the Bulk Actions Checkbox in the Row
-     */
-    /**
-     * Undocumented function
      *
      * @param array<mixed> $bulkActionsTdCheckboxAttributes
      * @return self
@@ -259,9 +244,6 @@ trait HasBulkActionsStyling
 
     /**
      * Used to set attributes for the <th> for Bulk Actions
-     */
-    /**
-     * Undocumented function
      *
      * @param array<mixed> $bulkActionsThAttributes
      * @return self
@@ -272,10 +254,7 @@ trait HasBulkActionsStyling
     }
 
     /**
-     * Used to set attributes for the Bulk Actions Checkbox in the <th>
-     */
-    /**
-     * Undocumented function
+     *  Used to set attributes for the Bulk Actions Checkbox in the <th>
      *
      * @param array<mixed> $bulkActionsThCheckboxAttributes
      * @return self
@@ -287,9 +266,6 @@ trait HasBulkActionsStyling
 
     /**
      * Used to set attributes for the Bulk Actions Row Buttons
-     */
-    /**
-     * Undocumented function
      *
      * @param array<mixed> $bulkActionsRowButtonAttributes
      * @return self

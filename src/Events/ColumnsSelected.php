@@ -8,7 +8,7 @@ use Illuminate\Queue\SerializesModels;
 class ColumnsSelected extends LaravelLivewireTablesEvent
 {
     use Dispatchable, SerializesModels;
-    
+
     /**
      * Undocumented variable
      *
@@ -16,6 +16,13 @@ class ColumnsSelected extends LaravelLivewireTablesEvent
      */
     public array $columns;
 
+    /**
+     * Undocumented function
+     *
+     * @param string $tableName
+     * @param string $key
+     * @param array<mixed> $columns
+     */
     public function __construct(string $tableName, string $key, array $columns = [])
     {
         $this->setTableForEvent($tableName)

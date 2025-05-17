@@ -17,10 +17,25 @@ trait WithPagination
         HasQueryStringForPagination,
         HasPaginationStyling;
 
+    /**
+     * Undocumented variable
+     *
+     * @var string|null
+     */
     public ?string $pageName = null;
 
+    /**
+     * Undocumented variable
+     *
+     * @var integer|null
+     */
     public ?int $perPage;
 
+    /**
+     * Undocumented variable
+     *
+     * @var integer
+     */
     #[Locked]
     public int $defaultPerPage = 10;
 
@@ -33,30 +48,65 @@ trait WithPagination
     #[Locked]
     public array $perPageAccepted = [10, 25, 50];
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     #[Locked]
     public string $paginationTheme = 'tailwind';
 
+    /**
+     * Undocumented variable
+     *
+     * @var boolean
+     */
     #[Locked]
     public bool $paginationStatus = true;
 
+    /**
+     * Undocumented variable
+     *
+     * @var boolean
+     */
     #[Locked]
     public bool $paginationVisibilityStatus = true;
 
+    /**
+     * Undocumented variable
+     *
+     * @var boolean
+     */
     #[Locked]
     public bool $perPageVisibilityStatus = true;
 
     
+
     /**
      * Undocumented variable
-     *Entangled in JS
+     *
+     * Entangled in JS
+     * 
      * @var array<mixed>
      */
     public array $paginationCurrentItems = [];
 
-    // Entangled in JS
+    /**
+     * Undocumented variable
+     * 
+     * Entangled in JS
+     *
+     * @var integer
+     */
     public int $paginationCurrentCount = 0;
 
-    // Entangled in JS
+    /**
+     * Undocumented variable
+     *
+     * Entangled in JS
+     * 
+     * @var integer|null
+     */
     public ?int $paginationTotalItemCount = null;
 
     /**
@@ -66,13 +116,34 @@ trait WithPagination
      */
     public array $numberOfPaginatorsRendered = [];
 
-    // standard, simple, cursor
+    /**
+     * Pagination Method
+     * 
+     * standard, simple, cursor
+     *
+     * @var string
+     */
     protected string $paginationMethod = 'standard';
 
+    /**
+     * Undocumented variable
+     *
+     * @var boolean
+     */
     protected bool $shouldShowPaginationDetails = true;
 
+    /**
+     * Undocumented variable
+     *
+     * @var boolean
+     */
     protected bool $shouldRetrieveTotalItemCount = true;
 
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
     public function mountWithPagination(): void
     {
         $sessionPerPage = session()->get($this->getPerPagePaginationSessionKey(), $this->getPerPage());
@@ -82,7 +153,12 @@ trait WithPagination
         $this->setPerPage($sessionPerPage);
     }
 
-    // TODO: Test
+    /**
+     * Undocumented function
+     *
+     * @param integer|string $value
+     * @return void
+     */
     public function updatedPerPage(int|string $value): void
     {
         if (! in_array((int) $value, $this->getPerPageAccepted(), false)) {
@@ -99,6 +175,11 @@ trait WithPagination
 
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
     public function renderingWithPagination(): void
     {
         $this->setupPagination();

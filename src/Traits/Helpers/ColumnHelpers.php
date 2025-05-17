@@ -58,6 +58,11 @@ trait ColumnHelpers
         $this->hasRunColumnSetup = true;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return Collection
+     */
     public function getColumns(): Collection
     {
         if (! $this->hasRunColumnSetup) {
@@ -67,6 +72,12 @@ trait ColumnHelpers
         return $this->columns;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param string $qualifiedColumn
+     * @return Column|null
+     */
     public function getColumn(string $qualifiedColumn): ?Column
     {
         return $this->getColumns()
@@ -74,6 +85,12 @@ trait ColumnHelpers
             ->first();
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param string $qualifiedColumn
+     * @return Column|null
+     */
     public function getColumnBySelectName(string $qualifiedColumn): ?Column
     {
         return $this->getColumns()
@@ -81,6 +98,12 @@ trait ColumnHelpers
             ->first();
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param string $columnSlug
+     * @return Column|null
+     */
     public function getColumnBySlug(string $columnSlug): ?Column
     {
         return $this->getColumns()
@@ -112,6 +135,11 @@ trait ColumnHelpers
             ->toArray();
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return Collection
+     */
     public function getSearchableColumns(): Collection
     {
         return $this->getColumns()
@@ -119,6 +147,11 @@ trait ColumnHelpers
             ->values();
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return Collection
+     */
     public function getSortableColumns(): Collection
     {
         return isset($this->sortableColumns) ? $this->sortableColumns : $this->sortableColumns = $this->getColumns()
@@ -132,11 +165,21 @@ trait ColumnHelpers
         return $this->getColumns()->count();
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return Collection
+     */
     public function getPrependedColumns(): Collection
     {
         return $this->prependedColumns ?? collect($this->prependColumns());
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return Collection
+     */
     public function getAppendedColumns(): Collection
     {
         return $this->appendedColumns ?? collect($this->appendColumns());
@@ -144,14 +187,18 @@ trait ColumnHelpers
 
     /**
      * Prepend columns.
+     *
+     * @return array<mixed>
      */
-    public function prependColumns(): array
+     public function prependColumns(): array
     {
         return [];
     }
 
     /**
-     * Append columns.
+     * Append Columns
+     *
+     * @return array<mixed>
      */
     public function appendColumns(): array
     {

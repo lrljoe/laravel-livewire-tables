@@ -24,11 +24,21 @@ trait EventHelpers
         return $this->getEventStatus('filterApplied');
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     public function getEventNames(): array
     {
         return ['columnSelected', 'searchApplied', 'filterApplied'];
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     public function getEventStatuses(): array
     {
         return [...['columnSelected' => true, 'searchApplied' => false, 'filterApplied' => false], ...$this->eventStatuses];

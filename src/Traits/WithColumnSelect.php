@@ -52,18 +52,49 @@ trait WithColumnSelect
      */
     public array $defaultDeselectedColumns = [];
 
+    /**
+     * Undocumented variable
+     *
+     * @var boolean
+     */
     #[Locked]
     public bool $excludeDeselectedColumnsFromQuery = false;
 
+    
+    /**
+     * Undocumented variable
+     *
+     * @var boolean
+     */
     #[Locked]
     public bool $defaultDeselectedColumnsSetup = false;
 
+    /**
+     * Undocumented variable
+     *
+     * @var boolean
+     */
     protected bool $columnSelectStatus = true;
 
+    /**
+     * Undocumented variable
+     *
+     * @var boolean
+     */
     protected bool $columnSelectHiddenOnMobile = false;
 
+    /**
+     * Undocumented variable
+     *
+     * @var boolean
+     */
     protected bool $columnSelectHiddenOnTablet = false;
 
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
     public function bootedWithColumnSelect(): void
     {
         $this->callHook('configuringColumnSelect');
@@ -76,6 +107,11 @@ trait WithColumnSelect
 
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
     public function updatedSelectedColumns(): void
     {
         // The query string isn't needed if it's the same as the default
@@ -85,6 +121,13 @@ trait WithColumnSelect
         }
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param \Illuminate\View\View $view
+     * @param array<mixed> $data
+     * @return void
+     */
     public function renderingWithColumnSelect(\Illuminate\View\View $view, array $data = []): void
     {
         if (! $this->getComputedPropertiesStatus()) {

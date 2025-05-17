@@ -4,10 +4,21 @@ namespace Rappasoft\LaravelLivewireTables\Traits\Core\Search\Styling;
 
 trait HasSearchInput
 {
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     protected array $searchFieldAttributes = [];
 
     protected ?string $searchPlaceholder = null;
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $attributes
+     * @return self
+     */
     protected function setSearchFieldAttributes(array $attributes = []): self
     {
         $this->setCustomAttributes('searchFieldAttributes', array_merge(['default' => false, 'default-colors' => false, 'default-styling' => false], $attributes));
@@ -15,6 +26,11 @@ trait HasSearchInput
         return $this;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     public function getSearchFieldAttributes(): array
     {
         return $this->getCustomAttributes('searchFieldAttributes', true);
@@ -41,6 +57,11 @@ trait HasSearchInput
         return $this->searchPlaceholder !== null;
     }
     
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     public function getSearchViewAttributes(): array
     {
         return [

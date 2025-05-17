@@ -164,6 +164,11 @@ trait BulkActionsHelpers
         return $this->bulkActionsAreEnabled() && $this->hasBulkActions();
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     public function getBulkActionConfirms(): array
     {
         return array_keys($this->bulkActionConfirms);
@@ -200,6 +205,11 @@ trait BulkActionsHelpers
         return $this->clearSelectedOnFilter ?? true;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     public function getSelectedRows(): array
     {
         if ($this->getDelaySelectAllStatus() && $this->selectAllIsEnabled()) {
@@ -214,6 +224,11 @@ trait BulkActionsHelpers
         return $this->delaySelectAll ?? false;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return Column
+     */
     public function getBulkActionsColumn(): Column
     {
         return Column::make('bulkactions')->label(fn () => null);

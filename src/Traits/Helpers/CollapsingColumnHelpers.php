@@ -94,6 +94,11 @@ trait CollapsingColumnHelpers
         return $this->getCollapsedMobileColumns()->count();
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return Collection
+     */
     public function getVisibleMobileColumns(): Collection
     {
         return $this->getColumns()
@@ -135,6 +140,11 @@ trait CollapsingColumnHelpers
         return $this->getCollapsedTabletColumns()->count();
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return Collection
+     */
     public function getVisibleTabletColumns(): Collection
     {
         return $this->getColumns()
@@ -181,6 +191,11 @@ trait CollapsingColumnHelpers
         return 100;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return Collection
+     */
     #[Computed]
     public function getCollapsedColumnsForContent(): Collection
     {
@@ -192,6 +207,12 @@ trait CollapsingColumnHelpers
         return $columns;
     }
 
+    
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     #[Computed]
     public function getCollapsedColumnsForContentNew(): array
     {
@@ -248,6 +269,11 @@ trait CollapsingColumnHelpers
     }
     
         
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     protected function getCollapsingColumnDetailsForView(): array
     {
         return [

@@ -6,6 +6,11 @@ use Rappasoft\LaravelLivewireTables\DataTransferObjects\Filters\FilterPillData;
 
 trait HandlesPillsData
 {
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     public function getPillDataForFilter(): array
     {
         $filters = [];

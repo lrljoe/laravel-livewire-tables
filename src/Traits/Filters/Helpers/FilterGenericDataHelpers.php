@@ -22,7 +22,7 @@ trait FilterGenericDataHelpers
     /**
      * Retrieves Filter Generic Data
      *
-     * @return array
+     * @return array<mixed>
      */
     #[Computed]
     public function getFilterGenericData(): array

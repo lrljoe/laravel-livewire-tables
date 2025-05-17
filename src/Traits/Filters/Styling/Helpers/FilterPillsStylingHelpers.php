@@ -12,18 +12,34 @@ trait FilterPillsStylingHelpers
         return $this->showFilterPillsWhileLoading;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     #[Computed]
     public function getFilterPillsItemAttributes(): array
     {
         return $this->filterPillsItemAttributes;
     }
 
+    
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     #[Computed]
     public function getFilterPillsResetFilterButtonAttributes(): array
     {
         return $this->filterPillsResetFilterButtonAttributes;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     #[Computed]
     public function getFilterPillsResetAllButtonAttributes(): array
     {

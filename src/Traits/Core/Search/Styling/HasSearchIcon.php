@@ -11,6 +11,11 @@ trait HasSearchIcon
 
     protected ?string $searchIcon = null;
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     protected array $searchIconAttributes = ['class' => 'h-4 w-4', 'style' => 'color: #000000'];
 
     
@@ -89,6 +94,12 @@ trait HasSearchIcon
         return $this->searchIconEnabled();
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $searchIconAttributes
+     * @return self
+     */
     protected function setSearchIconAttributes(array $searchIconAttributes): self
     {
         $this->searchIconAttributes = array_merge($this->searchIconAttributes, $searchIconAttributes);

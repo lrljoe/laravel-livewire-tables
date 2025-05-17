@@ -13,6 +13,11 @@ trait FilterHelpers
         return $this->getFiltersCount() > 0;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return Collection
+     */
     public function getFilters(): Collection
     {
         if (! isset($this->filterCollection)) {
@@ -112,6 +117,11 @@ trait FilterHelpers
         return count($this->getAppliedFiltersWithValues());
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return Collection
+     */
     public function getAppliedFiltersCollection(): Collection
     {
         $validFilterKeys = $this->getFilters()

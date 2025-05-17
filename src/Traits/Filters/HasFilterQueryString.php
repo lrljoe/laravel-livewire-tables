@@ -6,6 +6,11 @@ use Livewire\Attributes\Locked;
 
 trait HasFilterQueryString
 {
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     protected function queryStringHasFilterQueryString(): array
     {
         return ($this->queryStringForFilterIsEnabled()) ?

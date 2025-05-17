@@ -35,7 +35,7 @@ trait LivewireComponentColumnHelpers
      * Retrieves attributes based on callback
      *
      * @param Model $row
-     * @return array
+     * @return array<mixed>
      */
     protected function retrieveAttributes(Model $row): array
     {
@@ -80,7 +80,7 @@ trait LivewireComponentColumnHelpers
     /**
      * Implodes defined attributes to be used
      *
-     * @param array $attributes
+     * @param array<mixed> $attributes
      * @return string
      */
     protected function implodeAttributes(array $attributes): string
@@ -93,7 +93,7 @@ trait LivewireComponentColumnHelpers
     /**
      * getBlade Render
      *
-     * @param array $attributes
+     * @param array<mixed> $attributes
      * @param string $key
      * @return string
      */
@@ -112,7 +112,7 @@ trait LivewireComponentColumnHelpers
     /**
      * Gets HTML String
      *
-     * @param array $attributes
+     * @param array<mixed> $attributes
      * @param string $key
      * @return HtmlString
      */

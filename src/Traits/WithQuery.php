@@ -11,8 +11,18 @@ trait WithQuery
     use QueryConfiguration,
         QueryHelpers;
 
+    /**
+     * Undocumented variable
+     *
+     * @var Builder<\Illuminate\Database\Eloquent\Model>
+     */
     protected Builder $builder;
 
+    /**
+     * Undocumented variable
+     *
+     * @var string|null
+     */
     protected ?string $primaryKey;
 
     /**
@@ -57,5 +67,10 @@ trait WithQuery
      */
     protected array $extraWithAvgs = [];
 
+    /**
+     * Undocumented variable
+     *
+     * @var boolean
+     */
     protected bool $eagerLoadAllRelationsStatus = false;
 }

@@ -20,6 +20,12 @@ class MultiSelectDropdownFilter extends Filter
 
     protected string $optionsPath = 'livewire-tables.multiSelectDropdownFilter.defaultOptions';
 
+    /**
+     * Undocumented function
+     *
+     * @param integer|string|array<mixed> $value
+     * @return array<mixed>|integer|string|boolean
+     */
     public function validate(int|string|array $value): array|int|string|bool
     {
         if (is_array($value)) {
@@ -36,6 +42,12 @@ class MultiSelectDropdownFilter extends Filter
         return (is_string($value) || is_numeric($value)) ? $value : false;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param mixed $value
+     * @return array<mixed>|string|boolean|null
+     */
     public function getFilterPillValue($value): array|string|bool|null
     {
         $values = [];

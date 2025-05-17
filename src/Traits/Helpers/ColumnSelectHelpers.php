@@ -45,6 +45,11 @@ trait ColumnSelectHelpers
         return $this->columnSelectHiddenOnMobile;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return Collection
+     */
     public function getSelectableColumns(): Collection
     {
         return $this->getColumns()
@@ -53,6 +58,11 @@ trait ColumnSelectHelpers
             ->values();
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return Collection
+     */
     public function getSelectableSelectedColumns(): Collection
     {
         return $this->getColumns()
@@ -62,6 +72,11 @@ trait ColumnSelectHelpers
             ->values();
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return Collection
+     */
     public function getUnSelectableColumns(): Collection
     {
         return $this->getColumns()
@@ -70,11 +85,21 @@ trait ColumnSelectHelpers
             ->values();
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     public function getSelectedColumns(): array
     {
         return $this->selectedColumns ?? [];
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     public function getSelectedColumnsForQuery(): array
     {
         return $this->getColumns()
@@ -85,6 +110,11 @@ trait ColumnSelectHelpers
             ->toArray();
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     public function getColumnsForColumnSelect(): array
     {
         return $this->getColumns()
@@ -97,6 +127,11 @@ trait ColumnSelectHelpers
             ->toArray();
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     public function getDefaultVisibleColumns(): array
     {
         return collect($this->getColumns()
@@ -114,6 +149,11 @@ trait ColumnSelectHelpers
         return $this->getSelectableSelectedColumns()->count() === $this->getSelectableColumns()->count();
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     #[Computed]
     public function selectedVisibleColumns(): array
     {

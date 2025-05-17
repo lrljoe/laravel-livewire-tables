@@ -13,10 +13,25 @@ trait WithActions
         ActionsHelpers,
         HasActionsStyling;
 
+    /**
+     * Undocumented variable
+     *
+     * @var boolean
+     */
     protected bool $displayActionsInToolbar = false;
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     protected string $actionsPosition = 'right';
 
+    /**
+     * Undocumented variable
+     *
+     * @var Collection|null
+     */
     protected ?Collection $validActions;
 
     /**

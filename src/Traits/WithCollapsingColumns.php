@@ -12,11 +12,31 @@ trait WithCollapsingColumns
         CollapsingColumnHelpers,
         HasCollapsingColumnsStyling;
 
+    /**
+     * Undocumented variable
+     *
+     * @var boolean
+     */
     protected bool $collapsingColumnsStatus = true;
 
+    /**
+     * Undocumented variable
+     *
+     * @var boolean|null
+     */
     protected ?bool $shouldAlwaysCollapse;
 
+    /**
+     * Undocumented variable
+     *
+     * @var boolean|null
+     */
     protected ?bool $shouldMobileCollapse;
 
+    /**
+     * Undocumented variable
+     *
+     * @var boolean|null
+     */
     protected ?bool $shouldTabletCollapse;
 }

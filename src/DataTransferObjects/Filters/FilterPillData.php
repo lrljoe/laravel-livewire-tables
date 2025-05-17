@@ -8,6 +8,22 @@ class FilterPillData
 {
     public string $separatedValues = '';
 
+    /**
+     * Undocumented function
+     *
+     * @param string $filterKey
+     * @param string $filterPillTitle
+     * @param string|array<mixed>|null $filterPillValue
+     * @param string $separator
+     * @param boolean $isAnExternalLivewireFilter
+     * @param boolean $hasCustomPillBlade
+     * @param string|null $customPillBlade
+     * @param array<mixed> $filterPillsItemAttributes
+     * @param boolean $renderPillsAsHtml
+     * @param boolean $watchForEvents
+     * @param array<mixed> $customResetButtonAttributes
+     * @param boolean $renderPillsTitleAsHtml
+     */
     public function __construct(
         protected string $filterKey,
         protected string $filterPillTitle,
@@ -36,6 +52,11 @@ class FilterPillData
         return $this->filterPillTitle;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>|string|null
+     */
     public function getPillValue(): array|string|null
     {
         return $this->filterPillValue;

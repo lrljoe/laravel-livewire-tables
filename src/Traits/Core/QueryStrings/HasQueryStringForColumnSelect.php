@@ -4,6 +4,11 @@ namespace Rappasoft\LaravelLivewireTables\Traits\Core\QueryStrings;
 
 trait HasQueryStringForColumnSelect
 {
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     protected function queryStringHasQueryStringForColumnSelect(): array
     {
         return ($this->queryStringForColumnSelectEnabled() && $this->columnSelectIsEnabled()) ? ['selectedColumns' => ['except' => null, 'history' => false, 'keep' => false, 'as' => $this->getQueryStringAliasForColumnSelect()]] : [];

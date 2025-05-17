@@ -10,6 +10,11 @@ trait WithConfigurableAreas
     use ConfigurableAreasConfiguration,
         ConfigurableAreasHelpers;
 
+    /**
+     * Undocumented variable
+     *
+     * @var boolean
+     */
     protected bool $hideConfigurableAreasWhenReorderingStatus = true;
 
     /**

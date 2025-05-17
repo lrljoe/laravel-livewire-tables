@@ -34,6 +34,11 @@ trait SessionStorageHelpers
         }
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     public function getStoredFilterValues(): array
     {
         if ($this->shouldStoreFiltersInSession() && session()->has($this->getFilterSessionKey())) {
@@ -73,6 +78,11 @@ trait SessionStorageHelpers
         $this->selectedColumns = $this->getStoredColumnSelectValues();
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     public function getStoredColumnSelectValues(): array
     {
         if ($this->shouldStoreColumnSelectInSession() && session()->has($this->getColumnSelectSessionKey())) {

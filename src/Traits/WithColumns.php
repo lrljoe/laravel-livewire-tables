@@ -12,16 +12,38 @@ trait WithColumns
     use ColumnConfiguration;
     use ColumnHelpers;
 
+    /**
+     * Undocumented variable
+     *
+     * @var Collection<int,\Rappasoft\LaravelLivewireTables\Views\Column>
+     */
     protected Collection $columns;
 
+    /**
+     * Undocumented variable
+     *
+     * @var Collection<int,\Rappasoft\LaravelLivewireTables\Views\Column>|null
+     */
     protected ?Collection $prependedColumns;
 
+    /**
+     * Undocumented variable
+     *
+     * @var Collection<int,\Rappasoft\LaravelLivewireTables\Views\Column>|null
+     */
     protected ?Collection $appendedColumns;
 
+    /**
+     * Undocumented variable
+     *
+     * @var boolean
+     */
     protected bool $hasRunColumnSetup = false;
 
     /**
      * Sets up Columns
+     *
+     * @return void
      */
     public function bootedWithColumns(): void
     {
@@ -47,13 +69,19 @@ trait WithColumns
 
     /**
      * The array defining the columns of the table.
+     *
+     * @return array<mixed>
      */
     abstract public function columns(): array;
 
     /**
      * Add Columns to View
+     *
+     * @param \Illuminate\View\View $view
+     * @param array<mixed> $data
+     * @return void
      */
-    public function renderingWithColumns(\Illuminate\View\View $view, array $data = []): void
+     public function renderingWithColumns(\Illuminate\View\View $view, array $data = []): void
     {
         if (! $this->getComputedPropertiesStatus()) {
             $view->with([

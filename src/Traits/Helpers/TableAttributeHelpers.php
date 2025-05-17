@@ -9,6 +9,11 @@ use Rappasoft\LaravelLivewireTables\Views\Column;
 
 trait TableAttributeHelpers
 {
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     public function getCoreTableAttributes(): array
     {
         return [
@@ -19,6 +24,11 @@ trait TableAttributeHelpers
         ];
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     public function getComponentWrapperAttributes(): array
     {
         $coreAttribs = [
@@ -40,21 +50,41 @@ trait TableAttributeHelpers
         ...$this->componentWrapperAttributes]);
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     public function getTableWrapperAttributes(): array
     {
         return array_merge(['wire:key' => $this->getTableName().'-twrap'], (count($this->tableWrapperAttributes) ? $this->tableWrapperAttributes : ['default' => true]));
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     public function getTableAttributes(): array
     {
         return array_merge(['wire:key' => $this->getTableName().'-table', 'id' => 'table-'.$this->getTableName()], (count($this->tableAttributes) ? $this->tableAttributes : ['default' => true]));
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     public function getTheadAttributes(): array
     {
         return array_merge(['wire:key' => $this->getTableName().'-thead'], (count($this->theadAttributes) ? $this->theadAttributes : ['default' => true]));
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     public function getTbodyAttributes(): array
     {
         return array_merge(['wire:key' => $this->getTableName().'-tbody', 'id' => $this->getTableName().'-tbody'], (count($this->tbodyAttributes) ? $this->tbodyAttributes : ['default' => true]));
@@ -62,6 +92,9 @@ trait TableAttributeHelpers
 
     /**
      * Used in resources/views/components/table/th.blade.php
+     *
+     * @param Column $column
+     * @return array<mixed>
      */
     public function getThAttributes(Column $column): array
     {
@@ -74,9 +107,14 @@ trait TableAttributeHelpers
     }
 
     /**
+     * Undocumented function
+     *
      * Used in resources/views/components/table/th.blade.php
+     * 
+     * @param Column $column
+     * @return array<mixed>
      */
-    public function getThSortButtonAttributes(Column $column): array
+     public function getThSortButtonAttributes(Column $column): array
     {
         if (isset($this->thSortButtonAttributesCallback)) {
             return array_merge(['default' => false, 'default-colors' => false, 'default-styling' => false], call_user_func($this->thSortButtonAttributesCallback, $column));
@@ -85,10 +123,16 @@ trait TableAttributeHelpers
         return ['default' => true, 'default-colors' => true, 'default-styling' => true];
     }
 
+
     /**
-     * Used in resources/views/components/table/th.blade.php
+     * Undocumented function
+     *
+     *  Used in resources/views/components/table/th.blade.php
+     * 
+     * @param Column $column
+     * @return array<mixed>
      */
-    public function getThSortIconAttributes(Column $column): array
+     public function getThSortIconAttributes(Column $column): array
     {
         if (isset($this->thSortIconAttributesCallback)) {
             return array_merge(['default' => false, 'default-colors' => false, 'default-styling' => false], call_user_func($this->thSortIconAttributesCallback, $column));
@@ -97,10 +141,14 @@ trait TableAttributeHelpers
         return ['default' => true, 'default-colors' => true, 'default-styling' => true];
     }
 
+    
     /**
+     * Undocumented function
      * Used in resources/views/components/table/th.blade.php
+     * @param Column $column
+     * @return array<mixed>
      */
-    public function getAllThAttributes(Column $column): array
+     public function getAllThAttributes(Column $column): array
     {
         return [
             'customAttributes' => $this->getThAttributes($column),
@@ -115,11 +163,27 @@ trait TableAttributeHelpers
         return isset($this->trAttributesCallback);
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param Model $row
+     * @param integer $index
+     * @return array<mixed>
+     */
     public function getTrAttributes(Model $row, int $index): array
     {
         return isset($this->trAttributesCallback) ? call_user_func($this->trAttributesCallback, $row, $index) : ['default' => true];
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param Column $column
+     * @param Model $row
+     * @param integer $colIndex
+     * @param integer $rowIndex
+     * @return array<mixed>
+     */
     public function getTdAttributes(Column $column, Model $row, int $colIndex, int $rowIndex): array
     {
         return isset($this->tdAttributesCallback) ? call_user_func($this->tdAttributesCallback, $column, $row, $colIndex, $rowIndex) : ['default' => true];
@@ -151,6 +215,11 @@ trait TableAttributeHelpers
         return $this->shouldBeDisplayed;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     public function getTopLevelAttributesArray(): array
     {
         return [
@@ -215,6 +284,13 @@ trait TableAttributeHelpers
         ];
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param Model $row
+     * @param integer $rowIndex
+     * @return array<mixed>
+     */
     public function getTableRowDetails(Model $row, int $rowIndex): array
     {
         $url = isset($this->trUrlCallback) ? call_user_func($this->trUrlCallback, $row) : null;
@@ -230,6 +306,16 @@ trait TableAttributeHelpers
 
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param Column $column
+     * @param Model $row
+     * @param integer $colIndex
+     * @param integer $rowIndex
+     * @param array<mixed> $tableRowDetails
+     * @return array<mixed>
+     */
     public function getTdAttributesNew(Column $column, Model $row, int $colIndex, int $rowIndex, array $tableRowDetails = []): array
     {
         $tdAttribs = isset($this->tdAttributesCallback) ? call_user_func($this->tdAttributesCallback, $column, $row, $colIndex, $rowIndex) : ['default' => true];

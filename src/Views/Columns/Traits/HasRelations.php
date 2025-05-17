@@ -26,6 +26,12 @@ trait HasRelations
         return $this->getRelations()->count() > 0;
     }
 
+
+    /**
+     * Undocumented function
+     *
+     * @return Collection<string,string>
+     */
     public function getRelations(): Collection
     {
         return collect($this->relations);

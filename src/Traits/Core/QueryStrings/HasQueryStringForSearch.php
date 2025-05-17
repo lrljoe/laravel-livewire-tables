@@ -4,6 +4,11 @@ namespace Rappasoft\LaravelLivewireTables\Traits\Core\QueryStrings;
 
 trait HasQueryStringForSearch
 {
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     protected function queryStringHasQueryStringForSearch(): array
     {
         return ($this->queryStringForSearchEnabled() && $this->searchIsEnabled()) ? ['search' => ['except' => null, 'history' => false, 'keep' => false, 'as' => $this->getQueryStringAliasForSearch()]] : [];

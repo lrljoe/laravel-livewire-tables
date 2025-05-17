@@ -78,6 +78,12 @@ class DateRangeFilter extends Filter
         return $returnedValues;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param string $dateFormat
+     * @return array<mixed>
+     */
     protected function setupEarlyLateDates(string $dateFormat): array
     {
         $earliestDateString = ($this->getConfig('earliestDate') != '') ? $this->getConfig('earliestDate') : null;
