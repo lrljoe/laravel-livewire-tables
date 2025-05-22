@@ -1,6 +1,5 @@
-@aware([ 'tableName','isTailwind','isBootstrap'])
+@aware([ 'tableName','isTailwind','isBootstrap', 'toolBarAttributes'])
 @props([])
-@php($toolBarAttributes = $this->getToolBarAttributesBag())
 
 <div
     {{

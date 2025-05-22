@@ -22,3 +22,6 @@ phpstan.txt
 coverage.xml
 ./tmp/**
 ./*.php.bk
+src/Views/Filters/Traits/IsExternalArrayFilter.php.bk
+.gitignore
+src/Views/Filters/Traits/IsExternalFilter.php.bk

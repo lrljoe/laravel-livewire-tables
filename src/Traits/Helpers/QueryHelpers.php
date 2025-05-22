@@ -23,7 +23,7 @@ trait QueryHelpers
 
     public function hasPrimaryKey(): bool
     {
-        return isset($this->primaryKey) && $this->primaryKey !== null;
+        return isset($this->primaryKey);
     }
 
     /**

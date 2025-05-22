@@ -1,11 +1,6 @@
 @aware(['isTailwind','isBootstrap'])
-@php($toolsAttributes = $this->getToolsAttributes())
+@props(['toolsAttributes', 'toolBarAttributes'])
 
-    @includeWhen(
-        $this->hasConfigurableAreaFor('before-tools'),
-        $this->getConfigurableAreaFor('before-tools'),
-        $this->getParametersForConfigurableArea('before-tools')
-    )
 
     <div {{
         $attributes->merge(['x-data' => 'tools($wire)'])->merge($toolsAttributes)
@@ -49,8 +44,3 @@
 
     </div>
 
-    @includeWhen(
-        $this->hasConfigurableAreaFor('after-tools'),
-        $this->getConfigurableAreaFor('after-tools'),
-        $this->getParametersForConfigurableArea('after-tools')
-    )

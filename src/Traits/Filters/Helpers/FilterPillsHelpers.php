@@ -61,7 +61,7 @@ trait FilterPillsHelpers
                 }
             }
 
-            return is_array($validatedValue) ? count($validatedValue) : $validatedValue !== null;
+            return is_array($validatedValue) ? count($validatedValue) : true;
         }, ARRAY_FILTER_USE_BOTH);
     }
 

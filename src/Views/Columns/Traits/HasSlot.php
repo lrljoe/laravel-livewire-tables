@@ -27,7 +27,7 @@ trait HasSlot
 
     public function hasSlotCallback(): bool
     {
-        return isset($this->slotCallback) && $this->slotCallback !== null;
+        return isset($this->slotCallback);
     }
 
     public function slot(callable $callback): self

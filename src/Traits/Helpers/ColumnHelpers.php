@@ -21,7 +21,6 @@ trait ColumnHelpers
     protected function setupColumns(): void
     {
         $this->columns = $this->columns
-            ->filter(fn ($column) => $column instanceof Column)
             ->map(function (Column $column) {
                 $column->setTheme($this->getTheme())
                     ->setHasTableRowUrl($this->hasTableRowUrl())

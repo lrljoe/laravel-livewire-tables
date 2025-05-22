@@ -15,7 +15,22 @@
             @endif
 
             @if($this->shouldShowTools())
-                <x-livewire-tables::tools />
+                        
+                @includeWhen(
+                    $this->hasConfigurableAreaFor('before-tools'),
+                    $this->getConfigurableAreaFor('before-tools'),
+                    $this->getParametersForConfigurableArea('before-tools')
+                )
+
+                <x-livewire-tables::tools :toolsAttributes="$this->getToolsAttributes()" :toolBarAttributes="$this->getToolBarAttributesBag()" />
+
+
+                @includeWhen(
+                    $this->hasConfigurableAreaFor('after-tools'),
+                    $this->getConfigurableAreaFor('after-tools'),
+                    $this->getParametersForConfigurableArea('after-tools')
+                )
+                
             @endif
 
             @php($currentRows = isset($rows) ? $rows : $this->getRows)
