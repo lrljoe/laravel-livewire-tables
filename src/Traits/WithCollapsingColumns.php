@@ -13,28 +13,28 @@ trait WithCollapsingColumns
         HasCollapsingColumnsStyling;
 
     /**
-     * Undocumented variable
+     * Determines if any Columns have Collapse Behaviour
      *
      * @var boolean
      */
     protected bool $collapsingColumnsStatus = true;
 
     /**
-     * Undocumented variable
+     * Determines if any Columns have Collapse On All
      *
      * @var boolean|null
      */
     protected ?bool $shouldAlwaysCollapse;
 
     /**
-     * Undocumented variable
+     * Determines if any Columns have Collapse On Mobile
      *
      * @var boolean|null
      */
     protected ?bool $shouldMobileCollapse;
 
     /**
-     * Undocumented variable
+     * Determines if any Columns have Collapse On Tablet
      *
      * @var boolean|null
      */

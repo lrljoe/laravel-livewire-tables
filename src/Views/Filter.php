@@ -9,8 +9,19 @@ abstract class Filter
 {
     use IsFilter;
 
+    /**
+     * Define the view for a Filter
+     *
+     * @var string
+     */
     protected string $view = '';
 
+    /**
+     * Construct a Filter
+     *
+     * @param string $name
+     * @param string|null $key
+     */
     public function __construct(string $name, ?string $key = null)
     {
         $this->name = $name;
@@ -24,6 +35,10 @@ abstract class Filter
     }
 
     /**
+     * Define a Filter
+     *
+     * @param string $name
+     * @param string|null $key
      * @return static
      */
     public static function make(string $name, ?string $key = null): Filter

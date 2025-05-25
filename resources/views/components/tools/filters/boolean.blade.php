@@ -3,7 +3,7 @@
 @endphp
 @if($isTailwind)
 <div class="flex flex-cols"
-    x-data="newBooleanFilter('{{ $filter->getKey() }}', '{{ $tableName }}', '{{ $defaultValue }}')"
+    x-data="newBooleanFilter($wire, '{{ $filter->getKey() }}', '{{ $tableName }}', '{{ $defaultValue }}')"
 >
     <x-livewire-tables::tools.filter-label :$filter :$filterLayout :$tableName :$isTailwind :$isBootstrap4 :$isBootstrap5 :$isBootstrap />
     <input id="thisId" type="checkbox" name="switch" class="hidden" :checked="value" />

@@ -67,7 +67,34 @@ trait TableAttributeHelpers
      */
     public function getTableAttributes(): array
     {
-        return array_merge(['wire:key' => $this->getTableName().'-table', 'id' => 'table-'.$this->getTableName()], (count($this->tableAttributes) ? $this->tableAttributes : ['default' => true]));
+        return array_merge(
+            [
+                'wire:key' => $this->getTableName().'-table',
+                'id' => 'table-'.$this->getTableName(),
+            ], 
+            $this->getCurrentlyReorderingStatus() ? [
+                'x-sort' => '',
+                'x-sort:config' => "{ 
+                    group: 'table-".$this->getTableName()."',
+                    filter: '.unsortable',
+                    onMove: function (e) { 
+                        return e.related.className.indexOf('unsortable') === -1;  
+                    },
+                    store: {
+                        /**
+                        * Save the order of elements. Called onEnd (when the item is dropped).
+                        * @param {Sortable}  sortable
+                        */
+                        set: function (sortable) {
+                            var order = sortable.toArray();
+                            const result = order.filter((word) => (word !== 'thead' && word !== 'tfoot' && word !== 'loading'));
+                            updateOrderOfItems(result);
+                        }
+                    } 
+                }",                
+            ] : [],
+            (count($this->tableAttributes) ? $this->tableAttributes : ['default' => true])
+        );
     }
 
     /**
@@ -87,7 +114,7 @@ trait TableAttributeHelpers
      */
     public function getTbodyAttributes(): array
     {
-        return array_merge(['wire:key' => $this->getTableName().'-tbody', 'id' => $this->getTableName().'-tbody'], (count($this->tbodyAttributes) ? $this->tbodyAttributes : ['default' => true]));
+        return array_merge(['wire:key' => $this->getTableName().'-tbody'], (count($this->tbodyAttributes) ? $this->tbodyAttributes : ['default' => true]));
     }
 
     /**

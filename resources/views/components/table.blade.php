@@ -23,27 +23,6 @@
                 'laravel-livewire-table table' => $coreTableAttributes['table']['default-styling'] ?? ($coreTableAttributes['table']['default'] ?? true),
             ])
             ->except(['default','default-styling','default-colors']) }} 
-            @if($currentlyReorderingStatus) 
-                x-sort
-                x-sort:config="{ 
-                    group: 'table-{{ $tableName }}',
-                    filter: '.unsortable',
-                    onMove: function (e) { 
-                        return e.related.className.indexOf('unsortable') === -1;  
-                    },
-                    store: {
-                        /**
-                        * Save the order of elements. Called onEnd (when the item is dropped).
-                        * @param {Sortable}  sortable
-                        */
-                        set: function (sortable) {
-                            var order = sortable.toArray();
-                            const result = order.filter((word) => (word !== 'thead' && word !== 'tfoot' && word !== 'loading'));
-                            updateOrderOfItems(result);
-                        }
-                    } 
-                }"
-            @endif
         >
             <x-livewire-tables::thead />
 

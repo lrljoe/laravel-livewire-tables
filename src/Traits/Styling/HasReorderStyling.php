@@ -2,8 +2,6 @@
 
 namespace Rappasoft\LaravelLivewireTables\Traits\Styling;
 
-use Livewire\Attributes\Computed;
-
 trait HasReorderStyling
 {
     /**
@@ -17,32 +15,30 @@ trait HasReorderStyling
      *
      * @var array<mixed>
      */
-    protected array $reorderButtonStartAttributes = ['class' => '', 'default-colors' => true, 'default-styling' => true, 'type' => 'button', 'x-on:click' => 'reorderToggle'];
+    protected array $reorderButtonStartAttributes = ['class' => '', 'default-colors' => true, 'default-styling' => true, 'type' => 'button', 'x-on:click' => 'reorderToggle', 'wire:loading.attr' => 'disabled'];
     /**
      * Undocumented variable
      *
      * @var array<mixed>
      */
-    protected array $reorderButtonSaveAttributes = ['class' => '', 'default-colors' => true, 'default-styling' => true, 'type' => 'button', 'x-on:click' => 'storeOrderedItems'];
+    protected array $reorderButtonSaveAttributes = ['class' => '', 'default-colors' => true, 'default-styling' => true, 'type' => 'button', 'x-on:click' => 'storeOrderedItems', 'wire:loading.attr' => 'disabled'];
     /**
      * Undocumented variable
      *
      * @var array<mixed>
      */
-    protected array $reorderButtonCancelAttributes = ['class' => '', 'default-colors' => true, 'default-styling' => true, 'type' => 'button', 'x-on:click' => 'reorderToggle'];
+    protected array $reorderButtonCancelAttributes = ['class' => '', 'default-colors' => true, 'default-styling' => true, 'type' => 'button', 'x-on:click' => 'reorderToggle', 'wire:loading.attr' => 'disabled'];
 
     /**
      * Used to get attributes for the <th> for Reorder
      *
      * @return array<mixed>
      */
-    #[Computed]
     public function getReorderThAttributes(): array
     {
         return $this->reorderThAttributes ?? ['default' => true];
     }
 
-    #[Computed]
     public function hasReorderThAttributes(): bool
     {
         return $this->getReorderThAttributes() != ['default' => true];
@@ -69,16 +65,15 @@ trait HasReorderStyling
      *
      * @return array<mixed>
      */
-    #[Computed]
     public function getReorderButtonStartAttributes(): array
     {
+
         return $this->reorderButtonStartAttributes;
     }
 
-    #[Computed]
     public function hasReorderButtonStartAttributes(): bool
     {
-        return $this->getReorderButtonStartAttributes() != ['class' => '', 'default-colors' => true, 'default-styling' => true, 'type' => 'button'];
+        return $this->getReorderButtonStartAttributes() != ['class' => '', 'default-colors' => true, 'default-styling' => true, 'type' => 'button', 'x-on:click' => 'reorderToggle', 'wire:loading.attr' => 'disabled'];
     }
 
     /**
@@ -102,16 +97,14 @@ trait HasReorderStyling
      *
      * @return array<mixed>
      */
-    #[Computed]
     public function getReorderButtonSaveAttributes(): array
     {
         return $this->reorderButtonSaveAttributes;
     }
 
-    #[Computed]
     public function hasReorderButtonSaveAttributes(): bool
     {
-        return $this->getReorderButtonSaveAttributes() != ['class' => '', 'default-colors' => true, 'default-styling' => true, 'type' => 'button'];
+        return $this->getReorderButtonSaveAttributes() != ['class' => '', 'default-colors' => true, 'default-styling' => true, 'type' => 'button', 'x-on:click' => 'storeOrderedItems', 'wire:loading.attr' => 'disabled'];
     }
 
     /**
@@ -135,7 +128,6 @@ trait HasReorderStyling
      *
      * @return array<mixed>
      */
-    #[Computed]
     public function getReorderButtonCancelAttributes(): array
     {
         return $this->reorderButtonCancelAttributes;
@@ -146,10 +138,9 @@ trait HasReorderStyling
      *
      * @return boolean
      */
-    #[Computed]
     public function hasReorderButtonCancelAttributes(): bool
     {
-        return $this->getReorderButtonCancelAttributes() != ['class' => '', 'default-colors' => true, 'default-styling' => true, 'type' => 'button'];
+        return $this->getReorderButtonCancelAttributes() != ['class' => '', 'default-colors' => true, 'default-styling' => true, 'type' => 'button', 'x-on:click' => 'reorderToggle', 'wire:loading.attr' => 'disabled'];
     }
 
     /**
@@ -173,7 +164,6 @@ trait HasReorderStyling
      *
      * @return array<mixed>
      */
-    #[Computed]
     public function getAllReorderButtonAttributes(): array
     {
         return [

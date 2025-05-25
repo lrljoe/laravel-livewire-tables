@@ -21,7 +21,10 @@ trait HandlesFilterLabelAttributes
      */
     public function getFilterLabelAttributes(): array
     {
-        return [...['default' => true], ...$this->filterLabelAttributes];
+        $attributes = array_merge(['default-colors' => true, 'default-styling' => true], $this->filterLabelAttributes);
+        ksort($attributes);
+
+        return $attributes;
     }
 
     /**
@@ -31,7 +34,7 @@ trait HandlesFilterLabelAttributes
      */
     public function hasFilterLabelAttributes(): bool
     {
-        return $this->getFilterLabelAttributes() != ['default' => true] && $this->getFilterLabelAttributes() != ['default' => false];
+        return $this->getFilterLabelAttributes() != ['default-colors' => true, 'default-styling' => true];
     }
 
     /**
@@ -42,7 +45,7 @@ trait HandlesFilterLabelAttributes
      */
     public function setFilterLabelAttributes(array $filterLabelAttributes): self
     {
-        $this->filterLabelAttributes = [...['default' => false], ...$filterLabelAttributes];
+        $this->filterLabelAttributes = [...['default-colors' => true, 'default-styling' => true], ...$filterLabelAttributes];
 
         return $this;
     }

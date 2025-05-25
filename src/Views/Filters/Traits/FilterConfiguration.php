@@ -5,7 +5,7 @@ namespace Rappasoft\LaravelLivewireTables\Views\Filters\Traits;
 trait FilterConfiguration
 {
     /**
-     * Undocumented function
+     * Sets Generic Filter Data
      *
      * @param array<mixed> $genericDisplayData
      * @return self

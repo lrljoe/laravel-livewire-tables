@@ -2,7 +2,7 @@
 
 function fpf() {
     Alpine.data('flatpickrFilter', (wire, filterKey, filterConfig, refLocation, locale) => ({
-        wireValues: wire.entangle('appliedFilters.' + filterKey),
+        wireValues: wire.entangle('availableFilters.' + filterKey),
         flatpickrInstance: flatpickr(refLocation, {
             mode: 'range',
             altFormat: filterConfig['altFormat'] ?? "F j, Y",

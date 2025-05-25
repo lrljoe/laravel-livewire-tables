@@ -31,7 +31,7 @@ trait HandlesCorePropertiesForExternalFilter
      * @param string $filterKey
      * @return self
      */
-    protected function setFilterKey(string $filterKey): self
+    protected function Key(string $filterKey): self
     {
         $this->filterKey = $filterKey;
 

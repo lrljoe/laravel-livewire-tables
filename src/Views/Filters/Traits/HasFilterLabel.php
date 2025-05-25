@@ -8,8 +8,19 @@ trait HasFilterLabel
 {
     use HandlesFilterLabelAttributes;
 
+    /**
+     * Custom Label for the Filter
+     *
+     * @var string|null
+     */
     protected ?string $filterCustomLabel = null;
 
+    /**
+     * Set a Custom Label for the Filter
+     *
+     * @param string $filterCustomLabel
+     * @return self
+     */
     public function setCustomFilterLabel(string $filterCustomLabel): self
     {
         $this->filterCustomLabel = $filterCustomLabel;
@@ -18,7 +29,7 @@ trait HasFilterLabel
     }
 
     /**
-     * Returns whether the filter has a custom label blade
+     * Returns whether the Filter has a Custom Label blade
      */
     public function hasCustomFilterLabel(): bool
     {
@@ -26,7 +37,7 @@ trait HasFilterLabel
     }
 
     /**
-     * Returns the path to the custom filter label blade
+     * Returns the path to the Filter's Custom Label blade
      */
     public function getCustomFilterLabel(): string
     {

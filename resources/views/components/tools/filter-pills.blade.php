@@ -2,7 +2,7 @@
 
 <div {{ $attributes->merge([
 
-    'wire:loading.class' => $this->displayFilterPillsWhileLoading ? '' : 'invisible',
+    'wire:loading.class' => $this->displayFilterPillsWhileLoading() ? '' : 'invisible',
     'x-cloak',
 ])
 ->class([

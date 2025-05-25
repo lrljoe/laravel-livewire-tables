@@ -5,7 +5,7 @@ namespace Rappasoft\LaravelLivewireTables\Views\Filters\Traits;
 trait IsNumericFilter
 {
     /**
-     * Undocumented function
+     * Determines if the Numeric Filter is empty
      *
      * @param float|integer|string|array<mixed>|null $value
      * @return boolean
@@ -16,7 +16,9 @@ trait IsNumericFilter
     }
 
     /**
-     * Gets the Default Value for this Filter via the Component
+     * Gets the Default Value for the Numeric Filter via the Component
+     *
+     * @return string|null
      */
     public function getFilterDefaultValue(): ?string
     {

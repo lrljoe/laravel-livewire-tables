@@ -30,7 +30,6 @@ trait FilterVisibilityHelpers
             ->count() > 0;
     }
 
-    #[Computed]
     public function showFiltersButton(): bool
     {
         return $this->filtersAreEnabled() && $this->filtersVisibilityIsEnabled() && $this->hasVisibleFilters();

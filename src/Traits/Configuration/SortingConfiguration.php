@@ -24,7 +24,7 @@ trait SortingConfiguration
      */
     public function setSortingStatus(bool $status): self
     {
-        $this->sortingStatus = $status;
+        $this->sortingConfig['sortingStatus'] = $status;
 
         return $this;
     }
@@ -36,9 +36,7 @@ trait SortingConfiguration
      */
     public function setSortingEnabled(): self
     {
-        $this->setSortingStatus(true);
-
-        return $this;
+       return $this->setSortingStatus(true);
     }
 
     /**
@@ -62,7 +60,7 @@ trait SortingConfiguration
      */
     public function setSingleSortingStatus(bool $status): self
     {
-        $this->singleColumnSortingStatus = $status;
+        $this->sortingConfig['singleColumnSortingStatus'] = $status;
 
         return $this;
     }
@@ -96,8 +94,8 @@ trait SortingConfiguration
      */
     public function setDefaultSort(string $field, string $direction = 'asc'): self
     {
-        $this->defaultSortColumn = $field;
-        $this->defaultSortDirection = $direction;
+        $this->sortingConfig['defaultSortColumn'] = $field;
+        $this->sortingConfig['defaultSortDirection'] = $direction;
 
         return $this;
     }
@@ -109,8 +107,8 @@ trait SortingConfiguration
      */
     public function removeDefaultSort(): self
     {
-        $this->defaultSortColumn = null;
-        $this->defaultSortDirection = 'asc';
+        $this->sortingConfig['defaultSortColumn'] = null;
+        $this->sortingConfig['defaultSortDirection'] = 'asc';
 
         return $this;
     }
@@ -123,7 +121,7 @@ trait SortingConfiguration
      */
     public function setSortingPillsStatus(bool $status): self
     {
-        $this->sortingPillsStatus = $status;
+        $this->sortingConfig['sortingPillsStatus'] = $status;
 
         return $this;
     }
@@ -157,8 +155,8 @@ trait SortingConfiguration
      */
     public function setDefaultSortingLabels(string $asc, string $desc): self
     {
-        $this->defaultSortingLabelAsc = $asc;
-        $this->defaultSortingLabelDesc = $desc;
+        $this->sortingConfig['defaultSortingLabelAsc'] = $asc;
+        $this->sortingConfig['defaultSortingLabelDesc'] = $desc;
 
         return $this;
     }

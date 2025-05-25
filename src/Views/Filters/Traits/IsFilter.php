@@ -22,14 +22,29 @@ trait IsFilter
         HandlesFilterInputAttributes,
         HandlesClearButton;
 
+    /**
+     * Filter Name
+     *
+     * @var string
+     */
     protected string $name;
 
+    /**
+     * Filter Key
+     *
+     * @var string
+     */
     protected string $key;
 
+    /**
+     * Filter Callback Method
+     *
+     * @var mixed
+     */
     protected mixed $filterCallback = null;
 
     /**
-     * Undocumented variable
+     * Generic Display Data for Filter
      *
      * @var array<mixed>
      */

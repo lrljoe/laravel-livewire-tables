@@ -4,6 +4,11 @@ namespace Rappasoft\LaravelLivewireTables\Views\Filters\Traits;
 
 trait HandlesDefaultValue
 {
+    /**
+     * The property containing the Default Value for a Filter
+     *
+     * @var mixed
+     */
     protected mixed $filterDefaultValue = null;
 
     /**
@@ -19,7 +24,7 @@ trait HandlesDefaultValue
     }
 
     /**
-     * Get the filter options.
+     * Get the Default Value for the Filter
      */
     public function getDefaultValue(): mixed
     {

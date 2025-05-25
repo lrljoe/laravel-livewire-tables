@@ -54,6 +54,12 @@ class Column
 
     protected string $view = '';
 
+    /**
+     * Construct a Column
+     *
+     * @param string $title
+     * @param string|null $from
+     */
     public function __construct(string $title, ?string $from = null)
     {
         $this->title = trim($title);
@@ -75,6 +81,10 @@ class Column
     }
 
     /**
+     * Make a Column
+     *
+     * @param string $title
+     * @param string|null $from
      * @return static
      */
     public static function make(string $title, ?string $from = null): Column

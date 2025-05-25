@@ -32,11 +32,8 @@ class BooleanFilter extends Filter
     public function __construct(string $name, ?string $key = null)
     {
         parent::__construct($name,$key);
-        $this->filterPillValues = [
-            true => __('livewire-tables::core.Enabled'),
-            false => __('livewire-tables::core.Disabled'),
-        ];
     }
+
 
     /**
      * Undocumented function
@@ -76,6 +73,20 @@ class BooleanFilter extends Filter
     {
         return $this->getCustomFilterPillValue($value);
     }
+
+    /**
+     * Retrieves Custom Filter Pills Values for this Filter
+     *
+     * @return array<mixed>
+     */
+     public function getCustomFilterPillValues(): array
+    {
+        return !empty($this->filterPillValues) ? $this->filterPillValues : [
+            true => __('livewire-tables::core.Enabled'),
+            false => __('livewire-tables::core.Disabled'),
+        ];
+    }
+
 
     /**
      * Undocumented function

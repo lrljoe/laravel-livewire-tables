@@ -2,7 +2,6 @@
 
 namespace Rappasoft\LaravelLivewireTables\Traits;
 
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 use Rappasoft\LaravelLivewireTables\Traits\Configuration\SortingConfiguration;
 use Rappasoft\LaravelLivewireTables\Traits\Core\QueryStrings\HasQueryStringForSort;
@@ -26,58 +25,24 @@ trait WithSorting
     /**
      * Undocumented variable
      *
+     * @var array<mixed>
+     */
+    public array $sortingConfig = [
+        'defaultSortColumn' => null,
+        'defaultSortDirection' => 'asc',
+        'defaultSortingLabelAsc' => 'A-Z',
+        'defaultSortingLabelDesc' => 'Z-A',
+        'singleColumnSortingStatus' => true,
+        'sortingPillsStatus' => true,
+        'sortingStatus' => true,
+    ];
+
+    /**
+     * Undocumented variable
+     *
      * @var Collection<int,string>
      */
     public Collection $sortableColumns;
-
-    /**
-     * Undocumented variable
-     *
-     * @var boolean
-     */
-    public bool $sortingStatus = true;
-
-    /**
-     * Undocumented variable
-     *
-     * @var boolean
-     */
-    public bool $singleColumnSortingStatus = true;
-
-    /**
-     * Undocumented variable
-     *
-     * @var boolean
-     */
-    public bool $sortingPillsStatus = true;
-
-    /**
-     * Undocumented variable
-     *
-     * @var string|null
-     */
-    public ?string $defaultSortColumn = null;
-
-    /**
-     * Undocumented variable
-     *
-     * @var string
-     */
-    public string $defaultSortDirection = 'asc';
-
-    /**
-     * Undocumented variable
-     *
-     * @var string
-     */
-    public string $defaultSortingLabelAsc = 'A-Z';
-
-    /**
-     * Undocumented variable
-     *
-     * @var string
-     */
-    public string $defaultSortingLabelDesc = 'Z-A';
 
     /**
      * Undocumented function
@@ -89,92 +54,5 @@ trait WithSorting
         $this->setupDefaultSorting();
     }
 
-    /**
-     * Undocumented function
-     *
-     * @param string $columnSelectName
-     * @return string|null
-     */
-    public function sortBy(string $columnSelectName): ?string
-    {
-
-        if ($this->sortingIsDisabled()) {
-            return null;
-        }
-
-        // If single sorting is enabled and there are sorts but not the field that is being sorted,
-        // then clear all the sorts
-        if ($this->singleSortingIsEnabled() && $this->hasSorts() && ! $this->hasSort($columnSelectName)) {
-            $this->clearSorts();
-            $this->resetComputedPage();
-
-        }
-
-        if (! $this->hasSort($columnSelectName)) {
-            $this->resetComputedPage();
-
-            return $this->setSortAsc($columnSelectName);
-        }
-
-        if ($this->isSortAsc($columnSelectName)) {
-            $this->resetComputedPage();
-
-            return $this->setSortDesc($columnSelectName);
-        }
-
-        $this->clearSort($columnSelectName);
-
-        return null;
-    }
-
-    /**
-     * Undocumented function
-     *
-     * @return Builder<\Illuminate\Database\Eloquent\Model>
-     */
-    public function applySorting(): Builder
-    {
-
-        $allCols = $this->getColumns();
-
-        foreach ($this->getSorts() as $column => $direction) {
-            if (! in_array($direction, ['asc', 'desc'])) {
-                $direction = 'asc';
-            }
-            $tmpCol = $column;
-            $column = $this->getColumnBySelectName($tmpCol);
-
-            if (is_null($column)) {
-                foreach ($allCols as $cols) {
-                    if ($cols->getSlug() == $tmpCol && $cols->hasSortCallback()) {
-                        $this->setBuilder(call_user_func($cols->getSortCallback(), $this->getBuilder(), $direction));
-
-                        continue;
-                    }
-                }
-
-                continue;
-            }
-
-            if (! $column->isSortable()) {
-                continue;
-            }
-
-            // TODO: Test
-            if ($column->hasSortCallback()) {
-                $this->setBuilder(call_user_func($column->getSortCallback(), $this->getBuilder(), $direction));
-            } elseif ($column->isBaseColumn()) {
-                $this->setBuilder($this->getBuilder()->orderBy($column->getColumnSelectName(), $direction));
-            } else {
-                $value = $this->getBuilder()->getGrammar()->wrap($column->getColumn().' as '.$column->getColumnSelectName());
-                $segments = preg_split('/\s+as\s+/i', $value);
-                if(array_key_exists(1,$segments))
-                {
-                $this->setBuilder($this->getBuilder()->orderByRaw($segments[1].' '.$direction));
-                }
-            }
-        }
-
-        return $this->getBuilder();
-    }
+    
 }

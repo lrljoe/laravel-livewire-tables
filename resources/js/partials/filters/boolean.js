@@ -2,13 +2,13 @@
 
 function newBf() {
 
-    Alpine.data('newBooleanFilter', (filterKey,tableName,defaultValue) => ({
+    Alpine.data('newBooleanFilter', (wire,filterKey,tableName,defaultValue) => ({
         booleanFilterKey: filterKey,
         switchOn: false, 
         value: false, 
         toggleStatus()
         {
-            let tempValue = Boolean(Number(this.$wire.get('appliedFilters.'+this.booleanFilterKey) ?? this.value));
+            let tempValue = Boolean(Number(wire.get('appliedFilters.'+this.booleanFilterKey) ?? this.value));
             let newBoolean = !tempValue;
             this.switchOn = this.value = newBoolean;
             return Number(newBoolean);
@@ -16,12 +16,12 @@ function newBf() {
         toggleStatusWithUpdate()
         {
             let newValue = this.toggleStatus();
-            this.$wire.set('appliedFilters.'+this.booleanFilterKey, newValue);
+            wire.set('appliedFilters.'+this.booleanFilterKey, newValue);
         },
         toggleStatusWithReset()
         {
             let newValue = this.toggleStatus();
-            this.$wire.call('resetFilter',this.booleanFilterKey);
+            wire.call('resetFilter',this.booleanFilterKey);
         },
         setSwitchOn(val)
         {
@@ -31,7 +31,8 @@ function newBf() {
         init() { 
 
             this.$nextTick(() => { 
-                this.value = this.$wire.get('appliedFilters.'+this.booleanFilterKey) ?? defaultValue;
+                this.value = wire.get('appliedFilters.'+this.booleanFilterKey) ?? defaultValue;
+                console.log('This Value NextTick: '+this.value ?? 0);
                 this.setSwitchOn(this.value ?? 0);
             });
 
@@ -63,7 +64,12 @@ function newBf() {
                     }
                 })
             );
-        }
+        },
+        destroy() {
+            this.listeners.forEach((listener) => {
+                listener();
+            });
+        },
     }));
 }
 

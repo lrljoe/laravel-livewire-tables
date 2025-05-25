@@ -5,7 +5,7 @@ namespace Rappasoft\LaravelLivewireTables\Views\Filters\Traits;
 trait HasConfig
 {
     /**
-     * Undocumented function
+     * Set config options for the filter
      *
      * @param array<mixed> $config
      * @return self
@@ -18,7 +18,7 @@ trait HasConfig
     }
 
     /**
-     * Undocumented function
+     * Retrieve config options for the filter
      *
      * @return array<mixed>
      */

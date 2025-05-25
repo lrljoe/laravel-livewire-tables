@@ -4,6 +4,11 @@ namespace Rappasoft\LaravelLivewireTables\Views\Filters\Traits;
 
 trait IsArrayFilter
 {
+    /**
+     * The separator used for the Filter Pills values for this filter
+     *
+     * @var string
+     */
     public string $pillsSeparator = ', ';
 
     /**
@@ -27,7 +32,7 @@ trait IsArrayFilter
     }
 
     /**
-     * Undocumented function
+     * Determines if this Filter is empty
      *
      * @param mixed $value
      * @return boolean
@@ -42,7 +47,7 @@ trait IsArrayFilter
     }
 
     /**
-     * Undocumented function
+     * Retrieves the separator string for the Filter Pills for this filter
      *
      * @return string
      */
@@ -52,7 +57,7 @@ trait IsArrayFilter
     }
 
     /**
-     * Undocumented function
+     * Sets the separator string for the Filter Pills for this filter
      *
      * @param string $pillsSeparator
      * @return self

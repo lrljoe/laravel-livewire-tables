@@ -3,7 +3,7 @@
 
 <tbody {{ $attributes->merge($coreTableAttributes['tbody'])
         ->merge($currentlyReorderingStatus ? [
-            'x-sort:item' => $rowPk,
+            'x-sort:item' => "'".$rowPk."'",
             'data-id' => $rowPk,
         ] : [])
         ->merge($tableRowDetails['attributes'])
@@ -17,7 +17,7 @@
         ->except(['default','default-styling','default-colors']) 
     }} x-data="{ opening: false, }" >
 
-    <x-livewire-tables::table.tr rowPk="{{ $rowPk }}" id="{{ $tableName }}-row-{{ $rowPk }}" wire:key="{{ $tableName }}-tablerow-tr-{{ $rowPk }}" loopType="{{ ($rowIndex % 2 === 0) ? 'even' : 'odd' }}">
+    <x-livewire-tables::table.tr id="{{ $tableName }}-row-{{ $rowPk }}" wire:key="{{ $tableName }}-tablerow-tr-{{ $rowPk }}" loopType="{{ ($rowIndex % 2 === 0) ? 'even' : 'odd' }}">
 
 
         @if($currentlyReorderingStatus)

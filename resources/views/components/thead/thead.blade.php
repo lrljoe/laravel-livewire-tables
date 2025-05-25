@@ -16,8 +16,7 @@
         @if(!$currentlyReorderingStatus && $this->shouldShowSecondaryHeader())
             <x-livewire-tables::thead.tr.secondary-header  />
         @endif
-
         @if(!$currentlyReorderingStatus && $showBulkActionsSections)
-            <x-livewire-tables::bulk-actions.thead  :displayMinimisedOnReorder="true" />
+            <x-livewire-tables::bulk-actions.thead :displayMinimisedOnReorder="true" :bulkActionsRowButtonAttributes="$this->getBulkActionsRowButtonAttributes()" />
         @endif
 </thead>

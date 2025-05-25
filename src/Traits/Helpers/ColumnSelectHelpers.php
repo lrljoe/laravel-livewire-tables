@@ -91,6 +91,7 @@ trait ColumnSelectHelpers
         return $this->getColumns()
             ->reject(fn (Column $column) => $column->isHidden())
             ->reject(fn (Column $column) => ! $column->isSelectable())
+            ->reject(fn (Column $column) => $this->currentlyReorderingIsEnabled() && !$column->isVisibleOnReorder())
             ->values();
     }
 
@@ -105,6 +106,7 @@ trait ColumnSelectHelpers
             ->reject(fn (Column $column) => $column->isHidden())
             ->reject(fn (Column $column) => ! $column->isSelectable())
             ->reject(fn (Column $column) => ! $this->columnSelectIsEnabledForColumn($column))
+            ->reject(fn (Column $column) => $this->currentlyReorderingIsEnabled() && !$column->isVisibleOnReorder())
             ->values();
     }
 
@@ -118,6 +120,7 @@ trait ColumnSelectHelpers
         return $this->getColumns()
             ->reject(fn (Column $column) => $column->isHidden())
             ->reject(fn (Column $column) => $column->isSelectable())
+            ->reject(fn (Column $column) => $this->currentlyReorderingIsEnabled() && !$column->isVisibleOnReorder())
             ->values();
     }
 
@@ -142,6 +145,7 @@ trait ColumnSelectHelpers
             ->reject(fn (Column $column) => $column->isLabel())
             ->reject(fn (Column $column) => $column->isHidden())
             ->reject(fn (Column $column) => ($column->isSelectable() && ! $this->columnSelectIsEnabledForColumn($column)))
+            ->reject(fn (Column $column) => $this->currentlyReorderingIsEnabled() && !$column->isVisibleOnReorder())
             ->values()
             ->toArray();
     }
@@ -156,6 +160,7 @@ trait ColumnSelectHelpers
         return $this->getColumns()
             ->reject(fn (Column $column) => ! $column->isSelectable())
             ->reject(fn (Column $column) => $column->isHidden())
+            ->reject(fn (Column $column) => $this->currentlyReorderingIsEnabled() && !$column->isVisibleOnReorder())
             ->keyBy(function (Column $column, int $key) {
                 return $column->getSlug();
             })
@@ -173,7 +178,7 @@ trait ColumnSelectHelpers
         return collect($this->getColumns()
             ->reject(fn (Column $column) => $column->isHidden())
             ->reject(fn (Column $column) => $column->isSelectable() && ! $column->isSelected())
-
+            ->reject(fn (Column $column) => $this->currentlyReorderingIsEnabled() && !$column->isVisibleOnReorder())
         )
             ->map(fn ($column) => $column->getSlug())
             ->values()
@@ -201,6 +206,7 @@ trait ColumnSelectHelpers
         return $this->getColumns()
             ->reject(fn (Column $column) => $column->isHidden())
             ->reject(fn (Column $column) => ($column->isSelectable() && ! $this->columnSelectIsEnabledForColumn($column)))
+            ->reject(fn (Column $column) => $this->currentlyReorderingIsEnabled() && !$column->isVisibleOnReorder())
             ->values()
             ->toArray();
     }

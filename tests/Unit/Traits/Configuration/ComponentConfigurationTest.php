@@ -56,11 +56,11 @@ final class ComponentConfigurationTest extends TestCase
 
     public function test_can_set_tbody_attributes(): void
     {
-        $this->assertSame($this->basicTable->getTbodyAttributes(), ['wire:key' => 'table-tbody', 'id' => 'table-tbody', 'default' => true]);
+        $this->assertSame($this->basicTable->getTbodyAttributes(), ['wire:key' => 'table-tbody',  'default' => true]);
 
         $this->basicTable->setTbodyAttributes(['this' => 'that']);
 
-        $this->assertSame($this->basicTable->getTbodyAttributes(), ['wire:key' => 'table-tbody', 'id' => 'table-tbody', 'this' => 'that']);
+        $this->assertSame($this->basicTable->getTbodyAttributes(), ['wire:key' => 'table-tbody', 'this' => 'that']);
     }
 
     public function test_can_set_th_attributes(): void

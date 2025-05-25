@@ -8,7 +8,6 @@ use Rappasoft\LaravelLivewireTables\Views\Filters\BooleanFilter;
 
 trait FilterPillsHelpers
 {
-    #[Computed]
     public function showFilterPillsSection(): bool
     {
         return $this->filtersAreEnabled() && $this->filterPillsAreEnabled() && ($this->getAppliedFiltersWithValuesForPillsCount() > 0);

@@ -20,18 +20,39 @@ class Action extends Component
     use HasVisibility;
     use HasWireActions;
 
+    /**
+     * The view for the Action
+     *
+     * @var string
+     */
     protected string $view = 'livewire-tables::includes.actions.button';
 
+    /**
+     * Construct an Action
+     *
+     * @param string|null $label
+     */
     public function __construct(?string $label = null)
     {
         $this->label = trim(__($label));
     }
 
+    /**
+     * Make an Action
+     *
+     * @param string|null $label
+     * @return self
+     */
     public static function make(?string $label = null): self
     {
         return new static($label);
     }
 
+    /**
+     * Render method for Action
+     *
+     * @return null|string|\Illuminate\Support\HtmlString|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function render(): null|string|\Illuminate\Support\HtmlString|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
     {
         $view = view($this->getView())

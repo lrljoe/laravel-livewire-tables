@@ -6,16 +6,21 @@ namespace Rappasoft\LaravelLivewireTables\Views\Filters\Traits;
 trait HasOptions
 {
     /**
-     * Undocumented variable
+     * Contains the list of Options for a Filter
      *
      * @var array<mixed>
      */
     public array $options = [];
 
+    /**
+     * Defines the First Option for a Filter with Options
+     *
+     * @var string
+     */
     protected string $firstOption = '';
 
     /**
-     * Undocumented function
+     * Sets the First Option for a Filter with Options
      *
      * @param string $firstOption
      * @return self
@@ -28,7 +33,7 @@ trait HasOptions
     }
 
     /**
-     * Undocumented function
+     * Gets the First Option for a Filter with Options
      *
      * @return string
      */
@@ -38,7 +43,7 @@ trait HasOptions
     }
 
     /**
-     * Undocumented function
+     * Sets the list of Options for a Filter
      *
      * @param array<mixed> $options
      * @return self
@@ -51,7 +56,7 @@ trait HasOptions
     }
 
     /**
-     * Undocumented function
+     * Gets the list of Options for a Filter
      *
      * @return array<mixed>
      */
@@ -61,7 +66,7 @@ trait HasOptions
     }
 
     /**
-     * Undocumented function
+     * Gets the keys for the list of Options for a Filter
      *
      * @return array<mixed>
      */

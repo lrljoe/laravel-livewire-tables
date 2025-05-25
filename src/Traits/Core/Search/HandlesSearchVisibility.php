@@ -16,7 +16,7 @@ trait HandlesSearchVisibility
     
     /**
      * Undocumented function
-     * #[Computed]
+     * 
      * @return boolean
      */
     public function searchVisibilityIsEnabled(): bool

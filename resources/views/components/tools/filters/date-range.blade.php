@@ -3,7 +3,7 @@
 @endphp
 
 <div x-cloak id="{{ $tableName }}-dateRangeFilter-{{ $filterKey }}" x-data="flatpickrFilter($wire, '{{ $filterKey }}', @js($filter->getConfigs()), $refs.dateRangeInput, '{{ App::currentLocale() }}')" >
-    <x-livewire-tables::tools.filter-label :$filter :$filterLayout :$tableName :$isTailwind :$isBootstrap4 :$isBootstrap5 :$isBootstrap />
+resources/views/components/bulk-actions    <x-livewire-tables::tools.filter-label :$filter :$filterLayout :$tableName :$isTailwind :$isBootstrap4 :$isBootstrap5 :$isBootstrap />
     <div
         @class([
             'w-full rounded-md shadow-sm text-left ' => $isTailwind,
@@ -15,7 +15,7 @@
             x-ref="dateRangeInput"
             x-on:click="init"
             x-on:change="changedValue($refs.dateRangeInput.value)"
-            value="{{ $filter->getDateString(isset($this->appliedFilters[$filterKey]) ? $this->appliedFilters[$filterKey] : '') }}"
+            value="{{ $filter->getDateString(array_key_exists($filterKey, $this->appliedFilters) ? $this->appliedFilters[$filterKey] : '') }}"
             wire:key="{{ $filter->generateWireKey($tableName, 'dateRange') }}"
             id="{{ $tableName }}-filter-dateRange-{{ $filterKey }}"
             @class([

@@ -6,18 +6,21 @@ use Livewire\Attributes\Computed;
 
 trait FilterPillsStylingHelpers
 {
-    #[Computed]
+    /**
+     * Should Filter Pills Display While Loading
+     *
+     * @return boolean
+     */
     public function displayFilterPillsWhileLoading(): bool
     {
         return $this->showFilterPillsWhileLoading;
     }
 
     /**
-     * Undocumented function
+     * Retrieves The Attributes for Filter Pills Items
      *
      * @return array<mixed>
      */
-    #[Computed]
     public function getFilterPillsItemAttributes(): array
     {
         return $this->filterPillsItemAttributes;
@@ -25,22 +28,20 @@ trait FilterPillsStylingHelpers
 
     
     /**
-     * Undocumented function
+     * Retrieves Filter Pill Reset Button Attributes
      *
      * @return array<mixed>
      */
-    #[Computed]
     public function getFilterPillsResetFilterButtonAttributes(): array
     {
         return $this->filterPillsResetFilterButtonAttributes;
     }
 
     /**
-     * Undocumented function
+     * Retrieves Filter Pill Reset All Button Attributes
      *
      * @return array<mixed>
      */
-    #[Computed]
     public function getFilterPillsResetAllButtonAttributes(): array
     {
         return $this->filterPillsResetAllButtonAttributes;

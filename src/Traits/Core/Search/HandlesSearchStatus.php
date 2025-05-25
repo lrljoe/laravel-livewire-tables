@@ -18,7 +18,7 @@ trait HandlesSearchStatus
     
     /**
      * Undocumented function
-     * #[Computed]
+     * 
      * @return boolean
      */
     public function showSearchField(): bool
@@ -29,7 +29,7 @@ trait HandlesSearchStatus
     
     /**
      * Undocumented function
-     * #[Computed]
+     * 
      * @return boolean
      */
     public function searchIsEnabled(): bool

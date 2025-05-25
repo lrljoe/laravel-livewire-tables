@@ -16,7 +16,7 @@ trait HandlesTableEventsForExternalFilter
      * @return void
      */
     #[On('filter-was-set')]
-    public function setFilterValues(string $tableName, string $filterKey, string|array|null $value = []): void
+    public function Values(string $tableName, string $filterKey, string|array|null $value = []): void
     {
         if(!is_array($value))
         {

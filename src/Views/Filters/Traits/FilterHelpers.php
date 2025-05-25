@@ -37,7 +37,7 @@ trait FilterHelpers
     }
 
     /**
-     * Undocumented function
+     * Configures the Filter function
      *
      * @param callable $callback
      * @return Filter
@@ -50,7 +50,7 @@ trait FilterHelpers
     }
 
     /**
-     * Undocumented function
+     * Determines if a Filter function has been set
      *
      * @return boolean
      */
@@ -60,7 +60,7 @@ trait FilterHelpers
     }
 
     /**
-     * Undocumented function
+     * Retrieves the Filter function
      *
      * @return callable
      */
@@ -70,7 +70,7 @@ trait FilterHelpers
     }
 
     /**
-     * Undocumented function
+     * Generates a unique wire:key
      *
      * @param string $tableName
      * @param string $filterType
@@ -83,7 +83,7 @@ trait FilterHelpers
     }
 
     /**
-     * Undocumented function
+     * Retrieves the Generic Filter Data
      *
      * @return array<mixed>
      */
@@ -93,7 +93,7 @@ trait FilterHelpers
     }
 
     /**
-     * Undocumented function
+     * Retrieves the Generic Filter Data, with the Filter instance
      *
      * @return array<mixed>
      */
@@ -103,7 +103,7 @@ trait FilterHelpers
     }
 
     /**
-     * Undocumented function
+     * Renders the Filter
      *
      * @return string|\Illuminate\Contracts\Foundation\Application|\Illuminate\View\View|\Illuminate\View\Factory
      */

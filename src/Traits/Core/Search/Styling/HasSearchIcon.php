@@ -21,7 +21,7 @@ trait HasSearchIcon
     
     /**
      * Undocumented function
-     * #[Computed]
+     * 
      * @return boolean
      */
     public function hasSearchIcon(): bool
@@ -31,7 +31,7 @@ trait HasSearchIcon
 
     /**
      * Undocumented function
-     * #[Computed]
+     * 
      * @return string
      */
     public function getSearchIcon(): string
@@ -41,7 +41,7 @@ trait HasSearchIcon
 
     /**
      * Undocumented function
-     * #[Computed]
+     * 
      * @return string
      */
     public function getSearchIconClasses(): string
@@ -52,7 +52,7 @@ trait HasSearchIcon
 
     /**
      * Undocumented function
-     * #[Computed]
+     * 
      * @return array<mixed>
      */
     public function getSearchIconAttributes(): array
@@ -62,7 +62,7 @@ trait HasSearchIcon
 
     /**
      * Undocumented function
-     * #[Computed]
+     * 
      * @return array<mixed>
      */
     public function getSearchIconOtherAttributes(): array

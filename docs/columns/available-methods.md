@@ -303,6 +303,21 @@ Column::make('Name')
     ->setColumnLabelStatusEnabled()
 ```
 
+### Hiding On Reorder
+
+You may set a Column to be hidden when reordering, this is often effective when you have complex columns that are not relevant to reordering.
+
+As pagination is disabled during reordering, returning a minimal set of columns dramatically improves efficiency.
+
+By default, all Selected Columns are displayed when reordering.
+
+```php
+Column::make('Name')
+    ->hideOnReorder()
+```
+
+
+
 ## See Also
 [Column Styling](./styling)
 

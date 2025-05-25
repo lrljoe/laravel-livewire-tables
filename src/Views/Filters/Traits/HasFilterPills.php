@@ -2,7 +2,7 @@
 
 namespace Rappasoft\LaravelLivewireTables\Views\Filters\Traits;
 
-use Rappasoft\LaravelLivewireTables\Views\Filters\Traits\Pills\{HandlesPillsAsHtml,HandlesPillsCustomBlade,HandlesPillsLocale};
+use Rappasoft\LaravelLivewireTables\Views\Filters\Traits\Pills\{HandlesPillsAsHtml,HandlesPillsCustomBlade,HandlesPillsLocale, HandlesPillsTitle};
 use Rappasoft\LaravelLivewireTables\Views\Filters\Traits\Styling\HandlesFilterPillsAttributes;
 
 trait HasFilterPills
@@ -10,32 +10,18 @@ trait HasFilterPills
     use HandlesPillsAsHtml,
         HandlesPillsCustomBlade,
         HandlesPillsLocale,
-        HandlesFilterPillsAttributes;
-
-    protected ?string $filterPillTitle = null;
+        HandlesFilterPillsAttributes,
+        HandlesPillsTitle;
 
     /**
-     * Undocumented variable
+     * Defined Filter Pill Values
      *
      * @var array<mixed>
      */
     protected array $filterPillValues = [];
 
     /**
-     * Undocumented function
-     *
-     * @param string $title
-     * @return self
-     */
-    public function setFilterPillTitle(string $title): self
-    {
-        $this->filterPillTitle = $title;
-
-        return $this;
-    }
-
-    /**
-     * Undocumented function
+     * Sets the Filter Pills Values for this Filter
      *
      * @param array<mixed> $values
      * @return self
@@ -48,27 +34,7 @@ trait HasFilterPills
     }
 
     /**
-     * Undocumented function
-     *
-     * @return string|null
-     */
-    public function getCustomFilterPillTitle(): ?string
-    {
-        return $this->filterPillTitle;
-    }
-
-    /**
-     * Undocumented function
-     *
-     * @return string
-     */
-    public function getFilterPillTitle(): string
-    {
-        return $this->getCustomFilterPillTitle() ?? $this->getName();
-    }
-
-    /**
-     * Undocumented function
+     * Retrieves the Filter Pills Values for this Filter
      *
      * @param mixed $value
      * @return array<mixed>|string|boolean|null
@@ -79,7 +45,7 @@ trait HasFilterPills
     }
 
     /**
-     * Undocumented function
+     * Retrieves Custom Filter Pills Values for this Filter
      *
      * @return array<mixed>
      */
@@ -89,7 +55,7 @@ trait HasFilterPills
     }
 
     /**
-     * Undocumented function
+     * Retrieves Specific Custom Filter Pills Value for this Filter
      *
      * @param string $value
      * @return string|null

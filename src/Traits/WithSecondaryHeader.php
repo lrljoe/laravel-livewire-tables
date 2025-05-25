@@ -28,7 +28,6 @@ trait WithSecondaryHeader
      *
      * @return boolean
      */
-    #[Computed]
     public function shouldShowSecondaryHeader(): bool
     {
         return $this->secondaryHeaderIsEnabled() && $this->hasColumnsWithSecondaryHeader();

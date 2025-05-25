@@ -26,7 +26,6 @@ trait HasPaginationStyling
      *
      * @return array<mixed>
      */
-    #[Computed]
     public function getPerPageFieldAttributes(): array
     {
         return $this->perPageFieldAttributes;
@@ -42,7 +41,6 @@ trait HasPaginationStyling
         return $this->paginationWrapperAttributes ?? ['class' => ''];
     }
 
-    #[Computed]
     public function getPaginationWrapperAttributesBag(): ComponentAttributeBag
     {
         return new ComponentAttributeBag($this->getPaginationWrapperAttributes());
