@@ -134,7 +134,12 @@ trait HasBulkActionsStyling
      */
     public function getBulkActionsThCheckboxAttributes(): array
     {
-        return $this->getCustomAttributesNew('bulkActionsThCheckboxAttributes', true, true);
+        return array_merge([
+            ':checked' => 'selectedItems.length == paginationTotalItemCount',
+            'type' => 'checkbox',
+            'x-init' => '$watch(\'indeterminateCheckbox\', value => $el.indeterminate = value); $watch(\'selectedItems\', value => newSelectCount = value.length);',
+            'x-on:click' => 'if(selectedItems.length == paginationTotalItemCount) { $el.indeterminate = false; $wire.clearSelected(); bulkActionHeaderChecked = false; } else { bulkActionHeaderChecked = true; $el.indeterminate = false; $wire.setAllSelected(); }',
+        ],$this->getCustomAttributesNew('bulkActionsThCheckboxAttributes', true, true));
 
     }
 
@@ -159,7 +164,6 @@ trait HasBulkActionsStyling
     {
         return array_merge(
             [
-                'x-show' => '!currentlyReorderingStatus',
                 'x-model' => 'selectedItems',
                 'wire:loading.attr.delay' => 'disabled',
                 'type' => 'checkbox',

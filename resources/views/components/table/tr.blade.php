@@ -1,4 +1,4 @@
-@aware(['isTailwind', 'rowIndex', 'hasDisplayLoadingPlaceholder', 'tableRowDetails'])
+@aware(['isTailwind', 'isTailwind4', 'isBootstrap', 'rowIndex', 'hasDisplayLoadingPlaceholder', 'tableRowDetails'])
 
 <tr 
     @if($hasDisplayLoadingPlaceholder) 
@@ -8,17 +8,19 @@
     @endif
     {{
         $attributes->merge($tableRowDetails['attributes'])
-                ->class($isTailwind ? [
-                    'rappasoft-striped-row' => $tableRowDetails['attributes']['default'] ?? true,
-                ] : 
-                [
-                    'bg-light rappasoft-striped-row' => ($rowIndex % 2 === 0 && ($tableRowDetails['attributes']['default'] ?? true)),
-                    'bg-white rappasoft-striped-row' => ($rowIndex % 2 !== 0 && ($tableRowDetails['attributes']['default'] ?? true)),
+            ->class([
+                // Tailwind 3
+                'rappasoft-striped-row' => $isTailwind && ($tableRowDetails['attributes']['default'] ?? true),
 
-                ])
-                ->except(['default','default-styling','default-colors'])
+                // Tailwind 4
+                'rappasoft-striped-row' => $isTailwind4 && ($tableRowDetails['attributes']['default'] ?? true),
+
+                // Bootstrap
+                'bg-light rappasoft-striped-row' => $isBootstrap && ($rowIndex % 2 === 0 && ($tableRowDetails['attributes']['default'] ?? true)),
+                'bg-white rappasoft-striped-row' => $isBootstrap && ($rowIndex % 2 !== 0 && ($tableRowDetails['attributes']['default'] ?? true)),
+            ])
+            ->except(['default','default-styling','default-colors'])
     }}
-
 >
     {{ $slot }}
 </tr>

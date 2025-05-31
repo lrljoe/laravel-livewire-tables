@@ -10,6 +10,7 @@
     "livewire-tables::Columns": "Columns",
     "livewire-tables::Debugging Values": "Debugging Values",
     "livewire-tables::Deselect All": "Deselect All",
+    "livewire-tables::Deselect All On Page": "Deselect All On Page",
     "livewire-tables::Done Reordering": "Done Reordering",
     "livewire-tables::Filters": "Filters",
     "livewire-tables::Loading": "Loading",

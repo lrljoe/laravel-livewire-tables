@@ -31,7 +31,7 @@ trait HasTheme
     {
         return $this->theme ?? ($this->theme = config('livewire-tables.theme', 'tailwind'));
     }
-
+    
     /**
      * Undocumented function
      *

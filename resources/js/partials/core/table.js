@@ -14,6 +14,7 @@ function table() {
         paginationCurrentItems: wire.entangle('paginationCurrentItems'),
         selectedItems: wire.entangle('selected'),
         selectAllStatus: wire.entangle('selectAll'),
+        selectedAllOnPage: false,
         delaySelectAll: wire.entangle('delaySelectAll'),
         hideBulkActionsWhenEmpty: wire.entangle('hideBulkActionsWhenEmpty'),
         reorderEnabled: false,
@@ -103,6 +104,7 @@ function table() {
             }
             if (this.delaySelectAll)
             {   
+                this.selectedAllOnPage = true;
                 this.selectAllStatus = true;
                 this.selectAllOnPage();
             }
@@ -116,13 +118,14 @@ function table() {
                 return;
             }
             this.selectAllStatus = false;
+            this.selectedAllOnPage = false;
             wire.clearSelected();
         },
         selectAllOnPage() {
             if (!this.showBulkActionsAlpine) {
                 return;
             }
-
+            this.selectedAllOnPage = true;
             let tempSelectedItems = this.selectedItems;
             const iterator = this.paginationCurrentItems.values();
             for (const value of iterator) {

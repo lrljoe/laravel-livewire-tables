@@ -1,4 +1,4 @@
-@aware([ 'tableName', 'isTailwind', 'isBootstrap', 'filterGenericData'])
+@aware([ 'tableName', 'isTailwind', 'isTailwind4', 'isBootstrap', 'filterGenericData'])
 @php($filterSlidedownWrapperAttributes = $this->getFilterSlidedownWrapperAttributes())
 
 <div x-cloak x-show="filtersOpen" {{ $attributes
@@ -11,6 +11,15 @@
                 'x-transition:leave-start' => 'transform opacity-100',
                 'x-transition:leave-end' => 'transform opacity-0',
             ] : [])
+            ->merge($isTailwind4 ? [
+                'x-transition:enter' => 'transition ease-out duration-100',
+                'x-transition:enter-start' => 'transform opacity-0',
+                'x-transition:enter-end' => 'transform opacity-100',
+                'x-transition:leave' => 'transition ease-in duration-75',
+                'x-transition:leave-start' => 'transform opacity-100',
+                'x-transition:leave-end' => 'transform opacity-0',
+            ] : [])
+
             ->class([
                 'container' => $isBootstrap && ($filterSlidedownWrapperAttributes['default'] ?? true),
             ])
@@ -28,6 +37,8 @@
             ->class([
                 'row col-12' => $isBootstrap && ($defaultAttributes['default-styling'] ?? true),
                 'grid grid-cols-12 gap-6 px-4 py-2 mb-2' => $isTailwind && ($defaultAttributes['default-styling'] ?? true),
+                'grid grid-cols-12 gap-6 px-4 py-2 mb-2' => $isTailwind4 && ($defaultAttributes['default-styling'] ?? true),
+
             ])
             ->except(['default','default-colors','default-styling'])
         }} 
@@ -52,6 +63,7 @@
                             $isBootstrap &&
                             $filter->hasFilterSlidedownColspan() &&
                             $filter->getFilterSlidedownColspan() === 4,
+                            
                         'space-y-1 col-span-12' =>
                             $isTailwind,
                         'sm:col-span-6 md:col-span-4 lg:col-span-2' =>
@@ -65,6 +77,21 @@
                             $isTailwind &&
                             $filter->hasFilterSlidedownColspan() &&
                             $filter->getFilterSlidedownColspan() === 3,
+
+                        'space-y-1 col-span-12' =>
+                            $isTailwind4,
+                        'sm:col-span-6 md:col-span-4 lg:col-span-2' =>
+                            $isTailwind4 &&
+                            !$filter->hasFilterSlidedownColspan(),
+                        'sm:col-span-12 md:col-span-8 lg:col-span-4' =>
+                            $isTailwind4 &&
+                            $filter->hasFilterSlidedownColspan() &&
+                            $filter->getFilterSlidedownColspan() === 2,
+                        'sm:col-span-9 md:col-span-4 lg:col-span-3' =>
+                            $isTailwind4 &&
+                            $filter->hasFilterSlidedownColspan() &&
+                            $filter->getFilterSlidedownColspan() === 3,
+
                     ])
                     id="{{ $tableName }}-filter-{{ $filter->getKey() }}-wrapper"
                 >

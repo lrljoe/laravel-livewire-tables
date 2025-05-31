@@ -2,7 +2,6 @@
 @php($hasTdAttributes = $this->hasTdAttributes())
 <div x-data="{ currentlyReorderingStatus: false }">
     <div {{ $this->getTopLevelAttributes() }}>
-
         @includeWhen(
             $this->hasConfigurableAreaFor('before-wrapper'),
             $this->getConfigurableAreaFor('before-wrapper'),

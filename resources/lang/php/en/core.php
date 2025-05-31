@@ -12,6 +12,7 @@ return [
     'Columns' => 'Columns',
     'Debugging Values' => 'Debugging Values',
     'Deselect All' => 'Deselect All',
+    'Deselect All On Page' => 'Deselect All On Page',
     'Disabled' => 'Disabled',
     'Done Reordering' => 'Done Reordering',
     'Enabled' => 'Enabled',

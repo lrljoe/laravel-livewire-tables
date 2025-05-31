@@ -1,6 +1,6 @@
-@aware(['isTailwind','isBootstrap', 'localisationPath'])
+@aware(['isTailwind','isTailwind4', 'isBootstrap', 'localisationPath'])
 @if ($this->offlineIndicatorIsEnabled())
-    @if ($isTailwind)
+    @if ($isTailwind || $isTailwind4)
         <div wire:offline.class.remove="hidden" class="hidden">
             <div class="rounded-md bg-red-100 p-4 mb-4 dark:border-red-800 dark:bg-red-500">
                 <div class="flex">

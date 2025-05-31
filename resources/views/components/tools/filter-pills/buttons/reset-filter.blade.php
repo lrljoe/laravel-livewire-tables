@@ -1,4 +1,4 @@
-@aware(['tableName','isTailwind','isBootstrap','isBootstrap4','isBootstrap5', 'localisationPath'])
+@aware(['tableName','isTailwind','isTailwind4','isBootstrap','isBootstrap4','isBootstrap5', 'localisationPath'])
 @props(['filterKey', 'filterPillData'])
 
 @php
@@ -6,7 +6,7 @@
     $filterButtonAttributes = $filterPillData->getCalculatedCustomResetButtonAttributes($filterKey,$this->getFilterPillsResetFilterButtonAttributes());
 
 @endphp
-@if ($isTailwind)
+@if ($isTailwind || $isTailwind4)
     <button 
         {{
             $attributes->merge($filterButtonAttributes)

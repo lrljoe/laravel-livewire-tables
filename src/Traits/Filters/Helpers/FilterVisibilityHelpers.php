@@ -42,6 +42,9 @@ trait FilterVisibilityHelpers
      */
     public function getVisibleFilters(): Collection
     {
-        return $this->getFilters()->reject(fn (Filter $filter) => $filter->isHiddenFromMenus());
+        return $this->getFilters()->reject(fn (Filter $filter) => $filter->isHiddenFromMenus())
+        ->each(function (Filter $filter) {
+            $filter->setGenericDisplayData($this->getFilterGenericData());
+        });
     }
 }

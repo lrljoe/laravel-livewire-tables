@@ -1,5 +1,5 @@
 
-@aware(['isTailwind', 'isBootstrap'])
+@aware(['isTailwind', 'isTailwind4', 'isBootstrap'])
 
 <div @class([
             'd-inline-flex h-100 align-items-center ' => $isBootstrap,
@@ -10,9 +10,10 @@
         @class([
                 'btn btn-outline-secondary d-inline-flex h-100 align-items-center' => $isBootstrap,
                 'inline-flex h-full items-center px-3 text-gray-500 bg-gray-50 rounded-r-md border border-l-0 border-gray-300 cursor-pointer sm:text-sm dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600' => $isTailwind,
+                'inline-flex h-full items-center px-3 text-gray-500 bg-gray-50 rounded-r-md border border-l-0 border-gray-300 cursor-pointer sm:text-sm dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600' => $isTailwind4,
             ])
     >
-        @if($isTailwind)
+        @if($isTailwind || $isTailwind4)
         <x-heroicon-m-x-mark class='w-4 h-4' />
         @else
         <x-heroicon-m-x-mark class="laravel-livewire-tables-btn-smaller" />

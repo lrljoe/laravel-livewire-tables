@@ -1,4 +1,4 @@
-@aware(['isTailwind', 'isBootstrap'])
+@aware(['isTailwind', 'isTailwind4', 'isBootstrap'])
 @props(['searchViewAttributes'])
 
 <div 
@@ -6,6 +6,9 @@
         'mb-3 mb-md-0 input-group' => $isBootstrap,
         'rounded-md shadow-sm' => $isTailwind,
         'flex' => ($isTailwind && !$searchViewAttributes['icon']['hasSearchIcon']),
+        'rounded-md shadow-sm' => $isTailwind4,
+        'flex' => ($isTailwind4 && !$searchViewAttributes['icon']['hasSearchIcon']),
+
         'relative inline-flex flex-row' => $searchViewAttributes['icon']['hasSearchIcon'],
     ])>
 

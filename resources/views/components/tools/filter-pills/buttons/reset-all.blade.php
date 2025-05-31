@@ -1,7 +1,7 @@
-@aware(['isTailwind','isBootstrap','isBootstrap4','isBootstrap5', 'localisationPath'])
+@aware(['isTailwind','isTailwind4','isBootstrap','isBootstrap4','isBootstrap5', 'localisationPath'])
 @php($resetAllButtonAttributes = $this->getFilterPillsResetAllButtonAttributes())
 
-@if ($isTailwind)
+@if ($isTailwind || $isTailwind4)
     <button
         x-on:click.prevent="resetAllFilters"
         @class([

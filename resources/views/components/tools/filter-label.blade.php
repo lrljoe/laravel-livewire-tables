@@ -1,5 +1,5 @@
 @aware([ 'tableName'])
-@props(['filter', 'filterLayout' => 'popover', 'tableName' => 'table', 'isTailwind' => false, 'isBootstrap' => false, 'isBootstrap4' => false, 'isBootstrap5' => false, 'for' => null])
+@props(['filter', 'filterLayout' => 'popover', 'tableName' => 'table', 'isTailwind' => false, 'isTailwind4' => false, 'isBootstrap' => false, 'isBootstrap4' => false, 'isBootstrap5' => false, 'for' => null])
 
 @php
     $filterLabelAttributes = $filter->getFilterLabelAttributes();
@@ -12,8 +12,15 @@
     <label for="{{ $for ?? $tableName.'-filter-'.$filter->getKey() }}" {{
             $attributes->merge($customLabelAttributes)->merge($filterLabelAttributes)
                 ->class([
+                    // Tailwind3
                     'block text-sm font-medium leading-5' => $isTailwind && ($filterLabelAttributes['default-styling'] ?? ($filterLabelAttributes['default'] ?? true)),
                     'text-gray-700 dark:text-white' => $isTailwind && ($filterLabelAttributes['default-colors'] ?? ($filterLabelAttributes['default'] ?? true)),
+
+                    // Tailwind4
+                    'block text-sm font-medium leading-5' => $isTailwind4 && ($filterLabelAttributes['default-styling'] ?? ($filterLabelAttributes['default'] ?? true)),
+                    'text-gray-700 dark:text-white' => $isTailwind4 && ($filterLabelAttributes['default-colors'] ?? ($filterLabelAttributes['default'] ?? true)),
+
+                    // Bootstrap
                     'd-block' => $isBootstrap && $filterLayout === 'slide-down' && ($filterLabelAttributes['default-styling'] ?? ($filterLabelAttributes['default'] ?? true)),
                     'mb-2' => $isBootstrap && $filterLayout === 'popover' && ($filterLabelAttributes['default-styling'] ?? ($filterLabelAttributes['default'] ?? true)),
                 ])

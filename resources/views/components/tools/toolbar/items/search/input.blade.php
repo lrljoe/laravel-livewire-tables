@@ -1,11 +1,11 @@
-@aware(['isTailwind', 'isBootstrap', 'searchViewAttributes'])
+@aware(['isTailwind', 'isTailwind4', 'isBootstrap', 'searchViewAttributes'])
 <input
     wire:model{{ $searchViewAttributes['searchOptions'] }}="search"
     placeholder="{{ $searchViewAttributes['searchPlaceholder'] }}"
     type="text"
     {{ 
         $attributes->merge($searchViewAttributes['searchFieldAttributes'])
-        ->class($isTailwind ?
+        ->class(($isTailwind  || $isTailwind4) ?
             [
                 'rounded-md shadow-sm transition duration-150 ease-in-out sm:text-sm sm:leading-5 rounded-none rounded-l-md focus:ring-0 focus:border-gray-300' => $searchViewAttributes['hasSearch'] && (($searchViewAttributes['searchFieldAttributes']['default'] ?? true) || ($searchViewAttributes['searchFieldAttributes']['default-styling'] ?? true)),
                 'rounded-md shadow-sm transition duration-150 ease-in-out sm:text-sm sm:leading-5 rounded-md focus:ring focus:ring-opacity-50' => !$searchViewAttributes['hasSearch']  && (($searchViewAttributes['searchFieldAttributes']['default'] ?? true) || ($searchViewAttributes['searchFieldAttributes']['default-styling'] ?? true)),

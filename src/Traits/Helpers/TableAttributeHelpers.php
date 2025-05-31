@@ -50,6 +50,19 @@ trait TableAttributeHelpers
         ...$this->componentWrapperAttributes]);
     }
 
+    public function getBulkActionsAlpine()
+    {  
+        $coreAttribs = [];
+        if($this->showBulkActionsSections())
+        {
+            return new ComponentAttributeBag([
+                'x-data' => 'bulkactions($wire)',
+                'x-show' => 'selectedItems.length > 0 && !currentlyReorderingStatus',
+            ]);
+        }
+        return new ComponentAttributeBag($coreAttribs);
+    }
+
     /**
      * Undocumented function
      *
@@ -57,7 +70,9 @@ trait TableAttributeHelpers
      */
     public function getTableWrapperAttributes(): array
     {
-        return array_merge(['wire:key' => $this->getTableName().'-twrap'], (count($this->tableWrapperAttributes) ? $this->tableWrapperAttributes : ['default' => true]));
+        return array_merge([
+            'wire:key' => $this->getTableName().'-twrap'
+        ], (count($this->tableWrapperAttributes) ? $this->tableWrapperAttributes : ['default' => true]));
     }
 
     /**
@@ -251,7 +266,7 @@ trait TableAttributeHelpers
     {
         return [
             'x-data' => 'laravellivewiretable($wire)',
-            'x-init' => "setTableId('".$this->getTableAttributes()['id']."'); setAlpineBulkActions('".$this->showBulkActionsDropdownAlpine()."'); setPrimaryKeyName('".$this->getPrimaryKey()."');",
+            'x-init' => "setTableId('".$this->getTableAttributes()['id']."'); setPrimaryKeyName('".$this->getPrimaryKey()."');",
             'x-cloak' => '',
             'x-show' => 'shouldBeDisplayed',
             'x-on:show-table.window' => 'showTable(event)',

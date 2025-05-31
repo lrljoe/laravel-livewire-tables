@@ -7,6 +7,7 @@ import tools from "./partials/core/tools.min.js";
 import boolean from "./partials/filters/boolean.js";
 import fpf from "./partials/filters/fpf.js";
 import nrF from "./partials/filters/numberRange.js";
+import bulkactionsHelper from "./partials/core/bulkactionsHelper.min.js";
 
 document.addEventListener('alpine:init', () => {
     
@@ -18,5 +19,6 @@ document.addEventListener('alpine:init', () => {
     boolean();
     fpf();
     nrF();
+    bulkactionsHelper();
     
 });

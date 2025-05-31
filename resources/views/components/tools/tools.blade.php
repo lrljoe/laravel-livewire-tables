@@ -1,13 +1,18 @@
-@aware(['isTailwind','isBootstrap'])
+@aware(['isTailwind','isTailwind4', 'isBootstrap'])
 @props(['toolsAttributes', 'toolBarAttributes'])
 
 
     <div {{
         $attributes->merge(['x-data' => 'tools($wire)'])->merge($toolsAttributes)
-            ->class($isTailwind ? [
-                'flex-col' => ($toolsAttributes['default-styling'] ?? true),
-            ] : [
-                'd-flex flex-column' => ($toolsAttributes['default-styling'] ?? true)
+            ->class([
+                // Tailwind3
+                'flex-col' => $isTailwind && ($toolsAttributes['default-styling'] ?? true),
+
+                // Tailwind4
+                'flex-col' => $isTailwind4 && ($toolsAttributes['default-styling'] ?? true),
+
+                // Bootstrap
+                'd-flex flex-column' => $isBootstrap && ($toolsAttributes['default-styling'] ?? true),
             ])
             ->except(['default','default-styling','default-colors'])
         }}

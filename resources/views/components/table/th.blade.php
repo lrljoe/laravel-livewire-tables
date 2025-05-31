@@ -1,4 +1,4 @@
-@aware(['isTailwind','isBootstrap','collapsingColumnInfo'])
+@aware(['isTailwind','isTailwind4','isBootstrap','collapsingColumnInfo'])
 @props(['column', 'index'])
 
 @php
@@ -12,11 +12,17 @@
 
 <th {{
     $attributes->merge($customThAttributes)
-        ->class($isTailwind ? [
-            'text-gray-500 dark:bg-gray-800 dark:text-gray-400' => (($customThAttributes['default-colors'] ?? true) || ($customThAttributes['default'] ?? true)),
-            'px-6 py-3 text-left text-xs font-medium whitespace-nowrap uppercase tracking-wider' => (($customThAttributes['default-styling'] ?? true) || ($customThAttributes['default'] ?? true)),
-            ] : [
-            '' => ($customThAttributes['default'] ?? true),
+        ->class([
+            // Tailwind 3
+            'text-gray-500 dark:bg-gray-800 dark:text-gray-400' => $isTailwind && (($customThAttributes['default-colors'] ?? true) || ($customThAttributes['default'] ?? true)),
+            'px-6 py-3 text-left text-xs font-medium whitespace-nowrap uppercase tracking-wider' => $isTailwind && (($customThAttributes['default-styling'] ?? true) || ($customThAttributes['default'] ?? true)),
+
+            // Tailwind 4
+            'text-gray-500 dark:bg-gray-800 dark:text-gray-400' => $isTailwind4 && (($customThAttributes['default-colors'] ?? true) || ($customThAttributes['default'] ?? true)),
+            'px-6 py-3 text-left text-xs font-medium whitespace-nowrap uppercase tracking-wider' => $isTailwind4 && (($customThAttributes['default-styling'] ?? true) || ($customThAttributes['default'] ?? true)),
+
+            // Bootstrap
+            '' => $isBootstrap && ($customThAttributes['default'] ?? true),
         ])
         ->class($collapsingColumnInfo['collapsingColumnClasses'][$index] ?? '')
         ->except(['default', 'default-colors', 'default-styling'])
@@ -25,7 +31,7 @@
         @unless ($this->sortingIsEnabled() && ($column->isSortable() || $column->getSortCallback()))
             <x-livewire-tables::table.th.label :$customLabelAttributes :columnTitle="$column->getTitle()" />
         @else
-            @if ($isTailwind)
+            @if ($isTailwind || $isTailwind4)
 
                 <button wire:click="sortBy('{{ $column->getColumnSortKey() }}')" {{
                         $attributes->merge($customSortButtonAttributes)

@@ -1,18 +1,19 @@
-@aware([ 'tableName','isTailwind','isBootstrap','isBootstrap4','isBootstrap5', 'localisationPath'])
+@aware([ 'tableName','isTailwind','isTailwind4','isBootstrap','isBootstrap4','isBootstrap5', 'localisationPath'])
 
 <div {{ $attributes->merge([
-
     'wire:loading.class' => $this->displayFilterPillsWhileLoading() ? '' : 'invisible',
     'x-cloak',
 ])
 ->class([
     'mb-4 px-4 md:p-0' => $isTailwind,
+    'mb-4 px-4 md:p-0' => $isTailwind4,
     'mb-3' => $isBootstrap,
 ])
 
 }}>
     <small @class([
         'text-gray-700 dark:text-white' => $isTailwind,
+        'text-gray-700 dark:text-white' => $isTailwind4,
         '' =>  $isBootstrap,
     ])>
         {{ __($localisationPath.'Applied Filters') }}:

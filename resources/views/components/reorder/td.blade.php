@@ -1,4 +1,4 @@
-@aware([ 'tableName', 'isTailwind', 'isBootstrap', 'isBootstrap4', 'isBootstrap5', 'rowPk'])
+@aware([ 'tableName', 'isTailwind', 'isTailwind4', 'isBootstrap', 'isBootstrap4', 'isBootstrap5', 'rowPk'])
 
 <x-livewire-tables::table.td.plain x-cloak x-show="currentlyReorderingStatus" wire:key="{{ $tableName }}-tbody-reorder-{{ $rowPk }}" :displayMinimisedOnReorder="false">
     <svg
@@ -8,6 +8,7 @@
         viewBox="0 0 24 24"
         @class([
             'inline w-4 h-4' => $isTailwind,
+            'inline w-4 h-4' => $isTailwind4,
             'd-inline' => ($isBootstrap4 || $isBootstrap5),
         ])
         @style([

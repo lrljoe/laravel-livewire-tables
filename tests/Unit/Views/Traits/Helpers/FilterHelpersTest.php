@@ -327,30 +327,89 @@ final class FilterHelpersTest extends TestCase
         $this->assertTrue($filter->hasCustomPillBlade());
         $this->assertSame('foo', $filter->getCustomPillBlade());
     }
+    
+    public function test_can_get_filter_label_attributes_basic(): void
+    {
+        $filter1 = TextFilter::make('Filter1');
+        $this->assertFalse($filter1->hasFilterLabelAttributes());
+        $filter1->setFilterLabelAttributes(
+            ['class' => 'text-3xl']
+        );
+        $this->assertTrue($filter1->hasFilterLabelAttributes());
+        $this->assertSame($filter1->getFilterLabelAttributes(), ['class' => 'text-3xl', 'default-colors' => true, 'default-styling' => true]);
+    }
 
-    public function test_can_get_filter_label_attributes(): void
+    public function test_can_get_filter_label_attributes_with_true_defaults(): void
+    {
+        $filter1 = TextFilter::make('Filter1');
+        $this->assertFalse($filter1->hasFilterLabelAttributes());
+        $this->assertSame($filter1->getFilterLabelAttributes(), ['default-colors' => true, 'default-styling' => true]);
+        $filter1->setFilterLabelAttributes(
+            ['class' => 'text-3xl', 'default-colors' => true, 'default-styling' => true]
+        );
+        $this->assertTrue($filter1->hasFilterLabelAttributes());
+        $this->assertSame($filter1->getFilterLabelAttributes(), ['class' => 'text-3xl', 'default-colors' => true, 'default-styling' => true]);
+    }
+
+    public function test_can_get_filter_label_attributes_with_false_defaults(): void
+    {
+        $filter1 = TextFilter::make('Filter1');
+        $this->assertFalse($filter1->hasFilterLabelAttributes());
+        $this->assertSame($filter1->getFilterLabelAttributes(), ['default-colors' => true, 'default-styling' => true]);
+        $filter1->setFilterLabelAttributes(
+            ['class' => 'text-3xl', 'default-colors' => false, 'default-styling' => false]
+        );
+        $this->assertTrue($filter1->hasFilterLabelAttributes());
+        $this->assertSame($filter1->getFilterLabelAttributes(), ['class' => 'text-3xl', 'default-colors' => false, 'default-styling' => false]);
+    }
+
+    public function test_can_get_filter_label_attributes_with_false_default_colors(): void
+    {
+        $filter1 = TextFilter::make('Filter1');
+        $this->assertFalse($filter1->hasFilterLabelAttributes());
+        $this->assertSame($filter1->getFilterLabelAttributes(), ['default-colors' => true, 'default-styling' => true]);
+        $filter1->setFilterLabelAttributes(
+            ['class' => 'text-3xl', 'default-colors' => false, 'default-styling' => true]
+        );
+        $this->assertTrue($filter1->hasFilterLabelAttributes());
+        $this->assertSame($filter1->getFilterLabelAttributes(), ['class' => 'text-3xl', 'default-colors' => false, 'default-styling' => true]);
+    }
+
+    public function test_can_get_filter_label_attributes_with_false_default_styling(): void
+    {
+        $filter1 = TextFilter::make('Filter1');
+        $this->assertFalse($filter1->hasFilterLabelAttributes());
+        $this->assertSame($filter1->getFilterLabelAttributes(), ['default-colors' => true, 'default-styling' => true]);
+        $filter1->setFilterLabelAttributes(
+            ['class' => 'text-3xl', 'default-colors' => true, 'default-styling' => false]
+        );
+        $this->assertTrue($filter1->hasFilterLabelAttributes());
+        $this->assertSame($filter1->getFilterLabelAttributes(), ['class' => 'text-3xl', 'default-colors' => true, 'default-styling' => false]);
+    }
+
+    public function test_can_get_filter_label_attributes_multiple(): void
     {
         $filter1 = TextFilter::make('Filter1');
         $filter2 = TextFilter::make('Filter2')->setFilterLabelAttributes(
-            ['class' => 'text-xl', 'default' => true]
+            ['class' => 'text-xl', 'default-colors' => false, 'default-styling' => true]
         );
         $filter3 = TextFilter::make('Filter3')->setFilterLabelAttributes(
-            ['class' => 'text-2xl', 'default' => false]
+            ['class' => 'text-2xl']
         );
-
+        
         $this->assertFalse($filter1->hasFilterLabelAttributes());
         $this->assertTrue($filter2->hasFilterLabelAttributes());
         $this->assertTrue($filter3->hasFilterLabelAttributes());
 
-        $this->assertSame($filter1->getFilterLabelAttributes(), ['default' => true]);
-        $this->assertSame($filter2->getFilterLabelAttributes(), ['default' => true, 'class' => 'text-xl']);
-        $this->assertSame($filter3->getFilterLabelAttributes(), ['default' => false, 'class' => 'text-2xl']);
+        $this->assertSame($filter1->getFilterLabelAttributes(), ['default-colors' => true, 'default-styling' => true]);
+        $this->assertSame($filter2->getFilterLabelAttributes(), ['class' => 'text-xl', 'default-colors' => false, 'default-styling' => true]);
+        $this->assertSame($filter3->getFilterLabelAttributes(), ['class' => 'text-2xl', 'default-colors' => true, 'default-styling' => true]);
 
         $filter1->setFilterLabelAttributes(
-            ['class' => 'text-3xl', 'default' => false]
+            ['class' => 'text-3xl', 'default-colors' => false, 'default-styling' => false]
         );
         $this->assertTrue($filter1->hasFilterLabelAttributes());
-        $this->assertSame($filter1->getFilterLabelAttributes(), ['default' => false, 'class' => 'text-3xl']);
+        $this->assertSame($filter1->getFilterLabelAttributes(), ['class' => 'text-3xl', 'default-colors' => false, 'default-styling' => false]);
 
     }
 

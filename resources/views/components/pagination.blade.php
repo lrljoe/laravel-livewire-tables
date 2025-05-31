@@ -1,4 +1,4 @@
-@aware(['isTailwind','isBootstrap','isBootstrap4', 'isBootstrap5', 'localisationPath'])
+@aware(['isTailwind','isTailwind4','isBootstrap','isBootstrap4', 'isBootstrap5', 'localisationPath'])
 @props(['currentRows'])
 @includeWhen(
     $this->hasConfigurableAreaFor('before-pagination'), 
@@ -8,7 +8,7 @@
 
 <div {{ $this->getPaginationWrapperAttributesBag() }}>
     @if ($this->paginationVisibilityIsEnabled())
-        @if ($isTailwind)
+        @if ($isTailwind || $isTailwind4)
             <div class="mt-4 px-4 md:p-0 sm:flex justify-between items-center space-y-4 sm:space-y-0">
                 <div>
                     @if ($this->paginationIsEnabled() && $this->isPaginationMethod('standard') && $currentRows->lastPage() > 1 && $this->showPaginationDetails())
