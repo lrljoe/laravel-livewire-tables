@@ -7,11 +7,15 @@
             'data-id' => $rowPk,
         ] : [])
         ->merge($tableRowDetails['attributes'])
-        ->class($isTailwind ? [
-            'even:bg-white even:dark:bg-gray-700 odd:bg-gray-50 odd:dark:bg-gray-800 dark:text-white',
-            'divide-gray-200 dark:divide-none' => ($coreTableAttributes['tbody']['default-colors'] ?? ($coreTableAttributes['tbody']['default'] ?? true)),
-            'divide-y' => ($coreTableAttributes['tbody']['default-styling'] ?? ($coreTableAttributes['tbody']['default'] ?? true)),
-        ] : [])
+        ->class([
+            'even:bg-white even:dark:bg-gray-700 odd:bg-gray-50 odd:dark:bg-gray-800 dark:text-white' => $isTailwind,
+            'divide-gray-200 dark:divide-none' => $isTailwind && ($coreTableAttributes['tbody']['default-colors'] ?? ($coreTableAttributes['tbody']['default'] ?? true)),
+            'divide-y' => $isTailwind && ($coreTableAttributes['tbody']['default-styling'] ?? ($coreTableAttributes['tbody']['default'] ?? true)),
+            
+            'tw4ph even:bg-white even:dark:bg-gray-700 odd:bg-gray-50 odd:dark:bg-gray-800 dark:text-white' => $isTailwind4,
+            'tw4ph divide-gray-200 dark:divide-none' => $isTailwind4 && ($coreTableAttributes['tbody']['default-colors'] ?? ($coreTableAttributes['tbody']['default'] ?? true)),
+            'tw4ph divide-y' => $isTailwind4 && ($coreTableAttributes['tbody']['default-styling'] ?? ($coreTableAttributes['tbody']['default'] ?? true)),
+        ])
         ->except(['default','default-styling','default-colors']) 
     }} x-data="{ opening: false, }" >
 

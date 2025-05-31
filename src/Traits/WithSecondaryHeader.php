@@ -4,6 +4,7 @@ namespace Rappasoft\LaravelLivewireTables\Traits;
 
 use Rappasoft\LaravelLivewireTables\Traits\Styling\HasSecondaryHeaderStyling;
 use Livewire\Attributes\Computed;
+use Rappasoft\LaravelLivewireTables\Views\Column;
 
 trait WithSecondaryHeader
 {
@@ -30,7 +31,14 @@ trait WithSecondaryHeader
      */
     public function shouldShowSecondaryHeader(): bool
     {
-        return $this->secondaryHeaderIsEnabled() && $this->hasColumnsWithSecondaryHeader();
+        if($this->secondaryHeaderIsDisabled())
+        {
+            return false;
+        }
+        return $this->columns
+            ->reject(fn (Column $column) => $column->isHidden() || ($column->isSelectable() && ! $this->columnSelectIsEnabledForColumn($column)) || !$column->hasSecondaryHeader())
+            ->reject(fn (Column $column) => $this->currentlyReorderingIsEnabled() && !$column->isVisibleOnReorder())
+            ->count() > 0;
     }
 
     /**
@@ -40,7 +48,7 @@ trait WithSecondaryHeader
      */
     public function hasColumnsWithSecondaryHeader(): bool
     {
-        return $this->columnsWithSecondaryHeader === true;
+        return $this->columnsWithSecondaryHeader;
     }
 
     /**

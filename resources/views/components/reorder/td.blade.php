@@ -8,6 +8,7 @@
         viewBox="0 0 24 24"
         @class([
             'inline w-4 h-4' => $isTailwind,
+            'tw4ph inline w-4 h-4' => $isTailwind4,
             'd-inline' => ($isBootstrap4 || $isBootstrap5),
         ])
         @style([

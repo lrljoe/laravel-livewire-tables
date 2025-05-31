@@ -9,7 +9,7 @@
     @endif
 
     @if ($hasCollapsingColumns)
-        <x-livewire-tables::collapsed-columns.td :hidden=true :displayMinimisedOnReorder="true" wire:key="{{ $tableName .'footer-collapsed-hide' }}"  />
+        <x-livewire-tables::collapsed-columns.td :hidden=true :displayMinimisedOnReorder="true" wire:key="{{ $tableName .'-footer-collapsed-hide' }}"  />
     @endif
 
 

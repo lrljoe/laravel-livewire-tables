@@ -11,32 +11,36 @@
                 ->merge($tableRowDetails['attributes'])
                 ->class([
                     'hidden rappasoft-striped-row' => $isTailwind && ($tableRowDetails['attributes']['default'] ?? true),
-                    
+                    'tw4ph hidden rappasoft-striped-row' => $isTailwind4 && ($tableRowDetails['attributes']['default'] ?? true),
+
                     'd-none bg-light rappasoft-striped-row' => $isBootstrap && ($rowIndex % 2 === 0 && ($tableRowDetails['attributes']['default'] ?? true)),
                     'd-none bg-white rappasoft-striped-row' => $isBootstrap && ($rowIndex % 2 !== 0 && ($tableRowDetails['attributes']['default'] ?? true)),
                 ])
                 ->except(['default','default-styling','default-colors'])
         }}
     >
-        <td colspan="{{ $collapsingColumnInfo['colspanCount'] }}" @class([
+        <td colspan="{{ $collapsingColumnInfo['colspanCount'] }}" 
+            @class([
                 'text-left pt-4 pb-2 px-4' => $isTailwind,
-                'text-start pt-3 p-2' => $isBootstrap,
-        ])>
-            <div >
-
-
+                'tw4ph text-left pt-4 pb-2 px-4' => $isTailwind4,
+                'text-start pt-3 p-2' => $isBootstrap, 
+            ])
+        >
+            <div>
                 @tableloop($collapsingColumnInfo['collapsingColumnDetails'] as $colIndex => $columnData)
-                @php($key = $tableName . '_' . $rowIndex.'_'.$colIndex)
-                    <div wire:key="{{ $tableName }}-row-{{ $rowPk }}-collapsed-contents-{{ $colIndex }}" 
+                    @php($key = $tableName . '_' . $rowIndex.'_'.$colIndex)
+                    <div wire:key="{{ $tableName }}-row-{{ $rowPk }}-collapsed-contents-{{ $colIndex }}" @class($columnData['classes'])
                         x-data="{ value: '', 
                                 init() { 
                                     $watch('opening', val => {
                                         this.value = stripLivewireTags($refs.{{ $tableName . '_' . $rowIndex.'_'.$colIndex }});
                                     });
                                 }
-                            }" @class($columnData['classes'])>
-                                <strong>{{ $columnData['title'] }}</strong>: <br />
-                                <span @if($columnData['isHtml'])x-html="value" @else x-text="value"@endif></span>
+                            }" 
+                            
+                    >
+                        <strong>{{ $columnData['title'] }}</strong>: <br />
+                        <span @if($columnData['isHtml'])x-html="value" @else x-text="value"@endif> </span>
                     </div>
                 @endtableloop
             </div>

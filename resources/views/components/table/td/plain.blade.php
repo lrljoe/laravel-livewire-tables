@@ -8,6 +8,7 @@
     ])
     ->class([
         'px-6 py-4 whitespace-nowrap text-sm font-medium dark:text-white' => $isTailwind && ($customAttributes['default'] ?? true),
+        'tw4ph px-6 py-4 whitespace-nowrap text-sm font-medium dark:text-white' => $isTailwind4 && ($customAttributes['default'] ?? true),
 
         '' => $isBootstrap && ($customAttributes['default'] ?? true),
     ])

@@ -4,11 +4,10 @@
 
 <div x-cloak id="{{ $tableName }}-dateRangeFilter-{{ $filterKey }}" x-data="flatpickrFilter($wire, '{{ $filterKey }}', @js($filter->getConfigs()), $refs.dateRangeInput, '{{ App::currentLocale() }}')" >
     <x-livewire-tables::tools.filter-label :$filter :$filterLayout :$tableName :$isTailwind :$isTailwind4 :$isBootstrap4 :$isBootstrap5 :$isBootstrap />
-    <div
-        @class([
-            'w-full rounded-md shadow-sm text-left ' => ($isTailwind),
-            'tw4ph w-full rounded-md shadow-sm text-left ' => ($isTailwind4),
-            'd-inline-block w-100 mb-3 mb-md-0 input-group' => ($isBootstrap),
+    <div @class([
+            'w-full rounded-md shadow-sm text-left' => $isTailwind,
+            'tw4ph w-full rounded-md shadow-sm text-left' => $isTailwind4,
+            'd-inline-block w-100 mb-3 mb-md-0 input-group' => $isBootstrap,
         ])
     >
         <input

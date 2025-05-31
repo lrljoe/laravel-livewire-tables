@@ -12,15 +12,25 @@
                 ":class" => "(value == 1 || value == true) ? '".$filterInputAttributes['activeColor']."' : '".$filterInputAttributes['inactiveColor']."'",
             ])
             ->class([
-                'relative inline-flex h-6 py-0.5 ml-4 focus:outline-none rounded-full w-10' => ($filterInputAttributes['default-styling'] ?? true)
+                'relative inline-flex h-6 py-0.5 ml-4 focus:outline-none rounded-full w-10' => $isTailwind && ($filterInputAttributes['default-styling'] ?? true),
+                'tw4ph relative inline-flex h-6 py-0.5 ml-4 focus:outline-none rounded-full w-10' => $isTailwind4 && ($filterInputAttributes['default-styling'] ?? true),
             ])
             ->except(['default-styling','default-colors','activeColor','inactiveColor','blobColor'])
         }}>
-        <span :class="(value == 1 || value == true) ? 'translate-x-[18px]' : 'translate-x-0.5'" class="w-5 h-5 duration-200 ease-in-out rounded-full shadow-md {{ $filterInputAttributes['blobColor'] }}"></span>
+        <span :class="(value == 1 || value == true) ? 'translate-x-[18px]' : 'translate-x-0.5'" 
+            @class([
+                $filterInputAttributes['blobColor'],
+                'w-5 h-5 duration-200 ease-in-out rounded-full shadow-md' => $isTailwind,
+                'tw4ph w-5 h-5 duration-200 ease-in-out rounded-full shadow-md' => $isTailwind4,
+            ])>
+        </span>
     </button>
     <template x-if="(value == 1 || value == true)">
         <button @click="toggleStatusWithReset" type="button"
-            class="flex-shrink-0 ml-1 h-6 w-6 rounded-full inline-flex items-center justify-center text-indigo-400 hover:bg-indigo-200 hover:text-indigo-500 focus:outline-none focus:bg-indigo-500 focus:text-white"
+            @class([
+                'flex-shrink-0 ml-1 h-6 w-6 rounded-full inline-flex items-center justify-center text-indigo-400 hover:bg-indigo-200 hover:text-indigo-500 focus:outline-none focus:bg-indigo-500 focus:text-white' => $isTailwind,
+                'tw4ph flex-shrink-0 ml-1 h-6 w-6 rounded-full inline-flex items-center justify-center text-indigo-400 hover:bg-indigo-200 hover:text-indigo-500 focus:outline-none focus:bg-indigo-500 focus:text-white' => $isTailwind4,
+            ])
         >
 
             <span class="sr-only">{{ __($localisationPath.'Remove filter option') }}</span>

@@ -10,7 +10,14 @@ trait FooterHelpers
     #[Computed]
     public function shouldShowFooter(): bool
     {
-        return $this->footerIsEnabled() && $this->hasColumnsWithFooter();
+        if($this->footerIsDisabled())
+        {
+            return false;
+        }
+        return $this->columns
+            ->reject(fn (Column $column) => $column->isHidden() || ($column->isSelectable() && ! $this->columnSelectIsEnabledForColumn($column)) || !$column->hasFooter())
+            ->reject(fn (Column $column) => $this->currentlyReorderingIsEnabled() && !$column->isVisibleOnReorder())
+            ->count() > 0;
     }
 
     public function hasColumnsWithFooter(): bool
