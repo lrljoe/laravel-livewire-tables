@@ -78,16 +78,16 @@
                             $filter->hasFilterSlidedownColspan() &&
                             $filter->getFilterSlidedownColspan() === 3,
 
-                        'space-y-1 col-span-12' =>
+                        'tw4ph space-y-1 col-span-12' =>
                             $isTailwind4,
-                        'sm:col-span-6 md:col-span-4 lg:col-span-2' =>
+                        'tw4ph sm:col-span-6 md:col-span-4 lg:col-span-2' =>
                             $isTailwind4 &&
                             !$filter->hasFilterSlidedownColspan(),
-                        'sm:col-span-12 md:col-span-8 lg:col-span-4' =>
+                        'tw4ph sm:col-span-12 md:col-span-8 lg:col-span-4' =>
                             $isTailwind4 &&
                             $filter->hasFilterSlidedownColspan() &&
                             $filter->getFilterSlidedownColspan() === 2,
-                        'sm:col-span-9 md:col-span-4 lg:col-span-3' =>
+                        'tw4ph sm:col-span-9 md:col-span-4 lg:col-span-3' =>
                             $isTailwind4 &&
                             $filter->hasFilterSlidedownColspan() &&
                             $filter->getFilterSlidedownColspan() === 3,

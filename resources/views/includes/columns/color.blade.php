@@ -1,11 +1,9 @@
 <div @class([
                 'items-center content-center place-content-center place-items-center' => $isTailwind,
-                'items-center content-center place-content-center place-items-center' => $isTailwind4,
             ])
 >
     <div {{ $attributeBag->class([
             'h-6 w-6 rounded-md self-center' => $isTailwind && ($attributeBag['default'] ?? (empty($attributeBag['class']) || (!empty($attributeBag['class']) && ($attributeBag['default'] ?? false)))),
-            'h-6 w-6 rounded-md self-center' => $isTailwind4 && ($attributeBag['default'] ?? (empty($attributeBag['class']) || (!empty($attributeBag['class']) && ($attributeBag['default'] ?? false)))),
 
         ]) }}
         @style([

@@ -6,12 +6,6 @@
                     '' => $coreTableAttributes['thead']['default-styling'] ?? ($coreTableAttributes['thead']['default'] ?? true),
                     'unsortable',
                 ] : [])
-                ->class($isTailwind4 ? [
-                    'bg-gray-50 dark:bg-gray-800' => $coreTableAttributes['thead']['default-colors'] ?? ($coreTableAttributes['thead']['default'] ?? true),
-                    '' => $coreTableAttributes['thead']['default-styling'] ?? ($coreTableAttributes['thead']['default'] ?? true),
-                    'unsortable',
-                ] : []
-                )
                 ->class($isBootstrap ? [
                     '' => $coreTableAttributes['thead']['default-colors'] ?? ($coreTableAttributes['thead']['default'] ?? true),
                     '' => $coreTableAttributes['thead']['default-styling'] ?? ($coreTableAttributes['thead']['default'] ?? true),

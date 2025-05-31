@@ -10,13 +10,9 @@
                 ])
                 ->merge($tableRowDetails['attributes'])
                 ->class([
-                    // Tailwind3
                     'hidden rappasoft-striped-row' => $isTailwind && ($tableRowDetails['attributes']['default'] ?? true),
 
-                    // Tailwind4
-                    'hidden rappasoft-striped-row' => $isTailwind4 && ($tableRowDetails['attributes']['default'] ?? true),
 
-                    // Bootstrap
                     'd-none bg-light rappasoft-striped-row' => $isBootstrap && ($rowIndex % 2 === 0 && ($tableRowDetails['attributes']['default'] ?? true)),
                     'd-none bg-white rappasoft-striped-row' => $isBootstrap && ($rowIndex % 2 !== 0 && ($tableRowDetails['attributes']['default'] ?? true)),
 
@@ -26,7 +22,6 @@
     >
         <td colspan="{{ $collapsingColumnInfo['colspanCount'] }}" @class([
                 'text-left pt-4 pb-2 px-4' => $isTailwind,
-                'text-left pt-4 pb-2 px-4' => $isTailwind4,
                 'text-start pt-3 p-2' => $isBootstrap,
         ])>
             <div >

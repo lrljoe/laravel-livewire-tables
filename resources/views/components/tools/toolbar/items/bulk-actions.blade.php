@@ -5,14 +5,14 @@
         x-cloak x-show="(selectedItems.length > 0 || hideBulkActionsWhenEmpty == false)"
         @class([
             'w-full md:w-auto mb-4 md:mb-0' => $isTailwind,
-            'w-full md:w-auto mb-4 md:mb-0' => $isTailwind4,
+            'tw4ph w-full md:w-auto mb-4 md:mb-0' => $isTailwind4,
             'mb-3 mb-md-0' => $isBootstrap,
-
+ 
         ])
     >
         <div @class([
                 'relative inline-block text-left z-10 w-full md:w-auto' => $isTailwind,
-                'relative inline-block text-left z-10 w-full md:w-auto' => $isTailwind4,
+                'tw4ph relative inline-block text-left z-10 w-full md:w-auto' => $isTailwind4,
                 'dropdown d-block d-md-inline' => $isBootstrap,
             ])
         >
@@ -23,8 +23,8 @@
                         'btn dropdown-toggle d-block d-md-inline' => $isBootstrap && ($this->getBulkActionsButtonAttributes()['default-styling'] ?? true),
                         'border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:border-indigo-300 focus:ring-indigo-200 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600' => $isTailwind && ($this->getBulkActionsButtonAttributes()['default-colors'] ?? true),
                         'inline-flex justify-center w-full rounded-md border shadow-sm px-4 py-2 text-sm font-medium focus:ring focus:ring-opacity-50' => $isTailwind && ($this->getBulkActionsButtonAttributes()['default-styling'] ?? true),
-                        'border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:border-indigo-300 focus:ring-indigo-200 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600' => $isTailwind4 && ($this->getBulkActionsButtonAttributes()['default-colors'] ?? true),
-                        'inline-flex justify-center w-full rounded-md border shadow-sm px-4 py-2 text-sm font-medium focus:ring focus:ring-opacity-50' => $isTailwind4 && ($this->getBulkActionsButtonAttributes()['default-styling'] ?? true),
+                        'tw4ph border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:border-indigo-300 focus:ring-indigo-200 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600' => $isTailwind4 && ($this->getBulkActionsButtonAttributes()['default-colors'] ?? true),
+                        'tw4ph inline-flex justify-center w-full rounded-md border shadow-sm px-4 py-2 text-sm font-medium focus:ring focus:ring-opacity-50' => $isTailwind4 && ($this->getBulkActionsButtonAttributes()['default-styling'] ?? true),
 
                     ])
                     ->except(['default','default-styling','default-colors']) 
@@ -33,7 +33,7 @@
                 id="{{ $tableName }}-bulkActionsDropdown" 
                 
                             
-                @if($isTailwind || $isTailwind4)
+                @if($isTailwind)
                     x-on:click="open = !open"
                 @else
                     data-toggle="dropdown" data-bs-toggle="dropdown"

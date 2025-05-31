@@ -6,7 +6,7 @@
     $filterButtonAttributes = $filterPillData->getCalculatedCustomResetButtonAttributes($filterKey,$this->getFilterPillsResetFilterButtonAttributes());
 
 @endphp
-@if ($isTailwind || $isTailwind4)
+@if ($isTailwind)
     <button 
         {{
             $attributes->merge($filterButtonAttributes)

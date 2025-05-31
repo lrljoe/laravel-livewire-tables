@@ -11,7 +11,7 @@
     <div
         @class([
             'mt-4 h-22 pt-8 pb-4 grid gap-10' => $isTailwind,
-            'mt-4 h-22 pt-8 pb-4 grid gap-10' => $isTailwind4,
+            'tw4ph mt-4 h-22 pt-8 pb-4 grid gap-10' => $isTailwind4,
             'mt-4 h-22 w-100 pb-4 pt-2 grid gap-10' => $isBootstrap,
         ])
         wire:ignore
@@ -20,7 +20,7 @@
             id="{{ $tableName }}-numberRange-{{ $filterKey }}-wrapper" data-ticks-position='bottom'
             @class([
                 'range-slider flat' => $isTailwind,
-                'range-slider flat' => $isTailwind4,
+                'tw4ph range-slider flat' => $isTailwind4,
                 'range-slider flat w-100' => $isBootstrap,
             ])
             style=' --min:{{ $minRange }}; --max:{{ $maxRange }}; {{ $suffix . $prefix }}'

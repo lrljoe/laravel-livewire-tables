@@ -34,7 +34,9 @@
 
             @php($currentRows = isset($rows) ? $rows : $this->getRows)
 
-            <x-livewire-tables::table :$bulkActionsTdAttributes :$bulkActionsTdCheckboxAttributes :$currentRows />
+            <x-livewire-tables::table.wrapper>
+                <x-livewire-tables::table :$bulkActionsTdAttributes :$bulkActionsTdCheckboxAttributes :$currentRows />
+            </x-livewire-tables::table.wrapper>
 
             <x-livewire-tables::pagination :$currentRows />
 

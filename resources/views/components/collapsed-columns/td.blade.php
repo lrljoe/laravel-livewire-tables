@@ -6,19 +6,11 @@
             $attributes
                 ->merge()
                 ->class([
-                    // Tailwind 3
                     'p-3 table-cell text-center' => $isTailwind,
                     'sm:hidden' => $isTailwind && (!($collapsingColumnInfo['shouldCollapseAlways'] ?? false) && !($collapsingColumnInfo['shouldCollapseOnTablet'] ?? false)),
                     'md:hidden' => $isTailwind && (!($collapsingColumnInfo['shouldCollapseAlways'] ?? false) && !($collapsingColumnInfo['shouldCollapseOnTablet'] ?? false) && ($collapsingColumnInfo['shouldCollapseOnMobile'] ?? false)),
                     'lg:hidden' => $isTailwind && (!($collapsingColumnInfo['shouldCollapseAlways'] ?? false) && (($collapsingColumnInfo['shouldCollapseOnTablet'] ?? false) || ($collapsingColumnInfo['shouldCollapseOnMobile'] ?? false))),
 
-                    // Tailwind 4
-                    'p-3 table-cell text-center' => $isTailwind4,
-                    'sm:hidden' => $isTailwind4 && (!($collapsingColumnInfo['shouldCollapseAlways'] ?? false) && !($collapsingColumnInfo['shouldCollapseOnTablet'] ?? false)),
-                    'md:hidden' => $isTailwind4 && (!($collapsingColumnInfo['shouldCollapseAlways'] ?? false) && !($collapsingColumnInfo['shouldCollapseOnTablet'] ?? false) && ($collapsingColumnInfo['shouldCollapseOnMobile'] ?? false)),
-                    'lg:hidden' => $isTailwind4 && (!($collapsingColumnInfo['shouldCollapseAlways'] ?? false) && (($collapsingColumnInfo['shouldCollapseOnTablet'] ?? false) || ($collapsingColumnInfo['shouldCollapseOnMobile'] ?? false))),
-
-                    // Bootstrap
                     'd-sm-none' => $isBootstrap && (!($collapsingColumnInfo['shouldCollapseAlways'] ?? false) && !($collapsingColumnInfo['shouldCollapseOnTablet'] ?? false)),
                     'd-md-none' => $isBootstrap && (!($collapsingColumnInfo['shouldCollapseAlways'] ?? false) && !($collapsingColumnInfo['shouldCollapseOnTablet'] ?? false) && ($collapsingColumnInfo['shouldCollapseOnMobile'] ?? false)),
                     'd-lg-none' => $isBootstrap && (!($collapsingColumnInfo['shouldCollapseAlways'] ?? false) && (($collapsingColumnInfo['shouldCollapseOnTablet'] ?? false) || ($collapsingColumnInfo['shouldCollapseOnMobile'] ?? false))),
@@ -40,15 +32,9 @@
                 <x-heroicon-o-plus-circle x-cloak x-show="!open" {{ 
                     $attributes->merge($collapsingColumnInfo['buttonExpandAttributes'])
                         ->class([
-                            // Tailwind 3
                             'h-6 w-6' => $isTailwind && ($collapsingColumnInfo['buttonExpandAttributes']['default-styling'] ?? true),
                             'text-green-600' => $isTailwind && ($collapsingColumnInfo['buttonExpandAttributes']['default-colors'] ?? true),
 
-                            // Tailwind 4
-                            'h-6 w-6' => $isTailwind4 && ($collapsingColumnInfo['buttonExpandAttributes']['default-styling'] ?? true),
-                            'text-green-600' => $isTailwind4 && ($collapsingColumnInfo['buttonExpandAttributes']['default-colors'] ?? true),
-
-                            // Bootstrap
                             'laravel-livewire-tables-btn-lg text-success' => $isBootstrap && ($collapsingColumnInfo['buttonExpandAttributes']['default-colors'] ?? true),                           
                         ])
                         ->except(['default','default-styling','default-colors']) 
@@ -57,15 +43,10 @@
                 <x-heroicon-o-minus-circle x-cloak x-show="open"  {{ 
                     $attributes->merge($collapsingColumnInfo['buttonCollapseAttributes'])
                         ->class([
-                            // Tailwind 3
                             'h-6 w-6' => $isTailwind && ($collapsingColumnInfo['buttonCollapseAttributes']['default-styling'] ?? true),
                             'text-yellow-600' => $isTailwind && ($collapsingColumnInfo['buttonCollapseAttributes']['default-colors'] ?? true),
 
-                            // Tailwind 4
-                            'h-6 w-6' => $isTailwind4 && ($collapsingColumnInfo['buttonCollapseAttributes']['default-styling'] ?? true),
-                            'text-yellow-600' => $isTailwind4 && ($collapsingColumnInfo['buttonCollapseAttributes']['default-colors'] ?? true),
 
-                            // Bootstrap
                             'laravel-livewire-tables-btn-lg text-warning' => $isBootstrap && ($collapsingColumnInfo['buttonCollapseAttributes']['default-colors'] ?? true),
                         ])
                         ->except(['default','default-styling','default-colors']) 

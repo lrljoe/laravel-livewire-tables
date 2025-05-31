@@ -6,14 +6,14 @@
 ])
 ->class([
     'mb-4 px-4 md:p-0' => $isTailwind,
-    'mb-4 px-4 md:p-0' => $isTailwind4,
+    'tw4ph mb-4 px-4 md:p-0' => $isTailwind4,
     'mb-3' => $isBootstrap,
 ])
 
 }}>
     <small @class([
         'text-gray-700 dark:text-white' => $isTailwind,
-        'text-gray-700 dark:text-white' => $isTailwind4,
+        'tw4ph text-gray-700 dark:text-white' => $isTailwind4,
         '' =>  $isBootstrap,
     ])>
         {{ __($localisationPath.'Applied Filters') }}:

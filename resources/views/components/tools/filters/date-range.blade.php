@@ -6,9 +6,9 @@
     <x-livewire-tables::tools.filter-label :$filter :$filterLayout :$tableName :$isTailwind :$isTailwind4 :$isBootstrap4 :$isBootstrap5 :$isBootstrap />
     <div
         @class([
-            'w-full rounded-md shadow-sm text-left ' => $isTailwind,
-            'w-full rounded-md shadow-sm text-left ' => $isTailwind4,
-            'd-inline-block w-100 mb-3 mb-md-0 input-group' => $isBootstrap,
+            'w-full rounded-md shadow-sm text-left ' => ($isTailwind),
+            'tw4ph w-full rounded-md shadow-sm text-left ' => ($isTailwind4),
+            'd-inline-block w-100 mb-3 mb-md-0 input-group' => ($isBootstrap),
         ])
     >
         <input
@@ -21,7 +21,7 @@
             id="{{ $tableName }}-filter-dateRange-{{ $filterKey }}"
             @class([
                 'w-full inline-block align-middle transition duration-150 ease-in-out border-gray-300 rounded-md shadow-sm transition duration-150 ease-in-out focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-800 dark:text-white dark:border-gray-600' => $isTailwind,
-                'w-full inline-block align-middle transition duration-150 ease-in-out border-gray-300 rounded-md shadow-sm transition duration-150 ease-in-out focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-800 dark:text-white dark:border-gray-600' => $isTailwind4,
+                'tw4ph w-full inline-block align-middle transition duration-150 ease-in-out border-gray-300 rounded-md shadow-sm transition duration-150 ease-in-out focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-800 dark:text-white dark:border-gray-600' => $isTailwind4,
                 'd-inline-block w-100 form-control' => $isBootstrap,
             ])
             @if($filter->hasConfig('placeholder')) placeholder="{{ $filter->getConfig('placeholder') }}" @endif

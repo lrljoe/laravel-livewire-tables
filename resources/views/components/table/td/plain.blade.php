@@ -7,13 +7,8 @@
         'x-cloak' => $isTailwind || $isTailwind4
     ])
     ->class([
-        // Tailwind 3
         'px-6 py-4 whitespace-nowrap text-sm font-medium dark:text-white' => $isTailwind && ($customAttributes['default'] ?? true),
 
-        // Tailwind 4
-        'px-6 py-4 whitespace-nowrap text-sm font-medium dark:text-white' => $isTailwind4 && ($customAttributes['default'] ?? true),
-
-        // Bootstrap
         '' => $isBootstrap && ($customAttributes['default'] ?? true),
     ])
     ->class($collapsingColumnInfo['collapsingColumnClasses'][$colIndex] ?? '')

@@ -6,11 +6,8 @@
             'wire:key' => $tableName . "-bulk-select-message",
         ])
         ->class([
-            //Tailwind3
             'bg-indigo-50 dark:bg-gray-900 dark:text-white' => $isTailwind,
-            
-            //Tailwind4
-            'bg-indigo-50 dark:bg-gray-900 dark:text-white' => $isTailwind4,
+            'tw4ph bg-indigo-50 dark:bg-gray-900 dark:text-white' => $isTailwind4,
         ])
     }}
 >

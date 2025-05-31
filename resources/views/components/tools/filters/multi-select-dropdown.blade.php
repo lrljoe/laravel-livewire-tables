@@ -10,15 +10,12 @@
                     'wire:key' => $filter->generateWireKey($tableName, 'multiselectdropdown'),
                 ])
                 ->class([
-                    // Tailwind 3
                     'block w-full transition duration-150 ease-in-out rounded-md shadow-sm focus:ring focus:ring-opacity-50' => $isTailwind && ($filterInputAttributes['default-styling'] ?? true),
                     'border-gray-300 focus:border-indigo-300 focus:ring-indigo-200 dark:bg-gray-800 dark:text-white dark:border-gray-600' => $isTailwind && ($filterInputAttributes['default-colors'] ?? true),
                     
-                    // Tailwind 4
-                    'block w-full transition duration-150 ease-in-out rounded-md shadow-sm focus:ring focus:ring-opacity-50' => $isTailwind4 && ($filterInputAttributes['default-styling'] ?? true),
-                    'border-gray-300 focus:border-indigo-300 focus:ring-indigo-200 dark:bg-gray-800 dark:text-white dark:border-gray-600' => $isTailwind4 && ($filterInputAttributes['default-colors'] ?? true),
+                    'tw4ph block w-full transition duration-150 ease-in-out rounded-md shadow-sm focus:ring focus:ring-opacity-50' => $isTailwind4 && ($filterInputAttributes['default-styling'] ?? true),
+                    'tw4ph border-gray-300 focus:border-indigo-300 focus:ring-indigo-200 dark:bg-gray-800 dark:text-white dark:border-gray-600' => $isTailwind4 && ($filterInputAttributes['default-colors'] ?? true),
 
-                    // Bootstrap
                     'form-control' => $isBootstrap4 && ($filterInputAttributes['default-styling'] ?? true),
                     'form-select' => $isBootstrap5 && ($filterInputAttributes['default-styling'] ?? true),
                 ])

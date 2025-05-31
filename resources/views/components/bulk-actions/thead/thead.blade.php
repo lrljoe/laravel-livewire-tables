@@ -11,13 +11,8 @@
                 'wire:key' => $this->getTableName() ."-bulk-select-message",
                 'x-cloak' => ''])
         ->class([
-            // Tailwind3
             'unsortable laravel-livewire-tables-reorderingMinimised bg-indigo-50 dark:bg-gray-900 dark:text-white' => $isTailwind,
-            
-            // Tailwind4
-            'unsortable laravel-livewire-tables-reorderingMinimised bg-indigo-50 dark:bg-gray-900 dark:text-white' => $isTailwind4,
-
-            // Bootstrap
+            'tw4ph unsortable laravel-livewire-tables-reorderingMinimised bg-indigo-50 dark:bg-gray-900 dark:text-white' => $isTailwind4,
             'laravel-livewire-tables-reorderingMinimised' => $isBootstrap,
             '' => $isBootstrap && ($customAttributes['default'] ?? true),
         ])
