@@ -31,7 +31,7 @@ trait ActionsHelpers
     }
 
     /**
-     * Undocumented function
+     * Determines whether to display the Actions in the Toolbar
      *
      * @return boolean
      */
@@ -42,7 +42,17 @@ trait ActionsHelpers
     }
 
     /**
-     * Undocumented function
+     * Determines whether to display the Actions in a Dropdown in the Toolbar by default
+     *
+     * @return boolean
+     */
+    #[Computed]
+    public function showActionsAsDropdown(): bool
+    {
+        return $this->displayActionsAsDropdown ?? false;
+    }
+    /**
+     * Retrieves the position of the Actions (e.g. left/right)
      *
      * @return string
      */
@@ -53,7 +63,7 @@ trait ActionsHelpers
     }
 
     /**
-     * Undocumented function
+     * Returns whether there are any valid actions
      *
      * @return boolean
      */
@@ -68,21 +78,18 @@ trait ActionsHelpers
     }
 
     /**
-     * Undocumented function
+     * Retrieves the valid actions
      *
      * @return Collection<int,Action>
      */
     #[Computed]
     public function getActions(): Collection
     {
-        if (! isset($this->validActions)) {
-            $this->validActions = (new Collection($this->actions()))
+        return (new Collection($this->actions()))
                 ->filter(fn ($action) => $action instanceof Action)
                 ->each(function (Action $action, int $key) {
                     $action->setTheme($this->getTheme());
                 });
-        }
 
-        return $this->validActions;
     }
 }

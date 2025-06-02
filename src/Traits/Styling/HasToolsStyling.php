@@ -28,6 +28,7 @@ trait HasToolsStyling
      * 
      * @return array<mixed>
      */
+    #[Computed]
     public function getToolsAttributes(): array
     {
         return $this->getCustomAttributes(propertyName: 'toolsAttributes', default: false, classicMode: false);
@@ -38,6 +39,7 @@ trait HasToolsStyling
      * 
      * @return ComponentAttributeBag
      */
+    #[Computed]
     public function getToolsAttributesBag(): ComponentAttributeBag
     {
         return $this->getCustomAttributesBagFromArray($this->getToolsAttributes());
@@ -48,7 +50,8 @@ trait HasToolsStyling
      *
      * @return array<mixed>
      */
-    protected function getToolBarAttributes(): array
+    #[Computed]
+    public function getToolBarAttributes(): array
     {
         return $this->getCustomAttributes(propertyName: 'toolBarAttributes', default: false, classicMode: false);
     }
@@ -60,6 +63,7 @@ trait HasToolsStyling
 
      * @return ComponentAttributeBag
      */
+    #[Computed]
     public function getToolBarAttributesBag(): ComponentAttributeBag
     {
         return $this->getCustomAttributesBagFromArray($this->getToolBarAttributes());

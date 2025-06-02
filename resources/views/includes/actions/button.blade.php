@@ -9,37 +9,35 @@
             ])
             ->except(['default','default-styling','default-colors'])
         }}
-           @if($action->hasWireAction())
-            {{ $action->getWireAction() }}="{{ $action->getWireActionParams() }}"
-           @endif
-           @if($action->getWireNavigateEnabled())
-            wire:navigate
-           @endif
-        >
-        @if($action->hasIcon())
-            <span @class([
-                'w-1/12',
-                'order-1 inline-block ' => !$action->getIconRight(),
-                'order-2 inline-block mr-2' => $action->getIconRight()
-            ])>
-                <i {{ $action->getIconAttributes()
-                        ->class([
-                            'ms-1 '. $action->getIcon() => $isBootstrap,
-                            'ml-1 '. $action->getIcon() => $isTailwind && $action->getIconRight(),
-                            'pr-1 '. $action->getIcon() => $isTailwind && !$action->getIconRight(),
-                        ])
-                        ->except(['default','default-styling','default-colors'])
-                    }}
-                ></i>
-            </span>
+        @if($action->hasWireAction())
+        {{ $action->getWireAction() }}="{{ $action->getWireActionParams() }}"
         @endif
-        <span {{ $action->getLabelAttributesBag()->merge()->class([
-            'w-11/12 ',
-            'order-1' => $action->hasIcon() && $action->getIconRight(),
-            'order-2' => $action->hasIcon() && !$action->getIconRight(),
-        ]) }}>
-            {{ $action->getLabel() }}
+        @if($action->getWireNavigateEnabled())
+        wire:navigate
+        @endif
+>
+    @if($action->hasIcon())
+        <span @class([
+            'w-1/12',
+            'order-1 inline-block ' => !$action->getIconRight(),
+            'order-2 inline-block mr-2' => $action->getIconRight()
+        ])>
+            <i {{ $action->getIconAttributes()
+                    ->class([
+                        'ms-1 '. $action->getIcon() => $isBootstrap,
+                        'ml-1 '. $action->getIcon() => $isTailwind && $action->getIconRight(),
+                        'pr-1 '. $action->getIcon() => $isTailwind && !$action->getIconRight(),
+                    ])
+                    ->except(['default','default-styling','default-colors'])
+                }}
+            ></i>
         </span>
-
-        
+    @endif
+    <span {{ $action->getLabelAttributesBag()->merge()->class([
+        'w-11/12 ',
+        'order-1' => $action->hasIcon() && $action->getIconRight(),
+        'order-2' => $action->hasIcon() && !$action->getIconRight(),
+    ]) }}>
+        {{ $action->getLabel() }}
+    </span>
 </a>

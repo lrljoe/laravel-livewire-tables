@@ -8,7 +8,6 @@
         'flex' => ($isTailwind && !$searchViewAttributes['icon']['hasSearchIcon']),
         'tw4ph rounded-md shadow-sm' => $isTailwind4,
         'tw4ph flex' => ($isTailwind4 && !$searchViewAttributes['icon']['hasSearchIcon']),
-
         'relative inline-flex flex-row' => $searchViewAttributes['icon']['hasSearchIcon'],
     ])>
 

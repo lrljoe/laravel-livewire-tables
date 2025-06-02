@@ -33,6 +33,7 @@ trait HasSortingPillsStyling
      * #[Computed]
      * @return array<mixed>
      */
+    #[Computed]
     public function getSortingPillsItemAttributes(): array
     {
         return $this->sortingPillsItemAttributes;
@@ -40,9 +41,10 @@ trait HasSortingPillsStyling
 
     /**
      * Undocumented function
-     *     #[Computed]
+     *     
      * @return array<mixed>
      */
+    #[Computed]
     public function getSortingPillsClearSortButtonAttributes(): array
     {
         return $this->sortingPillsClearSortButtonAttributes;
@@ -54,6 +56,7 @@ trait HasSortingPillsStyling
      * #[Computed]
      * @return array<mixed>
      */
+    #[Computed]
     public function getSortingPillsClearAllButtonAttributes(): array
     {
         return $this->sortingPillsClearAllButtonAttributes;

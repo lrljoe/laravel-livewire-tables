@@ -1,11 +1,11 @@
-@aware([ 'tableName','isTailwind','isTailwind4','isBootstrap', 'toolBarAttributes'])
+@aware([ 'tableName','isTailwind','isTailwind4','isBootstrap'])
 @props([])
 
 <div {{
-        $toolBarAttributes->merge()
+        $attributes->merge($this->getToolBarAttributes)
         ->class([
-            'md:flex md:justify-between mb-4 px-4 md:p-0' => (($isTailwind) && ($toolBarAttributes['default-styling'] ?? true)),
-            'd-md-flex justify-content-between mb-3' => (($isBootstrap) && ($toolBarAttributes['default-styling'] ?? true)),
+            'md:flex md:justify-between mb-4 px-4 md:p-0' => (($isTailwind) && ($this->getToolBarAttributes['default-styling'] ?? true)),
+            'd-md-flex justify-content-between mb-3' => (($isBootstrap) && ($this->getToolBarAttributes['default-styling'] ?? true)),
         ])
         ->except(['default','default-styling','default-colors'])
     }}
@@ -29,7 +29,7 @@
         @endif
 
         @if ($this->showSearchField())
-            <x-livewire-tables::tools.toolbar.items.search.search :searchViewAttributes="$this->getSearchViewAttributes()" />
+            <x-livewire-tables::tools.toolbar.items.search :searchViewAttributes="$this->getSearchViewAttributes()" />
         @endif
 
         @if ($this->showFiltersButton())
@@ -37,7 +37,7 @@
         @endif
 
         @if($this->showActionsInToolbarLeft())
-            <x-livewire-tables::includes.actions/>
+            <x-livewire-tables::actions />
         @endif
 
         @if ($this->hasConfigurableAreaFor('toolbar-left-end'))
@@ -64,7 +64,7 @@
         @endif
 
         @if($this->showActionsInToolbarRight())
-            <x-livewire-tables::includes.actions/>
+            <x-livewire-tables::actions />
         @endif
         
         @if ($this->columnSelectIsEnabled())

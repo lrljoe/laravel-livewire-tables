@@ -18,7 +18,9 @@
         wire:key="bookingitemstable-table-{{ rand(5828,458218) }}"
 >
     <x-livewire-tables::thead />
+
     @php($currentRows = $this->getRows)
+    
     @if(count($currentRows) > 0)
         @tableloop ($currentRows as $rowIndex => $row)
             @php($rowPk = $row->{$primaryKey})

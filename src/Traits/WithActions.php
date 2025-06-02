@@ -20,6 +20,8 @@ trait WithActions
      */
     protected bool $displayActionsInToolbar = false;
 
+    protected bool $displayActionsAsDropdown = false;
+
     /**
      * Undocumented variable
      *

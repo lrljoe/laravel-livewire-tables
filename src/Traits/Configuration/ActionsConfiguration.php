@@ -42,4 +42,23 @@ trait ActionsConfiguration
     {
         return $this->setActionsPosition('right');
     }
+
+    public function setActionsAsDropdown(bool $status): self
+    {
+        $this->displayActionsAsDropdown = $status;
+
+        return $this;
+    }
+
+    public function setActionsAsDropdownEnabled(): self
+    {
+        $this->setActionsInToolbarEnabled();
+
+        return $this->setActionsAsDropdown(true);
+    }
+
+    public function setActionsAsDropdownDisabled(): self
+    {
+        return $this->setActionsAsDropdown(false);
+    }
 }

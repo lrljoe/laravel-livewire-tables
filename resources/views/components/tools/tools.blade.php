@@ -1,13 +1,11 @@
 @aware(['isTailwind','isTailwind4', 'isBootstrap'])
-@props(['toolsAttributes', 'toolBarAttributes'])
-
 
 <div {{
-    $attributes->merge(['x-data' => 'tools($wire)'])->merge($toolsAttributes)
+    $attributes->merge($this->getToolsAttributes)->merge(['x-data' => 'tools($wire)'])
         ->class([
-            'flex-col' => ($isTailwind && ($toolsAttributes['default-styling'] ?? true)),
-            'tw4ph flex-col' => ($isTailwind4 && ($toolsAttributes['default-styling'] ?? true)),
-            'd-flex flex-column' => $isBootstrap && ($toolsAttributes['default-styling'] ?? true),
+            'flex-col' => ($isTailwind && ($this->getToolsAttributes['default-styling'] ?? true)),
+            'tw4ph flex-col' => ($isTailwind4 && ($this->getToolsAttributes['default-styling'] ?? true)),
+            'd-flex flex-column' => $isBootstrap && ($this->getToolsAttributes['default-styling'] ?? true),
         ])
         ->except(['default','default-styling','default-colors'])
     }}
@@ -27,7 +25,7 @@
     )
 
     @if($this->shouldShowToolBar())
-        <x-livewire-tables::tools.toolbar />
+        <x-livewire-tables::tools.toolbar  />
     @endif
 
     @if (

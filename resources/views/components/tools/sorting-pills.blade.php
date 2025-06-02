@@ -16,10 +16,10 @@
                     <span
                         wire:key="{{ $tableName }}-sorting-pill-{{ $columnSelectName }}"
                         {{
-                            $attributes->merge($this->getSortingPillsItemAttributes())
+                            $attributes->merge($this->getSortingPillsItemAttributes)
                             ->class([
-                                'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 capitalize' => $this->getSortingPillsItemAttributes()['default-styling'],
-                                'bg-indigo-100 text-indigo-800 dark:bg-indigo-200 dark:text-indigo-900' => $this->getSortingPillsItemAttributes()['default-colors'],
+                                'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 capitalize' => $this->getSortingPillsItemAttributes['default-styling'],
+                                'bg-indigo-100 text-indigo-800 dark:bg-indigo-200 dark:text-indigo-900' => $this->getSortingPillsItemAttributes['default-colors'],
                             ])
                             ->except(['default-styling', 'default-colors'])
                         }}
@@ -30,10 +30,10 @@
                             wire:click="clearSort('{{ $columnSelectName }}')"
                             type="button"
                             {{
-                                $attributes->merge($this->getSortingPillsClearSortButtonAttributes())
+                                $attributes->merge($this->getSortingPillsClearSortButtonAttributes)
                                 ->class([
-                                    'flex-shrink-0 ml-0.5 h-4 w-4 rounded-full inline-flex items-center justify-center focus:outline-none' => $this->getSortingPillsClearSortButtonAttributes()['default-styling'],
-                                    'text-indigo-400 hover:bg-indigo-200 hover:text-indigo-500 focus:bg-indigo-500 focus:text-white' => $this->getSortingPillsClearSortButtonAttributes()['default-colors'],
+                                    'flex-shrink-0 ml-0.5 h-4 w-4 rounded-full inline-flex items-center justify-center focus:outline-none' => $this->getSortingPillsClearSortButtonAttributes['default-styling'],
+                                    'text-indigo-400 hover:bg-indigo-200 hover:text-indigo-500 focus:bg-indigo-500 focus:text-white' => $this->getSortingPillsClearSortButtonAttributes['default-colors'],
                                 ])
                                 ->except(['default-styling', 'default-colors'])
                             }}
@@ -50,10 +50,10 @@
                 >
                     <span
                         {{
-                            $attributes->merge($this->getSortingPillsClearAllButtonAttributes())
+                            $attributes->merge($this->getSortingPillsClearAllButtonAttributes)
                             ->class([
-                                'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium' => $this->getSortingPillsClearAllButtonAttributes()['default-styling'],
-                                'bg-gray-100 text-gray-800 dark:bg-gray-200 dark:text-gray-900' => $this->getSortingPillsClearAllButtonAttributes()['default-colors'],
+                                'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium' => $this->getSortingPillsClearAllButtonAttributes['default-styling'],
+                                'bg-gray-100 text-gray-800 dark:bg-gray-200 dark:text-gray-900' => $this->getSortingPillsClearAllButtonAttributes['default-colors'],
                             ])
                             ->except(['default-styling', 'default-colors'])
                         }}
@@ -80,10 +80,10 @@
                     <span
                         wire:key="{{ $tableName }}-sorting-pill-{{ $columnSelectName }}"
                         {{
-                            $attributes->merge($this->getSortingPillsItemAttributes())
+                            $attributes->merge($this->getSortingPillsItemAttributes)
                             ->class([
-                                'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 capitalize' => $this->getSortingPillsItemAttributes()['default-styling'],
-                                'bg-indigo-100 text-indigo-800 dark:bg-indigo-200 dark:text-indigo-900' => $this->getSortingPillsItemAttributes()['default-colors'],
+                                'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 capitalize' => $this->getSortingPillsItemAttributes['default-styling'],
+                                'bg-indigo-100 text-indigo-800 dark:bg-indigo-200 dark:text-indigo-900' => $this->getSortingPillsItemAttributes['default-colors'],
                             ])
                             ->except(['default-styling', 'default-colors'])
                         }}
@@ -94,10 +94,10 @@
                             wire:click="clearSort('{{ $columnSelectName }}')"
                             type="button"
                             {{
-                                $attributes->merge($this->getSortingPillsClearSortButtonAttributes())
+                                $attributes->merge($this->getSortingPillsClearSortButtonAttributes)
                                 ->class([
-                                    'flex-shrink-0 ml-0.5 h-4 w-4 rounded-full inline-flex items-center justify-center focus:outline-none' => $this->getSortingPillsClearSortButtonAttributes()['default-styling'],
-                                    'text-indigo-400 hover:bg-indigo-200 hover:text-indigo-500 focus:bg-indigo-500 focus:text-white' => $this->getSortingPillsClearSortButtonAttributes()['default-colors'],
+                                    'flex-shrink-0 ml-0.5 h-4 w-4 rounded-full inline-flex items-center justify-center focus:outline-none' => $this->getSortingPillsClearSortButtonAttributes['default-styling'],
+                                    'text-indigo-400 hover:bg-indigo-200 hover:text-indigo-500 focus:bg-indigo-500 focus:text-white' => $this->getSortingPillsClearSortButtonAttributes['default-colors'],
                                 ])
                                 ->except(['default-styling', 'default-colors'])
                             }}
@@ -114,10 +114,10 @@
                 >
                     <span
                         {{
-                            $attributes->merge($this->getSortingPillsClearAllButtonAttributes())
+                            $attributes->merge($this->getSortingPillsClearAllButtonAttributes)
                             ->class([
-                                'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium' => $this->getSortingPillsClearAllButtonAttributes()['default-styling'],
-                                'bg-gray-100 text-gray-800 dark:bg-gray-200 dark:text-gray-900' => $this->getSortingPillsClearAllButtonAttributes()['default-colors'],
+                                'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium' => $this->getSortingPillsClearAllButtonAttributes['default-styling'],
+                                'bg-gray-100 text-gray-800 dark:bg-gray-200 dark:text-gray-900' => $this->getSortingPillsClearAllButtonAttributes['default-colors'],
                             ])
                             ->except(['default-styling', 'default-colors'])
                         }}
@@ -144,9 +144,9 @@
                     <span
                         wire:key="{{ $tableName . '-sorting-pill-' . $columnSelectName }}"
                         {{
-                            $attributes->merge($this->getSortingPillsItemAttributes())
+                            $attributes->merge($this->getSortingPillsItemAttributes)
                             ->class([
-                                'badge badge-pill badge-info d-inline-flex align-items-center' => $this->getSortingPillsItemAttributes()['default-styling'],
+                                'badge badge-pill badge-info d-inline-flex align-items-center' => $this->getSortingPillsItemAttributes['default-styling'],
                             ])
                             ->except(['default-styling', 'default-colors'])
                         }}
@@ -157,9 +157,9 @@
                             href="#"
                             wire:click="clearSort('{{ $columnSelectName }}')"
                             {{
-                                $attributes->merge($this->getSortingPillsClearSortButtonAttributes())
+                                $attributes->merge($this->getSortingPillsClearSortButtonAttributes)
                                 ->class([
-                                    'text-white ml-2' => $this->getSortingPillsClearSortButtonAttributes()['default-styling'],
+                                    'text-white ml-2' => $this->getSortingPillsClearSortButtonAttributes['default-styling'],
                                 ])
                                 ->except(['default-styling', 'default-colors'])
                             }}
@@ -174,9 +174,9 @@
                     href="#"
                     wire:click.prevent="clearSorts"
                     {{
-                        $attributes->merge($this->getSortingPillsClearAllButtonAttributes())
+                        $attributes->merge($this->getSortingPillsClearAllButtonAttributes)
                         ->class([
-                            'badge badge-pill badge-light' => $this->getSortingPillsClearAllButtonAttributes()['default-styling'],
+                            'badge badge-pill badge-light' => $this->getSortingPillsClearAllButtonAttributes['default-styling'],
                         ])
                         ->except(['default-styling', 'default-colors'])
                     }}
@@ -202,9 +202,9 @@
                     <span
                         wire:key="{{ $tableName }}-sorting-pill-{{ $columnSelectName }}"
                         {{
-                            $attributes->merge($this->getSortingPillsItemAttributes())
+                            $attributes->merge($this->getSortingPillsItemAttributes)
                             ->class([
-                                'badge rounded-pill bg-info d-inline-flex align-items-center' => $this->getSortingPillsItemAttributes()['default-styling'],
+                                'badge rounded-pill bg-info d-inline-flex align-items-center' => $this->getSortingPillsItemAttributes['default-styling'],
                             ])
                             ->except(['default-styling', 'default-colors'])
                         }}
@@ -215,9 +215,9 @@
                             href="#"
                             wire:click="clearSort('{{ $columnSelectName }}')"
                             {{
-                                $attributes->merge($this->getSortingPillsClearSortButtonAttributes())
+                                $attributes->merge($this->getSortingPillsClearSortButtonAttributes)
                                 ->class([
-                                    'text-white ms-2' => $this->getSortingPillsClearSortButtonAttributes()['default-styling'],
+                                    'text-white ms-2' => $this->getSortingPillsClearSortButtonAttributes['default-styling'],
                                 ])
                                 ->except(['default-styling', 'default-colors'])
                             }}
@@ -232,9 +232,9 @@
                     href="#"
                     wire:click.prevent="clearSorts"
                     {{
-                        $attributes->merge($this->getSortingPillsClearAllButtonAttributes())
+                        $attributes->merge($this->getSortingPillsClearAllButtonAttributes)
                         ->class([
-                            'badge rounded-pill bg-light text-dark text-decoration-none' => $this->getSortingPillsClearAllButtonAttributes()['default-styling'],
+                            'badge rounded-pill bg-light text-dark text-decoration-none' => $this->getSortingPillsClearAllButtonAttributes['default-styling'],
                         ])
                         ->except(['default-styling', 'default-colors'])
                     }}

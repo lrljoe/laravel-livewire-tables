@@ -4,7 +4,7 @@
 @php($showActionsInToolbar = $this->showActionsInToolbar())
 @php($actions = $this->getActions())
 
-@if($showActionsInToolbar && count($actions) >= 2)
+@if($showActionsInToolbar && ($this->showActionsAsDropdown || count($actions) >= 5))
 
     <x-livewire-tables::dropdown.wrapper>
         {{-- The Button Used To Toggle The Menu --}}
