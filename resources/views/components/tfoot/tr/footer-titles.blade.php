@@ -1,7 +1,7 @@
-@aware(['tableName','isTailwind', 'isTailwind4', 'isBootstrap', 'currentlyReorderingStatus', 'showBulkActionsSections', 'showCollapsingColumnSections','selectedVisibleColumns', 'currentRows'])
+@aware(['tableName','isTailwind', 'isTailwind4', 'isBootstrap', 'currentlyReorderingStatus', 'showBulkActionsSections', 'showCollapsingColumnSections','selectedVisibleColumns'])
 
 <x-livewire-tables::table.tr.plain :rowIndex="-1" data-id="tfoot"
-    :customAttributes="$this->getFooterTrAttributes($currentRows)"
+    :customAttributes="$this->getFooterTrAttributes($this->getRows)"
     wire:key="{{ $tableName .'-footer' }}"
 >
     @if($currentlyReorderingStatus)

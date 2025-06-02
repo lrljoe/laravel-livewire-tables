@@ -1,7 +1,7 @@
-@aware([ 'tableName', 'selectedVisibleColumns','showBulkActionsSections','hasCollapsingColumns', 'filterGenericData', 'currentRows'])
+@aware([ 'tableName', 'selectedVisibleColumns','showBulkActionsSections','hasCollapsingColumns', 'filterGenericData'])
 
 <x-livewire-tables::table.tr.plain :rowIndex="-1" data-id="tfoot"
-    :customAttributes="$this->getFooterTrAttributes($currentRows)"
+    :customAttributes="$this->getFooterTrAttributes($this->getRows)"
     wire:key="{{ $tableName .'-footer' }}"
 >
     @if ($showBulkActionsSections)
@@ -16,14 +16,14 @@
     @tableloop($selectedVisibleColumns as $colIndex => $column)
         @if($column->hasFooter() && $column->hasFooterCallback())
 
-            <x-livewire-tables::table.td.plain wire:key="{{ $tableName . '-footer-datatable-td-' . $column->getSlug() }}"  :$column :$colIndex  :customAttributes="$this->getFooterTdAttributes($column, $currentRows, $colIndex)">
+            <x-livewire-tables::table.td.plain wire:key="{{ $tableName . '-footer-datatable-td-' . $column->getSlug() }}"  :$column :$colIndex  :customAttributes="$this->getFooterTdAttributes($column, $this->getRows, $colIndex)">
 
                     @if($column->footerCallbackIsFilter())
                         {{ $column->getFooterFilter($column->getFooterCallback(), $filterGenericData) }}
                     @elseif($column->footerCallbackIsString())
                         {{ $column->getFooterFilter($this->getFilterByKey($column->getFooterCallback()), $filterGenericData) }}
                     @else
-                        {{ $column->getNewFooterContents($currentRows) }}
+                        {{ $column->getNewFooterContents($this->getRows) }}
                     @endif
             </x-livewire-tables::table.td.plain>
         @else

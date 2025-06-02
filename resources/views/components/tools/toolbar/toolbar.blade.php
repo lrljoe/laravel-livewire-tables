@@ -58,14 +58,15 @@
     >
         @includeWhen($this->hasConfigurableAreaFor('toolbar-right-start'), $this->getConfigurableAreaFor('toolbar-right-start'), $this->getParametersForConfigurableArea('toolbar-right-start'))
 
-        @if($this->showActionsInToolbarRight())
-            <x-livewire-tables::includes.actions/>
-        @endif
 
         @if ($this->showBulkActionsDropdownAlpine() && $this->shouldAlwaysHideBulkActionsDropdownOption != true)
             <x-livewire-tables::tools.toolbar.items.bulk-actions />
         @endif
 
+        @if($this->showActionsInToolbarRight())
+            <x-livewire-tables::includes.actions/>
+        @endif
+        
         @if ($this->columnSelectIsEnabled())
             <x-livewire-tables::tools.toolbar.items.column-select />
         @endif

@@ -1,5 +1,5 @@
 @aware(['isTailwind','isTailwind4','isBootstrap','isBootstrap4', 'isBootstrap5', 'localisationPath'])
-@props(['currentRows'])
+@php($currentRows = $this->getRows)
 @includeWhen(
     $this->hasConfigurableAreaFor('before-pagination'), 
     $this->getConfigurableAreaFor('before-pagination'), 
