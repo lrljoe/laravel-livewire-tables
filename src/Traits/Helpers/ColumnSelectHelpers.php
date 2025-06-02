@@ -243,6 +243,18 @@ trait ColumnSelectHelpers
         }
     }
 
+    public function toggleAllColumns(): void
+    {
+        if ($this->getSelectableSelectedColumns()->count() == $this->getSelectableColumns()->count())
+        {
+            $this->deselectAllColumns();
+        }
+        else
+        {
+            $this->selectAllColumns();
+        }
+    }
+
     /**
      * Undocumented function
      *

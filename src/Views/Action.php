@@ -27,6 +27,8 @@ class Action extends Component
      */
     protected string $view = 'livewire-tables::includes.actions.button';
 
+    public bool $isInMenu = false;
+
     /**
      * Construct an Action
      *
@@ -48,6 +50,12 @@ class Action extends Component
         return new static($label);
     }
 
+    public function setInMenu(bool $status): self
+    {
+        $this->isInMenu = true;
+
+        return $this;
+    }
     /**
      * Render method for Action
      *
@@ -60,6 +68,7 @@ class Action extends Component
             ->withIsBootstrap($this->isBootstrap())
             ->withIsTailwind($this->isTailwind())
             ->withIsTailwind4($this->isTailwind4())
+            ->withIsInMenu($this->isInMenu)
             ->withAttributes($this->getActionAttributes());
 
         return $view;

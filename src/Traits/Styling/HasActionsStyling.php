@@ -13,7 +13,27 @@ trait HasActionsStyling
      */
     protected array $actionWrapperAttributes = ['class' => '', 'default-styling' => true, 'default-colors' => true];
 
-    
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
+    protected array $actionsMenuAttributes = ['default-colors' => true, 'default-styling' => true];
+
+    /**
+     * Undocumented variable
+     *
+     * @var array|null
+     */
+    protected ?array $actionsMenuTransitionAttributes;
+
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
+    protected array $actionsButtonAttributes = ['default-colors' => true, 'default-styling' => true];
+
     /**
      * Undocumented function
      *
@@ -37,4 +57,48 @@ trait HasActionsStyling
 
         return $this;
     }
+
+
+    /**
+     * Used to get attributes for the Bulk Actions Button
+     *
+     * @return array<mixed>
+     */
+    #[Computed]
+    public function getActionsButtonAttributes(): array
+    {
+        return [...['x-ref' => 'actionsMenuButton', 'type' => 'button', 'aria-haspopup' => 'false'], ...(($this->isTailwind() || $this->isTailwind4()) ? ['x-on:click' => 'open = !open'] : ['data-toggle' => 'dropdown', 'data-bs-toggle' => 'dropdown']), ...$this->getCustomAttributes('actionsButtonAttributes', true)];
+
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @return ComponentAttributeBag
+     */
+    public function getActionsButtonAttributesBag(): ComponentAttributeBag
+    {
+        return $this->getCustomAttributesBagFromArray($this->getActionsButtonAttributes());
+    }
+
+    /**
+     * Used to get attributes for the Actions Menu (Dropdown)
+     *
+     * @return array<mixed>
+     */
+    #[Computed]
+    public function getActionsMenuAttributes(): array
+    {
+        return [...$this->getCoreMenuAttributes(), ...(($this->isTailwind() || $this->isTailwind4()) ? ['x-anchor.bottom-start' => '$refs.actionsMenuButton'] : []), ...$this->getActionsMenuTransitionAttributes(), ...$this->getCustomAttributes('actionsMenuAttributes', true, false)];
+    }
+
+    protected function getActionsMenuTransitionAttributes(): array
+    {
+        if($this->isTailwind() || $this->isTailwind4())
+        {
+            return isset($this->actionsMenuTransitionAttributes) ? $this->actionsMenuTransitionAttributes : $this->getCoreTransitionAttributes();
+        }
+        return [];
+    }
+
 }

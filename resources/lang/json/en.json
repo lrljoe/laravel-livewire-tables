@@ -1,4 +1,5 @@
 {
+    "livewire-tables::Actions": "Actions",
     "livewire-tables::All": "All",
     "livewire-tables::All Columns": "All Columns",
     "livewire-tables::Applied Filters": "Applied Filters",

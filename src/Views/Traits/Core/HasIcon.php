@@ -7,7 +7,7 @@ use Illuminate\View\ComponentAttributeBag;
 trait HasIcon
 {
     public ?string $icon;
-
+    
     /**
      * Undocumented variable
      *

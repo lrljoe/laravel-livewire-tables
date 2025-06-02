@@ -15,6 +15,7 @@
         @endif
         @class([
             'relative block md:inline-block text-left' => $isTailwind,
+            'tw4ph relative block md:inline-block text-left' => $isTailwind4,             
             'btn-group d-block d-md-inline' => $isBootstrap,
         ])
     >
@@ -23,6 +24,7 @@
                 type="button"
                 @class([
                     'inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600' => $isTailwind,
+                    'tw4ph inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600' => $isTailwind4,
                     'btn dropdown-toggle d-block w-100 d-md-inline' => $isBootstrap,
                 ])
                 @if ($this->isFilterLayoutPopover()) x-on:click="filterPopoverOpen = !filterPopoverOpen"
@@ -38,12 +40,13 @@
                     <span @class([
                             'badge badge-info' => $isBootstrap,
                             'ml-1 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-indigo-100 text-indigo-800 capitalize dark:bg-indigo-200 dark:text-indigo-900' => $isTailwind,
+                            'tw4ph ml-1 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-indigo-100 text-indigo-800 capitalize dark:bg-indigo-200 dark:text-indigo-900' => $isTailwind4,
                         ])>
                         {{ $count }}
                     </span>
                 @endif
 
-                @if($isTailwind)
+                @if($isTailwind || $isTailwind4)
                     <x-heroicon-o-funnel class="-mr-1 ml-2 h-5 w-5" />
                 @else
                 <span @class([

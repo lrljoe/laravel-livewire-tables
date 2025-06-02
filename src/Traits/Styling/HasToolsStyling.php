@@ -25,7 +25,7 @@ trait HasToolsStyling
     
     /**
      * Undocumented function
-     * #[Computed]
+     * 
      * @return array<mixed>
      */
     public function getToolsAttributes(): array
@@ -35,7 +35,7 @@ trait HasToolsStyling
 
     /**
      * Undocumented function
-     * #[Computed]
+     * 
      * @return ComponentAttributeBag
      */
     public function getToolsAttributesBag(): ComponentAttributeBag

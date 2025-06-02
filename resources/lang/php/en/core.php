@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'Actions' => 'Actions',
     'All' => 'All',
     'All Columns' => 'All Columns',
     'Applied Filters' => 'Applied Filters',

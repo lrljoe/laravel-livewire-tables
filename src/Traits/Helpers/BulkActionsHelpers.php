@@ -4,6 +4,7 @@ namespace Rappasoft\LaravelLivewireTables\Traits\Helpers;
 
 use Livewire\Attributes\Computed;
 use Rappasoft\LaravelLivewireTables\Views\Column;
+use Rappasoft\LaravelLivewireTables\Views\BulkActions\BulkAction;
 
 trait BulkActionsHelpers
 {
@@ -69,6 +70,32 @@ trait BulkActionsHelpers
     public function getBulkActions(): array
     {
         return $this->bulkActions();
+    }
+
+
+    /**
+     * @return array<int,BulkAction>
+     */
+    public function getBulkActionsButtons(): array
+    {
+        $bulkActions = [];
+        $defaultAttributes = $this->getBulkActionsMenuItemAttributes();
+        foreach($this->getBulkActions() as $action => $title)
+        {
+            if($title instanceof BulkAction)
+            {
+                if(!$title->hasButtonAttributes())
+                {
+                    $title->setButtonAttributes($defaultAttributes);
+                }
+                $bulkActions[] = $title;
+            }
+            else
+            {
+                $bulkActions[] = BulkAction::make(action: $action, title: $title)->setButtonAttributes($defaultAttributes);
+            }
+        }
+        return $bulkActions;
     }
 
     public function showBulkActionsDropdown(): bool

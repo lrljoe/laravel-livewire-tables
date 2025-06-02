@@ -71,6 +71,13 @@ trait HasBulkActionsStyling
     protected array $bulkActionsRowButtonAttributes = ['default-colors' => true, 'default-styling' => true];
 
     /**
+     * Undocumented variable
+     *
+     * @var array|null
+     */
+    protected ?array $bulkActionsMenuTransitionAttributes;
+
+    /**
      * Used to get attributes for the Bulk Actions Button
      *
      * @return array<mixed>
@@ -78,8 +85,18 @@ trait HasBulkActionsStyling
     #[Computed]
     public function getBulkActionsButtonAttributes(): array
     {
-        return $this->getCustomAttributes('bulkActionsButtonAttributes', true);
+        return [...['x-ref' => 'bulkActionsButton', 'type' => 'button', 'aria-haspopup' => 'false'], ...(($this->isTailwind() || $this->isTailwind4()) ? ['x-on:click' => 'open = !open'] : ['data-toggle' => 'dropdown', 'data-bs-toggle' => 'dropdown']), ...$this->getCustomAttributes('bulkActionsButtonAttributes', true)];
 
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @return ComponentAttributeBag
+     */
+    public function getBulkActionsButtonAttributesBag(): ComponentAttributeBag
+    {
+        return $this->getCustomAttributesBagFromArray($this->getBulkActionsButtonAttributes());
     }
 
     /**
@@ -90,9 +107,18 @@ trait HasBulkActionsStyling
     #[Computed]
     public function getBulkActionsMenuAttributes(): array
     {
-        return $this->getCustomAttributes('bulkActionsMenuAttributes', true, false);
-
+        return [...$this->getCoreMenuAttributes(), ...(($this->isTailwind() || $this->isTailwind4()) ? ['x-anchor.bottom-start' => '$refs.bulkActionsButton'] : []), ...$this->getBulkActionsMenuTransitionAttributes(), ...$this->getCustomAttributes('bulkActionsMenuAttributes', true, false)];
     }
+
+    protected function getBulkActionsMenuTransitionAttributes(): array
+    {
+        if($this->isTailwind() || $this->isTailwind4())
+        {
+            return isset($this->bulkActionsMenuTransitionAttributes) ? $this->bulkActionsMenuTransitionAttributes : $this->getCoreTransitionAttributes();
+        }
+        return [];
+    }
+
 
     /**
      * Used to get attributes for the items in the Bulk Actions Menu (Dropdown)
