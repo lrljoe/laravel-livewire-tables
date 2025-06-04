@@ -27,7 +27,12 @@ trait HasActionAttributes
         return $this;
     }
 
-    public function getActionAttributes(): ComponentAttributeBag
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
+    public function getActionAttributes(): array
     {
         $actionAttributes = [...['class' => '', 'default-styling' => true, 'default-colors' => true], ...$this->actionAttributes];
 
@@ -35,8 +40,20 @@ trait HasActionAttributes
             $actionAttributes['href'] = $this->getRoute();
         } else {
             $actionAttributes['href'] = '#';
+            $actionAttributes[$this->getWireAction()] = $this->getWireActionParams();
+            if($this->getWireNavigateEnabled())
+            {
+                $actionAttributes['wire:navigate'] = '';
+            }
         }
+        
 
-        return new ComponentAttributeBag($actionAttributes);
+        return $actionAttributes;
     }
+
+    public function getActionAttributesBag(): ComponentAttributeBag
+    {
+        return new ComponentAttributeBag($this->getActionAttributes());
+    }
+
 }

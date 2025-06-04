@@ -6,8 +6,18 @@ use Rappasoft\LaravelLivewireTables\DataTableComponent;
 
 class DebuggableData
 {
+    /**
+     * Undocumented variable
+     *
+     * @var DataTableComponent
+     */
     public DataTableComponent $component;
 
+    /**
+     * Undocumented function
+     *
+     * @param DataTableComponent $component
+     */
     public function __construct(DataTableComponent $component)
     {
         $this->component = $component;

@@ -73,7 +73,7 @@ trait HasBulkActionsStyling
     /**
      * Undocumented variable
      *
-     * @var array|null
+     * @var array<mixed>|null
      */
     protected ?array $bulkActionsMenuTransitionAttributes;
 
@@ -94,6 +94,7 @@ trait HasBulkActionsStyling
      *
      * @return ComponentAttributeBag
      */
+    #[Computed]
     public function getBulkActionsButtonAttributesBag(): ComponentAttributeBag
     {
         return $this->getCustomAttributesBagFromArray($this->getBulkActionsButtonAttributes());
@@ -110,6 +111,11 @@ trait HasBulkActionsStyling
         return [...$this->getCoreMenuAttributes(), ...(($this->isTailwind() || $this->isTailwind4()) ? ['x-anchor.bottom-start' => '$refs.bulkActionsButton'] : []), ...$this->getBulkActionsMenuTransitionAttributes(), ...$this->getCustomAttributes('bulkActionsMenuAttributes', true, false)];
     }
 
+    /**
+     * Gets Menu Transition Attributes
+     *
+     * @return array<mixed>
+     */
     protected function getBulkActionsMenuTransitionAttributes(): array
     {
         if($this->isTailwind() || $this->isTailwind4())

@@ -10,8 +10,18 @@ class LaravelLivewireTablesEvent
 {
     use Dispatchable, SerializesModels;
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     public string $tableName;
 
+    /**
+     * Undocumented variable
+     *
+     * @var string|null
+     */
     public ?string $key;
 
     /**
@@ -21,8 +31,19 @@ class LaravelLivewireTablesEvent
      */
     public string|array|null $value;
 
+    /**
+     * Undocumented variable
+     *
+     * @var Authenticatable|null
+     */
     public ?Authenticatable $user;
 
+    /**
+     * Undocumented function
+     *
+     * @param string $key
+     * @return self
+     */
     public function setKeyForEvent(string $key): self
     {
         $this->key = $key;
@@ -44,6 +65,12 @@ class LaravelLivewireTablesEvent
 
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param string $tableName
+     * @return self
+     */
     public function setTableForEvent(string $tableName): self
     {
         $this->tableName = $tableName;
@@ -51,6 +78,11 @@ class LaravelLivewireTablesEvent
         return $this;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return self
+     */
     public function setUserForEvent(): self
     {
         if (config('livewire-tables.events.enableUserForEvent', true) && auth()->user()) {

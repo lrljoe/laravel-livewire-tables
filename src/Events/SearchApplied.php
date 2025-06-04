@@ -9,6 +9,12 @@ class SearchApplied extends LaravelLivewireTablesEvent
 {
     use Dispatchable, SerializesModels;
 
+    /**
+     * Undocumented function
+     *
+     * @param string $tableName
+     * @param string $value
+     */
     public function __construct(string $tableName, string $value)
     {
         $this->setTableForEvent($tableName)

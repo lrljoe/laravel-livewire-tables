@@ -28,7 +28,7 @@
         <div {{ $attributes
                     ->merge($actionWrapperAttributes)
                     ->class([
-                        'flex flex-cols py-2 space-x-2' => $isTailwind && ($actionWrapperAttributes['default-styling'] ?? true),
+                        'h-full flex flex-cols space-x-2' => $isTailwind && ($actionWrapperAttributes['default-styling'] ?? true),
                         '' => $isTailwind && ($actionWrapperAttributes['default-colors'] ?? true),
                         'tw4ph flex flex-cols py-2 space-x-2' => $isTailwind4 && ($actionWrapperAttributes['default-styling'] ?? true),
                         'tw4ph ' => $isTailwind4 && ($actionWrapperAttributes['default-colors'] ?? true),

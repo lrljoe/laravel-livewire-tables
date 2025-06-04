@@ -8,7 +8,7 @@
         ])
     >
         <div @class([
-                'relative inline-block text-left z-10 w-full md:w-auto' => $isTailwind,
+                'flex-1 content-center items-center justify-center relative inline-block text-left z-10 w-full md:w-auto' => $isTailwind,
                 'tw4ph relative inline-block text-left z-10 w-full md:w-auto' => $isTailwind4,
                 'dropdown d-block d-md-inline' => $isBootstrap,
             ])

@@ -26,11 +26,21 @@ trait HandlesBulkActionAttributes
         return $this;
     }
     
+    /**
+     * Undocumented function
+     *
+     * @return boolean
+     */
     public function hasButtonAttributes(): bool
     {
         return $this->buttonAttributes != ['class' => '', 'default-styling' => true, 'default-colors' => true,  'role' => 'menuitem', 'type' => 'button'];
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     public function getButtonAttributes(): array
     {
         $default = ['class' => '', 'default-styling' => true, 'default-colors' => true,  'role' => 'menuitem', 'type' => 'button', 'wire:click' => $this->action];
@@ -43,6 +53,11 @@ trait HandlesBulkActionAttributes
         return $merged;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return ComponentAttributeBag
+     */
     public function getButtonAttributesBag(): ComponentAttributeBag
     {
         return new ComponentAttributeBag($this->getButtonAttributes());

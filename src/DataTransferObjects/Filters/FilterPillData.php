@@ -76,6 +76,11 @@ class FilterPillData
         return new self($filterKey, $filterPillTitle, $filterPillValue, $separator, $isAnExternalLivewireFilter, $hasCustomPillBlade, $customPillBlade, $filterPillsItemAttributes, $renderPillsAsHtml, $watchForEvents, $customResetButtonAttributes, $renderPillsTitleAsHtml);
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return string
+     */
     public function getTitle(): string
     {
         return $this->filterPillTitle;
@@ -91,11 +96,21 @@ class FilterPillData
         return $this->filterPillValue;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return boolean
+     */
     public function getHasCustomPillBlade(): bool
     {
         return $this->hasCustomPillBlade;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return string|null
+     */
     public function getCustomPillBlade(): ?string
     {
         return $this->customPillBlade;
@@ -111,36 +126,71 @@ class FilterPillData
         return $this->customResetButtonAttributes;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return integer
+     */
     public function getIsAnExternalLivewireFilter(): int
     {
         return intval($this->isAnExternalLivewireFilter);
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return string
+     */
     public function getSeparator(): string
     {
         return $this->separator;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return integer
+     */
     public function shouldUsePillsAsHtml(): int
     {
         return intval($this->renderPillsAsHtml);
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return integer
+     */
     public function shouldUsePillsTitleAsHtml(): int
     {
         return intval($this->renderPillsTitleAsHtml);
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return integer
+     */
     public function shouldWatchForEvents(): int
     {
         return intval($this->watchForEvents);
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return boolean
+     */
     public function isPillValueAnArray(): bool
     {
         return ! is_null($this->filterPillValue) && is_array($this->filterPillValue);
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return string|null
+     */
     public function getSeparatedPillValue(): ?string
     {
         if ($this->isPillValueAnArray()) {
@@ -150,6 +200,11 @@ class FilterPillData
         }
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return string|null
+     */
     public function getSafeSeparatedPillValue(): ?string
     {
         $string = $this->getSeparatedPillValue();

@@ -3,6 +3,7 @@
 namespace Rappasoft\LaravelLivewireTables\Traits\Styling;
 
 use Livewire\Attributes\Computed;
+use Illuminate\View\ComponentAttributeBag;
 
 trait HasActionsStyling
 {
@@ -23,7 +24,7 @@ trait HasActionsStyling
     /**
      * Undocumented variable
      *
-     * @var array|null
+     * @var array<mixed>|null
      */
     protected ?array $actionsMenuTransitionAttributes;
 
@@ -92,6 +93,11 @@ trait HasActionsStyling
         return [...$this->getCoreMenuAttributes(), ...(($this->isTailwind() || $this->isTailwind4()) ? ['x-anchor.bottom-start' => '$refs.actionsMenuButton'] : []), ...$this->getActionsMenuTransitionAttributes(), ...$this->getCustomAttributes('actionsMenuAttributes', true, false)];
     }
 
+    /**
+     * Gets Actions Menu Transition Attributes
+     *
+     * @return array<mixed>
+     */
     protected function getActionsMenuTransitionAttributes(): array
     {
         if($this->isTailwind() || $this->isTailwind4())

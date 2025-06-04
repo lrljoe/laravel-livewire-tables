@@ -50,12 +50,33 @@ trait HasIcon
     /**
      * Undocumented function
      *
+     * @return array<mixed>
+     */
+    public function getIconAttributesArray(): array
+    {
+        return [...['class' => '', 'default-styling' => true], ...$this->iconAttributes];
+    }
+
+    /**
+     * Undocumented function
+     *
      * @return ComponentAttributeBag
      */
     public function getIconAttributes(): ComponentAttributeBag
     {
         return new ComponentAttributeBag([...['class' => '', 'default-styling' => true], ...$this->iconAttributes]);
     }
+
+    /**
+     * Undocumented function
+     *
+     * @return ComponentAttributeBag
+     */
+    public function getIconAttributesBag(): ComponentAttributeBag
+    {
+        return new ComponentAttributeBag([...['class' => '', 'default-styling' => true], ...$this->iconAttributes]);
+    }
+
 
     public function getIconRight(): bool
     {

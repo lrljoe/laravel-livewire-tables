@@ -42,7 +42,7 @@ trait ArrayColumnHelpers
     
     public function hasOutputWrapperStart(): bool
     {
-        return isset($this->outputWrapperStart) && ($this->outputWrapperStart !== null && is_string($this->outputWrapperStart));
+        return isset($this->outputWrapperStart) && $this->outputWrapperStart !== "";
     }
 
     public function getOutputWrapperStart(): string
@@ -52,7 +52,7 @@ trait ArrayColumnHelpers
 
     public function hasOutputWrapperEnd(): bool
     {
-        return isset($this->outputWrapperEnd) && ($this->outputWrapperEnd !== null && is_string($this->outputWrapperEnd));
+        return isset($this->outputWrapperEnd) && $this->outputWrapperEnd !== "";
     }
 
     public function getOutputWrapperEnd(): string

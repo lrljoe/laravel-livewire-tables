@@ -50,7 +50,13 @@ trait TableAttributeHelpers
         ...$this->componentWrapperAttributes]);
     }
 
-    public function getBulkActionsAlpine()
+    
+    /**
+     * Undocumented function
+     *
+     * @return ComponentAttributeBag
+     */
+    public function getBulkActionsAlpine(): ComponentAttributeBag
     {  
         $coreAttribs = [];
         if($this->showBulkActionsSections())
@@ -274,6 +280,11 @@ trait TableAttributeHelpers
         ];
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return ComponentAttributeBag
+     */
     #[Computed]
     public function getTopLevelAttributes(): ComponentAttributeBag
     {
