@@ -60,6 +60,6 @@ trait WithBulkActions
      */
     public function bulkActions(): array
     {
-        return $this->bulkActions;
+        return [];
     }
 }
