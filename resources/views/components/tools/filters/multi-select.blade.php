@@ -1,5 +1,5 @@
 <div>
-    <x-livewire-tables::tools.filter-label :$filter :$filterLayout :$tableName :$isTailwind :$isTailwind4 :$isBootstrap4 :$isBootstrap5 :$isBootstrap />
+    <x-livewire-tables::tools.filter-label :$filter :$filterLayout />
 
     @if ($isTailwind || $isTailwind4)
     <div @class([

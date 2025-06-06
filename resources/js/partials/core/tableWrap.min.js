@@ -8,9 +8,9 @@ function tableWrap() {
         paginationTotalItemCount: wire.entangle('paginationTotalItemCount'),
         paginationCurrentItems: wire.entangle('paginationCurrentItems'),
         selectedItems: wire.entangle('selected'),
-        selectAllStatus: wire.entangle('selectAll'),
-        delaySelectAll: wire.entangle('delaySelectAll'),
-        hideBulkActionsWhenEmpty: wire.entangle('hideBulkActionsWhenEmpty'),
+        selectAllStatus: wire.entangle('bulkActionConfig.selectAll'),
+        delaySelectAll: wire.entangle('bulkActionConfig.delaySelectAll'),
+        hideBulkActionsWhenEmpty: wire.entangle('bulkActionConfig.hideBulkActionsWhenEmpty'),
         toggleSelectAll() {
             if (!showBulkActionsAlpine) {
                 return;

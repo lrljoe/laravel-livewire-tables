@@ -19,7 +19,7 @@ trait PaginationHelpers
 
     public function getPaginationStatus(): bool
     {
-        return $this->paginationStatus;
+        return $this->getPaginationConfigValue('paginationStatus');
     }
 
     #[Computed]
@@ -41,7 +41,7 @@ trait PaginationHelpers
 
     public function getPaginationVisibilityStatus(): bool
     {
-        return $this->paginationVisibilityStatus;
+        return $this->getPaginationConfigValue('paginationVisibilityStatus');
     }
 
     public function paginationVisibilityIsEnabled(): bool
@@ -76,7 +76,7 @@ trait PaginationHelpers
 
     public function getDefaultPerPage(): int
     {
-        return in_array((int) $this->defaultPerPage, $this->getPerPageAccepted()) ? $this->defaultPerPage : ($this->getPerPageAccepted()[0] ?? 10);
+        return in_array((int) $this->getPaginationConfigValue('defaultPerPage'), $this->getPerPageAccepted()) ? $this->getPaginationConfigValue('defaultPerPage') : ($this->getPerPageAccepted()[0] ?? 10);
     }
 
     /**
@@ -84,12 +84,12 @@ trait PaginationHelpers
      */
     public function getPerPageAccepted(): array
     {
-        return $this->perPageAccepted;
+        return $this->getPaginationConfigValue('perPageAccepted');
     }
 
     public function getPerPageVisibilityStatus(): bool
     {
-        return $this->perPageVisibilityStatus;
+        return $this->getPaginationConfigValue('perPageVisibilityStatus');
     }
 
     public function perPageVisibilityIsEnabled(): bool
@@ -123,7 +123,8 @@ trait PaginationHelpers
     #[Computed]
     public function showPaginationDetails(): bool
     {
-        return $this->shouldShowPaginationDetails === true;
+        return $this->getPaginationConfigValue('shouldShowPaginationDetails') === true;
+
     }
 
     // TODO: Test
@@ -156,6 +157,11 @@ trait PaginationHelpers
     #[Computed]
     public function getShouldRetrieveTotalItemCount(): bool
     {
-        return $this->shouldRetrieveTotalItemCount;
+        return $this->getPaginationConfigValue('shouldRetrieveTotalItemCount');
+    }
+
+    protected function getPaginationConfigValue(string $key)
+    {
+        return $this->paginationConfig[$key];
     }
 }

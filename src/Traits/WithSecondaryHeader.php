@@ -4,7 +4,7 @@ namespace Rappasoft\LaravelLivewireTables\Traits;
 
 use Rappasoft\LaravelLivewireTables\Traits\Styling\HasSecondaryHeaderStyling;
 use Livewire\Attributes\Computed;
-use Rappasoft\LaravelLivewireTables\Views\Column;
+use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
 
 trait WithSecondaryHeader
 {

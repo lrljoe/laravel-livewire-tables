@@ -19,7 +19,7 @@ trait WithReordering
      *
      * @var boolean
      */
-    public bool $reorderStatus = false;
+    //public bool $reorderStatus = false;
 
     /**
      * Undocumented variable
@@ -28,7 +28,7 @@ trait WithReordering
      *
      * @var boolean
      */
-    public bool $currentlyReorderingStatus = false;
+    //public bool $currentlyReorderingStatus = false;
 
     /**
      * Undocumented variable
@@ -37,7 +37,7 @@ trait WithReordering
      *
      * @var boolean
      */
-    public bool $hideReorderColumnUnlessReorderingStatus = false;
+    //public bool $hideReorderColumnUnlessReorderingStatus = false;
 
     /**
      * Undocumented variable
@@ -46,7 +46,7 @@ trait WithReordering
      *
      * @var boolean
      */
-    public bool $reorderDisplayColumn = false;
+    //public bool $reorderDisplayColumn = false;
 
     /**
      * Undocumented variable
@@ -55,7 +55,7 @@ trait WithReordering
      *
      * @var string
      */
-    public string $defaultReorderColumn = 'sort';
+    //public string $defaultReorderColumn = 'sort';
 
     /**
      * Undocumented variable
@@ -69,7 +69,7 @@ trait WithReordering
      *
      * @var string
      */
-    protected string $reorderMethod = 'reorder';
+    //protected string $reorderMethod = 'reorder';
 
     /**
      * Undocumented variable
@@ -77,6 +77,16 @@ trait WithReordering
      * @var string
      */
     protected string $defaultReorderDirection = 'asc';
+
+    public array $reorderConfig = [
+        'currentlyReorderingStatus' => false,
+        'defaultReorderDirection' => 'asc',
+        'defaultReorderColumn' => 'sort',
+        'hideReorderColumnUnlessReorderingStatus' => false,
+        'reorderDisplayColumn' => false,
+        'reorderMethod' => 'reorder',
+        'reorderStatus' => false,
+    ];
 
     /**
      * Undocumented function
@@ -114,7 +124,7 @@ trait WithReordering
         $this->setReorderingSession();
         $this->setReorderingBackup();
         $this->resetReorderFields();
-        $this->reorderStatus = $this->currentlyReorderingStatus = $this->reorderDisplayColumn = true;
+        $this->reorderConfig['reorderStatus'] = $this->reorderConfig['currentlyReorderingStatus'] = $this->reorderConfig['reorderDisplayColumn'] = true;
     }
 
     /**
@@ -128,7 +138,7 @@ trait WithReordering
         $this->forgetReorderingSession();
         $this->setCurrentlyReorderingDisabled();
         $this->getReorderingBackup();
-        $this->currentlyReorderingStatus = $this->reorderDisplayColumn = false;
+        $this->reorderConfig['currentlyReorderingStatus'] = $this->reorderConfig['reorderDisplayColumn'] = false;
 
     }
 
@@ -256,7 +266,7 @@ trait WithReordering
             $this->restoreStateFromArray(session()->get($this->getReorderingBackupSessionKey()));
             session()->forget($this->getReorderingBackupSessionKey());
         }
-        $this->currentlyReorderingStatus = $this->reorderDisplayColumn = false;
+        $this->reorderConfig['currentlyReorderingStatus'] = $this->reorderConfig['reorderDisplayColumn'] = false;
 
     }
 

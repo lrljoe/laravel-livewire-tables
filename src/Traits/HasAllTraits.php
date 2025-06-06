@@ -5,6 +5,10 @@ namespace Rappasoft\LaravelLivewireTables\Traits;
 use Rappasoft\LaravelLivewireTables\Traits\Core\{HasCustomAttributes, HasLocalisations};
 use Rappasoft\LaravelLivewireTables\Views\Traits\Core\HasTheme;
 use Rappasoft\LaravelLivewireTables\Traits\Styling\{HasCoreStyling, HasHeaderStyling};
+use Rappasoft\LaravelLivewireTables\Features\Filters\Traits\WithFilters;
+use Rappasoft\LaravelLivewireTables\Features\Columns\Core\{WithColumns,WithColumnsCollapsing,WithColumnSelect};
+use Rappasoft\LaravelLivewireTables\Features\BulkActions\Core\WithBulkActions;
+
 
 trait HasAllTraits
 {
@@ -25,7 +29,7 @@ trait HasAllTraits
         WithPagination;
     use WithBulkActions,
         HasCustomAttributes,
-        WithCollapsingColumns,
+        WithColumnsCollapsing,
         WithColumnSelect,
         WithConfigurableAreas,
         WithCustomisations,

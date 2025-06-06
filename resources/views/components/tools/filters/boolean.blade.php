@@ -5,7 +5,7 @@
 <div class="flex flex-cols"
     x-data="newBooleanFilter($wire, '{{ $filter->getKey() }}', '{{ $tableName }}', '{{ $defaultValue }}')"
 >
-    <x-livewire-tables::tools.filter-label :$filter :$filterLayout :$tableName :$isTailwind :$isTailwind4 :$isBootstrap4 :$isBootstrap5 :$isBootstrap />
+    <x-livewire-tables::tools.filter-label :$filter :$filterLayout  />
     <input id="thisId" type="checkbox" name="switch" class="hidden" :checked="value" />
 
     <button x-cloak {{ $filterInputAttributes->merge([

@@ -56,7 +56,7 @@ trait ComponentUtilities
         if (! isset($this->theme) || is_null($this->theme)) {
             $this->setTheme(config('livewire-tables.theme', 'tailwind'));
         }
-        $this->generateDataTableFingerprint();
+        $this->setDataTableFingerprint($this->generateDataTableFingerprint());
 
     }
 

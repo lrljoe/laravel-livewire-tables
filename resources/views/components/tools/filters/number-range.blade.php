@@ -7,7 +7,7 @@
 @endphp
 
 <div id="{{ $tableName }}-numberRange-{{ $filterKey }}" x-data="numberRangeFilter($wire,'{{ $filterKey }}', '{{ $tableName }}-numberRange-{{ $filterKey }}-wrapper', @js($filter->getConfigs()), '{{ $tableName }}-numberRange-{{ $filterKey }}')" x-on:mousedown.away.throttle.2000ms="updateWireable" x-on:touchstart.away.throttle.2000ms="updateWireable" x-on:mouseleave.throttle.2000ms="updateWireable">
-    <x-livewire-tables::tools.filter-label for="{{ $tableName.'-numberRange-'.$filterKey.'-min' }}" :$filter :$filterLayout :$tableName :$isTailwind :$isTailwind4 :$isBootstrap4 :$isBootstrap5 :$isBootstrap />
+    <x-livewire-tables::tools.filter-label for="{{ $tableName.'-numberRange-'.$filterKey.'-min' }}" :$filter :$filterLayout />
     <div
         @class([
             'mt-4 h-22 pt-8 pb-4 grid gap-10' => $isTailwind,

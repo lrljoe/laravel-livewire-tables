@@ -12,7 +12,7 @@ trait ReorderingConfiguration
      */
     public function setReorderStatus(bool $status): self
     {
-        $this->reorderStatus = $status;
+        $this->reorderConfig['reorderStatus'] = $status;
 
         return $this;
     }
@@ -45,7 +45,7 @@ trait ReorderingConfiguration
      */
     public function setCurrentlyReorderingStatus(bool $status): self
     {
-        $this->currentlyReorderingStatus = $status;
+        $this->reorderConfig['currentlyReorderingStatus'] = $status;
 
         return $this;
     }
@@ -78,7 +78,7 @@ trait ReorderingConfiguration
      */
     public function setHideReorderColumnUnlessReorderingStatus(bool $status): self
     {
-        $this->hideReorderColumnUnlessReorderingStatus = $status;
+        $this->reorderConfig['hideReorderColumnUnlessReorderingStatus'] = $status;
 
         return $this;
     }
@@ -111,7 +111,7 @@ trait ReorderingConfiguration
      */
     public function setReorderMethod(string $method): self
     {
-        $this->reorderMethod = $method;
+        $this->reorderConfig['reorderMethod'] = $method;
 
         return $this;
     }
@@ -125,8 +125,8 @@ trait ReorderingConfiguration
      */
     public function setDefaultReorderSort(string $field, string $direction = 'asc'): self
     {
-        $this->defaultReorderColumn = $field;
-        $this->defaultReorderDirection = $direction;
+        $this->reorderConfig['defaultReorderColumn'] = $field;
+        $this->reorderConfig['defaultReorderDirection'] = $direction;
 
         return $this;
     }

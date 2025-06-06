@@ -1,5 +1,5 @@
 <div>
-    <x-livewire-tables::tools.filter-label :$filter :$filterLayout :$tableName :$isTailwind :$isTailwind4 :$isBootstrap4 :$isBootstrap5 :$isBootstrap />
+    <x-livewire-tables::tools.filter-label :$filter :$filterLayout  />
     <div @class([
         'rounded-md shadow-sm' => $isTailwind,
         'tw4ph rounded-md shadow-sm' => $isTailwind4,
@@ -12,7 +12,7 @@
                     'border-gray-300 focus:border-indigo-300 focus:ring-indigo-200 dark:bg-gray-800 dark:text-white dark:border-gray-600' => ($isTailwind && ($filterInputAttributes['default-colors'] ?? true)),
                     'tw4ph block w-full rounded-sm shadow-md transition duration-150 ease-in-out focus:ring focus:ring-opacity-50' => ($isTailwind4 && ($filterInputAttributes['default-styling'] ?? true)),
                     'tw4ph border-gray-350 focus:border-indigo-300 focus:ring-indigo-200 dark:bg-gray-800 dark:text-white dark:border-gray-600' => ($isTailwind4 && ($filterInputAttributes['default-colors'] ?? true)),
-                    'form-control' => ($isBootstrap),
+                    'form-control' => $isBootstrap,
                 ])
                 ->except(['default-styling','default-colors']) 
             }} />

@@ -1,5 +1,5 @@
-@aware([ 'tableName'])
-@props(['filter', 'filterLayout' => 'popover', 'tableName' => 'table', 'isTailwind' => false, 'isTailwind4' => false, 'isBootstrap' => false, 'isBootstrap4' => false, 'isBootstrap5' => false, 'for' => null])
+@aware([ 'tableName', 'isTailwind', 'isTailwind4', 'isBootstrap', 'isBootstrap4', 'isBootstrap5'])
+@props(['filter', 'filterLayout' => 'popover', 'for' => null])
 
 @php
     $filterLabelAttributes = $filter->getFilterLabelAttributes();

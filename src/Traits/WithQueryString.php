@@ -17,8 +17,8 @@ trait WithQueryString
      *
      * @var array<mixed>
      */
-    #[Locked]
-    public array $queryStringConfig = [
+    // #[Locked]
+    protected array $queryStringConfig = [
         'columns' => ['status' => false, 'alias' => null],
         'filters' => ['status' => true, 'alias' => null],
         'pagination' => ['status' => true, 'alias' => 'perPage'],

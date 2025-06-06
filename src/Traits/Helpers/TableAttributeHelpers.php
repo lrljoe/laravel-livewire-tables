@@ -5,7 +5,7 @@ namespace Rappasoft\LaravelLivewireTables\Traits\Helpers;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\View\ComponentAttributeBag;
 use Livewire\Attributes\Computed;
-use Rappasoft\LaravelLivewireTables\Views\Column;
+use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
 
 trait TableAttributeHelpers
 {

@@ -36,8 +36,8 @@ trait WithPagination
      *
      * @var integer
      */
-    #[Locked]
-    public int $defaultPerPage = 10;
+   // #[Locked]
+    //public int $defaultPerPage = 10;
 
     
     /**
@@ -45,8 +45,8 @@ trait WithPagination
      *
      * @var array<mixed>
      */
-    #[Locked]
-    public array $perPageAccepted = [10, 25, 50];
+   // #[Locked]
+    //public array $perPageAccepted = [10, 25, 50];
 
 
     /**
@@ -54,26 +54,35 @@ trait WithPagination
      *
      * @var boolean
      */
-    #[Locked]
-    public bool $paginationStatus = true;
+    //#[Locked]
+    //public bool $paginationStatus = true;
 
     /**
      * Undocumented variable
      *
      * @var boolean
      */
-    #[Locked]
-    public bool $paginationVisibilityStatus = true;
+    //#[Locked]
+    //public bool $paginationVisibilityStatus = true;
 
     /**
      * Undocumented variable
      *
      * @var boolean
      */
-    #[Locked]
-    public bool $perPageVisibilityStatus = true;
+    //#[Locked]
+    //public bool $perPageVisibilityStatus = true;
 
-    
+    #[Locked]
+    public array $paginationConfig = [
+        'defaultPerPage' => 10,
+        'perPageAccepted' => [10, 25, 50],
+        'paginationStatus' => true,
+        'paginationVisibilityStatus' => true,
+        'perPageVisibilityStatus' => true,
+        'shouldShowPaginationDetails' => true,
+        'shouldRetrieveTotalItemCount' => true,
+    ];
 
     /**
      * Undocumented variable
@@ -123,14 +132,14 @@ trait WithPagination
      *
      * @var boolean
      */
-    protected bool $shouldShowPaginationDetails = true;
+    //protected bool $shouldShowPaginationDetails = true;
 
     /**
      * Undocumented variable
      *
      * @var boolean
      */
-    protected bool $shouldRetrieveTotalItemCount = true;
+    //protected bool $shouldRetrieveTotalItemCount = true;
 
     /**
      * Undocumented function

@@ -2,72 +2,7 @@
 
 namespace Rappasoft\LaravelLivewireTables\Views\Columns;
 
-use Carbon\Carbon;
-use DateTime;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\HtmlString;
-use Rappasoft\LaravelLivewireTables\Exceptions\DataTableConfigurationException;
-use Rappasoft\LaravelLivewireTables\Views\Columns\Traits\Configuration\DateColumnConfiguration;
-use Rappasoft\LaravelLivewireTables\Views\Columns\Traits\{HasInputOutputFormat, IsColumn};
-use Rappasoft\LaravelLivewireTables\Views\Columns\Traits\Helpers\DateColumnHelpers;
-
-class DateColumn extends BaseColumn
+class DateColumn extends \Rappasoft\LaravelLivewireTables\Features\Columns\Views\DateColumn
 {
-    use IsColumn,
-        HasInputOutputFormat,
-        DateColumnConfiguration,
-        DateColumnHelpers { DateColumnHelpers::getValue insteadof IsColumn; }
 
-    /**
-     * Undocumented variable
-     *
-     * @var string
-     */
-    public string $inputFormat = 'Y-m-d';
-
-    /**
-     * Undocumented variable
-     *
-     * @var string
-     */
-    public string $outputFormat = 'Y-m-d';
-
-    /**
-     * Undocumented variable
-     *
-     * @var string
-     */
-    public string $emptyValue = '';
-
-    /**
-     * Undocumented variable
-     *
-     * @var string
-     */
-    protected string $view = 'livewire-tables::includes.columns.date';
-
-    /**
-     * Undocumented function
-     *
-     * @param Model $row
-     * @return null|string|\BackedEnum|HtmlString|DataTableConfigurationException|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
-     */
-    public function getContents(Model $row): null|string|\BackedEnum|HtmlString|DataTableConfigurationException|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
-    {
-        try {
-            $dateTime = $this->getValue($row);
-            if ($dateTime != '' && $dateTime != null) {
-                if ($dateTime instanceof DateTime) {
-                    return $dateTime->format($this->getOutputFormat());
-                } else {
-                    // Check if format matches what is expected and return Carbon instance if so, otherwise emptyValue
-                    return Carbon::canBeCreatedFromFormat($dateTime, $this->getInputFormat()) ? Carbon::createFromFormat($this->getInputFormat(), $dateTime)->format($this->getOutputFormat()) : $this->getEmptyValue();
-                }
-            }
-        } catch (\Exception $exception) {
-            return $this->getEmptyValue();
-        }
-
-        return $this->getEmptyValue();
-    }
-}
+} 

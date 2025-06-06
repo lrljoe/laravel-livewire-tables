@@ -27,7 +27,7 @@ trait PaginationConfiguration
      */
     public function setPaginationStatus(bool $status): self
     {
-        $this->paginationStatus = $status;
+        $this->setPaginationConfig('paginationStatus',$status);
 
         return $this;
     }
@@ -60,7 +60,7 @@ trait PaginationConfiguration
      */
     public function setPaginationVisibilityStatus(bool $status): self
     {
-        $this->paginationVisibilityStatus = $status;
+        $this->setPaginationConfig('paginationVisibilityStatus',$status);
 
         return $this;
     }
@@ -93,7 +93,7 @@ trait PaginationConfiguration
      */
     public function setPerPageVisibilityStatus(bool $status): self
     {
-        $this->perPageVisibilityStatus = $status;
+        $this->setPaginationConfig('perPageVisibilityStatus',$status);
 
         return $this;
     }
@@ -126,7 +126,7 @@ trait PaginationConfiguration
      */
     public function setPerPageAccepted(array $accepted): self
     {
-        $this->perPageAccepted = $accepted;
+        $this->setPaginationConfig('perPageAccepted',$accepted);
 
         return $this;
     }
@@ -182,7 +182,7 @@ trait PaginationConfiguration
      */
     public function setDisplayPaginationDetails(bool $status): self
     {
-        $this->shouldShowPaginationDetails = $status;
+        $this->setPaginationConfig('shouldShowPaginationDetails',$status);
 
         return $this;
     }
@@ -216,7 +216,7 @@ trait PaginationConfiguration
     public function setDefaultPerPage(int $defaultPerPage): self
     {
         if (in_array((int) $defaultPerPage, $this->getPerPageAccepted())) {
-            $this->defaultPerPage = $defaultPerPage;
+            $this->setPaginationConfig('defaultPerPage',$defaultPerPage);
         }
 
         return $this;
@@ -230,7 +230,7 @@ trait PaginationConfiguration
      */
     public function setShouldRetrieveTotalItemCountStatus(bool $status): self
     {
-        $this->shouldRetrieveTotalItemCount = $status;
+        $this->setPaginationConfig('shouldRetrieveTotalItemCount',$status);
 
         return $this;
     }
@@ -253,5 +253,12 @@ trait PaginationConfiguration
     public function setShouldRetrieveTotalItemCountDisabled(): self
     {
         return $this->setShouldRetrieveTotalItemCountStatus(false);
+    }
+
+    protected function setPaginationConfig($key, $value): self
+    {
+        $this->paginationConfig[$key] = $value;
+
+        return $this;
     }
 }

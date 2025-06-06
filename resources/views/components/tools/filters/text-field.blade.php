@@ -1,10 +1,10 @@
 <div>
-    <x-livewire-tables::tools.filter-label :$filter :$filterLayout :$tableName :$isTailwind :$isTailwind4 :$isBootstrap4 :$isBootstrap5 :$isBootstrap />
+    <x-livewire-tables::tools.filter-label :$filter :$filterLayout  />
 
     <div @class([
-        'rounded-md shadow-sm' => ($isTailwind),
-        'tw4ph rounded-md shadow-sm' => ($isTailwind4),
-        'mb-3 mb-md-0 input-group' => ($isBootstrap),
+        'rounded-md shadow-sm' => $isTailwind,
+        'tw4ph rounded-md shadow-sm' => $isTailwind4,
+        'mb-3 mb-md-0 input-group' => $isBootstrap,
     ])>
         <input {!! $filter->getWireMethod('appliedFilters.'.$filter->getKey()) !!} {{ 
                 $filterInputAttributes->merge()

@@ -3,18 +3,19 @@
 namespace Rappasoft\LaravelLivewireTables\Traits\Helpers;
 
 use Livewire\Attributes\Computed;
-use Rappasoft\LaravelLivewireTables\Views\Column;
+use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
 
 trait ReorderingHelpers
 {
     public function getReorderMethod(): string
     {
-        return $this->reorderMethod;
+        return $this->reorderConfig['reorderMethod'];
     }
 
     public function getReorderStatus(): bool
     {
-        return $this->reorderStatus;
+        return $this->reorderConfig['reorderStatus'];
+
     }
 
     #[Computed]
@@ -37,7 +38,7 @@ trait ReorderingHelpers
     #[Computed]
     public function getCurrentlyReorderingStatus(): bool
     {
-        return $this->currentlyReorderingStatus;
+        return $this->reorderConfig['currentlyReorderingStatus'];
     }
 
     public function currentlyReorderingIsEnabled(): bool
@@ -52,7 +53,7 @@ trait ReorderingHelpers
 
     public function getHideReorderColumnUnlessReorderingStatus(): bool
     {
-        return $this->hideReorderColumnUnlessReorderingStatus;
+        return $this->reorderConfig['hideReorderColumnUnlessReorderingStatus'];
     }
 
     public function hideReorderColumnUnlessReorderingIsEnabled(): bool
@@ -67,12 +68,12 @@ trait ReorderingHelpers
 
     public function getDefaultReorderColumn(): ?string
     {
-        return $this->defaultReorderColumn;
+        return $this->reorderConfig['defaultReorderColumn'];
     }
 
     public function getDefaultReorderDirection(): string
     {
-        return $this->defaultReorderDirection;
+        return $this->reorderConfig['defaultReorderDirection'];
     }
 
     public function setReorderingSession(): void

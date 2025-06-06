@@ -2,17 +2,7 @@
 
 namespace Rappasoft\LaravelLivewireTables\Views\Columns;
 
-use Rappasoft\LaravelLivewireTables\Views\Columns\Traits\IsAggregateColumn;
-
-class SumColumn extends AggregateColumn
+class SumColumn extends \Rappasoft\LaravelLivewireTables\Features\Columns\Views\Aggregates\SumColumn
 {
-    use IsAggregateColumn;
 
-    public string $aggregateMethod = 'sum';
-
-    public function __construct(string $title, ?string $from = null)
-    {
-        parent::__construct($title, $from);
-        $this->label(fn () => null);
-    }
-}
+} 

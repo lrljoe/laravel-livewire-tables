@@ -42,7 +42,7 @@ trait WithSorting
      *
      * @var Collection<int,string>
      */
-    public Collection $sortableColumns;
+    protected Collection $sortableColumns;
 
     /**
      * Undocumented function
