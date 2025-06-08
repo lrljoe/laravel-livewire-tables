@@ -14,7 +14,7 @@
         <x-livewire-tables::tools.sorting-pills />
     @endif
 
-    @if($this->showFilterPillsSection())
+    @if(method_exists($this, 'showFilterPillsSection') ? $this->showFilterPillsSection() : false)
         <x-livewire-tables::tools.filter-pills />
     @endif
 
@@ -28,12 +28,7 @@
         <x-livewire-tables::tools.toolbar  />
     @endif
 
-    @if (
-        $this->filtersAreEnabled() &&
-        $this->filtersVisibilityIsEnabled() &&
-        $this->hasVisibleFilters() &&
-        $this->isFilterLayoutSlideDown()
-    )
+    @if ($this->shouldShowToolsFilterSection())
         <x-livewire-tables::tools.toolbar.items.filter-slidedown  />
     @endif
     

@@ -59,6 +59,13 @@ trait WithFilters
         return [];
     }
 
+    public function configuringWithFilters(): void
+    {
+
+        $this->setFilterLayout($this->filterLayout);
+    }
+
+
    /* public function updatedAvailableFilters2($val, $key)
     {
         $temp = Arr::undot([$key => $val]);

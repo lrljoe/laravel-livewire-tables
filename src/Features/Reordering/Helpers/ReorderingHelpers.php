@@ -1,0 +1,108 @@
+<?php
+
+namespace Rappasoft\LaravelLivewireTables\Features\Reordering\Helpers;
+
+use Livewire\Attributes\Computed;
+use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
+
+trait ReorderingHelpers
+{
+    public function getReorderMethod(): string
+    {
+        return $this->reorderConfig['reorderMethod'];
+    }
+
+    public function getReorderStatus(): bool
+    {
+        return $this->reorderConfig['reorderStatus'];
+
+    }
+
+    #[Computed]
+    public function showReorderButton(): bool
+    {
+        return $this->getReorderStatus() === true;
+    }
+
+    #[Computed]
+    public function reorderIsEnabled(): bool
+    {
+        return $this->getReorderStatus() === true;
+    }
+
+    public function reorderIsDisabled(): bool
+    {
+        return $this->getReorderStatus() === false;
+    }
+
+    #[Computed]
+    public function getCurrentlyReorderingStatus(): bool
+    {
+        return $this->reorderConfig['currentlyReorderingStatus'];
+    }
+
+    public function currentlyReorderingIsEnabled(): bool
+    {
+        return $this->getCurrentlyReorderingStatus() === true;
+    }
+
+    public function currentlyReorderingIsDisabled(): bool
+    {
+        return $this->getCurrentlyReorderingStatus() === false;
+    }
+
+    public function getHideReorderColumnUnlessReorderingStatus(): bool
+    {
+        return $this->reorderConfig['hideReorderColumnUnlessReorderingStatus'];
+    }
+
+    public function hideReorderColumnUnlessReorderingIsEnabled(): bool
+    {
+        return $this->getHideReorderColumnUnlessReorderingStatus() === true;
+    }
+
+    public function hideReorderColumnUnlessReorderingIsDisabled(): bool
+    {
+        return $this->getHideReorderColumnUnlessReorderingStatus() === false;
+    }
+
+    public function getDefaultReorderColumn(): ?string
+    {
+        return $this->reorderConfig['defaultReorderColumn'];
+    }
+
+    public function getDefaultReorderDirection(): string
+    {
+        return $this->reorderConfig['defaultReorderDirection'];
+    }
+
+    public function setReorderingSession(): void
+    {
+        session([$this->getReorderingSessionKey() => true]);
+    }
+
+    public function forgetReorderingSession(): void
+    {
+        session()->forget($this->getReorderingSessionKey());
+    }
+
+    public function hasReorderingSession(): bool
+    {
+        return session()->has($this->getReorderingSessionKey());
+    }
+
+    public function getReorderingSessionKey(): string
+    {
+        return $this->getTableName().'-reordering';
+    }
+
+    public function getReorderingBackupSessionKey(): string
+    {
+        return $this->getTableName().'-reordering-backup';
+    }
+
+    public function getReorderColumn(): Column
+    {
+        return Column::make('reorder')->label(fn () => null);
+    }
+}

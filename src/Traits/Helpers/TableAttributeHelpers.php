@@ -40,7 +40,7 @@ trait TableAttributeHelpers
         {
             $coreAttribs['wire:poll'.$this->getRefreshOptions()] = '';
         }
-        if($this->isFilterLayoutSlideDown())
+        if(method_exists($this, 'isFilterLayoutSlideDown') ? $this->isFilterLayoutSlideDown() : false)
         {
             $coreAttribs['wire:ignore.self'] = '';
         }
@@ -303,8 +303,7 @@ trait TableAttributeHelpers
             'tableId' => $this->getTableId(),
             'primaryKey' => $this->getPrimaryKey(),
             'collapsingColumnInfo' => $this->getCollapsingColumnDetailsForView(),
-            'filterGenericData' => $this->getFilterGenericData(),
-
+            'filterGenericData' => method_exists($this, 'getFilterGenericData') ? $this->getFilterGenericData() : [],
             'collapsingColumnClasses' => $this->getCollapsingColumnClasses(),
             'collapsingColumnDetails' => $this->getCollapsedColumnsForContentNew(),
             'collapsingColumnButtonExpandAttributes' => $this->getCollapsingColumnButtonExpandAttributes(),

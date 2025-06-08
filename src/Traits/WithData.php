@@ -57,9 +57,16 @@ trait WithData
 
         $this->setBuilder($this->joinRelations());
 
-        $this->setBuilder($this->applySearch());
+        if(method_exists($this, 'applySearch'))
+        {
+            $this->setBuilder($this->applySearch());
+        }
+        
+        if(method_exists($this, 'applyFilters'))
+        {
+            $this->setBuilder($this->applyFilters());
+        }
 
-        $this->setBuilder($this->applyFilters());
 
         $builder = $this->getBuilder();
 

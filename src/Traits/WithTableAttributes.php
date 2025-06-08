@@ -5,12 +5,14 @@ namespace Rappasoft\LaravelLivewireTables\Traits;
 use Closure;
 use Rappasoft\LaravelLivewireTables\Traits\Configuration\TableAttributeConfiguration;
 use Rappasoft\LaravelLivewireTables\Traits\Helpers\TableAttributeHelpers;
+use Rappasoft\LaravelLivewireTables\Traits\Styling\{HasCoreStyling, HasHeaderStyling};
 
 trait WithTableAttributes
 {
     use TableAttributeConfiguration,
         TableAttributeHelpers;
-    
+    use HasCoreStyling, HasHeaderStyling;
+
     /**
      * Undocumented variable
      *

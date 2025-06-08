@@ -34,7 +34,7 @@ class DebuggableData
             'query' => (clone $this->component->getBuilder())->toSql(),
             'filters' => $this->component->getAppliedFilters(),
             'sorts' => $this->component->getSorts(),
-            'search' => $this->component->getSearch(),
+            'search' => (method_exists($this->component, 'getSearch') ? $this->component->getSearch() : ''),
             'select-all' => $this->component->getSelectAllStatus(),
             'selected' => $this->component->getSelected(),
         ];
