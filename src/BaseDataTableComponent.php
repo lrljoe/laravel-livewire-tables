@@ -25,16 +25,16 @@ use Rappasoft\LaravelLivewireTables\Features\Tools\WithTools;
 
 abstract class BaseDataTableComponent extends Component
 {
-    use WithTableHooks,
+    use ComponentUtilities,
+        WithQueryString,
+        WithTableHooks,
         HasLocalisations,
         WithLoadingPlaceholder,
         HasTheme,
         WithFilters,
         WithQuery,
-        ComponentUtilities,
         WithActions,
         WithData,
-        WithQueryString,
         WithColumns,
         WithSorting,
         WithSearch,

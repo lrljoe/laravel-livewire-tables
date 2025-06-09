@@ -26,16 +26,16 @@ use Rappasoft\LaravelLivewireTables\Features\Tools\WithTools;
 abstract class DataTableComponent extends Component
 {
     
-    use WithTableHooks,
+    use ComponentUtilities,
+        WithQueryString,
+        WithTableHooks,
         HasLocalisations,
         WithLoadingPlaceholder,#
         WithFilters,
         HasTheme,
         WithQuery,
-        ComponentUtilities,
         WithActions,
         WithData,
-        WithQueryString,
         WithColumns,
         WithSearch,
         WithSorting,

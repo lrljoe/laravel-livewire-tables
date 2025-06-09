@@ -59,7 +59,18 @@ trait HasActionsStyling
         return $this;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $actionWrapperAttributes
+     * @return self
+     */
+    public function setActionMenuAttributes(array $actionsMenuAttributes): self
+    {
+        $this->actionsMenuAttributes = [...$this->actionsMenuAttributes, ...$actionsMenuAttributes];
 
+        return $this;
+    }
     /**
      * Used to get attributes for the Bulk Actions Button
      *

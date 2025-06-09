@@ -6,7 +6,7 @@
 
     <x-livewire-tables::dropdown.wrapper>
         {{-- The Button Used To Toggle The Menu --}}
-        <x-livewire-tables::dropdown.button id="{{ $tableName }}-actionsDropdownButton" aria-controls="{{ $tableName }}-actionsDropdownBody" {{ $attributes->merge($this->getActionsButtonAttributes) }}>
+        <x-livewire-tables::dropdown.button id="{{ $tableName }}-actionsDropdownButton" aria-controls="{{ $tableName }}-actionsDropdownBody" {{ $attributes->merge($actionButtonAttributes) }}>
             {{ __($localisationPath.'Actions') }}
 
             @if($isTailwind || $isTailwind4)
@@ -15,7 +15,7 @@
         </x-livewire-tables::dropdown.button>
 
         {{-- The Body of The Menu --}}
-        <x-livewire-tables::dropdown.body id="{{ $tableName }}-actionsDropdownBody" aria-labelledby="{{ $tableName }}-actionsDropdownButton" {{ $attributes->merge($this->getActionsMenuAttributes) }}>
+        <x-livewire-tables::dropdown.body id="{{ $tableName }}-actionsDropdownBody" aria-labelledby="{{ $tableName }}-actionsDropdownButton" {{ $attributes->merge($actionsMenuAttributes) }}>
             @foreach($actions as $action)
                 {{ $action->setInMenu(true)->render() }}
             @endforeach

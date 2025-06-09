@@ -12,15 +12,15 @@ trait ToolsHelpers
     }
 
 
-    public function shouldShowToolsFilterSection(): bool
+    public function shouldShowToolsFilterSlidedown(): bool
     {
-        if (!method_exists($this, 'filtersAreEnabled'))
+        if (!method_exists($this, 'filtersAreEnabled') || !method_exists($this, 'isFilterLayoutSlideDown'))
         {
             return false;
         }
         else
         {
-            return ($this->filtersAreEnabled() && $this->filtersVisibilityIsEnabled() && $this->hasVisibleFilters() && $this->isFilterLayoutSlideDown());
+            return (($this->filtersAreEnabled() && $this->filtersVisibilityIsEnabled() && $this->hasVisibleFilters()) && $this->isFilterLayoutSlideDown());
         }
     }
 

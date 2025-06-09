@@ -21,13 +21,13 @@ use Rappasoft\LaravelLivewireTables\Features\Tools\WithTools;
 trait HasAllTraits
 {
     // Note Specific Order Below!
-    use WithTableHooks,
+    use ComponentUtilities,
+        WithTableHooks,
         HasLocalisations,
         WithLoadingPlaceholder,
         HasTheme,
         WithFilters,
         WithQuery,
-        ComponentUtilities,
         WithActions,
         WithData,
         WithQueryString,

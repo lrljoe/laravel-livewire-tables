@@ -10,7 +10,7 @@
         ->except(['default','default-styling','default-colors'])
     }}
 >
-    @if ($this->showSortPillsSection())
+    @if(method_exists($this, 'showSortPillsSection') ? $this->showSortPillsSection() : false)
         <x-livewire-tables::tools.sorting-pills />
     @endif
 
@@ -28,7 +28,7 @@
         <x-livewire-tables::tools.toolbar  />
     @endif
 
-    @if ($this->shouldShowToolsFilterSection())
+    @if ($this->shouldShowToolsFilterSlidedown())
         <x-livewire-tables::tools.toolbar.items.filter-slidedown  />
     @endif
     

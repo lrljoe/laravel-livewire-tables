@@ -4,8 +4,6 @@ namespace Rappasoft\LaravelLivewireTables\Traits\Configuration;
 
 trait QueryStringConfiguration
 {
-    public bool $queryStringStatus = false;
-    public string $queryStringAlias = "table";
     
     public function setupQueryStringStatus(): void
     {

@@ -91,7 +91,12 @@ trait ToolBarItemHelpers
     {
         if($this->showToolbarSection('filters'))
         {
-            return ['view' => 'livewire-tables::includes.toolbar.items.filter-button',  'attributes' => []];
+            return ['view' => 'livewire-tables::includes.toolbar.items.filter-button', 'attributes' => [
+                'filterBadgeCount' => $this->getFilterBadgeCount(),
+                'isFilterLayoutPopover' => $this->isFilterLayoutPopover(),
+                'isFilterLayoutSlideDown' => $this->isFilterLayoutSlideDown(),
+                'searchIsEnabled' => $this->searchIsEnabled(),
+            ]];
         }
         return [];
     }
@@ -100,16 +105,21 @@ trait ToolBarItemHelpers
     {
         return ['view' => 'livewire-tables::includes.toolbar.items.actions',  'attributes' => [
                 'actionWrapperAttributes' => $this->getActionWrapperAttributes(),
+                'actionButtonAttributes' => $this->getActionsButtonAttributes(),
+                'actionsMenuAttributes' => $this->getActionsMenuAttributes(),
                 'actionsPosition' => $this->getActionsPosition(),
                 'showActionsAsDropdown' => $this->showActionsAsDropdown(),
                 'showActionsInToolbar' => $this->showActionsInToolbar(),
         ]];
     }
+
     protected function getToolbarItemForColumnSelect()
     {
         if($this->columnSelectIsEnabled())
         {
             return ['view' => 'livewire-tables::includes.toolbar.items.column-select', 'attributes' => [
+                'csIsHiddenOnMobile' => $this->getColumnSelectIsHiddenOnMobile(),
+                'csIsHiddenOnTablet' => $this->getColumnSelectIsHiddenOnTablet(),
                 'columnSelectButtonAttributes' => $this->getColumnSelectButtonAttributes(),
                 'columnSelectMenuOptionCheckboxAttributes' => $this->getColumnSelectMenuOptionCheckboxAttributes(),
                 'selectableSelectedColumnCount' => $this->getSelectableSelectedColumns()->count(),
