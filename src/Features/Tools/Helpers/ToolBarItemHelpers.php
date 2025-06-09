@@ -100,6 +100,17 @@ trait ToolBarItemHelpers
         }
         return [];
     }
+    public function getToolbarActionAttributes()
+    {
+        return [
+                'actionWrapperAttributes' => $this->getActionWrapperAttributes(),
+                'actionButtonAttributes' => $this->getActionsButtonAttributes(),
+                'actionsMenuAttributes' => $this->getActionsMenuAttributes(),
+                'actionsPosition' => $this->getActionsPosition(),
+                'showActionsAsDropdown' => $this->showActionsAsDropdown(),
+                'showActionsInToolbar' => $this->showActionsInToolbar(),
+        ];
+    }
 
     protected function getToolbarItemForActions()
     {

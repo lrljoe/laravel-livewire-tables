@@ -32,7 +32,7 @@ trait WithActions
     /**
      * Undocumented variable
      *
-     * @var Collection<int,\Rappasoft\LaravelLivewireTables\Views\Action>|null
+     * @var Collection<int,\Rappasoft\LaravelLivewireTables\Features\Actions\Views>|null
      */
     protected ?Collection $validActions;
 

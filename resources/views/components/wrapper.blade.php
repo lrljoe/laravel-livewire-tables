@@ -2,5 +2,6 @@
 <div {{ $attributes->merge($this->getComponentWrapperAttributes()) }}>
     @includeWhen($this->debugIsEnabled(),'livewire-tables::includes.debug')
     @includeWhen($this->offlineIndicatorIsEnabled(),'livewire-tables::includes.offline')
+
     {{ $slot }}
 </div>

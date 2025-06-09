@@ -10,6 +10,8 @@
         ->except(['default','default-styling','default-colors'])
     }}
 >
+    @includeWhen(!$this->showActionsInToolbar(), 'livewire-tables::includes.toolbar.items.actions', $this->getToolbarActionAttributes())
+
     @if(method_exists($this, 'showSortPillsSection') ? $this->showSortPillsSection() : false)
         <x-livewire-tables::tools.sorting-pills />
     @endif

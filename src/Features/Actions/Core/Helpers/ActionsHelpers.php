@@ -4,7 +4,7 @@ namespace Rappasoft\LaravelLivewireTables\Features\Actions\Core\Helpers;
 
 use Illuminate\Support\Collection;
 use Livewire\Attributes\Computed;
-use Rappasoft\LaravelLivewireTables\Views\Action;
+use Rappasoft\LaravelLivewireTables\Features\Actions\Views\Action;
 
 trait ActionsHelpers
 {
