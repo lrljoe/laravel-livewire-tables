@@ -1,13 +1,13 @@
 <?php
 
-namespace Rappasoft\LaravelLivewireTables\Features\Columns\Core;
+namespace Rappasoft\LaravelLivewireTables\Features\ColumnSelect;
 
 use Livewire\Attributes\Locked;
 use Rappasoft\LaravelLivewireTables\Events\ColumnsSelected;
-use Rappasoft\LaravelLivewireTables\Features\Columns\Core\Configuration\ColumnSelectConfiguration;
-use Rappasoft\LaravelLivewireTables\Features\Columns\Core\Helpers\ColumnSelectHelpers;
-use Rappasoft\LaravelLivewireTables\Features\Columns\Core\QueryString\HasQueryStringForColumnSelect;
-use Rappasoft\LaravelLivewireTables\Features\Columns\Core\Styling\HasColumnSelectStyling;
+use Rappasoft\LaravelLivewireTables\Features\ColumnSelect\Configuration\ColumnSelectConfiguration;
+use Rappasoft\LaravelLivewireTables\Features\ColumnSelect\Helpers\ColumnSelectHelpers;
+use Rappasoft\LaravelLivewireTables\Features\ColumnSelect\QueryString\HasQueryStringForColumnSelect;
+use Rappasoft\LaravelLivewireTables\Features\ColumnSelect\Styling\HasColumnSelectStyling;
 
 trait WithColumnSelect
 {
@@ -23,6 +23,8 @@ trait WithColumnSelect
      */
     #[Locked]    
     public array $columnSelectColumns = ['setupRun' => false, 'selected' => [], 'deselected' => [], 'defaultdeselected' => []];
+
+    public mixed $selectedColumnsNew = null;
 
     /**
      * Undocumented variable
@@ -90,6 +92,10 @@ trait WithColumnSelect
      */
     protected bool $columnSelectHiddenOnTablet = false;
 
+    public int $columnSelectDelay = 1500;
+
+    protected bool $hasRecentlyUpdated = false;
+
     /**
      * Undocumented function
      *
@@ -105,6 +111,22 @@ trait WithColumnSelect
         $this->callHook('configuredColumnSelect');
         $this->callTraitHook('configuredColumnSelect');
 
+        if(!is_null($this->selectedColumnsNew))
+        {
+            $this->selectedColumns = explode(";",$this->selectedColumnsNew);
+        }
+    }
+
+    public function updatedSelectedColumnsNew($data)
+    {
+        $this->selectedColumns = explode(";",$data);
+        $this->storeColumnSelectValues();
+    }
+
+    public function forceSelectedColumnsNew($data)
+    {
+        $this->selectedColumnsNew = implode(";",$data);
+
     }
 
     /**
@@ -116,6 +138,9 @@ trait WithColumnSelect
     {
         // The query string isn't needed if it's the same as the default
         $this->storeColumnSelectValues();
+        $this->forceSelectedColumnsNew($this->selectedColumns);
+
+
         if ($this->getEventStatusColumnSelect()) {
             event(new ColumnsSelected($this->getTableName(), $this->getColumnSelectSessionKey(), $this->selectedColumns));
         }

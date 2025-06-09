@@ -4,9 +4,9 @@ function tableWrap() {
     Alpine.data('tableWrapper', (wire, showBulkActionsAlpine) => ({
         shouldBeDisplayed: wire.entangle('shouldBeDisplayed'),
         listeners: [],
-        paginationCurrentCount: wire.entangle('paginationCurrentCount'),
-        paginationTotalItemCount: wire.entangle('paginationTotalItemCount'),
-        paginationCurrentItems: wire.entangle('paginationCurrentItems'),
+        paginationCurrentCount: wire.entangle('paginationConfig.paginationCurrentCount'),
+        paginationTotalItemCount: wire.entangle('paginationConfig.paginationTotalItemCount'),
+        paginationCurrentItems: wire.entangle('paginationConfig.paginationCurrentItems'),
         selectedItems: wire.entangle('selected'),
         selectAllStatus: wire.entangle('bulkActionConfig.selectAll'),
         delaySelectAll: wire.entangle('bulkActionConfig.delaySelectAll'),

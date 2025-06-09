@@ -155,6 +155,18 @@ public function configure(): void
 }
 ```
 
+### setColumnSelectDelay
+
+Set the delay when selecting Columns
+```php
+public function configure(): void
+{
+    // Defaults to 1500
+    $this->setColumnSelectDelay(500);
+}
+```
+
+
 ### setDataTableFingerprint
 
 In order to idenfify each table and prevent conflicts on column selection, each table is given a unique fingerprint.

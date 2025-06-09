@@ -1,6 +1,6 @@
 <?php
 
-namespace Rappasoft\LaravelLivewireTables\Features\Columns\Core\Styling;
+namespace Rappasoft\LaravelLivewireTables\Features\ColumnSelect\Styling;
 
 use Illuminate\View\ComponentAttributeBag;
 use Livewire\Attributes\Computed;

@@ -9,7 +9,8 @@ use Rappasoft\LaravelLivewireTables\Traits\Core\{HasCustomAttributes, HasLocalis
 use Rappasoft\LaravelLivewireTables\Views\Traits\Core\HasTheme;
 use Rappasoft\LaravelLivewireTables\Traits\Styling\{HasCoreStyling};
 use Rappasoft\LaravelLivewireTables\Features\Actions\Core\WithActions;
-use Rappasoft\LaravelLivewireTables\Features\Columns\Core\{WithColumns,WithColumnsCollapsing,WithColumnSelect};
+use Rappasoft\LaravelLivewireTables\Features\Columns\Core\{WithColumns,WithColumnsCollapsing};
+use Rappasoft\LaravelLivewireTables\Features\ColumnSelect\WithColumnSelect;
 use Rappasoft\LaravelLivewireTables\Features\ConfigurableAreas\WithConfigurableAreas;
 use Rappasoft\LaravelLivewireTables\Features\Filters\Traits\WithFilters;
 use Rappasoft\LaravelLivewireTables\Features\Footer\WithFooter;

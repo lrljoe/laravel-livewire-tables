@@ -1,5 +1,4 @@
 @aware([ 'tableName','isTailwind','isTailwind4','isBootstrap','isBootstrap4','isBootstrap5', 'localisationPath'])
-@php($perPageFieldAttributes = $this->getPerPageFieldAttributes())
 
 <div @class([
         'ml-0 ml-md-2' => $isBootstrap4,

@@ -32,10 +32,10 @@ trait WithData
         $executedQuery = $this->executeQuery();
 
         // Get All Currently Paginated Items Primary Keys
-        $this->paginationCurrentItems = $executedQuery->pluck($this->getPrimaryKey())->toArray() ?? [];
+        $this->paginationConfig['paginationCurrentItems'] = $executedQuery->pluck($this->getPrimaryKey())->toArray() ?? [];
 
         // Get Count of Items in Current Page
-        $this->paginationCurrentCount = $executedQuery->count();
+        $this->paginationConfig['paginationCurrentCount'] = $executedQuery->count();
 
         // Fire hook for rowsRetrieved
         $this->callHook('rowsRetrieved', [$executedQuery]);
@@ -117,26 +117,26 @@ trait WithData
                 $paginatedResults = $this->getBuilder()->paginate($this->getPerPage() === -1 ? $this->getBuilder()->count() : $this->getPerPage(), ['*'], $this->getComputedPageName());
 
                 // Get the total number of items available
-                $this->paginationTotalItemCount = $paginatedResults->total() ?? 0;
+                $this->paginationConfig['paginationTotalItemCount'] = $paginatedResults->total() ?? 0;
 
                 return $paginatedResults;
             } elseif ($this->isPaginationMethod('simple')) {
 
                 if ($this->getShouldRetrieveTotalItemCount()) {
-                    $this->paginationTotalItemCount = $this->getBuilder()->count();
+                    $this->paginationConfig['paginationTotalItemCount'] = $this->getBuilder()->count();
 
-                    return $this->getBuilder()->simplePaginate($this->getPerPage() === -1 ? $this->paginationTotalItemCount : $this->getPerPage(), ['*'], $this->getComputedPageName());
+                    return $this->getBuilder()->simplePaginate($this->getPerPage() === -1 ? $this->paginationConfig['paginationTotalItemCount'] : $this->getPerPage(), ['*'], $this->getComputedPageName());
                 } else {
-                    $this->paginationTotalItemCount = -1;
+                    $this->paginationConfig['paginationTotalItemCount'] = -1;
 
                     return $this->getBuilder()->simplePaginate($this->getPerPage() === -1 ? 10 : $this->getPerPage(), ['*'], $this->getComputedPageName());
                 }
 
             } elseif ($this->isPaginationMethod('cursor')) {
 
-                $this->paginationTotalItemCount = $this->getBuilder()->count();
+                $this->paginationConfig['paginationTotalItemCount'] = $this->getBuilder()->count();
 
-                return $this->getBuilder()->cursorPaginate($this->getPerPage() === -1 ? $this->paginationTotalItemCount : $this->getPerPage(), ['*'], $this->getComputedPageName());
+                return $this->getBuilder()->cursorPaginate($this->getPerPage() === -1 ? $this->paginationConfig['paginationTotalItemCount'] : $this->getPerPage(), ['*'], $this->getComputedPageName());
             } else {
                 throw new DataTableConfigurationException('Pagination method must be either simple, standard or cursor');
             }

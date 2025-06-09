@@ -1,6 +1,6 @@
 <?php
 
-namespace Rappasoft\LaravelLivewireTables\Features\Columns\Core\Configuration;
+namespace Rappasoft\LaravelLivewireTables\Features\ColumnSelect\Configuration;
 
 use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
 
@@ -99,5 +99,12 @@ trait ColumnSelectConfiguration
             })
             ->map(fn ($column) => $column->getTitle())
             ->toArray();
+    }
+
+    protected function setColumnSelectDelay(int $delay): self
+    {
+        $this->columnSelectDelay = $delay;
+
+        return $this;
     }
 }

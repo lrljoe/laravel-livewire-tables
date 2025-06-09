@@ -124,14 +124,87 @@ trait ToolBarHelpers
         return false;
     }
 
-    public function getToolbarItemsLeft()
+
+    protected function getToolbarItemsLeft()
     {
-        return $this->toolBarItems['left'];
+        $items = $startItems = $endItems = [];
+
+        if($this->hasConfigurableAreaFor('toolbar-left-start'))
+        {
+            $startItems[] = 'toolbar-left-start';
+        }
+
+        if($this->hasConfigurableAreaFor('toolbar-left-end'))
+        {
+            $endItems[] = 'toolbar-left-end';
+        }
+
+        if($this->showActionsInToolbarLeft())
+        {
+            $endItems[] = 'actions';
+        }
+
+        return [...$startItems, ...$this->toolbarItemsLeft(), ...$endItems];
     }
 
-    public function getToolbarItemsRight()
+    protected function getToolbarItemsRight()
     {
-        return $this->toolBarItems['right'];
+        $items = $startItems = $endItems = [];
+
+        if($this->hasConfigurableAreaFor('toolbar-right-start'))
+        {
+            $startItems[] = 'toolbar-right-start';
+        }
+
+        if($this->hasConfigurableAreaFor('toolbar-right-end'))
+        {
+            $endItems[] = 'toolbar-right-end';
+        }
+
+        if($this->showActionsInToolbarRight())
+        {
+            $startItems[] = 'actions';
+        }
+
+        return [...$startItems, ...$this->toolbarItemsRight(), ...$endItems];
     }
 
+
+    protected function setupToolbarItemsLeft()
+    {
+        $items = [];
+
+        foreach($this->getToolbarItemsLeft() as $key => $val)
+        {
+            $item = $this->getToolbarItemFor($val);
+            if(!empty($item))
+            {
+                $items[] = $item;
+            }
+        }
+        
+        return $items;
+    }
+
+    protected function setupToolbarItemsRight()
+    {
+        $items = [];
+
+        foreach($this->getToolbarItemsRight() as $key => $val)
+        {
+            $item = $this->getToolbarItemFor($val);
+            if(!empty($item))
+            {
+                $items[] = $item;
+            }
+        }
+
+        return $items;
+    }
+
+    protected function setupToolbarItems()
+    {
+        $this->toolBarItems['left'] = $this->setupToolbarItemsLeft();
+        $this->toolBarItems['right'] = $this->setupToolbarItemsRight();
+    }
 }

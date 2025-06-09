@@ -76,6 +76,9 @@ trait WithPagination
     #[Locked]
     public array $paginationConfig = [
         'defaultPerPage' => 10,
+        'paginationCurrentItems' => [],
+        'paginationCurrentCount' => 0,
+        'paginationTotalItemCount' => 0,
         'perPageAccepted' => [10, 25, 50],
         'paginationStatus' => true,
         'paginationVisibilityStatus' => true,
@@ -91,7 +94,7 @@ trait WithPagination
      * 
      * @var array<mixed>
      */
-    public array $paginationCurrentItems = [];
+    //public array $paginationCurrentItems = [];
 
     /**
      * Undocumented variable
@@ -100,7 +103,7 @@ trait WithPagination
      *
      * @var integer
      */
-    public int $paginationCurrentCount = 0;
+    //public int $paginationCurrentCount = 0;
 
     /**
      * Undocumented variable
@@ -109,7 +112,7 @@ trait WithPagination
      * 
      * @var integer|null
      */
-    public ?int $paginationTotalItemCount = null;
+   // public ?int $paginationTotalItemCount = null;
 
     /**
      * Undocumented variable

@@ -6,12 +6,12 @@ trait QueryStringHelpers
 {
     public function hasQueryStringStatus(): bool
     {
-        return isset($this->queryStringStatus);
+        return true;
     }
 
     public function getQueryStringStatus(): bool
     {
-        return $this->queryStringStatus ?? true;
+        return true;
     }
 
     public function queryStringIsEnabled(): bool

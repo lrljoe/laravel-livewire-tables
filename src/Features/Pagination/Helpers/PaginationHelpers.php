@@ -112,12 +112,12 @@ trait PaginationHelpers
      */
     public function getPerPageDisplayedItemIds(): array
     {
-        return $this->paginationCurrentItems;
+        return $this->paginationConfig['paginationCurrentItems'];
     }
 
     public function getPerPageDisplayedItemCount(): int
     {
-        return $this->paginationCurrentCount;
+        return $this->paginationConfig['paginationCurrentCount'];
     }
 
     #[Computed]

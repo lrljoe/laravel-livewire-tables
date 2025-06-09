@@ -1,6 +1,6 @@
 <?php
 
-namespace Rappasoft\LaravelLivewireTables\Features\Columns\Core\Helpers;
+namespace Rappasoft\LaravelLivewireTables\Features\ColumnSelect\Helpers;
 
 use Illuminate\Support\Collection;
 use Livewire\Attributes\Computed;
@@ -16,7 +16,7 @@ trait ColumnSelectHelpers
      */
     public function getColumnSelectStatus(): bool
     {
-        return $this->columnSelectStatus;
+        return $this->columnSelectStatus ?? true;
     }
 
     /**
@@ -329,5 +329,9 @@ trait ColumnSelectHelpers
 
     }
 
+    public function getColumnSelectDelay(): int
+    {
+        return $this->columnSelectDelay ?? 1500;
+    }
 
 }

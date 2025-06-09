@@ -14,10 +14,10 @@
             ])
         >
             {{-- The Button Used To Toggle The Menu --}}
-            <x-livewire-tables::bulk-actions.menu.button id="{{ $tableName }}-bulkActionsDropdownButton" aria-controls="{{ $tableName }}-bulkActionsDropdownBody" {{ $attributes->merge($this->getBulkActionsButtonAttributes) }} />
+            <x-livewire-tables::bulk-actions.menu.button id="{{ $tableName }}-bulkActionsDropdownButton" aria-controls="{{ $tableName }}-bulkActionsDropdownBody" {{ $attributes->merge($bulkActionsButtonAttributes) }} />
             
             {{-- The Body of The Menu --}}
-            <x-livewire-tables::bulk-actions.menu.body id="{{ $tableName }}-bulkActionsDropdownBody" aria-labelledby="{{ $tableName }}-bulkActionsDropdownButton" {{ $attributes->merge($this->getBulkActionsMenuAttributes) }}>
+            <x-livewire-tables::bulk-actions.menu.body id="{{ $tableName }}-bulkActionsDropdownBody" aria-labelledby="{{ $tableName }}-bulkActionsDropdownButton" {{ $attributes->merge($bulkActionsMenuAttributes) }}>
                     @tableloop ($this->getBulkActionsButtons() as $id => $bulkAction)
                         {!! $bulkAction->render() !!}
                     @endtableloop
