@@ -16,6 +16,13 @@ class FilterGenericData
      *
      * @var string
      */
+    public string $dataTableFingerprint;
+
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     public string $filterLayout;
 
     /**
@@ -50,15 +57,17 @@ class FilterGenericData
      * Undocumented function
      *
      * @param string $tableName
+     * @param string $dataTableFingerprint
      * @param string $filterLayout
      * @param boolean $isTailwind
      * @param boolean $isBootstrap4
      * @param boolean $isBootstrap5
      * @param boolean $isTailwind4
      */
-    public function __construct(string $tableName, string $filterLayout, bool $isTailwind = false, bool $isBootstrap4 = false, bool $isBootstrap5 = false, bool $isTailwind4 = false)
+    public function __construct(string $tableName, string $dataTableFingerprint, string $filterLayout, bool $isTailwind = false, bool $isBootstrap4 = false, bool $isBootstrap5 = false, bool $isTailwind4 = false)
     {
         $this->tableName = $tableName;
+        $this->dataTableFingerprint = $dataTableFingerprint;
         $this->filterLayout = $filterLayout;
         $this->isTailwind = $isTailwind;
         $this->isTailwind4 = $isTailwind4;
@@ -75,6 +84,7 @@ class FilterGenericData
     {
         return [
             'tableName' => $this->tableName,
+            'dataTableFingerprint' => $this->dataTableFingerprint,
             'filterLayout' => $this->filterLayout,
             'isTailwind' => $this->isTailwind,
             'isTailwind4' => $this->isTailwind4,

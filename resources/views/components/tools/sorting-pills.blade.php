@@ -1,4 +1,4 @@
-@aware([ 'tableName','isTailwind','isTailwind4', 'isBootstrap','isBootstrap4','isBootstrap5', 'localisationPath'])
+@aware([ 'dataTableFingerprint','isTailwind','isTailwind4', 'isBootstrap','isBootstrap4','isBootstrap5', 'localisationPath'])
 
 @if ($isTailwind)
     <div>
@@ -14,7 +14,7 @@
                     @continue($this->columnSelectIsEnabled() && ! $this->columnSelectIsEnabledForColumn($column))
 
                     <span
-                        wire:key="{{ $tableName }}-sorting-pill-{{ $columnSelectName }}"
+                        wire:key="{{ $dataTableFingerprint }}-sorting-pill-{{ $columnSelectName }}"
                         {{
                             $attributes->merge($this->getSortingPillsItemAttributes)
                             ->class([
@@ -78,7 +78,7 @@
                     @continue($this->columnSelectIsEnabled() && ! $this->columnSelectIsEnabledForColumn($column))
 
                     <span
-                        wire:key="{{ $tableName }}-sorting-pill-{{ $columnSelectName }}"
+                        wire:key="{{ $dataTableFingerprint }}-sorting-pill-{{ $columnSelectName }}"
                         {{
                             $attributes->merge($this->getSortingPillsItemAttributes)
                             ->class([
@@ -142,7 +142,7 @@
                     @continue($this->columnSelectIsEnabled() && ! $this->columnSelectIsEnabledForColumn($column))
 
                     <span
-                        wire:key="{{ $tableName . '-sorting-pill-' . $columnSelectName }}"
+                        wire:key="{{ $dataTableFingerprint . '-sorting-pill-' . $columnSelectName }}"
                         {{
                             $attributes->merge($this->getSortingPillsItemAttributes)
                             ->class([
@@ -200,7 +200,7 @@
                     @continue($this->columnSelectIsEnabled() && ! $this->columnSelectIsEnabledForColumn($column))
 
                     <span
-                        wire:key="{{ $tableName }}-sorting-pill-{{ $columnSelectName }}"
+                        wire:key="{{ $dataTableFingerprint }}-sorting-pill-{{ $columnSelectName }}"
                         {{
                             $attributes->merge($this->getSortingPillsItemAttributes)
                             ->class([

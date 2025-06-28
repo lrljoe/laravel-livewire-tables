@@ -1,4 +1,4 @@
-@aware(['tableName', 'isTailwind', 'isTailwind4', 'isBootstrap', 'coreTableAttributes', 'currentlyReorderingStatus', 'showBulkActionsSections', 'showCollapsingColumnSections', 'selectedVisibleColumns', 'selectedVisibleColumns', 'hasDisplayLoadingPlaceholder', 'hasTdAttributes'])
+@aware(['dataTableFingerprint', 'isTailwind', 'isTailwind4', 'isBootstrap', 'coreTableAttributes', 'currentlyReorderingStatus', 'showBulkActionsSections', 'showCollapsingColumnSections', 'selectedVisibleColumns', 'selectedVisibleColumns', 'hasDisplayLoadingPlaceholder', 'hasTdAttributes'])
 @props(['row','rowIndex','rowPk', 'tableRowDetails'])
 
 <tbody {{ $attributes->merge($coreTableAttributes['tbody'])
@@ -19,7 +19,7 @@
         ->except(['default','default-styling','default-colors']) 
     }} x-data="{ opening: false, }" >
 
-    <x-livewire-tables::table.tr id="{{ $tableName }}-row-{{ $rowPk }}" wire:key="{{ $tableName }}-tablerow-tr-{{ $rowPk }}" loopType="{{ ($rowIndex % 2 === 0) ? 'even' : 'odd' }}">
+    <x-livewire-tables::table.tr id="{{ $dataTableFingerprint }}-row-{{ $rowPk }}" wire:key="{{ $dataTableFingerprint }}-tablerow-tr-{{ $rowPk }}" loopType="{{ ($rowIndex % 2 === 0) ? 'even' : 'odd' }}">
 
 
         @if($currentlyReorderingStatus)
@@ -33,7 +33,7 @@
         @endif
         
         @tableloop($selectedVisibleColumns as $colIndex => $column)
-            <x-livewire-tables::table.td :isClickable="$column->isClickable()" :customAttributes="$hasTdAttributes ? $this->getTdAttributes($column, $row, $colIndex, $rowIndex) : ['default' => true]" :$colIndex wire:key="{{ $tableName . '-table-td-'.$rowPk.'-'.$column->getSlug() }}"  x-ref="{{ $tableName . '_' . $rowIndex . '_' . $colIndex }}">
+            <x-livewire-tables::table.td :isClickable="$column->isClickable()" :isHtml="$column->isHtml()" :customAttributes="$hasTdAttributes ? $this->getTdAttributes($column, $row, $colIndex, $rowIndex) : ['default' => true]" :$colIndex wire:key="{{ $dataTableFingerprint . '-table-td-'.$rowPk.'-'.$column->getSlug() }}"  x-ref="{{ $dataTableFingerprint . '_' . $rowIndex . '_' . $colIndex }}">
                 @if($column->setIndexes($rowIndex, $colIndex)->isHtml())
                     {!! $column->renderContents($row) !!}
                 @else

@@ -6,77 +6,65 @@ use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
 
 trait ColumnSelectConfiguration
 {
-    public function setColumnSelectStatus(bool $status): self
+    protected function setColumnSelectStatus(bool $status): self
     {
         $this->columnSelectStatus = $status;
 
         return $this;
     }
 
-    public function setColumnSelectEnabled(): self
+    protected function setColumnSelectEnabled(): self
     {
-        $this->setColumnSelectStatus(true);
-
-        return $this;
+        return $this->setColumnSelectStatus(true);
     }
 
-    public function setColumnSelectDisabled(): self
+    protected function setColumnSelectDisabled(): self
     {
-        $this->setColumnSelectStatus(false);
-
-        return $this;
+       return $this->setColumnSelectStatus(false);
     }
 
-    public function setRememberColumnSelectionStatus(bool $status): self
+    protected function setRememberColumnSelectionStatus(bool $status): self
     {
         $this->storeColumnSelectInSessionStatus($status);
 
         return $this;
     }
 
-    public function setRememberColumnSelectionEnabled(): self
+    protected function setRememberColumnSelectionEnabled(): self
     {
-        $this->setRememberColumnSelectionStatus(true);
-
-        return $this;
+        return $this->setRememberColumnSelectionStatus(true);
     }
 
-    public function setRememberColumnSelectionDisabled(): self
+    protected function setRememberColumnSelectionDisabled(): self
     {
-        $this->setRememberColumnSelectionStatus(false);
-
-        return $this;
+        return $this->setRememberColumnSelectionStatus(false);
     }
 
-    public function setExcludeDeselectedColumnsFromQueryEnabled(): self
-    {
-        $this->setExcludeDeselectedColumnsFromQuery(true);
-
-        return $this;
-    }
-
-    public function setExcludeDeselectedColumnsFromQueryDisabled(): self
-    {
-        $this->setExcludeDeselectedColumnsFromQuery(false);
-
-        return $this;
-    }
-
-    public function setExcludeDeselectedColumnsFromQuery(bool $status): self
+    protected function setExcludeDeselectedColumnsFromQuery(bool $status): self
     {
         $this->excludeDeselectedColumnsFromQuery = $status;
 
         return $this;
     }
 
-    public function setColumnSelectHiddenOnMobile(): self
+    protected function setExcludeDeselectedColumnsFromQueryEnabled(): self
+    {
+        return $this->setExcludeDeselectedColumnsFromQuery(true);
+    }
+
+    protected function setExcludeDeselectedColumnsFromQueryDisabled(): self
+    {
+        return $this->setExcludeDeselectedColumnsFromQuery(false);
+    }
+
+    protected function setColumnSelectHiddenOnMobile(): self
     {
         $this->columnSelectHiddenOnMobile = true;
 
         return $this;
     }
 
-    public function setColumnSelectHiddenOnTablet(): self
+    protected function setColumnSelectHiddenOnTablet(): self
     {
         $this->columnSelectHiddenOnTablet = true;
 
@@ -88,7 +76,7 @@ trait ColumnSelectConfiguration
      *
      * @return array<mixed>
      */
-    public function setDefaultDeselectedColumns(): array
+    protected function setDefaultDeselectedColumns(): array
     {
         return collect($this->getColumns()
             ->reject(fn (Column $column) => ! $column->isSelectable())

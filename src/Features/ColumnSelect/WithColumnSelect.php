@@ -17,45 +17,50 @@ trait WithColumnSelect
         HasColumnSelectStyling;
 
     /**
-     * Undocumented variable
+     * New Configuration for Column Select
      *
      * @var array<mixed>
      */
     #[Locked]    
     public array $columnSelectColumns = ['setupRun' => false, 'selected' => [], 'deselected' => [], 'defaultdeselected' => []];
 
+    /**
+     * New selectedColumns approach (in testing)
+     *
+     * @var mixed
+     */
     public mixed $selectedColumnsNew = null;
 
     /**
-     * Undocumented variable
+     * Array of selected columns
      *
      * @var array<mixed>
      */
-    public array $selectedColumns = [];
+    public ?array $selectedColumns;
 
     /**
-     * Undocumented variable
+     * Array of deselected columns
      *
      * @var array<mixed>
      */
     public array $deselectedColumns = [];
 
     /**
-     * Undocumented variable
+     * Array of selectable columns
      *
      * @var array<mixed>
      */
     public array $selectableColumns = [];
 
     /**
-     * Undocumented variable
+     * Array of default deselected columns
      *
      * @var array<mixed>
      */
     public array $defaultDeselectedColumns = [];
 
     /**
-     * Undocumented variable
+     * Toggles whether Deselected Columns should be excluded from the Query or not
      *
      * @var boolean
      */
@@ -64,7 +69,7 @@ trait WithColumnSelect
 
     
     /**
-     * Undocumented variable
+     * Determines if Default Deselected Setup is Completed
      *
      * @var boolean
      */
@@ -72,82 +77,158 @@ trait WithColumnSelect
     public bool $defaultDeselectedColumnsSetup = false;
 
     /**
-     * Undocumented variable
+     * Determines if Column Select should be in use
      *
      * @var boolean
      */
     protected bool $columnSelectStatus = true;
 
     /**
-     * Undocumented variable
+     * Sets whether Column Select is Hidden on Mobile
      *
      * @var boolean
      */
     protected bool $columnSelectHiddenOnMobile = false;
 
     /**
-     * Undocumented variable
+     * Sets whether Column Select is Hidden on Tablet
      *
      * @var boolean
      */
     protected bool $columnSelectHiddenOnTablet = false;
 
+    /**
+     * Sets the delay for Column Select Classic
+     *
+     * @var integer
+     */
     public int $columnSelectDelay = 1500;
 
+    /**
+     * Determines whether this was recently updated
+     *
+     * @var boolean
+     */
     protected bool $hasRecentlyUpdated = false;
 
     /**
-     * Undocumented function
+     * Determines whether to run the Select updates or not
+     *
+     * @var boolean
+     */
+    protected bool $runSelectUpdates = false;
+
+
+    public function bootWithColumnSelect(): void
+    {
+    }
+
+    /**
+     * Runs after boot is complete to setup the Column Select functions
      *
      * @return void
      */
     public function bootedWithColumnSelect(): void
     {
-        $this->callHook('configuringColumnSelect');
-        $this->callTraitHook('configuringColumnSelect');
+        //$this->callHook('configuringColumnSelect');
+       // $this->callTraitHook('configuringColumnSelect');
 
-        $this->setupColumnSelect();
-
-        $this->callHook('configuredColumnSelect');
-        $this->callTraitHook('configuredColumnSelect');
-
-        if(!is_null($this->selectedColumnsNew))
+        if($this->runSelectUpdates)
         {
-            $this->selectedColumns = explode(";",$this->selectedColumnsNew);
+            if(!is_null($this->selectedColumnsNew) && !empty($this->selectedColumnsNew))
+            {
+             //   dd("bootedWithColumnSelect");
+
+                $this->reloading = true;
+                $currentCols = $this->selectedColumns;
+                $selectedColsNew = explode(";",$this->selectedColumnsNew);
+
+                ksort($currentCols);
+                ksort($selectedColsNew);
+             //   dd(['currentCols:' => $currentCols, 'selectedColsNew' => $selectedColsNew]);
+                
+                //$this->selectedColumns = explode(";",$this->selectedColumnsNew);
+                //$this->storeColumnSelectValues();
+            }
+            else
+            {
+            }
+        }
+       // $this->callHook('configuredColumnSelect');
+       // $this->callTraitHook('configuredColumnSelect');
+    }
+
+
+
+    /**
+     * Runs when selectedColumnsNew is updated
+     *
+     * @param mixed $data
+     * @return void
+     */
+    public function updatedSelectedColumnsNew($data): void
+    {
+       // dd("updatedSelectedColumnsNew");
+        if($this->runSelectUpdates)
+        {
+            $this->reloading = true;
+            $selectedColumns = explode(";",$data);
+            if ($this->selectedColumns != $selectedColumns)
+            {
+               /* dd([
+                    "selected" => $this->selectedColumns,
+                    'new' => $selectedColumns
+                ]);*/
+                $this->selectedColumns = $selectedColumns;
+                $this->storeColumnSelectValues();
+                if ($this->getEventStatusColumnSelect()) {
+                    event(new ColumnsSelected($this->getTableName(), $this->getColumnSelectSessionKey(), $this->selectedColumns));
+                }
+
+            }
+            
+
         }
     }
 
-    public function updatedSelectedColumnsNew($data)
-    {
-        $this->selectedColumns = explode(";",$data);
-        $this->storeColumnSelectValues();
-    }
-
+    /**
+     * Forces selectedColumnsNew setup
+     *
+     * @param mixed $data
+     * @return void
+     */
     public function forceSelectedColumnsNew($data)
     {
-        $this->selectedColumnsNew = implode(";",$data);
+        $temp = implode(";",$data);
+        if(!empty($temp) && $temp != "" && $this->selectedColumnsNew != $temp)
+        {
+            $this->selectedColumnsNew = $temp;
+        }
 
     }
 
     /**
-     * Undocumented function
+     * Runs when selecedColumns is updated (to store)
      *
      * @return void
      */
     public function updatedSelectedColumns(): void
     {
-        // The query string isn't needed if it's the same as the default
-        $this->storeColumnSelectValues();
-        $this->forceSelectedColumnsNew($this->selectedColumns);
+       // dd("updatedSelectedColumns");
+        if($this->runSelectUpdates)
+        {
+            $this->storeColumnSelectValues();
 
+            $this->forceSelectedColumnsNew($this->selectedColumns);
 
-        if ($this->getEventStatusColumnSelect()) {
-            event(new ColumnsSelected($this->getTableName(), $this->getColumnSelectSessionKey(), $this->selectedColumns));
+            if ($this->getEventStatusColumnSelect()) {
+                event(new ColumnsSelected($this->getTableName(), $this->getColumnSelectSessionKey(), $this->selectedColumns));
+            }
         }
     }
 
     /**
-     * Undocumented function
+     * Pre-Render Setup for ColumnSelect
      *
      * @param \Illuminate\View\View $view
      * @param array<mixed> $data
@@ -155,6 +236,11 @@ trait WithColumnSelect
      */
     public function renderingWithColumnSelect(\Illuminate\View\View $view, array $data = []): void
     {
+        if(!isset($this->selectedColumns))
+        {
+            $this->selectedColumns = $this->getDefaultVisibleColumns();
+        }
+        
         if (! $this->getComputedPropertiesStatus()) {
             $view->with([
                 'selectedVisibleColumns' => $this->selectedVisibleColumns(),

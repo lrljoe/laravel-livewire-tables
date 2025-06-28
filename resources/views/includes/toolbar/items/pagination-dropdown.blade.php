@@ -1,11 +1,11 @@
-@aware([ 'tableName','isTailwind','isTailwind4','isBootstrap','isBootstrap4','isBootstrap5', 'localisationPath'])
+@aware([ 'dataTableFingerprint','isTailwind','isTailwind4','isBootstrap','isBootstrap4','isBootstrap5', 'localisationPath'])
 
 <div @class([
         'ml-0 ml-md-2' => $isBootstrap4,
         'ms-0 ms-md-2' => $isBootstrap5,
     ])
 >
-    <select wire:model.live="perPage" id="{{ $tableName }}-perPage"
+    <select wire:model.live="perPage" id="{{ $dataTableFingerprint }}-perPage"
         {{ 
             $attributes->merge($perPageFieldAttributes)
             ->class([
@@ -22,7 +22,7 @@
         @foreach ($this->getPerPageAccepted() as $item)
             <option
                 value="{{ $item }}"
-                wire:key="{{ $tableName }}-per-page-{{ $item }}"
+                wire:key="{{ $dataTableFingerprint }}-per-page-{{ $item }}"
             >
                 {{ $item === -1 ? __($localisationPath.'All') : $item }}
             </option>

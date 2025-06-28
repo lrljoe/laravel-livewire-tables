@@ -1,4 +1,4 @@
-@aware(['isTailwind','isTailwind4', 'isBootstrap'])
+@aware(['isTailwind','isTailwind4', 'isBootstrap','dataTableFingerprint'])
 
 <div {{
     $attributes->merge($this->getToolsAttributes)->merge(['x-data' => 'tools($wire)'])

@@ -333,6 +333,7 @@ trait TableAttributeHelpers
             'showBulkActionsSections' => $this->showBulkActionsSections(),
             'bulkActionsTdAttributes' => $this->getBulkActionsTdAttributes(),
             'bulkActionsTdCheckboxAttributes' => $this->getBulkActionsTdCheckboxAttributes(),
+            'dataTableFingerprint' => $this->getDataTableFingerprint(),
         ];
     }
 

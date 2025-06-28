@@ -13,12 +13,12 @@ function externalFilter() {
         sendValueToPill(value)
         {
             let sentValue = this.removeHTMLTags(value);
-            this.$dispatch('filterpillupdate', { tableName: this.tableName, filterKey: this.externalFilterKey, pillItem: sentValue });
+            this.$dispatch('filterpillupdate', { dataTableFingerprint: this.dataTableFingerprint, filterKey: this.externalFilterKey, pillItem: sentValue });
         },
         overridePill(values)
         {
             let sentValue = this.removeHTMLTags(values);
-            this.$dispatch('filterpillupdate', { tableName: this.tableName, filterKey: this.externalFilterKey, pillItem: sentValue });
+            this.$dispatch('filterpillupdate', { dataTableFingerprint: this.dataTableFingerprint, filterKey: this.externalFilterKey, pillItem: sentValue });
         },
         syncItems(items) { 
             this.pillValues = [];

@@ -43,7 +43,7 @@ trait WithQueryString
 
         if ($this->queryStringIsEnabled()) {
             return [
-                $this->getTableName() => ['except' => null, 'history' => false, 'keep' => false, 'as' => $this->getQueryStringAlias()],
+                'table' => ['except' => null, 'history' => false, 'keep' => false, 'as' => $this->getQueryStringAlias()],
             ];
         }
 

@@ -18,6 +18,10 @@ trait ColumnConfiguration
 
     protected function setupColumns(): void
     {
+        if(empty($this->columns))
+        {
+            $this->setColumns();
+        }
         $this->columns = $this->columns
             ->map(function (Column $column) {
                 $column->setTheme($this->getTheme())

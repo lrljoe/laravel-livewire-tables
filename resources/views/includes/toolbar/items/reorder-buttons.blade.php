@@ -1,4 +1,4 @@
-@aware(['tableName','isTailwind', 'isTailwind4', 'isBootstrap','isBootstrap4','isBootstrap5','localisationPath'])
+@aware(['dataTableFingerprint','isTailwind', 'isTailwind4', 'isBootstrap','isBootstrap4','isBootstrap5','localisationPath'])
 
 <div x-data x-cloak x-show="reorderStatus"
     @class([

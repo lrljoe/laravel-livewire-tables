@@ -2,7 +2,7 @@
 
 namespace Rappasoft\LaravelLivewireTables;
 
-use Livewire\Attributes\On;
+use Livewire\Attributes\{On,Renderless};
 use Livewire\Component;
 use Rappasoft\LaravelLivewireTables\Traits\{ComponentUtilities, WithCustomisations, WithData, WithDebugging, WithEvents, WithLoadingPlaceholder, WithQuery, WithQueryString, WithRefresh, WithSessionStorage, WithTableHooks, WithTableAttributes};
 use Rappasoft\LaravelLivewireTables\Traits\Core\{HasCustomAttributes, HasLocalisations};
@@ -22,12 +22,11 @@ use Rappasoft\LaravelLivewireTables\Features\SecondaryHeader\WithSecondaryHeader
 use Rappasoft\LaravelLivewireTables\Features\Sorting\WithSorting;
 use Rappasoft\LaravelLivewireTables\Features\Tools\WithTools;
 
-
 abstract class BaseDataTableComponent extends Component
 {
     use ComponentUtilities,
-        WithQueryString,
         WithTableHooks,
+        WithQueryString,
         HasLocalisations,
         WithLoadingPlaceholder,
         HasTheme,

@@ -2,7 +2,7 @@
 
 namespace Rappasoft\LaravelLivewireTables;
 
-use Livewire\Attributes\On;
+use Livewire\Attributes\{On,Renderless};
 use Livewire\Component;
 use Rappasoft\LaravelLivewireTables\Traits\{ComponentUtilities, WithCustomisations, WithData, WithDebugging, WithEvents, WithLoadingPlaceholder, WithQuery, WithQueryString, WithRefresh, WithSessionStorage, WithTableHooks, WithTableAttributes};
 use Rappasoft\LaravelLivewireTables\Traits\Core\{HasCustomAttributes, HasLocalisations};
@@ -22,7 +22,6 @@ use Rappasoft\LaravelLivewireTables\Features\Search\WithSearch;
 use Rappasoft\LaravelLivewireTables\Features\Sorting\WithSorting;
 use Rappasoft\LaravelLivewireTables\Features\Tools\WithTools;
 
-
 abstract class DataTableComponent extends Component
 {
     
@@ -30,7 +29,7 @@ abstract class DataTableComponent extends Component
         WithQueryString,
         WithTableHooks,
         HasLocalisations,
-        WithLoadingPlaceholder,#
+        WithLoadingPlaceholder,
         WithFilters,
         HasTheme,
         WithQuery,
@@ -44,6 +43,7 @@ abstract class DataTableComponent extends Component
         HasCustomAttributes,
         WithColumnsCollapsing,
         WithColumnSelect,
+        \App\Domains\AdvancedTables\WithSavingTableState,
         WithConfigurableAreas,
         WithCustomisations,
         WithDebugging,
@@ -71,7 +71,6 @@ abstract class DataTableComponent extends Component
     {
         //
     }
-    
 
     /**
      * Runs on every request, after the component is mounted or hydrated, but before any update methods are called

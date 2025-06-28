@@ -1,7 +1,7 @@
-@aware([ 'tableName','isTailwind','isTailwind4','isBootstrap','rowIndex', 'collapsingColumnInfo'])
+@aware([ 'dataTableFingerprint','isTailwind','isTailwind4','isBootstrap','rowIndex', 'collapsingColumnInfo'])
 @props(['hidden' => false])
 
-<td x-data="{open:false}" wire:key="{{ $tableName }}-collapsingIcon-{{ $rowIndex }}-{{ md5(now()) }}"
+<td x-data="{open:false}" wire:key="{{ $dataTableFingerprint }}-collapsingIcon-{{ $rowIndex }}-{{ md5(now()) }}"
     {{
         $attributes
             ->merge()
@@ -29,7 +29,7 @@
         <button
             x-cloak x-show="!currentlyReorderingStatus"
             @mouseover="if(opening != true) { opening = true }; "
-            x-on:click.prevent="if(opening != true) { opening = true }; $dispatch('toggle-row-content', {'tableName': '{{ $tableName }}', 'row': {{ $rowIndex }}}); open = !open;"
+            x-on:click.prevent="if(opening != true) { opening = true }; $dispatch('toggle-row-content', {'dataTableFingerprint': '{{ $dataTableFingerprint }}', 'row': {{ $rowIndex }}}); open = !open;"
             @class([
                 'w-full h-full',
                 'border-0 bg-transparent p-0' => $isBootstrap,

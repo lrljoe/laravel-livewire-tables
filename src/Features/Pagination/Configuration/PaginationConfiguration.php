@@ -3,6 +3,7 @@
 namespace Rappasoft\LaravelLivewireTables\Features\Pagination\Configuration;
 
 use Rappasoft\LaravelLivewireTables\Exceptions\DataTableConfigurationException;
+use Livewire\Attributes\Renderless;
 
 trait PaginationConfiguration
 {
@@ -261,4 +262,15 @@ trait PaginationConfiguration
 
         return $this;
     }
+
+    protected function restorePaginationConfig($paginationStatus, $perPageVisibilityStatus, $perPageAccepted, $perPage, $page): void
+    {
+        $this->setPaginationStatus($paginationStatus)
+        ->setPerPageVisibilityStatus($perPageVisibilityStatus)
+        ->setPerPageAccepted($perPageAccepted)
+        ->setPerPage($perPage)
+        ->setPage($page, $this->getComputedPageName());
+    }
+
+
 }

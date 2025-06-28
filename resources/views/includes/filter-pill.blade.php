@@ -1,8 +1,8 @@
-@aware(['tableName','isTailwind', 'isTailwind4', 'isBootstrap4','isBootstrap5'])
+@aware(['dataTableFingerprint','isTailwind', 'isTailwind4', 'isBootstrap4','isBootstrap5'])
 
 <div x-data="filterPillsHandler(@js($setupData))" 
     x-bind="trigger" 
-    wire:key="{{ $tableName }}-filter-pill-{{ $filterKey }}" 
+    wire:key="{{ $dataTableFingerprint }}-filter-pill-{{ $filterKey }}" 
     {{ 
         $attributes->merge($filterPillsItemAttributes)
         ->class([

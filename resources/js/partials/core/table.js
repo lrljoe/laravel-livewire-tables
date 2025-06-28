@@ -6,7 +6,7 @@ function table() {
         showBulkActionsAlpine: false,
         primaryKeyName: '',
         shouldBeDisplayed: wire.entangle('shouldBeDisplayed'),
-        tableName: wire.entangle('tableName'),
+        dataTableFingerprint: wire.entangle('dataTableFingerprint'),
         dataTableFingerprint: wire.entangle('dataTableFingerprint'),
         listeners: [],
         paginationCurrentCount: wire.entangle('paginationConfig.paginationCurrentCount'),
@@ -147,19 +147,19 @@ function table() {
         },
         showTable(event)
         {
-            let eventTableName = event.detail.tableName ?? '';
+            let eventdataTableFingerprint = event.detail.dataTableFingerprint ?? '';
             let eventTableFingerprint = event.detail.tableFingerpint ?? '';
 
-            if (((eventTableName ?? '') != '' && eventTableName === this.tableName) || (eventTableFingerprint != '' && eventTableFingerpint === this.dataTableFingerprint)) { 
+            if (((eventdataTableFingerprint ?? '') != '' && eventdataTableFingerprint === this.dataTableFingerprint) || (eventTableFingerprint != '' && eventTableFingerpint === this.dataTableFingerprint)) { 
                 this.shouldBeDisplayed = true; 
             } 
         },
         hideTable(event)
         {
-            let eventTableName = event.detail.tableName ?? '';
+            let eventdataTableFingerprint = event.detail.dataTableFingerprint ?? '';
             let eventTableFingerprint = event.detail.tableFingerpint ?? '';
 
-            if ((eventTableName != '' && eventTableName === this.tableName) || (eventTableFingerprint != '' && eventTableFingerpint === this.dataTableFingerprint)) { 
+            if ((eventdataTableFingerprint != '' && eventdataTableFingerprint === this.dataTableFingerprint) || (eventTableFingerprint != '' && eventTableFingerpint === this.dataTableFingerprint)) { 
                 this.shouldBeDisplayed = false; 
             } 
         },

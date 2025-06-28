@@ -68,20 +68,24 @@ trait WithSearch
      */
     public function updatedSearch(string|array|null $value): void
     {
-        if ($this->shouldTrimSearchString() && $this->search != trim($value)) {
-            $this->search = $value = trim($value);
-        }
 
-        $this->resetComputedPage();
+        if(!$this->reloading)
+        {
+            if ($this->shouldTrimSearchString() && $this->search != trim($value)) {
+                $this->search = $value = trim($value);
+            }
 
-        // Clear bulk actions on search - if enabled
-        if ($this->getClearSelectedOnSearch()) {
-            $this->clearSelected();
-            $this->setSelectAllDisabled();
-        }
+            $this->resetComputedPage();
 
-        if (is_null($value) || $value === '') {
-            $this->clearSearch();
+            // Clear bulk actions on search - if enabled
+            if ($this->getClearSelectedOnSearch()) {
+                $this->clearSelected();
+                $this->setSelectAllDisabled();
+            }
+
+            if (is_null($value) || $value === '') {
+                $this->clearSearch();
+            }
         }
     }
 

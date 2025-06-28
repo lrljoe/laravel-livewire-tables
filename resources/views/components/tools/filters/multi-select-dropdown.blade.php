@@ -1,5 +1,6 @@
+@aware(['dataTableFingerprint'])
 <div>
-    <x-livewire-tables::tools.filter-label :$filter :$filterLayout  />
+    <x-livewire-tables::tools.filter-label :$filter :$filterLayout  :$filterLabelAttributes :$customLabelAttributes />
 
     @if ($isTailwind || $isTailwind4)
     <div class="rounded-md shadow-sm">
@@ -7,7 +8,7 @@
         <select multiple
             {!! $filter->getWireMethod('appliedFilters.'.$filter->getKey()) !!} {{ 
                 $filterInputAttributes->merge([
-                    'wire:key' => $filter->generateWireKey($tableName, 'multiselectdropdown'),
+                    'wire:key' => $filter->generateWireKey($dataTableFingerprint, 'multiselectdropdown'),
                 ])
                 ->class([
                     'block w-full transition duration-150 ease-in-out rounded-md shadow-sm focus:ring focus:ring-opacity-50' => $isTailwind && ($filterInputAttributes['default-styling'] ?? true),

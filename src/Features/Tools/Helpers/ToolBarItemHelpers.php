@@ -128,6 +128,10 @@ trait ToolBarItemHelpers
     {
         if($this->columnSelectIsEnabled())
         {
+            if (empty($this->selectableColumns)) {
+                $this->selectableColumns = $this->getColumnsForColumnSelect();
+            }
+
             return ['view' => 'livewire-tables::includes.toolbar.items.column-select', 'attributes' => [
                 'csIsHiddenOnMobile' => $this->getColumnSelectIsHiddenOnMobile(),
                 'csIsHiddenOnTablet' => $this->getColumnSelectIsHiddenOnTablet(),

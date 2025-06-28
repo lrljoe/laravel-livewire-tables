@@ -12,6 +12,7 @@ trait ToolBarHelpers
         return $this->toolBarStatus;
     }
 
+
     #[Computed]
     public function shouldShowToolBar(): bool
     {

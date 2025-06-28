@@ -111,6 +111,10 @@ trait FilterHelpers
     {
         return view($this->getViewPath())
             ->with($this->getFilterDisplayData())
-            ->with(['filterInputAttributes' => $this->getInputAttributesBag()]);
+            ->with([
+                'filterInputAttributes' => $this->getInputAttributesBag(),
+                'filterLabelAttributes' => $this->getFilterLabelAttributes(),
+                'customLabelAttributes' => $this->getLabelAttributes()
+            ]);
     }
 }

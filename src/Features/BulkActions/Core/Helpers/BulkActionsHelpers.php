@@ -160,6 +160,8 @@ trait BulkActionsHelpers
      */
     public function updatedSelected(): void
     {
+        \Illuminate\Support\Facades\Log::error("updatedSelected");
+
         if (! $this->getDelaySelectAllStatus()) {
             $this->setSelectAllDisabled();
         }

@@ -1,4 +1,4 @@
-@aware(['tableName','primaryKey', 'isTailwind', 'isTailwind4','isBootstrap', 'isBootstrap4', 'isBootstrap5'])
+@aware(['dataTableFingerprint','primaryKey', 'isTailwind', 'isTailwind4','isBootstrap', 'isBootstrap4', 'isBootstrap5'])
 @props(['checkboxAttributes', 'shouldCheck' => false])
 <input x-cloak @checked($shouldCheck)
     {{

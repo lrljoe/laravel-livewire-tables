@@ -2,7 +2,7 @@
 
 function newBf() {
 
-    Alpine.data('newBooleanFilter', (wire,filterKey,tableName,defaultValue) => ({
+    Alpine.data('newBooleanFilter', (wire,filterKey,dataTableFingerprint,defaultValue) => ({
         booleanFilterKey: filterKey,
         switchOn: false, 
         value: false, 
@@ -42,7 +42,7 @@ function newBf() {
                     console.log('detail');
                     console.log(detail);
 
-                    if(detail.tableName == tableName && detail.filterKey == this.booleanFilterKey) { 
+                    if(detail.dataTableFingerprint == dataTableFingerprint && detail.filterKey == this.booleanFilterKey) { 
                         console.log('applies-to-this-table');
                         console.log('typeof');
                         console.log(typeof detail.value);

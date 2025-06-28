@@ -14,6 +14,7 @@ trait FilterConfiguration
     {
         $this->genericDisplayData = [
             'filterLayout' => $genericDisplayData['filterLayout'],
+            'dataTableFingerprint' => $genericDisplayData['dataTableFingerprint'],
             'tableName' => $genericDisplayData['tableName'],
             'isTailwind' => $genericDisplayData['isTailwind'],
             'isTailwind4' => $genericDisplayData['isTailwind4'] ?? false,

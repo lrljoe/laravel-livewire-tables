@@ -1,6 +1,6 @@
-@aware(['tableName','coreTableAttributes'])
+@aware(['dataTableFingerprint','coreTableAttributes'])
 
-<tfoot wire:key="{{ $tableName }}-tfoot" class="unsortable" data-id="tfoot">
+<tfoot wire:key="{{ $dataTableFingerprint }}-tfoot" class="unsortable" data-id="tfoot">
     
     @if($this->shouldShowFooter())
         @if ($this->useHeaderAsFooterIsEnabled() && $this->shouldShowSecondaryHeader())

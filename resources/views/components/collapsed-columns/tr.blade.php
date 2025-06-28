@@ -1,12 +1,12 @@
-@aware([ 'tableName', 'isTailwind','isTailwind4','isBootstrap', 'collapsingColumnInfo', 'row', 'rowIndex', 'rowPk', 'tableRowDetails'])
+@aware([ 'dataTableFingerprint', 'isTailwind','isTailwind4','isBootstrap', 'collapsingColumnInfo', 'row', 'rowIndex', 'rowPk', 'tableRowDetails'])
 
 @if ($collapsingColumnInfo['hasCollapsingColumns'])
     <tr x-data
-        @toggle-row-content.window="($event.detail.tableName === '{{ $tableName }}' && $event.detail.row === {{ $rowIndex }}) ? $el.classList.toggle('{{ $isBootstrap ? 'd-none' : 'hidden' }}') : null"
+        @toggle-row-content.window="($event.detail.dataTableFingerprint === '{{ $dataTableFingerprint }}' && $event.detail.row === {{ $rowIndex }}) ? $el.classList.toggle('{{ $isBootstrap ? 'd-none' : 'hidden' }}') : null"
         {{
             $attributes->merge([
                     'wire:loading.class.delay' => 'opacity-50 dark:bg-gray-900 dark:opacity-60',
-                    'wire:key' => $tableName.'-row-'.$rowPk.'-collapsed-contents',
+                    'wire:key' => $dataTableFingerprint.'-row-'.$rowPk.'-collapsed-contents',
                 ])
                 ->merge($tableRowDetails['attributes'])
                 ->class([
@@ -28,12 +28,12 @@
         >
             <div>
                 @tableloop($collapsingColumnInfo['collapsingColumnDetails'] as $colIndex => $columnData)
-                    @php($key = $tableName . '_' . $rowIndex.'_'.$colIndex)
-                    <div wire:key="{{ $tableName }}-row-{{ $rowPk }}-collapsed-contents-{{ $colIndex }}" @class($columnData['classes'])
+                    @php($key = $dataTableFingerprint . '_' . $rowIndex.'_'.$colIndex)
+                    <div wire:key="{{ $dataTableFingerprint }}-row-{{ $rowPk }}-collapsed-contents-{{ $colIndex }}" @class($columnData['classes'])
                         x-data="{ value: '', 
                                 init() { 
                                     $watch('opening', val => {
-                                        this.value = stripLivewireTags($refs.{{ $tableName . '_' . $rowIndex.'_'.$colIndex }});
+                                        this.value = stripLivewireTags($refs.{{ $dataTableFingerprint . '_' . $rowIndex.'_'.$colIndex }});
                                     });
                                 }
                             }" 

@@ -1,4 +1,4 @@
-@aware([ 'tableName','isTailwind','isTailwind4','isBootstrap'])
+@aware([ 'dataTableFingerprint','isTailwind','isTailwind4','isBootstrap'])
 @props([])
 
 <div {{
@@ -16,7 +16,7 @@
         ])
     >
         @foreach($this->getLeftToolbarItems as $index => $toolbarItem)
-            @include($toolbarItem['view'], $toolbarItem['attributes'])
+            @include($toolbarItem['view'], array_merge(['wire:key' => $dataTableFingerprint.'-toolbarItem-left-'.$index], $toolbarItem['attributes']))
         @endforeach
 
     </div>
@@ -29,7 +29,7 @@
     >
 
         @foreach($this->getRightToolbarItems as $index => $toolbarItem)
-            @include($toolbarItem['view'], $toolbarItem['attributes'])
+            @include($toolbarItem['view'], array_merge(['wire:key' => $dataTableFingerprint.'-toolbarItem-right-'.$index], $toolbarItem['attributes']))
         @endforeach
 
 

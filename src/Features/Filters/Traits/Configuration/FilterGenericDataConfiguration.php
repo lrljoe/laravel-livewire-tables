@@ -13,7 +13,7 @@ trait FilterGenericDataConfiguration
      */
     public function generateFilterGenericData(): array
     {
-        return (new FilterGenericData($this->getTableName(), $this->getFilterLayout(), $this->isTailwind(), $this->isBootstrap4(), $this->isBootstrap5(), $this->isTailwind4()))->toArray();
+        return (new FilterGenericData($this->getTableName(), $this->getDataTableFingerprint(), $this->getFilterLayout(), $this->isTailwind(), $this->isBootstrap4(), $this->isBootstrap5(), $this->isTailwind4()))->toArray();
     }
 
     /**

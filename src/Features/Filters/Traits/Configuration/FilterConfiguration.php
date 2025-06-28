@@ -25,7 +25,7 @@ trait FilterConfiguration
         {
             $this->appliedFilters[$filterKey] = [];
             $this->availableFilters[$filterKey] = [];
-            $this->dispatch('filter-was-set', tableName: $this->getTableName(), filterKey: $filterKey, value: $value);
+            $this->dispatch('filter-was-set', tableName: $this->getTableName(), dataTableFingerprint: $this->getDataTableFingerprint(), filterKey: $filterKey, value: $value);
             
         }
         elseif((is_array($value) && !empty($value)) || !is_array($value))
@@ -36,7 +36,7 @@ trait FilterConfiguration
             if ($this->getEventStatusFilterApplied() && $filterKey != null && $value != null) {
                 event(new FilterApplied($this->getTableName(), $filterKey, $value));
             }
-            $this->dispatch('filter-was-set', tableName: $this->getTableName(), filterKey: $filterKey, value: $value);
+            $this->dispatch('filter-was-set', tableName: $this->getTableName(), dataTableFingerprint: $this->getDataTableFingerprint(), filterKey: $filterKey, value: $value);
             $this->storeFilterValues();
         }
         
@@ -54,7 +54,7 @@ trait FilterConfiguration
     #[On('livewireExternalArrayFilterUpdate')]
     public function setLivewireExternalArrayFilterValues(string $tableName, string $filterKey, array $values = [])
     {
-        if($tableName == $this->getTableName())
+        if($tableName == $this->getTableName() || $tableName == $this->getDataTableFingerprint())
         {
             $filter = $this->getFilterByKey($filterKey);
             $filter->options($values);
@@ -148,6 +148,8 @@ trait FilterConfiguration
 
     public function updatedAppliedFilters(string|array|null $value, string $filterName): void
     {
+                \Illuminate\Support\Facades\Log::error("updatedAppliedFilters");
+
         // Clear bulk actions on filter - if enabled
         if ($this->getClearSelectedOnFilter()) {
             $this->clearSelected();
@@ -164,6 +166,9 @@ trait FilterConfiguration
      */
     public function updatedTestAppliedFilters(string|array|null $value, string $filterName): void
     {
+                \Illuminate\Support\Facades\Log::error("updatedTestAppliedFilters");
+
+
         $this->resetComputedPage();
 
         // Clear bulk actions on filter - if enabled
@@ -186,7 +191,7 @@ trait FilterConfiguration
             if ($this->getEventStatusFilterApplied() && $filter->getKey() != null && $value != null) {
                 event(new FilterApplied($this->getTableName(), $filter->getKey(), $value));
             }
-            $this->dispatch('filter-was-set', tableName: $this->getTableName(), filterKey: $filter->getKey(), value: $value);
+            $this->dispatch('filter-was-set', tableName: $this->getTableName(), dataTableFingerprint: $this->getDataTableFingerprint(), filterKey: $filter->getKey(), value: $value);
 
         }
 

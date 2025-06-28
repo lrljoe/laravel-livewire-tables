@@ -1,4 +1,4 @@
-@aware([ 'tableName','isTailwind','isTailwind4','isBootstrap','isBootstrap4','isBootstrap5', 'localisationPath'])
+@aware([ 'dataTableFingerprint','isTailwind','isTailwind4','isBootstrap','isBootstrap4','isBootstrap5', 'localisationPath'])
 <div x-data="{ open: false, childElementOpen: false }"
         x-cloak x-show="(selectedItems.length > 0 || hideBulkActionsWhenEmpty == false)"
         @class([
@@ -14,10 +14,10 @@
             ])
         >
             {{-- The Button Used To Toggle The Menu --}}
-            <x-livewire-tables::bulk-actions.menu.button id="{{ $tableName }}-bulkActionsDropdownButton" aria-controls="{{ $tableName }}-bulkActionsDropdownBody" {{ $attributes->merge($bulkActionsButtonAttributes) }} />
+            <x-livewire-tables::bulk-actions.menu.button id="{{ $dataTableFingerprint }}-bulkActionsDropdownButton" aria-controls="{{ $dataTableFingerprint }}-bulkActionsDropdownBody" {{ $attributes->merge($bulkActionsButtonAttributes) }} />
             
             {{-- The Body of The Menu --}}
-            <x-livewire-tables::bulk-actions.menu.body id="{{ $tableName }}-bulkActionsDropdownBody" aria-labelledby="{{ $tableName }}-bulkActionsDropdownButton" {{ $attributes->merge($bulkActionsMenuAttributes) }}>
+            <x-livewire-tables::bulk-actions.menu.body id="{{ $dataTableFingerprint }}-bulkActionsDropdownBody" aria-labelledby="{{ $dataTableFingerprint }}-bulkActionsDropdownButton" {{ $attributes->merge($bulkActionsMenuAttributes) }}>
                     @tableloop ($this->getBulkActionsButtons() as $id => $bulkAction)
                         {!! $bulkAction->render() !!}
                     @endtableloop

@@ -1,5 +1,6 @@
+@aware(['dataTableFingerprint'])
 <div>
-    <x-livewire-tables::tools.filter-label :$filter :$filterLayout />
+    <x-livewire-tables::tools.filter-label :$filter :$filterLayout  :$filterLabelAttributes :$customLabelAttributes />
 
     <div @class([
         'rounded-md shadow-sm' => $isTailwind,

@@ -8,18 +8,26 @@ use Livewire\Attributes\Computed;
 trait HasColumnSelectStyling
 {
     /**
-     * Undocumented variable
+     * Column Select Button Attributes
      *
      * @var array<mixed>
      */
+    
     protected array $columnSelectButtonAttributes = ['default-styling' => true, 'default-colors' => true, 'class' => ''];
 
     /**
-     * Undocumented variable
+     * Column Select Menu Option Checkbox Attributes
      *
      * @var array<mixed>
      */
-    protected array $columnSelectMenuOptionCheckboxAttributes = ['default-styling' => true, 'default-colors' => true, 'class' => ''];
+    protected array $columnSelectMenuOptionCheckboxAttributes = ['class' => '', 'default-styling' => true, 'default-colors' => true, 'type' => 'checkbox', 'wire:loading.attr' => 'disabled'];
+
+    /**
+     * Use the New Column Select Design
+     *
+     * @var boolean
+     */
+    protected bool $useModernColumnSelect = false;
 
     /**
      * Undocumented function
@@ -40,7 +48,15 @@ trait HasColumnSelectStyling
     #[Computed]
     public function getColumnSelectMenuOptionCheckboxAttributes(): array
     {
-        return $this->columnSelectMenuOptionCheckboxAttributes;
+        if($this->modernColumnSelect())
+        {
+            return $this->columnSelectMenuOptionCheckboxAttributes;
+        }
+        else
+        {
+            return [...['wire:model.live' => 'selectedColumns'], ...$this->columnSelectMenuOptionCheckboxAttributes];
+        }
+
     }
 
     /**
@@ -67,5 +83,45 @@ trait HasColumnSelectStyling
         $this->columnSelectMenuOptionCheckboxAttributes = [...$this->columnSelectMenuOptionCheckboxAttributes, ...$attributes];
 
         return $this;
+    }
+
+
+    #[Computed]
+    public function modernColumnSelect(): bool
+    {
+        return $this->useModernColumnSelect;
+    }
+
+    /**
+     * Set using modern column select
+     *
+     * @param boolean $status
+     * @return self
+     */
+    protected function setModernColumnSelectStatus(bool $status): self
+    {
+        $this->useModernColumnSelect = $status;
+
+        return $this;
+    }
+    
+    /**
+     * Set using modern column select enabled
+     *
+     * @return self
+     */
+    protected function setModernColumnSelectEnabled(): self
+    {
+        return $this->setModernColumnSelectStatus(true);
+    }
+
+    /**
+     * Set using modern column select disabled
+     *
+     * @return self
+     */
+    protected function setModernColumnSelectDisabled(): self
+    {
+        return $this->setModernColumnSelectStatus(false);
     }
 }

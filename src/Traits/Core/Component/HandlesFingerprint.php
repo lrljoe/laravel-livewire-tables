@@ -29,6 +29,6 @@ trait HandlesFingerprint
         $className = str_split(static::class);
         $crc32 = sprintf('%u', crc32(serialize($className)));
 
-        return base_convert($crc32, 10, 36);
+        return $this->getTableName().'-'.base_convert($crc32, 10, 36);
     }
 }

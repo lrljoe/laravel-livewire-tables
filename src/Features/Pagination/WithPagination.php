@@ -166,17 +166,24 @@ trait WithPagination
      */
     public function updatedPerPage(int|string $value): void
     {
-        if (! in_array((int) $value, $this->getPerPageAccepted(), false)) {
-            $value = $this->getDefaultPerPage();
+                \Illuminate\Support\Facades\Log::error("updatedPerPage");
+
+        if(!$this->reloading)
+        {
+            if (! in_array((int) $value, $this->getPerPageAccepted(), false)) {
+                $value = $this->getDefaultPerPage();
+            }
+
+            if (in_array(session($this->getPerPagePaginationSessionKey(), (int) $value), $this->getPerPageAccepted(), true)) {
+                session()->put($this->getPerPagePaginationSessionKey(), (int) $value);
+            } else {
+                session()->put($this->getPerPagePaginationSessionKey(), $this->getPerPageAccepted()[0] ?? 10);
+            }
+            $this->setPerPage($value);
+            $this->resetPage($this->getComputedPageName());
+
         }
 
-        if (in_array(session($this->getPerPagePaginationSessionKey(), (int) $value), $this->getPerPageAccepted(), true)) {
-            session()->put($this->getPerPagePaginationSessionKey(), (int) $value);
-        } else {
-            session()->put($this->getPerPagePaginationSessionKey(), $this->getPerPageAccepted()[0] ?? 10);
-        }
-        $this->setPerPage($value);
-        $this->resetPage($this->getComputedPageName());
 
     }
 

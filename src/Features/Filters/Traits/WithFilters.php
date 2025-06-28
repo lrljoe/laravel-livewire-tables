@@ -62,7 +62,7 @@ trait WithFilters
     public function configuringWithFilters(): void
     {
 
-        $this->setFilterLayout($this->filterLayout);
+        $this->setFilterLayout($this->getFilterLayout());
     }
 
 

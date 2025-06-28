@@ -1,4 +1,4 @@
-@aware(['tableName','isBootstrap', 'isTailwind', 'isTailwind4'])
+@aware(['dataTableFingerprint','isBootstrap', 'isTailwind', 'isTailwind4'])
 @props(['icon' => '', 'iconRight' => false, 'label' => null, 'title' => null])
 @if($isTailwind || $isTailwind4)
     <button {{ 

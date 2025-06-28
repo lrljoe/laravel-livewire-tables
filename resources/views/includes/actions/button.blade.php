@@ -1,4 +1,4 @@
-@aware(['tableName','isBootstrap', 'isTailwind', 'isTailwind4'])
+@aware(['dataTableFingerprint','isBootstrap', 'isTailwind', 'isTailwind4'])
 <a {{ $attributes->merge()
             ->class([
                 'w-full text-left' => $isTailwind && $isInMenu,

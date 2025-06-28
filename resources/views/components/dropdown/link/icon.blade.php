@@ -1,4 +1,4 @@
-@aware(['tableName','isBootstrap', 'isTailwind', 'isTailwind4'])
+@aware(['dataTableFingerprint','isBootstrap', 'isTailwind', 'isTailwind4'])
 @props(['icon', 'iconRight' => false])
 <span @class([
     'w-1/12',

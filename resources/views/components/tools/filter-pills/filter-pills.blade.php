@@ -1,4 +1,4 @@
-@aware([ 'tableName','isTailwind','isTailwind4','isBootstrap','isBootstrap4','isBootstrap5', 'localisationPath'])
+@aware([ 'dataTableFingerprint','isTailwind','isTailwind4','isBootstrap','isBootstrap4','isBootstrap5', 'localisationPath'])
 
 <div {{ $attributes->merge([
     'wire:loading.class' => $this->displayFilterPillsWhileLoading() ? '' : 'invisible',

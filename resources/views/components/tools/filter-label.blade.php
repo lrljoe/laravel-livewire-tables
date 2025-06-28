@@ -1,15 +1,11 @@
-@aware([ 'tableName', 'isTailwind', 'isTailwind4', 'isBootstrap', 'isBootstrap4', 'isBootstrap5'])
-@props(['filter', 'filterLayout' => 'popover', 'for' => null])
+@aware([ 'dataTableFingerprint', 'isTailwind', 'isTailwind4', 'isBootstrap', 'isBootstrap4', 'isBootstrap5'])
+@props(['filter', 'filterLabelAttributes' => [], 'customLabelAttributes' => [], 'filterLayout' => 'popover', 'for' => null])
 
-@php
-    $filterLabelAttributes = $filter->getFilterLabelAttributes();
-    $customLabelAttributes = $filter->getLabelAttributes();
-@endphp
 
 @if($filter->hasCustomFilterLabel() && !$filter->hasCustomPosition())
-    @include($filter->getCustomFilterLabel(),['filter' => $filter, 'filterLayout' => $filterLayout, 'tableName' => $tableName, 'isTailwind' => $isTailwind, 'isTailwind4' => $isTailwind4, 'isBootstrap' => $isBootstrap, 'isBootstrap4' => $isBootstrap4, 'isBootstrap5' => $isBootstrap5, 'customLabelAttributes' => $customLabelAttributes])
+    @include($filter->getCustomFilterLabel(),['filter' => $filter, 'filterLayout' => $filterLayout, 'dataTableFingerprint' => $dataTableFingerprint, 'isTailwind' => $isTailwind, 'isTailwind4' => $isTailwind4, 'isBootstrap' => $isBootstrap, 'isBootstrap4' => $isBootstrap4, 'isBootstrap5' => $isBootstrap5, 'customLabelAttributes' => $customLabelAttributes])
 @elseif(!$filter->hasCustomPosition())
-    <label for="{{ $for ?? $tableName.'-filter-'.$filter->getKey() }}" {{
+    <label for="{{ $for ?? $dataTableFingerprint.'-filter-'.$filter->getKey() }}" {{
             $attributes->merge($customLabelAttributes)->merge($filterLabelAttributes)
                 ->class([
                     'block text-sm font-medium leading-5' => ($isTailwind && ($filterLabelAttributes['default-styling'] ?? ($filterLabelAttributes['default'] ?? true))),

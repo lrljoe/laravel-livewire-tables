@@ -1,9 +1,9 @@
-@aware(['tableName','isTailwind','isTailwind4','isBootstrap'])
+@aware(['dataTableFingerprint','isTailwind','isTailwind4','isBootstrap'])
 @props(['colCount' => 1, 'loadingPlaceholderDetails'])
 
 
 <tbody data-id="loading">
-    <tr wire:key="{{ $tableName }}-loader" wire:loading.class.remove="hidden d-none" {{
+    <tr wire:key="{{ $dataTableFingerprint }}-loader" wire:loading.class.remove="hidden d-none" {{
         $attributes->merge($loadingPlaceholderDetails['loaderRow'])
             ->class([
                 'hidden w-full text-center place-items-center align-middle' => $isTailwind && ($loadingPlaceholderDetails['loaderRow']['default'] ?? true),
@@ -14,7 +14,7 @@
             ])
             ->except(['default','default-styling','default-colors'])
     }} >
-        <td colspan="100" wire:key="{{ $tableName }}-loader-column" {{
+        <td colspan="100" wire:key="{{ $dataTableFingerprint }}-loader-column" {{
             $attributes->merge($loadingPlaceholderDetails['loaderCell'])
                 ->class([
                     'py-4' => $isTailwind && ($loadingPlaceholderDetails['loaderCell']['default'] ?? true),

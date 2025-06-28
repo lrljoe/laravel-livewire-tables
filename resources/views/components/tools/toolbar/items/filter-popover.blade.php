@@ -1,4 +1,4 @@
-@aware(['tableName','isTailwind', 'isTailwind4', 'isBootstrap','isBootstrap4','isBootstrap5'])
+@aware(['dataTableFingerprint','isTailwind', 'isTailwind4', 'isBootstrap','isBootstrap4','isBootstrap5'])
 @php($filterPopoverAttributes = $this->getFilterPopoverAttributes())
 
 @if($isBootstrap)
@@ -12,7 +12,7 @@
             ]) }} x-bind:class="{ 'show': filterPopoverOpen }">
 
         @foreach ($this->getVisibleFilters() as $filter)
-            <div id="{{ $tableName }}-filter-{{ $filter->getKey() }}-wrapper" wire:key="{{ $tableName }}-filter-{{ $filter->getKey() }}-toolbar" class="p-2">
+            <div id="{{ $dataTableFingerprint }}-filter-{{ $filter->getKey() }}-wrapper" wire:key="{{ $dataTableFingerprint }}-filter-{{ $filter->getKey() }}-toolbar" class="p-2">
                 {{ $filter->render() }}
             </div>
         @endforeach
@@ -49,7 +49,7 @@
 
         @foreach ($this->getVisibleFilters() as $filter)
             <div class="py-1" role="none">
-                <div id="{{ $tableName }}-filter-{{ $filter->getKey() }}-wrapper" wire:key="{{ $tableName }}-filter-{{ $filter->getKey() }}-toolbar" class="block px-4 py-2 text-sm text-gray-700 space-y-1" role="menuitem">
+                <div id="{{ $dataTableFingerprint }}-filter-{{ $filter->getKey() }}-wrapper" wire:key="{{ $dataTableFingerprint }}-filter-{{ $filter->getKey() }}-toolbar" class="block px-4 py-2 text-sm text-gray-700 space-y-1" role="menuitem">
                     {{ $filter->render() }}
                 </div>
             </div>
@@ -88,7 +88,7 @@
 
 
         @foreach ($this->getVisibleFilters() as $filter)
-            <div id="{{ $tableName }}-filter-{{ $filter->getKey() }}-wrapper" wire:key="{{ $tableName }}-filter-{{ $filter->getKey() }}-toolbar" class="block px-4 py-3 text-sm text-gray-700 space-y-1" role="menuitem">
+            <div id="{{ $dataTableFingerprint }}-filter-{{ $filter->getKey() }}-wrapper" wire:key="{{ $dataTableFingerprint }}-filter-{{ $filter->getKey() }}-toolbar" class="block px-4 py-3 text-sm text-gray-700 space-y-1" role="menuitem">
                 {{ $filter->render() }}
             </div>
         @endforeach

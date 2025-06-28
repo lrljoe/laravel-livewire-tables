@@ -1,4 +1,4 @@
-@aware([ 'tableName', 'isTailwind', 'isTailwind4', 'isBootstrap', 'filterGenericData'])
+@aware([ 'dataTableFingerprint', 'isTailwind', 'isTailwind4', 'isBootstrap', 'filterGenericData'])
 @php($filterSlidedownWrapperAttributes = $this->getFilterSlidedownWrapperAttributes())
 
 <div x-cloak x-show="filtersOpen" {{ $attributes
@@ -93,7 +93,7 @@
                             $filter->getFilterSlidedownColspan() === 3,
 
                     ])
-                    id="{{ $tableName }}-filter-{{ $filter->getKey() }}-wrapper"
+                    id="{{ $dataTableFingerprint }}-filter-{{ $filter->getKey() }}-wrapper"
                 >
                     {{ $filter->setGenericDisplayData($filterGenericData)->render() }}
                 </div>

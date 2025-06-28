@@ -16,7 +16,7 @@ trait HandlesCorePropertiesForExternalFilter
      *
      * @var string
      */
-    public string $tableName = '';
+    public string $tableName = 'table';
 
     /**
      * Undocumented variable

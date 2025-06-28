@@ -1,5 +1,6 @@
+@aware(['dataTableFingerprint'])
 <div>
-    <x-livewire-tables::tools.filter-label :$filter :$filterLayout />
+    <x-livewire-tables::tools.filter-label :$filter :$filterLayout :$filterLabelAttributes :$customLabelAttributes />
 
     @if ($isTailwind || $isTailwind4)
     <div @class([
@@ -8,7 +9,7 @@
     ])>
     @endif
         <div @class(['form-check' => $isBootstrap])>
-            <input id="{{ $tableName }}-filter-{{ $filter->getKey() }}-select-all{{ $filter->hasCustomPosition() ? '-'.$filter->getCustomPosition() : null }}" wire:input="selectAllFilterOptions('{{ $filter->getKey() }}')" {{ 
+            <input id="{{ $dataTableFingerprint }}-filter-{{ $filter->getKey() }}-select-all{{ $filter->hasCustomPosition() ? '-'.$filter->getCustomPosition() : null }}" wire:input="selectAllFilterOptions('{{ $filter->getKey() }}')" {{ 
                     $filterInputAttributes->merge([
                         'type' => 'checkbox'
                     ])
@@ -23,7 +24,7 @@
                     ])
                     ->except(['id','wire:key','value','default-styling','default-colors']) 
                 }}>
-            <label for="{{ $tableName }}-filter-{{ $filter->getKey() }}-select-all{{ $filter->hasCustomPosition() ? '-'.$filter->getCustomPosition() : null }}" @class([
+            <label for="{{ $dataTableFingerprint }}-filter-{{ $filter->getKey() }}-select-all{{ $filter->hasCustomPosition() ? '-'.$filter->getCustomPosition() : null }}" @class([
                 'dark:text-white' => $isTailwind,
                 'tw4ph dark:text-white' => $isTailwind4,
                 'form-check-label' => $isBootstrap,
@@ -39,11 +40,11 @@
         @foreach($filter->getOptions() as $key => $value)
             <div @class([
                 'form-check' => $isBootstrap,
-                ]) wire:key="{{ $tableName }}-filter-{{ $filter->getKey() }}-multiselect-{{ $key }}{{ $filter->hasCustomPosition() ? '-'.$filter->getCustomPosition() : null }}">
+                ]) wire:key="{{ $dataTableFingerprint }}-filter-{{ $filter->getKey() }}-multiselect-{{ $key }}{{ $filter->hasCustomPosition() ? '-'.$filter->getCustomPosition() : null }}">
                 <input {!! $filter->getWireMethod('appliedFilters.'.$filter->getKey()) !!} 
-                id="{{ $tableName }}-filter-{{ $filter->getKey() }}-{{ $loop->index }}{{ $filter->hasCustomPosition() ? '-'.$filter->getCustomPosition() : null }}" 
+                id="{{ $dataTableFingerprint }}-filter-{{ $filter->getKey() }}-{{ $loop->index }}{{ $filter->hasCustomPosition() ? '-'.$filter->getCustomPosition() : null }}" 
                 
-                wire:key="{{ $tableName }}-filter-{{ $filter->getKey() }}-{{ $loop->index }}{{ $filter->hasCustomPosition() ? '-'.$filter->getCustomPosition() : null }}" value="{{ $key }}" {{ 
+                wire:key="{{ $dataTableFingerprint }}-filter-{{ $filter->getKey() }}-{{ $loop->index }}{{ $filter->hasCustomPosition() ? '-'.$filter->getCustomPosition() : null }}" value="{{ $key }}" {{ 
                     $filterInputAttributes->merge([
                         'type' => 'checkbox'
                     ])
@@ -61,7 +62,7 @@
                     ])
                     ->except(['id','wire:key','value','default-styling','default-colors']) 
                 }}>
-                <label for="{{ $tableName }}-filter-{{ $filter->getKey() }}-{{ $loop->index }}{{ $filter->hasCustomPosition() ? '-'.$filter->getCustomPosition() : null }}" @class([
+                <label for="{{ $dataTableFingerprint }}-filter-{{ $filter->getKey() }}-{{ $loop->index }}{{ $filter->hasCustomPosition() ? '-'.$filter->getCustomPosition() : null }}" @class([
                     'dark:text-white' => $isTailwind,
                     'tw4ph dark:text-white' => $isTailwind4,
                     'form-check-label' => $isBootstrap,

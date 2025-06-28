@@ -59,13 +59,13 @@ function filterPills() {
                 this.watchForUpdateEvent(event);
             },
         },
-        checkEventIsValid(eventTableName, eventFilterKey)
+        checkEventIsValid(eventdataTableFingerprint, eventFilterKey)
         {
-            return ((this.tableName === eventTableName) && (this.localFilterKey === eventFilterKey));
+            return ((this.dataTableFingerprint === eventdataTableFingerprint) && (this.localFilterKey === eventFilterKey));
         },
         watchForUpdateEvent(event)
         {
-            if(this.checkEventIsValid(event.detail.tableName ?? '', event.detail.filterKey ?? ''))
+            if(this.checkEventIsValid(event.detail.dataTableFingerprint ?? '', event.detail.filterKey ?? ''))
             {
                 let eventPillItem = event.detail.pillItem ?? '';
                 if(!this.shouldRenderAsHTML)

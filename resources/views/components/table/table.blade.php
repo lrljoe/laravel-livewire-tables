@@ -1,4 +1,4 @@
-@aware(['tableName','primaryKey','isTailwind', 'isTailwind4', 'isBootstrap', 'coreTableAttributes'])
+@aware(['dataTableFingerprint','primaryKey','isTailwind', 'isTailwind4', 'isBootstrap', 'coreTableAttributes'])
 @props(['bulkActionsTdAttributes','bulkActionsTdCheckboxAttributes'])
 
 <table {{ $attributes->merge($coreTableAttributes['table'])
@@ -24,7 +24,7 @@
     @if(count($currentRows) > 0)
         @tableloop ($currentRows as $rowIndex => $row)
             @php($rowPk = $row->{$primaryKey})
-            <x-livewire-tables::tbody wire:key="{{ $tableName }}-row-wrap-{{ $rowPk }}" :$row :$rowIndex :$rowPk :tableRowDetails="$this->getTableRowDetails($row, $rowIndex)" />
+            <x-livewire-tables::tbody wire:key="{{ $dataTableFingerprint }}-row-wrap-{{ $rowPk }}" :$row :$rowIndex :$rowPk :tableRowDetails="$this->getTableRowDetails($row, $rowIndex)" />
         @endtableloop
     @else
         <x-livewire-tables::table.empty />

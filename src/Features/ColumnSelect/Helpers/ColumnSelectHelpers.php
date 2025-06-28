@@ -286,8 +286,6 @@ trait ColumnSelectHelpers
         // If the column select is off, make sure to clear the session
         if ($this->columnSelectIsDisabled() && session()->has($this->getColumnSelectSessionKey())) {
             session()->forget($this->getColumnSelectSessionKey());
-
-            return;
         }
 
         if (empty($this->selectableColumns)) {
@@ -306,13 +304,28 @@ trait ColumnSelectHelpers
             session()->get($this->getColumnSelectSessionKey(), $this->getDefaultVisibleColumns());
 
         // Check to see if there are any excluded that are already stored in the enabled and remove them
+        /*foreach ($this->getColumns() as $column) {
+            if (! $column->isSelectable() && ! in_array($column->getSlug(), $selectedColumns, true)) {
+                $selectedColumns[] = $column->getSlug();
+            }
+        }*/
+        //$this->selectedColumns = $selectedColumns;
+        // $this->storeColumnSelectValues();
+    }
+
+    protected function defaultSelectedColumns()
+    {
+        $selectedColumns = (count($this->selectedColumns) > 1) ?
+            $this->selectedColumns :
+            session()->get($this->getColumnSelectSessionKey(), $this->getDefaultVisibleColumns());
+
         foreach ($this->getColumns() as $column) {
             if (! $column->isSelectable() && ! in_array($column->getSlug(), $selectedColumns, true)) {
                 $selectedColumns[] = $column->getSlug();
             }
         }
-        $this->selectedColumns = $selectedColumns;
-        // $this->storeColumnSelectValues();
+
+        return $selectedColumns;
     }
 
     /**
@@ -333,5 +346,6 @@ trait ColumnSelectHelpers
     {
         return $this->columnSelectDelay ?? 1500;
     }
+
 
 }

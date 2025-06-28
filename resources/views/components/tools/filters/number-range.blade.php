@@ -1,3 +1,4 @@
+@aware(['dataTableFingerprint'])
 @php
     $filterKey = $filter->getKey();
     $currentMin = $minRange = $filter->getConfig('minRange');
@@ -6,8 +7,8 @@
     $prefix = $filter->hasConfig('prefix') ? '--prefix:"'.$filter->getConfig('prefix').'";' : '';
 @endphp
 
-<div id="{{ $tableName }}-numberRange-{{ $filterKey }}" x-data="numberRangeFilter($wire,'{{ $filterKey }}', '{{ $tableName }}-numberRange-{{ $filterKey }}-wrapper', @js($filter->getConfigs()), '{{ $tableName }}-numberRange-{{ $filterKey }}')" x-on:mousedown.away.throttle.2000ms="updateWireable" x-on:touchstart.away.throttle.2000ms="updateWireable" x-on:mouseleave.throttle.2000ms="updateWireable">
-    <x-livewire-tables::tools.filter-label for="{{ $tableName.'-numberRange-'.$filterKey.'-min' }}" :$filter :$filterLayout />
+<div id="{{ $dataTableFingerprint }}-numberRange-{{ $filterKey }}" x-data="numberRangeFilter($wire,'{{ $filterKey }}', '{{ $dataTableFingerprint }}-numberRange-{{ $filterKey }}-wrapper', @js($filter->getConfigs()), '{{ $dataTableFingerprint }}-numberRange-{{ $filterKey }}')" x-on:mousedown.away.throttle.2000ms="updateWireable" x-on:touchstart.away.throttle.2000ms="updateWireable" x-on:mouseleave.throttle.2000ms="updateWireable">
+    <x-livewire-tables::tools.filter-label for="{{ $dataTableFingerprint.'-numberRange-'.$filterKey.'-min' }}" :$filter :$filterLayout  :$filterLabelAttributes :$customLabelAttributes />
     <div
         @class([
             'mt-4 h-22 pt-8 pb-4 grid gap-10' => $isTailwind,
@@ -17,7 +18,7 @@
         wire:ignore
     >
         <div
-            id="{{ $tableName }}-numberRange-{{ $filterKey }}-wrapper" data-ticks-position='bottom'
+            id="{{ $dataTableFingerprint }}-numberRange-{{ $filterKey }}-wrapper" data-ticks-position='bottom'
             @class([
                 'range-slider flat' => $isTailwind,
                 'tw4ph range-slider flat' => $isTailwind4,
@@ -26,12 +27,12 @@
             style=' --min:{{ $minRange }}; --max:{{ $maxRange }}; {{ $suffix . $prefix }}'
         >
             <input type="range" min="{{ $minRange }}" max="{{ $maxRange }}" value="{{ $currentMin }}"
-                id="{{ $tableName }}-numberRange-{{ $filterKey }}-min" x-model='filterMin' x-on:change="updateWire()"
+                id="{{ $dataTableFingerprint }}-numberRange-{{ $filterKey }}-min" x-model='filterMin' x-on:change="updateWire()"
                 oninput="this.parentNode.style.setProperty('--value-a',this.value); this.parentNode.style.setProperty('--text-value-a', JSON.stringify(this.value))"
             />
             <output></output>
             <input type="range" min="{{ $minRange }}" max="{{ $maxRange }}" value="{{ $currentMax }}"
-                id="{{ $tableName }}-numberRange-{{ $filterKey }}-max" x-model='filterMax' x-on:change="updateWire()"
+                id="{{ $dataTableFingerprint }}-numberRange-{{ $filterKey }}-max" x-model='filterMax' x-on:change="updateWire()"
                 oninput="this.parentNode.style.setProperty('--value-b',this.value); this.parentNode.style.setProperty('--text-value-b', JSON.stringify(this.value))"
             />
             <output></output>

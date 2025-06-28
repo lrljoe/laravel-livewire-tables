@@ -164,7 +164,7 @@ trait WithReordering
      */
     private function resetReorderFields(): void
     {
-        $this->{$this->getTableName()} = [];
+        $this->table = [];
         $this->setSortingPillsDisabled();
         $this->setSortingDisabled();
         $this->setPaginationDisabled();
@@ -202,7 +202,7 @@ trait WithReordering
     protected function getTableStateToArray(): array
     {
         return [
-            $this->getTableName() => $this->{$this->getTableName()},
+            $this->getTableName() => $this->{$this->getTableName()} ?? [],
             'sorts' => $this->sorts,
             'search' => $this->search,
             'selectedColumns' => $this->selectedColumns,
@@ -236,13 +236,21 @@ trait WithReordering
         $this->sorts = $tableState['sorts'];
         $this->search = $tableState['search'];
         $this->selectedColumns = $tableState['selectedColumns'];
+
+        
         $this->setSortingPillsStatus($tableState['sortingPillsStatus']);
         $this->setSortingStatus($tableState['sortingStatus']);
-        $this->setPaginationStatus($tableState['paginationStatus']);
-        $this->setPerPageVisibilityStatus($tableState['perPageVisibilityStatus']);
-        $this->setPerPageAccepted($tableState['perPageAccepted']);
-        $this->setPerPage($tableState['perPage']);
-        $this->setPage($tableState['page'], $this->getComputedPageName());
+
+
+        $this->restorePaginationConfig(
+            $tableState['paginationStatus'],
+            $tableState['perPageVisibilityStatus'],
+            $tableState['perPageAccepted'],
+            $tableState['perPage'],
+            $tableState['page'],
+        );
+
+
         $this->setSearchStatus($tableState['searchStatus']);
         $this->setBulkActionsStatus($tableState['bulkActionsStatus']);
         $this->setSelected($tableState['selected']);

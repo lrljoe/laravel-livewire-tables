@@ -1,9 +1,9 @@
-@aware(['tableName','isBootstrap', 'isTailwind', 'isTailwind4'])
+@aware(['dataTableFingerprint','isBootstrap', 'isTailwind', 'isTailwind4'])
 @if($isTailwind || $isTailwind4)
     <button {{ 
         $attributes
         ->merge([
-            'wire:key' => $tableName.'-bulk-action-'.$action,
+            'wire:key' => $dataTableFingerprint.'-bulk-action-'.$action,
         ])
         ->class([
             'text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 dark:text-white dark:focus:text-white dark:focus:bg-gray-600 dark:hover:bg-gray-600' => $isTailwind && ($attributes['default-colors'] ?? true),
@@ -32,7 +32,7 @@
     <a {{ 
         $attributes->merge([
             'href' => '#',
-            'wire:key' => $tableName.'-bulk-action-'.$action,
+            'wire:key' => $dataTableFingerprint.'-bulk-action-'.$action,
         ])
         ->class([
             'dropdown-item' => ($attributes['default-styling'] ?? true),

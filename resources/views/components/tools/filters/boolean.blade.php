@@ -3,9 +3,9 @@
 @endphp
 @if($isTailwind)
 <div class="flex flex-cols"
-    x-data="newBooleanFilter($wire, '{{ $filter->getKey() }}', '{{ $tableName }}', '{{ $defaultValue }}')"
+    x-data="newBooleanFilter($wire, '{{ $filter->getKey() }}', '{{ $dataTableFingerprint }}', '{{ $defaultValue }}')"
 >
-    <x-livewire-tables::tools.filter-label :$filter :$filterLayout  />
+    <x-livewire-tables::tools.filter-label :$filter :$filterLayout :$filterLabelAttributes :$customLabelAttributes />
     <input id="thisId" type="checkbox" name="switch" class="hidden" :checked="value" />
 
     <button x-cloak {{ $filterInputAttributes->merge([
@@ -40,9 +40,9 @@
 </div>
 @else
 <div class="form-check form-switch"
-    x-data="newBooleanFilter('{{ $filter->getKey() }}', '{{ $tableName }}', '{{ $defaultValue }}')"
+    x-data="newBooleanFilter($wire, '{{ $filter->getKey() }}', '{{ $dataTableFingerprint }}', '{{ $defaultValue }}')"
 >
-    <x-livewire-tables::tools.filter-label :$filter :$filterLayout :$tableName :$isTailwind :$isBootstrap4 :$isBootstrap5 :$isBootstrap />
+    <x-livewire-tables::tools.filter-label :$filter  :$filterLayout  :$filterLabelAttributes :$customLabelAttributes />
     <input id="thisId" type="checkbox" name="switch" class="form-check-input" role="switch" :checked="value" @click="toggleStatusWithUpdate" x-ref="switchButton"/>
 
 

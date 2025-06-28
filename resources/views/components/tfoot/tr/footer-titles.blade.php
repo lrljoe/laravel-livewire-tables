@@ -1,8 +1,8 @@
-@aware(['tableName','isTailwind', 'isTailwind4', 'isBootstrap', 'currentlyReorderingStatus', 'showBulkActionsSections', 'showCollapsingColumnSections','selectedVisibleColumns'])
+@aware(['dataTableFingerprint','isTailwind', 'isTailwind4', 'isBootstrap', 'currentlyReorderingStatus', 'showBulkActionsSections', 'showCollapsingColumnSections','selectedVisibleColumns'])
 
 <x-livewire-tables::table.tr.plain :rowIndex="-1" data-id="tfoot"
     :customAttributes="$this->getFooterTrAttributes($this->getRows)"
-    wire:key="{{ $tableName .'-footer' }}"
+    wire:key="{{ $dataTableFingerprint .'-footer' }}"
 >
     @if($currentlyReorderingStatus)
         <x-livewire-tables::reorder.th  />
@@ -15,6 +15,6 @@
     @endif
 
     @tableloop($selectedVisibleColumns as $index => $column)
-        <x-livewire-tables::table.th wire:key="{{ $tableName.'-table-foot-'.$index }}" :$column :$index />
+        <x-livewire-tables::table.th wire:key="{{ $dataTableFingerprint.'-table-foot-'.$index }}" :$column :$index />
     @endtableloop
 </x-livewire-tables::table.tr.plain>

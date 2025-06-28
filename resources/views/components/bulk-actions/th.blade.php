@@ -1,10 +1,10 @@
-@aware(['tableName','isTailwind', 'isTailwind4', 'isBootstrap'])
+@aware(['dataTableFingerprint','isTailwind', 'isTailwind4', 'isBootstrap'])
 @php
     $customAttributes = $this->hasBulkActionsThAttributes() ? $this->getBulkActionsThAttributes() : $this->getAllThAttributes($this->getBulkActionsColumn())['customAttributes'];
     $bulkActionsThCheckboxAttributes = $this->getBulkActionsThCheckboxAttributes();
 @endphp
 
-<x-livewire-tables::table.th.plain  :displayMinimisedOnReorder="true" wire:key="{{ $tableName }}-thead-bulk-actions" :$customAttributes>
+<x-livewire-tables::table.th.plain  :displayMinimisedOnReorder="true" wire:key="{{ $dataTableFingerprint }}-thead-bulk-actions" :$customAttributes>
     <div x-init="$watch('selectedItems', value => indeterminateCheckbox = (value.length > 0 && value.length < paginationTotalItemCount))"
         @class([
             'inline-flex rounded-md shadow-sm' => $isTailwind,

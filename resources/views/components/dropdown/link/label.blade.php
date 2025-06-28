@@ -1,4 +1,4 @@
-@aware(['tableName','isBootstrap', 'isTailwind', 'isTailwind4'])
+@aware(['dataTableFingerprint','isBootstrap', 'isTailwind', 'isTailwind4'])
 @props(['icon', 'hasIcon' => false, 'iconRight' => false])
 <span {{ $attributes->merge()->class([
             'w-11/12 ',

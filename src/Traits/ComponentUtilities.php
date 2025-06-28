@@ -40,6 +40,8 @@ trait ComponentUtilities
      */
     protected bool $hasRunConfigure = false;
 
+    protected bool $reloading = false;
+
     /**
      * Set any configuration options
      */
@@ -56,7 +58,6 @@ trait ComponentUtilities
         if (! isset($this->theme) || is_null($this->theme)) {
             $this->setTheme(config('livewire-tables.theme', 'tailwind'));
         }
-        $this->setDataTableFingerprint($this->generateDataTableFingerprint());
 
     }
 
@@ -68,6 +69,7 @@ trait ComponentUtilities
     public function bootedComponentUtilities(): void
     {
         $this->runCoreConfiguration();
+        $this->setDataTableFingerprint($this->generateDataTableFingerprint());
 
         // Make sure a primary key is set
         if (! $this->hasPrimaryKey()) {

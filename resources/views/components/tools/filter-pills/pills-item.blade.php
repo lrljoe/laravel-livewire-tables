@@ -1,4 +1,4 @@
-@aware(['tableName','isTailwind','isTailwind4','isBootstrap4','isBootstrap5'])
+@aware(['dataTableFingerprint','isTailwind','isTailwind4','isBootstrap4','isBootstrap5'])
 @props([
     'filterKey', 
     'filterPillData', 
@@ -7,7 +7,7 @@
     ])
 
 <div x-data="filterPillsHandler(@js($filterPillData->getPillSetupData($filterKey,$shouldWatch)))" x-bind="trigger" 
-        wire:key="{{ $tableName }}-filter-pill-{{ $filterKey }}" {{
+        wire:key="{{ $dataTableFingerprint }}-filter-pill-{{ $filterKey }}" {{
         $attributes->merge($filterPillsItemAttributes)
         ->class([
             'inline-flex items-center px-2.5 py-0.5 rounded-full leading-4' => $isTailwind && ($filterPillsItemAttributes['default-styling'] ?? true),

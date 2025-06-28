@@ -1,20 +1,20 @@
-@aware([ 'tableName','showBulkActionsSections', 'selectedVisibleColumns', 'hasCollapsingColumns', 'filterGenericData'])
+@aware([ 'dataTableFingerprint','showBulkActionsSections', 'selectedVisibleColumns', 'hasCollapsingColumns', 'filterGenericData'])
 
 <x-livewire-tables::table.tr.plain :rowIndex="-1"
     :customAttributes="$this->getSecondaryHeaderTrAttributes($this->getRows)"
-    wire:key="{{ $tableName .'-secondary-header' }}" data-id="temp"
+    wire:key="{{ $dataTableFingerprint .'-secondary-header' }}" data-id="temp"
 >
     @if ($showBulkActionsSections)
-        <x-livewire-tables::table.td.plain :colIndex="'bulkactions'" :displayMinimisedOnReorder="true" wire:key="{{ $tableName .'-header-hasBulkActions' }}" />
+        <x-livewire-tables::table.td.plain :colIndex="'bulkactions'" :displayMinimisedOnReorder="true" wire:key="{{ $dataTableFingerprint .'-header-hasBulkActions' }}" />
     @endif
 
     @if ($hasCollapsingColumns)
-        <x-livewire-tables::collapsed-columns.td :hidden=true :displayMinimisedOnReorder="true" wire:key="{{ $tableName .'header-collapsed-hide' }}"  />
+        <x-livewire-tables::collapsed-columns.td :hidden=true :displayMinimisedOnReorder="true" wire:key="{{ $dataTableFingerprint .'header-collapsed-hide' }}"  />
     @endif
 
     @tableloop($selectedVisibleColumns as $colIndex => $column)
         @if($column->hasSecondaryHeader() && $column->hasSecondaryHeaderCallback())
-            <x-livewire-tables::table.td.plain wire:key="{{ $tableName . '-secondary-header-datatable-td-' . $column->getSlug() }}"  :$column :$colIndex  :customAttributes="$this->getSecondaryHeaderTdAttributes($column, $this->getRows, $colIndex)">
+            <x-livewire-tables::table.td.plain wire:key="{{ $dataTableFingerprint . '-secondary-header-datatable-td-' . $column->getSlug() }}"  :$column :$colIndex  :customAttributes="$this->getSecondaryHeaderTdAttributes($column, $this->getRows, $colIndex)">
                     @if( $column->secondaryHeaderCallbackIsFilter())
                         {{ $column->getSecondaryHeaderFilter($column->getSecondaryHeaderCallback(), $filterGenericData) }}    
                     @elseif($column->secondaryHeaderCallbackIsString())
@@ -24,7 +24,7 @@
                     @endif
             </x-livewire-tables::table.td.plain>
         @else
-            <x-livewire-tables::table.td.plain wire:key="{{ $tableName . '-secondary-header-datatable-td-' . $column->getSlug() }}"  :$column :$colIndex />
+            <x-livewire-tables::table.td.plain wire:key="{{ $dataTableFingerprint . '-secondary-header-datatable-td-' . $column->getSlug() }}"  :$column :$colIndex />
 
         @endif
 

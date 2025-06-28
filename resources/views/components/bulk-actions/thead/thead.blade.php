@@ -1,4 +1,4 @@
-@aware([ 'tableName', 'isTailwind', 'isTailwind4', 'isBootstrap', 'localisationPath', 'collapsingColumnInfo','bulkActionsRowButtonAttributes'])
+@aware([ 'dataTableFingerprint', 'isTailwind', 'isTailwind4', 'isBootstrap', 'localisationPath', 'collapsingColumnInfo','bulkActionsRowButtonAttributes'])
 
 @php
     $colspan = $collapsingColumnInfo['colspanCount'];
@@ -8,7 +8,7 @@
     
 
 <tr  {{ $this->getBulkActionsAlpine()->merge(['data-id' => "bil",
-                'wire:key' => $this->getTableName() ."-bulk-select-message",
+                'wire:key' => $dataTableFingerprint ."-bulk-select-message",
                 'x-cloak' => ''])
         ->class([
             'unsortable laravel-livewire-tables-reorderingMinimised bg-indigo-50 dark:bg-gray-900 dark:text-white' => $isTailwind,
@@ -20,7 +20,7 @@
     }}
 >
     <x-livewire-tables::table.td.plain :colIndex="'bulkactions'" :colspan="$colspan">
-            <div wire:key="{{ $tableName }}-selected-items">
+            <div wire:key="{{ $dataTableFingerprint }}-selected-items">
                 <span x-cloak x-show="selectedItems.length >= paginationTotalItemCount">
                     {{ __($localisationPath.'You are currently selecting all') }}
                     @if(!$simplePagination) <strong><span x-text="paginationTotalItemCount"></span></strong> @endif
