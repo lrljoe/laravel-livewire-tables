@@ -9,6 +9,7 @@ trait WithFilters
 {
     use HasFiltersStatus,
         HasFilterGenericData,
+        HasFilterSessionStorage,
         HasFilterMenu,
         HandlesPillsData,
         HasFilterPills,

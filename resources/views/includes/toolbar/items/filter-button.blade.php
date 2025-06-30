@@ -1,7 +1,7 @@
 @aware([ 'dataTableFingerprint','isTailwind','isTailwind4','isBootstrap','isBootstrap4','isBootstrap5', 'localisationPath'])
 @props([])
 
-<div @class([
+<div wire:key="toolbar-filter-button-main"  @class([
         'ml-0 ml-md-2 mb-3 mb-md-0' => $isBootstrap4,
         'ms-0 ms-md-2 mb-3 mb-md-0' => $isBootstrap5 && $searchIsEnabled,
         'mb-3 mb-md-0' => $isBootstrap5 && !$searchIsEnabled,
@@ -19,8 +19,8 @@
             'btn-group d-block d-md-inline' => $isBootstrap,
         ])
     >
-        <div>
-            <button
+        <div> 
+            <button x-ref="filterToolbarButton" 
                 type="button"
                 @class([
                     'inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600' => $isTailwind,
@@ -55,11 +55,12 @@
                 @endif
 
             </button>
+
+            @if ($isFilterLayoutPopover)
+                <x-livewire-tables::tools.toolbar.items.filter-popover  />
+            @endif
         </div>
 
-        @if ($isFilterLayoutPopover)
-            <x-livewire-tables::tools.toolbar.items.filter-popover  />
-        @endif
 
     </div>
 </div>

@@ -3,9 +3,11 @@
 namespace Rappasoft\LaravelLivewireTables\Features\Filters\Views\Traits;
 
 use Rappasoft\LaravelLivewireTables\Exceptions\DataTableConfigurationException;
+use Livewire\Attributes\Locked;
 
 trait IsLivewireComponentFilter
 {
+    #[Locked]
     public string $livewireComponent = '';
 
     public function isAnExternalLivewireFilter(): bool

@@ -29,21 +29,6 @@ trait BulkActionsHelpers
         return $this->getBulkActionsStatus() === false;
     }
 
-    public function getSelectAllStatus(): bool
-    {
-        return $this->getBulkActionConfig('selectAll');
-    }
-
-    public function selectAllIsEnabled(): bool
-    {
-        return $this->getSelectAllStatus() === true;
-    }
-
-    public function selectAllIsDisabled(): bool
-    {
-        return $this->getSelectAllStatus() === false;
-    }
-
     public function getHideBulkActionsWhenEmptyStatus(): bool
     {
         return $this->getBulkActionConfig('hideBulkActionsWhenEmpty');
@@ -69,7 +54,7 @@ trait BulkActionsHelpers
      */
     public function getBulkActions(): array
     {
-        return $this->bulkActions();
+        return !empty($this->bulkActions) ? $this->bulkActions : $this->bulkActions();
     }
 
 
@@ -84,16 +69,32 @@ trait BulkActionsHelpers
         {
             if($title instanceof BulkAction)
             {
-                if(!$title->hasButtonAttributes())
+                $bulkAction = $title;
+                $action = $bulkAction->getAction();
+
+                // Set default attributes if not defined on BulkAction
+                if(!$bulkAction->hasButtonAttributes())
                 {
-                    $title->setButtonAttributes($defaultAttributes);
+                    $bulkAction->setButtonAttributes($defaultAttributes);
                 }
-                $bulkActions[] = $title;
             }
             else
             {
-                $bulkActions[] = BulkAction::make(action: $action, title: $title)->setButtonAttributes($defaultAttributes);
+                // Create a BulkAction instance
+                $bulkAction = BulkAction::make(action: $action, title: $title)
+                ->setButtonAttributes($defaultAttributes);
+                
             }
+
+            // Check if it should display a confirmation message
+            if(!empty($this->bulkActionConfirms) && !$bulkAction->hasConfirmationMessage() && $this->hasBulkActionConfirmMessage($action))
+            {
+                $bulkAction->setConfirmationMessage($this->getBulkActionConfirmMessage($action));
+            }
+
+            // Add to array
+            $bulkActions[] = $bulkAction;
+
         }
         return $bulkActions;
     }
@@ -119,53 +120,6 @@ trait BulkActionsHelpers
         return $show;
     }
 
-    /**
-     * @param  array<mixed>  $selected
-     * @return array<mixed>
-     */
-    public function setSelected(array $selected): array
-    {
-        return $this->selected = $selected;
-    }
-
-    /**
-     * @return array<mixed>
-     */
-    public function getSelected(): array
-    {
-        return $this->selected;
-    }
-
-    public function hasSelected(): bool
-    {
-        return $this->getSelectedCount() > 0;
-    }
-
-    public function getSelectedCount(): int
-    {
-        return count($this->getSelected());
-    }
-
-    /**
-     * Clear the bulk selected and disable select all
-     */
-    public function clearSelected(): void
-    {
-        $this->setSelectAllDisabled();
-        $this->setSelected([]);
-    }
-
-    /**
-     * Disable select all when the selected array is updated - if DelaySelectAll is not enabled
-     */
-    public function updatedSelected(): void
-    {
-        \Illuminate\Support\Facades\Log::error("updatedSelected");
-
-        if (! $this->getDelaySelectAllStatus()) {
-            $this->setSelectAllDisabled();
-        }
-    }
 
     /**
      * Clear or select all depending on what's selected when select all is changed
@@ -179,44 +133,12 @@ trait BulkActionsHelpers
         }
     }*/
 
-    /**
-     * Set select all and get all ids for selected
-     */
-    public function setAllSelected(): void
-    {
-        $this->setSelectAllEnabled();
-        $this->setSelected((clone $this->baseQuery())->pluck($this->getBuilder()->getModel()->getTable().'.'.$this->getPrimaryKey())->map(fn ($item) => (string) $item)->toArray());
-    }
 
     public function showBulkActionsDropdownAlpine(): bool
     {
         return $this->bulkActionsAreEnabled() && $this->hasBulkActions();
     }
 
-    /**
-     * Undocumented function
-     *
-     * @return array<mixed>
-     */
-    public function getBulkActionConfirms(): array
-    {
-        return array_keys($this->bulkActionConfirms);
-    }
-
-    public function hasConfirmationMessage(string $bulkAction): bool
-    {
-        return isset($this->bulkActionConfirms[$bulkAction]);
-    }
-
-    public function getBulkActionConfirmMessage(string $bulkAction): string
-    {
-        return $this->bulkActionConfirms[$bulkAction] ?? $this->getBulkActionDefaultConfirmationMessage();
-    }
-
-    public function getBulkActionDefaultConfirmationMessage(): string
-    {
-        return isset($this->bulkActionConfig['bulkActionConfirmDefaultMessage']) ? $this->bulkActionConfig['bulkActionConfirmDefaultMessage'] : __($this->getLocalisationPath().'Bulk Actions Confirm');
-    }
 
     #[Computed]
     public function shouldAlwaysHideBulkActionsDropdownOption(): bool
@@ -246,11 +168,6 @@ trait BulkActionsHelpers
         } else {
             return $this->selected;
         }
-    }
-
-    public function getDelaySelectAllStatus(): bool
-    {
-        return $this->bulkActionConfig['delaySelectAll'] ?? false;
     }
 
     /**

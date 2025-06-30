@@ -62,7 +62,7 @@ trait HasActionsStyling
     /**
      * Undocumented function
      *
-     * @param array<mixed> $actionWrapperAttributes
+     * @param array<mixed> $actionsMenuAttributes
      * @return self
      */
     public function setActionMenuAttributes(array $actionsMenuAttributes): self

@@ -1,6 +1,6 @@
 <?php
 
-namespace Rappasoft\LaravelLivewireTables\Traits\Styling;
+namespace Rappasoft\LaravelLivewireTables\Features\LoadingPlaceholder\Styling;
 
 trait HasLoadingPlaceholderStyling
 {

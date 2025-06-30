@@ -1,6 +1,6 @@
 <?php
 
-namespace Rappasoft\LaravelLivewireTables\Features\Columns\Core\Styling;
+namespace Rappasoft\LaravelLivewireTables\Features\ColumnsCollapsing\Styling;
 
 use Livewire\Attributes\Computed;
 

@@ -1,58 +1,40 @@
 <?php
 
-namespace Rappasoft\LaravelLivewireTables\Traits\Helpers;
+namespace Rappasoft\LaravelLivewireTables\Features\ColumnSelect\Traits;
 
-trait SessionStorageHelpers
+trait HasColumnSelectSessionStorage
 {
-    protected function getSessionStorageStatus(string $name): bool
+    /**
+     * Configures Storage of Column Select in Session
+     *
+     * @param boolean $status
+     * @return self
+     */
+    protected function storeColumnSelectInSessionStatus(bool $status): self
     {
-        return $this->sessionStorageStatus[$name] ?? false;
-    }
+        $this->setSessionStorageStatus('columnselect', $status);
 
-    public function shouldStoreFiltersInSession(): bool
-    {
-        return $this->getSessionStorageStatus('filters');
-    }
-
-    public function getFilterSessionKey(): string
-    {
-        return $this->getTableName().'-stored-filters';
-    }
-
-    public function storeFilterValues(): void
-    {
-        if ($this->shouldStoreFiltersInSession()) {
-            $this->clearStoredFilterValues();
-            session([$this->getFilterSessionKey() => $this->appliedFilters]);
-        }
-    }
-
-    public function restoreFilterValues(): void
-    {
-        if (empty($this->appliedFilters)) {
-            $this->appliedFilters = $this->getStoredFilterValues();
-        }
+        return $this;
     }
 
     /**
-     * Undocumented function
+     * Enables Storage of Column Select in Session
      *
-     * @return array<mixed>
+     * @return self
      */
-    public function getStoredFilterValues(): array
+    protected function storeColumnSelectInSessionEnabled(): self
     {
-        if ($this->shouldStoreFiltersInSession() && session()->has($this->getFilterSessionKey())) {
-            return session()->get($this->getFilterSessionKey());
-        }
-
-        return [];
+        return $this->storeColumnSelectInSessionStatus(true);
     }
 
-    public function clearStoredFilterValues(): void
+    /**
+     * Disables Storage of Column Select in Session
+     *
+     * @return self
+     */
+    protected function storeColumnSelectInSessionDisabled(): self
     {
-        if ($this->shouldStoreFiltersInSession() && session()->has($this->getFilterSessionKey())) {
-            session()->forget($this->getFilterSessionKey());
-        }
+        return $this->storeColumnSelectInSessionStatus(false);
     }
 
     public function shouldStoreColumnSelectInSession(): bool

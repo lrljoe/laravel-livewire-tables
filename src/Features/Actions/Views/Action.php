@@ -27,6 +27,11 @@ class Action extends Component
      */
     protected string $view = 'livewire-tables::includes.actions.button';
 
+    /**
+     * Undocumented variable
+     *
+     * @var boolean
+     */
     public bool $isInMenu = false;
 
     /**

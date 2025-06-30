@@ -29,31 +29,58 @@ trait WithToolBar
      */
     protected array $toolBarItems = ['left' => [], 'right' => []];
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     protected array $toolBarDefaultItems = ['left' => ['reorder','search','filters'], 'right' => ['bulk-actions','column-select','pagination-dropdown']];
 
-    public function toolbarItemsLeft()
+    
+    /**
+     * Get Toolbar Left Items
+     *
+     * @return array<mixed>
+     */
+    public function toolbarItemsLeft(): array
     {
         return ['reorder','search','filters'];
     }
 
-    public function toolbarItemsRight()
+    /**
+     * Get Toolbar Right Items
+     *
+     * @return array<mixed>
+     */
+    public function toolbarItemsRight(): array
     {
         return ['bulk-actions','column-select','pagination-dropdown'];
     }
     
+
+    /**
+     * Get Toolbar Left Items
+     *
+     * @return array<mixed>
+     */
     #[Computed]
-    public function getLeftToolbarItems()
+    public function getLeftToolbarItems(): array
     {
         return $this->toolBarItems['left'];
     }
 
+    /**
+     * Get Toolbar Right Items
+     *
+     * @return array<mixed>
+     */
     #[Computed]
-    public function getRightToolbarItems()
+    public function getRightToolbarItems(): array
     {
         return $this->toolBarItems['right'];
     }
 
-    public function renderingWithToolBar()
+    public function renderingWithToolBar(): void
     {
         if($this->toolBarItems == ['left' => [], 'right' => []])
         {

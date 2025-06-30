@@ -1,10 +1,10 @@
 <?php
 
-namespace Rappasoft\LaravelLivewireTables\Features\Columns\Core;
+namespace Rappasoft\LaravelLivewireTables\Features\ColumnsCollapsing;
 
-use Rappasoft\LaravelLivewireTables\Features\Columns\Core\Configuration\ColumnCollapsingConfiguration;
-use Rappasoft\LaravelLivewireTables\Features\Columns\Core\Helpers\ColumnCollapsingHelpers;
-use Rappasoft\LaravelLivewireTables\Features\Columns\Core\Styling\HasColumnCollapsingStyling;
+use Rappasoft\LaravelLivewireTables\Features\ColumnsCollapsing\Configuration\ColumnCollapsingConfiguration;
+use Rappasoft\LaravelLivewireTables\Features\ColumnsCollapsing\Helpers\ColumnCollapsingHelpers;
+use Rappasoft\LaravelLivewireTables\Features\ColumnsCollapsing\Styling\HasColumnCollapsingStyling;
 
 trait WithColumnsCollapsing
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Rappasoft\LaravelLivewireTables\Features\Columns\Core\Helpers;
+namespace Rappasoft\LaravelLivewireTables\Features\ColumnsCollapsing\Helpers;
 
 use Illuminate\Support\Collection;
 use Livewire\Attributes\Computed;

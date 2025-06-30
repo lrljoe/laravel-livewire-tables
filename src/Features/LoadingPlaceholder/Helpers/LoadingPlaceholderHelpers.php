@@ -1,6 +1,6 @@
 <?php
 
-namespace Rappasoft\LaravelLivewireTables\Traits\Helpers;
+namespace Rappasoft\LaravelLivewireTables\Features\LoadingPlaceholder\Helpers;
 
 trait LoadingPlaceholderHelpers
 {

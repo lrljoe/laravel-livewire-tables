@@ -256,14 +256,31 @@ trait PaginationConfiguration
         return $this->setShouldRetrieveTotalItemCountStatus(false);
     }
 
-    protected function setPaginationConfig($key, $value): self
+    /**
+     * Undocumented function
+     *
+     * @param string $key
+     * @param mixed $value
+     * @return self
+     */
+    protected function setPaginationConfig(string $key, mixed $value): self
     {
         $this->paginationConfig[$key] = $value;
 
         return $this;
     }
 
-    protected function restorePaginationConfig($paginationStatus, $perPageVisibilityStatus, $perPageAccepted, $perPage, $page): void
+    /**
+     * Undocumented function
+     *
+     * @param boolean $paginationStatus
+     * @param boolean $perPageVisibilityStatus
+     * @param array<mixed> $perPageAccepted
+     * @param integer $perPage
+     * @param integer $page
+     * @return void
+     */
+    protected function restorePaginationConfig(bool $paginationStatus, bool $perPageVisibilityStatus, array $perPageAccepted, int $perPage, int $page): void
     {
         $this->setPaginationStatus($paginationStatus)
         ->setPerPageVisibilityStatus($perPageVisibilityStatus)

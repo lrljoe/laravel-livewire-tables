@@ -32,11 +32,13 @@
                 },
                 sendUpdate()
                 {
+
                     if(this.selectedCols != this.previousCols)
                     {
                         console.log('this selectedCols: '+this.selectedCols);
                         console.log('this previousCols: '+this.previousCols);
                         this.previousCols = this.selectedCols;
+                        open = false;
                         $wire.$refresh();
                     }
                 },
@@ -51,7 +53,6 @@
 
                 }
             }"
-
             @keydown.window.escape="if (!childElementOpen) { open = false }"
             x-on:click.away="if (!childElementOpen) { open = false }"
             class="inline-block relative w-full text-left md:w-auto"

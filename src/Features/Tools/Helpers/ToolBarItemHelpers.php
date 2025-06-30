@@ -5,7 +5,13 @@ namespace Rappasoft\LaravelLivewireTables\Features\Tools\Helpers;
 
 trait ToolBarItemHelpers
 {
-    protected function getToolbarItemFor(string $item)
+    /**
+     * Undocumented function
+     *
+     * @param string $item
+     * @return array<mixed>
+     */
+    protected function getToolbarItemFor(string $item): array
     {
         if ($item == 'reorder')
         {
@@ -51,9 +57,17 @@ trait ToolBarItemHelpers
         {
             return $this->getToolbarItemConfigurableArea('toolbar-right-end');
         }
+        return [];
+
     }
 
-    protected function getToolbarItemConfigurableArea(string $area)
+    /**
+     * Undocumented function
+     *
+     * @param string $area
+     * @return array<mixed>
+     */
+    protected function getToolbarItemConfigurableArea(string $area): array
     {
         if($this->hasConfigurableAreaFor($area))
         {
@@ -62,7 +76,12 @@ trait ToolBarItemHelpers
         return [];
     }
 
-    protected function getToolbarItemForReorder()
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
+    protected function getToolbarItemForReorder(): array
     {
         if($this->showToolbarSection('reorder'))
         {
@@ -78,7 +97,12 @@ trait ToolBarItemHelpers
         return [];
     }
 
-    protected function getToolbarItemForSearch()
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
+    protected function getToolbarItemForSearch(): array
     {
         if($this->showToolbarSection('search'))
         {
@@ -87,7 +111,12 @@ trait ToolBarItemHelpers
         return [];
     }
 
-    protected function getToolbarItemForFilters()
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
+    protected function getToolbarItemForFilters(): array
     {
         if($this->showToolbarSection('filters'))
         {
@@ -100,7 +129,13 @@ trait ToolBarItemHelpers
         }
         return [];
     }
-    public function getToolbarActionAttributes()
+
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
+    public function getToolbarActionAttributes(): array
     {
         return [
                 'actionWrapperAttributes' => $this->getActionWrapperAttributes(),
@@ -112,7 +147,12 @@ trait ToolBarItemHelpers
         ];
     }
 
-    protected function getToolbarItemForActions()
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
+    protected function getToolbarItemForActions(): array
     {
         return ['view' => 'livewire-tables::includes.toolbar.items.actions',  'attributes' => [
                 'actionWrapperAttributes' => $this->getActionWrapperAttributes(),
@@ -124,7 +164,12 @@ trait ToolBarItemHelpers
         ]];
     }
 
-    protected function getToolbarItemForColumnSelect()
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
+    protected function getToolbarItemForColumnSelect(): array
     {
         if($this->columnSelectIsEnabled())
         {
@@ -144,7 +189,12 @@ trait ToolBarItemHelpers
         return [];
     }
 
-    protected function getToolbarItemForPaginationDropdown()
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
+    protected function getToolbarItemForPaginationDropdown(): array
     {
         if($this->showPaginationDropdown())
         {
@@ -155,7 +205,12 @@ trait ToolBarItemHelpers
         return [];
     }
 
-    protected function getToolbarItemForBulkActions()
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
+    protected function getToolbarItemForBulkActions(): array
     {
         if ($this->showBulkActionsDropdownAlpine() && $this->shouldAlwaysHideBulkActionsDropdownOption() != true)
         {

@@ -20,6 +20,11 @@ trait WithActions
      */
     protected bool $displayActionsInToolbar = false;
 
+    /**
+     * Undocumented variable
+     *
+     * @var boolean
+     */
     protected bool $displayActionsAsDropdown = false;
 
     /**
@@ -32,7 +37,7 @@ trait WithActions
     /**
      * Undocumented variable
      *
-     * @var Collection<int,\Rappasoft\LaravelLivewireTables\Features\Actions\Views>|null
+     * @var Collection<int,\Rappasoft\LaravelLivewireTables\Features\Actions\Views\Action>|null
      */
     protected ?Collection $validActions;
 

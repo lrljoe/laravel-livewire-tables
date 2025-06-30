@@ -23,7 +23,7 @@
         @endif
     </ul>
 @elseif($isTailwind)
-    <div x-cloak x-show="filterPopoverOpen"
+    <div wire:key="toolbaritem-filterpopover" x-cloak x-show="filterPopoverOpen" x-anchor.bottom-start="$refs.filterToolbarButton"
         {{ 
             $attributes
             ->merge($filterPopoverAttributes)
@@ -40,7 +40,7 @@
             ])
             ->class([
                 'w-full md:w-56' => $filterPopoverAttributes['default-width'] ?? true,
-                'origin-top-left absolute left-0 mt-2 rounded-md shadow-lg ring-1 ring-opacity-5 divide-y focus:outline-none z-50' => $filterPopoverAttributes['default-styling'] ?? true,
+                'mt-2 rounded-md shadow-lg ring-1 ring-opacity-5 divide-y focus:outline-none z-50' => $filterPopoverAttributes['default-styling'] ?? true,
                 'bg-white divide-gray-100 ring-black dark:bg-gray-700 dark:text-white dark:divide-gray-600' => $filterPopoverAttributes['default-colors'] ?? true,
             ])
             ->except(['x-cloak', 'x-show', 'default','default-width', 'default-styling','default-colors']) 
@@ -63,7 +63,7 @@
         @endif
     </div>
 @elseif($isTailwind4)
-    <div x-cloak x-show="filterPopoverOpen"
+    <div x-cloak x-show="filterPopoverOpen"  x-anchor.bottom-start="$refs.filterToolbarButton"
         {{ 
             $attributes
             ->merge($filterPopoverAttributes)
@@ -80,7 +80,7 @@
             ])
             ->class([
                 'w-full md:w-56' => $filterPopoverAttributes['default-width'] ?? true,
-                'origin-top-left absolute left-0 mt-2 rounded-md shadow-lg ring-1 ring-opacity-5 divide-y focus:outline-none z-50' => $filterPopoverAttributes['default-styling'] ?? true,
+                'mt-2 rounded-md shadow-lg ring-1 ring-opacity-5 divide-y focus:outline-none z-50' => $filterPopoverAttributes['default-styling'] ?? true,
                 'bg-white divide-gray-100 ring-black dark:bg-gray-700 dark:text-white dark:divide-gray-600' => $filterPopoverAttributes['default-colors'] ?? true,
             ])
             ->except(['x-cloak', 'x-show', 'default','default-width', 'default-styling','default-colors']) 

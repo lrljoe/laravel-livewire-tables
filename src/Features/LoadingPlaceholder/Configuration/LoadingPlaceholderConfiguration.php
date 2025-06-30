@@ -1,6 +1,6 @@
 <?php
 
-namespace Rappasoft\LaravelLivewireTables\Traits\Configuration;
+namespace Rappasoft\LaravelLivewireTables\Features\LoadingPlaceholder\Configuration;
 
 trait LoadingPlaceholderConfiguration
 {

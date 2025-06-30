@@ -1,6 +1,6 @@
 <?php
 
-namespace Rappasoft\LaravelLivewireTables\Features\Columns\Core\Configuration;
+namespace Rappasoft\LaravelLivewireTables\Features\ColumnsCollapsing\Configuration;
 
 trait ColumnCollapsingConfiguration
 {

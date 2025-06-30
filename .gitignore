@@ -25,3 +25,5 @@ coverage.xml
 src/Views/Filters/Traits/IsExternalArrayFilter.php.bk
 .gitignore
 src/Views/Filters/Traits/IsExternalFilter.php.bk
+devguide.md
+retired.md

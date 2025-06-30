@@ -6,13 +6,22 @@ use Livewire\Attributes\Computed;
 
 trait ToolBarHelpers
 {
-
+    /**
+     * Undocumented function
+     *
+     * @return boolean
+     */
     public function getToolBarStatus(): bool
     {
         return $this->toolBarStatus;
     }
 
 
+    /**
+     * Undocumented function
+     *
+     * @return boolean
+     */
     #[Computed]
     public function shouldShowToolBar(): bool
     {
@@ -39,12 +48,22 @@ trait ToolBarHelpers
         return false;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return boolean
+     */
     #[Computed]
     public function displayToolbarPagination(): bool
     {
         return $this->paginationIsEnabled() && $this->perPageVisibilityIsEnabled();
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return boolean
+     */
     #[Computed]
     public function displayToolbarSearch(): bool
     {
@@ -55,27 +74,52 @@ trait ToolBarHelpers
         return false;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return boolean
+     */
     #[Computed]
     public function displayToolbarFilters(): bool
     {
         return $this->filtersAreEnabled() && (($this->filtersVisibilityIsEnabled() && $this->hasVisibleFilters()) || ($this->showBulkActionsDropdownAlpine() && $this->shouldAlwaysHideBulkActionsDropdownOption() != true));
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return boolean
+     */
     protected function hasToolbarColumnSelect(): bool
     {
         return $this->columnSelectIsEnabled();
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return boolean
+     */
     protected function hasToolbarReorder(): bool
     {
         return $this->reorderIsEnabled();
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return boolean
+     */
     protected function hasToolbarConfigurableAreas(): bool
     {
         return $this->hasConfigurableAreaFor('toolbar-left-start') || $this->hasConfigurableAreaFor('toolbar-left-end') || $this->hasConfigurableAreaFor('toolbar-right-start') || $this->hasConfigurableAreaFor('toolbar-right-end');
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return boolean
+     */
     protected function hasToolbarActions(): bool
     {
         return $this->hasActions() && $this->showActionsInToolbar();
@@ -126,7 +170,12 @@ trait ToolBarHelpers
     }
 
 
-    protected function getToolbarItemsLeft()
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
+    protected function getToolbarItemsLeft(): array
     {
         $items = $startItems = $endItems = [];
 
@@ -148,7 +197,12 @@ trait ToolBarHelpers
         return [...$startItems, ...$this->toolbarItemsLeft(), ...$endItems];
     }
 
-    protected function getToolbarItemsRight()
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
+    protected function getToolbarItemsRight(): array
     {
         $items = $startItems = $endItems = [];
 
@@ -171,7 +225,12 @@ trait ToolBarHelpers
     }
 
 
-    protected function setupToolbarItemsLeft()
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
+    protected function setupToolbarItemsLeft(): array
     {
         $items = [];
 
@@ -187,7 +246,12 @@ trait ToolBarHelpers
         return $items;
     }
 
-    protected function setupToolbarItemsRight()
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
+    protected function setupToolbarItemsRight(): array
     {
         $items = [];
 
@@ -203,7 +267,12 @@ trait ToolBarHelpers
         return $items;
     }
 
-    protected function setupToolbarItems()
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
+    protected function setupToolbarItems(): void
     {
         $this->toolBarItems['left'] = $this->setupToolbarItemsLeft();
         $this->toolBarItems['right'] = $this->setupToolbarItemsRight();

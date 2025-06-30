@@ -16,6 +16,13 @@ trait WithTableAttributes
     /**
      * Undocumented variable
      *
+     * @var boolean
+     */
+    public bool $shouldBeDisplayed = true;
+    
+    /**
+     * Undocumented variable
+     *
      * @var array<mixed>
      */
     protected array $componentWrapperAttributes = [];
@@ -97,12 +104,6 @@ trait WithTableAttributes
      */
     protected ?Closure $trUrlTargetCallback;
 
-    /**
-     * Undocumented variable
-     *
-     * @var boolean
-     */
-    public bool $shouldBeDisplayed = true;
 
     /**
      * Undocumented function

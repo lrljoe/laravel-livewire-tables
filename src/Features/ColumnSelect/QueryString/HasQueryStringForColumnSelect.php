@@ -28,7 +28,7 @@ trait HasQueryStringForColumnSelect
         return $this->hasQueryStringConfigStatus('columns');
     }
 
-    public function getQueryStringStatusForColumnSelect(): bool
+    public function getQueryStringStatusForColumnSelect(): string
     {
        // return 'test123123';
     //    dd($this->getQueryStringConfigAlias('columns'));

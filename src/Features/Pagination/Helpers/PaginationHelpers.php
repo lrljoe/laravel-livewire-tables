@@ -160,7 +160,14 @@ trait PaginationHelpers
         return $this->getPaginationConfigValue('shouldRetrieveTotalItemCount');
     }
 
-    protected function getPaginationConfigValue(string $key)
+    
+    /**
+     * Undocumented function
+     *
+     * @param string $key
+     * @return mixed
+     */
+    protected function getPaginationConfigValue(string $key): mixed
     {
         return $this->paginationConfig[$key];
     }

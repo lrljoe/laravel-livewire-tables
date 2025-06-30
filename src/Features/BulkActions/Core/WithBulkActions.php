@@ -2,32 +2,37 @@
 
 namespace Rappasoft\LaravelLivewireTables\Features\BulkActions\Core;
 
+use Rappasoft\LaravelLivewireTables\Features\BulkActions\Core\Concerns\{HandlesConfirmation,HandlesSelected, HandlesSelectAll};
 use Rappasoft\LaravelLivewireTables\Features\BulkActions\Core\Configuration\BulkActionsConfiguration;
 use Rappasoft\LaravelLivewireTables\Features\BulkActions\Core\Helpers\BulkActionsHelpers;
-use Rappasoft\LaravelLivewireTables\Features\BulkActions\Core\Styling\HasBulkActionsStyling;
+use Rappasoft\LaravelLivewireTables\Features\BulkActions\Core\Styling\{HandlesBulkActionTableStyling, HasBulkActionsStyling};
 
 trait WithBulkActions
 {
     use BulkActionsConfiguration,
         BulkActionsHelpers,
+        HandlesConfirmation,
+        HandlesSelected,
+        HandlesSelectAll,
+        HandlesBulkActionTableStyling,
         HasBulkActionsStyling;
 
     /**
-     * Undocumented variable
+     * Used for historic approach for Bulk Actions
      *
      * @var array<mixed>
      */
-    //public array $bulkActions = [];
+    public array $bulkActions = [];
 
     /**
-     * Undocumented variable
+     * Used for historic approach for Bulk Action Confirmation Message
      *
      * @var array<mixed>
      */
-    //public array $bulkActionConfirms = [];
+    public array $bulkActionConfirms = [];
 
     /**
-     * Undocumented variable
+     * Selected Items
      * 
      * Entangled in JS
      * 
@@ -38,7 +43,7 @@ trait WithBulkActions
 
     
     /**
-     * Undocumented variable
+     * Used to store configuration for Bulk Actions
      *
      * @var array<mixed>
      */
@@ -54,7 +59,7 @@ trait WithBulkActions
     ];
 
     /**
-     * Undocumented function
+     * Current method for defining bulk actions
      *
      * @return array<mixed>
      */

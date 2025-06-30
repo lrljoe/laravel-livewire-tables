@@ -155,4 +155,16 @@ trait QueryHelpers
     {
         return $this->getEagerLoadAllRelationsStatus() === false;
     }
+
+    protected function includePrimaryKeyInQuery(): void
+    {
+        $builder = $this->getBuilder();
+        
+        $pkField = $builder->getModel()->getTable().".".$this->getPrimaryKey(). ' as '.$this->getPrimaryKey();
+
+        if(!in_array($pkField, $builder->getQuery()->columns ?? []))
+        {
+            $this->setBuilder($builder->addSelect($pkField));
+        }
+    }
 }

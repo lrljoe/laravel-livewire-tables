@@ -8,11 +8,13 @@ use Rappasoft\LaravelLivewireTables\Features\ColumnSelect\Configuration\ColumnSe
 use Rappasoft\LaravelLivewireTables\Features\ColumnSelect\Helpers\ColumnSelectHelpers;
 use Rappasoft\LaravelLivewireTables\Features\ColumnSelect\QueryString\HasQueryStringForColumnSelect;
 use Rappasoft\LaravelLivewireTables\Features\ColumnSelect\Styling\HasColumnSelectStyling;
+use Rappasoft\LaravelLivewireTables\Features\ColumnSelect\Traits\HasColumnSelectSessionStorage;
 
 trait WithColumnSelect
 {
     use ColumnSelectConfiguration,
         ColumnSelectHelpers,
+        HasColumnSelectSessionStorage,
         HasQueryStringForColumnSelect,
         HasColumnSelectStyling;
 

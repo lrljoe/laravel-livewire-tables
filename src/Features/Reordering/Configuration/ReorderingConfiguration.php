@@ -130,4 +130,62 @@ trait ReorderingConfiguration
 
         return $this;
     }
+
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
+    public function setupReordering(): void
+    {
+        if ($this->reorderIsDisabled()) {
+            return;
+        }
+
+        // If reordering is disabled but the page has a reorder session, remove it
+        if (! $this->reorderIsEnabled() && $this->hasReorderingSession()) {
+            $this->forgetReorderingSession();
+        }
+
+        $this->restartReorderingIfNecessary();
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
+    private function resetReorderFields(): void
+    {
+        $this->table = [];
+        $this->setSortingPillsDisabled();
+        $this->setSortingDisabled();
+        $this->setPaginationDisabled();
+        $this->setPerPageVisibilityDisabled();
+        $this->setPerPageAccepted([-1]);
+        $this->setPerPage(-1);
+        $this->setSearchDisabled();
+        $this->setBulkActionsDisabled();
+        $this->clearSelected();
+        $this->setFiltersDisabled();
+        $this->setSecondaryHeaderDisabled();
+        $this->setFooterDisabled();
+        $this->setCollapsingColumnsDisabled();
+        $this->resetComputedPage();
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
+    private function setReorderingBackup(): void
+    {
+        if (session()->has($this->getReorderingBackupSessionKey())) {
+            session()->forget($this->getReorderingBackupSessionKey());
+        }
+        session([$this->getReorderingBackupSessionKey() => $this->getTableStateToArray()]);
+    }
+
+
 }

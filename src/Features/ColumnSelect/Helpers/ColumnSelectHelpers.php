@@ -313,7 +313,12 @@ trait ColumnSelectHelpers
         // $this->storeColumnSelectValues();
     }
 
-    protected function defaultSelectedColumns()
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
+    protected function defaultSelectedColumns(): array
     {
         $selectedColumns = (count($this->selectedColumns) > 1) ?
             $this->selectedColumns :

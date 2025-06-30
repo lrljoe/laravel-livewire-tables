@@ -105,6 +105,8 @@ trait WithData
         // Moved these from baseQuery to here to avoid pulling all fields when cloning baseQuery.
         $this->setBuilder($this->selectFields());
 
+        $this->includePrimaryKeyInQuery();
+        
         if ($this->currentlyReorderingIsEnabled()) {
             $this->setBuilder($this->getBuilder()->orderBy($this->getDefaultReorderColumn(), $this->getDefaultReorderDirection()));
         } else {
@@ -257,6 +259,7 @@ trait WithData
      */
     protected function selectFields(): Builder
     {
+
         // Load any additional selects that were not already columns
         foreach ($this->getAdditionalSelects() as $select) {
             $this->setBuilder($this->getBuilder()->addSelect($select));

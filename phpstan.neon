@@ -17,10 +17,6 @@ parameters:
         - identifier: argument.templateType
         - identifier: new.static
         - identifier: function.alreadyNarrowedType
-          paths: 
-            - src/Views/Filters/MultiSelectDropdownFilter.php
-            - src/Views/Filters/Traits/HasOptions.php
-            - src/Views/Traits/Core/HasView.php
         - identifier: missingType.generics
           paths:
             - src/Traits/WithData.php

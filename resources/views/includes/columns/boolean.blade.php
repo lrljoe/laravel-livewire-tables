@@ -10,6 +10,7 @@
                     @class(
                         [
                             'inline-block h-5 w-5 text-green-500' => $isTailwind,
+                            'tw4ph inline-block h-5 w-5 text-green-500' => $isTailwind4,
                             'd-inline-block text-success laravel-livewire-tables-btn-small' => $isBootstrap
                         ]
                     )
@@ -18,6 +19,7 @@
                 <x-heroicon-o-check-circle @class(
                         [
                             'inline-block h-5 w-5 text-red-500' => $isTailwind,
+                            'tw4ph inline-block h-5 w-5 text-red-500' => $isTailwind4,
                             'd-inline-block text-danger laravel-livewire-tables-btn-small' => $isBootstrap
                         ]
                     )
@@ -36,6 +38,7 @@
                 <x-heroicon-o-x-circle @class(
                         [
                             'inline-block h-5 w-5 text-green-500' => $isTailwind,
+                            'tw4ph inline-block h-5 w-5 text-green-500' => $isTailwind4,
                             'd-inline-block text-success laravel-livewire-tables-btn-small' => $isBootstrap
                         ]
                     )
@@ -44,6 +47,7 @@
                 <x-heroicon-o-x-circle @class(
                         [
                             'inline-block h-5 w-5 text-red-500' => $isTailwind,
+                            'tw4ph inline-block h-5 w-5 text-red-500' => $isTailwind4,
                             'd-inline-block text-danger laravel-livewire-tables-btn-small' => $isBootstrap
                         ]
                     )

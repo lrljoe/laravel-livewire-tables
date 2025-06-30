@@ -67,6 +67,7 @@ trait WithColumns
 
     }
 
+
     /**
      * The array defining the columns of the table.
      *

@@ -26,10 +26,13 @@ trait WithQueryString
         'sorts' => ['status' => true, 'alias' => null],
     ];
 
+    #[Locked]
     public bool $queryStringStatus = false;
+
+    #[Locked]
     public ?string $queryStringAlias = null;
 
-    public function bootWithQueryString()
+    public function bootWithQueryString(): void
     {
         $this->queryStringAlias = $this->getTableName();
     }

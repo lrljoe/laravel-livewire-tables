@@ -18,7 +18,6 @@
         @foreach($this->getLeftToolbarItems as $index => $toolbarItem)
             @include($toolbarItem['view'], array_merge(['wire:key' => $dataTableFingerprint.'-toolbarItem-left-'.$index], $toolbarItem['attributes']))
         @endforeach
-
     </div>
 
     <div x-cloak x-show="!currentlyReorderingStatus"

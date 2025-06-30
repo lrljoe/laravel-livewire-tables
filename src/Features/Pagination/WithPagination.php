@@ -31,48 +31,27 @@ trait WithPagination
      */
     public ?int $perPage;
 
-    /**
-     * Undocumented variable
-     *
-     * @var integer
-     */
    // #[Locked]
     //public int $defaultPerPage = 10;
 
-    
+   // #[Locked]
+    //public array $perPageAccepted = [10, 25, 50];
+
+
+    //#[Locked]
+    //public bool $paginationStatus = true;
+
+    //#[Locked]
+    //public bool $paginationVisibilityStatus = true;
+
+    //#[Locked]
+    //public bool $perPageVisibilityStatus = true;
+
     /**
      * Undocumented variable
      *
      * @var array<mixed>
      */
-   // #[Locked]
-    //public array $perPageAccepted = [10, 25, 50];
-
-
-    /**
-     * Undocumented variable
-     *
-     * @var boolean
-     */
-    //#[Locked]
-    //public bool $paginationStatus = true;
-
-    /**
-     * Undocumented variable
-     *
-     * @var boolean
-     */
-    //#[Locked]
-    //public bool $paginationVisibilityStatus = true;
-
-    /**
-     * Undocumented variable
-     *
-     * @var boolean
-     */
-    //#[Locked]
-    //public bool $perPageVisibilityStatus = true;
-
     #[Locked]
     public array $paginationConfig = [
         'defaultPerPage' => 10,
@@ -87,31 +66,10 @@ trait WithPagination
         'shouldRetrieveTotalItemCount' => true,
     ];
 
-    /**
-     * Undocumented variable
-     *
-     * Entangled in JS
-     * 
-     * @var array<mixed>
-     */
     //public array $paginationCurrentItems = [];
 
-    /**
-     * Undocumented variable
-     * 
-     * Entangled in JS
-     *
-     * @var integer
-     */
     //public int $paginationCurrentCount = 0;
 
-    /**
-     * Undocumented variable
-     *
-     * Entangled in JS
-     * 
-     * @var integer|null
-     */
    // public ?int $paginationTotalItemCount = null;
 
     /**
@@ -130,18 +88,8 @@ trait WithPagination
      */
     protected string $paginationMethod = 'standard';
 
-    /**
-     * Undocumented variable
-     *
-     * @var boolean
-     */
     //protected bool $shouldShowPaginationDetails = true;
 
-    /**
-     * Undocumented variable
-     *
-     * @var boolean
-     */
     //protected bool $shouldRetrieveTotalItemCount = true;
 
     /**

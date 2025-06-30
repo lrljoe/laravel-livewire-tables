@@ -6,8 +6,8 @@
         ->class([
             'text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 dark:text-white dark:focus:text-white dark:focus:bg-gray-600 dark:hover:bg-gray-600' => $isTailwind && ($attributes['default-colors'] ?? true),
             'flex flex-cols w-full px-4 py-2 text-sm focus:outline-none items-left text-left gap-2' => $isTailwind && ($attributes['default-styling'] ?? true),
-            'twp4 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 dark:text-white dark:hover:bg-gray-600' => $isTailwind4 && ($attributes['default-colors'] ?? true),
-            'twp4 block w-full px-4 py-2 text-sm leading-5 focus:outline-none flex items-center space-x-2' => $isTailwind4 && ($attributes['default-styling'] ?? true),
+            'tw4ph text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 dark:text-white dark:hover:bg-gray-600' => $isTailwind4 && ($attributes['default-colors'] ?? true),
+            'tw4ph block w-full px-4 py-2 text-sm leading-5 focus:outline-none flex items-center space-x-2' => $isTailwind4 && ($attributes['default-styling'] ?? true),
         ])
         ->except(['default-colors','default-styling']) 
     }}>

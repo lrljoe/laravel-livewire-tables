@@ -1,10 +1,10 @@
 <?php
 
-namespace Rappasoft\LaravelLivewireTables\Traits;
+namespace Rappasoft\LaravelLivewireTables\Features\LoadingPlaceholder;
 
-use Rappasoft\LaravelLivewireTables\Traits\Configuration\LoadingPlaceholderConfiguration;
-use Rappasoft\LaravelLivewireTables\Traits\Helpers\LoadingPlaceholderHelpers;
-use Rappasoft\LaravelLivewireTables\Traits\Styling\HasLoadingPlaceholderStyling;
+use Rappasoft\LaravelLivewireTables\Features\LoadingPlaceholder\Configuration\LoadingPlaceholderConfiguration;
+use Rappasoft\LaravelLivewireTables\Features\LoadingPlaceholder\Helpers\LoadingPlaceholderHelpers;
+use Rappasoft\LaravelLivewireTables\Features\LoadingPlaceholder\Styling\HasLoadingPlaceholderStyling;
 
 trait WithLoadingPlaceholder
 {

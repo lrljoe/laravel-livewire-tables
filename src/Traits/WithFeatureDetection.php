@@ -9,10 +9,22 @@ use Livewire\Attributes\Locked;
 trait WithFeatureDetection
 {
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     #[Locked]
     public array $loadedOptionalFeatures = [];
 
-    protected static function class_uses_deep($class, $autoload = true)
+    /**
+     * Undocumented function
+     *
+     * @param mixed $class
+     * @param boolean $autoload
+     * @return array<mixed>
+     */
+    protected static function class_uses_deep($class, $autoload = true): array
     {
         $traits = [];
 
@@ -37,9 +49,14 @@ trait WithFeatureDetection
     }
 
 
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
     public function mountWithFeatureDetection(): void
     {
-        $selfClasses = $this::class_uses_deep($this);
+        /*$selfClasses = $this::class_uses_deep($this);
 
         /*$optionalFeatures = [
             'Rappasoft\LaravelLivewireTables\Traits\ComponentUtilities' => false,
@@ -74,12 +91,31 @@ trait WithFeatureDetection
             'Rappasoft\LaravelLivewireTables\Views\Traits\Core\HasTheme' => false,
 
         ];*/
+       /* $loadedFeatures = [
+            'Rappasoft\LaravelLivewireTables\Features\Filters\Traits\WithFilters' => false,
+            'Rappasoft\LaravelLivewireTables\Features\ColumnsCollapsing\WithColumnsCollapsing' => false,
+            'Rappasoft\LaravelLivewireTables\Features\ColumnSelect\WithColumnSelect' => false,
+            'Rappasoft\LaravelLivewireTables\Features\Search\WithSearch' => false,
+            'Rappasoft\LaravelLivewireTables\Features\Reordering\WithReordering' => false,
+            'Rappasoft\LaravelLivewireTables\Features\Sorting\WithSorting' => false,
+            'App\Domains\AdvancedTables\WithSavingTableState' => false,
 
+        ];
+        $loadedTraits = class_uses_recursive($this);
+        foreach($loadedFeatures as $featureName => $status)
+        {
+            $loadedFeatures[$featureName] = in_array($featureName,$loadedTraits);
+        }
+        dd($loadedFeatures);*/
+
+        /*
         $loadedFeatures = [
             'Rappasoft\LaravelLivewireTables\Features\Filters\Traits\WithFilters' => false,
-            'Rappasoft\LaravelLivewireTables\Features\Columns\Core\WithColumnsCollapsing' => false,
+            'Rappasoft\LaravelLivewireTables\Features\ColumnsCollapsing\WithColumnsCollapsing' => false,
             'Rappasoft\LaravelLivewireTables\Features\Columns\Core\WithColumnSelect' => false,
             'Rappasoft\LaravelLivewireTables\Features\Search\WithSearch' => false,
+            'Rappasoft\LaravelLivewireTables\Features\Reordering\WithReordering' => false,
+            'Rappasoft\LaravelLivewireTables\Features\Sorting\WithSorting' => false,
         ];
 
         foreach($selfClasses as $selfClass)
@@ -94,9 +130,15 @@ trait WithFeatureDetection
                 }
             }
         }
-        $this->loadedOptionalFeatures = $loadedFeatures;       
+        $this->loadedOptionalFeatures = $loadedFeatures;       */
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param string $feature
+     * @return boolean
+     */
     protected function optionalFeatureIsLoaded(string $feature): bool
     {
         return in_array($feature, $this->loadedOptionalFeatures) ? $this->loadedOptionalFeatures[$feature] : false;

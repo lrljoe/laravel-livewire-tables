@@ -6,12 +6,21 @@ use Livewire\Attributes\Computed;
 
 trait ToolsHelpers
 {
+    /**
+     * Undocumented function
+     *
+     * @return boolean
+     */
     public function getToolsStatus(): bool
     {
         return $this->toolsStatus;
     }
 
-
+    /**
+     * Undocumented function
+     *
+     * @return boolean
+     */
     public function shouldShowToolsFilterSlidedown(): bool
     {
         if (!method_exists($this, 'filtersAreEnabled') || !method_exists($this, 'isFilterLayoutSlideDown'))
@@ -24,6 +33,11 @@ trait ToolsHelpers
         }
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return boolean
+     */
     #[Computed]
     public function shouldShowTools(): bool
     {
