@@ -148,4 +148,9 @@ trait ColumnHelpers
     {
         return $this->rowIndex;
     }
+
+    public function shouldWrapText(): bool
+    {
+        return $this->whitespaceWrap === true;
+    }
 }

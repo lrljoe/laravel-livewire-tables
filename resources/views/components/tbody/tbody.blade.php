@@ -33,7 +33,7 @@
         @endif
         
         @tableloop($selectedVisibleColumns as $colIndex => $column)
-            <x-livewire-tables::table.td :isClickable="$column->isClickable()" :isHtml="$column->isHtml()" :customAttributes="$hasTdAttributes ? $this->getTdAttributes($column, $row, $colIndex, $rowIndex) : ['default' => true]" :$colIndex wire:key="{{ $dataTableFingerprint . '-table-td-'.$rowPk.'-'.$column->getSlug() }}"  x-ref="{{ $dataTableFingerprint . '_' . $rowIndex . '_' . $colIndex }}">
+            <x-livewire-tables::table.td :isClickable="$column->isClickable()" :wrapText="$column->shouldWrapText()" :isHtml="$column->isHtml()" :customAttributes="$this->getTdAttributes($column, $row, $colIndex, $rowIndex)" :$colIndex wire:key="{{ $dataTableFingerprint . '-table-td-'.$rowPk.'-'.$column->getSlug() }}"  x-ref="{{ $dataTableFingerprint . '_' . $rowIndex . '_' . $colIndex }}">
                 @if($column->setIndexes($rowIndex, $colIndex)->isHtml())
                     {!! $column->renderContents($row) !!}
                 @else

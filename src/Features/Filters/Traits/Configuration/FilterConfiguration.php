@@ -146,6 +146,13 @@ trait FilterConfiguration
         return $this->getBuilder();
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param string|array<mixed>|null $value
+     * @param string $filterName
+     * @return void
+     */
     public function updatedAppliedFilters(string|array|null $value, string $filterName): void
     {
                 \Illuminate\Support\Facades\Log::error("updatedAppliedFilters");

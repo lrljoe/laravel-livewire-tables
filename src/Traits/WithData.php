@@ -44,6 +44,35 @@ trait WithData
         return $executedQuery;
     }
 
+    protected function selectAllQuery(): Builder
+    {
+
+        $includeRelations = false;
+
+        $this->setBuilder($this->builder());
+
+        $this->includePrimaryKeyInQuery();
+        
+        if(method_exists($this, 'hasSearch') && $this->searchIsEnabled() && $this->hasSearch())
+        {
+            $includeRelations = true;
+            $this->setBuilder($this->applySearch());
+        }
+        
+        if(method_exists($this, 'applyFilters') && $this->filtersAreEnabled() && $this->hasFilters() && $this->hasAppliedFiltersWithValues())
+        {
+            $includeRelations = true;
+            $this->setBuilder($this->applyFilters());
+        }
+
+        if($includeRelations)
+        {
+            $this->setBuilder($this->joinRelations());
+        }
+
+        return $this->getBuilder();
+    }
+
     /**
      * Undocumented function
      *
@@ -57,12 +86,12 @@ trait WithData
 
         $this->setBuilder($this->joinRelations());
 
-        if(method_exists($this, 'applySearch'))
+        if(method_exists($this, 'applySearch') && $this->searchIsEnabled() && $this->hasSearch())
         {
             $this->setBuilder($this->applySearch());
         }
         
-        if(method_exists($this, 'applyFilters'))
+        if(method_exists($this, 'applyFilters') && $this->filtersAreEnabled() && $this->hasFilters() && $this->hasAppliedFiltersWithValues())
         {
             $this->setBuilder($this->applyFilters());
         }
@@ -111,7 +140,6 @@ trait WithData
             $this->setBuilder($this->getBuilder()->orderBy($this->getDefaultReorderColumn(), $this->getDefaultReorderDirection()));
         } else {
             $this->applySorting();
-
         }
 
         if ($this->paginationIsEnabled()) {

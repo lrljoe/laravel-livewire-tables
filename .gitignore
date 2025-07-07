@@ -27,3 +27,4 @@ src/Views/Filters/Traits/IsExternalArrayFilter.php.bk
 src/Views/Filters/Traits/IsExternalFilter.php.bk
 devguide.md
 retired.md
+*.php.bk

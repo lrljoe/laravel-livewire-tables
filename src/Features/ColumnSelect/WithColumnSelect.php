@@ -202,7 +202,7 @@ trait WithColumnSelect
     public function forceSelectedColumnsNew($data)
     {
         $temp = implode(";",$data);
-        if(!empty($temp) && $temp != "" && $this->selectedColumnsNew != $temp)
+        if(!empty($temp) && $this->selectedColumnsNew != $temp)
         {
             $this->selectedColumnsNew = $temp;
         }

@@ -48,6 +48,8 @@ trait IsColumn
 
     protected bool $html = false;
 
+    protected bool $whitespaceWrap = false;
+
     protected ?int $columnIndex;
 
     protected ?int $rowIndex;

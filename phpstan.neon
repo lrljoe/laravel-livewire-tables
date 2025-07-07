@@ -22,8 +22,8 @@ parameters:
             - src/Traits/WithData.php
         - identifier: empty.offset
           paths:
-            - src/Traits/Filters/Helpers/FilterMenuHelpers.php
+            - src/Features/Filters/Traits/Helpers/FilterMenuHelpers.php
         - identifier: isset.offset
           paths:
-            - src/Traits/Filters/Helpers/FilterMenuHelpers.php
+            - src/Features/Filters/Traits/Helpers/FilterMenuHelpers.php
         - message: '# \$view of function view expects view-string\|null, string given.#'

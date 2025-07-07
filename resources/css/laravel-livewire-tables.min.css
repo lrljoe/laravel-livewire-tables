@@ -388,6 +388,23 @@ label[dir=rtl] .range-slider {
 .superhide {
     display: none;
 }
+.loader-spinner {
+    border: 5px solid #FFF;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+} 
 
 .lds-hourglass {
     display: inline-block;
@@ -412,6 +429,28 @@ label[dir=rtl] .range-slider {
     border-color: #000 transparent #000 transparent;
   }
 
+
+.lds-hourglass-sm {
+    display: inline-block;
+
+}
+
+.lds-hourglass-sm:after {
+    content: " ";
+    display: block;
+    border-radius: 50%;
+    width: 0;
+    height: 0;
+    margin: 2px;
+    box-sizing: border-box;
+    border-color: #fff transparent #fff transparent;
+    animation: lds-hourglass 1.2s infinite
+}
+
+.dark .lds-hourglass-sm:after {
+    border: 12px solid #FFF;
+    border-color: #000 transparent #000 transparent
+}
 
   @keyframes lds-hourglass {
     0% {

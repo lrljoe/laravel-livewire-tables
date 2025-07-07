@@ -39,4 +39,11 @@ trait ColumnConfiguration
 
         return $this;
     }
+
+    public function wrapText(): self
+    {
+        $this->whitespaceWrap = true;
+
+        return $this;
+    }
 }

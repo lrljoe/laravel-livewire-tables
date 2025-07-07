@@ -300,3 +300,12 @@ public function configure(): void
   });
 }
 ```
+
+### via Attributes Callback
+
+### Enabling/Disabling whitespace-wrap
+
+```php
+Column::make("Name", "name")
+  ->wrapText(),
+```

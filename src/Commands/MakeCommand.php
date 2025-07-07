@@ -5,6 +5,7 @@ namespace Rappasoft\LaravelLivewireTables\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Contracts\Console\PromptsForMissingInput;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Livewire\Features\SupportConsoleCommands\Commands\ComponentParser;
@@ -27,6 +28,10 @@ class MakeCommand extends Command implements PromptsForMissingInput
      * @var string
      */
     protected $model;
+
+    protected ?Model $modelInstance;
+
+    protected string $booleanFilters = '';
 
     /**
      * @var string|null
@@ -56,6 +61,8 @@ class MakeCommand extends Command implements PromptsForMissingInput
      */
     public function handle(): void
     {
+
+        
         $this->parser = new ComponentParser(
             config('livewire.class_namespace'),
             config('livewire.view_path'),
@@ -107,8 +114,8 @@ class MakeCommand extends Command implements PromptsForMissingInput
     public function classContents(): string
     {
         return str_replace(
-            ['[namespace]', '[class]', '[model]', '[model_import]', '[columns]'],
-            [$this->parser->classNamespace(), $this->parser->className(), $this->model, $this->getModelImport(), $this->generateColumns($this->getModelImport())],
+            ['[namespace]', '[class]', '[model]', '[model_import]', '[columns]', '[filters]'],
+            [$this->parser->classNamespace(), $this->parser->className(), $this->model, $this->getModelImport(), $this->generateColumns($this->getModelImport()), "[\n".$this->booleanFilters."\n        ]"],
             file_get_contents(__DIR__.DIRECTORY_SEPARATOR.'table.stub')
         );
     }
@@ -153,7 +160,9 @@ class MakeCommand extends Command implements PromptsForMissingInput
     {
         $classes = [];
         $namespace = '';
-        $tokens = \PhpToken::tokenize(file_get_contents($file));
+        $fileContents = file_get_contents($file);
+
+        $tokens = \PhpToken::tokenize($fileContents);
 
         for ($i = 0; $i < count($tokens); $i++) {
             if ($tokens[$i]->getTokenName() === 'T_NAMESPACE') {
@@ -188,33 +197,132 @@ class MakeCommand extends Command implements PromptsForMissingInput
      */
     private function generateColumns(string $modelName): string
     {
-        $model = new $modelName;
+        $booleanFields = [];
+        $dateFields = [];
+        $arrayFields = [];
+        $foreignKeys = [];
+        $timestamps = [];
+        $castFields = [];
 
-        if ($model instanceof Model === false) {
+        try {
+            $model = new $modelName;
+            if ($model instanceof Model === false) {
+                throw new \Exception('Invalid model given.');
+            }
+            else
+            {
+                $this->modelInstance = $model;
+            }
+        }
+        catch (\Exception $e)
+        {
             throw new \Exception('Invalid model given.');
         }
 
-        $getFillable = [
-            ...[$model->getKeyName()],
-            ...$model->getFillable(),
-            ...['created_at', 'updated_at'],
-        ];
+            $reflectionClass = new \ReflectionClass($modelName);
+            $withs = $reflectionClass->getProperty('with')->getDefaultValue() ?? [];
+            $withCounts = $reflectionClass->getProperty('withCount')->getDefaultValue() ?? [];
 
-        $columns = "[\n";
+            $foreignKeys = $this->getDatabaseForeignKeys($this->modelInstance->getTable());
+            $timestamps = $this->getDateColumns();        
+            $searchableFields = $this->getDatabaseSearchableFields($this->modelInstance->getTable());
 
-        foreach ($getFillable as $field) {
-            if (in_array($field, $model->getHidden())) {
-                continue;
+            $castFields = [...$timestamps, ...$this->modelInstance->getCasts() ?? []];
+
+            foreach ($castFields as $field => $cast) {
+                if(substr($cast, 0,8) == 'datetime')
+                {
+                    $dateFormat = substr($cast, 9);
+                    $dateFields[$field] = strlen($dateFormat) > 1 ? $dateFormat : 'Y-m-d H:i:s';
+                }
+                elseif(substr($cast, 0,7) == 'boolean')
+                {
+                    $booleanFields[] = $field;
+                    $this->booleanFilters .= $this->createBooleanFilter($field);
+                }
+                elseif(substr($cast, 0,4) == 'json' || substr($cast,0,5) == 'array')
+                {
+                    $arrayFields[] = $field;
+                }
             }
 
-            $title = Str::of($field)->replace('_', ' ')->ucfirst();
+            $getFillable = [
+                ...[$this->modelInstance->getKeyName()],
+                ...$this->modelInstance->getFillable(),
+                ...array_keys($timestamps),
+            ];
 
-            $columns .= '            Column::make("'.$title.'", "'.$field.'")'."\n".'                ->sortable(),'."\n";
-        }
+            $columns = "[\n";
 
-        $columns .= '        ]';
+            foreach ($getFillable as $field) {
+                $newColumn = '';
+                if (in_array($field, $this->modelInstance->getHidden())) {
+                    continue;
+                }
+                if (in_array($field, $foreignKeys)) {
+                    continue;
+                }
+                $title = Str::of($field)->replace('_', ' ')->title();
 
-        return $columns;
+
+                if(array_key_exists($field, $dateFields))
+                {
+                    $newColumn = '            DateColumn::make("'.$title.'", "'.$field.'")'."\n";
+                    $newColumn .= '                ->inputFormat("'.$dateFields[$field].'")'."\n";
+                    $newColumn .= '                ->outputFormat("Y-m-d H:i")'."\n";
+                    $newColumn .= '                ->sortable()';
+                    $newColumn .= ','."\n";
+                }
+                elseif(in_array($field,$booleanFields))
+                {
+                    $newColumn = '            BooleanColumn::make("'.$title.'", "'.$field.'")'."\n";
+                    $newColumn .= '                ->setSuccessValue(true)'."\n";
+                    $newColumn .= '                ->sortable()';
+                    $newColumn .= ','."\n";
+                }
+                elseif(in_array($field,$arrayFields))
+                {
+                    $newColumn = '            ArrayColumn::make("'.$title.'", "'.$field.'")'."\n";
+                    if(in_array($field,$searchableFields))
+                    {
+                        $newColumn .= '                ->searchable()'."\n";
+                    }
+                    $newColumn .= '                ->data(fn($value, $row) => ($row->'.$field.'  ?? []))'."\n";
+                    $newColumn .= '                ->outputFormat(fn($index, $value) => $value)'."\n";
+                    $newColumn .= '                ->emptyValue("Unknown")'."\n";
+                    $newColumn .= '                ->separator("<br />")';
+                    $newColumn .= ','."\n";
+                }
+                else
+                {
+                    $newColumn = '            Column::make("'.$title.'", "'.$field.'")'."\n";
+                    if(in_array($field,$searchableFields))
+                    {
+                        $newColumn .= '                ->searchable()'."\n";
+                    }
+                    $newColumn .= '                ->sortable()';
+                    $newColumn .= ','."\n";
+                }
+
+                $columns .= $newColumn;
+            }
+
+            if(!empty($withCounts))
+            {
+                foreach($withCounts as $index => $val) 
+                {
+                    $val = $val."_count";
+                    $title = Str::of($val)->replace('_', ' ')->title();
+                    $newColumn = '            Column::make("'.$title.'", "'.$val.'")'."\n";
+                    $newColumn .= '                ->sortable()'."\n";
+                    $newColumn .= '                ->label(fn ($row, Column $column) => $row->'.$val.'),'."\n";
+                    $columns .= $newColumn;
+                }
+            }
+
+
+            $columns .= '        ]';
+            return $columns;
     }
 
     /**
@@ -268,5 +376,62 @@ class MakeCommand extends Command implements PromptsForMissingInput
                 $input->setArgument('modelpath', $modelPath);
             }
         }
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
+    protected function getDateColumns(): array
+    {
+        $defaultDateFormat = $this->modelInstance->getDateFormat();
+        $timestamps = [$this->modelInstance->getCreatedAtColumn() => 'datetime:'.$defaultDateFormat, $this->modelInstance->getUpdatedAtColumn() => 'datetime:'.$defaultDateFormat];
+        if(method_exists($this->modelInstance, 'getDeletedAtColumn'))
+        {
+            $timestamps[$this->modelInstance->getDeletedAtColumn()] = 'datetime:'.$defaultDateFormat;
+        }
+        return $timestamps;
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
+    protected function getDatabaseForeignKeys(string $table): array
+    {
+        $data = DB::connection('mysql')->select("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE WHERE REFERENCED_TABLE_SCHEMA = (SELECT DATABASE()) AND TABLE_NAME = '$table'");
+        $foreignKeys = [];
+        foreach($data as $key => $item){ 
+            $foreignKeys[] = $item->COLUMN_NAME;
+        }
+        return $foreignKeys;
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
+    protected function getDatabaseSearchableFields(string $table): array
+    {
+        $data = DB::connection('mysql')->select("SHOW INDEX FROM `$table`");
+        $searchableFields = [];
+        foreach($data as $key => $item){ 
+            $searchableFields[] = $item->Column_name;
+        }
+        $searchableFields = array_unique($searchableFields);
+        return $searchableFields;
+    }
+
+    protected function createBooleanFilter(string $field): string
+    {
+        $title = Str::of($field)->replace('_', ' ')->title();
+        $newFilter = '            BooleanFilter::make("'.$title.'", "'.$field.'")'."\n";
+        $newFilter .= '                ->filter(function (Builder $builder, bool $value) {'."\n";
+        $newFilter .= '                    $builder->where("'.$field.'", $value);'."\n";
+        $newFilter .= '                }),'."\n";
+        return $newFilter;
     }
 }

@@ -234,7 +234,12 @@ trait TableAttributeHelpers
      */
     public function getTdAttributes(Column $column, Model $row, int $colIndex, int $rowIndex): array
     {
-        return isset($this->tdAttributesCallback) ? call_user_func($this->tdAttributesCallback, $column, $row, $colIndex, $rowIndex) : ['default' => true];
+        if($column->hasAttributesCallback())
+        {
+            return [...['default' => true, 'default-colors' => true, 'default-styling' => true], ...app()->call($column->getAttributesCallback(), ['row' => $row, 'value' => $column->getValue($row), 'rowIndex' => $rowIndex])];
+        }
+        return isset($this->tdAttributesCallback) ? [...['default' => true, 'default-colors' => true, 'default-styling' => true], ...call_user_func($this->tdAttributesCallback, $column, $row, $colIndex, $rowIndex)] : ['default' => true, 'default-colors' => true, 'default-styling' => true];
+//        $colAttributes = $column->hasAttributesCallback() ? app()->call($column->getAttributesCallback(), ['row' => $row, 'value' => $column->getValue($row)]);
     }
     
     public function hasTdAttributes(): bool

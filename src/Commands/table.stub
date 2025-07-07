@@ -2,8 +2,11 @@
 
 namespace [namespace];
 
+use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
-use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
+use Rappasoft\LaravelLivewireTables\Features\Columns\Views\{AggregateColumn, ArrayColumn, AvgColumn, BooleanColumn, ButtonGroupColumn, ColorColumn, Column, DateColumn, IconColumn, ImageColumn, IncrementColumn, LinkColumn, SumColumn, ViewComponentColumn, WireLinkColumn};
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\{BooleanFilter, DateFilter, DateRangeFilter, DateTimeFilter, LivewireComponentArrayFilter, LivewireComponentFilter, MultiSelectDropdownFilter, MultiSelectFilter, NumberFilter, SelectFilter, TextFilter};
+
 use [model_import];
 
 class [class] extends DataTableComponent
@@ -18,5 +21,10 @@ class [class] extends DataTableComponent
     public function columns(): array
     {
         return [columns];
+    }
+
+    public function filters(): array
+    {
+        return [filters];
     }
 }

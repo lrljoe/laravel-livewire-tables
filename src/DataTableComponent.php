@@ -49,7 +49,6 @@ abstract class DataTableComponent extends Component
         WithPagination,
         WithBulkActions,
         HasCustomAttributes,
-        //\App\Domains\AdvancedTables\WithSavingTableState,
         WithConfigurableAreas,
         WithCustomisations,
         WithDebugging,
