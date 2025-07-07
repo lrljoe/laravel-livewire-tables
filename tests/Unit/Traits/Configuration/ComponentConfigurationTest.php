@@ -5,7 +5,7 @@ namespace Rappasoft\LaravelLivewireTables\Tests\Unit\Traits\Configuration;
 use Illuminate\Database\Eloquent\Model;
 use Rappasoft\LaravelLivewireTables\Tests\Models\Pet;
 use Rappasoft\LaravelLivewireTables\Tests\TestCase;
-use Rappasoft\LaravelLivewireTables\Views\Column;
+use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
 
 final class ComponentConfigurationTest extends TestCase
 {
@@ -129,8 +129,8 @@ final class ComponentConfigurationTest extends TestCase
             return ['default' => true, 'here' => 'there'];
         });
 
-        $this->assertSame($this->basicTable->getTdAttributes($this->basicTable->columns()[1], Pet::find(1), 0, 1), ['default' => true, 'here' => 'there']);
-        $this->assertSame($this->basicTable->getTdAttributes($this->basicTable->columns()[0], Pet::find(2), 1, 1), ['default' => false, 'this' => 'that']);
+        $this->assertSame($this->basicTable->getTdAttributes($this->basicTable->columns()[1], Pet::find(1), 0, 1), ['default' => true, 'default-colors' => true, 'default-styling' => true, 'here' => 'there']);
+        $this->assertSame($this->basicTable->getTdAttributes($this->basicTable->columns()[0], Pet::find(2), 1, 1), ['default' => false, 'default-colors' => true, 'default-styling' => true, 'this' => 'that']);
     }
 
     public function test_can_set_empty_message(): void

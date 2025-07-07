@@ -116,7 +116,7 @@ final class FilterVisualsTest extends TestCase
             public function filters(): array
             {
                 return [
-                    \Rappasoft\LaravelLivewireTables\Views\Filters\MultiSelectFilter::make('Breed')
+                    \Rappasoft\LaravelLivewireTables\Features\Filters\Views\MultiSelectFilter::make('Breed')
                         ->options(
                             \Rappasoft\LaravelLivewireTables\Tests\Models\Breed::query()
                                 ->orderBy('name')
@@ -128,7 +128,7 @@ final class FilterVisualsTest extends TestCase
                         ->filter(function (\Illuminate\Database\Eloquent\Builder $builder, array $values) {
                             return $builder->whereIn('pets.breed_id', $values);
                         }),
-                    \Rappasoft\LaravelLivewireTables\Views\Filters\MultiSelectDropdownFilter::make('Species')
+                    \Rappasoft\LaravelLivewireTables\Features\Filters\Views\MultiSelectDropdownFilter::make('Species')
                         ->options(
                             \Rappasoft\LaravelLivewireTables\Tests\Models\Species::query()
                                 ->orderBy('name')
@@ -142,7 +142,7 @@ final class FilterVisualsTest extends TestCase
                         })
                         ->setPillsSeparator('<br />'),
 
-                    \Rappasoft\LaravelLivewireTables\Views\Filters\TextFilter::make('Pet Name', 'pet_name_filter')
+                    \Rappasoft\LaravelLivewireTables\Features\Filters\Views\TextFilter::make('Pet Name', 'pet_name_filter')
                         ->filter(function (\Illuminate\Database\Eloquent\Builder $builder, string $value) {
                             return $builder->where('pets.name', '=', $value);
                         }),
@@ -177,7 +177,7 @@ final class FilterVisualsTest extends TestCase
             public function filters(): array
             {
                 return [
-                    \Rappasoft\LaravelLivewireTables\Views\Filters\MultiSelectFilter::make('Breed')
+                    \Rappasoft\LaravelLivewireTables\Features\Filters\Views\MultiSelectFilter::make('Breed')
                         ->options(
                             \Rappasoft\LaravelLivewireTables\Tests\Models\Breed::query()
                                 ->orderBy('name')
@@ -189,7 +189,7 @@ final class FilterVisualsTest extends TestCase
                         ->filter(function (\Illuminate\Database\Eloquent\Builder $builder, array $values) {
                             return $builder->whereIn('pets.breed_id', $values);
                         }),
-                    \Rappasoft\LaravelLivewireTables\Views\Filters\MultiSelectDropdownFilter::make('Species')
+                    \Rappasoft\LaravelLivewireTables\Features\Filters\Views\MultiSelectDropdownFilter::make('Species')
                         ->options(
                             \Rappasoft\LaravelLivewireTables\Tests\Models\Species::query()
                                 ->orderBy('name')
@@ -203,7 +203,7 @@ final class FilterVisualsTest extends TestCase
                         })
                         ->setPillsSeparator('<br />'),
 
-                    \Rappasoft\LaravelLivewireTables\Views\Filters\TextFilter::make('Pet Name', 'pet_name_filter')
+                    \Rappasoft\LaravelLivewireTables\Features\Filters\Views\TextFilter::make('Pet Name', 'pet_name_filter')
                         ->filter(function (\Illuminate\Database\Eloquent\Builder $builder, string $value) {
                             return $builder->where('pets.name', '=', $value);
                         }),

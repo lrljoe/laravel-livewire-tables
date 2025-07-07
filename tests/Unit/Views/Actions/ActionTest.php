@@ -7,7 +7,7 @@ use Rappasoft\LaravelLivewireTables\Exceptions\DataTableConfigurationException;
 use Rappasoft\LaravelLivewireTables\Tests\Http\Livewire\{PetsTable,PetsTableAttributes};
 use Rappasoft\LaravelLivewireTables\Tests\Models\Pet;
 use Rappasoft\LaravelLivewireTables\Tests\TestCase;
-use Rappasoft\LaravelLivewireTables\Views\Actions\Action;
+use Rappasoft\LaravelLivewireTables\Features\Actions\Views\Action;
 
 final class ActionTest extends TestCase
 {
@@ -95,42 +95,42 @@ final class ActionTest extends TestCase
             ->route('dashboard2');
         $this->assertSame((new ComponentAttributeBag([
             'class' => '',
-            'default-styling' => true,
             'default-colors' => true,
+            'default-styling' => true,
             'href' => 'dashboard2',
-        ]))->getAttributes(), $action->getActionAttributes()->getAttributes());
+        ]))->getAttributes(), $action->getActionAttributesBag()->getAttributes());
 
         $action->setActionAttributes(['class' => 'dark:bg-green-500 dark:text-white dark:border-green-600 dark:hover:border-green-900 dark:hover:bg-green-800', 'default-styling' => true, 'default-colors' => true]);
         $this->assertSame((new ComponentAttributeBag([
             'class' => 'dark:bg-green-500 dark:text-white dark:border-green-600 dark:hover:border-green-900 dark:hover:bg-green-800',
-            'default-styling' => true,
             'default-colors' => true,
+            'default-styling' => true,
             'href' => 'dashboard2',
-        ]))->getAttributes(), $action->getActionAttributes()->getAttributes());
+        ]))->getAttributes(), $action->getActionAttributesBag()->getAttributes());
 
         $action->setActionAttributes(['class' => 'dark:bg-green-500 dark:text-white dark:border-green-600 dark:hover:border-green-900 dark:hover:bg-green-800', 'default-styling' => true, 'default-colors' => true]);
         $this->assertSame((new ComponentAttributeBag([
             'class' => 'dark:bg-green-500 dark:text-white dark:border-green-600 dark:hover:border-green-900 dark:hover:bg-green-800',
-            'default-styling' => true,
             'default-colors' => true,
+            'default-styling' => true,
             'href' => 'dashboard2',
-        ]))->getAttributes(), $action->getActionAttributes()->getAttributes());
+        ]))->getAttributes(), $action->getActionAttributesBag()->getAttributes());
 
         $action->setActionAttributes(['class' => 'dark:bg-green-500 dark:text-white dark:border-green-600 dark:hover:border-green-900 dark:hover:bg-green-800', 'default-styling' => true, 'default-colors' => false]);
         $this->assertSame((new ComponentAttributeBag([
             'class' => 'dark:bg-green-500 dark:text-white dark:border-green-600 dark:hover:border-green-900 dark:hover:bg-green-800',
-            'default-styling' => true,
             'default-colors' => false,
+            'default-styling' => true,
             'href' => 'dashboard2',
-        ]))->getAttributes(), $action->getActionAttributes()->getAttributes());
+        ]))->getAttributes(), $action->getActionAttributesBag()->getAttributes());
 
         $action->setActionAttributes(['class' => 'dark:bg-green-500 dark:text-white dark:border-green-600 dark:hover:border-green-900 dark:hover:bg-green-800', 'default-colors' => false]);
         $this->assertSame((new ComponentAttributeBag([
             'class' => 'dark:bg-green-500 dark:text-white dark:border-green-600 dark:hover:border-green-900 dark:hover:bg-green-800',
-            'default-styling' => true,
             'default-colors' => false,
+            'default-styling' => true,
             'href' => 'dashboard2',
-        ]))->getAttributes(), $action->getActionAttributes()->getAttributes());
+        ]))->getAttributes(), $action->getActionAttributesBag()->getAttributes());
 
     }
 
@@ -239,10 +239,10 @@ final class ActionTest extends TestCase
             ->route('dashboard22');
         $this->assertSame((new ComponentAttributeBag([
             'class' => 'dark:bg-green-500 dark:text-white dark:border-green-600 dark:hover:border-green-900 dark:hover:bg-green-800',
-            'default-styling' => true,
             'default-colors' => true,
+            'default-styling' => true,
             'href' => 'dashboard22',
-        ]))->getAttributes(), $action->getActionAttributes()->getAttributes());
+        ]))->getAttributes(), $action->getActionAttributesBag()->getAttributes());
     }
 
     public function test_can_check_that_route_is_not_appended_to_attributes_with_wireaction(): void
@@ -254,10 +254,11 @@ final class ActionTest extends TestCase
             ->setWireActionParams('testactionparams');
         $this->assertSame((new ComponentAttributeBag([
             'class' => 'dark:bg-green-500 dark:text-white dark:border-green-600 dark:hover:border-green-900 dark:hover:bg-green-800',
-            'default-styling' => true,
             'default-colors' => true,
+            'default-styling' => true,
             'href' => '#',
-        ]))->getAttributes(), $action->getActionAttributes()->getAttributes());
+            'wire:click' => 'testactionparams',
+        ]))->getAttributes(), $action->getActionAttributesBag()->getAttributes());
     }
 
     public function test_can_check_has_actions(): void
@@ -267,7 +268,7 @@ final class ActionTest extends TestCase
             public function actions(): array
             {
                 return [
-                    \Rappasoft\LaravelLivewireTables\Views\Actions\Action::make('Test Edit 1')
+                    \Rappasoft\LaravelLivewireTables\Features\Actions\Views\Action::make('Test Edit 1')
                         ->setRoute('dashboard24'),
                 ];
             }
@@ -333,12 +334,13 @@ final class ActionTest extends TestCase
     {
         $action = Action::make('Update Summaries')
             ->setActionAttributes(['class' => 'dark:bg-green-500 dark:text-white dark:border-green-600 dark:hover:border-green-900 dark:hover:bg-green-800',
+                'default-colors' => false,
                 'default-styling' => true,
-                'default-colors' => true]
+            ]
             )
             ->route('dashboard22');
 
-        $this->assertStringContainsString('<a class="justify-center text-center items-center inline-flex space-x-2 rounded-md border shadow-sm px-4 py-2 text-sm font-medium focus:ring focus:ring-opacity-50 focus:border-indigo-300 focus:ring-indigo-200 dark:bg-green-500 dark:text-white dark:border-green-600 dark:hover:border-green-900 dark:hover:bg-green-800" href="dashboard22"', $action->render());
+        $this->assertStringContainsString('<a class="text-center justify-center items-center inline-flex flex-cols gap-2 rounded-md border shadow-sm px-2 py-2 text-sm font-medium focus:ring focus:ring-opacity-50 dark:bg-green-500 dark:text-white dark:border-green-600 dark:hover:border-green-900 dark:hover:bg-green-800" href="dashboard22"', $action->render());
     }
 
     public function test_can_set_action_position(): void

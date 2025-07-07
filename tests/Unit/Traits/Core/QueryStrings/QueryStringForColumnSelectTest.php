@@ -15,10 +15,10 @@ final class QueryStringForColumnSelectTest extends QueryStringTestBase
         parent::$mock->configure();
         parent::$mock->boot();
 
-        $this->assertSame(false, parent::$mock->getQueryStringStatusForColumnSelect());
+        $this->assertSame('table-columns', parent::$mock->getQueryStringStatusForColumnSelect());
 
         parent::$mock->setQueryStringForColumnSelectEnabled();
-        $this->assertSame(true, parent::$mock->getQueryStringStatusForColumnSelect());
+        $this->assertSame('table-columns', parent::$mock->getQueryStringStatusForColumnSelect());
 
     }
 
@@ -26,9 +26,9 @@ final class QueryStringForColumnSelectTest extends QueryStringTestBase
     {
         parent::$mock->configure();
         parent::$mock->boot();
-        $this->assertSame(false, parent::$mock->getQueryStringStatusForColumnSelect());
+        $this->assertSame('table-columns', parent::$mock->getQueryStringStatusForColumnSelect());
         parent::$mock->setQueryStringForColumnSelectDisabled();
-        $this->assertSame(false, parent::$mock->getQueryStringStatusForColumnSelect());
+        $this->assertSame('table-columns', parent::$mock->getQueryStringStatusForColumnSelect());
     }
 
     public function test_can_enable_column_select_query_string_status(): void
@@ -36,11 +36,11 @@ final class QueryStringForColumnSelectTest extends QueryStringTestBase
         parent::$mock->configure();
         parent::$mock->boot();
 
-        $this->assertSame(false, parent::$mock->getQueryStringStatusForColumnSelect());
+        $this->assertSame('table-columns', parent::$mock->getQueryStringStatusForColumnSelect());
         parent::$mock->setQueryStringForColumnSelectEnabled();
-        $this->assertSame(true, parent::$mock->getQueryStringStatusForColumnSelect());
+        $this->assertSame('table-columns', parent::$mock->getQueryStringStatusForColumnSelect());
         parent::$mock->setQueryStringForColumnSelectDisabled();
-        $this->assertSame(false, parent::$mock->getQueryStringStatusForColumnSelect());
+        $this->assertSame('table-columns', parent::$mock->getQueryStringStatusForColumnSelect());
 
     }
 

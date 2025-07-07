@@ -6,7 +6,7 @@ weight: 6
 Multi-select dropdown filters are a simple dropdown list. The user can select multiple options from the list. There is also an 'All' option that will select all values
 
 ```php
-use Rappasoft\LaravelLivewireTables\Views\Filters\MultiSelectDropdownFilter;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\MultiSelectDropdownFilter;
 
 public function filters(): array
 {

@@ -1,6 +1,5 @@
-@aware(['dataTableFingerprint','isBootstrap', 'isTailwind', 'isTailwind4'])
-<a {{ $attributes->merge()
-            ->class([
+@aware(['dataTableFingerprint','isBootstrap', 'isTailwind' => true, 'isTailwind4'])
+<a {{ $attributes->class([
                 'w-full text-left' => $isTailwind && $isInMenu,
                 'text-center' => $isTailwind && !$isInMenu,
                 'justify-center items-center inline-flex flex-cols gap-2 rounded-md border shadow-sm px-2 py-2 text-sm font-medium focus:ring focus:ring-opacity-50' => $isTailwind && ($attributes['default-styling'] ?? true),

@@ -6,7 +6,7 @@ weight: 7
 Multi-select filters are a list of checkboxes. The user can select multiple options from the list. There is also an 'All' option that will select all values.
 
 ```php
-use Rappasoft\LaravelLivewireTables\Views\Filters\MultiSelectFilter;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\MultiSelectFilter;
 
 public function filters(): array
 {

@@ -53,7 +53,7 @@ class MultiSelectDropdownFilter extends Filter
             return $value;
         }
 
-        return (is_string($value)) ? $value : false;
+        return (is_int($value) || is_string($value)) ? $value : false;
     }
 
     /**

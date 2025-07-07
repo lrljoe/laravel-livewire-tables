@@ -7,12 +7,12 @@ use PHPUnit\Framework\Attributes\Group;
 use Rappasoft\LaravelLivewireTables\Events\FilterApplied;
 use Rappasoft\LaravelLivewireTables\Tests\Http\Livewire\PetsTable;
 use Rappasoft\LaravelLivewireTables\Tests\TestCase;
-use Rappasoft\LaravelLivewireTables\Views\Filters\DateFilter;
-use Rappasoft\LaravelLivewireTables\Views\Filters\DateTimeFilter;
-use Rappasoft\LaravelLivewireTables\Views\Filters\MultiSelectFilter;
-use Rappasoft\LaravelLivewireTables\Views\Filters\NumberFilter;
-use Rappasoft\LaravelLivewireTables\Views\Filters\SelectFilter;
-use Rappasoft\LaravelLivewireTables\Views\Filters\TextFilter;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\DateFilter;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\DateTimeFilter;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\MultiSelectFilter;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\NumberFilter;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\SelectFilter;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\TextFilter;
 
 #[Group('Filters')]
 final class FilterHelpersTest extends TestCase

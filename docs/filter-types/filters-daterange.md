@@ -6,7 +6,7 @@ weight: 4
 DateRange filters are Flatpickr based components, and simply filtering by a date range.  If you would like to more smoothly filter your query by a start and end date, you can use the DateRangeFilter:
 
 ```php
-use Rappasoft\LaravelLivewireTables\Views\Filters\DateRangeFilter;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\DateRangeFilter;
 
 public function filters(): array
 {

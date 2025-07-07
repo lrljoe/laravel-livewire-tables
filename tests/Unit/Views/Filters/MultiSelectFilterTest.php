@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Builder;
 use PHPUnit\Framework\Attributes\Depends;
 use PHPUnit\Framework\Attributes\Group;
 use Rappasoft\LaravelLivewireTables\Tests\TestCase;
-use Rappasoft\LaravelLivewireTables\Views\Filters\MultiSelectFilter;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\MultiSelectFilter;
 
 #[Group('Filters')]
 final class MultiSelectFilterTest extends FilterTestCase

@@ -4,8 +4,8 @@ namespace Rappasoft\LaravelLivewireTables\Tests\Unit\Views\Traits\Configuration;
 
 use PHPUnit\Framework\Attributes\Group;
 use Rappasoft\LaravelLivewireTables\Tests\TestCase;
-use Rappasoft\LaravelLivewireTables\Views\Column;
-use Rappasoft\LaravelLivewireTables\Views\Filter;
+use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\Filter;
 
 #[Group('Columns')]
 final class ColumnConfigurationTest extends TestCase

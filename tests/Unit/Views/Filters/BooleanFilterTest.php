@@ -3,7 +3,7 @@
 namespace Rappasoft\LaravelLivewireTables\Tests\Unit\Views\Filters;
 
 use PHPUnit\Framework\Attributes\Group;
-use Rappasoft\LaravelLivewireTables\Views\Filters\BooleanFilter;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\BooleanFilter;
 
 #[Group('Filters')]
 final class BooleanFilterTest extends FilterTestCase

@@ -323,4 +323,10 @@ class DateRangeFilter extends Filter
 
         return '';
     }
+
+    protected function initialiseConfig(): void
+    {
+        $this->config(config($this->configPath));
+    }
+
 }

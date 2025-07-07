@@ -7,16 +7,16 @@ use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Tests\Http\Livewire\BaseTable;
 use Rappasoft\LaravelLivewireTables\Tests\Models\Breed;
 use Rappasoft\LaravelLivewireTables\Tests\Models\Species;
-use Rappasoft\LaravelLivewireTables\Views\Column;
+use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
 use Rappasoft\LaravelLivewireTables\Views\Columns\ImageColumn;
 use Rappasoft\LaravelLivewireTables\Views\Columns\LinkColumn;
-use Rappasoft\LaravelLivewireTables\Views\Filters\DateFilter;
-use Rappasoft\LaravelLivewireTables\Views\Filters\DateTimeFilter;
-use Rappasoft\LaravelLivewireTables\Views\Filters\MultiSelectDropdownFilter;
-use Rappasoft\LaravelLivewireTables\Views\Filters\MultiSelectFilter;
-use Rappasoft\LaravelLivewireTables\Views\Filters\NumberFilter;
-use Rappasoft\LaravelLivewireTables\Views\Filters\SelectFilter;
-use Rappasoft\LaravelLivewireTables\Views\Filters\TextFilter;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\DateFilter;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\DateTimeFilter;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\MultiSelectDropdownFilter;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\MultiSelectFilter;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\NumberFilter;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\SelectFilter;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\TextFilter;
 
 class NoBuildMethodTable extends BaseTable
 {

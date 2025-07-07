@@ -10,7 +10,7 @@ trait HasColumnSelectSessionStorage
      * @param boolean $status
      * @return self
      */
-    protected function storeColumnSelectInSessionStatus(bool $status): self
+    public function storeColumnSelectInSessionStatus(bool $status): self
     {
         $this->setSessionStorageStatus('columnselect', $status);
 
@@ -22,7 +22,7 @@ trait HasColumnSelectSessionStorage
      *
      * @return self
      */
-    protected function storeColumnSelectInSessionEnabled(): self
+    public function storeColumnSelectInSessionEnabled(): self
     {
         return $this->storeColumnSelectInSessionStatus(true);
     }
@@ -32,7 +32,7 @@ trait HasColumnSelectSessionStorage
      *
      * @return self
      */
-    protected function storeColumnSelectInSessionDisabled(): self
+    public function storeColumnSelectInSessionDisabled(): self
     {
         return $this->storeColumnSelectInSessionStatus(false);
     }

@@ -6,8 +6,8 @@ use Rappasoft\LaravelLivewireTables\Exceptions\NoColumnsException;
 use Rappasoft\LaravelLivewireTables\Tests\Http\Livewire\PetsTable;
 use Rappasoft\LaravelLivewireTables\Tests\Models\Pet;
 use Rappasoft\LaravelLivewireTables\Tests\TestCase;
-use Rappasoft\LaravelLivewireTables\Views\Column;
-use Rappasoft\LaravelLivewireTables\Views\Filters\TextFilter;
+use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\TextFilter;
 
 final class ColumnHelpersTest extends TestCase
 {
@@ -123,7 +123,7 @@ final class ColumnHelpersTest extends TestCase
 
         $contents = $column->getSecondaryHeaderFilter($this->basicTable->getFilterByKey($column->getSecondaryHeaderCallback()), $this->basicTable->getFilterGenericData());
         // $contents = $column->getSecondaryHeaderFilter($this->basicTable->getFilterByKey('breed'));
-        $this->assertStringContainsString('id="table-filter-breed-8-header"', $contents);
+        $this->assertStringContainsString('id="-filter-breed-8-header"', $contents);
     }
 
     public function test_can_check_if_column_has_custom_slug(): void

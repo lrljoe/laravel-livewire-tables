@@ -4,7 +4,7 @@ namespace Rappasoft\LaravelLivewireTables\Tests\Http\Livewire;
 
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Tests\Models\Pet;
-use Rappasoft\LaravelLivewireTables\Views\Column;
+use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
 
 class PetsTableNoFilters extends PetsTable
 {

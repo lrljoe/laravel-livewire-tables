@@ -5,7 +5,7 @@ namespace Rappasoft\LaravelLivewireTables\Tests\Unit\Views\Filters;
 use DateTime;
 use Illuminate\Database\Eloquent\Builder;
 use PHPUnit\Framework\Attributes\Group;
-use Rappasoft\LaravelLivewireTables\Views\Filters\DateTimeFilter;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\DateTimeFilter;
 
 #[Group('Filters')]
 final class DateTimeFilterTest extends FilterTestCase

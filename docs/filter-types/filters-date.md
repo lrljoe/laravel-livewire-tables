@@ -6,7 +6,7 @@ weight: 3
 Date filters are HTML date elements.
 
 ```php
-use Rappasoft\LaravelLivewireTables\Views\Filters\DateFilter;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\DateFilter;
 
 public function filters(): array
 {

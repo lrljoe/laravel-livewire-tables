@@ -219,13 +219,18 @@ trait WithColumnSelect
        // dd("updatedSelectedColumns");
         if($this->runSelectUpdates)
         {
-            $this->storeColumnSelectValues();
+            $this->storeColumnSelect();
+        }
+    }
 
-            $this->forceSelectedColumnsNew($this->selectedColumns);
+    public function storeColumnSelect(): void
+    {
+        $this->storeColumnSelectValues();
 
-            if ($this->getEventStatusColumnSelect()) {
-                event(new ColumnsSelected($this->getTableName(), $this->getColumnSelectSessionKey(), $this->selectedColumns));
-            }
+        $this->forceSelectedColumnsNew($this->selectedColumns);
+
+        if ($this->getEventStatusColumnSelect()) {
+            event(new ColumnsSelected($this->getTableName(), $this->getColumnSelectSessionKey(), $this->selectedColumns));
         }
     }
 

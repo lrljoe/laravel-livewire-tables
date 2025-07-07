@@ -4,7 +4,7 @@ namespace Rappasoft\LaravelLivewireTables\Tests\Unit\Views\Filters;
 
 use Illuminate\Database\Eloquent\Builder;
 use PHPUnit\Framework\Attributes\Group;
-use Rappasoft\LaravelLivewireTables\Views\Filters\TextFilter;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\TextFilter;
 
 #[Group('Filters')]
 final class TextFilterTest extends FilterTestCase

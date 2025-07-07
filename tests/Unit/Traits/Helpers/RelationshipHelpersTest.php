@@ -3,7 +3,7 @@
 namespace Rappasoft\LaravelLivewireTables\Tests\Unit\Traits\Helpers;
 
 use Rappasoft\LaravelLivewireTables\Tests\TestCase;
-use Rappasoft\LaravelLivewireTables\Views\Column;
+use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
 
 final class RelationshipHelpersTest extends TestCase
 {

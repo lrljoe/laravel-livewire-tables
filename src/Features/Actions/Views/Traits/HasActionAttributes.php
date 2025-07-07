@@ -11,7 +11,7 @@ trait HasActionAttributes
      *
      * @var array<mixed>
      */
-    protected array $actionAttributes = ['class' => '', 'default-styling' => true, 'default-colors' => true];
+    protected array $actionAttributes = ['class' => '', 'default-colors' => true, 'default-styling' => true];
 
     
     /**
@@ -34,7 +34,7 @@ trait HasActionAttributes
      */
     public function getActionAttributes(): array
     {
-        $actionAttributes = [...['class' => '', 'default-styling' => true, 'default-colors' => true], ...$this->actionAttributes];
+        $actionAttributes = [...['class' => '', 'default-colors' => true, 'default-styling' => true], ...$this->actionAttributes];
 
         if (! $this->hasWireAction()) {
             $actionAttributes['href'] = $this->getRoute();

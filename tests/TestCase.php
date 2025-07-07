@@ -187,7 +187,6 @@ class TestCase extends Orchestra
     {
         $className = str_split($className);
         $crc32 = sprintf('%u', crc32(serialize($className)));
-
-        return base_convert($crc32, 10, 36);
+        return 'table-'.base_convert($crc32, 10, 36);
     }
 }

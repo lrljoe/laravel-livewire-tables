@@ -11,7 +11,7 @@ This allows you to use a child/nested Livewire Component in place of the existin
 
 To use a LivewireComponentArrayFilter, you must include it in your namespace:
 ```php
-use Rappasoft\LaravelLivewireTables\Views\Filters\LivewireComponentArrayFilter;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\LivewireComponentArrayFilter;
 ```
 
 When creating a filter:

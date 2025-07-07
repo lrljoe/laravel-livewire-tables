@@ -5,7 +5,7 @@ namespace Rappasoft\LaravelLivewireTables\Tests\Unit\Views\Filters;
 use Illuminate\Database\Eloquent\Builder;
 use PHPUnit\Framework\Attributes\Group;
 use Rappasoft\LaravelLivewireTables\Tests\TestCase;
-use Rappasoft\LaravelLivewireTables\Views\Filters\NumberFilter;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\NumberFilter;
 
 #[Group('Filters')]
 final class NumberFilterTest extends FilterTestCase

@@ -5,10 +5,10 @@ namespace Rappasoft\LaravelLivewireTables\Tests\Unit\Views\Traits\Helpers;
 use Illuminate\Database\Eloquent\Builder;
 use PHPUnit\Framework\Attributes\Group;
 use Rappasoft\LaravelLivewireTables\Tests\TestCase;
-use Rappasoft\LaravelLivewireTables\Views\Filters\MultiSelectDropdownFilter;
-use Rappasoft\LaravelLivewireTables\Views\Filters\MultiSelectFilter;
-use Rappasoft\LaravelLivewireTables\Views\Filters\SelectFilter;
-use Rappasoft\LaravelLivewireTables\Views\Filters\TextFilter;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\MultiSelectDropdownFilter;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\MultiSelectFilter;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\SelectFilter;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\TextFilter;
 
 #[Group('Filters')]
 final class FilterHelpersTest extends TestCase
@@ -441,9 +441,12 @@ final class FilterHelpersTest extends TestCase
     {
         $filter1 = TextFilter::make('Filter1');
 
+        $dataTableFingerprint = 'fingerprint-'.rand(10000,99999);
+
         $testGenericData = [
             'filterLayout' => 'tailwind',
             'tableName' => 'test123',
+            'dataTableFingerprint' => $dataTableFingerprint,
             'isTailwind' => true,
             'isBootstrap' => false,
             'isBootstrap4' => false,
@@ -454,6 +457,7 @@ final class FilterHelpersTest extends TestCase
         $filter1->setGenericDisplayData($testGenericData);
 
         $this->assertSame($testGenericData['filterLayout'], $filter1->getFilterDisplayData()['filterLayout']);
+        $this->assertSame($testGenericData['dataTableFingerprint'], $filter1->getFilterDisplayData()['dataTableFingerprint']);
         $this->assertSame($testGenericData['tableName'], $filter1->getFilterDisplayData()['tableName']);
         $this->assertSame($testGenericData['isTailwind'], $filter1->getFilterDisplayData()['isTailwind']);
         $this->assertSame($testGenericData['isBootstrap'], $filter1->getFilterDisplayData()['isBootstrap']);

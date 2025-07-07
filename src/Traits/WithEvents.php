@@ -15,5 +15,5 @@ trait WithEvents
      *
      * @var array<mixed>
      */
-    protected array $eventStatuses = ['columnSelected' => true, 'searchApplied' => false, 'filterApplied' => false];
+    public array $eventStatuses = ['columnSelected' => true, 'searchApplied' => false, 'filterApplied' => false];
 }

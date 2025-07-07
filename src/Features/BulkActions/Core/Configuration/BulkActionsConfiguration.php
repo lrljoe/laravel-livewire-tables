@@ -110,7 +110,7 @@ trait BulkActionsConfiguration
         return $this->setClearSelectedOnFilter(false);
     }
 
-    protected function setBulkActionConfig(string $key, bool $value): self
+    protected function setBulkActionConfig(string $key, mixed $value): self
     {
         $this->bulkActionConfig[$key] = $value;
 

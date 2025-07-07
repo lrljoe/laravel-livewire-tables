@@ -26,7 +26,12 @@ final class QueryStringHelpersTest extends TestCase
 
         $testTableQueryString->bootAll();
 
-        $this->assertSame([], $testTableQueryString->getCurrentQueryStringBinding());
+        $this->assertSame(['table' => [
+            'except' => null,
+            'history' => false,
+            'keep' => false,
+            'as' => 'table',
+        ]], $testTableQueryString->getCurrentQueryStringBinding());
 
     }
 

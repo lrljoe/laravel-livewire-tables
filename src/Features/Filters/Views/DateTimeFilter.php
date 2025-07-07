@@ -85,4 +85,10 @@ class DateTimeFilter extends Filter
             ]
         );
     }
+
+    protected function initialiseConfig(): void
+    {
+        $this->config(config($this->configPath));
+    }
+
 }

@@ -19,7 +19,7 @@ trait HasConfig
       */
     public function config(array $config = []): self
     {
-        $this->config = $config;
+        $this->config = [...$this->config, ...$config];
 
         return $this;
     }
@@ -64,5 +64,8 @@ trait HasConfig
     {
         return array_key_exists($key, $this->getConfigs()) && $this->getConfig($key) !== null;
     }
+
+    protected function initialiseConfig(): void
+    {}
 
 }

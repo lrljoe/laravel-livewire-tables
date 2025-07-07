@@ -11,7 +11,11 @@ trait HandlesFingerprint
 
     public function getDataTableFingerprint(): string
     {
-        return $this->dataTableFingerprint ?? ($this->dataTableFingerprint = $this->generateDataTableFingerprint());
+        if(!isset($this->dataTableFingerprint))
+        {
+            $this->dataTableFingerprint = $this->generateDataTableFingerprint();
+        }
+        return $this->dataTableFingerprint;
     }
 
     public function setDataTableFingerprint(string $dataTableFingerprint): self

@@ -70,7 +70,7 @@ trait ActionsHelpers
     #[Computed]
     public function hasActions(): bool
     {
-        if (! isset($this->validActions)) {
+        if (! isset($this->validActions) || empty($this->validActions)) {
             $this->validActions = $this->getActions();
         }
 

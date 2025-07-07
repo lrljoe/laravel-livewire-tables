@@ -50,7 +50,11 @@ trait HandlesConfirmation
      */
     public function getBulkActionDefaultConfirmationMessage(): string
     {
-        return isset($this->bulkActionConfig['bulkActionConfirmDefaultMessage']) ? $this->bulkActionConfig['bulkActionConfirmDefaultMessage'] : __($this->getLocalisationPath().'Bulk Actions Confirm');
+        if(isset($this->bulkActionConfig['bulkActionConfirmDefaultMessage']))
+        {
+            return $this->bulkActionConfig['bulkActionConfirmDefaultMessage'];
+        }
+        return  __($this->getLocalisationPath().'Bulk Actions Confirm');
     }
 
     /**

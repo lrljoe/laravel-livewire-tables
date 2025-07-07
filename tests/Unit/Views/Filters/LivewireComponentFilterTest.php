@@ -4,7 +4,7 @@ namespace Rappasoft\LaravelLivewireTables\Tests\Unit\Views\Filters;
 
 use Illuminate\Database\Eloquent\Builder;
 use PHPUnit\Framework\Attributes\Group;
-use Rappasoft\LaravelLivewireTables\Views\Filters\LivewireComponentFilter;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\LivewireComponentFilter;
 
 #[Group('Filters')]
 final class LivewireComponentFilterTest extends FilterTestCase

@@ -3,7 +3,7 @@
 namespace Rappasoft\LaravelLivewireTables\Tests\Http\Livewire;
 
 use Rappasoft\LaravelLivewireTables\Tests\Models\Species;
-use Rappasoft\LaravelLivewireTables\Views\Column;
+use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
 use Rappasoft\LaravelLivewireTables\Views\Columns\{AvgColumn,CountColumn,SumColumn};
 
 class SpeciesTable extends BaseTable

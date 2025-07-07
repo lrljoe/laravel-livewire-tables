@@ -41,7 +41,7 @@ namespace App\Http\Livewire\Admin\User;
 use App\Domains\Auth\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
-use Rappasoft\LaravelLivewireTables\Views\Column;
+use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
 
 class UsersTable extends DataTableComponent
 {

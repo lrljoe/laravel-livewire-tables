@@ -4,19 +4,19 @@ namespace Rappasoft\LaravelLivewireTables\Features\Filters\Traits;
 
 trait HasFilterSessionStorage
 {
-    protected function storeFiltersInSessionStatus(bool $status): self
+    public function storeFiltersInSessionStatus(bool $status): self
     {
         $this->setSessionStorageStatus('filters', $status);
 
         return $this;
     }
 
-    protected function storeFiltersInSessionEnabled(): self
+    public function storeFiltersInSessionEnabled(): self
     {
         return $this->storeFiltersInSessionStatus(true);
     }
 
-    protected function storeFiltersInSessionDisabled(): self
+    public function storeFiltersInSessionDisabled(): self
     {
         return $this->storeFiltersInSessionStatus(false);
     }

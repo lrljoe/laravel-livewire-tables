@@ -138,13 +138,17 @@ final class BulkActionsStylingConfigurationTest extends TestCase
 
     public function test_bulk_actions_th_checkbox_attributes_returns_default_true_if_not_set(): void
     {
-        $this->assertSame(['default' => true, 'default-colors' => true, 'default-styling' => true], $this->basicTable->getBulkActionsThCheckboxAttributes());
+        $this->assertSame([':checked' => 'selectedItems.length == paginationTotalItemCount', 'type' => 'checkbox', 
+        'x-init' => "\$watch('indeterminateCheckbox', value => \$el.indeterminate = value); \$watch('selectedItems', value => newSelectCount = value.length);",
+        'x-on:click' => "if(selectedItems.length == paginationTotalItemCount) { \$el.indeterminate = false; \$wire.clearSelected(); bulkActionHeaderChecked = false; } else { bulkActionHeaderChecked = true; \$el.indeterminate = false; \$wire.setAllSelected(); }",
+        'default' => true, 'default-colors' => true, 'default-styling' => true], 
+        $this->basicTable->getBulkActionsThCheckboxAttributes()
+        );
     }
 
     public function test_bulk_actions_td_checkbox_attributes_returns_additional_data(): void
     {
         $defaultData = [
-            'x-show' => '!currentlyReorderingStatus',
             'x-model' => 'selectedItems',
             'wire:loading.attr.delay' => 'disabled',
             'type' => 'checkbox',
@@ -163,7 +167,6 @@ final class BulkActionsStylingConfigurationTest extends TestCase
     public function test_bulk_actions_td_checkbox_attributes_returns_additional_data_with_bag(): void
     {
         $defaultAttributeBag = new ComponentAttributeBag([
-            'x-show' => '!currentlyReorderingStatus',
             'x-model' => 'selectedItems',
             'wire:loading.attr.delay' => 'disabled',
             'type' => 'checkbox',
@@ -181,7 +184,6 @@ final class BulkActionsStylingConfigurationTest extends TestCase
         ]);
 
         $customAttributeBag = new ComponentAttributeBag([
-            'x-show' => '!currentlyReorderingStatus',
             'x-model' => 'selectedItems',
             'wire:loading.attr.delay' => 'disabled',
             'type' => 'checkbox',
