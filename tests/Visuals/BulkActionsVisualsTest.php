@@ -90,6 +90,8 @@ final class BulkActionsVisualsTest extends TestCase
             public function configure(): void
             {
                 $this->setPrimaryKey('id');
+                $this->setDataTableFingerprint('tabletest123');
+
             }
 
             public function bulkActions(): array
@@ -112,6 +114,8 @@ final class BulkActionsVisualsTest extends TestCase
             {
                 $this->setPrimaryKey('id')
                     ->setShouldAlwaysHideBulkActionsDropdownOption(false);
+                $this->setDataTableFingerprint('tabletest123');
+
             }
 
             public function bulkActions(): array
@@ -134,6 +138,8 @@ final class BulkActionsVisualsTest extends TestCase
             {
                 $this->setPrimaryKey('id')
                     ->setShouldAlwaysHideBulkActionsDropdownOption(true);
+                $this->setDataTableFingerprint('tabletest123');
+
             }
 
             public function bulkActions(): array
@@ -152,10 +158,17 @@ final class BulkActionsVisualsTest extends TestCase
     {
         Livewire::test(new class extends PetsTable
         {
+            public function boot(): void
+            {
+                $this->setDataTableFingerprint('tabletest123');
+            }
+
             public function configure(): void
             {
                 $this->setPrimaryKey('id')
                     ->setShouldAlwaysHideBulkActionsDropdownOptionDisabled();
+                $this->setDataTableFingerprint('tabletest123');
+
             }
 
             public function bulkActions(): array
@@ -174,10 +187,16 @@ final class BulkActionsVisualsTest extends TestCase
     {
         Livewire::test(new class extends PetsTable
         {
+            public function boot(): void
+            {
+                $this->setDataTableFingerprint('tabletest123');
+            }
             public function configure(): void
             {
                 $this->setPrimaryKey('id')
                     ->setShouldAlwaysHideBulkActionsDropdownOptionEnabled();
+                $this->setDataTableFingerprint('tabletest123');
+
             }
 
             public function bulkActions(): array
@@ -194,11 +213,12 @@ final class BulkActionsVisualsTest extends TestCase
 
     public function test_bulk_dropdown_can_have_customised_classes_with_no_defaults(): void
     {
-        Livewire::test(new class extends PetsTable
+        $class = new class extends PetsTable
         {
             public function configure(): void
             {
                 $this->setPrimaryKey('id');
+
                 $this->setBulkActionsThAttributes([
                     'class' => 'bg-yellow-500 dark:bg-yellow-800',
                     'default' => false,
@@ -217,18 +237,26 @@ final class BulkActionsVisualsTest extends TestCase
             {
                 return $items;
             }
-        })->assertSee('Bulk Actions')
+        };
+        
+        $fingerprint = $class->getDataTableFingerprint();
+        Livewire::test($class)->assertSee('Bulk Actions')
             ->assertSeeHtmlInOrder([
                 'scope="col"',
                 'class="bg-yellow-500 dark:bg-yellow-800"',
-                'wire:key="table-thead-bulk-actions"',
+                'wire:key="'.$fingerprint.'-thead-bulk-actions"',
             ]);
     }
 
     public function test_bulk_dropdown_can_have_customised_classes_with_default_styling(): void
     {
-        Livewire::test(new class extends PetsTable
+        $class = new class extends PetsTable
         {
+            public function boot(): void
+            {
+                $this->setDataTableFingerprint('tabletest123');
+            }
+
             public function configure(): void
             {
                 $this->setPrimaryKey('id');
@@ -238,6 +266,7 @@ final class BulkActionsVisualsTest extends TestCase
                     'default-styling' => true,
                     'default-colors' => false,
                 ]);
+                $this->setDataTableFingerprint('tabletest123');
 
             }
 
@@ -250,17 +279,20 @@ final class BulkActionsVisualsTest extends TestCase
             {
                 return $items;
             }
-        })->assertSee('Bulk Actions')
+        };
+        
+        $fingerprint = $class->getDataTableFingerprint();
+        Livewire::test($class)->assertSee('Bulk Actions')
             ->assertSeeHtmlInOrder([
                 'scope="col"',
                 'class="table-cell px-3 py-2 md:px-6 md:py-3 text-center md:text-left laravel-livewire-tables-reorderingMinimised bg-yellow-500 dark:bg-yellow-800"',
-                'wire:key="table-thead-bulk-actions"',
-            ]);
+                'wire:key="'.$fingerprint.'-thead-bulk-actions"',
+        ]);
     }
 
     public function test_bulk_dropdown_can_have_customised_classes_with_default_colors(): void
     {
-        Livewire::test(new class extends PetsTable
+        $class = new class extends PetsTable
         {
             public function configure(): void
             {
@@ -271,7 +303,6 @@ final class BulkActionsVisualsTest extends TestCase
                     'default-styling' => false,
                     'default-colors' => true,
                 ]);
-
             }
 
             public function bulkActions(): array
@@ -283,18 +314,26 @@ final class BulkActionsVisualsTest extends TestCase
             {
                 return $items;
             }
-        })->assertSee('Bulk Actions')
-            ->assertSeeHtmlInOrder([
-                'scope="col"',
-                'class="bg-gray-50 dark:bg-gray-800 text-lg"',
-                'wire:key="table-thead-bulk-actions"',
-            ]);
+        };
+        $fingerprint = $class->getDataTableFingerprint();
+
+        Livewire::test($class)->assertSee('Bulk Actions')
+        ->assertSeeHtmlInOrder([
+            'scope="col"',
+            'class="bg-gray-50 dark:bg-gray-800 text-lg"',
+            'wire:key="'.$fingerprint.'-thead-bulk-actions"',
+        ]);
     }
 
     public function test_bulk_dropdown_can_have_customised_classes_with_defaults(): void
     {
-        Livewire::test(new class extends PetsTable
+        $class = new class extends PetsTable
         {
+            public function getFingerprint(): void
+            {
+                $this->setDataTableFingerprint('tabletest123');
+            }
+
             public function configure(): void
             {
                 $this->setPrimaryKey('id');
@@ -316,11 +355,15 @@ final class BulkActionsVisualsTest extends TestCase
             {
                 return $items;
             }
-        })->assertSee('Bulk Actions')
-            ->assertSeeHtmlInOrder([
+        };
+
+        $fingerprint = $class->getDataTableFingerprint();
+        
+        Livewire::test($class)->assertSee('Bulk Actions')
+        ->assertSeeHtmlInOrder([
                 'scope="col"',
                 'class="table-cell px-3 py-2 md:px-6 md:py-3 text-center md:text-left laravel-livewire-tables-reorderingMinimised bg-gray-50 dark:bg-gray-800 text-lg"',
-                'wire:key="table-thead-bulk-actions"',
-            ]);
+                'wire:key="'.$fingerprint.'-thead-bulk-actions"',
+        ]);
     }
 }

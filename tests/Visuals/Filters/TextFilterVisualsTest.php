@@ -329,7 +329,7 @@ final class TextFilterVisualsTest extends FilterVisualsTestCase
                 ];
             }
         })
-            ->assertSeeHtml('<input wire:model.blur="appliedFilters.name" class="block w-full rounded-md shadow-sm transition duration-150 ease-in-out focus:ring focus:ring-opacity-50 bg-red-500" id="table-filter-name" maxlength="75" type="text" wire:key="table-filter-text-name" />');
+            ->assertSeeHtml('<input wire:model.blur="appliedFilters.name" class="block w-full rounded-md shadow-sm transition duration-150 ease-in-out focus:ring focus:ring-opacity-50 border-gray-300 focus:border-indigo-300 focus:ring-indigo-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 bg-red-500" id="table-filter-name" maxlength="75" type="text" wire:key="table-filter-text-name" />');
 
     }
 }
