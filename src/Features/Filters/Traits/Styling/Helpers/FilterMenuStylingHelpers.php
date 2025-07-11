@@ -3,6 +3,7 @@
 namespace Rappasoft\LaravelLivewireTables\Features\Filters\Traits\Styling\Helpers;
 
 use Livewire\Attributes\Computed;
+use Illuminate\View\ComponentAttributeBag;
 
 trait FilterMenuStylingHelpers
 {
@@ -44,5 +45,24 @@ trait FilterMenuStylingHelpers
         }
 
         return ['class' => '', 'default-colors' => true, 'default-styling' => true, 'row' => (int) $rowIndex];
+    }
+
+    /**
+     * Used to get attributes for the Filter Menu Reset Button
+     *
+     * @return array<mixed>
+     */
+    #[Computed]
+    public function getFilterMenuResetButtonAttributes(): array
+    {
+        return $this->filterMenuResetButtonAttributes;
+
+    }
+    
+    #[Computed]
+    public function getFilterMenuResetButtonAttributesBag(): ComponentAttributeBag
+    {
+        return new ComponentAttributeBag($this->filterMenuResetButtonAttributes);
+
     }
 }

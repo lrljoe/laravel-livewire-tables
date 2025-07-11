@@ -6,11 +6,12 @@ function newBf() {
         booleanFilterKey: filterKey,
         switchOn: false, 
         value: false, 
+        setValue: null,
         toggleStatus()
         {
             let tempValue = Boolean(Number(wire.get('appliedFilters.'+this.booleanFilterKey) ?? this.value));
             let newBoolean = !tempValue;
-            this.switchOn = this.value = newBoolean;
+            this.switchOn = this.value = this.setValue = newBoolean;
             return Number(newBoolean);
         },
         toggleStatusWithUpdate()
@@ -32,33 +33,25 @@ function newBf() {
 
             this.$nextTick(() => { 
                 this.value = wire.get('appliedFilters.'+this.booleanFilterKey) ?? defaultValue;
-                console.log('This Value NextTick: '+this.value ?? 0);
+                this.setValue = wire.get('appliedFilters.'+this.booleanFilterKey) ?? null;
                 this.setSwitchOn(this.value ?? 0);
             });
 
             this.listeners.push(
                 Livewire.on('filter-was-set', (detail) => {
-                    console.log('filter-was-set-in-boolean');
-                    console.log('detail');
-                    console.log(detail);
 
                     if(detail.dataTableFingerprint == dataTableFingerprint && detail.filterKey == this.booleanFilterKey) { 
-                        console.log('applies-to-this-table');
-                        console.log('typeof');
-                        console.log(typeof detail.value);
-                        console.log(detail.value);
 
                         if(typeof detail.value === null || detail.value === null)
                         {
-                            console.log("Null Setting to False");
                             this.value = this.switchOn = false; 
+                            this.setValue = detail.value;
                         }
                         else
                         {
                             let number = Number(detail.value ?? 0);
                             let boolVal = Boolean(number);
-                            console.log("Setting to "+boolVal);
-                            this.value = this.switchOn = boolVal; 
+                            this.value = this.switchOn = this.setValue = boolVal; 
                             this.setSwitchOn(number);
                         }
                     }

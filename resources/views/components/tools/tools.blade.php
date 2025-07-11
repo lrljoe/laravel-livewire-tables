@@ -25,9 +25,10 @@
         $this->getConfigurableAreaFor('before-toolbar'),
         $this->getParametersForConfigurableArea('before-toolbar')
     )
+    @php($filterMenuResetButtonAttributes = $this->getFilterMenuResetButtonAttributes)
 
     @if($this->shouldShowToolBar())
-        <x-livewire-tables::tools.toolbar  />
+        <x-livewire-tables::tools.toolbar :$filterMenuResetButtonAttributes />
     @endif
 
     @if ($this->shouldShowToolsFilterSlidedown())

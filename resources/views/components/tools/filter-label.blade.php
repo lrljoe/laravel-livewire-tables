@@ -8,7 +8,7 @@
     <label for="{{ $for ?? $dataTableFingerprint.'-filter-'.$filter->getKey() }}" {{
             $attributes->merge($customLabelAttributes)->merge($filterLabelAttributes)
                 ->class([
-                    'block text-sm font-medium leading-5' => ($isTailwind && ($filterLabelAttributes['default-styling'] ?? ($filterLabelAttributes['default'] ?? true))),
+                    'w-11/12 text-wrap block text-sm font-medium leading-5' => ($isTailwind && ($filterLabelAttributes['default-styling'] ?? ($filterLabelAttributes['default'] ?? true))),
                     'text-gray-700 dark:text-white' => ($isTailwind && ($filterLabelAttributes['default-colors'] ?? ($filterLabelAttributes['default'] ?? true))),
                     'tw4ph block text-sm font-medium leading-5' => ($isTailwind4 && ($filterLabelAttributes['default-styling'] ?? ($filterLabelAttributes['default'] ?? true))),
                     'tw4ph text-gray-700 dark:text-white' => ($isTailwind4 && ($filterLabelAttributes['default-colors'] ?? ($filterLabelAttributes['default'] ?? true))),

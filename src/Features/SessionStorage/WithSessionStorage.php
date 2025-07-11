@@ -2,6 +2,8 @@
 
 namespace Rappasoft\LaravelLivewireTables\Features\SessionStorage;
 
+use Livewire\Attributes\Locked;
+
 trait WithSessionStorage
 {
 
@@ -10,6 +12,7 @@ trait WithSessionStorage
      *
      * @var array<mixed>
      */
+    #[Locked]
     public array $sessionStorageStatus = [
         'columnselect' => true,
         'filters' => false,

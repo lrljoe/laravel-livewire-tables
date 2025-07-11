@@ -5,6 +5,7 @@ import filterPills from "./partials/core/filterPills.min.js";
 import externalFilter from "./partials/core/externalFilter.min.js";
 import tools from "./partials/core/tools.min.js";
 import boolean from "./partials/filters/boolean.js";
+import stringFilter from "./partials/filters/string.js";
 import fpf from "./partials/filters/fpf.js";
 import nrF from "./partials/filters/numberRange.js";
 import bulkactionsHelper from "./partials/core/bulkactionsHelper.min.js";
@@ -17,6 +18,7 @@ document.addEventListener('alpine:init', () => {
     externalFilter();
     tools();
     boolean();
+    stringFilter();
     fpf();
     nrF();
     bulkactionsHelper();

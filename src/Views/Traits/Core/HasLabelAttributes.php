@@ -58,4 +58,16 @@ trait HasLabelAttributes
 
         return $this;
     }
+
+    /**
+     * Set a list of attributes to override on the th label
+     * @param array<mixed> $labelAttributes
+     * @return self
+     */
+    public function labelAttributes(array $labelAttributes): self
+    {
+        $this->setCustomAttributes('labelAttributesArray', $labelAttributes);
+
+        return $this;
+    }
 }

@@ -1,4 +1,6 @@
 @aware(['dataTableFingerprint','isTailwind', 'isTailwind4', 'isBootstrap','isBootstrap4','isBootstrap5'])
+@props(['filterMenuResetButtonAttributes'])
+
 @php($filterPopoverAttributes = $this->getFilterPopoverAttributes())
 
 @if($isBootstrap)
@@ -39,8 +41,9 @@
                 'x-transition:leave-end' => 'transform opacity-0 scale-95',
             ])
             ->class([
+                $filterPopoverAttributes['width'] ?? '',
                 'w-full md:w-56' => $filterPopoverAttributes['default-width'] ?? true,
-                'mt-2 rounded-md shadow-lg ring-1 ring-opacity-5 divide-y focus:outline-none z-50' => $filterPopoverAttributes['default-styling'] ?? true,
+                ' gap-y-2 mt-2 rounded-md shadow-lg ring-1 ring-opacity-5 divide-y focus:outline-none z-50' => $filterPopoverAttributes['default-styling'] ?? true,
                 'bg-white divide-gray-100 ring-black dark:bg-gray-700 dark:text-white dark:divide-gray-600' => $filterPopoverAttributes['default-colors'] ?? true,
             ])
             ->except(['x-cloak', 'x-show', 'default','default-width', 'default-styling','default-colors']) 
@@ -48,11 +51,9 @@
 
 
         @foreach ($this->getVisibleFilters() as $filter)
-            <div class="py-1" role="none">
-                <div id="{{ $dataTableFingerprint }}-filter-{{ $filter->getKey() }}-wrapper" wire:key="{{ $dataTableFingerprint }}-filter-{{ $filter->getKey() }}-toolbar" class="block px-4 py-2 text-sm text-gray-700 space-y-1" role="menuitem">
+                <div id="{{ $dataTableFingerprint }}-filter-{{ $filter->getKey() }}-wrapper" wire:key="{{ $dataTableFingerprint }}-filter-{{ $filter->getKey() }}-toolbar" class="block pl-4 pr-2 py-2 text-sm text-gray-700 " role="menuitem">
                     {{ $filter->render() }}
                 </div>
-            </div>
         @endforeach
 
 
@@ -88,7 +89,7 @@
 
 
         @foreach ($this->getVisibleFilters() as $filter)
-            <div id="{{ $dataTableFingerprint }}-filter-{{ $filter->getKey() }}-wrapper" wire:key="{{ $dataTableFingerprint }}-filter-{{ $filter->getKey() }}-toolbar" class="block px-4 py-3 text-sm text-gray-700 space-y-1" role="menuitem">
+            <div id="{{ $dataTableFingerprint }}-filter-{{ $filter->getKey() }}-wrapper" wire:key="{{ $dataTableFingerprint }}-filter-{{ $filter->getKey() }}-toolbar" class="block pl-4 pr-2 py-3 text-sm text-gray-700 space-y-1" role="menuitem">
                 {{ $filter->render() }}
             </div>
         @endforeach

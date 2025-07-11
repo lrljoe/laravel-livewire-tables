@@ -23,6 +23,7 @@ return [
     'min' => 'Min',
     'not_applicable' => 'N/A',
     'No' => 'No',
+    'No Columns Selected' => 'No Columns Selected',
     'No items found, try to broaden your search' => 'No items found, try to broaden your search',
     'of' => 'of',
     'Remove filter option' => 'Remove filter option',

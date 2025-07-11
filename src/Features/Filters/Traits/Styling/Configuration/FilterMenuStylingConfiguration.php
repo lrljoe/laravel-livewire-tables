@@ -37,4 +37,15 @@ trait FilterMenuStylingConfiguration
 
         return $this;
     }
+
+    /**
+     * Used to set attributes for the Filter Menu Reset Button
+     *
+     * @param array<mixed> $attributes
+     * @return self
+     */ 
+    public function setFilterMenuResetButtonAttributes(array $attributes): self
+    {
+        return $this->mergeCustomAttributes(propertyName: 'filterMenuResetButtonAttributes', customAttributes: $attributes);
+    }
 }

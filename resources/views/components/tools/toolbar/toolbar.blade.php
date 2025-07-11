@@ -1,5 +1,5 @@
 @aware([ 'dataTableFingerprint','isTailwind','isTailwind4','isBootstrap'])
-@props([])
+@props(['filterMenuResetButtonAttributes'])
 
 <div {{
         $attributes->merge($this->getToolBarAttributes)

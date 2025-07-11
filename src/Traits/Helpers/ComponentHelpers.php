@@ -23,6 +23,6 @@ trait ComponentHelpers
     #[Computed]
     public function getTableId(): string
     {
-        return $this->getTableAttributes()['id'] ?? 'table-'.$this->getTableName();
+        return $this->getTableAttributes()['id'] ?? 'table_'.$this->getTableName();
     }
 }

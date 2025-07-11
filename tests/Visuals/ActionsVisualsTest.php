@@ -14,12 +14,12 @@ final class ActionsVisualsTest extends TestCase
     {
         $petsTable = (new class extends PetsTable
         {
-            use \Rappasoft\LaravelLivewireTables\Traits\WithActions;
+            use \Rappasoft\LaravelLivewireTables\Features\Actions\Core\WithActions;
 
             public function actions(): array
             {
                 return [
-                    \Rappasoft\LaravelLivewireTables\Views\Actions\Action::make('Test Edit 1')
+                    \Rappasoft\LaravelLivewireTables\Features\Actions\Views\Action::make('Test Edit 1')
                         ->setRoute('dashboard24'),
                 ];
             }
@@ -50,12 +50,12 @@ final class ActionsVisualsTest extends TestCase
     {
         $petsTable = (new class extends PetsTable
         {
-            use \Rappasoft\LaravelLivewireTables\Traits\WithActions;
+            use \Rappasoft\LaravelLivewireTables\Features\Actions\Core\WithActions;
 
             public function actions(): array
             {
                 return [
-                    \Rappasoft\LaravelLivewireTables\Views\Actions\Action::make('Test Edit 1')
+                    \Rappasoft\LaravelLivewireTables\Features\Actions\Views\Action::make('Test Edit 1')
                         ->setRoute('dashboard24'),
                 ];
             }
@@ -86,12 +86,12 @@ final class ActionsVisualsTest extends TestCase
     {
         $petsTable = (new class extends PetsTable
         {
-            use \Rappasoft\LaravelLivewireTables\Traits\WithActions;
+            use \Rappasoft\LaravelLivewireTables\Features\Actions\Core\WithActions;
 
             public function actions(): array
             {
                 return [
-                    \Rappasoft\LaravelLivewireTables\Views\Actions\Action::make('Test Edit 1')
+                    \Rappasoft\LaravelLivewireTables\Features\Actions\Views\Action::make('Test Edit 1')
                         ->setRoute('dashboard24'),
                 ];
             }
