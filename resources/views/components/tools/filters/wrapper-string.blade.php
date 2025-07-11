@@ -10,7 +10,7 @@
  <x-slot:clearButton>
         <template x-if="($wire.get('appliedFilters.{{ $filter->getKey() }}') ?? null) !== null">
             <div class="w-1/12 inline-flex items-end justify-end ">
-                <button @click="toggleStatusWithReset" {{ $this->getFilterMenuResetButtonAttributesBag->merge(['type' => 'button'])->class([
+                <button @click="toggleStatusWithReset(); filterPopoverOpen = false;" {{ $this->getFilterMenuResetButtonAttributesBag->merge(['type' => 'button'])->class([
                             'w-min rounded-full focus:outline-none' => $isTailwind && ($this->getFilterMenuResetButtonAttributes['default-styling'] ?? true),    
                             'text-indigo-400 hover:bg-indigo-200 hover:text-indigo-500 focus:bg-indigo-500 focus:text-white' => $isTailwind && ($this->getFilterMenuResetButtonAttributes['default-colors'] ?? true),    
                     ])->except(['default-colors','default-styling']) 
@@ -27,6 +27,7 @@
         'tw4ph rounded-md shadow-sm' => $isTailwind4,
         'mb-3 mb-md-0 input-group' => $isBootstrap,
     ])>
+    @if ($slot->isEmpty())
         <input {!! $filter->getWireMethod('appliedFilters.'.$filter->getKey()) !!} {{ 
                 $filterInputAttributes->merge()
                 ->class([
@@ -38,6 +39,11 @@
                 ])
                 ->except(['default-styling','default-colors']) 
             }} />
+    @else
+        {{ $slot }}
+    @endif
+
+
     </div>
 
  </x-livewire-tables::tools.filters.wrapper>

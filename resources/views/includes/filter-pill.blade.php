@@ -9,6 +9,7 @@
             'inline-flex items-center px-2.5 py-0.5 rounded-full leading-4' => $isTailwind && ($filterPillsItemAttributes['default-styling'] ?? true),
             'text-xs font-medium capitalize' => $isTailwind && ($filterPillsItemAttributes['default-text'] ?? ($filterPillsItemAttributes['default-styling'] ?? true)),
             'bg-indigo-100 text-indigo-800 dark:bg-indigo-200 dark:text-indigo-900' => $isTailwind && ($filterPillsItemAttributes['default-colors'] ?? true),
+
             'tw4ph inline-flex items-center px-2.5 py-0.5 rounded-full leading-4' => $isTailwind4 && ($filterPillsItemAttributes['default-styling'] ?? true),
             'tw4ph text-xs font-medium capitalize' => $isTailwind4 && ($filterPillsItemAttributes['default-text'] ?? ($filterPillsItemAttributes['default-styling'] ?? true)),
             'tw4ph bg-indigo-100 text-indigo-800 dark:bg-indigo-200 dark:text-indigo-900' => $isTailwind4 && ($filterPillsItemAttributes['default-colors'] ?? true),

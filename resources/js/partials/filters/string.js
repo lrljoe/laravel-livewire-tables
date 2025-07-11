@@ -8,6 +8,7 @@ function stringFilter() {
         setValue: null,
         toggleStatusWithReset()
         {
+            window.filterPopoverOpen = false;
             wire.call('resetFilter',this.stringFilterKey);
         },
         init() { 

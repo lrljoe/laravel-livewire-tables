@@ -22,6 +22,7 @@ function newBf() {
         toggleStatusWithReset()
         {
             let newValue = this.toggleStatus();
+            window.filterPopoverOpen = false;
             wire.call('resetFilter',this.booleanFilterKey);
         },
         setSwitchOn(val)
