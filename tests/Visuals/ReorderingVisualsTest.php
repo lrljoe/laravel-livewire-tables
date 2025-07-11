@@ -89,12 +89,12 @@ final class ReorderingVisualsTest extends TestCase
         Livewire::test(PetsTable::class)
             ->call('setReorderEnabled')
             ->call('sortBy', 'id')
-            ->assertSeeHtml('wire:key="table-sorting-pill-id"')
+            ->assertSeeHtml('wire:key="table_6xmgxt-sorting-pill-id"')
             ->call('enableReordering')
-            ->assertDontSeeHtml('wire:key="table-sorting-pill-id"')
+            ->assertDontSeeHtml('wire:key="table_6xmgxt-sorting-pill-id"')
             ->call('disableReordering')
             ->call('sortBy', 'id')
-            ->assertSeeHtml('wire:key="table-sorting-pill-id"');
+            ->assertSeeHtml('wire:key="table_6xmgxt-sorting-pill-id"');
     }
 
     #[Depends('test_filter_array_setup')]
@@ -102,17 +102,17 @@ final class ReorderingVisualsTest extends TestCase
     {
         Livewire::test(PetsTable::class)
             ->call('setReorderEnabled')
-            ->assertSet('sortingStatus', true)
+            ->assertSet('sortingConfig.sortingStatus', true)
             ->call('sortBy', 'id')
             ->assertSet('sorts', ['id' => 'asc'])
             ->assertSet('appliedFilters', $filterDefaultArray)
             ->assertSeeHtml('wire:click="sortBy(\'id\')"')
             ->call('enableReordering')
-            ->assertSet('sortingStatus', false)
+            ->assertSet('sortingConfig.sortingStatus', false)
             ->assertSet('table', [])
             ->assertDontSeeHtml('wire:click="sortBy(\'id\')"')
             ->call('disableReordering')
-            ->assertSet('sortingStatus', true)
+            ->assertSet('sortingConfig.sortingStatus', true)
             ->assertSet('appliedFilters', $filterDefaultArray)
             ->assertSet('sorts', ['id' => 'asc'])
 
@@ -125,13 +125,13 @@ final class ReorderingVisualsTest extends TestCase
             ->call('setReorderEnabled')
             ->call('setPerPageAccepted', [1])
             ->call('setPerPage', 1)
-            ->assertSet('paginationStatus', true)
+            ->assertSet('paginationConfig.paginationStatus', true)
             ->assertSeeHtml('<span aria-current="page">')
             ->call('enableReordering')
-            ->assertSet('paginationStatus', false)
+            ->assertSet('paginationConfig.paginationStatus', false)
             ->assertDontSeeHtml('<span aria-current="page">')
             ->call('disableReordering')
-            ->assertSet('paginationStatus', true)
+            ->assertSet('paginationConfig.paginationStatus', true)
             ->assertSeeHtml('<span aria-current="page">');
     }
 
@@ -139,13 +139,13 @@ final class ReorderingVisualsTest extends TestCase
     {
         Livewire::test(PetsTable::class)
             ->call('setReorderEnabled')
-            ->assertSet('perPageVisibilityStatus', true)
+            ->assertSet('paginationConfig.perPageVisibilityStatus', true)
             ->assertSeeHtml('wire:model.live="perPage"')
             ->call('enableReordering')
-            ->assertSet('perPageVisibilityStatus', false)
+            ->assertSet('paginationConfig.perPageVisibilityStatus', false)
             ->assertDontSeeHtml('wire:model.live="perPage"')
             ->call('disableReordering')
-            ->assertSet('perPageVisibilityStatus', true)
+            ->assertSet('paginationConfig.perPageVisibilityStatus', true)
             ->assertSeeHtml('wire:model.live="perPage"');
     }
 
@@ -153,11 +153,11 @@ final class ReorderingVisualsTest extends TestCase
     {
         Livewire::test(PetsTable::class)
             ->call('setReorderEnabled')
-            ->assertSet('perPageAccepted', [10, 25, 50])
+            ->assertSet('paginationConfig.perPageAccepted', [10, 25, 50])
             ->call('enableReordering')
-            ->assertSet('perPageAccepted', [-1])
+            ->assertSet('paginationConfig.perPageAccepted', [-1])
             ->call('disableReordering')
-            ->assertSet('perPageAccepted', [10, 25, 50]);
+            ->assertSet('paginationConfig.perPageAccepted', [10, 25, 50]);
     }
 
     public function test_per_page_gets_set_on_reorder(): void
@@ -211,11 +211,11 @@ final class ReorderingVisualsTest extends TestCase
     {
         Livewire::test(PetsTable::class)
             ->call('setReorderEnabled')
-            ->assertSet('bulkActionsStatus', true)
+            ->assertSet('bulkActionConfig.bulkActionsStatus', true)
             ->call('setBulkActions', ['activate' => 'Activate'])
             ->assertSee('Bulk Actions')
             ->call('enableReordering')
-            ->assertSet('bulkActionsStatus', false)
+            ->assertSet('bulkActionConfig.bulkActionsStatus', false)
             ->assertDontSee('Bulk Actions');
     }
 
@@ -223,11 +223,11 @@ final class ReorderingVisualsTest extends TestCase
     {
         Livewire::test(PetsTable::class)
             ->call('setReorderEnabled')
-            ->assertSet('bulkActionsStatus', true)
+            ->assertSet('bulkActionConfig.bulkActionsStatus', true)
             ->call('setBulkActions', ['activate' => 'Activate'])
             ->assertSeeHtml('selectedItems.length == paginationTotalItemCount')
             ->call('enableReordering')
-            ->assertSet('bulkActionsStatus', false)
+            ->assertSet('bulkActionConfig.bulkActionsStatus', false)
             ->assertDontSee('Select All');
     }
 
@@ -235,11 +235,11 @@ final class ReorderingVisualsTest extends TestCase
     {
         Livewire::test(PetsTable::class)
             ->call('setReorderEnabled')
-            ->assertSet('bulkActionsStatus', true)
+            ->assertSet('bulkActionConfig.bulkActionsStatus', true)
             ->call('setBulkActions', ['activate' => 'Activate'])
             ->assertSeeHtml('x-model="selectedItems"')
             ->call('enableReordering')
-            ->assertSet('bulkActionsStatus', false)
+            ->assertSet('bulkActionConfig.bulkActionsStatus', false)
             ->assertDontSee('Select All');
     }
 
@@ -247,12 +247,12 @@ final class ReorderingVisualsTest extends TestCase
     {
         Livewire::test(PetsTable::class)
             ->call('setReorderEnabled')
-            ->assertSet('bulkActionsStatus', true)
+            ->assertSet('bulkActionConfig.bulkActionsStatus', true)
             ->call('setBulkActions', ['activate' => 'Activate'])
             ->call('setAllSelected')
             ->assertSee('You are currently selecting all')
             ->call('enableReordering')
-            ->assertSet('bulkActionsStatus', false)
+            ->assertSet('bulkActionConfig.bulkActionsStatus', false)
             ->assertDontSee('You are currently selecting all');
     }
 
@@ -260,12 +260,12 @@ final class ReorderingVisualsTest extends TestCase
     {
         Livewire::test(PetsTable::class)
             ->call('setReorderEnabled')
-            ->assertSet('bulkActionsStatus', true)
+            ->assertSet('bulkActionConfig.bulkActionsStatus', true)
             ->call('setBulkActions', ['activate' => 'Activate'])
             ->call('setSelected', [1, 2, 3])
             ->assertSee('do you want to select all')
             ->call('enableReordering')
-            ->assertSet('bulkActionsStatus', false)
+            ->assertSet('bulkActionConfig.bulkActionsStatus', false)
             ->assertDontSee('do you want to select all');
     }
 
@@ -277,16 +277,16 @@ final class ReorderingVisualsTest extends TestCase
 
         Livewire::test(PetsTable::class)
             ->call('setReorderEnabled')
-            ->assertSet('filtersStatus', true)
+            ->assertSet('filterConfiguration.filtersStatus', true)
             ->set('appliedFilters.breed', [1])
             ->assertSet('appliedFilters', $customisedFilterArray)
             ->assertSee('Filters')
             ->call('enableReordering')
-            ->assertSet('filtersStatus', false)
+            ->assertSet('filterConfiguration.filtersStatus', false)
             ->assertSet('table', [])
             ->assertDontSeeHtml('Filters')
             ->call('disableReordering')
-            ->assertSet('filtersStatus', true)
+            ->assertSet('filterConfiguration.filtersStatus', true)
             ->set('appliedFilters.breed', [])
             ->assertSet('appliedFilters', $filterDefaultArray)
             ->assertSeeHtml('Filters');

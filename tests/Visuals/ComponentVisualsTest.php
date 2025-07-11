@@ -111,6 +111,7 @@ final class ComponentVisualsTest extends TestCase
                     ->setTableRowUrl(function ($row) {
                         return 'test';
                     })
+                    ->setDataTableFingerprint('test_fingerprint')
                     ->setTableRowUrlTarget(function ($row) {
                         if ($row->id == 2) {
                             return 'navigate';
@@ -120,13 +121,12 @@ final class ComponentVisualsTest extends TestCase
                     });
 
             }
-        })->assertSeeHtml("onclick=\"window.open('test', '_blank')")
+        })->assertSeeHtml('onclick="window.open(&#039;test&#039;, &#039;_blank&#039;)"')
             ->assertSeeHtmlInOrder([
-                'wire:key="table-table-td-2-age"',
                 'wire:navigate',
                 'href="test"',
-                'wire:key="table-table-td-5-age"',
-                'onclick="window.open(\'test\', \'_blank\')"',
+                'wire:key="table_n8wik-table-td-5-age"',
+                'onclick="window.open(&#039;test&#039;, &#039;_blank&#039;)"',
             ]);
 
     }
