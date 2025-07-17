@@ -10,7 +10,21 @@
             ->except(['default','default-styling','default-colors'])
         }}
         @if($action->hasIcon())
-            <x-livewire-tables::shared.icon :attributes="$action->getIconAttributes()" :iconRight="$action->getIconRight()" :icon="$action->getIcon()" />
+            <span @class([
+                'w-1/12',
+                'order-1 inline-block ' => !$action->getIconRight(),
+                'order-2 inline-block mr-2' => $action->getIconRight()
+            ])>
+                <i {{ $action->getIconAttributes()
+                        ->class([
+                            'ms-1 '. $action->getIcon() => $isBootstrap,
+                            'ml-1 '. $action->getIcon() => $isTailwind && $action->getIconRight(),
+                            'pr-1 '. $action->getIcon() => $isTailwind && !$action->getIconRight(),
+                        ])
+                        ->except(['default','default-styling','default-colors'])
+                    }}
+                ></i>
+            </span>
         @endif
 
         <x-livewire-tables::shared.label :attributes="$action->getLabelAttributesBag()" :hasIcon="$action->hasIcon()" :iconRight="$action->getIconRight()">
