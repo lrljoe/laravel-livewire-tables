@@ -11,20 +11,25 @@ trait HasFilterMenuStyling
     use FilterMenuStylingConfiguration,
         FilterMenuStylingHelpers;
 
-        /**
-         * Undocumented variable
-         *
-         * @var array<mixed>
-         */
+    /**
+     * Undocumented variable
+     *
+     * @var array<string,string|boolean>
+     */
     protected array $filterPopoverAttributes = ['class' => '', 'default-colors' => true, 'default-styling' => true, 'default-width' => true];
 
     /**
      * Undocumented variable
      *
-     * @var array<mixed>
+     * @var array<string,string|boolean>
      */
     protected array $filterSlidedownWrapperAttributes = ['class' => '', 'default-colors' => true, 'default-styling' => true];
-
+    
+    /**
+     * Undocumented variable
+     *
+     * @var array<string,string|boolean>
+     */
     protected array $filterMenuResetButtonAttributes = ['class' => '', 'default-colors' => true, 'default-styling' => true];
 
     protected ?Closure $filterSlidedownRowCallback;

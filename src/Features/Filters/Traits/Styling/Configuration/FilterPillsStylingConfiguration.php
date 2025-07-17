@@ -4,6 +4,12 @@ namespace Rappasoft\LaravelLivewireTables\Features\Filters\Traits\Styling\Config
 
 trait FilterPillsStylingConfiguration
 {
+    /**
+     * Set Hiding Filter Pills While Loading Status
+     *
+     * @param boolean $status
+     * @return self
+     */
     protected function setShowFilterPillsWhileLoading(bool $status): self
     {
         $this->showFilterPillsWhileLoading = $status;
@@ -11,52 +17,56 @@ trait FilterPillsStylingConfiguration
         return $this;
     }
 
+    /**
+     * Set Hiding Filter Pills While Loading Enabled
+     *
+     * @return self
+     */
     protected function showFilterPillsWhileLoadingEnabled(): self
     {
         return $this->setShowFilterPillsWhileLoading(true);
     }
 
+    /**
+     * Set Hiding Filter Pills While Loading Disabled
+     *
+     * @return self
+     */
     protected function showFilterPillsWhileLoadingDisabled(): self
     {
         return $this->setShowFilterPillsWhileLoading(false);
     }
 
     /**
-     * Undocumented function
+     * Set Filter Pill - Item Attributes
      *
-     * @param array<mixed> $attributes
+     * @param array<string,string> $attributes
      * @return self
      */
-    public function setFilterPillsItemAttributes(array $attributes = []): self
+    protected function setFilterPillsItemAttributes(array $attributes = []): self
     {
-        $this->filterPillsItemAttributes = [...$this->filterPillsItemAttributes, ...$attributes];
-
-        return $this;
+       return $this->setInternalAttribute('filterPillsItemAttributes', $attributes);
     }
 
     /**
-     * Undocumented function
+     * Set Filter Pill -  Reset Individual Filter Button Attributes
      *
-     * @param array<mixed> $attributes
+     * @param array<string,string|boolean> $attributes
      * @return self
      */
-    public function setFilterPillsResetFilterButtonAttributes(array $attributes = []): self
+    protected function setFilterPillsResetFilterButtonAttributes(array $attributes = []): self
     {
-        $this->filterPillsResetFilterButtonAttributes = [...$this->filterPillsResetFilterButtonAttributes, ...$attributes];
-
-        return $this;
+       return $this->setInternalAttribute('filterPillsResetFilterButtonAttributes', $attributes);
     }
 
     /**
-     * Undocumented function
+     * Set Filter Pills - Reset All Button Attributes
      *
      * @param array<mixed> $attributes
      * @return self
      */
-    public function setFilterPillsResetAllButtonAttributes(array $attributes = []): self
+    protected function setFilterPillsResetAllButtonAttributes(array $attributes = []): self
     {
-        $this->filterPillsResetAllButtonAttributes = [...$this->filterPillsResetAllButtonAttributes, ...$attributes];
-
-        return $this;
+       return $this->setInternalAttribute('filterPillsResetAllButtonAttributes', $attributes);
     }
 }

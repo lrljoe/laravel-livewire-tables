@@ -72,7 +72,6 @@ trait WithFeatureDetection
             'Rappasoft\LaravelLivewireTables\Traits\WithTableHooks' => false,
             'Rappasoft\LaravelLivewireTables\Traits\WithTableAttributes' => false,
             'Rappasoft\LaravelLivewireTables\Traits\WithTools' => false,
-            'Rappasoft\LaravelLivewireTables\Traits\Core\HasCustomAttributes' => false,
             'Rappasoft\LaravelLivewireTables\Traits\Core\HasLocalisations' => false,
             'Rappasoft\LaravelLivewireTables\Traits\Styling\HasCoreStyling' => false,
             'Rappasoft\LaravelLivewireTables\Features\Actions\Core\WithActions' => false,

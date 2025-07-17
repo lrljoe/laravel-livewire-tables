@@ -17,6 +17,10 @@ trait HasTextAlign
 
     public function getTextAlign(): string
     {
+        if(!$this->hasTextAlign())
+        {
+            throw new \Rappasoft\LaravelLivewireTables\Exceptions\MissingProperties\TextAlignMissing('Text Align Is Not Set');
+        }
         return $this->textAlign;
     }
 

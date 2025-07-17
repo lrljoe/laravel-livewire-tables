@@ -2,11 +2,13 @@
 
 namespace Rappasoft\LaravelLivewireTables\Tests\Unit;
 
+use PHPUnit\Framework\Attributes\Group;
 use Rappasoft\LaravelLivewireTables\Tests\Http\Livewire\FailingTables\NoColumnsTable;
 use Rappasoft\LaravelLivewireTables\Tests\Http\Livewire\FailingTables\NoPrimaryKeyTable;
 use Rappasoft\LaravelLivewireTables\Tests\Http\Livewire\PetsTable;
 use Rappasoft\LaravelLivewireTables\Tests\TestCase;
 
+#[Group('Core')]
 class DataTableComponentTest extends TestCase
 {
     public function test_primary_key_can_be_set(): void
@@ -53,12 +55,14 @@ class DataTableComponentTest extends TestCase
         $this->assertNotSame($this->basicTable->getDataTableFingerprint(), $mockTable->getDataTableFingerprint());
     }
 
+    
     public function test_default_fingerprint_will_be_url_friendy(): void
     {
         $mocks = [];
         for ($i = 0; $i < 9; $i++) {
             $mocks[$i] = new class extends PetsTable {};
-            $this->assertFalse(filter_var('http://'.$mocks[$i]->getDataTableFingerprint().'.dev', FILTER_VALIDATE_URL) === false);
+            $urlString = 'http://'.$mocks[$i]->getDataTableFingerprintForUrl().'.dev';
+            $this->assertFalse(filter_var('http://test.dev?fingerprint='.$mocks[$i]->getDataTableFingerprintForUrl(), FILTER_VALIDATE_URL) === false);
         }
         // control
         $this->assertTrue(filter_var('http://[9/$].dev', FILTER_VALIDATE_URL) === false);

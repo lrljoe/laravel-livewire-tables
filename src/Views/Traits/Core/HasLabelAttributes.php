@@ -3,12 +3,11 @@
 namespace Rappasoft\LaravelLivewireTables\Views\Traits\Core;
 
 use Illuminate\View\ComponentAttributeBag;
-use Rappasoft\LaravelLivewireTables\Traits\Core\HasCustomAttributes;
-
+use Rappasoft\LaravelLivewireTables\Features\Core\HandlesCoreAttributes;
 
 trait HasLabelAttributes
 {
-    use HasCustomAttributes;
+    use HandlesCoreAttributes;
 
     /**
      * Undocumented variable

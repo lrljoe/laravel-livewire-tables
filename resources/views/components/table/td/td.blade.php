@@ -1,5 +1,5 @@
-@aware(['isTailwind','isTailwind4','isBootstrap', 'collapsingColumnInfo', 'tableRowDetails'])
-@props(['colIndex', 'isHtml' => false, 'wrapText' => false, 'isClickable' => false, 'customAttributes' => ['default' => true, 'default-colors' => true, 'default-styling' => true], 'textAlign' => $this->getDefaultBodyTextAlign()])
+@aware(['isTailwind','isTailwind4','isBootstrap', 'collapsingColumnInfo', 'tableRowDetails','defaultBodyTextAlign'])
+@props(['colIndex', 'isHtml' => false, 'wrapText' => false, 'isClickable' => false, 'customAttributes' => ['default' => true, 'default-colors' => true, 'default-styling' => true], 'textAlign' => $defaultBodyTextAlign])
 
 <td {{
         $attributes->merge($isClickable ? $tableRowDetails['tdAttribs'] : [])->merge($customAttributes)

@@ -32,7 +32,7 @@ For example:
 Column::make('Name')
     ->setLabelAttributes(['class' => 'text-2xl'])
 ```
-By default, this replaces the default classes on the label, if you would like to keep them, set the default/default-styling/default-colors flags to true as appropriate.
+By default, this appends to the default classes on the label, if you would like to replace them, set the default/default-styling/default-colors flags to false as appropriate.
 
 ## Styling Table Elements
 
@@ -303,16 +303,28 @@ public function configure(): void
 
 ### via Attributes Callback
 
+You can create a callback to style an individual table cell, which can be simple, or complex, based on your needs.  The callback receives the value, the full table row, and the rowIndex (for striping).
+
+The below example would replace the default colours with "bg-blue-500" for "normal" and "bg-red-800" for "dark" themes, regardless of value.  The default styles would still be applied:
+```php
+Column::make("Name", "name")
+->attributes(fn($value, $row, $rowIndex) => ['class' => 'bg-blue-500 dark:bg-red-800', 'default-colors' => false]),
+```
+
 ### Enabling/Disabling whitespace-wrap
 
+By default, text does not wrap, unless the Column is an "html" column.  
+
+You can enable whitespace-wrap per-column as follows:
 ```php
 Column::make("Name", "name")
   ->wrapText(),
 ```
 
+
 ## Set Text Alignment
 
-You may customise the alignment of the text within the Column td elements as follows.  This will over-ride the value set by "setDefaultBodyTextAlignment" methods
+You may customise the alignment of the text within the Column td elements as follows.  This will over-ride the value set by "setDefaultBodyTextAlignment" methods.
 
 ### Left
 ```php

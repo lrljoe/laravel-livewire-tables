@@ -1,11 +1,31 @@
 <?php
 
-namespace Rappasoft\LaravelLivewireTables\Traits\Core;
+namespace Rappasoft\LaravelLivewireTables\Features\Core;
 
 use Illuminate\View\ComponentAttributeBag;
 
-trait HasCustomAttributes
+trait HandlesCoreAttributes
 {
+    
+    protected function checkItemAttributeArrays($attributeArray): array
+    {
+        foreach($attributeArray as $index => $arrayItem)
+        {
+            if(is_array($arrayItem))
+            {
+                $attributeArray[$index] = null;
+            }
+        }
+        return $attributeArray;
+    }
+
+    protected function setInternalAttribute(string $propertyName, array $attributeArray): self
+    {
+        $this->{$propertyName} = [...$this->{$propertyName}, ...$this->checkItemAttributeArrays($attributeArray)];
+        
+        return $this;
+    }
+
     /**
      * Undocumented function
      *
@@ -67,8 +87,9 @@ trait HasCustomAttributes
      * @param array<mixed> $customAttributes
      * @return self
      */
-    public function setCustomAttributes(string $propertyName, array $customAttributes): self
+    protected function setCustomAttributes(string $propertyName, array $customAttributes): self
     {
+        $customAttributes = $this->checkItemAttributeArrays($customAttributes);
         $this->{$propertyName} = $customAttributes;
 
         return $this;
@@ -83,6 +104,7 @@ trait HasCustomAttributes
      */
     protected function mergeCustomAttributes(string $propertyName, array $customAttributes): self
     {
+        $customAttributes = $this->checkItemAttributeArrays($customAttributes);
         $mergedArray = array_merge($this->{$propertyName}, $customAttributes);
         ksort($mergedArray);
         $this->{$propertyName} = $mergedArray;
@@ -190,11 +212,12 @@ trait HasCustomAttributes
      * @param boolean $classicMode
      * @return self
      */
-    public function setCustomAttributesDefaults(string $propertyName, array $customAttributes, bool $default = false, bool $classicMode = true): self
+    protected function setCustomAttributesDefaults(string $propertyName, array $customAttributes, bool $default = false, bool $classicMode = true): self
     {
 
         $this->{$propertyName} = array_merge($this->getCustomAttributesNew(propertyName: $propertyName, default: $default, classicMode: $classicMode), $customAttributes);
 
         return $this;
     }
+
 }

@@ -1,11 +1,11 @@
 @aware([ 'dataTableFingerprint','isTailwind','isTailwind4','isBootstrap'])
 @props(['filterMenuResetButtonAttributes'])
-
+@php($toolbarAttributes = $this->getToolBarAttributes())
 <div {{
-        $attributes->merge($this->getToolBarAttributes)
+        $attributes->merge($toolbarAttributes)
         ->class([
-            'md:flex md:justify-between mb-2 px-4 md:p-0' => ($isTailwind && ($this->getToolBarAttributes['default-styling'] ?? true)),
-            'd-md-flex justify-content-between mb-3' => ($isBootstrap && ($this->getToolBarAttributes['default-styling'] ?? true)),
+            'md:flex md:justify-between mb-2 px-4 md:p-0' => ($isTailwind && ($toolbarAttributes['default-styling'] ?? true)),
+            'd-md-flex justify-content-between mb-3' => ($isBootstrap && ($toolbarAttributes['default-styling'] ?? true)),
         ])
         ->except(['default','default-styling','default-colors'])
     }}
@@ -15,7 +15,7 @@
             'w-full mb-2 md:mb-0 md:w-2/4 md:flex space-y-4 md:space-y-0 md:space-x-2' => $isTailwind,
         ])
     >
-        @foreach($this->getLeftToolbarItems as $index => $toolbarItem)
+        @foreach($this->getLeftToolbarItems() as $index => $toolbarItem)
             @include($toolbarItem['view'], array_merge(['wire:key' => $dataTableFingerprint.'-toolbarItem-left-'.$index], $toolbarItem['attributes']))
         @endforeach
     </div>
@@ -27,7 +27,7 @@
         ])
     >
 
-        @foreach($this->getRightToolbarItems as $index => $toolbarItem)
+        @foreach($this->getRightToolbarItems() as $index => $toolbarItem)
             @include($toolbarItem['view'], array_merge(['wire:key' => $dataTableFingerprint.'-toolbarItem-right-'.$index], $toolbarItem['attributes']))
         @endforeach
 

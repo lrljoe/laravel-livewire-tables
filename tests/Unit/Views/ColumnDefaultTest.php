@@ -8,7 +8,7 @@ use Rappasoft\LaravelLivewireTables\Tests\TestCase;
 use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
 
 #[Group('Columns')]
-final class ColumnTest extends TestCase
+final class ColumnDefaultTest extends TestCase
 {
     public function test_can_set_the_column_title(): void
     {

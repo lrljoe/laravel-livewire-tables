@@ -18,6 +18,12 @@ trait HandlesFingerprint
         return $this->dataTableFingerprint;
     }
 
+    public function getDataTableFingerprintForUrl(): string
+    {
+        $fingerprint = $this->getDataTableFingerprint();
+        return urlencode($fingerprint);
+    }
+
     public function setDataTableFingerprint(string $dataTableFingerprint): self
     {
         $this->dataTableFingerprint = $dataTableFingerprint;

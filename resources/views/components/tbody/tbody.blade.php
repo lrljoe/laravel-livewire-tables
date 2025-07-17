@@ -1,4 +1,4 @@
-@aware(['dataTableFingerprint', 'isTailwind', 'isTailwind4', 'isBootstrap', 'coreTableAttributes', 'currentlyReorderingStatus', 'showBulkActionsSections', 'showCollapsingColumnSections', 'selectedVisibleColumns', 'selectedVisibleColumns', 'hasDisplayLoadingPlaceholder', 'hasTdAttributes'])
+@aware(['dataTableFingerprint', 'isTailwind', 'isTailwind4', 'isBootstrap', 'coreTableAttributes', 'currentlyReorderingStatus', 'showBulkActionsSections', 'showCollapsingColumnSections', 'selectedVisibleColumns', 'selectedVisibleColumns', 'hasDisplayLoadingPlaceholder', 'hasTdAttributes', 'defaultBodyTextAlign'])
 @props(['row','rowIndex','rowPk', 'tableRowDetails'])
 
 <tbody {{ $attributes->merge($coreTableAttributes['tbody'])
@@ -8,9 +8,9 @@
         ] : [])
         ->merge($tableRowDetails['attributes'])
         ->class([
-            'text-left' => $this->getDefaultBodyTextAlign() == 'left' && $isTailwind,
-            'text-center' => $this->getDefaultBodyTextAlign() == 'center' && $isTailwind,
-            'text-right' => $this->getDefaultBodyTextAlign() == 'right' && $isTailwind,
+            'text-left' => $defaultBodyTextAlign == 'left' && $isTailwind,
+            'text-center' => $defaultBodyTextAlign == 'center' && $isTailwind,
+            'text-right' => $defaultBodyTextAlign == 'right' && $isTailwind,
             'even:bg-white even:dark:bg-gray-700 odd:bg-gray-50 odd:dark:bg-gray-800 dark:text-white' => $isTailwind,
             'divide-gray-200 dark:divide-none' => $isTailwind && ($coreTableAttributes['tbody']['default-colors'] ?? ($coreTableAttributes['tbody']['default'] ?? true)),
             'divide-y' => $isTailwind && ($coreTableAttributes['tbody']['default-styling'] ?? ($coreTableAttributes['tbody']['default'] ?? true)),
@@ -18,9 +18,9 @@
             'tw4ph even:bg-white even:dark:bg-gray-700 odd:bg-gray-50 odd:dark:bg-gray-800 dark:text-white' => $isTailwind4,
             'tw4ph divide-gray-200 dark:divide-none' => $isTailwind4 && ($coreTableAttributes['tbody']['default-colors'] ?? ($coreTableAttributes['tbody']['default'] ?? true)),
             'tw4ph divide-y' => $isTailwind4 && ($coreTableAttributes['tbody']['default-styling'] ?? ($coreTableAttributes['tbody']['default'] ?? true)),
-            'tw4ph text-left' => $this->getDefaultBodyTextAlign() == 'left' && $isTailwind4,
-            'tw4ph text-center' => $this->getDefaultBodyTextAlign() == 'center' && $isTailwind4,
-            'tw4ph text-right' => $this->getDefaultBodyTextAlign() == 'right' && $isTailwind4,
+            'tw4ph text-left' => $defaultBodyTextAlign == 'left' && $isTailwind4,
+            'tw4ph text-center' => $defaultBodyTextAlign == 'center' && $isTailwind4,
+            'tw4ph text-right' => $defaultBodyTextAlign == 'right' && $isTailwind4,
             
         ])
         ->except(['default','default-styling','default-colors']) 

@@ -107,6 +107,10 @@ trait ColumnHelpers
 
             return $value;
         }
+        
+        if ($this->isHtml()) {
+            return new HtmlString($value);
+        }
 
         return $value;
     }

@@ -4,16 +4,18 @@ namespace Rappasoft\LaravelLivewireTables\Tests\Unit\Views\Columns;
 
 use PHPUnit\Framework\Attributes\Group;
 use Rappasoft\LaravelLivewireTables\Tests\TestCase;
+use Rappasoft\LaravelLivewireTables\Tests\Unit\Views\Columns\Concerns\ProvidesTestsForColumnTextAlignment;
 
 #[Group('Columns')]
 abstract class ColumnTestCase extends TestCase
 {
+    use ProvidesTestsForColumnTextAlignment;
+
     protected static $columnInstance;
 
     protected function setUp(): void
     {
         parent::setUp();
-
     }
 
     public static function tearDownAfterClass(): void
@@ -51,6 +53,6 @@ abstract class ColumnTestCase extends TestCase
         self::$columnInstance->setSortingPillDirections('1-2', '2-1');
         $this->assertSame('1-2', self::$columnInstance->getSortingPillDirection($this->basicTable, 'asc'));
         $this->assertSame('2-1', self::$columnInstance->getSortingPillDirection($this->basicTable, 'desc'));
-
     }
+
 }

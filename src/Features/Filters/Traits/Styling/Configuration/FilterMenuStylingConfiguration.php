@@ -9,7 +9,7 @@ trait FilterMenuStylingConfiguration
     /**
      * Used to set attributes for the Filter Popover
      *
-     * @param array<mixed> $attributes
+     * @param array<string,string|boolean> $attributes
      * @return self
      */
      public function setFilterPopoverAttributes(array $attributes): self
@@ -20,7 +20,7 @@ trait FilterMenuStylingConfiguration
     /**
      * Used to set attributes for the Filter Slidedown Wrapper
      *
-     * @param array<mixed> $attributes
+     * @param array<string,string|boolean> $attributes
      * @return self
      */
     public function setFilterSlidedownWrapperAttributes(array $attributes): self
@@ -41,7 +41,7 @@ trait FilterMenuStylingConfiguration
     /**
      * Used to set attributes for the Filter Menu Reset Button
      *
-     * @param array<mixed> $attributes
+     * @param array<string,string|boolean> $attributes
      * @return self
      */ 
     public function setFilterMenuResetButtonAttributes(array $attributes): self

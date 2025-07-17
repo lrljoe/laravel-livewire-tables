@@ -318,13 +318,14 @@ trait TableAttributeHelpers
             'shouldCollapseAlways' => $this->shouldCollapseAlways(),
             'shouldCollapseOnTablet' => $this->shouldCollapseOnTablet(),
             'shouldCollapseOnMobile' => $this->shouldCollapseOnMobile(),
-
             'coreTableAttributes' => $this->getCoreTableAttributes(),
             
-            'getCurrentlyReorderingStatus' => $this->getCurrentlyReorderingStatus(),
+          //  'getCurrentlyReorderingStatus' => $this->getCurrentlyReorderingStatus(),
+            'currentlyReorderingStatus' => $this->getCurrentlyReorderingStatus(),
 
             'hasDisplayLoadingPlaceholder' => $this->hasDisplayLoadingPlaceholder(),
             'hasTrAttributes' => $this->hasTrAttributes(),
+            'hasTdAttributes' => $this->hasTdAttributes(),
 
             'isBootstrap' => $this->isBootstrap(),
             'isBootstrap4' => $this->isBootstrap4(),
@@ -333,7 +334,7 @@ trait TableAttributeHelpers
             'isTailwind4' => $this->isTailwind4(),            
 
             'localisationPath' => $this->getLocalisationPath(),
-            
+            'defaultBodyTextAlign' => $this->getDefaultBodyTextAlign(),
             'selectedVisibleColumns' => $this->selectedVisibleColumns(),
             'showBulkActionsSections' => $this->showBulkActionsSections(),
             'bulkActionsTdAttributes' => $this->getBulkActionsTdAttributes(),
@@ -399,4 +400,6 @@ trait TableAttributeHelpers
     {
         return $this->defaultBodyTextAlign ?? '';
     }
+    
+    
 }

@@ -5,9 +5,10 @@ namespace Rappasoft\LaravelLivewireTables;
 use Livewire\Attributes\{On, Renderless};
 use Livewire\Component;
 use Rappasoft\LaravelLivewireTables\Traits\{ComponentUtilities, WithCustomisations, WithData, WithDebugging, WithEvents, WithQuery, WithQueryString, WithRefresh, WithTableHooks};
-use Rappasoft\LaravelLivewireTables\Traits\Core\{HasCustomAttributes, HasLocalisations};
+use Rappasoft\LaravelLivewireTables\Traits\Core\{HasLocalisations};
 use Rappasoft\LaravelLivewireTables\Views\Traits\Core\HasTheme;
 use Rappasoft\LaravelLivewireTables\Traits\Styling\{HasCoreStyling};
+use Rappasoft\LaravelLivewireTables\Features\Core\HandlesCoreAttributes;
 use Rappasoft\LaravelLivewireTables\Features\Actions\Core\WithActions;
 use Rappasoft\LaravelLivewireTables\Features\BulkActions\Core\WithBulkActions;
 use Rappasoft\LaravelLivewireTables\Features\Columns\Core\WithColumns;
@@ -30,7 +31,8 @@ use Rappasoft\LaravelLivewireTables\Traits\WithFeatureDetection;
 abstract class DataTableComponent extends Component
 {
 
-    use WithFeatureDetection,
+    use HandlesCoreAttributes,
+        WithFeatureDetection,
         ComponentUtilities,
         WithQueryString,
         WithTableHooks,
@@ -49,7 +51,6 @@ abstract class DataTableComponent extends Component
         WithSorting,
         WithPagination,
         WithBulkActions,
-        HasCustomAttributes,
         WithConfigurableAreas,
         WithCustomisations,
         WithDebugging,

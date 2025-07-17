@@ -1,6 +1,6 @@
 @aware([ 'dataTableFingerprint','isTailwind','isTailwind4','isBootstrap','isBootstrap4','isBootstrap5', 'localisationPath', 'dataTableFingerprint'])
 @php($columnSelectButtonAttributes = $this->getColumnSelectButtonAttributes())
-@php($columnSelectMenuOptionCheckboxAttributes = $this->getColumnSelectMenuOptionCheckboxAttributes)
+@php($columnSelectMenuOptionCheckboxAttributes = $this->getColumnSelectMenuOptionCheckboxAttributes())
 @php($selectableSelectedColumnCount = $this->getSelectableSelectedColumns()->count())
 
 @if ($isTailwind)
