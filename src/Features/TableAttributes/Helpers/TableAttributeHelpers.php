@@ -1,6 +1,6 @@
 <?php
 
-namespace Rappasoft\LaravelLivewireTables\Traits\Helpers;
+namespace Rappasoft\LaravelLivewireTables\Features\TableAttributes\Helpers;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\View\ComponentAttributeBag;

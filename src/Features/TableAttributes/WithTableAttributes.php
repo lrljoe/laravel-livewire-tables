@@ -1,10 +1,10 @@
 <?php
 
-namespace Rappasoft\LaravelLivewireTables\Traits;
+namespace Rappasoft\LaravelLivewireTables\Features\TableAttributes;
 
 use Closure;
-use Rappasoft\LaravelLivewireTables\Traits\Configuration\TableAttributeConfiguration;
-use Rappasoft\LaravelLivewireTables\Traits\Helpers\TableAttributeHelpers;
+use Rappasoft\LaravelLivewireTables\Features\TableAttributes\Configuration\TableAttributeConfiguration;
+use Rappasoft\LaravelLivewireTables\Features\TableAttributes\Helpers\TableAttributeHelpers;
 use Rappasoft\LaravelLivewireTables\Traits\Styling\{HasCoreStyling, HasHeaderStyling};
 
 trait WithTableAttributes
