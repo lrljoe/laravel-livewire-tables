@@ -145,4 +145,30 @@ trait TableAttributeConfiguration
     {
         $this->setShouldBeDisplayedStatus(false);
     }
+
+    public function setDefaultBodyTextAlign(string $align): self
+    {
+        if($align == 'left' || $align == 'center' || $align == 'right')
+        {
+            $this->defaultBodyTextAlign = $align;
+        }
+
+        return $this;
+    }
+
+    protected function setDefaultBodyTextAlignLeft(): self
+    {
+        return $this->setDefaultBodyTextAlign('left');
+    }
+    
+    protected function setDefaultBodyTextAlignCenter(): self
+    {
+        return $this->setDefaultBodyTextAlign('center');
+    }
+
+    protected function setDefaultBodyTextAlignRight(): self
+    {
+        return $this->setDefaultBodyTextAlign('right');
+    }
+
 }

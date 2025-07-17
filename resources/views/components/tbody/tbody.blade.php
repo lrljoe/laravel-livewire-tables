@@ -8,6 +8,9 @@
         ] : [])
         ->merge($tableRowDetails['attributes'])
         ->class([
+            'text-left' => $this->getDefaultBodyTextAlign() == 'left' && $isTailwind,
+            'text-center' => $this->getDefaultBodyTextAlign() == 'center' && $isTailwind,
+            'text-right' => $this->getDefaultBodyTextAlign() == 'right' && $isTailwind,
             'even:bg-white even:dark:bg-gray-700 odd:bg-gray-50 odd:dark:bg-gray-800 dark:text-white' => $isTailwind,
             'divide-gray-200 dark:divide-none' => $isTailwind && ($coreTableAttributes['tbody']['default-colors'] ?? ($coreTableAttributes['tbody']['default'] ?? true)),
             'divide-y' => $isTailwind && ($coreTableAttributes['tbody']['default-styling'] ?? ($coreTableAttributes['tbody']['default'] ?? true)),
@@ -15,6 +18,10 @@
             'tw4ph even:bg-white even:dark:bg-gray-700 odd:bg-gray-50 odd:dark:bg-gray-800 dark:text-white' => $isTailwind4,
             'tw4ph divide-gray-200 dark:divide-none' => $isTailwind4 && ($coreTableAttributes['tbody']['default-colors'] ?? ($coreTableAttributes['tbody']['default'] ?? true)),
             'tw4ph divide-y' => $isTailwind4 && ($coreTableAttributes['tbody']['default-styling'] ?? ($coreTableAttributes['tbody']['default'] ?? true)),
+            'tw4ph text-left' => $this->getDefaultBodyTextAlign() == 'left' && $isTailwind4,
+            'tw4ph text-center' => $this->getDefaultBodyTextAlign() == 'center' && $isTailwind4,
+            'tw4ph text-right' => $this->getDefaultBodyTextAlign() == 'right' && $isTailwind4,
+            
         ])
         ->except(['default','default-styling','default-colors']) 
     }} x-data="{ opening: false, }" >
@@ -33,7 +40,7 @@
         @endif
         
         @tableloop($selectedVisibleColumns as $colIndex => $column)
-            <x-livewire-tables::table.td :isClickable="$column->isClickable()" :wrapText="$column->shouldWrapText()" :isHtml="$column->isHtml()" :customAttributes="$this->getTdAttributes($column, $row, $colIndex, $rowIndex)" :$colIndex wire:key="{{ $dataTableFingerprint . '-table-td-'.$rowPk.'-'.$column->getSlug() }}"  x-ref="{{ $dataTableFingerprint . '_' . $rowIndex . '_' . $colIndex }}">
+            <x-livewire-tables::table.td :textAlign="$column->hasTextAlign() ? $column->getTextAlign() : $this->getDefaultBodyTextAlign()" :isClickable="$column->isClickable()" :wrapText="$column->shouldWrapText()" :isHtml="$column->isHtml()" :customAttributes="$this->getTdAttributes($column, $row, $colIndex, $rowIndex)" :$colIndex wire:key="{{ $dataTableFingerprint . '-table-td-'.$rowPk.'-'.$column->getSlug() }}"  x-ref="{{ $dataTableFingerprint . '_' . $rowIndex . '_' . $colIndex }}">
                 @if($column->setIndexes($rowIndex, $colIndex)->isHtml())
                     {!! $column->renderContents($row) !!}
                 @else

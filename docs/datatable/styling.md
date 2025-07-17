@@ -497,3 +497,20 @@ public function configure(): void
 ```
 
 Keep in mind that you must only call methods from configure() once to avoid overriding or conflicting results.
+
+
+### Default TD Content Alignment
+
+Should you wish to default the text alignment for each td element, you may use one of the following methods:
+
+```php
+public function configure(): void
+{
+  $this->setDefaultBodyTextAlignLeft(); // Sets Default To Left
+  $this->setDefaultBodyTextAlignCenter(); // Sets Default To Center
+  $this->setDefaultBodyTextAlignRight(); // Sets Default To Right
+}
+```
+When not set, this will adhere to the parent element text alignment.
+
+You can customise this on a per-Column basis.

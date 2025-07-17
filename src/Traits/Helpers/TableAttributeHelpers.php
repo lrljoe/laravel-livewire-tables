@@ -395,5 +395,8 @@ trait TableAttributeHelpers
         return $tdAttribs;
     }
 
-
+    public function getDefaultBodyTextAlign(): string
+    {
+        return $this->defaultBodyTextAlign ?? '';
+    }
 }

@@ -309,3 +309,25 @@ public function configure(): void
 Column::make("Name", "name")
   ->wrapText(),
 ```
+
+## Set Text Alignment
+
+You may customise the alignment of the text within the Column td elements as follows.  This will over-ride the value set by "setDefaultBodyTextAlignment" methods
+
+### Left
+```php
+Column::make("Name", "name")
+  ->setTextAlignLeft(),
+```
+
+### Center
+```php
+Column::make("Name", "name")
+  ->setTextAlignCenter(),
+```
+
+### Right
+```php
+Column::make("Name", "name")
+  ->setTextAlignRight(),
+```

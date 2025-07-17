@@ -104,6 +104,7 @@ trait WithTableAttributes
      */
     protected ?Closure $trUrlTargetCallback;
 
+    protected string $defaultBodyTextAlign = '';
 
     /**
      * Undocumented function
