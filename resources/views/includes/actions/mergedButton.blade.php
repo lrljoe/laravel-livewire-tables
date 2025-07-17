@@ -26,8 +26,12 @@
                 ></i>
             </span>
         @endif
-
-        <x-livewire-tables::shared.label :attributes="$action->getLabelAttributesBag()" :hasIcon="$action->hasIcon()" :iconRight="$action->getIconRight()">
+        <span {{ $action->getLabelAttributesBag()->merge()->class([
+            'w-11/12 ',
+            'order-1' => $action->hasIcon() && $action->getIconRight(),
+            'order-2' => $action->hasIcon() && !$action->getIconRight(),
+        ]) }}>
             {{ $action->getLabel() }}
-        </x-livewire-tables::shared.label>
+        </span>
+
 </a>
