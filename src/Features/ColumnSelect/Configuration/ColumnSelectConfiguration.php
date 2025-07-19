@@ -6,22 +6,6 @@ use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
 
 trait ColumnSelectConfiguration
 {
-    public function setColumnSelectStatus(bool $status): self
-    {
-        $this->columnSelectStatus = $status;
-
-        return $this;
-    }
-
-    public function setColumnSelectEnabled(): self
-    {
-        return $this->setColumnSelectStatus(true);
-    }
-
-    public function setColumnSelectDisabled(): self
-    {
-       return $this->setColumnSelectStatus(false);
-    }
 
     public function setRememberColumnSelectionStatus(bool $status): self
     {
@@ -55,20 +39,6 @@ trait ColumnSelectConfiguration
     public function setExcludeDeselectedColumnsFromQueryDisabled(): self
     {
         return $this->setExcludeDeselectedColumnsFromQuery(false);
-    }
-
-    public function setColumnSelectHiddenOnMobile(): self
-    {
-        $this->columnSelectHiddenOnMobile = true;
-
-        return $this;
-    }
-
-    public function setColumnSelectHiddenOnTablet(): self
-    {
-        $this->columnSelectHiddenOnTablet = true;
-
-        return $this;
     }
 
     /**

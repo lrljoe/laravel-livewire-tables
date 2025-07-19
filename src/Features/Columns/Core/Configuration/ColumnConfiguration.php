@@ -4,6 +4,7 @@ namespace Rappasoft\LaravelLivewireTables\Features\Columns\Core\Configuration;
 
 use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
 use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Aggregates\AggregateColumn;
+use Rappasoft\LaravelLivewireTables\Collections\ColumnCollection;
 
 trait ColumnConfiguration
 {
@@ -12,7 +13,7 @@ trait ColumnConfiguration
      */
     public function setColumns(): void
     {
-        $columns = collect($this->getPrependedColumns())->concat($this->columns())->concat(collect($this->getAppendedColumns()));
+        $columns = new ColumnCollection($this->getPrependedColumns())->concat($this->columns())->concat(new ColumnCollection($this->getAppendedColumns()));
         $this->columns = $columns->filter(fn ($column) => $column instanceof Column);
     }
 

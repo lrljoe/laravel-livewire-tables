@@ -6,39 +6,10 @@ use Illuminate\Support\Collection;
 use Livewire\Attributes\Computed;
 use Rappasoft\LaravelLivewireTables\Events\ColumnsSelected;
 use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
+use Rappasoft\LaravelLivewireTables\Collections\ColumnCollection;
 
 trait ColumnSelectHelpers
 {
-    /**
-     * Undocumented function
-     *
-     * @return boolean
-     */
-    public function getColumnSelectStatus(): bool
-    {
-        return $this->columnSelectStatus ?? true;
-    }
-
-    /**
-     * Undocumented function
-     *
-     * @return boolean
-     */
-    #[Computed]
-    public function columnSelectIsEnabled(): bool
-    {
-        return $this->getColumnSelectStatus() === true;
-    }
-
-    /**
-     * Undocumented function
-     *
-     * @return boolean
-     */
-    public function columnSelectIsDisabled(): bool
-    {
-        return $this->getColumnSelectStatus() === false;
-    }
 
     /**
      * Undocumented function
@@ -48,18 +19,10 @@ trait ColumnSelectHelpers
      */
     public function columnSelectIsEnabledForColumn(mixed $column): bool
     {
-        return in_array($column instanceof Column ? $column->getSlug() : $column, $this->selectedColumns, true);
+        return in_array($column instanceof Column ? $column->getSlug() : $column, $this->selectedColumns ?? [], true);
     }
 
-    /**
-     * Undocumented function
-     *
-     * @return boolean
-     */
-    public function getColumnSelectIsHiddenOnTablet(): bool
-    {
-        return $this->columnSelectHiddenOnTablet;
-    }
+
 
     /**
      * Undocumented function
@@ -71,26 +34,48 @@ trait ColumnSelectHelpers
         return $this->excludeDeselectedColumnsFromQuery;
     }
 
-    /**
-     * Undocumented function
-     *
-     * @return boolean
-     */
-    public function getColumnSelectIsHiddenOnMobile(): bool
+
+    public function generateColumnSelect(): array
     {
-        return $this->columnSelectHiddenOnMobile;
+        $arr = $this->selectableColumnsArray ?? [];
+        foreach($this->getSelectableColumns() as $col)
+        {
+                $arr[$col->getSlug()] = in_array($col->getSlug(), $this->selectedColumns ?? []);
+        }
+        return $arr;
     }
+
+    public function generateColumnSelectNew(): array
+    {
+        $arr = [];
+        foreach($this->getSelectableColumns() as $col)
+        {
+            $arr[] = ['slug' => $col->getSlug(), 'status' => in_array($col->getSlug(), $this->selectedColumns ?? [])];
+        }
+        return $arr;
+    }
+
+    public function generateColumnSelectItems(): array
+    {
+        $items = [];
+        foreach($this->getSelectableColumns() as $col)
+        {
+            $items[strval($col->getSlug())] = ['slug' => strval($col->getSlug()), 'title' => $col->getTitle()];
+        }
+        return $items;
+    }
+    
 
     /**
      * Undocumented function
      *
-     * @return Collection<int,Column>
+     * @return ColumnCollection<int,Column>
      */
-    public function getSelectableColumns(): Collection
+    public function getSelectableColumns(): ColumnCollection
     {
         return $this->getColumns()
-            ->reject(fn (Column $column) => $column->isHidden())
-            ->reject(fn (Column $column) => ! $column->isSelectable())
+            ->visible()
+            ->selectable()
             ->reject(fn (Column $column) => $this->currentlyReorderingIsEnabled() && !$column->isVisibleOnReorder())
             ->values();
     }
@@ -98,14 +83,15 @@ trait ColumnSelectHelpers
     /**
      * Undocumented function
      *
-     * @return Collection<int,Column>
+     * @return ColumnCollection<int,Column>
      */
-    public function getSelectableSelectedColumns(): Collection
+    public function getSelectableSelectedColumns(): ColumnCollection
     {
+        
         return $this->getColumns()
-            ->reject(fn (Column $column) => $column->isHidden())
-            ->reject(fn (Column $column) => ! $column->isSelectable())
-            ->reject(fn (Column $column) => ! $this->columnSelectIsEnabledForColumn($column))
+            ->visible()
+            ->selectable()
+            ->reject(fn (Column $column) => !in_array($column->getSlug(), $this->selectedColumns ?? []))
             ->reject(fn (Column $column) => $this->currentlyReorderingIsEnabled() && !$column->isVisibleOnReorder())
             ->values();
     }
@@ -113,13 +99,13 @@ trait ColumnSelectHelpers
     /**
      * Undocumented function
      *
-     * @return Collection<int,Column>
+     * @return ColumnCollection<int,Column>
      */
-    public function getUnSelectableColumns(): Collection
+    public function getUnSelectableColumns(): ColumnCollection
     {
         return $this->getColumns()
-            ->reject(fn (Column $column) => $column->isHidden())
-            ->reject(fn (Column $column) => $column->isSelectable())
+            ->visible()
+            ->unselectable()
             ->reject(fn (Column $column) => $this->currentlyReorderingIsEnabled() && !$column->isVisibleOnReorder())
             ->values();
     }
@@ -142,8 +128,8 @@ trait ColumnSelectHelpers
     public function getSelectedColumnsForQuery(): array
     {
         return $this->getColumns()
+            ->visible()
             ->reject(fn (Column $column) => $column->isLabel())
-            ->reject(fn (Column $column) => $column->isHidden())
             ->reject(fn (Column $column) => ($column->isSelectable() && ! $this->columnSelectIsEnabledForColumn($column)))
             ->reject(fn (Column $column) => $this->currentlyReorderingIsEnabled() && !$column->isVisibleOnReorder())
             ->values()
@@ -158,14 +144,21 @@ trait ColumnSelectHelpers
     public function getColumnsForColumnSelect(): array
     {
         return $this->getColumns()
-            ->reject(fn (Column $column) => ! $column->isSelectable())
-            ->reject(fn (Column $column) => $column->isHidden())
+            ->visible()
+            ->selectable()
+            ->reject(fn (Column $column) => ! $this->columnSelectIsEnabledForColumn($column))
             ->reject(fn (Column $column) => $this->currentlyReorderingIsEnabled() && !$column->isVisibleOnReorder())
             ->keyBy(function (Column $column, int $key) {
                 return $column->getSlug();
             })
             ->map(fn ($column) => $column->getTitle())
             ->toArray();
+    }
+
+    #[Computed]
+    public function getColumnsForColumnSelectCount(): int
+    {
+        return count($this->getColumnsForColumnSelect());
     }
 
     /**
@@ -175,11 +168,11 @@ trait ColumnSelectHelpers
      */
     public function getDefaultVisibleColumns(): array
     {
-        return collect($this->getColumns()
-            ->reject(fn (Column $column) => $column->isHidden())
+        return $this->getColumns()
+            ->visible()
             ->reject(fn (Column $column) => $column->isSelectable() && ! $column->isSelected())
+            ->reject(fn (Column $column) => !$column->isSelectable())
             ->reject(fn (Column $column) => $this->currentlyReorderingIsEnabled() && !$column->isVisibleOnReorder())
-        )
             ->map(fn ($column) => $column->getSlug())
             ->values()
             ->toArray();
@@ -204,7 +197,7 @@ trait ColumnSelectHelpers
     public function selectedVisibleColumns(): array
     {
         return $this->getColumns()
-            ->reject(fn (Column $column) => $column->isHidden())
+            ->visible()
             ->reject(fn (Column $column) => ($column->isSelectable() && ! $this->columnSelectIsEnabledForColumn($column)))
             ->reject(fn (Column $column) => $this->currentlyReorderingIsEnabled() && !$column->isVisibleOnReorder())
             ->values()
@@ -219,7 +212,7 @@ trait ColumnSelectHelpers
     public function selectAllColumns(): void
     {
         $this->selectedColumns = [];
-        foreach ($this->getColumns() as $column) {
+        foreach ($this->getSelectableColumns() as $column) {
             $this->selectedColumns[] = $column->getSlug();
         }
         $this->storeColumnSelectValues();

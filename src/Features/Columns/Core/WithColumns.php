@@ -6,6 +6,7 @@ use Illuminate\Support\Collection;
 use Rappasoft\LaravelLivewireTables\Exceptions\NoColumnsException;
 use Rappasoft\LaravelLivewireTables\Features\Columns\Core\Configuration\ColumnConfiguration;
 use Rappasoft\LaravelLivewireTables\Features\Columns\Core\Helpers\ColumnHelpers;
+use Rappasoft\LaravelLivewireTables\Collections\ColumnCollection;
 
 trait WithColumns
 {
@@ -15,23 +16,23 @@ trait WithColumns
     /**
      * Undocumented variable
      *
-     * @var Collection<int,\Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column>
+     * @var ColumnCollection<int,\Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column>
      */
-    protected Collection $columns;
+    protected ColumnCollection $columns;
 
     /**
      * Undocumented variable
      *
-     * @var Collection<int,\Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column>|null
+     * @var ColumnCollection<int,\Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column>|null
      */
-    protected ?Collection $prependedColumns;
+    protected ?ColumnCollection $prependedColumns;
 
     /**
      * Undocumented variable
      *
-     * @var Collection<int,\Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column>|null
+     * @var ColumnCollection<int,\Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column>|null
      */
-    protected ?Collection $appendedColumns;
+    protected ?ColumnCollection $appendedColumns;
 
     /**
      * Undocumented variable
@@ -47,7 +48,7 @@ trait WithColumns
      */
     public function bootedWithColumns(): void
     {
-        $this->columns = collect();
+        $this->columns = new ColumnCollection();
 
         // Sets Columns
         // Fire Lifecycle Hooks for settingColumns
@@ -84,6 +85,7 @@ trait WithColumns
      */
      public function renderingWithColumns(\Illuminate\View\View $view, array $data = []): void
     {
+
         if (! $this->getComputedPropertiesStatus()) {
             $view->with([
                 'columns' => $this->getColumns(),

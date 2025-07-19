@@ -2,6 +2,7 @@
 
 namespace Rappasoft\LaravelLivewireTables\Features\Columns\Core\Helpers;
 
+use Rappasoft\LaravelLivewireTables\Collections\ColumnCollection;
 use Illuminate\Support\Collection;
 use Livewire\Attributes\Computed;
 use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
@@ -13,9 +14,9 @@ trait ColumnHelpers
     /**
      * Undocumented function
      *
-     * @return Collection<int,Column>
+     * @return ColumnCollection<int,Column>
      */
-    public function getColumns(): Collection
+    public function getColumns(): ColumnCollection
     {
         if (! $this->hasRunColumnSetup) {
             $this->setupColumns();
@@ -90,9 +91,9 @@ trait ColumnHelpers
     /**
      * Undocumented function
      *
-     * @return Collection<int,Column>
+     * @return ColumnCollection<int,Column>
      */
-    public function getSearchableColumns(): Collection
+    public function getSearchableColumns(): ColumnCollection
     {
         return $this->getColumns()
             ->filter(fn (Column $column) => $column->isSearchable() || $column->hasSearchCallback());
@@ -101,9 +102,9 @@ trait ColumnHelpers
     /**
      * Undocumented function
      *
-     * @return Collection<int,string>
+     * @return ColumnCollection<int,string>
      */
-    public function getSortableColumns(): Collection
+    public function getSortableColumns(): ColumnCollection
     {
         return isset($this->sortableColumns) ? $this->sortableColumns : $this->sortableColumns = $this->getColumns()
             ->filter(fn (Column $column) => ($column->isSortable() || $column->hasSortCallback()))
@@ -119,7 +120,7 @@ trait ColumnHelpers
     /**
      * Undocumented function
      *
-     * @return Collection<int,Column>
+     * @return ColumnCollection<int,Column>
      */
     public function getPrependedColumns(): Collection
     {
@@ -129,7 +130,7 @@ trait ColumnHelpers
     /**
      * Undocumented function
      *
-     * @return Collection<int,Column>
+     * @return ColumnCollection<int,Column>
      */
     public function getAppendedColumns(): Collection
     {
@@ -155,4 +156,6 @@ trait ColumnHelpers
     {
         return [];
     }
+
+
 }

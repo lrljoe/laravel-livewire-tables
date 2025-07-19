@@ -3,6 +3,8 @@
 @php($columnSelectButtonAttributes = $this->getColumnSelectButtonAttributes())
 @php($columnSelectMenuOptionCheckboxAttributes = $this->getColumnSelectMenuOptionCheckboxAttributes)
 @php($selectableSelectedColumnCount = $this->getSelectableSelectedColumns()->count())
+@php($selectedColCount = count($this->getColumnsForColumnSelect()))
+@php($columnSelectItems = $this->generateColumnSelectItems())
 
 @if ($isTailwind || $isTailwind4)
     <div @class([
@@ -17,39 +19,40 @@
                 updatingRoot: false,
                 previousCols: [],
                 selectedCols: $wire.entangle('selectedColumns'),
-                colsForColSelect: {{ $jsoned }},
+                selectableColumnCount: $wire.entangle('selectableColumnCount'),
                 timeout: 0,
                 toggleAll()
                 {
-                    if(this.selectedCols.length < this.colsForColSelect.length)
-                    {
-                        this.selectedCols = this.colsForColSelect;
-                    }
-                    else
-                    {
-                        this.selectedCols = [];
-                    }
+                    $wire.call('toggleAllColumns');
                 },
                 sendUpdate()
                 {
-
                     if(this.selectedCols != this.previousCols)
                     {
                         console.log('this selectedCols: '+this.selectedCols);
                         console.log('this previousCols: '+this.previousCols);
                         this.previousCols = this.selectedCols;
                         open = false;
+                        console.log('SelectedCol Length: '+this.selectedCols.length);
                         $wire.$refresh();
                     }
+                },
+                adjustSelectedStatus(value)
+                {
+                    console.log('adjustSelectedStatus');
+                    console.log('value');
+                    let array = JSON.parse(JSON.stringify(value))
+                    console.log(array);
+                    
                 },
                 init()
                 {
                     $nextTick(() => { 
-                        console.log('selectedCols: '+this.selectedCols.length);
-                        console.log('colsForColSelect: '+this.colsForColSelect.length);
                         this.previousCols = $wire.get('selectedColumns');
                         console.log('previousCols: '+this.previousCols);
+
                     });
+                    $watch('selectedCols', value => this.adjustSelectedStatus(value));
 
                 }
             }"
@@ -57,7 +60,12 @@
             x-on:click.away="if (!childElementOpen) { open = false }"
             class="inline-block relative w-full text-left md:w-auto"
             wire:key="{{ $dataTableFingerprint }}-column-select-button"
-        >
+        >   <div>
+                <div><span>selectedCols.length</span><span x-text="selectedCols.length"></span></div>
+                <div><span>selectableColumnCount</span><span x-text="selectableColumnCount"></span></div>
+
+
+            </div>
             <div>
                 <span class="rounded-md shadow-sm">
                     <button
@@ -104,7 +112,7 @@
                                 class="inline-flex items-center px-2 py-1 disabled:opacity-50 disabled:cursor-wait"
                             >
                                 <x-livewire-tables::forms.checkbox
-                                    ::checked="selectedCols.length == colsForColSelect.length"
+                                    ::checked="selectedCols.length == selectableColumnCount"
                                     wire:key="{{ $dataTableFingerprint }}-columnSelect-selectAll-checkbox" 
                                     wire:target="selectedCols"
                                     wire:loading.attr="disabled" 
@@ -115,25 +123,22 @@
                             </label>
                         </div>
 
-                        @foreach ($this->getColumnsForColumnSelect() as $columnSlug => $columnTitle)
+                        @foreach ($columnSelectItems as $index => $columnDetail)
                             <div
                                 wire:key="{{ $dataTableFingerprint }}-columnSelect-{{ $loop->index }}"
                             >
                                 <label
                                     wire:loading.attr="disabled"
-                                    wire:target="selectedColumns"
+                                    wire:target="selectedCols"
                                     class="inline-flex items-center px-2 py-1 disabled:opacity-50 disabled:cursor-wait"
                                 >
 
-                                        <x-livewire-tables::forms.checkbox 
-                                            wire:key="{{ $dataTableFingerprint . 'selectedItems-'.$columnSlug }}" 
+                                        <input type='checkbox'
+                                            wire:key="{{ $dataTableFingerprint . 'selectedItems-'.$columnDetail['slug'] }}" 
                                             x-model='selectedCols'
-                                            wire:target="selectedColumns"
-                                            wire:loading.attr="disabled" 
-                                            value="{{ $columnSlug }}"
-                                            :checkboxAttributes=$columnSelectMenuOptionCheckboxAttributes
+                                            value="{{ $columnDetail['slug'] }}"
                                         />
-                                    <span class="ml-2">{{ $columnTitle }}</span>
+                                    <span class="ml-2">{{ $columnDetail['title'] }}</span>
                                 </label>
                             </div>
                         @endforeach
