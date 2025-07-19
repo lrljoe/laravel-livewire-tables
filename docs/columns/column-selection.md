@@ -268,6 +268,47 @@ public function configure(): void
 }
 ```
 
+
+### setColumnSelectMenuAttributes
+Allows for customisation of the appearance of the "Column Select" menu
+
+Note that this utilises a refreshed approach for attributes, and allows for appending to, or replacing the styles and colors independently, via the below methods.
+
+```php
+public function configure(): void
+{
+  $this->setColumnSelectMenuAttributes([
+    'class' => 'text-rose-300 focus:border-rose-300 focus:ring-rose-300', // Add these classes to the column select menu option checkbox
+    'default-colors' => false, // Do not output the default colors
+    'default-styling' => true // Output the default styling
+  ]);
+}
+```
+
+### setColumnSelectMenuAttributes Transition Behaviour
+
+To modify the transition behaviour, you can customise any of the x-transition properties:
+```php
+    'x-transition:enter' => 'transition ease-out duration-100',
+    'x-transition:enter-start' => 'transform opacity-0 scale-95',
+    'x-transition:enter-end' => 'transform opacity-100 scale-100',
+    'x-transition:leave' => 'transition ease-in duration-75',
+    'x-transition:leave-start' => 'transform opacity-100 scale-100',
+    'x-transition:leave-end' => 'transform opacity-0 scale-95',
+```
+By replacing the relevant attribute, for example, this would slow the "enter" behaviour to 3000ms instead of the default 100ms.
+
+```php
+public function configure(): void
+{
+  $this->setColumnSelectMenuAttributes([
+    'x-transition:enter' => 'transition ease-out duration-[3000ms]',
+    'default-colors' => true, // Output the default colors
+    'default-styling' => true // Output the default styling
+  ]);
+}
+```
+
 ### setColumnSelectMenuOptionCheckboxAttributes
 Allows for customisation of the appearance of the "Column Select" menu option checkbox
 

@@ -8,7 +8,7 @@ use Rappasoft\LaravelLivewireTables\Traits\{ComponentUtilities, WithCustomisatio
 use Rappasoft\LaravelLivewireTables\Traits\Core\{HasLocalisations};
 use Rappasoft\LaravelLivewireTables\Views\Traits\Core\HasTheme;
 use Rappasoft\LaravelLivewireTables\Traits\Styling\{HasCoreStyling};
-use Rappasoft\LaravelLivewireTables\Features\Core\HandlesCoreAttributes;
+use Rappasoft\LaravelLivewireTables\Features\Core\{HandlesCoreAttributes,ProvidesEnhancementDefaults};
 use Rappasoft\LaravelLivewireTables\Features\Actions\Core\WithActions;
 use Rappasoft\LaravelLivewireTables\Features\BulkActions\Core\WithBulkActions;
 use Rappasoft\LaravelLivewireTables\Features\Columns\Core\WithColumns;
@@ -32,6 +32,7 @@ abstract class DataTableComponent extends Component
 {
 
     use HandlesCoreAttributes,
+        ProvidesEnhancementDefaults,
         WithFeatureDetection,
         ComponentUtilities,
         WithQueryString,

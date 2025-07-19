@@ -23,6 +23,13 @@ trait HasColumnSelectStyling
     protected array $columnSelectMenuOptionCheckboxAttributes = ['class' => '', 'default-styling' => true, 'default-colors' => true, 'type' => 'checkbox', 'wire:loading.attr' => 'disabled'];
 
     /**
+     * Column Select Menu Attributes
+     *
+     * @var array<mixed>
+     */
+    protected array $columnSelectMenuAttributes = ['class' => '', 'default-styling' => true, 'default-colors' => true];
+
+    /**
      * Use the New Column Select Design
      *
      * @var boolean
@@ -38,6 +45,12 @@ trait HasColumnSelectStyling
     public function getColumnSelectButtonAttributes(): array
     {
         return $this->columnSelectButtonAttributes;
+    }
+
+    #[Computed]
+    public function getColumnSelectMenuAttributes(): array
+    {
+        return [...$this->getCoreTransitionAttributes(), ...$this->columnSelectMenuAttributes];
     }
 
     /**
@@ -57,6 +70,20 @@ trait HasColumnSelectStyling
             return [...['wire:model.live' => 'selectedColumns'], ...$this->columnSelectMenuOptionCheckboxAttributes];
         }
 
+    }
+
+    /**
+     * Set Column Select Menu Attributes
+     *
+     * @param array<mixed> $attributes
+     * @return self
+     */
+    public function setColumnSelectMenuAttributes(array $attributes = []): self
+    {
+
+        $this->columnSelectMenuAttributes = [...$this->columnSelectMenuAttributes, ...$attributes];
+
+        return $this;
     }
 
     /**

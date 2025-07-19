@@ -2,6 +2,7 @@
 @php($columnSelectButtonAttributes = $this->getColumnSelectButtonAttributes())
 @php($columnSelectMenuOptionCheckboxAttributes = $this->getColumnSelectMenuOptionCheckboxAttributes())
 @php($selectableSelectedColumnCount = $this->getSelectableSelectedColumns()->count())
+@php($columnSelectItems = $this->generateColumnSelectItems())
 
 @if ($isTailwind)
     <div class="@if ($this->getColumnSelectIsHiddenOnMobile()) hidden sm:block @elseif ($this->getColumnSelectIsHiddenOnTablet()) hidden md:block @endif mb-4 w-full md:w-auto md:mb-0 md:ml-2">
@@ -71,7 +72,7 @@
                             </label>
                         </div>
 
-                        @foreach ($this->getColumnsForColumnSelect() as $columnSlug => $columnTitle)
+                        @foreach ($columnSelectItems as $index => $columnDetail)
                             <div
                                 wire:key="{{ $dataTableFingerprint }}-columnSelect-{{ $loop->index }}"
                             >
@@ -90,8 +91,8 @@
                                             ->except(['default-colors', 'default-styling'])
                                         }}
                                         wire:target="selectedColumns"
-                                        value="{{ $columnSlug }}" />
-                                    <span class="ml-2">{{ $columnTitle }}</span>
+                                        value="{{ $columnDetail['slug'] }}" />
+                                    <span class="ml-2">{{ $columnDetail['title'] }}</span>
                                 </label>
                             </div>
                         @endforeach

@@ -5,6 +5,7 @@ namespace Rappasoft\LaravelLivewireTables\Features\ColumnsCollapsing\Helpers;
 use Illuminate\Support\Collection;
 use Livewire\Attributes\Computed;
 use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
+use Rappasoft\LaravelLivewireTables\Collections\ColumnCollection;
 
 trait ColumnCollapsingHelpers
 {
@@ -79,9 +80,9 @@ trait ColumnCollapsingHelpers
     /**
      * Gets Columns that Collapse On Mobile
      *
-     * @return Collection<int,Column>
+     * @return ColumnCollection<int,Column>
      */
-    public function getCollapsedMobileColumns(): Collection
+    public function getCollapsedMobileColumns(): ColumnCollection
     {
         return $this->getColumns()
             ->reject(fn (Column $column) => ($column->isHidden() || ($column->isSelectable() && ! $this->columnSelectIsEnabledForColumn($column))))
@@ -97,9 +98,9 @@ trait ColumnCollapsingHelpers
     /**
      * Undocumented function
      *
-     * @return Collection<int,Column>
+     * @return ColumnCollection<int,Column>
      */
-    public function getVisibleMobileColumns(): Collection
+    public function getVisibleMobileColumns(): ColumnCollection
     {
         return $this->getColumns()
             ->reject(fn (Column $column) => $column->shouldCollapseOnMobile())
@@ -125,9 +126,9 @@ trait ColumnCollapsingHelpers
     /**
      * Gets Columns that Collapse On Tablet
      *
-     * @return Collection<int,Column>
+     * @return ColumnCollection<int,Column>
      */
-    public function getCollapsedTabletColumns(): Collection
+    public function getCollapsedTabletColumns(): ColumnCollection
     {
         return $this->getColumns()
             ->reject(fn (Column $column) => ($column->isHidden() || ($column->isSelectable() && ! $this->columnSelectIsEnabledForColumn($column))))
@@ -143,9 +144,9 @@ trait ColumnCollapsingHelpers
     /**
      * Undocumented function
      *
-     * @return Collection<int,Column>
+     * @return ColumnCollection<int,Column>
      */
-    public function getVisibleTabletColumns(): Collection
+    public function getVisibleTabletColumns(): ColumnCollection
     {
         return $this->getColumns()
             ->reject(fn (Column $column) => $column->shouldCollapseOnTablet())
@@ -160,9 +161,9 @@ trait ColumnCollapsingHelpers
     /**
      * Gets Columns that Collapse Always
      *
-     * @return Collection<int,Column>
+     * @return ColumnCollection<int,Column>
      */
-    public function getCollapsedAlwaysColumns(): Collection
+    public function getCollapsedAlwaysColumns(): ColumnCollection
     {
         return $this->getColumns()
             ->reject(fn (Column $column) => ($column->isHidden() || ($column->isSelectable() && ! $this->columnSelectIsEnabledForColumn($column))))
@@ -194,10 +195,10 @@ trait ColumnCollapsingHelpers
     /**
      * Undocumented function
      *
-     * @return Collection<int,Column>
+     * @return ColumnCollection<int,Column>
      */
     #[Computed]
-    public function getCollapsedColumnsForContent(): Collection
+    public function getCollapsedColumnsForContent(): ColumnCollection
     {
         $colspan = $this->getColspanCount();
         $columns = $this->getColumns()
