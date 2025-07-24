@@ -4,17 +4,68 @@ namespace Rappasoft\LaravelLivewireTables\Features\Columns\Views\Traits;
 
 trait IsCollapsible
 {
+    /**
+     * Collapse On Mobile Setting
+     *
+     * @var boolean
+     */
     protected bool $collapseOnMobile = false;
 
+    /**
+     * Collapse On Tablet Setting
+     *
+     * @var boolean
+     */
     protected bool $collapseOnTablet = false;
 
+    /**
+     * Collapse Always Setting
+     *
+     * @var boolean
+     */
     protected bool $collapseAlways = false;
 
+    /**
+     * Collapse Sometimes Setting
+     *
+     * @var boolean
+     */
     protected bool $collapseSometimes = false;
 
+    /**
+     * Column Should Collapse On Mobile
+     *
+     * @return self
+     */
     public function collapseOnMobile(): self
     {
         $this->collapseOnMobile = true;
+        $this->collapseSometimes = true;
+
+        return $this;
+    }
+
+    /**
+     * Column Should Collapse On Tablet
+     *
+     * @return self
+     */
+    public function collapseOnTablet(): self
+    {
+        $this->collapseOnTablet = true;
+        $this->collapseSometimes = true;
+
+        return $this;
+    }
+
+    /**
+     * Column Should Collapse Always
+     *
+     * @return self
+     */
+    public function collapseAlways(): self
+    {
+        $this->collapseAlways = true;
         $this->collapseSometimes = true;
 
         return $this;
@@ -25,28 +76,9 @@ trait IsCollapsible
         return $this->collapseOnMobile;
     }
 
-    /**
-     * @return $this
-     */
-    public function collapseOnTablet(): self
-    {
-        $this->collapseOnTablet = true;
-        $this->collapseSometimes = true;
-
-        return $this;
-    }
-
     public function shouldCollapseOnTablet(): bool
     {
         return $this->collapseOnTablet;
-    }
-
-    public function collapseAlways(): self
-    {
-        $this->collapseAlways = true;
-        $this->collapseSometimes = true;
-
-        return $this;
     }
 
     public function shouldCollapseAlways(): bool

@@ -2,9 +2,9 @@
 
 namespace Rappasoft\LaravelLivewireTables\Features\Filters\Traits\Helpers;
 
-use Illuminate\Support\Collection;
 use Livewire\Attributes\Computed;
 use Rappasoft\LaravelLivewireTables\Features\Filters\Views\Filter;
+use Rappasoft\LaravelLivewireTables\Collections\FilterCollection;
 
 trait FilterHelpers
 {
@@ -21,12 +21,12 @@ trait FilterHelpers
     /**
      * Undocumented function
      *
-     * @return Collection<int,Filter>
+     * @return FilterCollection<int,Filter>
      */
-    public function getFilters(): Collection
+    public function getFilters(): FilterCollection
     {
         if (! isset($this->filterCollection)) {
-            $this->filterCollection = collect($this->filters());
+            $this->filterCollection = new FilterCollection($this->filters());
         }
 
         return $this->filterCollection;
@@ -71,7 +71,7 @@ trait FilterHelpers
             ->map(fn (Filter $filter) => $filter->getKey())
             ->toArray();
 
-        return collect($this->appliedFilters ?? [])
+        return new FilterCollection($this->appliedFilters ?? [])
             ->filter(fn ($value, $key) => in_array($key, $validFilterKeys, true))
             ->toArray();
     }
@@ -93,7 +93,7 @@ trait FilterHelpers
      */
     public function hasAppliedVisibleFiltersWithValuesThatCanBeCleared(): bool
     {
-        return collect($this->getAppliedFiltersWithValues())
+        return new FilterCollection($this->getAppliedFiltersWithValues())
             ->map(fn ($_item, $key) => $this->getFilterByKey($key))
             ->reject(fn (Filter $filter) => $filter->isHiddenFromMenus() && ! $filter->isResetByClearButton())
             ->count() > 0;
@@ -106,7 +106,7 @@ trait FilterHelpers
      */
     public function getFilterBadgeCount(): int
     {
-        return collect($this->getAppliedFiltersWithValues())
+        return new FilterCollection($this->getAppliedFiltersWithValues())
             ->map(fn ($_item, $key) => $this->getFilterByKey($key))
             ->reject(fn (Filter $filter) => $filter->isHiddenFromFilterCount())
             ->count();
@@ -151,15 +151,15 @@ trait FilterHelpers
     /**
      * Undocumented function
      *
-     * @return Collection<int,Filter>
+     * @return FilterCollection<int,Filter>
      */
-    public function getAppliedFiltersCollection(): Collection
+    public function getAppliedFiltersCollection(): FilterCollection
     {
         $validFilterKeys = $this->getFilters()
             ->map(fn (Filter $filter) => $filter->getKey())
             ->toArray();
 
-        return collect($this->appliedFilters ?? [])
+        return new FilterCollection($this->appliedFilters ?? [])
             ->filter(fn ($value, $key) => in_array($key, $validFilterKeys, true));
     }
 }

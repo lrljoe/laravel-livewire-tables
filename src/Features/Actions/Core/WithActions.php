@@ -2,7 +2,7 @@
 
 namespace Rappasoft\LaravelLivewireTables\Features\Actions\Core;
 
-use Illuminate\Support\Collection;
+use Rappasoft\LaravelLivewireTables\Collections\ActionCollection;
 use Rappasoft\LaravelLivewireTables\Features\Actions\Core\Configuration\ActionsConfiguration;
 use Rappasoft\LaravelLivewireTables\Features\Actions\Core\Helpers\ActionsHelpers;
 use Rappasoft\LaravelLivewireTables\Features\Actions\Core\Styling\HasActionsStyling;
@@ -37,9 +37,9 @@ trait WithActions
     /**
      * Undocumented variable
      *
-     * @var Collection<int,\Rappasoft\LaravelLivewireTables\Features\Actions\Views\Action>|null
+     * @var ActionCollection<int,\Rappasoft\LaravelLivewireTables\Features\Actions\Views\Action>|null
      */
-    protected ?Collection $validActions;
+    protected ?ActionCollection $validActions;
 
     /**
      * Undocumented function

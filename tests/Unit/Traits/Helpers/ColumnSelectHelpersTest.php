@@ -13,11 +13,11 @@ final class ColumnSelectHelpersTest extends TestCase
     {
         $this->assertTrue($this->basicTable->columnSelectIsEnabled());
 
-        $this->basicTable->setColumnSelectDisabled();
+        $this->basicTable->maMethodAccessor('setColumnSelectDisabled');
 
         $this->assertTrue($this->basicTable->columnSelectIsDisabled());
 
-        $this->basicTable->setColumnSelectEnabled();
+        $this->basicTable->maMethodAccessor('setColumnSelectEnabled');
 
         $this->assertTrue($this->basicTable->columnSelectIsEnabled());
     }
@@ -26,19 +26,19 @@ final class ColumnSelectHelpersTest extends TestCase
     {
         $this->assertTrue($this->basicTable->shouldStoreColumnSelectInSession());
 
-        $this->basicTable->setRememberColumnSelectionDisabled();
+        $this->basicTable->maMethodAccessor('setRememberColumnSelectionDisabled');
 
         $this->assertFalse($this->basicTable->shouldStoreColumnSelectInSession());
 
-        $this->basicTable->setRememberColumnSelectionEnabled();
+        $this->basicTable->maMethodAccessor('setRememberColumnSelectionEnabled');
 
         $this->assertTrue($this->basicTable->shouldStoreColumnSelectInSession());
-
-        $this->basicTable->storeColumnSelectInSessionDisabled();
+        
+        $this->basicTable->maMethodAccessor('storeColumnSelectInSessionDisabled');
 
         $this->assertFalse($this->basicTable->shouldStoreColumnSelectInSession());
 
-        $this->basicTable->storeColumnSelectInSessionEnabled();
+        $this->basicTable->maMethodAccessor('storeColumnSelectInSessionEnabled');
 
         $this->assertTrue($this->basicTable->shouldStoreColumnSelectInSession());
 
@@ -94,16 +94,16 @@ final class ColumnSelectHelpersTest extends TestCase
 
     public function test_get_currently_selected_cols_works(): void
     {
-        $this->assertSame(8, count($this->basicTable->getDefaultVisibleColumns()));
-        $this->assertSame(8, count(array_intersect($this->basicTable->selectedColumns, $this->basicTable->getDefaultVisibleColumns())));
-
-        $this->assertSame(['id', 'sort', 'name', 'age', 'breed', 'other', 'link', 'rowimg'], $this->basicTable->selectedColumns);
-
-        $this->basicTable->selectedColumns = ['id', 'sort', 'name', 'age', 'breed', 'other', 'rowimg'];
-        $this->assertSame(['id', 'sort', 'name', 'age', 'breed', 'other', 'rowimg'], $this->basicTable->selectedColumns);
-
+        $this->assertSame(7, count($this->basicTable->getDefaultVisibleColumns()));
         $this->assertSame(7, count(array_intersect($this->basicTable->selectedColumns, $this->basicTable->getDefaultVisibleColumns())));
-        $this->assertSame(8, count($this->basicTable->getDefaultVisibleColumns()));
+
+        $this->assertSame(['id', 'name', 'age', 'breed', 'other', 'link', 'rowimg'], $this->basicTable->selectedColumns);
+
+        $this->basicTable->selectedColumns = ['id', 'name', 'age', 'breed', 'other', 'rowimg'];
+        $this->assertSame(['id', 'name', 'age', 'breed', 'other', 'rowimg'], $this->basicTable->selectedColumns);
+
+        $this->assertSame(6, count(array_intersect($this->basicTable->selectedColumns, $this->basicTable->getDefaultVisibleColumns())));
+        $this->assertSame(7, count($this->basicTable->getDefaultVisibleColumns()));
 
     }
 
@@ -120,15 +120,15 @@ final class ColumnSelectHelpersTest extends TestCase
         };
         $testTable->bootAll();
 
-        $this->assertSame(['id', 'sort', 'name', 'age', 'breed', 'other', 'link', 'rowimg'], $testTable->selectedColumns);
+        $this->assertSame(['id', 'name', 'age', 'breed', 'other', 'link', 'rowimg'], $testTable->selectedColumns);
 
-        $testTable->selectedColumns = ['id', 'sort', 'name', 'age', 'breed', 'other', 'rowimg'];
-        $this->assertSame(['id', 'sort', 'name', 'age', 'breed', 'other', 'rowimg'], $testTable->selectedColumns);
+        $testTable->selectedColumns = ['id', 'name', 'age', 'breed', 'other', 'rowimg'];
+        $this->assertSame(['id', 'name', 'age', 'breed', 'other', 'rowimg'], $testTable->selectedColumns);
         $testTable->disableColumnSelectEvent()->storeColumnSelect();
         Event::assertNotDispatched(ColumnsSelected::class);
 
-        $testTable->selectedColumns = ['id', 'sort', 'name', 'age', 'breed', 'other', 'link', 'rowimg'];
-        $this->assertSame(['id', 'sort', 'name', 'age', 'breed', 'other', 'link', 'rowimg'], $testTable->selectedColumns);
+        $testTable->selectedColumns = ['id','name', 'age', 'breed', 'other', 'link', 'rowimg'];
+        $this->assertSame(['id', 'name', 'age', 'breed', 'other', 'link', 'rowimg'], $testTable->selectedColumns);
         $testTable->enableColumnSelectEvent()->storeColumnSelect();
         Event::assertDispatched(ColumnsSelected::class);
 
@@ -148,10 +148,10 @@ final class ColumnSelectHelpersTest extends TestCase
         };
         $testTable->bootAll();
 
-        $this->assertSame(['id', 'sort', 'name', 'age', 'breed', 'other', 'link', 'rowimg'], $testTable->selectedColumns);
+        $this->assertSame(['id', 'name', 'age', 'breed', 'other', 'link', 'rowimg'], $testTable->selectedColumns);
 
-        $testTable->selectedColumns = ['id', 'sort', 'name', 'age', 'breed', 'other', 'link', 'rowimg'];
-        $this->assertSame(['id', 'sort', 'name', 'age', 'breed', 'other', 'link', 'rowimg'], $testTable->selectedColumns);
+        $testTable->selectedColumns = ['id', 'name', 'age', 'breed', 'other', 'link', 'rowimg'];
+        $this->assertSame(['id',  'name', 'age', 'breed', 'other', 'link', 'rowimg'], $testTable->selectedColumns);
         $testTable->storeColumnSelect();
         Event::assertDispatched(ColumnsSelected::class);
 
@@ -171,9 +171,9 @@ final class ColumnSelectHelpersTest extends TestCase
         };
         $testTable->bootAll();
 
-        $this->assertSame(['id', 'sort', 'name', 'age', 'breed', 'other', 'link', 'rowimg'], $testTable->selectedColumns);
-        $testTable->selectedColumns = ['id', 'sort', 'name', 'age', 'breed', 'other', 'rowimg'];
-        $this->assertSame(['id', 'sort', 'name', 'age', 'breed', 'other', 'rowimg'], $testTable->selectedColumns);
+        $this->assertSame(['id', 'name', 'age', 'breed', 'other', 'link', 'rowimg'], $testTable->selectedColumns);
+        $testTable->selectedColumns = ['id','name', 'age', 'breed', 'other', 'rowimg'];
+        $this->assertSame(['id', 'name', 'age', 'breed', 'other', 'rowimg'], $testTable->selectedColumns);
         $testTable->updatedSelectedColumns();
         Event::assertNotDispatched(ColumnsSelected::class);
     }

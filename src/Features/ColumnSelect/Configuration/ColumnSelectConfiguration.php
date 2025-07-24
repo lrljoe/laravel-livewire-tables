@@ -7,22 +7,6 @@ use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
 trait ColumnSelectConfiguration
 {
 
-    public function setRememberColumnSelectionStatus(bool $status): self
-    {
-        $this->storeColumnSelectInSessionStatus($status);
-
-        return $this;
-    }
-
-    public function setRememberColumnSelectionEnabled(): self
-    {
-        return $this->setRememberColumnSelectionStatus(true);
-    }
-
-    public function setRememberColumnSelectionDisabled(): self
-    {
-        return $this->setRememberColumnSelectionStatus(false);
-    }
 
     public function setExcludeDeselectedColumnsFromQuery(bool $status): self
     {

@@ -16,6 +16,7 @@ trait TestHelpers
         $this->bootedWithColumns();
         $this->bootedWithColumnSelect();
         $this->booted();
+        $this->mountWithColumnSelect();
         $this->mountHasFiltersCore();
         $this->mountComponentUtilities();
         $this->mountWithSorting();

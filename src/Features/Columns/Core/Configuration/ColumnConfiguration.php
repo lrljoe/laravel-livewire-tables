@@ -68,7 +68,7 @@ trait ColumnConfiguration
      */
     public function setPrependedColumns(array $prependedColumns): void
     {
-        $this->prependedColumns = collect($prependedColumns);
+        $this->prependedColumns = new ColumnCollection($prependedColumns);
         $this->hasRunColumnSetup = false;
     }
 
@@ -80,7 +80,7 @@ trait ColumnConfiguration
      */
     public function setAppendedColumns(array $appendedColumns): void
     {
-        $this->appendedColumns = collect($appendedColumns);
+        $this->appendedColumns = new ColumnCollection($appendedColumns);
         $this->hasRunColumnSetup = false;
     }
 }

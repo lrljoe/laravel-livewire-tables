@@ -2,7 +2,6 @@
 
 namespace Rappasoft\LaravelLivewireTables\Features\Columns\Core;
 
-use Illuminate\Support\Collection;
 use Rappasoft\LaravelLivewireTables\Exceptions\NoColumnsException;
 use Rappasoft\LaravelLivewireTables\Features\Columns\Core\Configuration\ColumnConfiguration;
 use Rappasoft\LaravelLivewireTables\Features\Columns\Core\Helpers\ColumnHelpers;

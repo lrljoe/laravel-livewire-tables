@@ -22,19 +22,19 @@ final class ColumnSelectConfigurationTest extends TestCase
     {
         $this->assertTrue($this->basicTable->getColumnSelectStatus());
 
-        $this->basicTable->setColumnSelectDisabled();
+        $this->basicTable->maMethodAccessor('setColumnSelectDisabled');
 
         $this->assertFalse($this->basicTable->getColumnSelectStatus());
 
-        $this->basicTable->setColumnSelectEnabled();
+        $this->basicTable->maMethodAccessor('setColumnSelectEnabled');
 
         $this->assertTrue($this->basicTable->getColumnSelectStatus());
 
-        $this->basicTable->setColumnSelectStatus(false);
+        $this->basicTable->maBoolAccessor('setColumnSelectStatus', false);
 
         $this->assertFalse($this->basicTable->getColumnSelectStatus());
 
-        $this->basicTable->setColumnSelectStatus(true);
+        $this->basicTable->maBoolAccessor('setColumnSelectStatus', true);
 
         $this->assertTrue($this->basicTable->getColumnSelectStatus());
     }
@@ -43,19 +43,19 @@ final class ColumnSelectConfigurationTest extends TestCase
     {
         $this->assertTrue($this->basicTable->shouldStoreColumnSelectInSession());
 
-        $this->basicTable->setRememberColumnSelectionDisabled();
+        $this->basicTable->maMethodAccessor('setRememberColumnSelectionDisabled');
 
         $this->assertFalse($this->basicTable->shouldStoreColumnSelectInSession());
 
-        $this->basicTable->setRememberColumnSelectionEnabled();
+        $this->basicTable->maMethodAccessor('setRememberColumnSelectionEnabled');
 
         $this->assertTrue($this->basicTable->shouldStoreColumnSelectInSession());
 
-        $this->basicTable->setRememberColumnSelectionStatus(false);
+        $this->basicTable->maBoolAccessor('setRememberColumnSelectionStatus', false);
 
         $this->assertFalse($this->basicTable->shouldStoreColumnSelectInSession());
 
-        $this->basicTable->setRememberColumnSelectionStatus(true);
+        $this->basicTable->maBoolAccessor('setRememberColumnSelectionStatus', true);
 
         $this->assertTrue($this->basicTable->shouldStoreColumnSelectInSession());
     }
@@ -116,7 +116,9 @@ final class ColumnSelectConfigurationTest extends TestCase
     {
         $this->assertTrue($this->basicTable->allSelectedColumnsAreVisibleByDefault());
 
-        $this->assertSame(8, count($this->basicTable->getDefaultVisibleColumns()));
+        $this->assertSame(7, count($this->basicTable->getDefaultVisibleColumns()));
+
+        $this->assertCount(7, $this->basicTable->getDefaultVisibleColumns());
 
         $this->assertTrue($this->basicTable->allVisibleColumnsAreSelected());
 

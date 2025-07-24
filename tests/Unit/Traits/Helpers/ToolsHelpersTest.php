@@ -62,7 +62,8 @@ final class ToolsHelpersTest extends TestCase
         $this->basicTable->setFiltersDisabled();
         $this->basicTable->setSingleSortingDisabled();
         $this->basicTable->setSearchDisabled();
-        $this->basicTable->setColumnSelectDisabled();
+        $this->basicTable->maMethodAccessor('setColumnSelectDisabled');
+
         $this->basicTable->setPerPageVisibilityDisabled();
         $this->basicTable->setSortingDisabled();
         $this->basicTable->setSortingPillsDisabled();
@@ -78,8 +79,8 @@ final class ToolsHelpersTest extends TestCase
         $this->assertTrue($this->basicTable->getToolsStatus());
         $this->assertTrue($this->basicTable->getToolBarStatus());
         $this->basicTable->setSearchDisabled()
-            ->setColumnSelectDisabled()
             ->setPerPageVisibilityDisabled();
+        $this->basicTable->maMethodAccessor('setColumnSelectDisabled');
         $this->basicTable->setSorts(['id' => 'asc', 'name' => 'desc']);
 
         $this->assertTrue($this->basicTable->shouldShowToolBar());

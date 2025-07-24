@@ -18,9 +18,12 @@ use Rappasoft\LaravelLivewireTables\Features\Filters\Views\MultiSelectFilter;
 use Rappasoft\LaravelLivewireTables\Features\Filters\Views\NumberFilter;
 use Rappasoft\LaravelLivewireTables\Features\Filters\Views\SelectFilter;
 use Rappasoft\LaravelLivewireTables\Features\Filters\Views\TextFilter;
+use Rappasoft\LaravelLivewireTables\Tests\Concerns\TestSecureMethodAccessors;
 
 class PetsTable extends BaseTable
 {
+    use TestSecureMethodAccessors;
+    
     public $model = Pet::class;
 
     public function changeLocale(string $locale)

@@ -2,9 +2,9 @@
 
 namespace Rappasoft\LaravelLivewireTables\Features\Actions\Core\Helpers;
 
-use Illuminate\Support\Collection;
 use Livewire\Attributes\Computed;
 use Rappasoft\LaravelLivewireTables\Features\Actions\Views\Action;
+use Rappasoft\LaravelLivewireTables\Collections\ActionCollection;
 
 trait ActionsHelpers
 {
@@ -80,12 +80,12 @@ trait ActionsHelpers
     /**
      * Retrieves the valid actions
      *
-     * @return Collection<int,Action>
+     * @return ActionCollection<int,Action>
      */
     #[Computed]
-    public function getActions(): Collection
+    public function getActions(): ActionCollection
     {
-        return (new Collection($this->actions()))
+        return (new ActionCollection($this->actions()))
                 ->filter(fn ($action) => $action instanceof Action)
                 ->each(function (Action $action, int $key) {
                     $action->setTheme($this->getTheme());

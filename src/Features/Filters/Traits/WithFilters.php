@@ -2,8 +2,8 @@
 
 namespace Rappasoft\LaravelLivewireTables\Features\Filters\Traits;
 
-use Illuminate\Support\Collection;
 use Rappasoft\LaravelLivewireTables\Features\Filters\Views\Filter;
+use Rappasoft\LaravelLivewireTables\Collections\FilterCollection;
 
 trait WithFilters
 {
@@ -46,9 +46,9 @@ trait WithFilters
     /**
      * Undocumented variable
      *
-     * @var Collection<int,Filter>|null
+     * @var FilterCollection<int,Filter>|null
      */
-    protected ?Collection $filterCollection;
+    protected ?FilterCollection $filterCollection;
 
     /**
      * Undocumented function

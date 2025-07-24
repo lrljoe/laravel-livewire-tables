@@ -2,9 +2,8 @@
 
 namespace Rappasoft\LaravelLivewireTables\Features\Columns\Core\Helpers;
 
-use Rappasoft\LaravelLivewireTables\Collections\ColumnCollection;
-use Illuminate\Support\Collection;
 use Livewire\Attributes\Computed;
+use Rappasoft\LaravelLivewireTables\Collections\ColumnCollection;
 use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
 
 trait ColumnHelpers
@@ -122,9 +121,9 @@ trait ColumnHelpers
      *
      * @return ColumnCollection<int,Column>
      */
-    public function getPrependedColumns(): Collection
+    public function getPrependedColumns(): ColumnCollection
     {
-        return $this->prependedColumns ?? collect($this->prependColumns());
+        return $this->prependedColumns ?? new ColumnCollection($this->prependColumns());
     }
 
     /**
@@ -132,9 +131,9 @@ trait ColumnHelpers
      *
      * @return ColumnCollection<int,Column>
      */
-    public function getAppendedColumns(): Collection
+    public function getAppendedColumns(): ColumnCollection
     {
-        return $this->appendedColumns ?? collect($this->appendColumns());
+        return $this->appendedColumns ?? new ColumnCollection($this->appendColumns());
     }
 
     /**

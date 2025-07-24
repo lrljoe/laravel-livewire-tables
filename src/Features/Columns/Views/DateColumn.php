@@ -3,7 +3,9 @@
 namespace Rappasoft\LaravelLivewireTables\Features\Columns\Views;
 
 use Carbon\Carbon;
+use Carbon\CarbonImmutable;
 use DateTime;
+use DateTimeImmutable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\HtmlString;
 use Rappasoft\LaravelLivewireTables\Exceptions\DataTableConfigurationException;
@@ -59,7 +61,12 @@ class DateColumn extends Column
             if ($dateTime != '' && $dateTime != null) {
                 if ($dateTime instanceof DateTime) {
                     return $dateTime->format($this->getOutputFormat());
-                } else {
+                } 
+                elseif($dateTime instanceof DateTimeImmutable)
+                {
+                    return Carbon::createFromImmutable($dateTime)->format($this->getOutputFormat());
+                }
+                else {
                     // Check if format matches what is expected and return Carbon instance if so, otherwise emptyValue
                     return Carbon::canBeCreatedFromFormat($dateTime, $this->getInputFormat()) ? Carbon::createFromFormat($this->getInputFormat(), $dateTime)->format($this->getOutputFormat()) : $this->getEmptyValue();
                 }

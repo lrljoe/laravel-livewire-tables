@@ -2,24 +2,12 @@
 
 namespace Rappasoft\LaravelLivewireTables\Features\ColumnsCollapsing\Helpers;
 
-use Illuminate\Support\Collection;
 use Livewire\Attributes\Computed;
 use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
 use Rappasoft\LaravelLivewireTables\Collections\ColumnCollection;
 
 trait ColumnCollapsingHelpers
 {
-    
-    /**
-     * Determines if Collapsing Columns Status Is True
-     *
-     * @return boolean
-     */
-    public function getCollapsingColumnsStatus(): bool
-    {
-        return $this->collapsingColumnsStatus;
-    }
-
     /**
      * Determines if Current Table has any Collapsing Columns
      *
@@ -29,28 +17,6 @@ trait ColumnCollapsingHelpers
     public function hasCollapsingColumns(): bool
     {
         return $this->getCollapsingColumnsStatus() === true;
-    }
-
-    /**
-     * Determines that Current Table has any Collapsing Columns
-     *
-     * @return boolean
-     */
-    #[Computed]
-    public function collapsingColumnsAreEnabled(): bool
-    {
-        return $this->getCollapsingColumnsStatus() === true;
-    }
-
-    /**
-     * Determines that Current Table does not have any Collapsing Columns
-     *
-     * @return boolean
-     */
-    #[Computed]
-    public function collapsingColumnsAreDisabled(): bool
-    {
-        return $this->getCollapsingColumnsStatus() === false;
     }
 
     #[Computed]
@@ -85,7 +51,8 @@ trait ColumnCollapsingHelpers
     public function getCollapsedMobileColumns(): ColumnCollection
     {
         return $this->getColumns()
-            ->reject(fn (Column $column) => ($column->isHidden() || ($column->isSelectable() && ! $this->columnSelectIsEnabledForColumn($column))))
+            ->visible()
+            ->reject(fn (Column $column) => ($column->isSelectable() && ! $this->columnSelectIsEnabledForColumn($column)))
             ->filter(fn (Column $column) => $column->shouldCollapseOnMobile())
             ->values();
     }

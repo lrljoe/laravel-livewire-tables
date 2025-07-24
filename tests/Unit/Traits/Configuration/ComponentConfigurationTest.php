@@ -219,19 +219,19 @@ final class ComponentConfigurationTest extends TestCase
     {
         $this->assertTrue($this->basicTable->getCollapsingColumnsStatus());
 
-        $this->basicTable->setCollapsingColumnsStatus(false);
+        $this->basicTable->maBoolAccessor('setCollapsingColumnsStatus', false);
 
         $this->assertFalse($this->basicTable->getCollapsingColumnsStatus());
-
-        $this->basicTable->setCollapsingColumnsStatus(true);
+        
+        $this->basicTable->maBoolAccessor('setCollapsingColumnsStatus', true);
 
         $this->assertTrue($this->basicTable->getCollapsingColumnsStatus());
 
-        $this->basicTable->setCollapsingColumnsDisabled();
+        $this->basicTable->maMethodAccessor('setCollapsingColumnsDisabled');
 
         $this->assertFalse($this->basicTable->getCollapsingColumnsStatus());
 
-        $this->basicTable->setCollapsingColumnsEnabled();
+        $this->basicTable->maMethodAccessor('setCollapsingColumnsEnabled');
 
         $this->assertTrue($this->basicTable->getCollapsingColumnsStatus());
     }

@@ -120,7 +120,7 @@ final class ComponentHelpersTest extends TestCase
 
         $this->assertTrue($this->basicTable->CollapsingColumnsAreEnabled());
 
-        $this->basicTable->setCollapsingColumnsDisabled();
+        $this->basicTable->maMethodAccessor('setCollapsingColumnsDisabled');
 
         $this->assertTrue($this->basicTable->CollapsingColumnsAreDisabled());
 

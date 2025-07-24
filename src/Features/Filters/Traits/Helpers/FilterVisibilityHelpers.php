@@ -2,9 +2,9 @@
 
 namespace Rappasoft\LaravelLivewireTables\Features\Filters\Traits\Helpers;
 
-use Illuminate\Support\Collection;
 use Livewire\Attributes\Computed;
 use Rappasoft\LaravelLivewireTables\Features\Filters\Views\Filter;
+use Rappasoft\LaravelLivewireTables\Collections\FilterCollection;
 
 trait FilterVisibilityHelpers
 {
@@ -39,9 +39,9 @@ trait FilterVisibilityHelpers
     /**
      * Get whether filter has a configured slide down row.
      *
-     * @return Collection<int,Filter>
+     * @return FilterCollection<int,Filter>
      */
-    public function getVisibleFilters(): Collection
+    public function getVisibleFilters(): FilterCollection
     {
         return $this->getFilters()->reject(fn (Filter $filter) => $filter->isHiddenFromMenus())
         ->each(function (Filter $filter) {

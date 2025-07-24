@@ -19,6 +19,7 @@
                 childElementOpen: false, 
                 updatingRoot: false,
                 previousCols: [],
+                selectableCols: $wire.entangle('selectableColumns'),
                 selectedCols: $wire.entangle('selectedColumns'),
                 selectableColumnCount: $wire.entangle('selectableColumnCount'),
                 timeout: 0,
@@ -27,19 +28,35 @@
                     this.open = false;
                     $wire.call('toggleAllColumns');
                 },
+                checkShouldSendUpdate()
+                {
+                    if(this.selectedCols.length != this.previousCols.length)
+                    {
+                        return true;
+                    }
+
+                    for (let i = 0; i < this.selectedCols.length; i++) {
+                        if (this.selectedCols[i] !== this.previousCols[i]) {
+                            return true;
+                        }
+                    }
+
+                    return false;
+                },
                 sendUpdate()
                 {
-                    if(this.selectedCols != this.previousCols)
+                    if(this.checkShouldSendUpdate())
                     {
                         this.previousCols = this.selectedCols;
-                        open = false;
+                        this.open = false;
                         $wire.$refresh();
                     }
                 },
                 init()
                 {
                     $nextTick(() => { 
-                        this.previousCols = $wire.get('selectedColumns');
+                        let preCol = $wire.get('selectedColumns');
+                        this.previousCols = preCol;
                     });
                 }
             }"
