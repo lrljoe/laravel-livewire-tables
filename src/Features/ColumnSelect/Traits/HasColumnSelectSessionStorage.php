@@ -58,6 +58,7 @@ trait HasColumnSelectSessionStorage
     public function restoreColumnSelectValues(): void
     {
         $this->selectedColumns = $this->getStoredColumnSelectValues();
+        $this->pushToQueryString($this->selectedColumns);
     }
 
     /**

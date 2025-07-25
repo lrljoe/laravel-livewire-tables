@@ -13,7 +13,7 @@ trait HasColumnSelectStyling
      * @var array<mixed>
      */
     
-    protected array $columnSelectButtonAttributes = ['default-styling' => true, 'default-colors' => true, 'class' => ''];
+    protected array $columnSelectButtonAttributes = ['default-styling' => true, 'default-colors' => true, 'class' => '', 'x-ref' => 'columnSelectButton'];
 
     /**
      * Column Select Menu Option Checkbox Attributes

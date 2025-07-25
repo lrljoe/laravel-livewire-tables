@@ -8,6 +8,8 @@ trait IsSelectable
 
     protected bool $selected = true;
 
+    protected ?string $columnSelectTitle;
+
     public function isSelectable(): bool
     {
         return $this->selectable === true;
@@ -53,4 +55,23 @@ trait IsSelectable
 
         return $this;
     }
+
+    protected function hasColumnSelectTitle(): bool
+    {
+        return isset($this->columnSelectTitle);
+    }
+
+    public function setColumnSelectTitle(string $columnSelectTitle): self
+    {
+        $this->columnSelectTitle = $columnSelectTitle;
+
+        return $this;
+    }
+
+
+    public function getColumnSelectTitle(): string
+    {
+        return $this->hasColumnSelectTitle() ? $this->columnSelectTitle : $this->getTitle();
+    }
+
 }

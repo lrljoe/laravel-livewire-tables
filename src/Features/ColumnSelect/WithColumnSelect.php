@@ -9,12 +9,13 @@ use Rappasoft\LaravelLivewireTables\Features\ColumnSelect\Helpers\ColumnSelectHe
 use Rappasoft\LaravelLivewireTables\Features\ColumnSelect\QueryString\HasQueryStringForColumnSelect;
 use Rappasoft\LaravelLivewireTables\Features\ColumnSelect\Styling\HasColumnSelectStyling;
 use Rappasoft\LaravelLivewireTables\Features\ColumnSelect\Traits\HasColumnSelectSessionStorage;
-use Rappasoft\LaravelLivewireTables\Features\ColumnSelect\Concerns\{HandlesColumnSelectRemembering, HandlesColumnSelectStatus, HandlesColumnSelectVisibility};
+use Rappasoft\LaravelLivewireTables\Features\ColumnSelect\Concerns\{HandlesColumnSelectDropdown, HandlesColumnSelectRemembering, HandlesColumnSelectStatus, HandlesColumnSelectVisibility};
 use Rappasoft\LaravelLivewireTables\Collections\ColumnCollection;
 
 trait WithColumnSelect
 {
-    use HandlesColumnSelectStatus,
+    use HandlesColumnSelectDropdown,
+        HandlesColumnSelectStatus,
         HandlesColumnSelectVisibility,
         HandlesColumnSelectRemembering,
         ColumnSelectConfiguration,
@@ -24,19 +25,13 @@ trait WithColumnSelect
         HasColumnSelectStyling;
 
     /**
-     * New Configuration for Column Select
+     * New Configuration for Column Select Config
      *
      * @var array<mixed>
      */
-    #[Locked]    
-    public array $columnSelectColumns = ['setupRun' => false, 'selected' => [], 'deselected' => [], 'defaultdeselected' => [], 'selectableColumnCount' => 0, 'selectedColumnsQsData' => ''];
+    #[Locked]
+    public array $columnSelectConfig = ['setupRun' => false, 'defaultDeselectedColumnsSetup' => false, 'excludeDeselectedColumnsFromQuery' => false, 'columnSelectDelay' => 1500, 'selected' => [], 'deselected' => [], 'defaultdeselected' => [], 'selectableColumns' => [], 'selectableColumnCount' => 0, 'selectedColumnsQsData' => ''];
 
-    /**
-     * New selectedColumns approach (in testing)
-     *
-     * @var mixed
-     */
-    public mixed $selectedColumnsNew = null;
 
     /**
      * Array of selected columns
@@ -44,61 +39,6 @@ trait WithColumnSelect
      * @var array<mixed>
      */
     public array $selectedColumns = [];
-
-    /**
-     * Array of deselected columns
-     *
-     * @var array<mixed>
-     */
-    public array $deselectedColumns = [];
-
-    /**
-     * Array of selectable columns
-     *
-     * @var array<mixed>
-     */
-    public array $selectableColumns = [];
-
-    /**
-     * Array of default deselected columns
-     *
-     * @var array<mixed>
-     */
-    public array $defaultDeselectedColumns = [];
-
-    /**
-     * Array of selectable columns
-     *
-     * @var array<mixed>
-     */
-    public array $selectableColumnsArray = [];
-
-
-    /**
-     * Toggles whether Deselected Columns should be excluded from the Query or not
-     *
-     * @var boolean
-     */
-    #[Locked]
-    public bool $excludeDeselectedColumnsFromQuery = false;
-
-    
-    /**
-     * Determines if Default Deselected Setup is Completed
-     *
-     * @var boolean
-     */
-    #[Locked]
-    public bool $defaultDeselectedColumnsSetup = false;
-
-
-
-    /**
-     * Sets the delay for Column Select Classic
-     *
-     * @var integer
-     */
-    public int $columnSelectDelay = 1500;
 
     /**
      * Determines whether this was recently updated
@@ -114,13 +54,11 @@ trait WithColumnSelect
      */
     protected bool $runSelectUpdates = false;
 
-    public int $selectableColumnCount = 0;
-
     public function mountWithColumnSelect(): void
     {
-        if (strlen($this->columnSelectColumns['selectedColumnsQsData']) > 0)
+        if (strlen($this->columnSelectConfig['selectedColumnsQsData']) > 0)
         {
-            $selectedColumns = explode(",", $this->columnSelectColumns['selectedColumnsQsData']) ?? [];
+            $selectedColumns = explode(",", $this->columnSelectConfig['selectedColumnsQsData']) ?? [];
             $this->selectedColumns = empty($selectedColumns) ? $this->getDefaultVisibleColumns() : $selectedColumns;
 
         }
@@ -135,92 +73,13 @@ trait WithColumnSelect
     {
     }
 
-    /**
-     * Runs after boot is complete to setup the Column Select functions
-     *
-     * @return void
-     */
+
     public function bootedWithColumnSelect(): void
     {
-        //$this->callHook('configuringColumnSelect');
-       // $this->callTraitHook('configuringColumnSelect');
-
-        if($this->runSelectUpdates)
-        {
-            if(!is_null($this->selectedColumnsNew) && !empty($this->selectedColumnsNew))
-            {
-             //   dd("bootedWithColumnSelect");
-
-                $this->reloading = true;
-                $currentCols = $this->selectedColumns;
-                $selectedColsNew = explode(";",$this->selectedColumnsNew);
-
-                ksort($currentCols);
-                ksort($selectedColsNew);
-             //   dd(['currentCols:' => $currentCols, 'selectedColsNew' => $selectedColsNew]);
-                
-                //$this->selectedColumns = explode(";",$this->selectedColumnsNew);
-                //$this->storeColumnSelectValues();
-            }
-            else
-            {
-            }
-
-
-        }
-       // $this->callHook('configuredColumnSelect');
-       // $this->callTraitHook('configuredColumnSelect');
-
     }
 
 
 
-    /**
-     * Runs when selectedColumnsNew is updated
-     *
-     * @param mixed $data
-     * @return void
-     */
-    public function updatedSelectedColumnsNew($data): void
-    {
-       // dd("updatedSelectedColumnsNew");
-        if($this->runSelectUpdates)
-        {
-            $this->reloading = true;
-            $selectedColumns = explode(";",$data);
-            if ($this->selectedColumns != $selectedColumns)
-            {
-               /* dd([
-                    "selected" => $this->selectedColumns,
-                    'new' => $selectedColumns
-                ]);*/
-                $this->selectedColumns = $selectedColumns;
-                $this->storeColumnSelectValues();
-                if ($this->getEventStatusColumnSelect()) {
-                    event(new ColumnsSelected($this->getTableName(), $this->getColumnSelectSessionKey(), $this->selectedColumns));
-                }
-
-            }
-            
-
-        }
-    }
-
-    /**
-     * Forces selectedColumnsNew setup
-     *
-     * @param mixed $data
-     * @return void
-     */
-    public function forceSelectedColumnsNew($data)
-    {
-        $temp = implode(";",$data);
-        if(!empty($temp) && $this->selectedColumnsNew != $temp)
-        {
-            $this->selectedColumnsNew = $temp;
-        }
-
-    }
 
     /**
      * Runs when selecedColumns is updated (to store)
@@ -229,20 +88,18 @@ trait WithColumnSelect
      */
     public function updatedSelectedColumns(): void
     {
+        $this->columnSelectConfig['selected'] = $this->selectedColumns;
+
         $this->pushToQueryString($this->selectedColumns);
         if($this->runSelectUpdates)
         {
             $this->storeColumnSelect();
         }
-        $this->selectableColumnsArray = $this->generateColumnSelect();
-
     }
 
     public function storeColumnSelect(): void
     {
         $this->storeColumnSelectValues();
-
-        $this->forceSelectedColumnsNew($this->selectedColumns);
 
         if ($this->getEventStatusColumnSelect()) {
             event(new ColumnsSelected($this->getTableName(), $this->getColumnSelectSessionKey(), $this->selectedColumns));
@@ -263,13 +120,10 @@ trait WithColumnSelect
         {
             $this->selectedColumns = $this->getDefaultVisibleColumns();
         }
-        /*$columns = new ColumnCollection($this->getPrependedColumns())->concat($this->columns())->concat(collect($this->getAppendedColumns()));
-        dd([
-            'old' => $this->getSelectableColumns(),
-            'new' => $columns->visible()->selectable()->reorder()->values(),
-        ]);*/
 
-        $this->selectableColumnCount = $this->columnSelectColumns['selectableColumnCount'] = count($this->generateColumnSelect());
+        $generateColumnSelect = $this->generateColumnSelect();
+        $this->columnSelectConfig['selectableColumns'] = $generateColumnSelect;
+        $this->columnSelectConfig['selectableColumnCount'] = count($generateColumnSelect);
         
 
         if (! $this->getComputedPropertiesStatus()) {

@@ -173,8 +173,8 @@ trait ToolBarItemHelpers
     {
         if($this->columnSelectIsEnabled())
         {
-            if (empty($this->selectableColumns)) {
-                $this->selectableColumns = $this->getColumnsForColumnSelect();
+            if (empty($this->columnSelectConfig['selectableColumns'])) {
+                $this->columnSelectConfig['selectableColumns'] = $this->getColumnsForColumnSelect();
             }
 
             return ['view' => 'livewire-tables::includes.toolbar.items.column-select', 'attributes' => [
@@ -183,7 +183,7 @@ trait ToolBarItemHelpers
                 'columnSelectButtonAttributes' => $this->getColumnSelectButtonAttributes(),
                 'columnSelectMenuOptionCheckboxAttributes' => $this->getColumnSelectMenuOptionCheckboxAttributes(),
                 'selectableSelectedColumnCount' => $this->getSelectableSelectedColumns()->count(),
-                'jsoned' => json_encode(array_keys($this->selectableColumns)),
+                'jsoned' => json_encode(array_keys($this->columnSelectConfig['selectableColumns'])),
             ]];
         }
         return [];

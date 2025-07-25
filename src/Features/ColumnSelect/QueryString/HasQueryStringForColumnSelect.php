@@ -11,7 +11,7 @@ trait HasQueryStringForColumnSelect
      */
     protected function queryStringHasQueryStringForColumnSelect(): array
     {
-        return ($this->getQueryStringStatusForColumnSelect() && $this->columnSelectIsEnabled()) ? ['columnSelectColumns.selectedColumnsQsData' => ['except' => null, 'history' => false, 'keep' => false, 'as' => $this->getQueryStringAliasForColumnSelect()]] : [];
+        return ($this->getQueryStringStatusForColumnSelect() && $this->columnSelectIsEnabled()) ? ['columnSelectConfig.selectedColumnsQsData' => ['except' => null, 'history' => false, 'keep' => false, 'as' => $this->getQueryStringAliasForColumnSelect()]] : [];
 
     }
 
@@ -81,6 +81,6 @@ trait HasQueryStringForColumnSelect
      */
     protected function pushToQueryString(array $selectedColumns = []): void
     {
-        $this->columnSelectColumns['selectedColumnsQsData'] = implode(",",$selectedColumns);
+        $this->columnSelectConfig['selectedColumnsQsData'] = implode(",",$selectedColumns);
     }
 }

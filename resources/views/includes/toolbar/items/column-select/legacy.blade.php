@@ -3,7 +3,6 @@
 @php($columnSelectMenuOptionCheckboxAttributes = $this->getColumnSelectMenuOptionCheckboxAttributes())
 @php($selectableSelectedColumnCount = $this->getSelectableSelectedColumns()->count())
 @php($columnSelectItems = $this->generateColumnSelectItems())
-
 @if ($isTailwind)
     <div class="@if ($this->getColumnSelectIsHiddenOnMobile()) hidden sm:block @elseif ($this->getColumnSelectIsHiddenOnTablet()) hidden md:block @endif mb-4 w-full md:w-auto md:mb-0 md:ml-2">
         <div

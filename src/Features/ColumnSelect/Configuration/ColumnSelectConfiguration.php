@@ -3,6 +3,7 @@
 namespace Rappasoft\LaravelLivewireTables\Features\ColumnSelect\Configuration;
 
 use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
+use Rappasoft\LaravelLivewireTables\Collections\ColumnCollection;
 
 trait ColumnSelectConfiguration
 {
@@ -10,8 +11,8 @@ trait ColumnSelectConfiguration
 
     public function setExcludeDeselectedColumnsFromQuery(bool $status): self
     {
-        $this->excludeDeselectedColumnsFromQuery = $status;
-
+        $this->columnSelectConfig['excludeDeselectedColumnsFromQuery'] = $status;
+        
         return $this;
     }
 
@@ -32,7 +33,7 @@ trait ColumnSelectConfiguration
      */
     protected function setDefaultDeselectedColumns(): array
     {
-        return collect($this->getColumns()
+        return new ColumnCollection($this->getColumns()
             ->reject(fn (Column $column) => ! $column->isSelectable())
             ->reject(fn (Column $column) => $column->isSelectable() && $column->isSelected())
         )
@@ -45,7 +46,7 @@ trait ColumnSelectConfiguration
 
     protected function setColumnSelectDelay(int $delay): self
     {
-        $this->columnSelectDelay = $delay;
+        $this->columnSelectConfig['columnSelectDelay'] = $delay;
 
         return $this;
     }

@@ -3,7 +3,6 @@
 namespace Rappasoft\LaravelLivewireTables\Features\ColumnSelect\Helpers;
 
 use Livewire\Attributes\Computed;
-use Rappasoft\LaravelLivewireTables\Events\ColumnsSelected;
 use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
 use Rappasoft\LaravelLivewireTables\Collections\ColumnCollection;
 
@@ -30,36 +29,39 @@ trait ColumnSelectHelpers
      */
     public function getExcludeDeselectedColumnsFromQuery(): bool
     {
-        return $this->excludeDeselectedColumnsFromQuery;
+        return $this->columnSelectConfig['excludeDeselectedColumnsFromQuery'];
     }
 
 
+    /**
+     * Generate the Column Selectable Array
+     *
+     * @return array<mixed>
+     */
     public function generateColumnSelect(): array
     {
-        $arr = $this->selectableColumnsArray ?? [];
+        $items = [];
         foreach($this->getSelectableColumns() as $col)
         {
-                $arr[$col->getSlug()] = in_array($col->getSlug(), $this->selectedColumns ?? []);
+           $items[strval($col->getSlug())] = in_array(strval($col->getSlug()), $this->selectedColumns ?? []);
         }
-        return $arr;
+        return $items;
     }
 
-    public function generateColumnSelectNew(): array
-    {
-        $arr = [];
-        foreach($this->getSelectableColumns() as $col)
-        {
-            $arr[] = ['slug' => $col->getSlug(), 'status' => in_array($col->getSlug(), $this->selectedColumns ?? [])];
-        }
-        return $arr;
-    }
 
+    /**
+     * Generate the Column Select Options
+     *
+     * @return array<mixed>
+     */
     public function generateColumnSelectItems(): array
     {
         $items = [];
         foreach($this->getSelectableColumns() as $col)
         {
-            $items[strval($col->getSlug())] = ['slug' => strval($col->getSlug()), 'title' => $col->getTitle()];
+            $stringSlug = strval($col->getSlug());
+
+            $items[$stringSlug] = ['selected' => in_array($stringSlug, $this->selectedColumns ?? []), 'slug' => $stringSlug, 'title' => $col->getColumnSelectTitle()];
         }
         return $items;
     }
@@ -203,51 +205,6 @@ trait ColumnSelectHelpers
             ->toArray();
     }
 
-    /**
-     * Undocumented function
-     *
-     * @return void
-     */
-    public function selectAllColumns(): void
-    {
-        $this->selectedColumns = [];
-        foreach ($this->getSelectableColumns() as $column) {
-            $this->selectedColumns[] = $column->getSlug();
-        }
-        $this->pushToQueryString($this->selectedColumns);
-        $this->storeColumnSelectValues();
-
-        if ($this->getEventStatusColumnSelect()) {
-            event(new ColumnsSelected($this->getTableName(), $this->getColumnSelectSessionKey(), $this->selectedColumns));
-        }
-    }
-
-    /**
-     * Undocumented function
-     *
-     * @return void
-     */
-    public function deselectAllColumns(): void
-    {
-        $this->selectedColumns = [];
-        $this->pushToQueryString($this->selectedColumns);
-        session([$this->getColumnSelectSessionKey() => []]);
-        if ($this->getEventStatusColumnSelect()) {
-            event(new ColumnsSelected($this->getTableName(), $this->getColumnSelectSessionKey(), $this->selectedColumns));
-        }
-    }
-
-    public function toggleAllColumns(): void
-    {
-        if ($this->getSelectableSelectedColumns()->count() == $this->getSelectableColumns()->count())
-        {
-            $this->deselectAllColumns();
-        }
-        else
-        {
-            $this->selectAllColumns();
-        }
-    }
 
     /**
      * Undocumented function
@@ -282,8 +239,8 @@ trait ColumnSelectHelpers
             session()->forget($this->getColumnSelectSessionKey());
         }
 
-        if (empty($this->selectableColumns)) {
-            $this->selectableColumns = $this->getColumnsForColumnSelect();
+        if (empty($this->columnSelectConfig['selectableColumns'])) {
+            $this->columnSelectConfig['selectableColumns'] = $this->getColumnsForColumnSelect();
         }
         $this->setupFirstColumnSelectRun();
 
@@ -334,16 +291,16 @@ trait ColumnSelectHelpers
      */
     protected function setupFirstColumnSelectRun(): void
     {
-        if (! $this->columnSelectColumns['setupRun']) {
-            $this->columnSelectColumns['deselected'] = $this->columnSelectColumns['defaultdeselected'] = $this->setDefaultDeselectedColumns();
-            $this->columnSelectColumns['setupRun'] = true;
+        if (! $this->columnSelectConfig['setupRun']) {
+            $this->columnSelectConfig['deselected'] = $this->columnSelectConfig['defaultdeselected'] = $this->setDefaultDeselectedColumns();
+            $this->columnSelectConfig['setupRun'] = true;
         }
 
     }
 
     public function getColumnSelectDelay(): int
     {
-        return $this->columnSelectDelay ?? 1500;
+        return $this->columnSelectConfig['columnSelectDelay'] ?? 1500;
     }
 
 }
