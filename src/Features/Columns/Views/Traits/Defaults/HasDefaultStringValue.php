@@ -1,6 +1,6 @@
 <?php
 
-namespace Rappasoft\LaravelLivewireTables\Features\Columns\Views\Traits;
+namespace Rappasoft\LaravelLivewireTables\Features\Columns\Views\Traits\Defaults;
 
 trait HasDefaultStringValue
 {

@@ -4,7 +4,7 @@ namespace Rappasoft\LaravelLivewireTables\Features\Columns\Views\Traits\Helpers;
 
 use Illuminate\Database\Eloquent\Model;
 use Rappasoft\LaravelLivewireTables\Exceptions\DataTableConfigurationException;
-use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Traits\HasDefaultStringValue;
+use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Traits\Defaults\HasDefaultStringValue;
 
 trait IconColumnHelpers
 {

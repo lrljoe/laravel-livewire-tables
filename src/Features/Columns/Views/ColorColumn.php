@@ -5,8 +5,9 @@ namespace Rappasoft\LaravelLivewireTables\Features\Columns\Views;
 use Illuminate\Database\Eloquent\Model;
 use Rappasoft\LaravelLivewireTables\Exceptions\DataTableConfigurationException;
 use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Traits\Configuration\ColorColumnConfiguration;
-use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Traits\{HasDefaultStringValue, IsColumn};
+use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Traits\{IsColumn};
 use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Traits\Helpers\ColorColumnHelpers;
+use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Traits\Defaults\HasDefaultStringValue;
 
 class ColorColumn extends Column
 {
