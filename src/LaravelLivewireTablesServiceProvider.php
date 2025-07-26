@@ -6,7 +6,7 @@ use Illuminate\Foundation\Console\AboutCommand;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Livewire\ComponentHookRegistry;
-use Rappasoft\LaravelLivewireTables\Commands\MakeCommand;
+use Rappasoft\LaravelLivewireTables\Commands\{ConvertCommand,MakeCommand};
 use Rappasoft\LaravelLivewireTables\Features\AutoInjectRappasoftAssets;
 use Rappasoft\LaravelLivewireTables\Mechanisms\RappasoftFrontendAssets;
 
@@ -79,6 +79,7 @@ class LaravelLivewireTablesServiceProvider extends ServiceProvider
             ], 'livewire-tables-public');
 
             $this->commands([
+                ConvertCommand::class,
                 MakeCommand::class,
             ]);
         }

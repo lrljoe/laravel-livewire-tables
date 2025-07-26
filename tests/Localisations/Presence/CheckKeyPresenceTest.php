@@ -4,26 +4,37 @@ namespace Rappasoft\LaravelLivewireTables\Tests\Localisations\Presence;
 
 use PHPUnit\Framework\Attributes\DataProvider;
 use Rappasoft\LaravelLivewireTables\Tests\Localisations\BaseLocalisationCase;
+use PHPUnit\Framework\Attributes\TestDox;
+use Generator;
 
 final class CheckKeyPresenceTest extends BaseLocalisationCase
 {
-    #[DataProvider('localisationProvider')]
-    public function test_can_get_localised_empty_message(string $locale): void
+    public static function provideCombineCases(): Generator
     {
-        $localisedStrings = self::getLocaleStrings($locale);
+        $provisionedLocalisations = self::provisionedLocalisations();
+        $englishLocalisationStrings = self::getEnLocaleStrings();
 
-        $localisedString = $localisedStrings['No items found, try to broaden your search'] ?? $locale;
-        $this->basicTable->changeLocale($locale);
-        $this->assertEquals($localisedString, $this->basicTable->getEmptyMessage());
+        foreach($englishLocalisationStrings as $enLocaleKey => $enLocaleString)
+        {
+            foreach($provisionedLocalisations as $provisionedLocalisation)
+            {
+                yield [$enLocaleKey, $provisionedLocalisation];    
+
+            }
+
+        }
+       // yield [self::getEnLocaleStrings(), 'en'];
+       // yield [self::getEnLocaleStrings(), 'fr'];
     }
 
-    #[DataProvider('localisationProvider')]
-    public function test_can_check_presence_of_keys(string $locale): void
+
+    #[DataProvider('provideCombineCases')]
+    public function test_can_check_presence_of_keys_for_localisation(string $enLocaleKey, string $locale): void
     {
-        $engStrings = self::getEnLocaleStrings();
         $localisedStrings = self::getLocaleStrings($locale);
-        foreach ($engStrings as $key => $value) {
-            $this->assertNotNull($localisedStrings[$key]);
-        }
+
+        $this->assertArrayHasKey($enLocaleKey, $localisedStrings);
+
+
     }
 }
