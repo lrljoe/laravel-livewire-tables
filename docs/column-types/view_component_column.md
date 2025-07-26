@@ -1,6 +1,6 @@
 ---
 title: View Component Columns
-weight: 16
+weight: 17
 ---
 
 View Component columns let you specify a component name and attributes and provide attributes to the View Component.  This will render the View Component in it's entirety.

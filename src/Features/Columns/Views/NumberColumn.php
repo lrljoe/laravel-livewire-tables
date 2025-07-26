@@ -23,7 +23,7 @@ class NumberColumn extends Column
         if (! isset($from)) {
             $this->label(fn () => null);
         }
-
+        $this->setSortingPillDirections('0-9','9-0');
     }
 
     /**
@@ -36,4 +36,5 @@ class NumberColumn extends Column
     {
         return parent::getValue($row) ?? $this->getDefaultValue();
     }
+
 }
