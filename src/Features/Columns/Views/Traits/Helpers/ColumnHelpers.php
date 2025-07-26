@@ -61,7 +61,10 @@ trait ColumnHelpers
 
     public function getColumn(): ?string
     {
-        return $this->getTable().'.'.$this->getField();
+        if ($this->isBaseColumn()) {
+            return $this->getField();
+        }
+        return $this->getRelationString().'.'.$this->getField();
     }
 
     public function getColumnSelectName(): ?string
