@@ -2,6 +2,9 @@
 
 All notable changes to `laravel-livewire-tables` will be documented in this file
 
+
+## [v4.0.0] - UNRELEASED
+
 ## [v3.7.1] - 2025-02-28
 ### Bug Fixes
 - Ensure that LinkColumn is included in query if "from" is defined
