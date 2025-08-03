@@ -55,7 +55,9 @@ class ConvertCommand extends Command implements PromptsForMissingInput
                 $items['livewire-tables::'.$lineItem] = $text;
             }
             $this->line("LineItems: ".json_encode($items, true));
-            break;
+            $baseDir = __DIR__.'/../../resources/lang/json/';
+
+            $contents = File::put($baseDir.$provisionedLocale.'.json', json_encode($items,true));
         }
     }
 
@@ -81,6 +83,11 @@ class ConvertCommand extends Command implements PromptsForMissingInput
     public function getProvisionedLocalisations(): array
     {
         return [
+            'ar',
+            'ca',
+            'da',
+            'de',
+            'es',
             'fr',
             'id',
             'it',
