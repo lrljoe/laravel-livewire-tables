@@ -14,7 +14,7 @@ trait SortingHelpers
      */
     public function getSortingStatus(): bool
     {
-        return $this->sortingConfig['sortingStatus'];
+        return $this->sortingConfig['sortingStatus'] ?? true;
     }
 
     /**
@@ -24,7 +24,28 @@ trait SortingHelpers
      */
     public function getSingleSortingStatus(): bool
     {
-        return $this->sortingConfig['singleColumnSortingStatus'];
+        return $this->sortingConfig['singleColumnSortingStatus'] ?? true;
+    }
+
+
+    /**
+     * Undocumented function
+     *
+     * @return string|null
+     */
+    public function getDefaultSortColumn(): ?string
+    {
+        return $this->sortingConfig['defaultSortColumn'];
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @return string
+     */
+    public function getDefaultSortDirection(): string
+    {
+        return $this->sortingConfig['defaultSortDirection']  ?? 'asc';
     }
 
     /**
@@ -38,7 +59,7 @@ trait SortingHelpers
             if (is_array($direction)) {
                 foreach ($direction as $colAppend => $actualDirection) {
                     $this->sorts[$column.'.'.$colAppend] = $actualDirection;
-                    unset($this->sorts[$column]);
+                    $this->clearSort($column);
                 }
             }
 
@@ -222,88 +243,6 @@ trait SortingHelpers
         return $this->getDefaultSortColumn() !== null;
     }
 
-    /**
-     * Undocumented function
-     *
-     * @return string|null
-     */
-    public function getDefaultSortColumn(): ?string
-    {
-        return $this->sortingConfig['defaultSortColumn'];
-    }
-
-    /**
-     * Undocumented function
-     *
-     * @return string
-     */
-    public function getDefaultSortDirection(): string
-    {
-        return $this->sortingConfig['defaultSortDirection'] ;
-    }
-
-    /**
-     * Undocumented function
-     *
-     * @return boolean
-     */
-    public function getSortingPillsStatus(): bool
-    {
-        return $this->sortingConfig['sortingPillsStatus'];
-    }
-
-    /**
-     * Undocumented function
-     *
-     * @return boolean
-     */
-    public function sortingPillsAreEnabled(): bool
-    {
-        return $this->getSortingPillsStatus() === true;
-    }
-
-    /**
-     * Undocumented function
-     *
-     * @return boolean
-     */
-    public function sortingPillsAreDisabled(): bool
-    {
-        return $this->getSortingPillsStatus() === false;
-    }
-
-    /**
-     * Undocumented function
-     *
-     * @return string
-     */
-    #[Computed]
-    public function getDefaultSortingLabelAsc(): string
-    {
-        return $this->sortingConfig['defaultSortingLabelAsc'];
-    }
-
-    /**
-     * Undocumented function
-     *
-     * @return string
-     */
-    #[Computed]
-    public function getDefaultSortingLabelDesc(): string
-    {
-        return $this->sortingConfig['defaultSortingLabelDesc'];
-    }
-
-    /**
-     * Undocumented function
-     *
-     * @return boolean
-     */
-    #[Computed]
-    public function showSortPillsSection(): bool
-    {
-        return $this->sortingIsEnabled() && $this->sortingPillsAreEnabled() && $this->hasSorts();
-    }
 
 /**
      * Undocumented function
@@ -351,31 +290,25 @@ trait SortingHelpers
     public function applySorting(): Builder
     {
 
-        $allCols = $this->getColumns();
+        $allCols = $this->getColumns()
+            ->visibleSortableColumnsKeyed(array_keys($this->sorts));
 
-        foreach ($this->getSorts() as $column => $direction) {
+
+        $sorts = $this->getSorts();
+
+        foreach($allCols as $columnSelectName => $column)
+        {
+
+            $direction = $sorts[$columnSelectName];
             if (! in_array($direction, ['asc', 'desc'])) {
                 $direction = 'asc';
             }
-            $tmpCol = $column;
-            $column = $this->getColumnBySelectName($tmpCol);
 
-            if (is_null($column)) {
-                foreach ($allCols as $cols) {
-                    if ($cols->getSlug() == $tmpCol && $cols->hasSortCallback()) {
-                        $this->setBuilder(call_user_func($cols->getSortCallback(), $this->getBuilder(), $direction));
-
-                        continue;
-                    }
-                }
-
+            if (! $column->isSortable() && !$column->hasSortCallback()) {
                 continue;
             }
 
-            if (! $column->isSortable()) {
-                continue;
-            }
-
+            
             // TODO: Test
             if ($column->hasSortCallback()) {
                 $this->setBuilder(call_user_func($column->getSortCallback(), $this->getBuilder(), $direction));
@@ -386,11 +319,10 @@ trait SortingHelpers
                 $segments = preg_split('/\s+as\s+/i', $value);
                 if(array_key_exists(1,$segments))
                 {
-                $this->setBuilder($this->getBuilder()->orderByRaw($segments[1].' '.$direction));
+                    $this->setBuilder($this->getBuilder()->orderByRaw($segments[1].' '.$direction));
                 }
             }
         }
-
         return $this->getBuilder();
     }
 }

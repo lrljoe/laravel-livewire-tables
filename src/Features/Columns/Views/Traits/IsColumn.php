@@ -44,7 +44,7 @@ trait IsColumn
     protected ?string $field = null;
 
     // The table of the columns or relationship
-    protected ?string $table = null;
+    public ?string $table = null;
 
     protected bool $html = false;
 

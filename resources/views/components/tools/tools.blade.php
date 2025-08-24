@@ -12,6 +12,12 @@
 >
     @includeWhen(!$this->showActionsInToolbar(), 'livewire-tables::includes.toolbar.items.actions', $this->getToolbarActionAttributes())
 
+    @if(!(method_exists($this, 'showSortPillsSection') ? $this->showSortPillsSection() : false) && !(method_exists($this, 'showFilterPillsSection') ? $this->showFilterPillsSection() : false))
+    <div class="">
+
+    </div>
+    @endif
+
     @if(method_exists($this, 'showSortPillsSection') ? $this->showSortPillsSection() : false)
         <x-livewire-tables::tools.sorting-pills />
     @endif

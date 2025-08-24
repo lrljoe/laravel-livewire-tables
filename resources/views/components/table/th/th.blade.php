@@ -7,7 +7,7 @@
     $customSortButtonAttributes = $allThAttributes['sortButtonAttributes'];
     $customLabelAttributes = $allThAttributes['labelAttributes'];
     $customIconAttributes = $this->getThSortIconAttributes($column);
-    $direction = $column->hasField() ? $this->getSort($column->getColumnSelectName()) : $this->getSort($column->getSlug()) ?? null;
+    $direction = $column->hasField() ? $this->getSort($column->getColumnSortKey()) : $this->getSort($column->getSlug()) ?? null;
 @endphp
 
 <th {{

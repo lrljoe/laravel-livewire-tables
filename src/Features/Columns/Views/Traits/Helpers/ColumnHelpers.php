@@ -62,9 +62,20 @@ trait ColumnHelpers
     public function getColumn(): ?string
     {
         if ($this->isBaseColumn()) {
+
             return $this->getField();
         }
         return $this->getRelationString().'.'.$this->getField();
+    }
+    
+    public function getColumnForQuery(?string $baseTableName = null): string
+    {
+        if ($this->isBaseColumn() && isset($baseTableName)) {
+
+            return $baseTableName . '.' . $this->getField();
+        }
+        return str_replace('.', '_', $this->getRelationString()).'.'.$this->getField();
+
     }
 
     public function getColumnSelectName(): ?string

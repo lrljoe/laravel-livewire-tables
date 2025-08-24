@@ -3,6 +3,7 @@
 namespace Rappasoft\LaravelLivewireTables\Features\Sorting;
 
 use Illuminate\Support\Collection;
+use Rappasoft\LaravelLivewireTables\Features\Sorting\Concerns\HandlesSortingPills;
 use Rappasoft\LaravelLivewireTables\Features\Sorting\Configuration\SortingConfiguration;
 use Rappasoft\LaravelLivewireTables\Features\Sorting\QueryString\HasQueryStringForSort;
 use Rappasoft\LaravelLivewireTables\Features\Sorting\Helpers\SortingHelpers;
@@ -13,6 +14,7 @@ trait WithSorting
     use SortingConfiguration,
         SortingHelpers,
         HasQueryStringForSort,
+        HandlesSortingPills,
         HasSortingPillsStyling;
 
     /**

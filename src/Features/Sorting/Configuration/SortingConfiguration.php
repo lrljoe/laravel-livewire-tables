@@ -47,7 +47,7 @@ trait SortingConfiguration
     public function setSortingDisabled(): self
     {
         $this->setSortingStatus(false);
-        $this->sorts = [];
+        $this->clearSorts();
 
         return $this;
     }
@@ -113,51 +113,4 @@ trait SortingConfiguration
         return $this;
     }
 
-    /**
-     * Undocumented function
-     *
-     * @param boolean $status
-     * @return self
-     */
-    public function setSortingPillsStatus(bool $status): self
-    {
-        $this->sortingConfig['sortingPillsStatus'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Undocumented function
-     *
-     * @return self
-     */
-    public function setSortingPillsEnabled(): self
-    {
-        return $this->setSortingPillsStatus(true);
-    }
-
-    /**
-     * Undocumented function
-     *
-     * @return self
-     */
-    public function setSortingPillsDisabled(): self
-    {
-        return $this->setSortingPillsStatus(false);
-    }
-
-    /**
-     * Undocumented function
-     *
-     * @param string $asc
-     * @param string $desc
-     * @return self
-     */
-    public function setDefaultSortingLabels(string $asc, string $desc): self
-    {
-        $this->sortingConfig['defaultSortingLabelAsc'] = $asc;
-        $this->sortingConfig['defaultSortingLabelDesc'] = $desc;
-
-        return $this;
-    }
 }

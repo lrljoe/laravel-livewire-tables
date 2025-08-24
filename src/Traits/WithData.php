@@ -287,6 +287,7 @@ trait WithData
      */
     protected function selectFields(): Builder
     {
+        $table = $this->getBuilder()->getModel()->getTable();
 
         // Load any additional selects that were not already columns
         foreach ($this->getAdditionalSelects() as $select) {
@@ -295,11 +296,28 @@ trait WithData
 
         if ($this->getExcludeDeselectedColumnsFromQuery()) {
             foreach ($this->getSelectedColumnsForQuery() as $column) {
-                $this->setBuilder($this->getBuilder()->addSelect($column->getColumn().' as '.$column->getColumnSelectName()));
+                if($column->isBaseColumn())
+                {
+                    $this->setBuilder($this->getBuilder()->addSelect($column->getColumnForQuery($table).' as '.$column->getColumnSelectName()));
+                }
+                else
+                {
+                    $this->setBuilder($this->getBuilder()->addSelect($column->getColumnForQuery().' as '.$column->getColumnSelectName()));
+                }
+
             }
         } else {
             foreach ($this->getColumns()->reject(fn (Column $column) => $column->isLabel()) as $column) {
-                $this->setBuilder($this->getBuilder()->addSelect($column->getColumn().' as '.$column->getColumnSelectName()));
+                if($column->isBaseColumn())
+                {
+                    $this->setBuilder($this->getBuilder()->addSelect($column->getColumnForQuery($table).' as '.$column->getColumnSelectName()));
+                }
+                else
+                {
+                    $this->setBuilder($this->getBuilder()->addSelect($column->getColumnForQuery().' as '.$column->getColumnSelectName()));
+                }
+                
+
             }
         }
 

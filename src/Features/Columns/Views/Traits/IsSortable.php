@@ -79,7 +79,7 @@ trait IsSortable
 
     public function hasCustomSortingPillTitle(): bool
     {
-        return $this->getCustomSortingPillTitle() !== null;
+        return isset($this->sortingPillTitle) && $this->sortingPillTitle !== null;
     }
 
     public function hasCustomSortingPillDirections(): bool
@@ -136,6 +136,7 @@ trait IsSortable
      */
     public function getColumnSortKey(): string
     {
-        return $this->isSortable() ? $this->getColumnSelectName() : $this->getSlug();
+        
+        return  ($this->getSlug() ?? $this->getColumnSelectName()) ?? 'tst';
     }
 }

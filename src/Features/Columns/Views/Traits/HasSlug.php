@@ -8,9 +8,20 @@ trait HasSlug
 {
     protected ?string $customSlug = null;
 
+    public ?string $slug = null;
+
+    public function setDefaultSlug(): self
+    {
+        if(!isset($this->slug))
+        {
+            $this->slug = Str::slug($this->hasCustomSlug() ? $this->getCustomSlug() : $this->getTitle());
+        }
+        return $this;
+    }
+
     public function getSlug(): string
     {
-        return Str::slug($this->hasCustomSlug() ? $this->getCustomSlug() : $this->getTitle());
+        return Str::slug($this->hasCustomSlug() ? $this->getCustomSlug() : ($this->slug ?? $this->getTitle()));
     }
 
     public function getCustomSlug(): string

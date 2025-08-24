@@ -23,6 +23,27 @@ class ColumnCollection extends Collection
         return $this->reject(fn (Column $column) => $column->isSelectable() && ! $column->isSelected());
     }
 
+    public function sortable() {
+        return $this->reject(fn (Column $column) => !$column->isSortable() && !$column->hasSortCallback());
+    }
+
+    public function visibleSortableColumns() {
+        return $this
+            ->visible()
+            ->selected()
+            ->sortable();
+    }
+
+    public function visibleSortableColumnsKeyed(array $sortKeys = []) {
+        return $this
+            ->visible()
+            ->selected()
+            ->sortable()
+            ->whereIn('slug', $sortKeys)
+            ->keyBy('slug');
+    }
+
+
     /**
      * Undocumented function
      *
