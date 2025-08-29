@@ -12,7 +12,6 @@ trait HasColumnSelectStyling
      *
      * @var array<mixed>
      */
-    
     protected array $columnSelectButtonAttributes = ['default-styling' => true, 'default-colors' => true, 'class' => '', 'x-ref' => 'columnSelectButton'];
 
     /**
@@ -46,7 +45,12 @@ trait HasColumnSelectStyling
     {
         return $this->columnSelectButtonAttributes;
     }
-
+    
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
     #[Computed]
     public function getColumnSelectMenuAttributes(): array
     {

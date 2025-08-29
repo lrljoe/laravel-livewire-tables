@@ -6,7 +6,12 @@ use Illuminate\View\ComponentAttributeBag;
 
 trait HandlesCoreAttributes
 {
-    
+    /**
+     * checkItemAttributeArrays
+     *
+     * @param array<mixed> $attributeArray
+     * @return array<mixed>
+     */
     protected function checkItemAttributeArrays($attributeArray): array
     {
         foreach($attributeArray as $index => $arrayItem)
@@ -19,6 +24,13 @@ trait HandlesCoreAttributes
         return $attributeArray;
     }
 
+    /**
+     * setInternalAttribute
+     *
+     * @param string $propertyName
+     * @param array<mixed> $attributeArray
+     * @return self
+     */
     protected function setInternalAttribute(string $propertyName, array $attributeArray): self
     {
         $this->{$propertyName} = [...$this->{$propertyName}, ...$this->checkItemAttributeArrays($attributeArray)];

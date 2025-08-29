@@ -2,7 +2,7 @@
 
 namespace Rappasoft\LaravelLivewireTables\Features\Sorting;
 
-use Illuminate\Support\Collection;
+use Rappasoft\LaravelLivewireTables\Collections\ColumnCollection;
 use Rappasoft\LaravelLivewireTables\Features\Sorting\Concerns\HandlesSortingPills;
 use Rappasoft\LaravelLivewireTables\Features\Sorting\Configuration\SortingConfiguration;
 use Rappasoft\LaravelLivewireTables\Features\Sorting\QueryString\HasQueryStringForSort;
@@ -42,9 +42,9 @@ trait WithSorting
     /**
      * Undocumented variable
      *
-     * @var Collection<int,string>
+     * @var ColumnCollection<int,string>
      */
-    protected Collection $sortableColumns;
+    protected ColumnCollection $sortableColumns;
 
     /**
      * Undocumented function
