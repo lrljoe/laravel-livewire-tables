@@ -42,7 +42,7 @@ trait WithSorting
     /**
      * Undocumented variable
      *
-     * @var ColumnCollection<int,string>
+     * @var ColumnCollection<int|string,\Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column>
      */
     protected ColumnCollection $sortableColumns;
 

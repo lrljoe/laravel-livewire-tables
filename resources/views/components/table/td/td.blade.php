@@ -1,5 +1,5 @@
 @aware(['isTailwind','isTailwind4','isBootstrap', 'collapsingColumnInfo', 'tableRowDetails','defaultBodyTextAlign'])
-@props(['colIndex', 'isHtml' => false, 'wrapText' => false, 'isClickable' => false, 'customAttributes' => ['default' => true, 'default-colors' => true, 'default-styling' => true], 'textAlign' => $defaultBodyTextAlign])
+@props(['colIndex', 'isHtml' => false, 'wrapText' => false, 'isClickable' => false, 'customAttributes' => ['default' => true, 'default-colors' => true, 'default-styling' => true], 'textAlign' => $defaultBodyTextAlign, 'columnObscureContentAttributes' => new \Illuminate\View\ComponentAttributeBag(['x-data' => "{ obscure: false }"])])
 
 <td {{
         $attributes->merge($isClickable ? $tableRowDetails['tdAttribs'] : [])->merge($customAttributes)
@@ -39,5 +39,12 @@
             ->except(['default','default-colors','default-styling'])
     }}
 >
-    {{ $slot }}
+    <div {{ $columnObscureContentAttributes }}>
+        <div x-cloak x-show="obscure">
+            *********
+        </div>
+        <div x-cloak x-show="!obscure">
+            {{ $slot }}
+        </div>
+    </div>
 </td>

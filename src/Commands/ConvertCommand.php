@@ -54,14 +54,20 @@ class ConvertCommand extends Command implements PromptsForMissingInput
             {
                 $items['livewire-tables::'.$lineItem] = $text;
             }
-            $this->line("LineItems: ".json_encode($items, true));
+            $this->line("LineItems: ".json_encode($items, 1));
             $baseDir = __DIR__.'/../../resources/lang/json/';
 
-            $contents = File::put($baseDir.$provisionedLocale.'.json', json_encode($items,true));
+            $contents = File::put($baseDir.$provisionedLocale.'.json', json_encode($items,1));
         }
     }
 
-    public function getJsonLocalisedStrings($locale): array
+    /**
+     * Undocumented function
+     *
+     * @param string $locale
+     * @return array<mixed>
+     */
+    public function getJsonLocalisedStrings(string $locale): array
     {
         $baseDir = __DIR__.'/../../resources/lang/json/';
 
@@ -71,7 +77,14 @@ class ConvertCommand extends Command implements PromptsForMissingInput
         return $items;
     }
 
-    public function getPhpLocaleString($locale): array
+
+    /**
+     * Undocumented function
+     *
+     * @param string $locale
+     * @return array<mixed>
+     */
+    public function getPhpLocaleString(string $locale): array
     {
         $baseDir = __DIR__.'/../../resources/lang/php/';
 
@@ -80,6 +93,11 @@ class ConvertCommand extends Command implements PromptsForMissingInput
         return $items;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<int,string>
+     */
     public function getProvisionedLocalisations(): array
     {
         return [

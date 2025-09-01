@@ -91,7 +91,8 @@ class ArrayColumn extends Column
         foreach (call_user_func($this->getDataCallback(), $value, $row) as $i => $v) {
             $outputValues[] = call_user_func($this->getOutputFormatCallback(), $i, $v);
         }
-
+        asort($outputValues);
+        
         $returnedValue = (! empty($outputValues) ? implode($this->getSeparator(), $outputValues) : $this->getEmptyValue());
 
         if ($this->hasOutputWrapperStart() && $this->hasOutputWrapperEnd())

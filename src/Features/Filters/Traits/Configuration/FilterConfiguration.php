@@ -42,26 +42,63 @@ trait FilterConfiguration
         
 
     }
+    #[On('externalFilterPillsData')]
+    public function checkExternalFilterPillsData(array $returnValues, string $tableName, string $dataTableFingerprint, string $filterKey, array $values = [])
+    {
+        if($tableName == $this->getTableName() || $dataTableFingerprint == $this->getDataTableFingerprint())
+        {
+            $this->externalFilterPills[$filterKey] = $returnValues;
+        }
+    }
 
     /**
      * Undocumented function
      *
+     * @param mixed $returnValues
      * @param string $tableName
+     * @param string $dataTableFingerprint
      * @param string $filterKey
      * @param array<mixed> $values
+     * @param array<mixed> $optionsAvailable
      * @return void
      */
     #[On('livewireExternalArrayFilterUpdate')]
-    public function setLivewireExternalArrayFilterValues(string $tableName, string $filterKey, array $values = [])
+    public function setLivewireExternalArrayFilterValues(mixed $returnValues, string $tableName, string $dataTableFingerprint, string $filterKey, array $values = [], array $optionsAvailable = [])
     {
-        if($tableName == $this->getTableName() || $tableName == $this->getDataTableFingerprint())
+
+        if($tableName == $this->getTableName() || $dataTableFingerprint == $this->getDataTableFingerprint())
         {
             $filter = $this->getFilterByKey($filterKey);
             $filter->options($values);
             $this->appliedFilters[$filterKey] = $values;
+            if(!empty($optionsAvailable))
+            {
+                $this->externalFilterPillsOptions[$filterKey] = array_merge($this->externalFilterPillsOptions[$filterKey] ?? [], $optionsAvailable);
+            }
+
+            if(isset($returnValues))
+            {
+                $this->externalFilterPillsValues[$filterKey] = $returnValues;
+            }
         }
     }
 
+    #[On('livewireExternalArrayFilterUpdateOptions')]
+    public function setLivewireExternalArrayFilterOptions(string $dataTableFingerprint, string $filterKey, array $values = [])
+    {
+        $this->skipRender();
+        if($dataTableFingerprint == $this->getDataTableFingerprint())
+        {
+            $filter = $this->getFilterByKey($filterKey);
+            if($filter && !empty($values))
+            {
+                $this->externalFilterPillsOptions[$filterKey] = array_merge($this->externalFilterPillsOptions[$filterKey] ?? [], $values);
+            }
+
+
+        }
+
+    }
 
 
     #[On('clearFilters')]

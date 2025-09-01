@@ -48,4 +48,30 @@ trait FilterVisibilityHelpers
             $filter->setGenericDisplayData($this->getFilterGenericData());
         });
     }
+
+    public function getVisibleFiltersArray()
+    {
+        $items = collect($this->getVisibleFilters()->forPills()->keyBy('key'))->toArray();
+
+        if(!empty($this->appliedFilters))
+        {
+            foreach($this->appliedFilters as $appliedFilterKey => $appliedFilterValue)
+            {
+                $items[$appliedFilterKey]['values'] = $appliedFilterValue;
+            }
+
+        }
+
+        return $items;
+        /*->each(function ($item)  {
+
+            if(array_key_exists($item['key'], $this->appliedFilters))
+            {
+                return array_merge($item, ['values' => $this->appliedFilters[$item['key']]]);
+            }
+            
+            return $item;
+        })->toArray());*/
+    }
+
 }

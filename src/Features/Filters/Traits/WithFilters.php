@@ -42,7 +42,7 @@ trait WithFilters
      * @var array<mixed>
      */
     public array $filterConfiguration = ['filterCount' => null, 'filterLayout' => 'popover', 'filterPillsStatus' => true, 'filterSlideDownDefaultVisible' => false, 'filtersStatus' => true, 'visibilityStatus' => true];
-
+    
     /**
      * Undocumented variable
      *
@@ -66,7 +66,24 @@ trait WithFilters
         $this->setFilterLayout($this->getFilterLayout());
     }
 
+    public function getFilterDataForNew(): array
+    {
+        return ['test' => 123, 'test4' => 5632];
+    }
 
+    /*public function renderedWithFilters()
+    {
+        foreach ($this->getFilters() as $filter) {
+            $filterKey = $filter->getKey();
+
+            $this->dispatch('livewireExternalArrayFilterConfig', dataTableFingerprint: $this->getDataTableFingerprint(), filterKey: $filterKey, filterConfig: ['test' => rand(5999, 491949)]);
+        }
+    }
+    public function renderingWithFilters(\Illuminate\View\View $view, array $data = [])
+    {
+        $view->with(['appliedFilters' => $this->appliedFilters]);
+        
+    }*/
    /* public function updatedAvailableFilters2($val, $key)
     {
         $temp = Arr::undot([$key => $val]);

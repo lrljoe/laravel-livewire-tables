@@ -89,11 +89,39 @@ class FilterPillData
     /**
      * Undocumented function
      *
-     * @return array<mixed>|string|null
+     * @return string|null
      */
-    public function getPillValue(): array|string|null
+    public function getPillValue(): string|null
     {
-        return $this->filterPillValue;
+        if(!is_array($this->filterPillValue))
+        {
+            return $this->filterPillValue;
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>|null
+     */
+    public function getPillArrayValue(): array|null
+    {
+        if(is_null($this->filterPillValue))
+        {
+            return null;
+        }
+        if(is_array($this->filterPillValue))
+        {
+            return $this->filterPillValue;
+        }
+        else
+        {
+            return [$this->filterPillValue];
+        }
     }
 
     /**
@@ -183,7 +211,7 @@ class FilterPillData
      */
     public function isPillValueAnArray(): bool
     {
-        return ! is_null($this->filterPillValue) && is_array($this->filterPillValue);
+        return ! is_null($this->getPillValue()) && is_array($this->getPillValue());
     }
 
     /**
@@ -194,7 +222,7 @@ class FilterPillData
     public function getSeparatedPillValue(): ?string
     {
         if ($this->isPillValueAnArray()) {
-            return implode($this->getSeparator(), $this->getPillValue());
+            return implode($this->getSeparator(), $this->getPillArrayValue());
         } else {
             return $this->getPillValue();
         }
@@ -246,6 +274,8 @@ class FilterPillData
      */
     public function getExternalFilterPillDisplayDataArray(array $array = []): array
     {
+        $array['x-data'] = "{ displayString: ''}";
+        $array['x-init'] = 'displayString = updatePillValues('.json_encode($this->getSafeSeparatedPillValue()).')';
         $array[$this->shouldUsePillsAsHtml() ? 'x-html' : 'x-text'] = 'displayString';
 
         return $array;

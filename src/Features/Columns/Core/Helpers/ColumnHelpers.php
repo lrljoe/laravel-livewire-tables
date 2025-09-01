@@ -13,7 +13,7 @@ trait ColumnHelpers
     /**
      * Undocumented function
      *
-     * @return ColumnCollection<int,Column>
+     * @return ColumnCollection<int|string,Column>
      */
     public function getColumns(): ColumnCollection
     {
@@ -90,7 +90,7 @@ trait ColumnHelpers
     /**
      * Undocumented function
      *
-     * @return ColumnCollection<int,Column>
+     * @return ColumnCollection<int|string,Column>
      */
     public function getSearchableColumns(): ColumnCollection
     {
@@ -101,7 +101,7 @@ trait ColumnHelpers
     /**
      * Undocumented function
      *
-     * @return ColumnCollection<int,string>
+     * @return ColumnCollection<int|string, Column>
      */
     public function getSortableColumns(): ColumnCollection
     {
@@ -119,7 +119,7 @@ trait ColumnHelpers
     /**
      * Undocumented function
      *
-     * @return ColumnCollection<int,Column>
+     * @return ColumnCollection<int|string,Column>
      */
     public function getPrependedColumns(): ColumnCollection
     {
@@ -129,7 +129,7 @@ trait ColumnHelpers
     /**
      * Undocumented function
      *
-     * @return ColumnCollection<int,Column>
+     * @return ColumnCollection<int|string,Column>
      */
     public function getAppendedColumns(): ColumnCollection
     {

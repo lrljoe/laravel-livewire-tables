@@ -5,36 +5,54 @@ namespace Rappasoft\LaravelLivewireTables\Collections;
 use Illuminate\Support\Collection;
 use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
 
+/**
+ * Collection of Columns
+ * 
+ * @extends \Illuminate\Support\Collection<int|string,Column> 
+ */
 class ColumnCollection extends Collection
 {
-    public function visible() {
+    public function visible(): self
+    {
         return $this->reject(fn (Column $column) => $column->isHidden());
     }
 
-    public function selectable() {
+    public function selectable(): self
+    {
         return $this->reject(fn (Column $column) => !$column->isSelectable());
     }
 
-    public function unselectable() {
+    public function unselectable(): self 
+    {
         return $this->reject(fn (Column $column) => $column->isSelectable());
     }
 
-    public function selected() {
+    public function selected(): self
+    {
         return $this->reject(fn (Column $column) => $column->isSelectable() && ! $column->isSelected());
     }
 
-    public function sortable() {
+    public function sortable(): self 
+    {
         return $this->reject(fn (Column $column) => !$column->isSortable() && !$column->hasSortCallback());
     }
 
-    public function visibleSortableColumns() {
+    public function visibleSortableColumns(): self 
+    {
         return $this
             ->visible()
             ->selected()
             ->sortable();
     }
 
-    public function visibleSortableColumnsKeyed(array $sortKeys = []) {
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $sortKeys
+     * @return self
+     */
+    public function visibleSortableColumnsKeyed(array $sortKeys = []): self 
+    {
         return $this
             ->visible()
             ->selected()
@@ -43,13 +61,14 @@ class ColumnCollection extends Collection
             ->keyBy('slug');
     }
 
-
     /**
      * Undocumented function
      *
      * @param array<mixed> $selectedColumns
+     * @return self
      */
-    public function selectedInTable(array $selectedColumns) {
+    public function selectedInTable(array $selectedColumns): self 
+    {
         return $this->reject(function (Column $column) use ($selectedColumns) {
             return !empty($selectedColumns) && in_array($column->getSlug(), $selectedColumns, true);
         });
@@ -60,30 +79,56 @@ class ColumnCollection extends Collection
      * Undocumented function
      *
      * @param array<mixed> $selectedColumns
+     * @return self
      */
-    public function rejectUnselectedColumns(array $selectedColumns) {
+    public function rejectUnselectedColumns(array $selectedColumns): self 
+    {
         return $this->reject(function (Column $column) use ($selectedColumns) {
             return $column->isSelectable() && !empty($selectedColumns) && in_array($column->getSlug(), $selectedColumns, true);
         });
     }
 
 
-    public function visibleOnReorder() {
+    /**
+     * Undocumented function
+     *
+     * @return self
+     */
+    public function visibleOnReorder(): self
+    {
         return $this->reject(fn (Column $column) => !$column->isVisibleOnReorder());
     }
 
-    public function rejectInvisibleWhileReordering(bool $currentlyReordering = false) 
+    /**
+     * Undocumented function
+     *
+     * @param boolean $currentlyReordering
+     * @return self
+     */
+    public function rejectInvisibleWhileReordering(bool $currentlyReordering = false): self
     {
         return $this->reject(function (Column $column) use ($currentlyReordering) {
             return $currentlyReordering && !$column->isVisibleOnReorder();
         });
     }
 
-    public function reorder() {
+    /**
+     * Undocumented function
+     *
+     * @return self
+     */
+    public function reorder(): self 
+    {
         return $this->reject(fn (Column $column) => !$column->isVisibleOnReorder());
     }
 
-    public function visibleSelectable() {
+    /**
+     * Undocumented function
+     *
+     * @return self
+     */
+    public function visibleSelectable(): self 
+    {
         return $this->visible()->selectable();
     }
 

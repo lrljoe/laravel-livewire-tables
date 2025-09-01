@@ -17,8 +17,7 @@ trait IsLivewireComponentFilter
 
     public function setLivewireComponent(string $livewireComponent): self
     {
-
-        $class = '\\'.config('livewire.class_namespace').'\\'.collect(str($livewireComponent)->explode('.'))->map(fn ($segment) => (string) str($segment)->studly())->join('\\');
+        /*$class = '\\'.config('livewire.class_namespace').'\\'.collect(str($livewireComponent)->explode('.'))->map(fn ($segment) => (string) str($segment)->studly())->join('\\');
 
         if (! class_exists($class)) {
             throw new DataTableConfigurationException('You must specify a valid path to your Livewire Component Filter.');
@@ -26,7 +25,7 @@ trait IsLivewireComponentFilter
 
         if (! is_subclass_of($class, \Livewire\Component::class)) {
             throw new DataTableConfigurationException('Your Livewire Component Filter MUST Extend Livewire\Component.');
-        }
+        }*/
 
         $this->livewireComponent = $livewireComponent;
 

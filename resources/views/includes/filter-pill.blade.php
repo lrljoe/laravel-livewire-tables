@@ -1,7 +1,5 @@
 @aware(['dataTableFingerprint','isTailwind', 'isTailwind4', 'isBootstrap4','isBootstrap5'])
-
-<div x-data="filterPillsHandler(@js($setupData))" 
-    x-bind="trigger" 
+<div x-data="filterPillsHandler(@js($filterPillData->getPillSetupData($filterKey,$shouldWatch)))" x-bind="trigger" 
     wire:key="{{ $dataTableFingerprint }}-filter-pill-{{ $filterKey }}" 
     {{ 
         $attributes->merge($filterPillsItemAttributes)
@@ -21,6 +19,7 @@
     }}
 >
     <span {{ $attributes->merge($pillTitleDisplayDataArray) }}></span>:&nbsp;
+
     <span {{ $attributes->merge($pillDisplayDataArray) }}></span>
 
     <x-livewire-tables::tools.filter-pills.buttons.reset-filter :$filterKey :$filterPillData/>

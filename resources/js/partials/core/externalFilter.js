@@ -12,15 +12,24 @@ function externalFilter() {
         selectedItems: wire.entangle('selectedItems'), 
         sendValueToPill(value)
         {
+            console.log('tablesExternalFilter - sendValueToPill');
             let sentValue = this.removeHTMLTags(value);
+            console.log(sentValue);
             this.$dispatch('filterpillupdate', { dataTableFingerprint: this.dataTableFingerprint, filterKey: this.externalFilterKey, pillItem: sentValue });
         },
         overridePill(values)
         {
+            console.log('tablesExternalFilter - overridePill');
             let sentValue = this.removeHTMLTags(values);
+            console.log(sentValue);
             this.$dispatch('filterpillupdate', { dataTableFingerprint: this.dataTableFingerprint, filterKey: this.externalFilterKey, pillItem: sentValue });
         },
         syncItems(items) { 
+            console.log('tablesExternalFilter - syncItems');
+            console.log('items');
+            console.log(items);
+
+
             this.pillValues = [];
             items.forEach((item) => {
                 this.pillValues.push(this.optionsAvailable[item]);
@@ -28,6 +37,9 @@ function externalFilter() {
             if(this.pillValues.length > 0)
             {
                 this.pillValues.sort();
+                console.log('tablesExternalFilter - syncItems - syncExternalFilterPillsValues');
+                console.log('this.externalFilterKey: '+this.externalFilterKey);
+                console.log('this.pillValues: '+this.pillValues);
                 this.syncExternalFilterPillsValues(this.externalFilterKey,this.pillValues);
             }
             this.optionsSelected = this.selectedItems;

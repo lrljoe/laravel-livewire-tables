@@ -13,21 +13,22 @@ trait ColumnConfiguration
      */
     public function setColumns(): void
     {
-        $columns = new ColumnCollection($this->getPrependedColumns())->concat($this->columns())->concat(new ColumnCollection($this->getAppendedColumns()));
-        $this->columns = $columns->filter(fn ($column) => $column instanceof Column);
+        $this->columns = $this->mergeColumns();
+    }
+    
+    protected function mergeColumns(): ColumnCollection
+    {
+        return new ColumnCollection($this->getPrependedColumns())->concat($this->columns())->concat(new ColumnCollection($this->getAppendedColumns()));
     }
 
     protected function setupColumns(): void
     {
-        if(empty($this->columns))
-        {
-            $this->setColumns();
-        }
-        $this->columns = $this->columns
+        $this->columns = $this->mergeColumns()
             ->map(function (Column $column) {
                 $column->setTheme($this->getTheme())
                     ->setHasTableRowUrl($this->hasTableRowUrl())
-                    ->setIsReorderColumn($this->getDefaultReorderColumn() == $column->getField());
+                    ->setIsReorderColumn($this->getDefaultReorderColumn() == $column->getField())
+                    ->setupObscuration();
 
                 if ($column->hasFooter()) {
                     $this->columnsWithFooter = true;
@@ -56,7 +57,6 @@ trait ColumnConfiguration
 
                 return $column;
             });
-
         $this->hasRunColumnSetup = true;
     }
 

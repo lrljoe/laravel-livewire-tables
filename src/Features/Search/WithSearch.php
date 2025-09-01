@@ -50,7 +50,7 @@ trait WithSearch
                         if ($column->hasSearchCallback()) {
                             ($column->getSearchCallback())($query, $search);
                         } else {
-                            $query->{$index === 0 ? 'where' : 'orWhere'}($column->getColumn(), 'like', '%'.$search.'%');
+                            $query->{$index === 0 ? 'where' : 'orWhere'}($column->getColumn(), 'like', $column->isWildcardSearchable() ? '%'.$search.'%' : $search);
                         }
                     }
                 }));
@@ -63,10 +63,10 @@ trait WithSearch
     /**
      * Undocumented function
      *
-     * @param string|array<mixed>|null $value
+     * @param string|null $value
      * @return void
      */
-    public function updatedSearch(string|array|null $value): void
+    public function updatedSearch(string|null $value): void
     {
 
         if(!$this->reloading)

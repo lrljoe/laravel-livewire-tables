@@ -127,7 +127,7 @@ trait WithPagination
             } else {
                 session()->put($this->getPerPagePaginationSessionKey(), $this->getPerPageAccepted()[0] ?? 10);
             }
-            $this->setPerPage($value);
+            $this->setPerPage((int) $value);
             $this->resetPage($this->getComputedPageName());
 
         }

@@ -13,7 +13,7 @@ abstract class LivewireArrayExternalFilter extends Component
         HandlesTableEventsForExternalFilter,
         HandlesUpdateStatusForExternalFilter;
 
-        /**
+    /**
      * Undocumented variable
      *
      * @var array<mixed>
@@ -41,9 +41,17 @@ abstract class LivewireArrayExternalFilter extends Component
      */
     public array $selectedItems = [];
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
+    public array $returnValues = [];
+
     #[Renderless]
     public function updatedOptionsSelected(mixed $value): void
     {
+
         if (! $this->skipUpdate) {
             if (! $this->needsUpdating) {
                 $this->needsUpdating = true;

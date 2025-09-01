@@ -1,7 +1,7 @@
 includes:
     - vendor/larastan/larastan/extension.neon
     - phpstan-baseline.neon
-
+  
 parameters:
     paths:
         - database
@@ -13,10 +13,11 @@ parameters:
     treatPhpDocTypesAsCertain: false
     reportUnmatchedIgnoredErrors: false
     ignoreErrors:
-        - identifier: argument.type
         - identifier: argument.templateType
+          paths:
+           - src/Features/Filters/Views/MultiSelectDropdownFilter.php
+           - src/Features/Filters/Views/SelectFilter.php
         - identifier: new.static
-        - identifier: function.alreadyNarrowedType
         - identifier: missingType.generics
           paths:
             - src/Traits/WithData.php

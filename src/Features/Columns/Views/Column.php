@@ -4,7 +4,7 @@ namespace Rappasoft\LaravelLivewireTables\Features\Columns\Views;
 
 use Illuminate\Support\Str;
 use Rappasoft\LaravelLivewireTables\Traits\Core\HasLocalisations;
-use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Traits\{HasDataTableComponent,IsReorderColumn,HasColumnLabelStatus,HasRelations,HasLabelFormat,HasClickable,HasSlug,IsCollapsible,IsSearchable,IsSelectable,IsSortable,HasColumnView,HasFooter,HasSecondaryHeader,HasVisibility, HasTextAlign, Configuration\ColumnConfiguration, Helpers\ColumnHelpers};
+use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Traits\{HasDataTableComponent,IsReorderColumn,HasColumnLabelStatus,HasRelations,HasLabelFormat,HasClickable,HasSlug,IsCollapsible,IsSearchable,IsSelectable,IsSortable,HasColumnView,HasFooter,HasSecondaryHeader,HasVisibility, HasTextAlign, HasObscuring, Configuration\ColumnConfiguration, Helpers\ColumnHelpers};
 use Rappasoft\LaravelLivewireTables\Views\Traits\Core\{HasAttributes, HasLabelAttributes, HasTheme};
 
 class Column
@@ -30,7 +30,8 @@ class Column
         HasSecondaryHeader,
         HasTheme,
         HasVisibility,
-        HasTextAlign;
+        HasTextAlign,
+        HasObscuring;
 
     // What displays in the columns header
     protected string $title;
@@ -54,7 +55,12 @@ class Column
     protected ?int $columnIndex;
 
     protected ?int $rowIndex;
-
+    
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     protected string $view = '';
 
     /**

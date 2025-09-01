@@ -28,6 +28,7 @@
 
     <span {{ $filterPillData->getFilterPillDisplayData() }}></span>
 
+
     <x-livewire-tables::tools.filter-pills.buttons.reset-filter :$filterKey :$filterPillData/>
 
 </div>

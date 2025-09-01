@@ -106,5 +106,8 @@ class LaravelLivewireTablesServiceProvider extends ServiceProvider
             (new RappasoftFrontendAssets)->register();
             ComponentHookRegistry::register(AutoInjectRappasoftAssets::class);
         }
+
+        \Livewire\Livewire::component('laravel-livewire-tables.filter-pills', \Rappasoft\LaravelLivewireTables\Features\Pills\FilterPills\PillsWidget::class);
+
     }
 }

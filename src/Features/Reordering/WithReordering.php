@@ -85,6 +85,19 @@ trait WithReordering
      */
     public array $reorderConfig = [
         'currentlyReorderingStatus' => false,
+        'defaultReorderColumn' => 'sort',
+        'reorderStatus' => false,
+        'reorderDisplayColumn' => false,
+
+    ];
+
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
+    protected array $reorderDefaultConfig = [
+        'currentlyReorderingStatus' => false,
         'defaultReorderDirection' => 'asc',
         'defaultReorderColumn' => 'sort',
         'hideReorderColumnUnlessReorderingStatus' => false,
@@ -92,7 +105,6 @@ trait WithReordering
         'reorderMethod' => 'reorder',
         'reorderStatus' => false,
     ];
-
 
     /**
      * Undocumented function

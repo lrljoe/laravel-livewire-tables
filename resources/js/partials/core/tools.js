@@ -5,29 +5,54 @@ function tools() {
         filtersOpen: wire.entangle('filterConfiguration.filterSlideDownDefaultVisible'),
         externalFilterPillsVals: wire.entangle('externalFilterPillsValues'),
         internalFilterPillsVals: wire.entangle('internalFilterPillsVals'),
-        showFilterPillLabel: [], 
+        showFilterPillLabel: [],
         filterPillsSeparator: ', ',
         showFilterPillsSection: true,
         resetSpecificFilter(filterKey)
         {
             console.log("tools - resetSpecificFilter");
+            this.internalFilterPillsVals[filterKey] = [];
             this.externalFilterPillsVals[filterKey] = [];
             wire.call('resetFilter',filterKey);
         },
         resetAllFilters()
         {
             this.externalFilterPillsVals = [];
-            wire.call('setFilterDefaults');
+            wire.dispatch('clear-filters');
+            //wire.call('setFilterDefaults');
         },
         setInternalFilterPillVal(filterKey, filterValues)
         {
+            console.log("tools - setInternalFilterPillVal");
 
             if(typeof(filterValues) !== 'undefined')
             {
                 this.internalFilterPillsVals[filterKey] = filterValues;
             }
         },
+        syncExternalFilterPillsOptions(eventFilterKey, eventFilterValues) {
+            console.log('tools - syncExternalFilterPillsOptions');
+            console.log('eventFilterValues Orig');
+            console.log(this.externalFilterPillsOptions[eventFilterKey]);
+
+
+            eventFilterValues.forEach((key, val) => {
+                console.log('eventFilterValues ForEach');
+                console.log('eventFilterKey: '+eventFilterKey);
+                console.log('eventFilterValue key: '+key);
+                console.log('eventFilterValue val: '+val);
+
+                this.externalFilterPillsOptions[eventFilterKey][key] = val;
+            });
+                console.log('eventFilterValues New');
+
+                console.log(this.externalFilterPillsOptions[eventFilterKey]);
+        },
         syncExternalFilterPillsValues(filterKey,filterValues) {
+            console.log("tools - syncExternalFilterPillsValues");
+
+            console.log('tools - syncExternalFilterPillsValues - filterKey:'+filterKey);
+
             this.externalFilterPillsVals[filterKey] = filterValues;
             this.showFilterPillLabel[filterKey] = this.getFilterPillsLength(filterKey);
         },
@@ -37,6 +62,8 @@ function tools() {
         },
         showFilterPillsValue(filterKey, filterPillValue)
         {
+            console.log("tools - showFilterPillsValue - "+filterKey);
+
             if(typeof(filterPillValue) !== "undefined")
             {
                 this.externalFilterPillsVals[filterKey] = filterPillValue;
@@ -67,6 +94,7 @@ function tools() {
         },
         getFilterPillImplodedValues(filterKey, separator)
         {
+            console.log("tools - getFilterPillImplodedValues - "+filterKey);
             let filterPillValues = this.externalFilterPillsVals[filterKey];
             if(filterPillValues !== 'undefined')
             {

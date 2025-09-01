@@ -1,4 +1,4 @@
-@aware(['isTailwind','isTailwind4', 'isBootstrap','dataTableFingerprint'])
+@aware(['isTailwind','isTailwind4', 'isBootstrap','dataTableFingerprint', 'appliedFilters'])
 
 <div {{
     $attributes->merge($this->getToolsAttributes)->merge(['x-data' => 'tools($wire)'])
@@ -25,6 +25,8 @@
     @if(method_exists($this, 'showFilterPillsSection') ? $this->showFilterPillsSection() : false)
         <x-livewire-tables::tools.filter-pills />
     @endif
+
+
 
     @includeWhen(
         $this->hasConfigurableAreaFor('before-toolbar'),

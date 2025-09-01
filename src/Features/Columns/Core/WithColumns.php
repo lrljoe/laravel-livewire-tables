@@ -15,21 +15,21 @@ trait WithColumns
     /**
      * Undocumented variable
      *
-     * @var ColumnCollection<int,\Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column>
+     * @var ColumnCollection<int|string,\Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column>
      */
     protected ColumnCollection $columns;
 
     /**
      * Undocumented variable
      *
-     * @var ColumnCollection<int,\Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column>|null
+     * @var ColumnCollection<int|string,\Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column>|null
      */
     protected ?ColumnCollection $prependedColumns;
 
     /**
      * Undocumented variable
      *
-     * @var ColumnCollection<int,\Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column>|null
+     * @var ColumnCollection<int|string,\Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column>|null
      */
     protected ?ColumnCollection $appendedColumns;
 

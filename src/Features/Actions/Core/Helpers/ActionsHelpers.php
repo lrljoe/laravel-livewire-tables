@@ -86,7 +86,6 @@ trait ActionsHelpers
     public function getActions(): ActionCollection
     {
         return (new ActionCollection($this->actions()))
-                ->filter(fn ($action) => $action instanceof Action)
                 ->each(function (Action $action, int $key) {
                     $action->setTheme($this->getTheme());
                 });

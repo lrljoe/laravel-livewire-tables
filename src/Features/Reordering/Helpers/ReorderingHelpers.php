@@ -7,15 +7,20 @@ use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
 
 trait ReorderingHelpers
 {
+
+    protected function getReorderConfigValue(string $key): mixed
+    {
+        return $this->reorderConfig[$key] ?? $this->reorderDefaultConfig[$key];
+    }
+
     public function getReorderMethod(): string
     {
-        return $this->reorderConfig['reorderMethod'];
+        return $this->getReorderConfigValue('reorderMethod');
     }
 
     public function getReorderStatus(): bool
     {
-        return $this->reorderConfig['reorderStatus'];
-
+        return $this->getReorderConfigValue('reorderStatus');
     }
 
     #[Computed]
@@ -38,7 +43,7 @@ trait ReorderingHelpers
     #[Computed]
     public function getCurrentlyReorderingStatus(): bool
     {
-        return $this->reorderConfig['currentlyReorderingStatus'];
+        return $this->getReorderConfigValue('currentlyReorderingStatus');
     }
 
     public function currentlyReorderingIsEnabled(): bool
@@ -53,7 +58,8 @@ trait ReorderingHelpers
 
     public function getHideReorderColumnUnlessReorderingStatus(): bool
     {
-        return $this->reorderConfig['hideReorderColumnUnlessReorderingStatus'];
+        return $this->getReorderConfigValue('hideReorderColumnUnlessReorderingStatus');
+
     }
 
     public function hideReorderColumnUnlessReorderingIsEnabled(): bool
@@ -68,12 +74,12 @@ trait ReorderingHelpers
 
     public function getDefaultReorderColumn(): ?string
     {
-        return $this->reorderConfig['defaultReorderColumn'];
+        return $this->getReorderConfigValue('defaultReorderColumn');
     }
 
     public function getDefaultReorderDirection(): string
     {
-        return $this->reorderConfig['defaultReorderDirection'];
+        return $this->getReorderConfigValue('defaultReorderDirection');
     }
 
     public function setReorderingSession(): void

@@ -1,0 +1,109 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Call to function method_exists\(\) with \$this\(Rappasoft\\LaravelLivewireTables\\DataTableComponent\) and ''applyFilters'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 2
+			path: src/DataTableComponent.php
+
+		-
+			message: '#^Call to function method_exists\(\) with \$this\(Rappasoft\\LaravelLivewireTables\\DataTableComponent\) and ''applySearch'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/DataTableComponent.php
+
+		-
+			message: '#^Call to function method_exists\(\) with \$this\(Rappasoft\\LaravelLivewireTables\\DataTableComponent\) and ''filtersAreEnabled'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/DataTableComponent.php
+
+		-
+			message: '#^Call to function method_exists\(\) with \$this\(Rappasoft\\LaravelLivewireTables\\DataTableComponent\) and ''getFilterGenericData'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/DataTableComponent.php
+
+		-
+			message: '#^Call to function method_exists\(\) with \$this\(Rappasoft\\LaravelLivewireTables\\DataTableComponent\) and ''hasSearch'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/DataTableComponent.php
+
+		-
+			message: '#^Call to function method_exists\(\) with \$this\(Rappasoft\\LaravelLivewireTables\\DataTableComponent\) and ''isFilterLayoutSlide…'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 2
+			path: src/DataTableComponent.php
+
+		-
+			message: '#^Call to function method_exists\(\) with \$this\(Rappasoft\\LaravelLivewireTables\\DataTableComponent\) and ''searchIsEnabled'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/DataTableComponent.php
+
+		-
+			message: '#^Call to function method_exists\(\) with \$this\(Rappasoft\\LaravelLivewireTables\\DataTableComponent\) and ''searchVisibilityIsE…'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/DataTableComponent.php
+
+		-
+			message: '#^Call to function method_exists\(\) with \$this\(Rappasoft\\LaravelLivewireTables\\DataTableComponent\) and ''showFilterPillsSect…'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/DataTableComponent.php
+
+		-
+			message: '#^Call to function method_exists\(\) with \$this\(Rappasoft\\LaravelLivewireTables\\DataTableComponent\) and ''showFiltersButton'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/DataTableComponent.php
+
+		-
+			message: '#^Call to function method_exists\(\) with \$this\(Rappasoft\\LaravelLivewireTables\\DataTableComponent\) and ''showReorderButton'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/DataTableComponent.php
+
+		-
+			message: '#^Call to function method_exists\(\) with \$this\(Rappasoft\\LaravelLivewireTables\\DataTableComponent\) and ''showSearchField'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/DataTableComponent.php
+
+		-
+			message: '#^Call to function method_exists\(\) with Rappasoft\\LaravelLivewireTables\\DataTableComponent and ''getSearch'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/DataTransferObjects/DebuggableData.php
+
+		-
+			message: '#^Call to function property_exists\(\) with \$this\(Rappasoft\\LaravelLivewireTables\\Features\\Filters\\Views\\DateRangeFilter\) and ''optionsPath'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/Features/Filters/Views/DateRangeFilter.php
+
+		-
+			message: '#^Call to function is_string\(\) with string will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/Features/Filters/Views/MultiSelectDropdownFilter.php
+
+		-
+			message: '#^Call to function property_exists\(\) with \$this\(Rappasoft\\LaravelLivewireTables\\Features\\Filters\\Views\\MultiSelectDropdownFilter\) and ''optionsPath'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/Features/Filters/Views/MultiSelectDropdownFilter.php
+
+		-
+			message: '#^Call to function property_exists\(\) with \$this\(Rappasoft\\LaravelLivewireTables\\Features\\Filters\\Views\\MultiSelectFilter\) and ''optionsPath'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/Features/Filters/Views/MultiSelectFilter.php
+
+		-
+			message: '#^Call to function property_exists\(\) with \$this\(Rappasoft\\LaravelLivewireTables\\Features\\Filters\\Views\\SelectFilter\) and ''optionsPath'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/Features/Filters/Views/SelectFilter.php

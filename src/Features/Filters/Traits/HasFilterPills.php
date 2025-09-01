@@ -25,6 +25,20 @@ trait HasFilterPills
      *
      * @var array<mixed>
      */
+    public array $externalFilterPillsOptions = [];
+
+    /**
+     * Undocumented variable
+     *
+     * @var array<string,array<int,string>>
+     */
+    public array $externalFilterPills = [];
+
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     public array $internalFilterPillsVals = ['name' => null];
 
    //.. public array $externalFilterPillsLength = [];

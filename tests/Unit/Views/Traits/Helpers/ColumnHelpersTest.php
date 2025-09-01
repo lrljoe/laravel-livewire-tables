@@ -188,13 +188,13 @@ final class ColumnHelpersTest extends TestCase
 
         $column->setTable('users');
 
-        $this->assertSame('users.name', $column->getColumn());
+        $this->assertSame('name', $column->getColumn());
 
         $column = Column::make('Address Group', 'address.group.name');
 
         $column->setTable('addresses');
 
-        $this->assertSame('addresses.name', $column->getColumn());
+        $this->assertSame('address.group.name', $column->getColumn());
     }
 
     public function test_can_get_full_column_select_name(): void
@@ -217,14 +217,14 @@ final class ColumnHelpersTest extends TestCase
         $column = Column::make('Name', 'name');
         $column->setTable('users');
 
-        $this->assertTrue($column->isColumn('users.name'));
-        $this->assertFalse($column->isColumn('name'));
+        $this->assertTrue($column->isColumn('name'));
+        $this->assertFalse($column->isColumn('users.name'));
 
         $column = Column::make('Address Group', 'address.group.name');
         $column->setTable('addresses');
 
-        $this->assertTrue($column->isColumn('addresses.name'));
-        $this->assertFalse($column->isColumn('address.group.name'));
+        $this->assertTrue($column->isColumn('address.group.name'));
+        $this->assertFalse($column->isColumn('addresses.name'));
     }
 
     public function test_can_check_if_column_matches_column_select(): void

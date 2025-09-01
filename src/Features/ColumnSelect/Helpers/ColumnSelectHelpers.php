@@ -17,7 +17,7 @@ trait ColumnSelectHelpers
      */
     public function columnSelectIsEnabledForColumn(mixed $column): bool
     {
-        return !empty($this->selectedColumns) && in_array($column instanceof Column ? $column->getSlug() : $column, $this->selectedColumns ?? [], true);
+        return !empty($this->selectedColumns) && in_array($column instanceof Column ? $column->getSlug() : $column, $this->selectedColumns, true);
     }
 
 
@@ -70,7 +70,7 @@ trait ColumnSelectHelpers
     /**
      * Undocumented function
      *
-     * @return ColumnCollection<int,Column>
+     * @return ColumnCollection<int|string,Column>
      */
     public function getSelectableColumns(): ColumnCollection
     {
@@ -84,7 +84,7 @@ trait ColumnSelectHelpers
     /**
      * Undocumented function
      *
-     * @return ColumnCollection<int,Column>
+     * @return ColumnCollection<int|string,Column>
      */
     public function getSelectableSelectedColumns(): ColumnCollection
     {
@@ -100,7 +100,7 @@ trait ColumnSelectHelpers
     /**
      * Undocumented function
      *
-     * @return ColumnCollection<int,Column>
+     * @return ColumnCollection<int|string,Column>
      */
     public function getUnSelectableColumns(): ColumnCollection
     {

@@ -18,6 +18,8 @@ trait HandlesCorePropertiesForExternalFilter
      */
     public string $tableName = 'table';
 
+    public string $dataTableFingerprint = 'unknown';
+
     /**
      * Undocumented variable
      *

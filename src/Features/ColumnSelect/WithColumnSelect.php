@@ -58,7 +58,7 @@ trait WithColumnSelect
     {
         if (strlen($this->columnSelectConfig['selectedColumnsQsData']) > 0)
         {
-            $selectedColumns = explode(",", $this->columnSelectConfig['selectedColumnsQsData']) ?? [];
+            $selectedColumns = explode(",", $this->columnSelectConfig['selectedColumnsQsData']);
             $this->selectedColumns = empty($selectedColumns) ? $this->getDefaultVisibleColumns() : $selectedColumns;
 
         }
@@ -116,7 +116,7 @@ trait WithColumnSelect
     public function renderingWithColumnSelect(\Illuminate\View\View $view, array $data = []): void
     {
 
-        if(empty($this->selectedColumns) && empty($this->getUnSelectableColumns()))
+        if((count($this->selectedColumns) == 0) && ($this->getUnSelectableColumns()->count() == 0))
         {
             $this->selectedColumns = $this->getDefaultVisibleColumns();
         }

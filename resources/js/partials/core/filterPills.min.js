@@ -14,6 +14,9 @@ function filterPills() {
         displayString: '',
         generateLocalFilterPillImplodedValues(filterPillValues)
         {
+            console.log('filterPillsHandler - generateLocalFilterPillImplodedValues');
+            console.log(filterPillValues);
+
             if(typeof(filterPillValues) !== 'undefined')
             {
                 var temporarySeparatorString = '---tablepillsseparator---';
@@ -56,17 +59,28 @@ function filterPills() {
         },
         trigger: {
             ['@filterpillupdate.window'](event) {
+                console.log('filterpillupdate');
+                console.log(event);
                 this.watchForUpdateEvent(event);
             },
         },
         checkEventIsValid(eventdataTableFingerprint, eventFilterKey)
         {
+            console.log('localDataFingerprint: '+this.dataTableFingerprint);
+            console.log('eventdataTableFingerprint: '+eventdataTableFingerprint);
+            console.log('localFilterKey: '+this.localFilterKey);
+            console.log('eventFilterKey: '+eventFilterKey);
+
             return ((this.dataTableFingerprint === eventdataTableFingerprint) && (this.localFilterKey === eventFilterKey));
         },
         watchForUpdateEvent(event)
         {
+            console.log('filterPillsHandler - watchForUpdateEvent');
+
             if(this.checkEventIsValid(event.detail.dataTableFingerprint ?? '', event.detail.filterKey ?? ''))
             {
+                console.log('filterPillsHandler - watchForUpdateEvent - Valid');
+
                 let eventPillItem = event.detail.pillItem ?? '';
                 if(!this.shouldRenderAsHTML)
                 {
@@ -88,9 +102,16 @@ function filterPills() {
                     }    
                 }
             }
+            else
+            {
+                console.log('filterPillsHandler - watchForUpdateEvent - Invalid');
+            }
         },
         updatePillValues(filterPillValues)
         {
+            console.log('filterPillsHandler - updatePillValues');
+            console.log(filterPillValues);
+
             this.pillValues = filterPillValues;
             this.displayString = this.generateLocalFilterPillImplodedValues(filterPillValues); 
             this.updatePillHasValues();
@@ -114,15 +135,25 @@ function filterPills() {
             this.$nextTick(() => { 
                 if(this.isExternalFilter)
                 {
+                    console.log('isExternal Filter');
+                    console.log('localFilterKey: '+ this.localFilterKey);
                     this.updatePillValues(this.externalFilterPillsVals[this.localFilterKey]);
                 }
                 else
                 {
+                    console.log('is NOT External Filter');
+                    console.log('pillValues: '+ this.pillValues);
+
                     this.updatePillValues(this.pillValues);
                 }
             });
             if(this.isExternalFilter && this.shouldWatchPillValues)
             {
+                console.log('externalPillValsWatcher: '+this.localFilterKey);
+                console.log('externalPillValsWatcher: '+this.localFilterKey);
+                console.log('wired: '+'externalFilterPillsVals.'+this.localFilterKey);
+                console.log('test: '+this.externalFilterPillsVals[this.localFilterKey]);
+
                 this.$watch('externalFilterPillsVals.'+this.localFilterKey, filterPillValues => { 
                     this.updatePillValues(filterPillValues);
                 });      

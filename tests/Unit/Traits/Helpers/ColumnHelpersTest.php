@@ -45,7 +45,7 @@ final class ColumnHelpersTest extends TestCase
 
     public function test_can_get_column_by_column(): void
     {
-        $column = $this->basicTable->getColumn('pets.id');
+        $column = $this->basicTable->getColumn('id');
 
         $this->assertSame('id', $column->getField());
     }

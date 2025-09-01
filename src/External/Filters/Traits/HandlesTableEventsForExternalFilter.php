@@ -40,7 +40,10 @@ trait HandlesTableEventsForExternalFilter
     {
         if ($this->needsUpdating) {
             $this->needsUpdating = false;
-            $this->dispatch('livewireExternalArrayFilterUpdate', tableName: $this->tableName, filterKey: $this->filterKey, values: $this->optionsSelected)->to($this->tableComponent);
+            $this->dispatch('livewireExternalArrayFilterUpdate', dataTableFingerprint: $this->dataTableFingerprint, returnValues: $this->returnValues, tableName: $this->tableName, filterKey: $this->filterKey, values: $this->optionsSelected, optionsAvailable: $this->newOptionsAvailable)->to($this->tableComponent);
+            $this->dispatch('livewireExternalArrayFilterValuesUpdateNew', dataTableFingerprint: $this->dataTableFingerprint ?? 'test', filterKey: $this->filterKey, filterOptions: $this->newOptionsAvailable, selectedValues: $this->optionsSelected);
+
+            $this->newOptionsAvailable = [];
         }
     }
 }            

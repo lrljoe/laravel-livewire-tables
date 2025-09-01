@@ -72,10 +72,12 @@ trait HasOptions
      */
     public function getKeys(): array
     {
-        return collect($this->getOptions())
+        /** @var \Illuminate\Support\Collection<int|string,string> $result */
+        $result = collect($this->getOptions());
+        return $result
             ->keys()
             ->map(fn ($value) => (string) $value)
-            ->filter(fn ($value) => strlen($value))
+            ->filter(fn (string $value, int $index) => strlen($value) > 0)
             ->values()
             ->toArray();
     }

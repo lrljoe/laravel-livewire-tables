@@ -303,12 +303,37 @@ trait TableAttributeHelpers
      */
     protected function getDefaultViewCustomData(): array
     {
+        $collapsingColumnData = [
+            'hasCollapsingColumns' => ($this->collapsingColumnsAreEnabled() && $this->hasCollapsedColumns()),
+            'shouldCollapseAlways' => false,
+            'shouldCollapseOnTablet' => false,
+            'shouldCollapseOnMobile' => false,
+        ];
+
+        if($collapsingColumnData['hasCollapsingColumns'])
+        {
+            $collapsingColumnAdditionalData = [
+                'collapsingColumnInfo' => $this->getCollapsingColumnDetailsForView(),
+                'collapsingColumnClasses' => $this->getCollapsingColumnClasses(),
+                'collapsingColumnDetails' => $this->getCollapsedColumnsForContentNew(),
+                'collapsingColumnButtonExpandAttributes' => $this->getCollapsingColumnButtonExpandAttributes(),
+                'collapsingColumnButtonCollapseAttributes' => $this->getCollapsingColumnButtonCollapseAttributes(),
+                'hasCollapsingColumns' => ($this->collapsingColumnsAreEnabled() && $this->hasCollapsedColumns()),
+                'showCollapsingColumnSections' => $this->showCollapsingColumnSections(),
+                'shouldCollapseAlways' => $this->shouldCollapseAlways(),
+                'shouldCollapseOnTablet' => $this->shouldCollapseOnTablet(),
+                'shouldCollapseOnMobile' => $this->shouldCollapseOnMobile(),
+            ];
+            $collapsingColumnData = array_merge($collapsingColumnData, $collapsingColumnAdditionalData);
+        }
+
         return [
             'tableName' => $this->getTableName(),
             'tableId' => $this->getTableId(),
             'primaryKey' => $this->getPrimaryKey(),
-            'collapsingColumnInfo' => $this->getCollapsingColumnDetailsForView(),
             'filterGenericData' => method_exists($this, 'getFilterGenericData') ? $this->getFilterGenericData() : [],
+            'collapsingColumnData' => $collapsingColumnData,
+            'collapsingColumnInfo' => $this->getCollapsingColumnDetailsForView(),
             'collapsingColumnClasses' => $this->getCollapsingColumnClasses(),
             'collapsingColumnDetails' => $this->getCollapsedColumnsForContentNew(),
             'collapsingColumnButtonExpandAttributes' => $this->getCollapsingColumnButtonExpandAttributes(),
@@ -318,6 +343,7 @@ trait TableAttributeHelpers
             'shouldCollapseAlways' => $this->shouldCollapseAlways(),
             'shouldCollapseOnTablet' => $this->shouldCollapseOnTablet(),
             'shouldCollapseOnMobile' => $this->shouldCollapseOnMobile(),
+            
             'coreTableAttributes' => $this->getCoreTableAttributes(),
             
           //  'getCurrentlyReorderingStatus' => $this->getCurrentlyReorderingStatus(),
