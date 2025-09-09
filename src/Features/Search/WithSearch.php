@@ -50,7 +50,7 @@ trait WithSearch
                         if ($column->hasSearchCallback()) {
                             ($column->getSearchCallback())($query, $search);
                         } else {
-                            $query->{$index === 0 ? 'where' : 'orWhere'}($column->getColumn(), 'like', $column->isWildcardSearchable() ? '%'.$search.'%' : $search);
+                            $query->{$index === 0 ? 'where' : 'orWhere'}($column->getColumnForQuery($this->getBuilder()->getModel()->getTable()), 'like', $column->isWildcardSearchable() ? '%'.$search.'%' : $search);
                         }
                     }
                 }));
