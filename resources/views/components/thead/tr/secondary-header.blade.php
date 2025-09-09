@@ -1,16 +1,19 @@
-@aware([ 'dataTableFingerprint','showBulkActionsSections', 'selectedVisibleColumns', 'hasCollapsingColumns', 'filterGenericData'])
+@aware([ 'dataTableFingerprint','showBulkActionsSections', 'selectedVisibleColumns', 'hasCollapsingColumns', 'filterGenericData', 'currentlyReorderingStatus'])
 
 <x-livewire-tables::table.tr.plain :rowIndex="-1"
     :customAttributes="$this->getSecondaryHeaderTrAttributes($this->getRows)"
     wire:key="{{ $dataTableFingerprint .'-secondary-header' }}" data-id="temp"
 >
-    @if ($showBulkActionsSections)
-        <x-livewire-tables::table.td.plain :colIndex="'bulkactions'" :displayMinimisedOnReorder="true" wire:key="{{ $dataTableFingerprint .'-header-hasBulkActions' }}" />
+    @if(!$currentlyReorderingStatus)
+        @if ($showBulkActionsSections)
+            <x-livewire-tables::table.td.plain :colIndex="'bulkactions'" :displayMinimisedOnReorder="true" wire:key="{{ $dataTableFingerprint .'-header-hasBulkActions' }}" />
+        @endif
+
+        @if ($hasCollapsingColumns)
+            <x-livewire-tables::collapsed-columns.td :hidden=true :displayMinimisedOnReorder="true" wire:key="{{ $dataTableFingerprint .'header-collapsed-hide' }}"  />
+        @endif
     @endif
 
-    @if ($hasCollapsingColumns)
-        <x-livewire-tables::collapsed-columns.td :hidden=true :displayMinimisedOnReorder="true" wire:key="{{ $dataTableFingerprint .'header-collapsed-hide' }}"  />
-    @endif
 
     @tableloop($selectedVisibleColumns as $colIndex => $column)
         @if($column->hasSecondaryHeader() && $column->hasSecondaryHeaderCallback())

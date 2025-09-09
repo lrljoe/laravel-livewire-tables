@@ -4,12 +4,14 @@
     :customAttributes="$this->getFooterTrAttributes($this->getRows)"
     wire:key="{{ $dataTableFingerprint .'-footer' }}"
 >
-    @if ($showBulkActionsSections)
-        <x-livewire-tables::table.td.plain :colIndex="'bulkactions'" :displayMinimisedOnReorder="true" wire:key="{{ $dataTableFingerprint .'-footer-hasBulkActions' }}" />
-    @endif
+    @if(!$currentlyReorderingStatus)
+        @if ($showBulkActionsSections)
+            <x-livewire-tables::table.td.plain :colIndex="'bulkactions'" :displayMinimisedOnReorder="true" wire:key="{{ $dataTableFingerprint .'-footer-hasBulkActions' }}" />
+        @endif
 
-    @if ($hasCollapsingColumns)
-        <x-livewire-tables::collapsed-columns.td :hidden=true :displayMinimisedOnReorder="true" wire:key="{{ $dataTableFingerprint .'-footer-collapsed-hide' }}"  />
+        @if ($hasCollapsingColumns)
+            <x-livewire-tables::collapsed-columns.td :hidden=true :displayMinimisedOnReorder="true" wire:key="{{ $dataTableFingerprint .'-footer-collapsed-hide' }}"  />
+        @endif
     @endif
 
 

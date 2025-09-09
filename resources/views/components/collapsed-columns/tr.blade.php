@@ -9,13 +9,16 @@
                     'wire:key' => $dataTableFingerprint.'-row-'.$rowPk.'-collapsed-contents',
                 ])
                 ->merge($tableRowDetails['attributes'])
-                ->class([
-                    'hidden rappasoft-striped-row' => $isTailwind && ($tableRowDetails['attributes']['default'] ?? true),
-                    'tw4ph hidden rappasoft-striped-row' => $isTailwind4 && ($tableRowDetails['attributes']['default'] ?? true),
-
-                    'd-none bg-light rappasoft-striped-row' => $isBootstrap && ($rowIndex % 2 === 0 && ($tableRowDetails['attributes']['default'] ?? true)),
-                    'd-none bg-white rappasoft-striped-row' => $isBootstrap && ($rowIndex % 2 !== 0 && ($tableRowDetails['attributes']['default'] ?? true)),
-                ])
+                ->class($isTailwind ? [
+                    'hidden rappasoft-striped-row' => ($tableRowDetails['attributes']['default'] ?? true),
+                ] : [])
+                ->class($isTailwind4 ? [
+                    'tw4ph hidden rappasoft-striped-row' => ($tableRowDetails['attributes']['default'] ?? true),
+                ] : [])
+                ->class($isBootstrap ? [
+                    'd-none bg-light rappasoft-striped-row' => ($rowIndex % 2 === 0 && ($tableRowDetails['attributes']['default'] ?? true)),
+                    'd-none bg-white rappasoft-striped-row' => ($rowIndex % 2 !== 0 && ($tableRowDetails['attributes']['default'] ?? true)),
+                ] : [])
                 ->except(['default','default-styling','default-colors'])
         }}
     >

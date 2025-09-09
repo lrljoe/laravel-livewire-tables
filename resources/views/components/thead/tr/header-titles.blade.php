@@ -7,13 +7,15 @@
 >
     @if($currentlyReorderingStatus)
         <x-livewire-tables::reorder.th  />
+    @else
+        @if($showBulkActionsSections)
+            <x-livewire-tables::bulk-actions.th :displayMinimisedOnReorder="true" />
+        @endif
+        @if ($showCollapsingColumnSections)
+            <x-livewire-tables::collapsed-columns.th />
+        @endif 
     @endif
-    @if(!$currentlyReorderingStatus && $showBulkActionsSections)
-        <x-livewire-tables::bulk-actions.th :displayMinimisedOnReorder="true" />
-    @endif
-    @if ($showCollapsingColumnSections)
-        <x-livewire-tables::collapsed-columns.th />
-    @endif 
+    
     @tableloop($this->selectedVisibleColumnsRaw as $index => $column)
         <x-livewire-tables::table.th wire:key="{{ $dataTableFingerprint.'-table-head-'.$column['slug'] }}" :columnHash="$column['hash'] ?? 'ran'" :$index />
     @endtableloop

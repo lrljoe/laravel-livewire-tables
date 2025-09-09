@@ -32,80 +32,31 @@
 
         @if($currentlyReorderingStatus)
             <x-livewire-tables::reorder.td x-cloak x-show="currentlyReorderingStatus" />
+        @else
+            @if($showBulkActionsSections)
+                <x-livewire-tables::bulk-actions.td  />
+            @endif
+            @if ($showCollapsingColumnSections)
+                <x-livewire-tables::collapsed-columns.td  />
+            @endif
         @endif
-        @if(!$currentlyReorderingStatus && $showBulkActionsSections)
-            <x-livewire-tables::bulk-actions.td  />
-        @endif
-        @if (!$currentlyReorderingStatus && $showCollapsingColumnSections)
-            <x-livewire-tables::collapsed-columns.td  />
-        @endif
+
         
         @tableloop($selectedVisibleColumns as $colIndex => $column)
-            @php
-                $columnTdArray = $selectedVisibleColumnsData[$column->setIndexes($rowIndex, $colIndex)->getHash()];
-                $customAttributes = $columnTdArray['hasTdAttributesCallback'] ? $this->getTdAttributes($column, $row, $colIndex, $rowIndex) : ['default' => true, 'default-colors' => true, 'default-styling' => true];
-                if(!isset($selectedVisibleColumnsData[$column->getHash()]['extraData']))
-                {
-                    if(!$columnTdArray['hasTdAttributesCallback'])
-                    {
-                        $selectedVisibleColumnsData[$column->getHash()]['extraData'] = $attributes->merge($columnTdArray['isClickable'] ? $tableRowDetails['tdAttribs'] : [])->merge($customAttributes)
-                        ->class($isTailwind ? [
-                                'whitespace-wrap' => $columnTdArray['wrapText'],
-                                'text-left' => $columnTdArray['textAlign'] == 'left',
-                                'text-center' => $columnTdArray['textAlign'] == 'center',
-                                'text-right' => $columnTdArray['textAlign'] == 'right',
-                                'cursor-pointer' => ($columnTdArray['isClickable'] && ($tableRowDetails['url'] !== null && ($tableRowDetails['attributes']['default'] ?? true))),
-                                'whitespace-wrap' => (!$columnTdArray['wrapText'] && $columnTdArray['isHtml']) && ($customAttributes['default-styling'] ?? true),
-                                'whitespace-nowrap' => (!$columnTdArray['wrapText'] && !$columnTdArray['isHtml']) && ($customAttributes['default-styling'] ?? true),
-                                'px-6 py-4 text-sm font-medium' => ($customAttributes['default-styling'] ?? true),
-                                'dark:text-white' => ($customAttributes['default-colors'] ?? true),
-                        ] : [])
-                        ->class($collapsingColumnInfo['collapsingColumnClasses'][$colIndex] ?? '')
-                        ->except(['default','default-colors','default-styling']);
-                    }
-                    else
-                    {
-                        $selectedVisibleColumnsData[$column->getHash()]['extraData'] = $attributes->merge($columnTdArray['isClickable'] ? $tableRowDetails['tdAttribs'] : [])->merge($customAttributes)
-                        ->class($isTailwind ? [
-                                'whitespace-wrap' => $columnTdArray['wrapText'],
-                                'text-left' => $columnTdArray['textAlign'] == 'left',
-                                'text-center' => $columnTdArray['textAlign'] == 'center',
-                                'text-right' => $columnTdArray['textAlign'] == 'right',
-                                'cursor-pointer' => ($columnTdArray['isClickable'] && ($tableRowDetails['url'] !== null && ($tableRowDetails['attributes']['default'] ?? true))),
-                        ] : [])
-                        ->class($collapsingColumnInfo['collapsingColumnClasses'][$colIndex] ?? '')
-                        ->except(['default','default-colors','default-styling']);
-
-                    }
-                    
-                }
-                $extraData = $selectedVisibleColumnsData[$column->getHash()]['extraData'];
+            @php($columnTdArray = $selectedVisibleColumnsData[$column->setIndexes($rowIndex, $colIndex)->getHash()])
+            <x-livewire-tables::table.td x-ref="{{ $dataTableFingerprint . '_' . $rowIndex . '_' . $colIndex }}"
+                :$columnTdArray
+                :customAttributes="$columnTdArray['hasTdAttributesCallback'] ? $this->getTdAttributes($column, $row, $colIndex, $rowIndex) : ['default' => true, 'default-colors' => true, 'default-styling' => true]" 
+                :$colIndex  
+                wire:key="{{ $dataTableFingerprint . '-table-td-'.$rowPk.'-'.$columnTdArray['slug'] }}"  
                 
-
-            @endphp
-            <td {{
-                    $extraData->class(($isTailwind && $columnTdArray['hasTdAttributesCallback']) ? [
-                                'whitespace-wrap' => (!$columnTdArray['wrapText'] && $columnTdArray['isHtml']) && ($customAttributes['default-styling'] ?? true),
-                                'whitespace-nowrap' => (!$columnTdArray['wrapText'] && !$columnTdArray['isHtml']) && ($customAttributes['default-styling'] ?? true),
-                                'px-6 py-4 text-sm font-medium' => ($customAttributes['default-styling'] ?? true),
-                                'dark:text-white' => ($customAttributes['default-colors'] ?? true),
-                            ] : [])
-                }}
-            >
-                <div {{ $columnTdArray['columnObscureContentAttributes'] }}>
-                    <div x-cloak x-show="obscure">
-                        *********
-                    </div>
-                    <div x-cloak x-show="!obscure">
-                        @if($columnTdArray['isHtml'])
-                            {!! $column->renderContents($row) !!}
-                        @else
-                            {{ $column->renderContents($row) }}
-                        @endif
-                    </div>
-                </div>
-            </td>
-
+             >
+                @if($columnTdArray['isHtml'])
+                    {!! $column->renderContents($row) !!}
+                @else
+                    {{ $column->renderContents($row) }}
+                @endif
+            </x-livewire-tables::table.td>
         @endtableloop
     </x-livewire-tables::table.tr>
 

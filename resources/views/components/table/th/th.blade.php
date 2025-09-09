@@ -13,15 +13,17 @@
 
 <th {{
     $attributes->merge($customThAttributes)
-        ->class([
-            'text-gray-500 dark:bg-gray-800 dark:text-gray-400' => $isTailwind && (($customThAttributes['default-colors'] ?? true) || ($customThAttributes['default'] ?? true)),
-            'px-6 py-3 text-left text-xs font-medium whitespace-nowrap uppercase tracking-wider' => $isTailwind && (($customThAttributes['default-styling'] ?? true) || ($customThAttributes['default'] ?? true)),
-            
-            'tw4ph text-gray-500 dark:bg-gray-800 dark:text-gray-400' => $isTailwind4 && (($customThAttributes['default-colors'] ?? true) || ($customThAttributes['default'] ?? true)),
-            'tw4ph px-6 py-3 text-left text-xs font-medium whitespace-nowrap uppercase tracking-wider' => $isTailwind4 && (($customThAttributes['default-styling'] ?? true) || ($customThAttributes['default'] ?? true)),
-
-            '' => $isBootstrap && ($customThAttributes['default'] ?? true),
-        ])
+        ->class($isTailwind ? [
+            'text-gray-500 dark:bg-gray-800 dark:text-gray-400' => (($customThAttributes['default-colors'] ?? true) || ($customThAttributes['default'] ?? true)),
+            'px-6 py-3 text-left text-xs font-medium whitespace-nowrap uppercase tracking-wider' => (($customThAttributes['default-styling'] ?? true) || ($customThAttributes['default'] ?? true)),
+        ] : [])
+        ->class($isTailwind4 ? [
+            'tw4ph text-gray-500 dark:bg-gray-800 dark:text-gray-400' => (($customThAttributes['default-colors'] ?? true) || ($customThAttributes['default'] ?? true)),
+            'tw4ph px-6 py-3 text-left text-xs font-medium whitespace-nowrap uppercase tracking-wider' => (($customThAttributes['default-styling'] ?? true) || ($customThAttributes['default'] ?? true)),
+        ] : [])
+        ->class($isBootstrap ? [
+            '' =>  ($customThAttributes['default'] ?? true),
+        ] : [])
         ->class($collapsingColumnInfo['collapsingColumnClasses'][$index] ?? '')
         ->except(['default', 'default-colors', 'default-styling'])
 }}>
