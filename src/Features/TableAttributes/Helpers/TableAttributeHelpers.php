@@ -198,11 +198,24 @@ trait TableAttributeHelpers
      */
      public function getAllThAttributes(Column $column): array
     {
+        $direction = $columnSortKey = null;
+        if($isSortable = ($column->isSortable() || $column->getSortCallback()))
+        {
+            $columnSortKey = $column->getColumnSortKey();
+
+            $direction = $column->hasField() ? $this->getSort($columnSortKey) : $this->getSort($column->getSlug()) ?? null;
+        }
+
         return [
             'customAttributes' => $this->getThAttributes($column),
             'labelAttributes' => $column->getLabelAttributesBag(),
             'sortButtonAttributes' => $this->getThSortButtonAttributes($column),
             'sortIconAttributes' => $this->getThSortIconAttributes($column),
+            'isSortable' => $isSortable,
+            'direction' => $direction,
+            'columnTitle' => $column->getTitle(),
+            'columnSortKey' => $columnSortKey,
+            'labelStatus' => $column->getColumnLabelStatus(),
         ];
     }
 
@@ -326,7 +339,7 @@ trait TableAttributeHelpers
             ];
             $collapsingColumnData = array_merge($collapsingColumnData, $collapsingColumnAdditionalData);
         }
-
+        
         return [
             'tableName' => $this->getTableName(),
             'tableId' => $this->getTableId(),
@@ -362,6 +375,7 @@ trait TableAttributeHelpers
             'localisationPath' => $this->getLocalisationPath(),
             'defaultBodyTextAlign' => $this->getDefaultBodyTextAlign(),
             'selectedVisibleColumns' => $this->selectedVisibleColumns(),
+            'selectedVisibleColumnsData' => $this->selectedVisibleColumnsData(),
             'showBulkActionsSections' => $this->showBulkActionsSections(),
             'bulkActionsTdAttributes' => $this->getBulkActionsTdAttributes(),
             'bulkActionsTdCheckboxAttributes' => $this->getBulkActionsTdCheckboxAttributes(),

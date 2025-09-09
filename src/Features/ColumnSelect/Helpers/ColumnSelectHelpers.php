@@ -205,7 +205,39 @@ trait ColumnSelectHelpers
             ->toArray();
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<int,array<string,string>>
+     */
+    #[Computed]
+    public function selectedVisibleColumnsRaw(): array
+    {
+        return $this->getColumns()
+            ->visible()
+            ->reject(fn (Column $column) => ($column->isSelectable() && ! $this->columnSelectIsEnabledForColumn($column)))
+            ->rejectInvisibleWhileReordering($this->currentlyReorderingIsEnabled())
+            ->values()
+            ->select(['slug','hash'])
+            ->toArray();
+        
+    }
 
+    public function selectedVisibleColumnsData(): array
+    {
+        $default = ['hasTextAlign' => false, 'textAlign' => $this->getDefaultBodyTextAlign(), 'hasTdAttributesCallback' => isset($this->tdAttributesCallback)];
+
+        $stuff = [];
+        foreach($this->getColumns()
+            ->visible()
+            ->reject(fn (Column $column) => ($column->isSelectable() && ! $this->columnSelectIsEnabledForColumn($column)))
+            ->rejectInvisibleWhileReordering($this->currentlyReorderingIsEnabled())
+            ->values() as $col)
+            {
+                $stuff[$col->getHash()] = array_merge($default, $col->getTdArray());
+            }
+        return $stuff;
+    }
     /**
      * Undocumented function
      *

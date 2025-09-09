@@ -1,13 +1,14 @@
-@aware(['isTailwind','isTailwind4','isBootstrap','collapsingColumnInfo'])
-@props(['column', 'index'])
+@aware(['isTailwind','isTailwind4','isBootstrap','collapsingColumnInfo', 'sortingIsEnabled', 'columnSortConfig'])
+@props(['columnHash', 'index'])
 
 @php
-    $allThAttributes = $this->getAllThAttributes($column);
+    $allThAttributes = $columnSortConfig[$columnHash];
     $customThAttributes = $allThAttributes['customAttributes'];
     $customSortButtonAttributes = $allThAttributes['sortButtonAttributes'];
     $customLabelAttributes = $allThAttributes['labelAttributes'];
-    $customIconAttributes = $this->getThSortIconAttributes($column);
-    $direction = $column->hasField() ? $this->getSort($column->getColumnSortKey()) : $this->getSort($column->getSlug()) ?? null;
+    $customIconAttributes = $allThAttributes['sortIconAttributes'];
+    $direction = $allThAttributes['direction'];
+    $columnTitle = $allThAttributes['columnTitle'];
 @endphp
 
 <th {{
@@ -24,13 +25,13 @@
         ->class($collapsingColumnInfo['collapsingColumnClasses'][$index] ?? '')
         ->except(['default', 'default-colors', 'default-styling'])
 }}>
-    @if($column->getColumnLabelStatus())
-        @unless ($this->sortingIsEnabled() && ($column->isSortable() || $column->getSortCallback()))
-            <x-livewire-tables::table.th.label :$customLabelAttributes :columnTitle="$column->getTitle()" />
+    @if($allThAttributes['labelStatus'])
+        @unless ($sortingIsEnabled && ($allThAttributes['isSortable'] ?? false))
+            <x-livewire-tables::table.th.label :$customLabelAttributes :$columnTitle />
         @else
             @if ($isTailwind || $isTailwind4)
 
-                <button wire:click="sortBy('{{ $column->getColumnSortKey() }}')" {{
+                <button wire:click="sortBy('{{ $allThAttributes['columnSortKey'] }}')" {{
                         $attributes->merge($customSortButtonAttributes)
                             ->class([
                                 'text-gray-500 dark:text-gray-400' => (($customSortButtonAttributes['default-colors'] ?? true) || ($customSortButtonAttributes['default'] ?? true)),
@@ -38,18 +39,18 @@
                             ])
                             ->except(['default', 'default-colors', 'default-styling', 'wire:key'])
                 }}>
-                    <x-livewire-tables::table.th.label :$customLabelAttributes :columnTitle="$column->getTitle()" />
+                    <x-livewire-tables::table.th.label :$customLabelAttributes :$columnTitle />
                     <x-livewire-tables::table.th.sort-icons :$direction :$customIconAttributes />
                 </button>
             @elseif ($isBootstrap)
-                <div wire:click="sortBy('{{ $column->getColumnSortKey() }}')" {{
+                <div wire:click="sortBy('{{ $allThAttributes['columnSortKey'] }}')" {{
                         $attributes->merge($customSortButtonAttributes)
                             ->class([
                                 'd-flex align-items-center laravel-livewire-tables-cursor' => (($customSortButtonAttributes['default-styling'] ?? true) || ($customSortButtonAttributes['default'] ?? true))
                             ])
                             ->except(['default', 'default-colors', 'default-styling', 'wire:key'])
                 }}>
-                    <x-livewire-tables::table.th.label :$customLabelAttributes :columnTitle="$column->getTitle()" />
+                    <x-livewire-tables::table.th.label :$customLabelAttributes :$columnTitle />
                     <x-livewire-tables::table.th.sort-icons :$direction :$customIconAttributes />
 
                 </div>

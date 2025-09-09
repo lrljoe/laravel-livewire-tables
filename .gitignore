@@ -29,3 +29,5 @@ devguide.md
 retired.md
 *.php.bk
 visuals_test.txt
+resources/views/components/tbody/tbody.blade copy 2.php
+resources/views/components/tbody/tbody.blade copy.php

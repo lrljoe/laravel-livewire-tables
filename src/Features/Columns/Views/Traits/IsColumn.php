@@ -6,6 +6,7 @@ use Rappasoft\LaravelLivewireTables\Traits\Core\HasLocalisations;
 use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Traits\Configuration\ColumnConfiguration;
 use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Traits\Helpers\{ColumnHelpers};
 use Rappasoft\LaravelLivewireTables\Views\Traits\Core\{HasAttributes, HasLabelAttributes, HasTheme};
+use Livewire\Attributes\Locked;
 
 trait IsColumn
 {
@@ -35,7 +36,8 @@ trait IsColumn
     protected string $title;
 
     // Act as a unique identifier for the column
-    protected string $hash;
+    #[Locked]
+    public string $hash;
 
     // The columns or relationship location: i.e. name, or address.group.name
     protected ?string $from = null;

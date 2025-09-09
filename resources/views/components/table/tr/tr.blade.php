@@ -8,13 +8,17 @@
     @endif
     {{
         $attributes->merge($tableRowDetails['attributes'])
-            ->class([
-                'rappasoft-striped-row' => $isTailwind && ($tableRowDetails['attributes']['default'] ?? true),
-                'tw4ph rappasoft-striped-row' => $isTailwind4 && ($tableRowDetails['attributes']['default'] ?? true),
-                
-                'bg-light rappasoft-striped-row' => $isBootstrap && ($rowIndex % 2 === 0 && ($tableRowDetails['attributes']['default'] ?? true)),
-                'bg-white rappasoft-striped-row' => $isBootstrap && ($rowIndex % 2 !== 0 && ($tableRowDetails['attributes']['default'] ?? true)),
-            ]) 
+            ->class($isTailwind ? [
+                'rappasoft-striped-row' => ($tableRowDetails['attributes']['default'] ?? true),
+            ] : []) 
+            ->class($isTailwind4 ? [
+                'tw4ph rappasoft-striped-row' => ($tableRowDetails['attributes']['default'] ?? true),
+            ] : []) 
+            ->class($isBootstrap ? [
+                'bg-light rappasoft-striped-row' => ($rowIndex % 2 === 0 && ($tableRowDetails['attributes']['default'] ?? true)),
+                'bg-white rappasoft-striped-row' =>  ($rowIndex % 2 !== 0 && ($tableRowDetails['attributes']['default'] ?? true)),
+            ] : []) 
+
             ->except(['default','default-styling','default-colors'])
     }}
 >

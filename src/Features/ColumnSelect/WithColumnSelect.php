@@ -125,10 +125,11 @@ trait WithColumnSelect
         $this->columnSelectConfig['selectableColumns'] = $generateColumnSelect;
         $this->columnSelectConfig['selectableColumnCount'] = count($generateColumnSelect);
         
-
+        $this->selectedVisibleColumnsRaw();
         if (! $this->getComputedPropertiesStatus()) {
             $view->with([
                 'selectedVisibleColumns' => $this->selectedVisibleColumns(),
+                'selectedVisibleColumnsData' => $this->selectedVisibleColumnsData(),
             ]);
         }
     }

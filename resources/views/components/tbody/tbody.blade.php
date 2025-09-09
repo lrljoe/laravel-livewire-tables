@@ -1,4 +1,4 @@
-@aware(['dataTableFingerprint', 'isTailwind', 'isTailwind4', 'isBootstrap', 'coreTableAttributes', 'currentlyReorderingStatus', 'showBulkActionsSections', 'showCollapsingColumnSections', 'selectedVisibleColumns', 'selectedVisibleColumns', 'hasDisplayLoadingPlaceholder', 'hasTdAttributes', 'defaultBodyTextAlign'])
+@aware(['dataTableFingerprint', 'isTailwind', 'isTailwind4', 'isBootstrap', 'coreTableAttributes', 'currentlyReorderingStatus', 'showBulkActionsSections', 'showCollapsingColumnSections', 'selectedVisibleColumns', 'selectedVisibleColumns', 'hasDisplayLoadingPlaceholder', 'hasTdAttributes', 'defaultBodyTextAlign', 'selectedVisibleColumnsData'])
 @props(['row','rowIndex','rowPk', 'tableRowDetails'])
 
 <tbody {{ $attributes->merge($coreTableAttributes['tbody'])
@@ -7,22 +7,23 @@
             'data-id' => $rowPk,
         ] : [])
         ->merge($tableRowDetails['attributes'])
-        ->class([
-            'text-left' => $defaultBodyTextAlign == 'left' && $isTailwind,
-            'text-center' => $defaultBodyTextAlign == 'center' && $isTailwind,
-            'text-right' => $defaultBodyTextAlign == 'right' && $isTailwind,
-            'even:bg-white even:dark:bg-gray-700 odd:bg-gray-50 odd:dark:bg-gray-800 dark:text-white' => $isTailwind,
-            'divide-gray-200 dark:divide-none' => $isTailwind && ($coreTableAttributes['tbody']['default-colors'] ?? ($coreTableAttributes['tbody']['default'] ?? true)),
-            'divide-y' => $isTailwind && ($coreTableAttributes['tbody']['default-styling'] ?? ($coreTableAttributes['tbody']['default'] ?? true)),
+        ->class($isTailwind ? [
+            'even:bg-white even:dark:bg-gray-700 odd:bg-gray-50 odd:dark:bg-gray-800 dark:text-white',
+            'text-left' => $defaultBodyTextAlign == 'left',
+            'text-center' => $defaultBodyTextAlign == 'center',
+            'text-right' => $defaultBodyTextAlign == 'right',
+            'divide-gray-200 dark:divide-none' => ($coreTableAttributes['tbody']['default-colors'] ?? ($coreTableAttributes['tbody']['default'] ?? true)),
+            'divide-y' => ($coreTableAttributes['tbody']['default-styling'] ?? ($coreTableAttributes['tbody']['default'] ?? true)),          
+        ] : [])
+        ->class($isTailwind4 ? [           
+            'tw4ph even:bg-white even:dark:bg-gray-700 odd:bg-gray-50 odd:dark:bg-gray-800 dark:text-white',
+            'tw4ph divide-gray-200 dark:divide-none' => ($coreTableAttributes['tbody']['default-colors'] ?? ($coreTableAttributes['tbody']['default'] ?? true)),
+            'tw4ph divide-y' => ($coreTableAttributes['tbody']['default-styling'] ?? ($coreTableAttributes['tbody']['default'] ?? true)),
+            'tw4ph text-left' => $defaultBodyTextAlign == 'left',
+            'tw4ph text-center' => $defaultBodyTextAlign == 'center',
+            'tw4ph text-right' => $defaultBodyTextAlign == 'right',
             
-            'tw4ph even:bg-white even:dark:bg-gray-700 odd:bg-gray-50 odd:dark:bg-gray-800 dark:text-white' => $isTailwind4,
-            'tw4ph divide-gray-200 dark:divide-none' => $isTailwind4 && ($coreTableAttributes['tbody']['default-colors'] ?? ($coreTableAttributes['tbody']['default'] ?? true)),
-            'tw4ph divide-y' => $isTailwind4 && ($coreTableAttributes['tbody']['default-styling'] ?? ($coreTableAttributes['tbody']['default'] ?? true)),
-            'tw4ph text-left' => $defaultBodyTextAlign == 'left' && $isTailwind4,
-            'tw4ph text-center' => $defaultBodyTextAlign == 'center' && $isTailwind4,
-            'tw4ph text-right' => $defaultBodyTextAlign == 'right' && $isTailwind4,
-            
-        ])
+        ] : [])
         ->except(['default','default-styling','default-colors']) 
     }} x-data="{ opening: false, }" >
 
@@ -40,23 +41,71 @@
         @endif
         
         @tableloop($selectedVisibleColumns as $colIndex => $column)
-            <x-livewire-tables::table.td 
-                :textAlign="$column->hasTextAlign() ? $column->getTextAlign() : $this->getDefaultBodyTextAlign()" 
-                :isClickable="$column->isClickable()" 
-                :wrapText="$column->shouldWrapText()" 
-                :isHtml="$column->isHtml()" 
-                :columnObscureContentAttributes="$column->getObscureContentAttributes()"
-                :customAttributes="$this->getTdAttributes($column, $row, $colIndex, $rowIndex)" 
-                :$colIndex 
-                wire:key="{{ $dataTableFingerprint . '-table-td-'.$rowPk.'-'.$column->getSlug() }}"  
-                x-ref="{{ $dataTableFingerprint . '_' . $rowIndex . '_' . $colIndex }}"
-        >
-                @if($column->setIndexes($rowIndex, $colIndex)->isHtml())
-                    {!! $column->renderContents($row) !!}
-                @else
-                    {{ $column->renderContents($row) }}
-                @endif
-            </x-livewire-tables::table.td>
+            @php
+                $columnTdArray = $selectedVisibleColumnsData[$column->setIndexes($rowIndex, $colIndex)->getHash()];
+                $customAttributes = $columnTdArray['hasTdAttributesCallback'] ? $this->getTdAttributes($column, $row, $colIndex, $rowIndex) : ['default' => true, 'default-colors' => true, 'default-styling' => true];
+                if(!isset($selectedVisibleColumnsData[$column->getHash()]['extraData']))
+                {
+                    if(!$columnTdArray['hasTdAttributesCallback'])
+                    {
+                        $selectedVisibleColumnsData[$column->getHash()]['extraData'] = $attributes->merge($columnTdArray['isClickable'] ? $tableRowDetails['tdAttribs'] : [])->merge($customAttributes)
+                        ->class($isTailwind ? [
+                                'whitespace-wrap' => $columnTdArray['wrapText'],
+                                'text-left' => $columnTdArray['textAlign'] == 'left',
+                                'text-center' => $columnTdArray['textAlign'] == 'center',
+                                'text-right' => $columnTdArray['textAlign'] == 'right',
+                                'cursor-pointer' => ($columnTdArray['isClickable'] && ($tableRowDetails['url'] !== null && ($tableRowDetails['attributes']['default'] ?? true))),
+                                'whitespace-wrap' => (!$columnTdArray['wrapText'] && $columnTdArray['isHtml']) && ($customAttributes['default-styling'] ?? true),
+                                'whitespace-nowrap' => (!$columnTdArray['wrapText'] && !$columnTdArray['isHtml']) && ($customAttributes['default-styling'] ?? true),
+                                'px-6 py-4 text-sm font-medium' => ($customAttributes['default-styling'] ?? true),
+                                'dark:text-white' => ($customAttributes['default-colors'] ?? true),
+                        ] : [])
+                        ->class($collapsingColumnInfo['collapsingColumnClasses'][$colIndex] ?? '')
+                        ->except(['default','default-colors','default-styling']);
+                    }
+                    else
+                    {
+                        $selectedVisibleColumnsData[$column->getHash()]['extraData'] = $attributes->merge($columnTdArray['isClickable'] ? $tableRowDetails['tdAttribs'] : [])->merge($customAttributes)
+                        ->class($isTailwind ? [
+                                'whitespace-wrap' => $columnTdArray['wrapText'],
+                                'text-left' => $columnTdArray['textAlign'] == 'left',
+                                'text-center' => $columnTdArray['textAlign'] == 'center',
+                                'text-right' => $columnTdArray['textAlign'] == 'right',
+                                'cursor-pointer' => ($columnTdArray['isClickable'] && ($tableRowDetails['url'] !== null && ($tableRowDetails['attributes']['default'] ?? true))),
+                        ] : [])
+                        ->class($collapsingColumnInfo['collapsingColumnClasses'][$colIndex] ?? '')
+                        ->except(['default','default-colors','default-styling']);
+
+                    }
+                    
+                }
+                $extraData = $selectedVisibleColumnsData[$column->getHash()]['extraData'];
+                
+
+            @endphp
+            <td {{
+                    $extraData->class(($isTailwind && $columnTdArray['hasTdAttributesCallback']) ? [
+                                'whitespace-wrap' => (!$columnTdArray['wrapText'] && $columnTdArray['isHtml']) && ($customAttributes['default-styling'] ?? true),
+                                'whitespace-nowrap' => (!$columnTdArray['wrapText'] && !$columnTdArray['isHtml']) && ($customAttributes['default-styling'] ?? true),
+                                'px-6 py-4 text-sm font-medium' => ($customAttributes['default-styling'] ?? true),
+                                'dark:text-white' => ($customAttributes['default-colors'] ?? true),
+                            ] : [])
+                }}
+            >
+                <div {{ $columnTdArray['columnObscureContentAttributes'] }}>
+                    <div x-cloak x-show="obscure">
+                        *********
+                    </div>
+                    <div x-cloak x-show="!obscure">
+                        @if($columnTdArray['isHtml'])
+                            {!! $column->renderContents($row) !!}
+                        @else
+                            {{ $column->renderContents($row) }}
+                        @endif
+                    </div>
+                </div>
+            </td>
+
         @endtableloop
     </x-livewire-tables::table.tr>
 

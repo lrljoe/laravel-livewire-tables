@@ -56,5 +56,22 @@ trait WithSorting
         $this->setupDefaultSorting();
     }
 
-    
+    public function renderingWithSorting(\Illuminate\View\View $view, array $data = []): void
+    {
+        $data = [
+            'sortingIsEnabled' => $this->sortingIsEnabled(),
+            'columnSortConfig' => [],
+        ];
+        if($this->sortingIsEnabled())
+        {
+            $columnSortConfig = [];
+            foreach($this->columns as $column)
+            {
+                $columnSortConfig[$column->getHash()] = $this->getAllThAttributes($column);
+            }
+            $data['columnSortConfig'] = $columnSortConfig;
+        }
+        $view->with($data);
+    }
+
 }

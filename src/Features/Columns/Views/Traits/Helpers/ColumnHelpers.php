@@ -171,4 +171,31 @@ trait ColumnHelpers
     {
         return $this->whitespaceWrap === true;
     }
+
+    public function getHash(): ?string
+    {
+        return $this->hash;
+    }
+
+    public function getTdArray(): array
+    {
+        $arr = [
+            'hash' => $this->getHash(),
+            'hasTextAlign' => $this->hasTextAlign(),
+            'isClickable' => $this->isClickable() ?? false,
+            'wrapText' => $this->shouldWrapText(),
+            'isHtml' => $this->isHtml(),
+            'columnObscureContentAttributes' => $this->getObscureContentAttributes(),
+            'slug' => $this->getSlug(),
+            'hasAttributesCallback' => $this->hasAttributesCallback(),
+            'extraData' => null,
+        ];
+        if($this->hasTextAlign())
+        {
+            $arr['textAlign'] = $this->getTextAlign();
+        }
+        return $arr;
+    }
+
+
 }
