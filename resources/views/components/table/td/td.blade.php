@@ -1,5 +1,5 @@
 @aware(['isTailwind','isTailwind4','isBootstrap', 'collapsingColumnInfo', 'tableRowDetails','defaultBodyTextAlign'])
-@props(['columnTdArray' => ['textAlign' => $defaultBodyTextAlign, 'isClickable' => false, 'wrapText' => false, 'isHtml' => false], 'colIndex', 'isHtml' => $columnTdArray['isHtml'], 'wrapText' => $columnTdArray['wrapText'], 'isClickable' => $columnTdArray['isClickable'], 'customAttributes' => ['default' => true, 'default-colors' => true, 'default-styling' => true], 'textAlign' => $columnTdArray['textAlign'], 'columnObscureContentAttributes' => $columnTdArray['columnObscureContentAttributes'] ?? new \Illuminate\View\ComponentAttributeBag(['x-data' => "{ obscure: false }"])])
+@props(['columnTdArray' => ['textAlign' => $defaultBodyTextAlign, 'isClickable' => false, 'wrapText' => false, 'isHtml' => false], 'colIndex', 'isHtml' => $columnTdArray['isHtml'], 'wrapText' => $columnTdArray['wrapText'], 'isClickable' => $columnTdArray['isClickable'], 'customAttributes' => ['default' => true, 'default-colors' => true, 'default-styling' => true], 'textAlign' => $columnTdArray['textAlign']])
 
 <td {{
         $attributes->merge($isClickable ? $tableRowDetails['tdAttribs'] : [])->merge($customAttributes)
@@ -32,12 +32,5 @@
             ->except(['default','default-colors','default-styling'])
     }}
 >
-    <div {{ $columnObscureContentAttributes }}>
-        <div x-cloak x-show="obscure">
-            *********
-        </div>
-        <div x-cloak x-show="!obscure">
-            {{ $slot }}
-        </div>
-    </div>
+    {{ $slot }}
 </td>

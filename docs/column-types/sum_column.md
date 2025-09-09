@@ -1,6 +1,6 @@
 ---
 title: Sum Columns (beta)
-weight: 16
+weight: 17
 ---
 
 Sum columns provide an easy way to display the "Sum" of a field on a relation.

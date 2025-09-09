@@ -3,7 +3,7 @@ title: Upgrade Guide
 weight: 5
 ---
 
-To upgrade from v2 to v3 is relatively simple.  The core functionality from v2 is maintained and expects the same parameters.
+To upgrade from v3 to v4 is relatively simple.  The core functionality from v3 is maintained and expects the same parameters.
 
 ### Common Issues
 

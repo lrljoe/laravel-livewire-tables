@@ -27,8 +27,7 @@ trait ColumnConfiguration
             ->map(function (Column $column) {
                 $column->setTheme($this->getTheme())
                     ->setHasTableRowUrl($this->hasTableRowUrl())
-                    ->setIsReorderColumn($this->getDefaultReorderColumn() == $column->getField())
-                    ->setupObscuration();
+                    ->setIsReorderColumn($this->getDefaultReorderColumn() == $column->getField());
 
                 if ($column->hasFooter()) {
                     $this->columnsWithFooter = true;

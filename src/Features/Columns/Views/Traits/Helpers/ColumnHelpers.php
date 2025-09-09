@@ -185,7 +185,6 @@ trait ColumnHelpers
             'isClickable' => $this->isClickable() ?? false,
             'wrapText' => $this->shouldWrapText(),
             'isHtml' => $this->isHtml(),
-            'columnObscureContentAttributes' => $this->getObscureContentAttributes(),
             'slug' => $this->getSlug(),
             'hasAttributesCallback' => $this->hasAttributesCallback(),
             'extraData' => null,

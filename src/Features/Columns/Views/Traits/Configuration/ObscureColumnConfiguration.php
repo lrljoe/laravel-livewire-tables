@@ -1,23 +1,9 @@
 <?php
 
-namespace Rappasoft\LaravelLivewireTables\Features\Columns\Views\Traits;
+namespace Rappasoft\LaravelLivewireTables\Features\Columns\Views\Traits\Configuration;
 
-use Illuminate\View\ComponentAttributeBag;
-
-trait HasObscuring
+trait ObscureColumnConfiguration 
 {
-    /**
-     * Obscuration Configuration
-     *
-     * @var array<string,bool|string|array<mixed>>
-     */
-    public array $obscureSettings = [
-        'enabled' => false,
-        'defaultClickEnabled' => true,
-        'wrapperAttributes' => ['x-data' => "{ obscure: false }"],
-        'customAttributes' => [],
-    ];
-
 
     /**
      * Used in the setupColumns() method to configure the behaviours for the Column
@@ -50,21 +36,6 @@ trait HasObscuring
             ->setObscureCustomContentAttributes($customAttributes);
     }
 
-    /**
-     * This handles the Obscured Content Attributes for Columns
-     *
-     * @return ComponentAttributeBag
-     */
-    public function getObscureContentAttributes(): ComponentAttributeBag
-    {
-        return new ComponentAttributeBag($this->obscureSettings['wrapperAttributes']);
-    }
-
-    public function getShouldObscure(): bool
-    {
-        return $this->obscureSettings['enabled'];
-    }
-
     protected function setShouldObscure(bool $status): self
     {
         $this->obscureSettings['enabled'] = $status;
@@ -83,26 +54,12 @@ trait HasObscuring
 
     public function setShouldObscureEnabled(): self
     {
-
         return $this->setShouldObscure(true);
     }
 
     public function setShouldObscureDisabled(): self
     {
-
         return $this->setShouldObscure(false);
-    }
-
-    /* Default Click Behaviour Section */
-
-    /**
-     * Retrieves the Default Click Behaviour Status
-     *
-     * @return boolean
-     */
-    public function getObscureDefaultClickBehaviour(): bool
-    {
-        return $this->obscureSettings['defaultClickEnabled'];
     }
 
     protected function setObscureDefaultClickBehaviour(bool $status): self
@@ -131,17 +88,6 @@ trait HasObscuring
         return $this->setObscureDefaultClickBehaviour(false);
     }
 
-    /**
-     * Retreives Default Click Attributes
-     *
-     * @return array<mixed>
-     */
-    public function getObscureDefaultClickAttributes(): array
-    {
-        return $this->getObscureDefaultClickBehaviour() ? ['x-on:click.prevent' => 'obscure = !obscure'] : [];
-    }
-
-    
     /* Custom Attributes Section */
 
     /**
@@ -156,5 +102,13 @@ trait HasObscuring
 
         return $this;
     }
+
+    public function setObscureMask(string $mask = ""): self
+    {
+        $this->mask = $mask;
+
+        return $this;
+    }
+
 
 }
