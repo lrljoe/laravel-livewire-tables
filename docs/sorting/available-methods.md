@@ -172,7 +172,7 @@ Bootstrap 4: `badge badge-pill badge-info d-inline-flex align-items-center`
 
 Bootstrap 5: `badge rounded-pill bg-info d-inline-flex align-items-center`
 
-Tailwind: `inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 capitalize`
+Tailwind: `inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4`
 
 ```php
 public function configure(): void

@@ -15,7 +15,7 @@
                     {{
                         $attributes->merge($sortingPillsItemAttributes)
                         ->class([
-                            'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 capitalize' => $sortingPillsItemAttributes['default-styling'],
+                            'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4' => $sortingPillsItemAttributes['default-styling'],
                             'bg-indigo-100 text-indigo-800 dark:bg-indigo-200 dark:text-indigo-900' => $sortingPillsItemAttributes['default-colors'],
                         ])
                         ->except(['default-styling', 'default-colors'])
@@ -71,7 +71,7 @@
                     {{
                         $attributes->merge($sortingPillsItemAttributes)
                         ->class([
-                            'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 capitalize' => $sortingPillsItemAttributes['default-styling'],
+                            'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4' => $sortingPillsItemAttributes['default-styling'],
                             'bg-indigo-100 text-indigo-800 dark:bg-indigo-200 dark:text-indigo-900' => $sortingPillsItemAttributes['default-colors'],
                         ])
                         ->except(['default-styling', 'default-colors'])

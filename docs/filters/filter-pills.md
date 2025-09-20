@@ -79,7 +79,7 @@ Bootstrap 4: none
 
 Bootstrap 5: none
 
-Tailwind: `text-xs font-medium capitalize`
+Tailwind: `text-xs font-medium`
 
 Note that colors are handled via default-colours
 
@@ -274,7 +274,7 @@ Bootstrap 4: `badge badge-pill badge-info d-inline-flex align-items-center`
 
 Bootstrap 5: `badge rounded-pill bg-info d-inline-flex align-items-center`
 
-Tailwind: `inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 capitalize`
+Tailwind: `inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4`
 
 ```php
 SelectFilter::make('Active')

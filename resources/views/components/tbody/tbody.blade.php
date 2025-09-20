@@ -1,5 +1,5 @@
 @aware(['dataTableFingerprint', 'isTailwind', 'isTailwind4', 'isBootstrap', 'coreTableAttributes', 'currentlyReorderingStatus', 'showBulkActionsSections', 'showCollapsingColumnSections', 'selectedVisibleColumns', 'selectedVisibleColumns', 'hasDisplayLoadingPlaceholder', 'hasTdAttributes', 'defaultBodyTextAlign', 'selectedVisibleColumnsData'])
-@props(['row','rowIndex','rowPk', 'tableRowDetails'])
+@props(['rowIndex','rowPk', 'tableRowDetails'])
 
 <tbody {{ $attributes->merge($coreTableAttributes['tbody'])
         ->merge($currentlyReorderingStatus ? [
@@ -41,23 +41,8 @@
             @endif
         @endif
 
+        {{ $slot }}
         
-        @tableloop($selectedVisibleColumns as $colIndex => $column)
-            @php($columnTdArray = $selectedVisibleColumnsData[$column->setIndexes($rowIndex, $colIndex)->getHash()])
-            <x-livewire-tables::table.td x-ref="{{ $dataTableFingerprint . '_' . $rowIndex . '_' . $colIndex }}"
-                :$columnTdArray
-                :customAttributes="$columnTdArray['hasTdAttributesCallback'] ? $this->getTdAttributes($column, $row, $colIndex, $rowIndex) : ['default' => true, 'default-colors' => true, 'default-styling' => true]" 
-                :$colIndex  
-                wire:key="{{ $dataTableFingerprint . '-table-td-'.$rowPk.'-'.$columnTdArray['slug'] }}"  
-                
-             >
-                @if($columnTdArray['isHtml'])
-                    {!! $column->renderContents($row) !!}
-                @else
-                    {{ $column->renderContents($row) }}
-                @endif
-            </x-livewire-tables::table.td>
-        @endtableloop
     </x-livewire-tables::table.tr>
 
     @if ($showCollapsingColumnSections)

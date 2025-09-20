@@ -29,7 +29,7 @@
             <div>
                 @tableloop($collapsingColumnInfo['collapsingColumnDetails'] as $colIndex => $columnData)
                     @php($key = $dataTableFingerprint . '_' . $rowIndex.'_'.$colIndex)
-                    <div wire:key="{{ $dataTableFingerprint }}-row-{{ $rowPk }}-collapsed-contents-{{ $colIndex }}" @class($columnData['classes'])
+                    <div wire:key="{{ $dataTableFingerprint }}-collapsed-contents-row-{{ $rowPk }}-{{ $colIndex }}" @class($columnData['classes'])
                         x-data="{ value: '', 
                                     init() { 
                                         $watch('opening', val => {
