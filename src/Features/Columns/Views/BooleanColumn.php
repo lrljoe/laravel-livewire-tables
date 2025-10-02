@@ -27,7 +27,7 @@ class BooleanColumn extends Column
      *
      * @var boolean
      */
-    protected bool $successValue = true;
+    public bool $successValue = true;
 
     /**
      * Undocumented variable
@@ -63,6 +63,7 @@ class BooleanColumn extends Column
         }
 
         $value = $this->getValue($row);
+        $status = $this->hasCallback() ? call_user_func($this->getCallback(), $value, $row) : (bool) $value === true;
 
         return $this->getColumnViewWithDefaults()
             ->withRowPrimaryKey($row->{$row->getKeyName()})
@@ -71,8 +72,9 @@ class BooleanColumn extends Column
             ->withHasConfirmMessage($this->hasConfirmMessage())
             ->withConfirmMessage($this->hasConfirmMessage() ? $this->getConfirmMessage() : '')
             ->withSuccessValue($this->getSuccessValue())
+            ->withIsSuccessful($this->checkSuccess($status))
             ->withValue($value)
             ->withType($this->getType())
-            ->withStatus($this->hasCallback() ? call_user_func($this->getCallback(), $value, $row) : (bool) $value === true);
+            ->withStatus($status);
     }
 }
