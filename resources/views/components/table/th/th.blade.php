@@ -11,15 +11,19 @@
     $columnTitle = $allThAttributes['columnTitle'];
 @endphp
 
-<th {{
+<th 
+@if($allThAttributes['isSortable'])
+    x-data="sortIcons('{{ $direction }}')"
+@endif
+ {{
     $attributes->merge($customThAttributes)
         ->class($isTailwind ? [
             'text-gray-500 dark:bg-gray-800 dark:text-gray-400' => (($customThAttributes['default-colors'] ?? true) || ($customThAttributes['default'] ?? true)),
             'px-6 py-3 text-left text-xs font-medium whitespace-nowrap tracking-wider' => (($customThAttributes['default-styling'] ?? true) || ($customThAttributes['default'] ?? true)),
         ] : [])
         ->class($isTailwind4 ? [
-            'tw4ph text-gray-500 dark:bg-gray-800 dark:text-gray-400' => (($customThAttributes['default-colors'] ?? true) || ($customThAttributes['default'] ?? true)),
-            'tw4ph px-6 py-3 text-left text-xs font-medium whitespace-nowrap tracking-wider' => (($customThAttributes['default-styling'] ?? true) || ($customThAttributes['default'] ?? true)),
+            'text-gray-500 dark:bg-gray-800 dark:text-gray-400' => (($customThAttributes['default-colors'] ?? true) || ($customThAttributes['default'] ?? true)),
+            'px-6 py-3 text-left text-xs font-medium whitespace-nowrap tracking-wider' => (($customThAttributes['default-styling'] ?? true) || ($customThAttributes['default'] ?? true)),
         ] : [])
         ->class($isBootstrap ? [
             '' =>  ($customThAttributes['default'] ?? true),
@@ -31,14 +35,18 @@
         @unless ($sortingIsEnabled && ($allThAttributes['isSortable'] ?? false))
             <x-livewire-tables::table.th.label :$customLabelAttributes :$columnTitle />
         @else
+            
             @if ($isTailwind || $isTailwind4)
-
-                <button wire:click="sortBy('{{ $allThAttributes['columnSortKey'] }}')" {{
+                <button x-bind="trigger" wire:click="sortBy('{{ $allThAttributes['columnSortKey'] }}')" {{
                         $attributes->merge($customSortButtonAttributes)
-                            ->class([
+                            ->class($isTailwind ? [
+                                'text-gray-500 dark:text-gray-400' => (($customSortButtonAttributes['default-colors'] ?? true) || ($customSortButtonAttributes['default'] ?? true)),
+                                'flex flex-1 items-center space-x-1 text-left text-xs leading-4 font-medium tracking-wider group focus:outline-none' => (($customSortButtonAttributes['default-styling'] ?? true) || ($customSortButtonAttributes['default'] ?? true)),
+                            ] : [])
+                            ->class($isTailwind4 ? [
                                 'text-gray-500 dark:text-gray-400' => (($customSortButtonAttributes['default-colors'] ?? true) || ($customSortButtonAttributes['default'] ?? true)),
                                 'flex items-center space-x-1 text-left text-xs leading-4 font-medium tracking-wider group focus:outline-none' => (($customSortButtonAttributes['default-styling'] ?? true) || ($customSortButtonAttributes['default'] ?? true)),
-                            ])
+                            ] : [])
                             ->except(['default', 'default-colors', 'default-styling', 'wire:key'])
                 }}>
                     <x-livewire-tables::table.th.label :$customLabelAttributes :$columnTitle />

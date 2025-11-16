@@ -82,4 +82,11 @@ trait ArrayColumnConfiguration
         ->separator("");
     }
 
+    public function setRelationship(string $relationship): self
+    {
+        $this->relationship = $relationship;
+
+        return $this;
+    }
+
 }

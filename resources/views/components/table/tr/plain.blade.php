@@ -8,8 +8,8 @@
             'bg-white dark:bg-gray-700 dark:text-white' => ($customAttributes['default'] ?? true),
         ] : [])
         ->class($isTailwind4 ? [
-            'tw4ph unsortable laravel-livewire-tables-reorderingMinimised',
-            'tw4ph bg-white dark:bg-gray-700 dark:text-white' => ($customAttributes['default'] ?? true),
+            'unsortable laravel-livewire-tables-reorderingMinimised',
+            'bg-white dark:bg-gray-700 dark:text-white' => ($customAttributes['default'] ?? true),
         ] : [])
         ->class($isBootstrap ? [
             'laravel-livewire-tables-reorderingMinimised',

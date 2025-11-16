@@ -7,69 +7,7 @@ weight: 3
 
 To change the CSS classes or other attributes assigned to a Column, use can use [setTdAttributes](../datatable/styling), which allows customising attributes based on column type, name or value.
 
-## Sorting
 
-See also [component sorting configuration](../sorting/available-methods).
-
-To enable sorting you can chain the `sortable` method on your column:
-
-```php
-Column::make('Name')
-    ->sortable(),
-```
-
-If you would like more control over the sort behavior of a specific column, you may pass a closure:
-
-```php
-Column::make(__('Address'))
-    ->sortable(
-        fn(Builder $query, string $direction) => $query->orderBy()
-    ),
-```
-
-### [Multi-column sorting](../sorting/available-methods#setsinglesortingstatus)
-
-Multi-column sorting is **disabled by default**. To enable it you can set the `setSingleSortingDisabled()` method on the component.
-
-```php
-public function configure(): void
-{
-    $this->setSingleSortingDisabled();
-}
-```
-
-Multi-column sorting is now enabled in the order the column headers are clicked.
-
-### [Default column sorting](../sorting/available-methods#setdefaultsort)
-
-By default, there is no default column sorting and the table will be displayed in the order the query has it listed. To enable default sorting you can use this method on your component:
-
-```php
-public function configure(): void
-{
-    $this->setDefaultSort('name', 'desc');
-}
-```
-
-## Searching
-
-See also [component search configuration](../search/available-methods).
-
-To enable searching you can chain the `searchable` method on your column:
-
-```php
-Column::make('Name')
-    ->searchable(),
-```
-
-You can override the default search query using a closure:
-
-```php
-Column::make('Name')
-    ->searchable(
-        fn(Builder $query, $searchTerm) => $query->orWhere()
-    ),
-```
 
 ## Formatting
 
@@ -177,62 +115,7 @@ Column::make('My one off column')
     ->html(),
 ```
 
-## Collapsing
 
-The component has the ability to collapse certain columns at different screen sizes. It will add a plus icon as the left most column that will open up a view below the row with the information of the collapsed columns:
-
-![Collapsing](https://imgur.com/z1rWHzP.png)
-
-You have 3 options when it comes to collapsing.
-
-Collapse Always:
-
-```php
-Column::make('Name')
-    ->collapseAlways(),
-```
-The columns will always be collapsed
-
-Collapse on tablet:
-
-```php
-Column::make('Name')
-    ->collapseOnTablet(),
-```
-
-The columns will collapse on tablet and mobile.
-
-Collapse on mobile:
-
-```php
-Column::make('Name')
-    ->collapseOnMobile(),
-```
-
-The column will collapse on mobile only.
-
-The view will be rendered with the order of the columns as they were initially shown.
-
-## Customization
-
-### Customizing sorting pill names
-
-You can customize the name on the pill for the specific column that's being sorted:
-
-```php
-Column::make('Name')
-    ->setSortingPillTitle('Full Name'),
-```
-
-### Customizing sorting pill directions
-
-You can customize the directions on the pill for the specific column that's being sorted:
-
-```php
-Column::make('Name')
-    // Instead of Name: A-Z it will say Name: Asc
-    ->setSortingPillDirections('Asc', 'Desc'),
-```
 
 ## Misc.
 

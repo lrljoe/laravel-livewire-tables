@@ -55,6 +55,8 @@ class ArrayColumn extends Column
      */
     public ?string $outputWrapperEnd;
 
+    public ?string $relationship;
+
     /**
      * Undocumented function
      *

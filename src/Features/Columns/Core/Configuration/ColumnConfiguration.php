@@ -3,6 +3,7 @@
 namespace Rappasoft\LaravelLivewireTables\Features\Columns\Core\Configuration;
 
 use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
+use Rappasoft\LaravelLivewireTables\Features\Columns\Views\ArrayColumn;
 use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Aggregates\AggregateColumn;
 use Rappasoft\LaravelLivewireTables\Collections\ColumnCollection;
 
@@ -36,7 +37,7 @@ trait ColumnConfiguration
                     $this->columnsWithSecondaryHeader = true;
                 }
 
-                if ($column instanceof AggregateColumn) {
+                if ($column instanceof AggregateColumn && $this->columnIsSelected($column)) {
                     if ($column->getAggregateMethod() == 'count' && $column->hasDataSource()) {
                         $this->addExtraWithCount($column->getDataSource());
                     } elseif ($column->getAggregateMethod() == 'sum' && $column->hasDataSource() && $column->hasForeignColumn()) {
@@ -44,6 +45,9 @@ trait ColumnConfiguration
                     } elseif ($column->getAggregateMethod() == 'avg' && $column->hasDataSource() && $column->hasForeignColumn()) {
                         $this->addExtraWithAvg($column->getDataSource(), $column->getForeignColumn());
                     }
+                }
+                elseif ($column instanceof ArrayColumn && $column->hasRelationship() && $this->columnIsSelected($column)) {
+                    $this->addExtraWith($column->getRelationship());
                 }
 
                 if ($column->hasField()) {
@@ -53,6 +57,9 @@ trait ColumnConfiguration
                         $column->setTable($this->getTableForColumn($column));
                     }
                 }
+
+
+
 
                 return $column;
             });

@@ -21,8 +21,33 @@ trait HandlesColumnSelectVisibility
      */
     protected bool $columnSelectHiddenOnTablet = false;
 
+
     /**
-     * Undocumented function
+     * Set Column Select Is Hidden On Mobile Enabled
+     *
+     * @return self
+     */
+    public function setColumnSelectHiddenOnMobile(): self
+    {
+        $this->columnSelectHiddenOnMobile = true;
+
+        return $this;
+    }
+
+    /**
+     * Set Column Select Is Hidden On Tablet Enabled
+     *
+     * @return self
+     */
+    public function setColumnSelectHiddenOnTablet(): self
+    {
+        $this->columnSelectHiddenOnTablet = true;
+
+        return $this;
+    }
+
+    /**
+     * Retrieve whether Column Select Is Hidden On Tablet
      *
      * @return boolean
      */
@@ -32,7 +57,7 @@ trait HandlesColumnSelectVisibility
     }
 
     /**
-     * Undocumented function
+     * Retrieve whether Column Select Is Hidden On Mobile
      *
      * @return boolean
      */
@@ -40,20 +65,4 @@ trait HandlesColumnSelectVisibility
     {
         return $this->columnSelectHiddenOnMobile;
     }
-
-
-    public function setColumnSelectHiddenOnMobile(): self
-    {
-        $this->columnSelectHiddenOnMobile = true;
-
-        return $this;
-    }
-
-    public function setColumnSelectHiddenOnTablet(): self
-    {
-        $this->columnSelectHiddenOnTablet = true;
-
-        return $this;
-    }
-
 }

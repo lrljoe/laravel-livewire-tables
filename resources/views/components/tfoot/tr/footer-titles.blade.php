@@ -16,6 +16,6 @@
     @endif
 
     @tableloop($this->selectedVisibleColumnsRaw as $index => $column)
-        <x-livewire-tables::table.th wire:key="{{ $dataTableFingerprint.'-table-head-'.$column['slug'] }}" :columnHash="$column['hash']" :$index />
+        <x-livewire-tables::table.th wire:key="{{ $dataTableFingerprint.'-table-foot-'.$column['slug'] }}" :columnHash="$column['hash']" :$index />
     @endtableloop
 </x-livewire-tables::table.tr.plain>

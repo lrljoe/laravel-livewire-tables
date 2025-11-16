@@ -1,125 +1,28 @@
 @aware(['isTailwind', 'isTailwind4', 'isBootstrap'])
 @props(['direction' => 'none', 'customIconAttributes'])
 <span @class([
-        'relative flex items-center' => $isTailwind,
+        'relative flex items-center' => $isTailwind || $isTailwind4,
+        'w-5 h-5' =>  ($isTailwind || $isTailwind4) && ($customIconAttributes['default-styling'] ?? ($customIconAttributes['default'] ?? true)),
         'relative d-flex align-items-center' => $isBootstrap
     ])
 >
-
-    @if($isTailwind)
-        @switch($direction)
-            @case('asc')
-                <x-heroicon-o-chevron-up {{ $attributes->merge($customIconAttributes)
-                    ->class([
-                        'w-3 h-3' => $customIconAttributes['default-styling'] ?? ($customIconAttributes['default'] ?? true),
-                        'absolute opacity-100 group-hover:opacity-0',
-                    ])
-                    ->except(['default', 'default-colors', 'default-styling', 'wire:key']) }} />
-                <x-heroicon-o-chevron-down {{ $attributes->merge($customIconAttributes)
-                    ->class([
-                        'w-3 h-3' => $customIconAttributes['default-styling'] ?? ($customIconAttributes['default'] ?? true),
-                        'absolute opacity-0 group-hover:opacity-100',
-                    ])
-                    ->except(['default', 'default-colors', 'default-styling', 'wire:key']) }}  />
-            @break
-            @case('desc')
-                <x-heroicon-o-chevron-down {{ $attributes->merge($customIconAttributes)
-                    ->class([
-                        'w-3 h-3' => $customIconAttributes['default-styling'] ?? ($customIconAttributes['default'] ?? true),
-                        'absolute opacity-100 group-hover:opacity-0',
-                    ])
-                    ->except(['default', 'default-colors', 'default-styling', 'wire:key']) }}   />
-                <x-heroicon-o-x-circle  {{ $attributes->merge($customIconAttributes)
-                    ->class([
-                        'w-3 h-3' => $customIconAttributes['default-styling'] ?? ($customIconAttributes['default'] ?? true),
-                        'absolute opacity-0 group-hover:opacity-100',
-                    ])
-                    ->except(['default', 'default-colors', 'default-styling', 'wire:key']) }}  />
-
-            @break
-            @default
-                <x-heroicon-o-chevron-up-down {{ $attributes->merge($customIconAttributes)
-                    ->class([
-                        'w-3 h-3' => $customIconAttributes['default-styling'] ?? ($customIconAttributes['default'] ?? true),
-                        'absolute opacity-100 group-hover:opacity-0',
-                    ])
-                    ->except(['default', 'default-colors', 'default-styling', 'wire:key'])  }}  />
-                <x-heroicon-o-chevron-up {{ $attributes->merge($customIconAttributes)
-                    ->class([
-                        'w-3 h-3' => $customIconAttributes['default-styling'] ?? ($customIconAttributes['default'] ?? true),
-                        'absolute opacity-0 group-hover:opacity-100',
-                    ])
-                    ->except(['default', 'default-colors', 'default-styling', 'wire:key']) }} />
-            @endswitch
-
-    @elseif($isTailwind4)
-        @switch($direction)
-            @case('asc')
-                <x-heroicon-o-chevron-up {{ $attributes->merge($customIconAttributes)
-                    ->class([
-                        'w-3 h-3' => $customIconAttributes['default-styling'] ?? ($customIconAttributes['default'] ?? true),
-                        'absolute opacity-100 group-hover:opacity-0',
-                    ])
-                    ->except(['default', 'default-colors', 'default-styling', 'wire:key']) }} />
-                <x-heroicon-o-chevron-down {{ $attributes->merge($customIconAttributes)
-                    ->class([
-                        'w-3 h-3' => $customIconAttributes['default-styling'] ?? ($customIconAttributes['default'] ?? true),
-                        'absolute opacity-0 group-hover:opacity-100',
-                    ])
-                    ->except(['default', 'default-colors', 'default-styling', 'wire:key']) }}  />
-            @break
-            @case('desc')
-                <x-heroicon-o-chevron-down {{ $attributes->merge($customIconAttributes)
-                    ->class([
-                        'w-3 h-3' => $customIconAttributes['default-styling'] ?? ($customIconAttributes['default'] ?? true),
-                        'absolute opacity-100 group-hover:opacity-0',
-                    ])
-                    ->except(['default', 'default-colors', 'default-styling', 'wire:key']) }}   />
-                <x-heroicon-o-x-circle  {{ $attributes->merge($customIconAttributes)
-                    ->class([
-                        'w-3 h-3' => $customIconAttributes['default-styling'] ?? ($customIconAttributes['default'] ?? true),
-                        'absolute opacity-0 group-hover:opacity-100',
-                    ])
-                    ->except(['default', 'default-colors', 'default-styling', 'wire:key']) }}  />
-
-            @break
-            @default
-                <x-heroicon-o-chevron-up-down {{ $attributes->merge($customIconAttributes)
-                    ->class([
-                        'w-3 h-3' => $customIconAttributes['default-styling'] ?? ($customIconAttributes['default'] ?? true),
-                        'absolute opacity-100 group-hover:opacity-0',
-                    ])
-                    ->except(['default', 'default-colors', 'default-styling', 'wire:key'])  }}  />
-                <x-heroicon-o-chevron-up {{ $attributes->merge($customIconAttributes)
-                    ->class([
-                        'w-3 h-3' => $customIconAttributes['default-styling'] ?? ($customIconAttributes['default'] ?? true),
-                        'absolute opacity-0 group-hover:opacity-100',
-                    ])
-                    ->except(['default', 'default-colors', 'default-styling', 'wire:key']) }} />
-            @endswitch
-
+    @if($isTailwind || $isTailwind4)
+        <x-livewire-tables::icons.sort.up x-cloak x-show="isAsc" />
+        <x-livewire-tables::icons.sort.down_hover x-cloak x-show="isAsc" />
+        <x-livewire-tables::icons.sort.down x-cloak x-show="isDesc" />
+        <x-livewire-tables::icons.sort.clear x-cloak x-show="isDesc" />
+        <x-livewire-tables::icons.sort.unsorted x-cloak x-show="isUnsorted" />
+        <x-livewire-tables::icons.sort.up_hover x-cloak x-show="isUnsorted" />
     @else
         @switch($direction)
             @case('asc')
-                <x-heroicon-o-chevron-up {{ $attributes->merge($customIconAttributes)
-                    ->class([
-                        'laravel-livewire-tables-btn-smaller ms-1' => $customIconAttributes['default-styling'] ?? ($customIconAttributes['default'] ?? true),
-                    ])
-                    ->except(['default', 'default-colors', 'default-styling', 'wire:key']) }} />
-                @break
+                <x-livewire-tables::icons.sort.up />
+            @break
             @case('desc')
-                <x-heroicon-o-chevron-down {{ $attributes->merge($customIconAttributes)
-                    ->class([
-                        'laravel-livewire-tables-btn-smaller ms-1' => $customIconAttributes['default-styling'] ?? ($customIconAttributes['default'] ?? true),
-                    ])
-                    ->except(['default', 'default-colors', 'default-styling', 'wire:key']) }}  />
+                <x-livewire-tables::icons.sort.down />
             @break
             @default
-                <x-heroicon-o-chevron-up-down {{ $attributes->merge($customIconAttributes)
-                    ->class([
-                        'laravel-livewire-tables-btn-smaller ms-1' => $customIconAttributes['default-styling'] ?? ($customIconAttributes['default'] ?? true),
-                    ])
-                    ->except(['default', 'default-colors', 'default-styling', 'wire:key']) }}  />
+                <x-livewire-tables::icons.sort.unsorted />
         @endswitch
     @endif
 </span>

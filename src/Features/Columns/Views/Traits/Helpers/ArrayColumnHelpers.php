@@ -59,4 +59,14 @@ trait ArrayColumnHelpers
     {
         return $this->outputWrapperEnd;
     }
+    
+    public function hasRelationship(): bool
+    {
+        return isset($this->relationship);
+    }
+
+    public function getRelationship(): string
+    {
+        return $this->relationship ?? '';
+    }
 }

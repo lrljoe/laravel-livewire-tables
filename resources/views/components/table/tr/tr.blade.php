@@ -12,7 +12,7 @@
                 'rappasoft-striped-row' => ($tableRowDetails['attributes']['default'] ?? true),
             ] : []) 
             ->class($isTailwind4 ? [
-                'tw4ph rappasoft-striped-row' => ($tableRowDetails['attributes']['default'] ?? true),
+                'rappasoft-striped-row' => ($tableRowDetails['attributes']['default'] ?? true),
             ] : []) 
             ->class($isBootstrap ? [
                 'bg-light rappasoft-striped-row' => ($rowIndex % 2 === 0 && ($tableRowDetails['attributes']['default'] ?? true)),

@@ -1,7 +1,7 @@
 @aware(['dataTableFingerprint','isTailwind', 'isTailwind4', 'isBootstrap', 'currentlyReorderingStatus', 'showBulkActionsSections', 'showCollapsingColumnSections','selectedVisibleColumns'])
 
 
-<x-livewire-tables::table.tr.plain :rowIndex="-1" data-id="thead"
+<x-livewire-tables::table.tr.plain :rowIndex="-1" data-id="thead" x-data=""
     :customAttributes="$this->getHeaderTrAttributes($this->getRows)"
     wire:key="{{ $dataTableFingerprint .'-header' }}"
 >

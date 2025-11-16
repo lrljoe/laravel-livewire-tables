@@ -4,17 +4,17 @@
 <table {{ $attributes->merge($coreTableAttributes['table'])
         ->class($isTailwind ? [
             'rappasoft-livewire-table-new',
-            'divide-gray-200 dark:divide-none' => ($coreTableAttributes['table']['default-colors'] ?? ($coreTableAttributes['table']['default'] ?? true)),
-            'min-w-full divide-y' => ($coreTableAttributes['table']['default-styling'] ?? ($coreTableAttributes['table']['default'] ?? true)),
+            'divide-gray-200 dark:divide-none' => ($attributes['default-colors'] ?? ($attributes['default'] ?? true)),
+            'min-w-full divide-y' => ($attributes['default-styling'] ?? ($attributes['default'] ?? true)),
         ] : [])
         ->class($isTailwind4 ? [
             'tw4ph rappasoft-livewire-table-new',
-            'tw4ph divide-gray-200 dark:divide-none' => ($coreTableAttributes['table']['default-colors'] ?? ($coreTableAttributes['table']['default'] ?? true)),
-            'tw4ph min-w-full divide-y' => ($coreTableAttributes['table']['default-styling'] ?? ($coreTableAttributes['table']['default'] ?? true)),
+            'tw4ph divide-gray-200 dark:divide-none' => ($attributes['default-colors'] ?? ($attributes['default'] ?? true)),
+            'tw4ph min-w-full divide-y' => ($attributes['default-styling'] ?? ($attributes['default'] ?? true)),
         ] : [])
         ->class($isBootstrap ? [
-            '' => ($coreTableAttributes['table']['default-colors'] ?? ($coreTableAttributes['table']['default'] ?? true)),
-            'laravel-livewire-table table' => ($coreTableAttributes['table']['default-styling'] ?? ($coreTableAttributes['table']['default'] ?? true)),
+            '' => ($attributes['default-colors'] ?? ($attributes['default'] ?? true)),
+            'laravel-livewire-table table' => ($attributes['default-styling'] ?? ($attributes['default'] ?? true)),
         ] : [])
         ->except(['default','default-styling','default-colors', 'wire:key']) }}
         wire:key="bookingitemstable-table-{{ rand(5828,458218) }}"

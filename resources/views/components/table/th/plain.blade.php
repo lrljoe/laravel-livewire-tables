@@ -8,8 +8,8 @@
             'bg-gray-50 dark:bg-gray-800' => (($customAttributes['default-colors'] ?? true) || ($customAttributes['default'] ?? true)),
         ] : [])
         ->class($isTailwind4 ? [
-            'tw4ph table-cell px-3 py-2 md:px-6 md:py-3 text-center md:text-left laravel-livewire-tables-reorderingMinimised' => (($customAttributes['default-styling'] ?? true) || ($customAttributes['default'] ?? true)),
-            'tw4ph bg-gray-50 dark:bg-gray-800' => (($customAttributes['default-colors'] ?? true) || ($customAttributes['default'] ?? true)),
+            'table-cell px-3 py-2 md:px-6 md:py-3 text-center md:text-left laravel-livewire-tables-reorderingMinimised' => (($customAttributes['default-styling'] ?? true) || ($customAttributes['default'] ?? true)),
+            'bg-gray-50 dark:bg-gray-800' => (($customAttributes['default-colors'] ?? true) || ($customAttributes['default'] ?? true)),
         ] : [])
         ->class($isBootstrap ? [
             'laravel-livewire-tables-reorderingMinimised' => (($customAttributes['default-colors'] ?? true) || ($customAttributes['default'] ?? true)),

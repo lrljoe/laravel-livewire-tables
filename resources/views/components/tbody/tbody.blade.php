@@ -8,7 +8,7 @@
         ] : [])
         ->merge($tableRowDetails['attributes'])
         ->class($isTailwind ? [
-            'even:bg-white even:dark:bg-gray-700 odd:bg-gray-50 odd:dark:bg-gray-800 dark:text-white',
+            'even:bg-white even:dark:bg-gray-700 odd:bg-gray-50 odd:dark:bg-gray-800 dark:text-white' => ($coreTableAttributes['tbody']['default-colors'] ?? ($coreTableAttributes['tbody']['default'] ?? true)),
             'text-left' => $defaultBodyTextAlign == 'left',
             'text-center' => $defaultBodyTextAlign == 'center',
             'text-right' => $defaultBodyTextAlign == 'right',
@@ -16,13 +16,12 @@
             'divide-y' => ($coreTableAttributes['tbody']['default-styling'] ?? ($coreTableAttributes['tbody']['default'] ?? true)),          
         ] : [])
         ->class($isTailwind4 ? [           
-            'tw4ph even:bg-white even:dark:bg-gray-700 odd:bg-gray-50 odd:dark:bg-gray-800 dark:text-white',
-            'tw4ph divide-gray-200 dark:divide-none' => ($coreTableAttributes['tbody']['default-colors'] ?? ($coreTableAttributes['tbody']['default'] ?? true)),
-            'tw4ph divide-y' => ($coreTableAttributes['tbody']['default-styling'] ?? ($coreTableAttributes['tbody']['default'] ?? true)),
-            'tw4ph text-left' => $defaultBodyTextAlign == 'left',
-            'tw4ph text-center' => $defaultBodyTextAlign == 'center',
-            'tw4ph text-right' => $defaultBodyTextAlign == 'right',
-            
+            'even:bg-white even:dark:bg-gray-700 odd:bg-gray-50 odd:dark:bg-gray-800 dark:text-white' => ($coreTableAttributes['tbody']['default-colors'] ?? ($coreTableAttributes['tbody']['default'] ?? true)),
+            'text-left' => $defaultBodyTextAlign == 'left',
+            'text-center' => $defaultBodyTextAlign == 'center',
+            'text-right' => $defaultBodyTextAlign == 'right',
+            'divide-gray-200 dark:divide-none' => ($coreTableAttributes['tbody']['default-colors'] ?? ($coreTableAttributes['tbody']['default'] ?? true)),
+            'divide-y' => ($coreTableAttributes['tbody']['default-styling'] ?? ($coreTableAttributes['tbody']['default'] ?? true)),
         ] : [])
         ->except(['default','default-styling','default-colors']) 
     }} x-data="{ opening: false, }" >

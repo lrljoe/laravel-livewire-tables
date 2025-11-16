@@ -12,10 +12,10 @@ trait ColumnSelectHelpers
     /**
      * Undocumented function
      *
-     * @param mixed $column
+     * @param string|Column $column
      * @return boolean
      */
-    public function columnSelectIsEnabledForColumn(mixed $column): bool
+    public function columnSelectIsEnabledForColumn(string|Column $column): bool
     {
         return !empty($this->selectedColumns) && in_array($column instanceof Column ? $column->getSlug() : $column, $this->selectedColumns, true);
     }
@@ -36,7 +36,7 @@ trait ColumnSelectHelpers
     /**
      * Generate the Column Selectable Array
      *
-     * @return array<mixed>
+     * @return array<string,bool>
      */
     public function generateColumnSelect(): array
     {
@@ -52,7 +52,7 @@ trait ColumnSelectHelpers
     /**
      * Generate the Column Select Options
      *
-     * @return array<mixed>
+     * @return array<string,array<string,mixed>>
      */
     public function generateColumnSelectItems(): array
     {
@@ -117,14 +117,16 @@ trait ColumnSelectHelpers
      * @return array<mixed>
      */
     public function getSelectedColumns(): array
-    {
+    {       
+
+
         return $this->selectedColumns ?? [];
     }
 
     /**
      * Undocumented function
      *
-     * @return array<mixed>
+     * @return array<int,Column>
      */
     public function getSelectedColumnsForQuery(): array
     {
@@ -333,6 +335,25 @@ trait ColumnSelectHelpers
     public function getColumnSelectDelay(): int
     {
         return $this->columnSelectConfig['columnSelectDelay'] ?? 1500;
+    }
+
+    /**
+     * Determines if a Column Is Selected - used in ColumnConfiguration to add Array/Aggregate withs
+     *
+     * @param Column $column
+     * @return boolean
+     */
+    public function columnIsSelected(Column $column): bool
+    {
+        if($this->columnSelectIsDisabled() || !$column->isSelectable())
+        {
+            return true;
+        }
+        if ((empty($this->selectedColumns) && $column->isSelected()) || in_array($column->getSlug(), $this->selectedColumns))
+        {
+            return true;
+        }
+        return false;
     }
 
 }

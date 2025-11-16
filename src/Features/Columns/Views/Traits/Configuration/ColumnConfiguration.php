@@ -10,6 +10,13 @@ trait ColumnConfiguration
 
         return $this;
     }
+    
+    public function setField(?string $field): self
+    {
+        $this->field = $field;
+
+        return $this;
+    }
 
     public function setTable(string $table): self
     {
