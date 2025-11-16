@@ -6,8 +6,8 @@
             'shadow overflow-y-auto border-b sm:rounded-lg' => ($coreTableAttributes['wrapper']['default-styling'] ?? ($coreTableAttributes['wrapper']['default'] ?? false)),
         ] : [])
         ->class($isTailwind4 ? [
-            'tw4ph border-gray-200 dark:border-gray-700' => ($coreTableAttributes['wrapper']['default-colors'] ?? ($coreTableAttributes['wrapper']['default'] ?? true)),
-            'tw4ph shadow overflow-y-auto border-b sm:rounded-lg' => ($coreTableAttributes['wrapper']['default-styling'] ?? ($coreTableAttributes['wrapper']['default'] ?? false)),
+            'border-gray-200 dark:border-gray-700' => ($coreTableAttributes['wrapper']['default-colors'] ?? ($coreTableAttributes['wrapper']['default'] ?? true)),
+            'shadow overflow-y-auto border-b sm:rounded-lg' => ($coreTableAttributes['wrapper']['default-styling'] ?? ($coreTableAttributes['wrapper']['default'] ?? false)),
         ] : [])
         ->class($isBootstrap ? [
             '' => ($coreTableAttributes['wrapper']['default-colors'] ?? ($coreTableAttributes['wrapper']['default'] ?? true)),

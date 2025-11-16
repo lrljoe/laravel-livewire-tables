@@ -4,19 +4,23 @@
 @if ($isTailwind || $isTailwind4)
     <button
         x-on:click.prevent="resetAllFilters"
-        @class([
-            'focus:outline-none active:outline-none' => $isTailwind,
-            'tw4ph focus:outline-none active:outline-none' => $isTailwind4,
-        ])>
+        @class($isTailwind ? [
+            'focus:outline-none active:outline-none',
+        ] : [
+            'focus:outline-none active:outline-none',
+        ]
+    )>
         <span
             {{
                 $attributes->merge($resetAllButtonAttributes)
-                ->class([
-                    'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium' => $isTailwind && ($resetAllButtonAttributes['default-styling'] ?? true),
-                    'bg-gray-100 text-gray-800 dark:bg-gray-200 dark:text-gray-900' => $isTailwind && ($resetAllButtonAttributes['default-colors'] ?? true),
-                    'tw4ph inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium' => $isTailwind4 && ($resetAllButtonAttributes['default-styling'] ?? true),
-                    'tw4ph bg-gray-100 text-gray-800 dark:bg-gray-200 dark:text-gray-900' => $isTailwind4 && ($resetAllButtonAttributes['default-colors'] ?? true),
-                ])
+                ->class($isTailwind ? [
+                    'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium' => ($resetAllButtonAttributes['default-styling'] ?? true),
+                    'bg-gray-100 text-gray-800 dark:bg-gray-200 dark:text-gray-900' => ($resetAllButtonAttributes['default-colors'] ?? true),
+                ] : [])
+                ->class($isTailwind4 ? [                 [
+                    'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium' => ($resetAllButtonAttributes['default-styling'] ?? true),
+                    'bg-gray-100 text-gray-800 dark:bg-gray-200 dark:text-gray-900' => ($resetAllButtonAttributes['default-colors'] ?? true),
+                ] : [])
                 ->except(['default-styling', 'default-colors'])
             }}
         >

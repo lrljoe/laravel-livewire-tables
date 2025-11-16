@@ -17,11 +17,11 @@
         'cursor-pointer' => ($isClickable && ($tableRowDetails['url'] !== null && ($tableRowDetails['attributes']['default'] ?? true))),
     ] : [])
     ->class($isTailwind4 ? [
-        'tw4ph whitespace-wrap' => (!$wrapText && $isHtml) && ($customAttributes['default-styling'] ?? true),
-        'tw4ph whitespace-nowrap' => (!$wrapText && !$isHtml) && ($customAttributes['default-styling'] ?? true),
-        'tw4ph px-6 py-4 text-sm font-medium' => ($customAttributes['default-styling'] ?? true),
-        'tw4ph dark:text-white' => ($customAttributes['default-colors'] ?? true),
-        'tw4ph cursor-pointer' => ($isClickable && ($tableRowDetails['url'] !== null && ($tableRowDetails['attributes']['default'] ?? true))),
+        'whitespace-wrap' => (!$wrapText && $isHtml) && ($customAttributes['default-styling'] ?? true),
+        'whitespace-nowrap' => (!$wrapText && !$isHtml) && ($customAttributes['default-styling'] ?? true),
+        'px-6 py-4 text-sm font-medium' => ($customAttributes['default-styling'] ?? true),
+        'dark:text-white' => ($customAttributes['default-colors'] ?? true),
+        'cursor-pointer' => ($isClickable && ($tableRowDetails['url'] !== null && ($tableRowDetails['attributes']['default'] ?? true))),
     ] : [])
     ->class($isBootstrap ? [
         '' => ($customAttributes['default'] ?? true),

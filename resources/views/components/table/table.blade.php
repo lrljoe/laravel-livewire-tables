@@ -8,9 +8,9 @@
             'min-w-full divide-y' => ($attributes['default-styling'] ?? ($attributes['default'] ?? true)),
         ] : [])
         ->class($isTailwind4 ? [
-            'tw4ph rappasoft-livewire-table-new',
-            'tw4ph divide-gray-200 dark:divide-none' => ($attributes['default-colors'] ?? ($attributes['default'] ?? true)),
-            'tw4ph min-w-full divide-y' => ($attributes['default-styling'] ?? ($attributes['default'] ?? true)),
+            'rappasoft-livewire-table-new',
+            'divide-gray-200 dark:divide-none' => ($attributes['default-colors'] ?? ($attributes['default'] ?? true)),
+            'min-w-full divide-y' => ($attributes['default-styling'] ?? ($attributes['default'] ?? true)),
         ] : [])
         ->class($isBootstrap ? [
             '' => ($attributes['default-colors'] ?? ($attributes['default'] ?? true)),
