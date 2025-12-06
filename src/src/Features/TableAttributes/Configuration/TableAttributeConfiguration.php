@@ -148,8 +148,7 @@ trait TableAttributeConfiguration
 
     public function setDefaultBodyTextAlign(string $align): self
     {
-        if($align == 'left' || $align == 'center' || $align == 'right')
-        {
+        if ($align == 'left' || $align == 'center' || $align == 'right') {
             $this->defaultBodyTextAlign = $align;
         }
 
@@ -160,7 +159,7 @@ trait TableAttributeConfiguration
     {
         return $this->setDefaultBodyTextAlign('left');
     }
-    
+
     protected function setDefaultBodyTextAlignCenter(): self
     {
         return $this->setDefaultBodyTextAlign('center');
@@ -170,5 +169,4 @@ trait TableAttributeConfiguration
     {
         return $this->setDefaultBodyTextAlign('right');
     }
-
 }

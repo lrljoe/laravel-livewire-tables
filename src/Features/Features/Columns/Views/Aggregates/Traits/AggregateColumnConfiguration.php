@@ -54,8 +54,7 @@ trait AggregateColumnConfiguration
         $this->sortable = true;
 
         $this->sortCallback = ($callback === null) ? ($this->hasForeignColumn() ? fn (Builder $query, string $direction) => $query->orderBy($this->getDataSource().'_'.$this->getAggregateMethod().'_'.$this->getForeignColumn(), $direction) : fn (Builder $query, string $direction) => $query->orderBy($this->dataSource.'_count', $direction)) : $callback;
-        if(!$this->hasCustomSortingPillDirections())
-        {
+        if (! $this->hasCustomSortingPillDirections()) {
             $this->setSortingPillDirections('0-9', '9-0');
         }
 

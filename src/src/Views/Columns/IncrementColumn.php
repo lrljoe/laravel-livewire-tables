@@ -2,7 +2,4 @@
 
 namespace Rappasoft\LaravelLivewireTables\Views\Columns;
 
-class IncrementColumn extends \Rappasoft\LaravelLivewireTables\Features\Columns\Views\IncrementColumn
-{
-
-} 
+class IncrementColumn extends \Rappasoft\LaravelLivewireTables\Features\Columns\Views\IncrementColumn {}

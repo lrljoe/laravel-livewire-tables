@@ -8,8 +8,6 @@ trait FilterPillsStylingHelpers
 {
     /**
      * Should Filter Pills Display While Loading
-     *
-     * @return boolean
      */
     public function displayFilterPillsWhileLoading(): bool
     {
@@ -26,7 +24,6 @@ trait FilterPillsStylingHelpers
         return $this->filterPillsItemAttributes;
     }
 
-    
     /**
      * Retrieves Filter Pill Reset Button Attributes
      *

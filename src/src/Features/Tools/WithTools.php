@@ -12,12 +12,9 @@ trait WithTools
         ToolsHelpers,
         HasToolsStyling,
         WithToolBar;
-        
+
     /**
      * Undocumented variable
-     *
-     * @var boolean
      */
     protected bool $toolsStatus = true;
-
 }

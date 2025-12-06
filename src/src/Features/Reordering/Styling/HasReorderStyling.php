@@ -10,18 +10,21 @@ trait HasReorderStyling
      * @var array<mixed>
      */
     protected array $reorderThAttributes = ['default' => true];
+
     /**
      * Undocumented variable
      *
      * @var array<mixed>
      */
     protected array $reorderButtonStartAttributes = ['class' => '', 'default-colors' => true, 'default-styling' => true, 'type' => 'button', 'x-on:click' => 'reorderToggle', 'wire:loading.attr' => 'disabled'];
+
     /**
      * Undocumented variable
      *
      * @var array<mixed>
      */
     protected array $reorderButtonSaveAttributes = ['class' => '', 'default-colors' => true, 'default-styling' => true, 'type' => 'button', 'x-on:click' => 'storeOrderedItems', 'wire:loading.attr' => 'disabled'];
+
     /**
      * Undocumented variable
      *
@@ -50,10 +53,9 @@ trait HasReorderStyling
     /**
      * Undocumented function
      *
-     * @param array<mixed> $reorderThAttributes
-     * @return self
+     * @param  array<mixed>  $reorderThAttributes
      */
-     public function setReorderThAttributes(array $reorderThAttributes): self
+    public function setReorderThAttributes(array $reorderThAttributes): self
     {
         $this->reorderThAttributes = [...$this->reorderThAttributes, ...$reorderThAttributes];
 
@@ -82,10 +84,9 @@ trait HasReorderStyling
     /**
      * Undocumented function
      *
-     * @param array<mixed> $reorderButtonStartAttributes
-     * @return self
+     * @param  array<mixed>  $reorderButtonStartAttributes
      */
-     public function setReorderButtonStartAttributes(array $reorderButtonStartAttributes): self
+    public function setReorderButtonStartAttributes(array $reorderButtonStartAttributes): self
     {
         $this->reorderButtonStartAttributes = [...$this->reorderButtonStartAttributes, ...$reorderButtonStartAttributes];
 
@@ -113,10 +114,9 @@ trait HasReorderStyling
     /**
      * Undocumented function
      *
-     * @param array<mixed> $reorderButtonSaveAttributes
-     * @return self
+     * @param  array<mixed>  $reorderButtonSaveAttributes
      */
-     public function setReorderButtonSaveAttributes(array $reorderButtonSaveAttributes): self
+    public function setReorderButtonSaveAttributes(array $reorderButtonSaveAttributes): self
     {
         $this->reorderButtonSaveAttributes = [...$this->reorderButtonSaveAttributes, ...$reorderButtonSaveAttributes];
 
@@ -135,8 +135,6 @@ trait HasReorderStyling
 
     /**
      * Determines if ReorderButtonCancelAttributes Have Been Set
-     *
-     * @return boolean
      */
     public function hasReorderButtonCancelAttributes(): bool
     {
@@ -149,10 +147,9 @@ trait HasReorderStyling
     /**
      * Undocumented function
      *
-     * @param array<mixed> $reorderButtonCancelAttributes
-     * @return self
+     * @param  array<mixed>  $reorderButtonCancelAttributes
      */
-     public function setReorderButtonCancelAttributes(array $reorderButtonCancelAttributes): self
+    public function setReorderButtonCancelAttributes(array $reorderButtonCancelAttributes): self
     {
         $this->reorderButtonCancelAttributes = [...$this->reorderButtonCancelAttributes, ...$reorderButtonCancelAttributes];
 
@@ -172,5 +169,4 @@ trait HasReorderStyling
             'cancel' => $this->getReorderButtonCancelAttributes(),
         ];
     }
-
 }

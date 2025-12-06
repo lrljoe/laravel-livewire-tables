@@ -63,9 +63,7 @@ trait HasSecondaryHeader
     /**
      * Undocumented function
      *
-     * @param mixed $rows
-     * @param array<mixed> $filterGenericData
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\View\Factory|\Illuminate\View\View|string|HtmlString
+     * @param  array<mixed>  $filterGenericData
      */
     public function getSecondaryHeaderContents(mixed $rows, array $filterGenericData): \Illuminate\Contracts\Foundation\Application|\Illuminate\View\Factory|\Illuminate\View\View|string|HtmlString
     {
@@ -116,9 +114,7 @@ trait HasSecondaryHeader
     /**
      * Undocumented function
      *
-     * @param Filter|null $filter
-     * @param array<mixed> $filterGenericData
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\View\Factory|\Illuminate\View\View|string
+     * @param  array<mixed>  $filterGenericData
      */
     public function getSecondaryHeaderFilter(?Filter $filter, array $filterGenericData): \Illuminate\Contracts\Foundation\Application|\Illuminate\View\Factory|\Illuminate\View\View|string
     {

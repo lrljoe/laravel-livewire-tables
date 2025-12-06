@@ -11,16 +11,17 @@ trait HandlesFingerprint
 
     public function getDataTableFingerprint(): string
     {
-        if(!isset($this->dataTableFingerprint))
-        {
+        if (! isset($this->dataTableFingerprint)) {
             $this->dataTableFingerprint = $this->generateDataTableFingerprint();
         }
+
         return $this->dataTableFingerprint;
     }
 
     public function getDataTableFingerprintForUrl(): string
     {
         $fingerprint = $this->getDataTableFingerprint();
+
         return urlencode($fingerprint);
     }
 

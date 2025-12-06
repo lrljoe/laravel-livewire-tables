@@ -15,25 +15,19 @@ class DateRangeFilter extends Filter
 
     /**
      * Undocumented variable
-     *
-     * @var string
      */
     public string $wireMethod = 'blur';
 
     /**
      * The path to the view for this filter
-     *
-     * @var string
      */
     protected string $view = 'livewire-tables::components.tools.filters.date-range';
 
     /**
      * Undocumented variable
-     *
-     * @var string
      */
     protected string $configPath = 'livewire-tables.dateRange.defaultConfig';
-    
+
     protected ?string $optionsPath = 'livewire-tables.dateRange.defaultOptions';
 
     /**
@@ -49,8 +43,8 @@ class DateRangeFilter extends Filter
     /**
      * Validates that the value received by the Filter is valid
      *
-     * @param array<mixed>|string|null $values
-     * @return array<mixed>|boolean
+     * @param  array<mixed>|string|null  $values
+     * @return array<mixed>|bool
      */
     public function validate(array|string|null $values): array|bool
     {
@@ -95,7 +89,6 @@ class DateRangeFilter extends Filter
     /**
      * Undocumented function
      *
-     * @param string $dateFormat
      * @return array<mixed>
      */
     protected function setupEarlyLateDates(string $dateFormat): array
@@ -123,7 +116,7 @@ class DateRangeFilter extends Filter
     /**
      * Undocumented function
      *
-     * @param string|array<mixed> $values
+     * @param  string|array<mixed>  $values
      * @return array<mixed>
      */
     protected function populateReturnedValues(string|array $values): array
@@ -155,9 +148,7 @@ class DateRangeFilter extends Filter
     /**
      * Undocumented function
      *
-     * @param array<mixed> $returnedValues
-     * @param string $dateFormat
-     * @return boolean
+     * @param  array<mixed>  $returnedValues
      */
     protected function validateDateFormat(array $returnedValues, string $dateFormat): bool
     {
@@ -194,8 +185,6 @@ class DateRangeFilter extends Filter
 
     /**
      * Undocumented function
-     *
-     * @return boolean
      */
     public function hasFilterDefaultValue(): bool
     {
@@ -205,8 +194,7 @@ class DateRangeFilter extends Filter
     /**
      * Undocumented function
      *
-     * @param mixed $value
-     * @return self
+     * @param  mixed  $value
      */
     public function setFilterDefaultValue($value): self
     {
@@ -240,8 +228,8 @@ class DateRangeFilter extends Filter
     /**
      * Retrieves the Filter Value for use in the Filter Pills area
      *
-     * @param mixed $value
-     * @return array<mixed>|string|boolean|null
+     * @param  mixed  $value
+     * @return array<mixed>|string|bool|null
      */
     public function getFilterPillValue($value): array|string|bool|null
     {
@@ -268,8 +256,7 @@ class DateRangeFilter extends Filter
     /**
      * Checks if the Filter Value is empty
      *
-     * @param array<mixed>|string|null $value
-     * @return boolean
+     * @param  array<mixed>|string|null  $value
      */
     public function isEmpty(array|string|null $value): bool
     {
@@ -303,8 +290,7 @@ class DateRangeFilter extends Filter
     /**
      * Undocumented function
      *
-     * @param string|array<mixed> $dateInput
-     * @return string
+     * @param  string|array<mixed>  $dateInput
      */
     public function getDateString(string|array $dateInput): string
     {
@@ -328,5 +314,4 @@ class DateRangeFilter extends Filter
     {
         $this->config(config($this->configPath));
     }
-
 }

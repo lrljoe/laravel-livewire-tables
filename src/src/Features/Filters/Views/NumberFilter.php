@@ -11,23 +11,18 @@ class NumberFilter extends Filter
 
     /**
      * Undocumented variable
-     *
-     * @var string
      */
     public string $wireMethod = 'blur';
 
     /**
      * The path to the view for this filter
-     *
-     * @var string
      */
     protected string $view = 'livewire-tables::components.tools.filters.number';
 
     /**
      * Validates that the value received by the Filter is valid
      *
-     * @param float|integer|string|array<mixed> $value
-     * @return float|integer|string|false
+     * @param  float|int|string|array<mixed>  $value
      */
     public function validate(float|int|string|array $value): float|int|string|false
     {

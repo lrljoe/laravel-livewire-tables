@@ -6,8 +6,6 @@ trait SortingConfiguration
 {
     /**
      * Undocumented function
-     *
-     * @return void
      */
     protected function setupDefaultSorting(): void
     {
@@ -18,9 +16,6 @@ trait SortingConfiguration
 
     /**
      * Undocumented function
-     *
-     * @param boolean $status
-     * @return self
      */
     public function setSortingStatus(bool $status): self
     {
@@ -31,18 +26,14 @@ trait SortingConfiguration
 
     /**
      * Undocumented function
-     *
-     * @return self
      */
     public function setSortingEnabled(): self
     {
-       return $this->setSortingStatus(true);
+        return $this->setSortingStatus(true);
     }
 
     /**
      * Undocumented function
-     *
-     * @return self
      */
     public function setSortingDisabled(): self
     {
@@ -54,9 +45,6 @@ trait SortingConfiguration
 
     /**
      * Undocumented function
-     *
-     * @param boolean $status
-     * @return self
      */
     public function setSingleSortingStatus(bool $status): self
     {
@@ -67,8 +55,6 @@ trait SortingConfiguration
 
     /**
      * Undocumented function
-     *
-     * @return self
      */
     public function setSingleSortingEnabled(): self
     {
@@ -77,8 +63,6 @@ trait SortingConfiguration
 
     /**
      * Undocumented function
-     *
-     * @return self
      */
     public function setSingleSortingDisabled(): self
     {
@@ -87,10 +71,6 @@ trait SortingConfiguration
 
     /**
      * Undocumented function
-     *
-     * @param string $field
-     * @param string $direction
-     * @return self
      */
     public function setDefaultSort(string $field, string $direction = 'asc'): self
     {
@@ -102,8 +82,6 @@ trait SortingConfiguration
 
     /**
      * Undocumented function
-     *
-     * @return self
      */
     public function removeDefaultSort(): self
     {
@@ -112,5 +90,4 @@ trait SortingConfiguration
 
         return $this;
     }
-
 }

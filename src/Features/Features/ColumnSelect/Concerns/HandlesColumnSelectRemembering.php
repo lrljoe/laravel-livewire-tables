@@ -4,7 +4,6 @@ namespace Rappasoft\LaravelLivewireTables\Features\ColumnSelect\Concerns;
 
 trait HandlesColumnSelectRemembering
 {
-
     protected function setRememberColumnSelectionStatus(bool $status): self
     {
         $this->storeColumnSelectInSessionStatus($status);
@@ -21,6 +20,4 @@ trait HandlesColumnSelectRemembering
     {
         return $this->setRememberColumnSelectionStatus(false);
     }
-
-
 }

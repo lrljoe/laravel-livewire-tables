@@ -15,9 +15,6 @@ class ComponentColumn extends Column
 
     /**
      * Undocumented function
-     *
-     * @param string $title
-     * @param string|null $from
      */
     public function __construct(string $title, ?string $from = null)
     {
@@ -26,9 +23,6 @@ class ComponentColumn extends Column
 
     /**
      * Undocumented function
-     *
-     * @param Model $row
-     * @return null|string|HtmlString|DataTableConfigurationException|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function getContents(Model $row): null|string|HtmlString|DataTableConfigurationException|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
     {

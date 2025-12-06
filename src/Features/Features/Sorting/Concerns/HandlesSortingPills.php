@@ -10,8 +10,6 @@ trait HandlesSortingPills
 {
     /**
      * Undocumented function
-     *
-     * @return boolean
      */
     public function getSortingPillsStatus(): bool
     {
@@ -20,8 +18,6 @@ trait HandlesSortingPills
 
     /**
      * Undocumented function
-     *
-     * @return string
      */
     #[Computed]
     public function getDefaultSortingLabelAsc(): string
@@ -29,18 +25,14 @@ trait HandlesSortingPills
         return $this->sortingConfig['defaultSortingLabelAsc'] ?? 'A-Z';
     }
 
-
     /**
      * Undocumented function
-     *
-     * @return string
      */
     #[Computed]
     public function getDefaultSortingLabelDesc(): string
     {
         return $this->sortingConfig['defaultSortingLabelDesc'] ?? 'Z-A';
     }
-
 
     /**
      * Undocumented function
@@ -53,10 +45,9 @@ trait HandlesSortingPills
         $defaultSortingLabelAsc = $this->getDefaultSortingLabelAsc();
         $defaultSortingLabelDesc = $this->getDefaultSortingLabelDesc();
         $sortKeys = array_keys($this->sorts);
-        foreach($this->getColumns()
+        foreach ($this->getColumns()
             ->visibleSortableColumns()
-            ->reject(fn (Column $column) => !in_array($column->getSlug(), $sortKeys) && !in_array($column->getTitle(), $sortKeys)) as $sortedColumn)
-        {
+            ->reject(fn (Column $column) => ! in_array($column->getSlug(), $sortKeys) && ! in_array($column->getTitle(), $sortKeys)) as $sortedColumn) {
             $columnSelectName = $sortedColumn->getSlug();
             $direction = $this->sorts[$columnSelectName];
             $sortingPillTitle = $sortedColumn->getSortingPillTitle();
@@ -68,15 +59,13 @@ trait HandlesSortingPills
                 'sortingPillTitle' => $sortingPillTitle,
                 'sortingPillDirectionLabel' => $sortingPillDirectionLabel,
             ];
-        } 
+        }
+
         return $sortedCols;
     }
 
-
     /**
      * Undocumented function
-     *
-     * @return boolean
      */
     public function sortingPillsAreEnabled(): bool
     {
@@ -85,8 +74,6 @@ trait HandlesSortingPills
 
     /**
      * Undocumented function
-     *
-     * @return boolean
      */
     public function sortingPillsAreDisabled(): bool
     {
@@ -95,20 +82,15 @@ trait HandlesSortingPills
 
     /**
      * Undocumented function
-     *
-     * @return boolean
      */
     #[Computed]
     public function showSortPillsSection(): bool
     {
         return $this->sortingIsEnabled() && $this->sortingPillsAreEnabled() && $this->hasSorts();
     }
-    
+
     /**
      * Undocumented function
-     *
-     * @param boolean $status
-     * @return self
      */
     public function setSortingPillsStatus(bool $status): self
     {
@@ -119,8 +101,6 @@ trait HandlesSortingPills
 
     /**
      * Undocumented function
-     *
-     * @return self
      */
     public function setSortingPillsEnabled(): self
     {
@@ -129,8 +109,6 @@ trait HandlesSortingPills
 
     /**
      * Undocumented function
-     *
-     * @return self
      */
     public function setSortingPillsDisabled(): self
     {
@@ -139,10 +117,6 @@ trait HandlesSortingPills
 
     /**
      * Undocumented function
-     *
-     * @param string $asc
-     * @param string $desc
-     * @return self
      */
     public function setDefaultSortingLabels(string $asc, string $desc): self
     {
@@ -151,5 +125,4 @@ trait HandlesSortingPills
 
         return $this;
     }
-
 }

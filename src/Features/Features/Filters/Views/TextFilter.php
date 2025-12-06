@@ -12,23 +12,16 @@ class TextFilter extends Filter
 
     /**
      * Undocumented variable
-     *
-     * @var string
      */
     public string $wireMethod = 'blur';
 
     /**
      * The path to the view for this filter
-     *
-     * @var string
      */
     protected string $view = 'livewire-tables::components.tools.filters.text-field';
 
     /**
      * Validates that the value received by the Filter is valid
-     *
-     * @param string $value
-     * @return string|boolean
      */
     public function validate(string $value): string|bool
     {

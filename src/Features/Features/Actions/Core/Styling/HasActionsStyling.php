@@ -2,8 +2,8 @@
 
 namespace Rappasoft\LaravelLivewireTables\Features\Actions\Core\Styling;
 
-use Livewire\Attributes\Computed;
 use Illuminate\View\ComponentAttributeBag;
+use Livewire\Attributes\Computed;
 
 trait HasActionsStyling
 {
@@ -49,8 +49,7 @@ trait HasActionsStyling
     /**
      * Undocumented function
      *
-     * @param array<mixed> $actionWrapperAttributes
-     * @return self
+     * @param  array<mixed>  $actionWrapperAttributes
      */
     public function setActionWrapperAttributes(array $actionWrapperAttributes): self
     {
@@ -62,8 +61,7 @@ trait HasActionsStyling
     /**
      * Undocumented function
      *
-     * @param array<mixed> $actionsMenuAttributes
-     * @return self
+     * @param  array<mixed>  $actionsMenuAttributes
      */
     public function setActionMenuAttributes(array $actionsMenuAttributes): self
     {
@@ -71,6 +69,7 @@ trait HasActionsStyling
 
         return $this;
     }
+
     /**
      * Used to get attributes for the Bulk Actions Button
      *
@@ -85,8 +84,6 @@ trait HasActionsStyling
 
     /**
      * Undocumented function
-     *
-     * @return ComponentAttributeBag
      */
     public function getActionsButtonAttributesBag(): ComponentAttributeBag
     {
@@ -111,11 +108,10 @@ trait HasActionsStyling
      */
     protected function getActionsMenuTransitionAttributes(): array
     {
-        if($this->isTailwind() || $this->isTailwind4())
-        {
+        if ($this->isTailwind() || $this->isTailwind4()) {
             return isset($this->actionsMenuTransitionAttributes) ? $this->actionsMenuTransitionAttributes : $this->getCoreTransitionAttributes();
         }
+
         return [];
     }
-
 }

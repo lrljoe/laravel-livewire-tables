@@ -21,8 +21,7 @@ trait WithRappasoftTableScripts
     /**
      * Undocumented function
      *
-     * @param array<mixed> $attributes
-     * @return void
+     * @param  array<mixed>  $attributes
      */
     public function useRappasoftTableScriptTagAttributes(array $attributes): void
     {
@@ -55,8 +54,7 @@ trait WithRappasoftTableScripts
     /**
      * Undocumented function
      *
-     * @param array<mixed> $options
-     * @return string|null
+     * @param  array<mixed>  $options
      */
     public static function tableScripts(array $options = []): ?string
     {
@@ -77,8 +75,7 @@ trait WithRappasoftTableScripts
     /**
      * Undocumented function
      *
-     * @param array<mixed> $options
-     * @return string
+     * @param  array<mixed>  $options
      */
     public static function tableJs(array $options = []): string
     {

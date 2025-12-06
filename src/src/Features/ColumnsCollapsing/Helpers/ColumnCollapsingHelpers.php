@@ -3,15 +3,13 @@
 namespace Rappasoft\LaravelLivewireTables\Features\ColumnsCollapsing\Helpers;
 
 use Livewire\Attributes\Computed;
-use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
 use Rappasoft\LaravelLivewireTables\Collections\ColumnCollection;
+use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
 
 trait ColumnCollapsingHelpers
 {
     /**
      * Determines if Current Table has any Collapsing Columns
-     *
-     * @return boolean
      */
     #[Computed]
     public function hasCollapsingColumns(): bool
@@ -175,7 +173,6 @@ trait ColumnCollapsingHelpers
         return $columns;
     }
 
-    
     /**
      * Undocumented function
      *
@@ -235,8 +232,7 @@ trait ColumnCollapsingHelpers
 
         return $extras;
     }
-    
-        
+
     /**
      * Undocumented function
      *
@@ -257,5 +253,4 @@ trait ColumnCollapsingHelpers
             'buttonCollapseAttributes' => $this->getCollapsingColumnButtonCollapseAttributes(),
         ];
     }
-
 }

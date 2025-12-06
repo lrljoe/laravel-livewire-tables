@@ -20,12 +20,9 @@ class LivewireComponentColumn extends Column
      */
     protected ?string $livewireComponent;
 
-     /**
-      * Gets the contents for current row
-      *
-      * @param Model $row
-      * @return null|string|HtmlString|DataTableConfigurationException|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
-      */
+    /**
+     * Gets the contents for current row
+     */
     public function getContents(Model $row): null|string|HtmlString|DataTableConfigurationException|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
     {
         $this->runPreChecks();

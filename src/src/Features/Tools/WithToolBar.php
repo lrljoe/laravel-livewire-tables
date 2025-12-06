@@ -2,11 +2,11 @@
 
 namespace Rappasoft\LaravelLivewireTables\Features\Tools;
 
+use Livewire\Attributes\Computed;
 use Rappasoft\LaravelLivewireTables\Features\Tools\Configuration\ToolBarConfiguration;
 use Rappasoft\LaravelLivewireTables\Features\Tools\Helpers\ToolBarHelpers;
-use Rappasoft\LaravelLivewireTables\Features\Tools\Styling\HasToolBarStyling;
 use Rappasoft\LaravelLivewireTables\Features\Tools\Helpers\ToolBarItemHelpers;
-use Livewire\Attributes\Computed;
+use Rappasoft\LaravelLivewireTables\Features\Tools\Styling\HasToolBarStyling;
 
 trait WithToolBar
 {
@@ -17,8 +17,6 @@ trait WithToolBar
 
     /**
      * Undocumented variable
-     *
-     * @var boolean
      */
     protected bool $toolBarStatus = true;
 
@@ -34,9 +32,8 @@ trait WithToolBar
      *
      * @var array<mixed>
      */
-    protected array $toolBarDefaultItems = ['left' => ['reorder','search','filters'], 'right' => ['bulk-actions','column-select','pagination-dropdown']];
+    protected array $toolBarDefaultItems = ['left' => ['reorder', 'search', 'filters'], 'right' => ['bulk-actions', 'column-select', 'pagination-dropdown']];
 
-    
     /**
      * Get Toolbar Left Items
      *
@@ -44,7 +41,7 @@ trait WithToolBar
      */
     public function toolbarItemsLeft(): array
     {
-        return ['reorder','search','filters'];
+        return ['reorder', 'search', 'filters'];
     }
 
     /**
@@ -54,9 +51,8 @@ trait WithToolBar
      */
     public function toolbarItemsRight(): array
     {
-        return ['bulk-actions','column-select','pagination-dropdown'];
+        return ['bulk-actions', 'column-select', 'pagination-dropdown'];
     }
-    
 
     /**
      * Get Toolbar Left Items
@@ -82,10 +78,8 @@ trait WithToolBar
 
     public function renderingWithToolBar(): void
     {
-        if($this->toolBarItems == ['left' => [], 'right' => []])
-        {
+        if ($this->toolBarItems == ['left' => [], 'right' => []]) {
             $this->setupToolbarItems();
         }
     }
-
 }

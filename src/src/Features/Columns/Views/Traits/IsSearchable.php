@@ -48,8 +48,7 @@ trait IsSearchable
     {
         $this->searchable = true;
 
-        if(!is_null($callback))
-        {
+        if (! is_null($callback)) {
             $this->disableWildcardSearch();
         }
 

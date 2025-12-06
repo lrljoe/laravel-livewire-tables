@@ -3,8 +3,8 @@
 namespace Rappasoft\LaravelLivewireTables\Features\BulkActions\Core\Helpers;
 
 use Livewire\Attributes\Computed;
-use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
 use Rappasoft\LaravelLivewireTables\Features\BulkActions\Views\BulkAction;
+use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
 
 trait BulkActionsHelpers
 {
@@ -54,9 +54,8 @@ trait BulkActionsHelpers
      */
     public function getBulkActions(): array
     {
-        return !empty($this->bulkActions) ? $this->bulkActions : $this->bulkActions();
+        return ! empty($this->bulkActions) ? $this->bulkActions : $this->bulkActions();
     }
-
 
     /**
      * @return array<int,BulkAction>
@@ -65,30 +64,24 @@ trait BulkActionsHelpers
     {
         $bulkActions = [];
         $defaultAttributes = $this->getBulkActionsMenuItemAttributes();
-        foreach($this->getBulkActions() as $action => $title)
-        {
-            if($title instanceof BulkAction)
-            {
+        foreach ($this->getBulkActions() as $action => $title) {
+            if ($title instanceof BulkAction) {
                 $bulkAction = $title;
                 $action = $bulkAction->getAction();
 
                 // Set default attributes if not defined on BulkAction
-                if(!$bulkAction->hasButtonAttributes())
-                {
+                if (! $bulkAction->hasButtonAttributes()) {
                     $bulkAction->setButtonAttributes($defaultAttributes);
                 }
-            }
-            else
-            {
+            } else {
                 // Create a BulkAction instance
                 $bulkAction = BulkAction::make(action: $action, title: $title)
-                ->setButtonAttributes($defaultAttributes);
-                
+                    ->setButtonAttributes($defaultAttributes);
+
             }
 
             // Check if it should display a confirmation message
-            if(!empty($this->bulkActionConfirms) && !$bulkAction->hasConfirmationMessage() && $this->hasBulkActionConfirmMessage($action))
-            {
+            if (! empty($this->bulkActionConfirms) && ! $bulkAction->hasConfirmationMessage() && $this->hasBulkActionConfirmMessage($action)) {
                 $bulkAction->setConfirmationMessage($this->getBulkActionConfirmMessage($action));
             }
 
@@ -96,6 +89,7 @@ trait BulkActionsHelpers
             $bulkActions[] = $bulkAction;
 
         }
+
         return $bulkActions;
     }
 
@@ -120,7 +114,6 @@ trait BulkActionsHelpers
         return $show;
     }
 
-
     /**
      * Clear or select all depending on what's selected when select all is changed
      */
@@ -133,12 +126,10 @@ trait BulkActionsHelpers
         }
     }*/
 
-
     public function showBulkActionsDropdownAlpine(): bool
     {
         return $this->bulkActionsAreEnabled() && $this->hasBulkActions();
     }
-
 
     #[Computed]
     public function shouldAlwaysHideBulkActionsDropdownOption(): bool
@@ -172,8 +163,6 @@ trait BulkActionsHelpers
 
     /**
      * Undocumented function
-     *
-     * @return Column
      */
     public function getBulkActionsColumn(): Column
     {
@@ -184,5 +173,4 @@ trait BulkActionsHelpers
     {
         return $this->bulkActionConfig[$key] ?? true;
     }
-
 }

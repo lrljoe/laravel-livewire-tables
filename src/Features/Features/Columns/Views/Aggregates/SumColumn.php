@@ -15,6 +15,4 @@ class SumColumn extends AggregateColumn
         parent::__construct($title, $from);
         $this->label(fn () => null);
     }
-
-
 }

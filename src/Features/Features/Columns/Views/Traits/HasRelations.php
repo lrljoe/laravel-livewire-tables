@@ -26,7 +26,6 @@ trait HasRelations
         return $this->getRelations()->count() > 0;
     }
 
-
     /**
      * Undocumented function
      *

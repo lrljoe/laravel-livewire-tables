@@ -6,8 +6,6 @@ trait HandlesDefaultValue
 {
     /**
      * The property containing the Default Value for a Filter
-     *
-     * @var mixed
      */
     protected mixed $filterDefaultValue = null;
 

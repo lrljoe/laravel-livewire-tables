@@ -15,29 +15,21 @@ trait WithFooter
 
     /**
      * Undocumented variable
-     *
-     * @var boolean
      */
     protected bool $footerStatus = true;
 
     /**
      * Undocumented variable
-     *
-     * @var boolean
      */
     protected bool $useHeaderAsFooterStatus = false;
 
     /**
      * Undocumented variable
-     *
-     * @var boolean
      */
     protected bool $columnsWithFooter = false;
 
     /**
      * Undocumented variable
-     *
-     * @var boolean
      */
     protected bool $showColumnTitlesInFooter = false;
 }

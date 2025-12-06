@@ -8,35 +8,26 @@ trait HasTheme
 {
     /**
      * Undocumented variable
-     *
-     * @var string|null
      */
     #[Locked]
     public ?string $theme;
 
     /**
      * Undocumented variable
-     *
-     * @var string
      */
     #[Locked]
     public string $paginationTheme = 'tailwind';
 
     /**
      * Undocumented function
-     *
-     * @return string
      */
     public function getTheme(): string
     {
         return $this->theme ?? ($this->theme = config('livewire-tables.theme', 'tailwind'));
     }
-    
+
     /**
      * Undocumented function
-     *
-     * @param string $theme
-     * @return self
      */
     public function setTheme(string $theme): self
     {
@@ -44,9 +35,7 @@ trait HasTheme
 
         if (($theme === 'bootstrap-4' || $theme === 'bootstrap-5')) {
             $this->setPaginationTheme('bootstrap');
-        }
-        else
-        {
+        } else {
             $this->setPaginationTheme('tailwind');
         }
 
@@ -55,8 +44,6 @@ trait HasTheme
 
     /**
      * Undocumented function
-     *
-     * @return string
      */
     public function getPaginationTheme(): string
     {
@@ -65,9 +52,6 @@ trait HasTheme
 
     /**
      * Undocumented function
-     *
-     * @param string $theme
-     * @return self
      */
     public function setPaginationTheme(string $theme): self
     {
@@ -78,19 +62,15 @@ trait HasTheme
 
     /**
      * Undocumented function
-     *
-     * @return boolean
      */
     #[Computed]
     public function isTailwind(): bool
     {
-        return ($this->getTheme() === 'tailwind' || (! $this->isBootstrap() && ! $this->isTailwind4()));
+        return $this->getTheme() === 'tailwind' || (! $this->isBootstrap() && ! $this->isTailwind4());
     }
 
     /**
      * Undocumented function
-     *
-     * @return boolean
      */
     #[Computed]
     public function isBootstrap(): bool
@@ -100,8 +80,6 @@ trait HasTheme
 
     /**
      * Undocumented function
-     *
-     * @return boolean
      */
     #[Computed]
     public function isBootstrap4(): bool
@@ -111,8 +89,6 @@ trait HasTheme
 
     /**
      * Undocumented function
-     *
-     * @return boolean
      */
     #[Computed]
     public function isBootstrap5(): bool
@@ -122,8 +98,6 @@ trait HasTheme
 
     /**
      * Undocumented function
-     *
-     * @return boolean
      */
     #[Computed]
     public function isTailwind4(): bool

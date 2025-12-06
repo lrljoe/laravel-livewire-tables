@@ -12,7 +12,6 @@ class BulkAction
     use HandlesConfirmationMessage;
     use HasIcon;
 
-
     public function __construct(public string $action, public string $title)
     {
         $this->iconRight = false;
@@ -21,8 +20,6 @@ class BulkAction
     /**
      * Make a BulkAction
      *
-     * @param string $action
-     * @param string $title
      * @return static
      */
     public static function make(string $action, string $title): BulkAction
@@ -32,8 +29,6 @@ class BulkAction
 
     /**
      * Returns the defined action
-     *
-     * @return string
      */
     public function getAction(): string
     {
@@ -42,8 +37,6 @@ class BulkAction
 
     /**
      * Undocumented function
-     *
-     * @return null|string|\Illuminate\Support\HtmlString|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function render(): null|string|\Illuminate\Support\HtmlString|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
     {

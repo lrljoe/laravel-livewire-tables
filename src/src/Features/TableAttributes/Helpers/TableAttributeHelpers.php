@@ -33,39 +33,34 @@ trait TableAttributeHelpers
     {
         $coreAttribs = [
             'id' => 'datatable-'.$this->getId(),
-            'wire:key' => $this->getTableName() . '-wrapper',
+            'wire:key' => $this->getTableName().'-wrapper',
         ];
 
-        if ($this->hasRefresh())
-        {
+        if ($this->hasRefresh()) {
             $coreAttribs['wire:poll'.$this->getRefreshOptions()] = '';
         }
-        if(method_exists($this, 'isFilterLayoutSlideDown') ? $this->isFilterLayoutSlideDown() : false)
-        {
+        if (method_exists($this, 'isFilterLayoutSlideDown') ? $this->isFilterLayoutSlideDown() : false) {
             $coreAttribs['wire:ignore.self'] = '';
         }
 
-        return([
-            ...$coreAttribs, 
-        ...$this->componentWrapperAttributes]);
+        return [
+            ...$coreAttribs,
+            ...$this->componentWrapperAttributes];
     }
 
-    
     /**
      * Undocumented function
-     *
-     * @return ComponentAttributeBag
      */
     public function getBulkActionsAlpine(): ComponentAttributeBag
-    {  
+    {
         $coreAttribs = [];
-        if($this->showBulkActionsSections())
-        {
+        if ($this->showBulkActionsSections()) {
             return new ComponentAttributeBag([
                 'x-data' => 'bulkactions($wire)',
                 'x-show' => 'selectedItems.length > 0 && !currentlyReorderingStatus',
             ]);
         }
+
         return new ComponentAttributeBag($coreAttribs);
     }
 
@@ -77,7 +72,7 @@ trait TableAttributeHelpers
     public function getTableWrapperAttributes(): array
     {
         return array_merge([
-            'wire:key' => $this->getTableName().'-twrap'
+            'wire:key' => $this->getTableName().'-twrap',
         ], (count($this->tableWrapperAttributes) ? $this->tableWrapperAttributes : ['default' => true]));
     }
 
@@ -92,7 +87,7 @@ trait TableAttributeHelpers
             [
                 'wire:key' => $this->getTableName().'-table',
                 'id' => 'table-'.$this->getTableName(),
-            ], 
+            ],
             $this->getCurrentlyReorderingStatus() ? [
                 'x-sort' => '',
                 'x-sort:config' => "{ 
@@ -112,7 +107,7 @@ trait TableAttributeHelpers
                             updateOrderOfItems(result);
                         }
                     } 
-                }",                
+                }",
             ] : [],
             (count($this->tableAttributes) ? $this->tableAttributes : ['default' => true])
         );
@@ -141,7 +136,6 @@ trait TableAttributeHelpers
     /**
      * Used in resources/views/components/table/th.blade.php
      *
-     * @param Column $column
      * @return array<mixed>
      */
     public function getThAttributes(Column $column): array
@@ -158,11 +152,10 @@ trait TableAttributeHelpers
      * Undocumented function
      *
      * Used in resources/views/components/table/th.blade.php
-     * 
-     * @param Column $column
+     *
      * @return array<mixed>
      */
-     public function getThSortButtonAttributes(Column $column): array
+    public function getThSortButtonAttributes(Column $column): array
     {
         if (isset($this->thSortButtonAttributesCallback)) {
             return array_merge(['default' => false, 'default-colors' => false, 'default-styling' => false], call_user_func($this->thSortButtonAttributesCallback, $column));
@@ -171,16 +164,14 @@ trait TableAttributeHelpers
         return ['default' => true, 'default-colors' => true, 'default-styling' => true];
     }
 
-
     /**
      * Undocumented function
      *
      *  Used in resources/views/components/table/th.blade.php
-     * 
-     * @param Column $column
+     *
      * @return array<mixed>
      */
-     public function getThSortIconAttributes(Column $column): array
+    public function getThSortIconAttributes(Column $column): array
     {
         if (isset($this->thSortIconAttributesCallback)) {
             return array_merge(['default' => false, 'default-colors' => false, 'default-styling' => false], call_user_func($this->thSortIconAttributesCallback, $column));
@@ -189,18 +180,16 @@ trait TableAttributeHelpers
         return ['default' => true, 'default-colors' => true, 'default-styling' => true];
     }
 
-    
     /**
      * Undocumented function
      * Used in resources/views/components/table/th.blade.php
-     * @param Column $column
+     *
      * @return array<mixed>
      */
-     public function getAllThAttributes(Column $column): array
+    public function getAllThAttributes(Column $column): array
     {
         $direction = $columnSortKey = null;
-        if($isSortable = ($column->isSortable() || $column->getSortCallback()))
-        {
+        if ($isSortable = ($column->isSortable() || $column->getSortCallback())) {
             $columnSortKey = $column->getColumnSortKey();
 
             $direction = $column->hasField() ? $this->getSort($columnSortKey) : $this->getSort($column->getSlug()) ?? null;
@@ -227,8 +216,6 @@ trait TableAttributeHelpers
     /**
      * Undocumented function
      *
-     * @param Model $row
-     * @param integer $index
      * @return array<mixed>
      */
     public function getTrAttributes(Model $row, int $index): array
@@ -239,22 +226,18 @@ trait TableAttributeHelpers
     /**
      * Undocumented function
      *
-     * @param Column $column
-     * @param Model $row
-     * @param integer $colIndex
-     * @param integer $rowIndex
      * @return array<mixed>
      */
     public function getTdAttributes(Column $column, Model $row, int $colIndex, int $rowIndex): array
     {
-        if($column->hasAttributesCallback())
-        {
+        if ($column->hasAttributesCallback()) {
             return [...['default' => true, 'default-colors' => true, 'default-styling' => true], ...app()->call($column->getAttributesCallback(), ['row' => $row, 'value' => $column->getValue($row), 'rowIndex' => $rowIndex])];
         }
+
         return isset($this->tdAttributesCallback) ? [...['default' => true, 'default-colors' => true, 'default-styling' => true], ...call_user_func($this->tdAttributesCallback, $column, $row, $colIndex, $rowIndex)] : ['default' => true, 'default-colors' => true, 'default-styling' => true];
-//        $colAttributes = $column->hasAttributesCallback() ? app()->call($column->getAttributesCallback(), ['row' => $row, 'value' => $column->getValue($row)]);
+        //        $colAttributes = $column->hasAttributesCallback() ? app()->call($column->getAttributesCallback(), ['row' => $row, 'value' => $column->getValue($row)]);
     }
-    
+
     public function hasTdAttributes(): bool
     {
         return isset($this->tdAttributesCallback);
@@ -300,8 +283,6 @@ trait TableAttributeHelpers
 
     /**
      * Undocumented function
-     *
-     * @return ComponentAttributeBag
      */
     #[Computed]
     public function getTopLevelAttributes(): ComponentAttributeBag
@@ -323,8 +304,7 @@ trait TableAttributeHelpers
             'shouldCollapseOnMobile' => false,
         ];
 
-        if($collapsingColumnData['hasCollapsingColumns'])
-        {
+        if ($collapsingColumnData['hasCollapsingColumns']) {
             $collapsingColumnAdditionalData = [
                 'collapsingColumnInfo' => $this->getCollapsingColumnDetailsForView(),
                 'collapsingColumnClasses' => $this->getCollapsingColumnClasses(),
@@ -339,7 +319,7 @@ trait TableAttributeHelpers
             ];
             $collapsingColumnData = array_merge($collapsingColumnData, $collapsingColumnAdditionalData);
         }
-        
+
         return [
             'tableName' => $this->getTableName(),
             'tableId' => $this->getTableId(),
@@ -356,10 +336,10 @@ trait TableAttributeHelpers
             'shouldCollapseAlways' => $this->shouldCollapseAlways(),
             'shouldCollapseOnTablet' => $this->shouldCollapseOnTablet(),
             'shouldCollapseOnMobile' => $this->shouldCollapseOnMobile(),
-            
+
             'coreTableAttributes' => $this->getCoreTableAttributes(),
-            
-          //  'getCurrentlyReorderingStatus' => $this->getCurrentlyReorderingStatus(),
+
+            //  'getCurrentlyReorderingStatus' => $this->getCurrentlyReorderingStatus(),
             'currentlyReorderingStatus' => $this->getCurrentlyReorderingStatus(),
 
             'hasDisplayLoadingPlaceholder' => $this->hasDisplayLoadingPlaceholder(),
@@ -370,7 +350,7 @@ trait TableAttributeHelpers
             'isBootstrap4' => $this->isBootstrap4(),
             'isBootstrap5' => $this->isBootstrap5(),
             'isTailwind' => $this->isTailwind(),
-            'isTailwind4' => $this->isTailwind4(),            
+            'isTailwind4' => $this->isTailwind4(),
 
             'localisationPath' => $this->getLocalisationPath(),
             'defaultBodyTextAlign' => $this->getDefaultBodyTextAlign(),
@@ -386,8 +366,6 @@ trait TableAttributeHelpers
     /**
      * Undocumented function
      *
-     * @param Model $row
-     * @param integer $rowIndex
      * @return array<mixed>
      */
     public function getTableRowDetails(Model $row, int $rowIndex): array
@@ -399,38 +377,29 @@ trait TableAttributeHelpers
             'attributes' => $this->getTrAttributes($row, $rowIndex),
             'url' => $url,
             'target' => $target,
-            'tdAttribs' => ($target == 'navigate' ? ['wire:navigate' => '','href' => $url] : ['onclick' => "window.open('".$url."', '".$target."')"]),
+            'tdAttribs' => ($target == 'navigate' ? ['wire:navigate' => '', 'href' => $url] : ['onclick' => "window.open('".$url."', '".$target."')"]),
         ];
-
 
     }
 
     /**
      * Undocumented function
      *
-     * @param Column $column
-     * @param Model $row
-     * @param integer $colIndex
-     * @param integer $rowIndex
-     * @param array<mixed> $tableRowDetails
+     * @param  array<mixed>  $tableRowDetails
      * @return array<mixed>
      */
     public function getTdAttributesNew(Column $column, Model $row, int $colIndex, int $rowIndex, array $tableRowDetails = []): array
     {
         $tdAttribs = isset($this->tdAttributesCallback) ? call_user_func($this->tdAttributesCallback, $column, $row, $colIndex, $rowIndex) : ['default' => true];
-        if($column->isClickable() && !empty($tableRowDetails))
-        {   
-            if($tableRowDetails['target'] === 'navigate') 
-            {
+        if ($column->isClickable() && ! empty($tableRowDetails)) {
+            if ($tableRowDetails['target'] === 'navigate') {
                 $tdAttribs['wire:navigate'] = '';
                 $tdAttribs['href'] = $tableRowDetails['url'];
-            }
-            else
-            {
+            } else {
                 $tdAttribs['onclick'] = "window.open('".$tableRowDetails['url']."', '".$tableRowDetails['target']."')";
 
             }
-    
+
         }
 
         return $tdAttribs;
@@ -440,6 +409,4 @@ trait TableAttributeHelpers
     {
         return $this->defaultBodyTextAlign ?? '';
     }
-    
-    
 }

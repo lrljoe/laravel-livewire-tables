@@ -12,7 +12,7 @@ trait FilterMenuConfiguration
             throw new DataTableConfigurationException('Invalid filter layout type');
         }
 
-       $this->filterConfiguration['filterLayout'] = $type;
+        $this->filterConfiguration['filterLayout'] = $type;
 
         return $this;
     }

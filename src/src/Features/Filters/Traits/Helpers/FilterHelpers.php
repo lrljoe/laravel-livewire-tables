@@ -3,15 +3,13 @@
 namespace Rappasoft\LaravelLivewireTables\Features\Filters\Traits\Helpers;
 
 use Livewire\Attributes\Computed;
-use Rappasoft\LaravelLivewireTables\Features\Filters\Views\Filter;
 use Rappasoft\LaravelLivewireTables\Collections\FilterCollection;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\Filter;
 
 trait FilterHelpers
 {
     /**
      * Undocumented function
-     *
-     * @return boolean
      */
     public function hasFilters(): bool
     {
@@ -34,8 +32,6 @@ trait FilterHelpers
 
     /**
      * Undocumented function
-     *
-     * @return integer
      */
     public function getFiltersCount(): int
     {
@@ -43,15 +39,11 @@ trait FilterHelpers
             $this->filterConfiguration['filterCount'] = $this->getFilters()->count();
         }
 
-
         return $this->filterConfiguration['filterCount'];
     }
 
     /**
      * Undocumented function
-     *
-     * @param string $key
-     * @return mixed
      */
     public function getFilterByKey(string $key): mixed
     {
@@ -78,8 +70,6 @@ trait FilterHelpers
 
     /**
      * Undocumented function
-     *
-     * @return boolean
      */
     public function hasAppliedFiltersWithValues(): bool
     {
@@ -88,8 +78,6 @@ trait FilterHelpers
 
     /**
      * Undocumented function
-     *
-     * @return boolean
      */
     public function hasAppliedVisibleFiltersWithValuesThatCanBeCleared(): bool
     {
@@ -101,8 +89,6 @@ trait FilterHelpers
 
     /**
      * Undocumented function
-     *
-     * @return integer
      */
     public function getFilterBadgeCount(): int
     {
@@ -129,9 +115,6 @@ trait FilterHelpers
 
     /**
      * Undocumented function
-     *
-     * @param string $filterKey
-     * @return mixed
      */
     public function getAppliedFilterWithValue(string $filterKey): mixed
     {
@@ -140,8 +123,6 @@ trait FilterHelpers
 
     /**
      * Undocumented function
-     *
-     * @return integer
      */
     public function getAppliedFiltersWithValuesCount(): int
     {

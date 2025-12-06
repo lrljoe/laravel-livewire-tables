@@ -2,7 +2,7 @@
 
 namespace Rappasoft\LaravelLivewireTables\Features\BulkActions\Core;
 
-use Rappasoft\LaravelLivewireTables\Features\BulkActions\Core\Concerns\{HandlesConfirmation,HandlesSelected, HandlesSelectAll};
+use Rappasoft\LaravelLivewireTables\Features\BulkActions\Core\Concerns\{HandlesConfirmation, HandlesSelectAll, HandlesSelected};
 use Rappasoft\LaravelLivewireTables\Features\BulkActions\Core\Configuration\BulkActionsConfiguration;
 use Rappasoft\LaravelLivewireTables\Features\BulkActions\Core\Helpers\BulkActionsHelpers;
 use Rappasoft\LaravelLivewireTables\Features\BulkActions\Core\Styling\{HandlesBulkActionTableStyling, HasBulkActionsStyling};
@@ -33,15 +33,13 @@ trait WithBulkActions
 
     /**
      * Selected Items
-     * 
+     *
      * Entangled in JS
-     * 
+     *
      * @var array<mixed>
      */
     public array $selected = [];
 
-
-    
     /**
      * Used to store configuration for Bulk Actions
      *

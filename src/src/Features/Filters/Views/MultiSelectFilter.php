@@ -12,22 +12,16 @@ class MultiSelectFilter extends Filter
 
     /**
      * Undocumented variable
-     *
-     * @var string
      */
     public string $wireMethod = 'live.debounce.250ms';
 
     /**
      * The path to the view for this filter
-     *
-     * @var string
      */
     protected string $view = 'livewire-tables::components.tools.filters.multi-select';
 
     /**
      * Undocumented variable
-     *
-     * @var string
      */
     protected string $configPath = 'livewire-tables.multiSelectFilter.defaultConfig';
 
@@ -36,8 +30,8 @@ class MultiSelectFilter extends Filter
     /**
      * Validates that the value received by the Filter is valid
      *
-     * @param integer|string|array<mixed> $value
-     * @return array<mixed>|integer|string|boolean
+     * @param  int|string|array<mixed>  $value
+     * @return array<mixed>|int|string|bool
      */
     public function validate(int|string|array $value): array|int|string|bool
     {
@@ -56,8 +50,8 @@ class MultiSelectFilter extends Filter
     /**
      * Retrieves the Filter Value for use in the Filter Pills area
      *
-     * @param mixed $value
-     * @return array<mixed>|string|boolean|null
+     * @param  mixed  $value
+     * @return array<mixed>|string|bool|null
      */
     public function getFilterPillValue($value): array|string|bool|null
     {

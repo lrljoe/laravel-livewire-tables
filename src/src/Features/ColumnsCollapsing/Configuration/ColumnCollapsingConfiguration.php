@@ -4,7 +4,6 @@ namespace Rappasoft\LaravelLivewireTables\Features\ColumnsCollapsing\Configurati
 
 trait ColumnCollapsingConfiguration
 {
-
     public function unsetCollapsedStatuses(): void
     {
         unset($this->shouldAlwaysCollapse); /* @phpstan-ignore unset.possiblyHookedProperty */

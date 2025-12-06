@@ -14,21 +14,21 @@ trait HasFilterMenuStyling
     /**
      * Undocumented variable
      *
-     * @var array<string,string|boolean>
+     * @var array<string,string|bool>
      */
     protected array $filterPopoverAttributes = ['class' => '', 'default-colors' => true, 'default-styling' => true, 'default-width' => true];
 
     /**
      * Undocumented variable
      *
-     * @var array<string,string|boolean>
+     * @var array<string,string|bool>
      */
     protected array $filterSlidedownWrapperAttributes = ['class' => '', 'default-colors' => true, 'default-styling' => true];
-    
+
     /**
      * Undocumented variable
      *
-     * @var array<string,string|boolean>
+     * @var array<string,string|bool>
      */
     protected array $filterMenuResetButtonAttributes = ['class' => '', 'default-colors' => true, 'default-styling' => true];
 

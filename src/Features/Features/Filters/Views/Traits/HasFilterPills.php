@@ -23,8 +23,7 @@ trait HasFilterPills
     /**
      * Sets the Filter Pills Values for this Filter
      *
-     * @param array<mixed> $values
-     * @return self
+     * @param  array<mixed>  $values
      */
     public function setFilterPillValues(array $values): self
     {
@@ -36,10 +35,10 @@ trait HasFilterPills
     /**
      * Retrieves the Filter Pills Values for this Filter
      *
-     * @param mixed $value
-     * @return array<mixed>|string|boolean|null
+     * @param  mixed  $value
+     * @return array<mixed>|string|bool|null
      */
-     public function getFilterPillValue($value): array|string|bool|null
+    public function getFilterPillValue($value): array|string|bool|null
     {
         return $value;
     }
@@ -49,16 +48,13 @@ trait HasFilterPills
      *
      * @return array<mixed>
      */
-     public function getCustomFilterPillValues(): array
+    public function getCustomFilterPillValues(): array
     {
         return $this->filterPillValues;
     }
 
     /**
      * Retrieves Specific Custom Filter Pills Value for this Filter
-     *
-     * @param string $value
-     * @return string|null
      */
     public function getCustomFilterPillValue(string $value): ?string
     {

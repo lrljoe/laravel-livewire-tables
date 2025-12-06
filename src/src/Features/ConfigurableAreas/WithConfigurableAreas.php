@@ -4,11 +4,8 @@ namespace Rappasoft\LaravelLivewireTables\Features\ConfigurableAreas;
 
 trait WithConfigurableAreas
 {
-
     /**
      * Undocumented variable
-     *
-     * @var boolean
      */
     protected bool $hideConfigurableAreasWhenReorderingStatus = true;
 
@@ -61,7 +58,6 @@ trait WithConfigurableAreas
     /**
      * Undocumented function
      *
-     * @param string $area
      * @return array<mixed>
      */
     public function getParametersForConfigurableArea(string $area): array
@@ -93,10 +89,9 @@ trait WithConfigurableAreas
     /**
      * Set all configurable areas to this array of configuration data
      *
-     * @param array<mixed> $areas
-     * @return self
+     * @param  array<mixed>  $areas
      */
-     public function setConfigurableAreas(array $areas): self
+    public function setConfigurableAreas(array $areas): self
     {
         $this->configurableAreas = $areas;
 
@@ -106,9 +101,7 @@ trait WithConfigurableAreas
     /**
      * Configure a specific Configurable Area
      *
-     * @param string $configurableArea
-     * @param string|array<mixed> $config
-     * @return self
+     * @param  string|array<mixed>  $config
      */
     public function setConfigurableArea(string $configurableArea, string|array $config = []): self
     {
@@ -121,9 +114,6 @@ trait WithConfigurableAreas
 
     /**
      * Undocumented function
-     *
-     * @param boolean $status
-     * @return self
      */
     public function setHideConfigurableAreasWhenReorderingStatus(bool $status): self
     {
@@ -134,8 +124,6 @@ trait WithConfigurableAreas
 
     /**
      * Undocumented function
-     *
-     * @return self
      */
     public function setHideConfigurableAreasWhenReorderingEnabled(): self
     {
@@ -144,13 +132,9 @@ trait WithConfigurableAreas
 
     /**
      * Undocumented function
-     *
-     * @return self
      */
     public function setHideConfigurableAreasWhenReorderingDisabled(): self
     {
         return $this->setHideConfigurableAreasWhenReorderingStatus(false);
     }
-
-
 }

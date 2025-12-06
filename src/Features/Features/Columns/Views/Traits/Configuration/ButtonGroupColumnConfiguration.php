@@ -7,8 +7,7 @@ trait ButtonGroupColumnConfiguration
     /**
      * Undocumented function
      *
-     * @param array<mixed> $buttons
-     * @return self
+     * @param  array<mixed>  $buttons
      */
     public function buttons(array $buttons): self
     {

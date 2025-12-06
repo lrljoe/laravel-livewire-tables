@@ -8,8 +8,6 @@ trait ToolsHelpers
 {
     /**
      * Undocumented function
-     *
-     * @return boolean
      */
     public function getToolsStatus(): bool
     {
@@ -18,25 +16,18 @@ trait ToolsHelpers
 
     /**
      * Undocumented function
-     *
-     * @return boolean
      */
     public function shouldShowToolsFilterSlidedown(): bool
     {
-        if (!method_exists($this, 'filtersAreEnabled') || !method_exists($this, 'isFilterLayoutSlideDown'))
-        {
+        if (! method_exists($this, 'filtersAreEnabled') || ! method_exists($this, 'isFilterLayoutSlideDown')) {
             return false;
-        }
-        else
-        {
-            return (($this->filtersAreEnabled() && $this->filtersVisibilityIsEnabled() && $this->hasVisibleFilters()) && $this->isFilterLayoutSlideDown());
+        } else {
+            return ($this->filtersAreEnabled() && $this->filtersVisibilityIsEnabled() && $this->hasVisibleFilters()) && $this->isFilterLayoutSlideDown();
         }
     }
 
     /**
      * Undocumented function
-     *
-     * @return boolean
      */
     #[Computed]
     public function shouldShowTools(): bool
@@ -57,6 +48,4 @@ trait ToolsHelpers
             return false;
         }
     }
-
-
 }

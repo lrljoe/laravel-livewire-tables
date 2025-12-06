@@ -6,15 +6,11 @@ trait HandlesCorePropertiesForExternalFilter
 {
     /**
      * Undocumented variable
-     *
-     * @var string
      */
     public string $filterKey = '';
 
     /**
      * Undocumented variable
-     *
-     * @var string
      */
     public string $tableName = 'table';
 
@@ -22,16 +18,11 @@ trait HandlesCorePropertiesForExternalFilter
 
     /**
      * Undocumented variable
-     *
-     * @var string
      */
     public string $tableComponent = '';
 
     /**
      * Undocumented function
-     *
-     * @param string $filterKey
-     * @return self
      */
     protected function Key(string $filterKey): self
     {
@@ -42,8 +33,6 @@ trait HandlesCorePropertiesForExternalFilter
 
     /**
      * Undocumented function
-     *
-     * @return string
      */
     public function getFilterKey(): string
     {
@@ -52,9 +41,6 @@ trait HandlesCorePropertiesForExternalFilter
 
     /**
      * Undocumented function
-     *
-     * @param string $tableName
-     * @return self
      */
     protected function setTableName(string $tableName): self
     {
@@ -65,8 +51,6 @@ trait HandlesCorePropertiesForExternalFilter
 
     /**
      * Undocumented function
-     *
-     * @return string
      */
     public function getTableName(): string
     {
@@ -75,9 +59,6 @@ trait HandlesCorePropertiesForExternalFilter
 
     /**
      * Undocumented function
-     *
-     * @param string $tableComponent
-     * @return self
      */
     protected function setTableComponent(string $tableComponent): self
     {
@@ -88,8 +69,6 @@ trait HandlesCorePropertiesForExternalFilter
 
     /**
      * Undocumented function
-     *
-     * @return string
      */
     public function getTableComponent(): string
     {
