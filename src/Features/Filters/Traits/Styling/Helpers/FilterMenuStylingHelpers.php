@@ -2,8 +2,8 @@
 
 namespace Rappasoft\LaravelLivewireTables\Features\Filters\Traits\Styling\Helpers;
 
-use Livewire\Attributes\Computed;
 use Illuminate\View\ComponentAttributeBag;
+use Livewire\Attributes\Computed;
 
 trait FilterMenuStylingHelpers
 {
@@ -58,7 +58,7 @@ trait FilterMenuStylingHelpers
         return $this->filterMenuResetButtonAttributes;
 
     }
-    
+
     #[Computed]
     public function getFilterMenuResetButtonAttributesBag(): ComponentAttributeBag
     {

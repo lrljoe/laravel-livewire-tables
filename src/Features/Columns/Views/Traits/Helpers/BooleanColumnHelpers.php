@@ -4,8 +4,6 @@ namespace Rappasoft\LaravelLivewireTables\Features\Columns\Views\Traits\Helpers;
 
 trait BooleanColumnHelpers
 {
-
-    
     public function checkSuccess(bool $val): bool
     {
         return $this->getSuccessValue() == $val;

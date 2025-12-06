@@ -2,8 +2,8 @@
 
 namespace Rappasoft\LaravelLivewireTables\Features\Filters\Views\Traits;
 
-use Rappasoft\LaravelLivewireTables\Exceptions\DataTableConfigurationException;
 use Livewire\Attributes\Locked;
+use Rappasoft\LaravelLivewireTables\Exceptions\DataTableConfigurationException;
 
 trait IsLivewireComponentFilter
 {

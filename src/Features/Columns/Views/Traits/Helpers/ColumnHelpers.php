@@ -65,15 +65,17 @@ trait ColumnHelpers
 
             return $this->getField();
         }
+
         return $this->getRelationString().'.'.$this->getField();
     }
-    
+
     public function getColumnForQuery(?string $baseTableName = null): string
     {
         if ($this->isBaseColumn() && isset($baseTableName)) {
 
-            return $baseTableName . '.' . $this->getField();
+            return $baseTableName.'.'.$this->getField();
         }
+
         return str_replace('.', '_', $this->getRelationString()).'.'.$this->getField();
 
     }
@@ -121,7 +123,7 @@ trait ColumnHelpers
 
             return $value;
         }
-        
+
         if ($this->isHtml()) {
             return new HtmlString($value);
         }
@@ -189,12 +191,10 @@ trait ColumnHelpers
             'hasAttributesCallback' => $this->hasAttributesCallback(),
             'extraData' => null,
         ];
-        if($this->hasTextAlign())
-        {
+        if ($this->hasTextAlign()) {
             $arr['textAlign'] = $this->getTextAlign();
         }
+
         return $arr;
     }
-
-
 }

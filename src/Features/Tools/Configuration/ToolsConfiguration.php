@@ -6,9 +6,6 @@ trait ToolsConfiguration
 {
     /**
      * Undocumented function
-     *
-     * @param boolean $status
-     * @return self
      */
     public function setToolsStatus(bool $status): self
     {
@@ -19,8 +16,6 @@ trait ToolsConfiguration
 
     /**
      * Undocumented function
-     *
-     * @return self
      */
     public function setToolsEnabled(): self
     {
@@ -29,8 +24,6 @@ trait ToolsConfiguration
 
     /**
      * Undocumented function
-     *
-     * @return self
      */
     public function setToolsDisabled(): self
     {

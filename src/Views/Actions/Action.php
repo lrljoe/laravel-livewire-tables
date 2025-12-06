@@ -22,8 +22,6 @@ class Action extends Component
 
     /**
      * The view for the Action
-     *
-     * @var string
      */
     protected string $view = 'livewire-tables::includes.actions.button';
 
@@ -31,8 +29,6 @@ class Action extends Component
 
     /**
      * Construct an Action
-     *
-     * @param string|null $label
      */
     public function __construct(?string $label = null)
     {
@@ -41,9 +37,6 @@ class Action extends Component
 
     /**
      * Make an Action
-     *
-     * @param string|null $label
-     * @return self
      */
     public static function make(?string $label = null): self
     {
@@ -56,10 +49,9 @@ class Action extends Component
 
         return $this;
     }
+
     /**
      * Render method for Action
-     *
-     * @return null|string|\Illuminate\Support\HtmlString|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function render(): null|string|\Illuminate\Support\HtmlString|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
     {

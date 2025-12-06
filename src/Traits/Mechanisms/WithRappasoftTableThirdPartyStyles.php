@@ -42,7 +42,7 @@ trait WithRappasoftTableThirdPartyStyles
     /**
      * Undocumented function
      *
-     * @param array<mixed> $options
+     * @param  array<mixed>  $options
      * @return array<mixed>|string|null
      */
     public static function tableThirdPartyStyles(array $options = []): array|string|null
@@ -65,8 +65,7 @@ trait WithRappasoftTableThirdPartyStyles
     /**
      * Undocumented function
      *
-     * @param array<mixed> $options
-     * @return string|null
+     * @param  array<mixed>  $options
      */
     public static function tableThirdPartyCss(array $options = []): ?string
     {

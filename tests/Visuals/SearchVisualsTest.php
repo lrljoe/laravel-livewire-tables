@@ -2,8 +2,8 @@
 
 namespace Rappasoft\LaravelLivewireTables\Tests\Visuals;
 
-use Livewire\Livewire;
 use Livewire\Attributes\Url;
+use Livewire\Livewire;
 use PHPUnit\Framework\Attributes\Group;
 use Rappasoft\LaravelLivewireTables\Tests\Http\Livewire\PetsTable;
 use Rappasoft\LaravelLivewireTables\Tests\TestCase;
@@ -101,7 +101,6 @@ final class SearchVisualsTest extends TestCase
             ->assertSee('Chico')
             ->assertDontSee('Cartman');
 
-
     }
 
     public function test_search_via_query_string_functions_new(): void
@@ -109,76 +108,75 @@ final class SearchVisualsTest extends TestCase
 
         Livewire::withQueryParams(['petsearch' => 'Chico'])
             ->test(new class extends PetsTable
-        {
-            #[Url(as: 'petsearch')]
-            public string $search = '';
-
-            public ?array $testAttributesArray;
-            
-            public function refreshQueryString()
             {
-                $this->queryStringHasQueryStringForSearch();
-            }
+                #[Url(as: 'petsearch')]
+                public string $search = '';
 
-            public function configure(): void
-            {
-                $this->setPrimaryKey('id');
-                $this->setQueryStringForSearchEnabled();
-                $this->setQueryStringAliasForSearch('petsearch');
-                $this->queryStringHasQueryStringForSearch();
-            }
-})
+                public ?array $testAttributesArray;
+
+                public function refreshQueryString()
+                {
+                    $this->queryStringHasQueryStringForSearch();
+                }
+
+                public function configure(): void
+                {
+                    $this->setPrimaryKey('id');
+                    $this->setQueryStringForSearchEnabled();
+                    $this->setQueryStringAliasForSearch('petsearch');
+                    $this->queryStringHasQueryStringForSearch();
+                }
+            })
             ->assertSeeHtml('Chico')
             ->assertDontSeeHtml('Cartman');
 
         Livewire::withQueryParams(['petsearch' => null])
             ->test(new class extends PetsTable
-        {
-            #[Url(as: 'petsearch')]
-            public string $search = '';
-
-            public ?array $testAttributesArray;
-            
-            public function refreshQueryString()
             {
-                $this->queryStringHasQueryStringForSearch();
-            }
+                #[Url(as: 'petsearch')]
+                public string $search = '';
 
-            public function configure(): void
-            {
-                $this->setPrimaryKey('id');
-                $this->setQueryStringForSearchEnabled();
-                $this->setQueryStringAliasForSearch('petsearch');
-                $this->queryStringHasQueryStringForSearch();
-            }
-})
+                public ?array $testAttributesArray;
+
+                public function refreshQueryString()
+                {
+                    $this->queryStringHasQueryStringForSearch();
+                }
+
+                public function configure(): void
+                {
+                    $this->setPrimaryKey('id');
+                    $this->setQueryStringForSearchEnabled();
+                    $this->setQueryStringAliasForSearch('petsearch');
+                    $this->queryStringHasQueryStringForSearch();
+                }
+            })
             ->assertSee('Chico')
             ->assertSee('Cartman');
 
         Livewire::withQueryParams([])
             ->test(new class extends PetsTable
-        {
-            #[Url(as: 'petsearch')]
-            public string $search = '';
-
-            public ?array $testAttributesArray;
-            
-            public function refreshQueryString()
             {
-                $this->queryStringHasQueryStringForSearch();
-            }
+                #[Url(as: 'petsearch')]
+                public string $search = '';
 
-            public function configure(): void
-            {
-                $this->setPrimaryKey('id');
-                $this->setQueryStringForSearchEnabled();
-                $this->setQueryStringAliasForSearch('petsearch');
-                $this->queryStringHasQueryStringForSearch();
-            }
-})
+                public ?array $testAttributesArray;
+
+                public function refreshQueryString()
+                {
+                    $this->queryStringHasQueryStringForSearch();
+                }
+
+                public function configure(): void
+                {
+                    $this->setPrimaryKey('id');
+                    $this->setQueryStringForSearchEnabled();
+                    $this->setQueryStringAliasForSearch('petsearch');
+                    $this->queryStringHasQueryStringForSearch();
+                }
+            })
             ->assertSee('Chico')
             ->assertSee('Cartman');
 
     }
-
 }

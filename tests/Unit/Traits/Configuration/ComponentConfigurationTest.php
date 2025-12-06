@@ -3,9 +3,9 @@
 namespace Rappasoft\LaravelLivewireTables\Tests\Unit\Traits\Configuration;
 
 use Illuminate\Database\Eloquent\Model;
+use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
 use Rappasoft\LaravelLivewireTables\Tests\Models\Pet;
 use Rappasoft\LaravelLivewireTables\Tests\TestCase;
-use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
 
 final class ComponentConfigurationTest extends TestCase
 {
@@ -222,7 +222,7 @@ final class ComponentConfigurationTest extends TestCase
         $this->basicTable->maBoolAccessor('setCollapsingColumnsStatus', false);
 
         $this->assertFalse($this->basicTable->getCollapsingColumnsStatus());
-        
+
         $this->basicTable->maBoolAccessor('setCollapsingColumnsStatus', true);
 
         $this->assertTrue($this->basicTable->getCollapsingColumnsStatus());

@@ -8,8 +8,6 @@ use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
 
 trait ColumnHelpers
 {
-
-
     /**
      * Undocumented function
      *
@@ -26,9 +24,6 @@ trait ColumnHelpers
 
     /**
      * Undocumented function
-     *
-     * @param string $qualifiedColumn
-     * @return Column|null
      */
     public function getColumn(string $qualifiedColumn): ?Column
     {
@@ -39,9 +34,6 @@ trait ColumnHelpers
 
     /**
      * Undocumented function
-     *
-     * @param string $qualifiedColumn
-     * @return Column|null
      */
     public function getColumnBySelectName(string $qualifiedColumn): ?Column
     {
@@ -52,9 +44,6 @@ trait ColumnHelpers
 
     /**
      * Undocumented function
-     *
-     * @param string $columnSlug
-     * @return Column|null
      */
     public function getColumnBySlug(string $columnSlug): ?Column
     {
@@ -141,7 +130,7 @@ trait ColumnHelpers
      *
      * @return array<mixed>
      */
-     public function prependColumns(): array
+    public function prependColumns(): array
     {
         return [];
     }
@@ -155,6 +144,4 @@ trait ColumnHelpers
     {
         return [];
     }
-
-
 }

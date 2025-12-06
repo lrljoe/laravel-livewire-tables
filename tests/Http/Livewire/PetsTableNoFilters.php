@@ -3,8 +3,8 @@
 namespace Rappasoft\LaravelLivewireTables\Tests\Http\Livewire;
 
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
-use Rappasoft\LaravelLivewireTables\Tests\Models\Pet;
 use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
+use Rappasoft\LaravelLivewireTables\Tests\Models\Pet;
 
 class PetsTableNoFilters extends PetsTable
 {

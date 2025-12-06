@@ -10,25 +10,24 @@ trait HasFilterPillsStyling
     use FilterPillsStylingConfiguration,
         FilterPillsStylingHelpers;
 
-
     /**
      * Undocumented variable
      *
-     * @var array<string,string|boolean>
-    */
+     * @var array<string,string|bool>
+     */
     protected array $filterPillsItemAttributes = ['class' => '', 'default-colors' => true, 'default-styling' => true];
 
     /**
      * Undocumented variable
      *
-     * @var array<string,string|boolean>
+     * @var array<string,string|bool>
      */
     protected array $filterPillsResetFilterButtonAttributes = ['class' => '', 'default-colors' => true, 'default-styling' => true];
 
     /**
      * Undocumented variable
      *
-     * @var array<string,string|boolean>
+     * @var array<string,string|bool>
      */
     protected array $filterPillsResetAllButtonAttributes = ['class' => '', 'default-colors' => true, 'default-styling' => true];
 

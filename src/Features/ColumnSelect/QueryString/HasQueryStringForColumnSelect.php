@@ -24,14 +24,14 @@ trait HasQueryStringForColumnSelect
 
     public function hasQueryStringStatusForColumnSelect(): bool
     {
-     ///   dd($this->hasQueryStringConfigStatus('columns'));
+        // /   dd($this->hasQueryStringConfigStatus('columns'));
         return $this->hasQueryStringConfigStatus('columns');
     }
 
     public function getQueryStringStatusForColumnSelect(): string
     {
-       // return 'test123123';
-    //    dd($this->getQueryStringConfigAlias('columns'));
+        // return 'test123123';
+        //    dd($this->getQueryStringConfigAlias('columns'));
         return $this->getQueryStringConfigAlias('columns');
     }
 
@@ -64,7 +64,7 @@ trait HasQueryStringForColumnSelect
 
     public function getQueryStringAliasForColumnSelect(): string
     {
-       // return 'test123123';
+        // return 'test123123';
         return $this->getQueryStringConfigAlias('columns');
     }
 
@@ -76,11 +76,10 @@ trait HasQueryStringForColumnSelect
     /**
      * Undocumented function
      *
-     * @param array<mixed> $selectedColumns
-     * @return void
+     * @param  array<mixed>  $selectedColumns
      */
     protected function pushToQueryString(array $selectedColumns = []): void
     {
-        $this->columnSelectConfig['selectedColumnsQsData'] = implode(",",$selectedColumns);
+        $this->columnSelectConfig['selectedColumnsQsData'] = implode(',', $selectedColumns);
     }
 }

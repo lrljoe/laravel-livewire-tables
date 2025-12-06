@@ -8,7 +8,7 @@ trait CollapsingColumnAccessors
     {
         return $this->setCollapsingColumnsStatus($status);
     }
-    
+
     public function pubSetCollapsingColumnsEnabled(): self
     {
         return $this->setCollapsingColumnsEnabled();
@@ -18,5 +18,4 @@ trait CollapsingColumnAccessors
     {
         return $this->setCollapsingColumnsEnabled();
     }
-
 }

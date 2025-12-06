@@ -4,10 +4,10 @@ namespace Rappasoft\LaravelLivewireTables\Tests\Unit\Views\Actions;
 
 use Illuminate\View\ComponentAttributeBag;
 use Rappasoft\LaravelLivewireTables\Exceptions\DataTableConfigurationException;
+use Rappasoft\LaravelLivewireTables\Features\Actions\Views\Action;
 use Rappasoft\LaravelLivewireTables\Tests\Http\Livewire\{PetsTable,PetsTableAttributes};
 use Rappasoft\LaravelLivewireTables\Tests\Models\Pet;
 use Rappasoft\LaravelLivewireTables\Tests\TestCase;
-use Rappasoft\LaravelLivewireTables\Features\Actions\Views\Action;
 
 final class ActionTest extends TestCase
 {

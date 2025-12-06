@@ -4,10 +4,10 @@ namespace Rappasoft\LaravelLivewireTables\Features\Columns\Views;
 
 use Illuminate\Database\Eloquent\Model;
 use Rappasoft\LaravelLivewireTables\Exceptions\DataTableConfigurationException;
-use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Traits\{IsColumn};
+use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Traits\Configuration\ObscureColumnConfiguration;
 use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Traits\Defaults\HasDefaultStringValue;
 use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Traits\Helpers\ObscureColumnHelpers;
-use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Traits\Configuration\ObscureColumnConfiguration;
+use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Traits\IsColumn;
 
 class ObscureColumn extends Column
 {
@@ -17,17 +17,13 @@ class ObscureColumn extends Column
 
     /**
      * Undocumented variable
-     *
-     * @var string
      */
     protected string $view = 'livewire-tables::includes.columns.obscure';
-    
+
     /**
      * The mask used
-     * 
-     * @var string
      */
-    public string $mask = "*********";
+    public string $mask = '*********';
 
     /**
      * Obscuration Configuration
@@ -37,15 +33,12 @@ class ObscureColumn extends Column
     public array $obscureSettings = [
         'enabled' => true,
         'defaultClickEnabled' => true,
-        'wrapperAttributes' => ['x-data' => "{ obscure: true }"],
+        'wrapperAttributes' => ['x-data' => '{ obscure: true }'],
         'customAttributes' => [],
     ];
 
     /**
      * Undocumented function
-     *
-     * @param string $title
-     * @param string|null $from
      */
     public function __construct(string $title, ?string $from = null)
     {
@@ -61,9 +54,6 @@ class ObscureColumn extends Column
 
     /**
      * Undocumented function
-     *
-     * @param Model $row
-     * @return null|string|\Illuminate\Support\HtmlString|DataTableConfigurationException|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function getContents(Model $row): null|string|\Illuminate\Support\HtmlString|DataTableConfigurationException|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
     {
@@ -75,9 +65,6 @@ class ObscureColumn extends Column
 
     /**
      * Undocumented function
-     *
-     * @param Model $row
-     * @return string
      */
     public function getValue(Model $row): string
     {

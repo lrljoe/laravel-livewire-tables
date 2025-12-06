@@ -11,18 +11,9 @@ class FilterPillData
     /**
      * Undocumented function
      *
-     * @param string $filterKey
-     * @param string $filterPillTitle
-     * @param string|array<mixed>|null $filterPillValue
-     * @param string $separator
-     * @param boolean $isAnExternalLivewireFilter
-     * @param boolean $hasCustomPillBlade
-     * @param string|null $customPillBlade
-     * @param array<mixed> $filterPillsItemAttributes
-     * @param boolean $renderPillsAsHtml
-     * @param boolean $watchForEvents
-     * @param array<mixed> $customResetButtonAttributes
-     * @param boolean $renderPillsTitleAsHtml
+     * @param  string|array<mixed>|null  $filterPillValue
+     * @param  array<mixed>  $filterPillsItemAttributes
+     * @param  array<mixed>  $customResetButtonAttributes
      */
     public function __construct(
         protected string $filterKey,
@@ -38,37 +29,27 @@ class FilterPillData
         protected array $customResetButtonAttributes,
         protected bool $renderPillsTitleAsHtml) {}
 
-   /**
+    /**
      * Undocumented function
      *
-     * @param string $filterKey
-     * @param string $filterPillTitle
-     * @param string|array<mixed>|null $filterPillValue
-     * @param string $separator
-     * @param boolean $isAnExternalLivewireFilter
-     * @param boolean $hasCustomPillBlade
-     * @param string|null $customPillBlade
-     * @param array<mixed> $filterPillsItemAttributes
-     * @param boolean $renderPillsAsHtml
-     * @param boolean $watchForEvents
-     * @param array<mixed> $customResetButtonAttributes
-     * @param boolean $renderPillsTitleAsHtml
+     * @param  string|array<mixed>|null  $filterPillValue
+     * @param  array<mixed>  $filterPillsItemAttributes
+     * @param  array<mixed>  $customResetButtonAttributes
      */
     public static function make(
-        string $filterKey, 
-        string $filterPillTitle, 
-        string|array|null $filterPillValue, 
-        string $separator = ', ', 
-        bool $isAnExternalLivewireFilter = false, 
-        bool $hasCustomPillBlade = false, 
-        ?string $customPillBlade = null, 
-        array $filterPillsItemAttributes = [], 
-        bool $renderPillsAsHtml = false, 
-        bool $watchForEvents = false, 
-        array $customResetButtonAttributes = [], 
+        string $filterKey,
+        string $filterPillTitle,
+        string|array|null $filterPillValue,
+        string $separator = ', ',
+        bool $isAnExternalLivewireFilter = false,
+        bool $hasCustomPillBlade = false,
+        ?string $customPillBlade = null,
+        array $filterPillsItemAttributes = [],
+        bool $renderPillsAsHtml = false,
+        bool $watchForEvents = false,
+        array $customResetButtonAttributes = [],
         bool $renderPillsTitleAsHtml = false
-    ): FilterPillData
-    {
+    ): FilterPillData {
         if ($isAnExternalLivewireFilter) {
             $watchForEvents = true;
         }
@@ -78,8 +59,6 @@ class FilterPillData
 
     /**
      * Undocumented function
-     *
-     * @return string
      */
     public function getTitle(): string
     {
@@ -88,17 +67,12 @@ class FilterPillData
 
     /**
      * Undocumented function
-     *
-     * @return string|null
      */
-    public function getPillValue(): string|null
+    public function getPillValue(): ?string
     {
-        if(!is_array($this->filterPillValue))
-        {
+        if (! is_array($this->filterPillValue)) {
             return $this->filterPillValue;
-        }
-        else
-        {
+        } else {
             return null;
         }
     }
@@ -108,26 +82,20 @@ class FilterPillData
      *
      * @return array<mixed>|null
      */
-    public function getPillArrayValue(): array|null
+    public function getPillArrayValue(): ?array
     {
-        if(is_null($this->filterPillValue))
-        {
+        if (is_null($this->filterPillValue)) {
             return null;
         }
-        if(is_array($this->filterPillValue))
-        {
+        if (is_array($this->filterPillValue)) {
             return $this->filterPillValue;
-        }
-        else
-        {
+        } else {
             return [$this->filterPillValue];
         }
     }
 
     /**
      * Undocumented function
-     *
-     * @return boolean
      */
     public function getHasCustomPillBlade(): bool
     {
@@ -136,8 +104,6 @@ class FilterPillData
 
     /**
      * Undocumented function
-     *
-     * @return string|null
      */
     public function getCustomPillBlade(): ?string
     {
@@ -156,8 +122,6 @@ class FilterPillData
 
     /**
      * Undocumented function
-     *
-     * @return integer
      */
     public function getIsAnExternalLivewireFilter(): int
     {
@@ -166,8 +130,6 @@ class FilterPillData
 
     /**
      * Undocumented function
-     *
-     * @return string
      */
     public function getSeparator(): string
     {
@@ -176,8 +138,6 @@ class FilterPillData
 
     /**
      * Undocumented function
-     *
-     * @return integer
      */
     public function shouldUsePillsAsHtml(): int
     {
@@ -186,8 +146,6 @@ class FilterPillData
 
     /**
      * Undocumented function
-     *
-     * @return integer
      */
     public function shouldUsePillsTitleAsHtml(): int
     {
@@ -196,8 +154,6 @@ class FilterPillData
 
     /**
      * Undocumented function
-     *
-     * @return integer
      */
     public function shouldWatchForEvents(): int
     {
@@ -206,8 +162,6 @@ class FilterPillData
 
     /**
      * Undocumented function
-     *
-     * @return boolean
      */
     public function isPillValueAnArray(): bool
     {
@@ -216,8 +170,6 @@ class FilterPillData
 
     /**
      * Undocumented function
-     *
-     * @return string|null
      */
     public function getSeparatedPillValue(): ?string
     {
@@ -230,8 +182,6 @@ class FilterPillData
 
     /**
      * Undocumented function
-     *
-     * @return string|null
      */
     public function getSafeSeparatedPillValue(): ?string
     {
@@ -269,7 +219,7 @@ class FilterPillData
     /**
      * Undocumented function
      *
-     * @param array<mixed> $array
+     * @param  array<mixed>  $array
      * @return array<mixed>
      */
     public function getExternalFilterPillDisplayDataArray(array $array = []): array
@@ -284,7 +234,7 @@ class FilterPillData
     /**
      * Undocumented function
      *
-     * @param array<mixed> $array
+     * @param  array<mixed>  $array
      * @return array<mixed>
      */
     public function getInternalFilterPillDisplayDataArray(array $array = []): array
@@ -300,7 +250,7 @@ class FilterPillData
     /**
      * Undocumented function
      *
-     * @param array<mixed> $array
+     * @param  array<mixed>  $array
      * @return array<mixed>
      */
     public function getFilterTitleDisplayDataArray(array $array = []): array
@@ -313,8 +263,6 @@ class FilterPillData
     /**
      * Undocumented function
      *
-     * @param string $filterKey
-     * @param boolean $shouldWatch
      * @return array<mixed>
      */
     public function getPillSetupData(string $filterKey = '', bool $shouldWatch = false): array
@@ -327,8 +275,7 @@ class FilterPillData
     /**
      * Undocumented function
      *
-     * @param string $filterKey
-     * @param array<mixed> $filterPillsResetFilterButtonAttributes
+     * @param  array<mixed>  $filterPillsResetFilterButtonAttributes
      * @return array<mixed>
      */
     public function getCalculatedCustomResetButtonAttributes(string $filterKey, array $filterPillsResetFilterButtonAttributes): array

@@ -9,22 +9,18 @@ trait HasSecondaryHeaderStyling
 {
     /**
      * Undocumented variable
-     *
-     * @var Closure|null
      */
     protected ?Closure $secondaryHeaderTrAttributesCallback;
 
     /**
      * Undocumented variable
-     *
-     * @var Closure|null
      */
     protected ?Closure $secondaryHeaderTdAttributesCallback;
 
     /**
      * Undocumented function
      *
-     * @param mixed $rows
+     * @param  mixed  $rows
      * @return array<mixed>
      */
     public function getSecondaryHeaderTrAttributes($rows): array
@@ -35,9 +31,7 @@ trait HasSecondaryHeaderStyling
     /**
      * Undocumented function
      *
-     * @param Column $column
-     * @param mixed $rows
-     * @param integer $index
+     * @param  mixed  $rows
      * @return array<mixed>
      */
     public function getSecondaryHeaderTdAttributes(Column $column, $rows, int $index): array
@@ -47,9 +41,6 @@ trait HasSecondaryHeaderStyling
 
     /**
      * Undocumented function
-     *
-     * @param Closure $callback
-     * @return self
      */
     public function setSecondaryHeaderTrAttributes(Closure $callback): self
     {
@@ -60,9 +51,6 @@ trait HasSecondaryHeaderStyling
 
     /**
      * Undocumented function
-     *
-     * @param Closure $callback
-     * @return self
      */
     public function setSecondaryHeaderTdAttributes(Closure $callback): self
     {

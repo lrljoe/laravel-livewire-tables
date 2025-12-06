@@ -21,7 +21,6 @@ trait HasFilterSessionStorage
         return $this->storeFiltersInSessionStatus(false);
     }
 
-
     public function shouldStoreFiltersInSession(): bool
     {
         return $this->getSessionStorageStatus('filters');
@@ -68,5 +67,3 @@ trait HasFilterSessionStorage
         }
     }
 }
-
-    

@@ -20,8 +20,6 @@ trait WithQuery
 
     /**
      * Undocumented variable
-     *
-     * @var string|null
      */
     protected ?string $primaryKey;
 
@@ -69,8 +67,6 @@ trait WithQuery
 
     /**
      * Undocumented variable
-     *
-     * @var boolean
      */
     protected bool $eagerLoadAllRelationsStatus = false;
 }
