@@ -17,14 +17,14 @@ class LivewireComponentFilter extends Filter
     public string $wireMethod = 'blur';
 
     /**
-     * Undocumented variable
+     * The path to the view for this filter
      *
      * @var string
      */
     protected string $view = 'livewire-tables::components.tools.filters.livewire-component-filter';
 
     /**
-     * Undocumented function
+     * Validates that the value received by the Filter is valid, in this case - it is always valid unless empty
      *
      * @param string $value
      * @return string|boolean
@@ -35,7 +35,7 @@ class LivewireComponentFilter extends Filter
     }
 
     /**
-     * Undocumented function
+     * Checks if the Filter Value is empty
      *
      * @param string|null $value
      * @return boolean

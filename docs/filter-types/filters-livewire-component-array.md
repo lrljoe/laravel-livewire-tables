@@ -49,3 +49,9 @@ As this is an array, you can define the separator to use between pills values, b
     }
 ```
 
+## Additional Information
+Ensure you check out:
+- [Applying Filters](../filters/applying-filters) documentation for Applying Filters to your query cleanly
+- [Available Filter Methods](../filters/available-filter-methods) documentation for more Filter Features
+- [Filter Pills](../filters/filter-pills) documentation for help with configuring the pills for a filter
+- [Available Component Methods](../filters/available-component-methods) documentation for Table Wide configuration

@@ -57,4 +57,21 @@ trait HandlesDates
 
         return '';
     }
+
+    /**
+     * Retrieve Date Filter Value as Formatted Date For the Filter Pill
+     *
+     * @param string $value
+     * @return string|null
+     */
+    protected function getFilterPillValueAsFormattedDate(string $value): ?string
+    {
+        $carbonDate = $this->createCarbonDate($value);
+        if ($carbonDate instanceof Carbon) {
+            return $this->outputTranslatedDate($carbonDate);
+        }
+        return null;
+
+    }
+    
 }

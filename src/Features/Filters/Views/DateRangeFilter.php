@@ -21,7 +21,7 @@ class DateRangeFilter extends Filter
     public string $wireMethod = 'blur';
 
     /**
-     * Undocumented variable
+     * The path to the view for this filter
      *
      * @var string
      */
@@ -47,7 +47,7 @@ class DateRangeFilter extends Filter
     }
 
     /**
-     * Undocumented function
+     * Validates that the value received by the Filter is valid
      *
      * @param array<mixed>|string|null $values
      * @return array<mixed>|boolean
@@ -238,7 +238,7 @@ class DateRangeFilter extends Filter
     }
 
     /**
-     * Undocumented function
+     * Retrieves the Filter Value for use in the Filter Pills area
      *
      * @param mixed $value
      * @return array<mixed>|string|boolean|null
@@ -266,7 +266,7 @@ class DateRangeFilter extends Filter
     }
 
     /**
-     * Undocumented function
+     * Checks if the Filter Value is empty
      *
      * @param array<mixed>|string|null $value
      * @return boolean

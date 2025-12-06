@@ -18,7 +18,7 @@ class NumberRangeFilter extends Filter
     public string $wireMethod = 'blur';
 
     /**
-     * Undocumented variable
+     * The path to the view for this filter
      *
      * @var string
      */
@@ -78,7 +78,7 @@ class NumberRangeFilter extends Filter
     }
 
     /**
-     * Undocumented function
+     * Validates that the value received by the Filter is valid
      *
      * @param array<mixed> $values
      * @return array<mixed>|boolean
@@ -107,7 +107,7 @@ class NumberRangeFilter extends Filter
     }
 
     /**
-     * Undocumented function
+     * Checks if the Filter Value is empty
      *
      * @param array<mixed>|string $value
      * @return boolean
@@ -140,7 +140,7 @@ class NumberRangeFilter extends Filter
     }
 
     /**
-     * Undocumented function
+     * Retrieves the Filter Value for use in the Filter Pills area
      *
      * @param mixed $values
      * @return array<mixed>|string|boolean|null

@@ -19,14 +19,14 @@ class LivewireComponentArrayFilter extends Filter
     public string $wireMethod = 'blur';
 
     /**
-     * Undocumented variable
+     * The path to the view for this filter
      *
      * @var string
      */
     protected string $view = 'livewire-tables::components.tools.filters.livewire-component-array-filter';
 
     /**
-     * Undocumented function
+     * Validates that the value received by the Filter is valid, in this case - it is always valid unless empty
      *
      * @param array<mixed> $value
      * @return array<mixed>|boolean
@@ -42,7 +42,7 @@ class LivewireComponentArrayFilter extends Filter
 
     
     /**
-     * Undocumented function
+     * Checks if the Filter Value is empty
      *
      * @param array<mixed> $value
      * @return boolean
@@ -63,9 +63,9 @@ class LivewireComponentArrayFilter extends Filter
     }
 
     /**
-     * Undocumented function
+     * Retrieves the Filter Value for use in the Filter Pills area
      *
-     * @param mixed$value
+     * @param mixed $value
      * @return array<mixed>|string|boolean|null
      */
     public function getFilterPillValue($value): array|string|bool|null

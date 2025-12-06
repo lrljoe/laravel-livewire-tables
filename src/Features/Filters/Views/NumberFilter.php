@@ -17,14 +17,14 @@ class NumberFilter extends Filter
     public string $wireMethod = 'blur';
 
     /**
-     * Undocumented variable
+     * The path to the view for this filter
      *
      * @var string
      */
     protected string $view = 'livewire-tables::components.tools.filters.number';
 
     /**
-     * Undocumented function
+     * Validates that the value received by the Filter is valid
      *
      * @param float|integer|string|array<mixed> $value
      * @return float|integer|string|false

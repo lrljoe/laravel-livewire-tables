@@ -32,7 +32,7 @@ trait IsArrayFilter
     }
 
     /**
-     * Determines if this Filter is empty
+     * Checks if the Filter Value is empty
      *
      * @param mixed $value
      * @return boolean

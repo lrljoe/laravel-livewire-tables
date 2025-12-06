@@ -19,7 +19,7 @@ class DateFilter extends Filter
     public string $wireMethod = 'live';
 
     /**
-     * Undocumented variable
+     * The path to the view for this filter
      *
      * @var string
      */
@@ -33,12 +33,12 @@ class DateFilter extends Filter
     protected string $configPath = 'livewire-tables.dateFilter.defaultConfig';
 
     /**
-     * Undocumented function
+     * Validates that the value received by the Filter is valid
      *
-     * @param string $value
+     * @param mixed $value
      * @return string|boolean
      */
-    public function validate(string $value): string|bool
+    public function validate($value): string|bool
     {
         $this->setInputDateFormat('Y-m-d')->setOutputDateFormat($this->getConfig('pillFormat') ?? 'Y-m-d');
         $carbonDate = $this->createCarbonDate($value);
@@ -50,7 +50,7 @@ class DateFilter extends Filter
     }
 
     /**
-     * Undocumented function
+     * Retrieves the Filter Value for use in the Filter Pills area
      *
      * @param mixed $value
      * @return string|null
@@ -58,10 +58,7 @@ class DateFilter extends Filter
     public function getFilterPillValue($value): ?string
     {
         if ($this->validate($value)) {
-            $carbonDate = $this->createCarbonDate($value);
-            if ($carbonDate instanceof \Carbon\Carbon) {
-                return $this->outputTranslatedDate($carbonDate);
-            }
+            return $this->getFilterPillValueAsFormattedDate($value);
         }
 
         return null;

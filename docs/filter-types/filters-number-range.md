@@ -36,3 +36,10 @@ The default values should be set in the options() method.
 You may also specify a minimum and maximum range in the config() options, and should you wish to use real values instead of a percentage.
 You can change the "suffix" to a metric of your choosing.
 You can change the "prefix" to an item of your choosing (e.g $/£/€)
+
+## Additional Information
+Ensure you check out:
+- [Applying Filters](../filters/applying-filters) documentation for Applying Filters to your query cleanly
+- [Available Filter Methods](../filters/available-filter-methods) documentation for more Filter Features
+- [Filter Pills](../filters/filter-pills) documentation for help with configuring the pills for a filter
+- [Available Component Methods](../filters/available-component-methods) documentation for Table Wide configuration

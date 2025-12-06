@@ -29,5 +29,9 @@ devguide.md
 retired.md
 *.php.bk
 visuals_test.txt
-resources/views/components/tbody/tbody.blade copy 2.php
-resources/views/components/tbody/tbody.blade copy.php
+src/CoreDataTableComponent.php.bk
+src/BaseDataTableComponent.php.bk
+resources/views/components/tbody/tbody copy 1.blade.php
+resources/views/components/tbody/tbody copy 2.blade.php
+resources/views/components/tbody/tbody copy 3.blade.php
+resources/views/includes/pills-widget copy 1.blade.php

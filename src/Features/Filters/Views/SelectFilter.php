@@ -19,7 +19,7 @@ class SelectFilter extends Filter
     public string $wireMethod = 'live';
 
     /**
-     * Undocumented variable
+     * The path to the view for this filter
      *
      * @var string
      */
@@ -51,7 +51,7 @@ class SelectFilter extends Filter
     }
 
     /**
-     * Undocumented function
+     * Validates that the value received by the Filter is valid
      *
      * @param string $value
      * @return array<mixed>|string|boolean
@@ -66,7 +66,7 @@ class SelectFilter extends Filter
     }
 
     /**
-     * Undocumented function
+     * Retrieves the Filter Value for use in the Filter Pills area
      *
      * @param mixed $value
      * @return array<mixed>|string|boolean|null

@@ -19,7 +19,7 @@ class MultiSelectDropdownFilter extends Filter
     public string $wireMethod = 'live.debounce.250ms';
 
     /**
-     * Undocumented variable
+     * The path to the view for this filter
      *
      * @var string
      */
@@ -35,7 +35,7 @@ class MultiSelectDropdownFilter extends Filter
     protected ?string $optionsPath = 'livewire-tables.multiSelectDropdownFilter.defaultOptions';
 
     /**
-     * Undocumented function
+     * Validates that the value received by the Filter is valid
      *
      * @param integer|string|array<mixed> $value
      * @return array<mixed>|integer|string|boolean
@@ -57,7 +57,7 @@ class MultiSelectDropdownFilter extends Filter
     }
 
     /**
-     * Undocumented function
+     * Retrieves the Filter Value for use in the Filter Pills area
      *
      * @param mixed $value
      * @return array<mixed>|string|boolean|null
@@ -81,7 +81,7 @@ class MultiSelectDropdownFilter extends Filter
     }
 
     /**
-     * Undocumented function
+     * Checks if the Filter Value is empty
      *
      * @param mixed $value
      * @return boolean

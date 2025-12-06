@@ -18,14 +18,14 @@ class TextFilter extends Filter
     public string $wireMethod = 'blur';
 
     /**
-     * Undocumented variable
+     * The path to the view for this filter
      *
      * @var string
      */
     protected string $view = 'livewire-tables::components.tools.filters.text-field';
 
     /**
-     * Undocumented function
+     * Validates that the value received by the Filter is valid
      *
      * @param string $value
      * @return string|boolean

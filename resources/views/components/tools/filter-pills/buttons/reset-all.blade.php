@@ -17,7 +17,7 @@
                     'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium' => ($resetAllButtonAttributes['default-styling'] ?? true),
                     'bg-gray-100 text-gray-800 dark:bg-gray-200 dark:text-gray-900' => ($resetAllButtonAttributes['default-colors'] ?? true),
                 ] : [])
-                ->class($isTailwind4 ? [                 [
+                ->class($isTailwind4 ? [
                     'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium' => ($resetAllButtonAttributes['default-styling'] ?? true),
                     'bg-gray-100 text-gray-800 dark:bg-gray-200 dark:text-gray-900' => ($resetAllButtonAttributes['default-colors'] ?? true),
                 ] : [])
@@ -33,10 +33,12 @@
         x-on:click.prevent="resetAllFilters"
         {{
             $attributes->merge($resetAllButtonAttributes)
-            ->class([
-                'badge badge-pill badge-light' => $isBootstrap4 && ($resetAllButtonAttributes['default-styling'] ?? true),
-                'badge rounded-pill bg-light text-dark text-decoration-none' => $isBootstrap5 && ($resetAllButtonAttributes['default-styling'] ?? true),
-            ])
+            ->class($isBootstrap4 ? [
+                'badge badge-pill badge-light' => ($resetAllButtonAttributes['default-styling'] ?? true),
+            ] : [])
+            ->class($isBootstrap5 ? [
+                'badge rounded-pill bg-light text-dark text-decoration-none' => ($resetAllButtonAttributes['default-styling'] ?? true),
+            ] : [])
             ->except(['default-styling', 'default-colors'])
         }}
     >

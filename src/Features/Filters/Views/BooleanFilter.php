@@ -16,7 +16,7 @@ class BooleanFilter extends Filter
     public string $wireMethod = 'live';
 
     /**
-     * Undocumented variable
+     * The path to the view for this filter
      *
      * @var string
      */
@@ -35,12 +35,12 @@ class BooleanFilter extends Filter
 
 
     /**
-     * Undocumented function
+     * Validate the input from the Boolean Filter - ensuring that it is an acceptable boolean
      *
      * @param boolean|integer|string|null $value
-     * @return boolean
+     * @return integer|boolean
      */
-    public function validate(bool|int|string|null $value): bool
+    public function validate(bool|int|string|null $value): int|bool
     {
         if ($value === null) {
             return false;
@@ -52,18 +52,18 @@ class BooleanFilter extends Filter
             }
         }
         if (is_int($value) && ($value == 0 || $value == 1)) {
-            $value = (bool) $value;
+            return $value;
         }
 
         if (is_bool($value)) {
-            return $value;
+            return (int) $value;
         }
 
         return false;
     }
 
     /**
-     * Undocumented function
+     * Retrieves the Filter Value for use in the Filter Pills area
      *
      * @param mixed $value
      * @return array<mixed>|string|boolean|null
@@ -88,7 +88,7 @@ class BooleanFilter extends Filter
 
 
     /**
-     * Undocumented function
+     * Checks if the Filter Value is empty
      *
      * @param boolean|integer|string|null $value
      * @return boolean
@@ -109,7 +109,7 @@ class BooleanFilter extends Filter
     }
 
     /**
-     * Undocumented function
+     * Retrieves the Input Attributes for the HTML Input box
      *
      * @return array<string,mixed>
      */

@@ -24,7 +24,7 @@ For example, your filter may look like this, toggling the filter from true to fa
 
 Many of the standard methods are available, for example
 ```php
-    BooleanFilter::make('Limit to Older Enabled Users')
+    BooleanFilter::make('Limit to Users Over 60')
     ->filter(function (Builder $builder, bool $enabled) {
         if ($enabled)
         {
@@ -37,3 +37,10 @@ Many of the standard methods are available, for example
     ])
     ->setFilterDefaultValue(true)
 ```
+
+## Additional Information
+Ensure you check out:
+- [Applying Filters](../filters/applying-filters) documentation for Applying Filters to your query cleanly
+- [Available Filter Methods](../filters/available-filter-methods) documentation for more Filter Features
+- [Filter Pills](../filters/filter-pills) documentation for help with configuring the pills for a filter
+- [Available Component Methods](../filters/available-component-methods) documentation for Table Wide configuration
