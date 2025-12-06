@@ -54,7 +54,7 @@ trait FooterConfiguration
 
         return $this;
     }
-    
+
     public function setShowColumnTitlesInFooterEnabled(): self
     {
         return $this->setShowColumnTitlesInFooter(true);
@@ -64,5 +64,4 @@ trait FooterConfiguration
     {
         return $this->setShowColumnTitlesInFooter(false);
     }
-
 }

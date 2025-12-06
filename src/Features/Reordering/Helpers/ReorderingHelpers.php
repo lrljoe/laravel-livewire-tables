@@ -7,7 +7,6 @@ use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
 
 trait ReorderingHelpers
 {
-
     protected function getReorderConfigValue(string $key): mixed
     {
         return $this->reorderConfig[$key] ?? $this->reorderDefaultConfig[$key];
@@ -114,8 +113,6 @@ trait ReorderingHelpers
 
     /**
      * Undocumented function
-     *
-     * @return void
      */
     public function enableReordering(): void
     {
@@ -127,8 +124,6 @@ trait ReorderingHelpers
 
     /**
      * Undocumented function
-     *
-     * @return void
      */
     public function disableReordering(): void
     {
@@ -139,10 +134,9 @@ trait ReorderingHelpers
         $this->reorderConfig['currentlyReorderingStatus'] = $this->reorderConfig['reorderDisplayColumn'] = false;
 
     }
+
     /**
      * Undocumented function
-     *
-     * @return void
      */
     private function restartReorderingIfNecessary(): void
     {
@@ -188,23 +182,19 @@ trait ReorderingHelpers
     /**
      * Undocumented function
      *
-     * @param array<mixed> $tableState
-     * @return void
+     * @param  array<mixed>  $tableState
      */
     protected function restoreStateFromArray(array $tableState): void
     {
-        if(property_exists($this, $this->getTableName()))
-        {
+        if (property_exists($this, $this->getTableName())) {
             $this->{$this->getTableName()} = $tableState[$this->getTableName()];
         }
         $this->sorts = $tableState['sorts'];
         $this->search = $tableState['search'];
         $this->selectedColumns = $tableState['selectedColumns'];
 
-        
         $this->setSortingPillsStatus($tableState['sortingPillsStatus']);
         $this->setSortingStatus($tableState['sortingStatus']);
-
 
         $this->restorePaginationConfig(
             $tableState['paginationStatus'],
@@ -213,7 +203,6 @@ trait ReorderingHelpers
             $tableState['perPage'],
             $tableState['page'],
         );
-
 
         $this->setSearchStatus($tableState['searchStatus']);
         $this->setBulkActionsStatus($tableState['bulkActionsStatus']);
@@ -226,10 +215,9 @@ trait ReorderingHelpers
         $this->appliedFilters = $tableState['appliedFilters'] ?? [];
 
     }
+
     /**
      * Undocumented function
-     *
-     * @return void
      */
     private function getReorderingBackup(): void
     {
@@ -245,8 +233,7 @@ trait ReorderingHelpers
     /**
      * Undocumented function
      *
-     * @param array<mixed> $rows
-     * @return void
+     * @param  array<mixed>  $rows
      */
     public function storeReorder(array $rows = []): void
     {
@@ -254,5 +241,4 @@ trait ReorderingHelpers
         $this->forgetReorderingSession();
         $this->getReorderingBackup();
     }
-
 }

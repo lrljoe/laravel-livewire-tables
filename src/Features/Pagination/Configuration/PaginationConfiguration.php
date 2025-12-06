@@ -2,16 +2,13 @@
 
 namespace Rappasoft\LaravelLivewireTables\Features\Pagination\Configuration;
 
-use Rappasoft\LaravelLivewireTables\Exceptions\DataTableConfigurationException;
 use Livewire\Attributes\Renderless;
+use Rappasoft\LaravelLivewireTables\Exceptions\DataTableConfigurationException;
 
 trait PaginationConfiguration
 {
     /**
      * Undocumented function
-     *
-     * @param string $name
-     * @return self
      */
     public function setPageName(string $name): self
     {
@@ -22,21 +19,16 @@ trait PaginationConfiguration
 
     /**
      * Undocumented function
-     *
-     * @param boolean $status
-     * @return self
      */
     public function setPaginationStatus(bool $status): self
     {
-        $this->setPaginationConfig('paginationStatus',$status);
+        $this->setPaginationConfig('paginationStatus', $status);
 
         return $this;
     }
 
     /**
      * Undocumented function
-     *
-     * @return self
      */
     public function setPaginationEnabled(): self
     {
@@ -45,8 +37,6 @@ trait PaginationConfiguration
 
     /**
      * Undocumented function
-     *
-     * @return self
      */
     public function setPaginationDisabled(): self
     {
@@ -55,21 +45,16 @@ trait PaginationConfiguration
 
     /**
      * Undocumented function
-     *
-     * @param boolean $status
-     * @return self
      */
     public function setPaginationVisibilityStatus(bool $status): self
     {
-        $this->setPaginationConfig('paginationVisibilityStatus',$status);
+        $this->setPaginationConfig('paginationVisibilityStatus', $status);
 
         return $this;
     }
 
     /**
      * Undocumented function
-     *
-     * @return self
      */
     public function setPaginationVisibilityEnabled(): self
     {
@@ -78,8 +63,6 @@ trait PaginationConfiguration
 
     /**
      * Undocumented function
-     *
-     * @return self
      */
     public function setPaginationVisibilityDisabled(): self
     {
@@ -88,21 +71,16 @@ trait PaginationConfiguration
 
     /**
      * Undocumented function
-     *
-     * @param boolean $status
-     * @return self
      */
     public function setPerPageVisibilityStatus(bool $status): self
     {
-        $this->setPaginationConfig('perPageVisibilityStatus',$status);
+        $this->setPaginationConfig('perPageVisibilityStatus', $status);
 
         return $this;
     }
 
     /**
      * Undocumented function
-     *
-     * @return self
      */
     public function setPerPageVisibilityEnabled(): self
     {
@@ -111,8 +89,6 @@ trait PaginationConfiguration
 
     /**
      * Undocumented function
-     *
-     * @return self
      */
     public function setPerPageVisibilityDisabled(): self
     {
@@ -122,12 +98,11 @@ trait PaginationConfiguration
     /**
      * Undocumented function
      *
-     * @param array<mixed> $accepted
-     * @return self
+     * @param  array<mixed>  $accepted
      */
     public function setPerPageAccepted(array $accepted): self
     {
-        $this->setPaginationConfig('perPageAccepted',$accepted);
+        $this->setPaginationConfig('perPageAccepted', $accepted);
 
         return $this;
     }
@@ -135,9 +110,7 @@ trait PaginationConfiguration
     /**
      * Undocumented function
      *
-     * @param integer $perPage
      * @throws DataTableConfigurationException
-     * @return self
      */
     public function setPerPage(int $perPage): self
     {
@@ -152,8 +125,6 @@ trait PaginationConfiguration
 
     /**
      * Undocumented function
-     *
-     * @return self
      */
     public function unsetPerPage(): self
     {
@@ -164,9 +135,6 @@ trait PaginationConfiguration
 
     /**
      * Undocumented function
-     *
-     * @param string $paginationMethod
-     * @return self
      */
     public function setPaginationMethod(string $paginationMethod): self
     {
@@ -177,21 +145,16 @@ trait PaginationConfiguration
 
     /**
      * Undocumented function
-     *
-     * @param boolean $status
-     * @return self
      */
     public function setDisplayPaginationDetails(bool $status): self
     {
-        $this->setPaginationConfig('shouldShowPaginationDetails',$status);
+        $this->setPaginationConfig('shouldShowPaginationDetails', $status);
 
         return $this;
     }
 
     /**
      * Undocumented function
-     *
-     * @return self
      */
     public function setDisplayPaginationDetailsEnabled(): self
     {
@@ -200,8 +163,6 @@ trait PaginationConfiguration
 
     /**
      * Undocumented function
-     *
-     * @return self
      */
     public function setDisplayPaginationDetailsDisabled(): self
     {
@@ -210,14 +171,11 @@ trait PaginationConfiguration
 
     /**
      * Set a default per-page value (if not set already by session or querystring)
-     *
-     * @param integer $defaultPerPage
-     * @return self
      */
     public function setDefaultPerPage(int $defaultPerPage): self
     {
         if (in_array((int) $defaultPerPage, $this->getPerPageAccepted())) {
-            $this->setPaginationConfig('defaultPerPage',$defaultPerPage);
+            $this->setPaginationConfig('defaultPerPage', $defaultPerPage);
         }
 
         return $this;
@@ -225,21 +183,16 @@ trait PaginationConfiguration
 
     /**
      * Undocumented function
-     *
-     * @param boolean $status
-     * @return self
      */
     public function setShouldRetrieveTotalItemCountStatus(bool $status): self
     {
-        $this->setPaginationConfig('shouldRetrieveTotalItemCount',$status);
+        $this->setPaginationConfig('shouldRetrieveTotalItemCount', $status);
 
         return $this;
     }
 
     /**
      * Undocumented function
-     *
-     * @return self
      */
     public function setShouldRetrieveTotalItemCountEnabled(): self
     {
@@ -248,8 +201,6 @@ trait PaginationConfiguration
 
     /**
      * Undocumented function
-     *
-     * @return self
      */
     public function setShouldRetrieveTotalItemCountDisabled(): self
     {
@@ -258,10 +209,6 @@ trait PaginationConfiguration
 
     /**
      * Undocumented function
-     *
-     * @param string $key
-     * @param mixed $value
-     * @return self
      */
     protected function setPaginationConfig(string $key, mixed $value): self
     {
@@ -273,21 +220,14 @@ trait PaginationConfiguration
     /**
      * Undocumented function
      *
-     * @param boolean $paginationStatus
-     * @param boolean $perPageVisibilityStatus
-     * @param array<mixed> $perPageAccepted
-     * @param integer $perPage
-     * @param integer $page
-     * @return void
+     * @param  array<mixed>  $perPageAccepted
      */
     protected function restorePaginationConfig(bool $paginationStatus, bool $perPageVisibilityStatus, array $perPageAccepted, int $perPage, int $page): void
     {
         $this->setPaginationStatus($paginationStatus)
-        ->setPerPageVisibilityStatus($perPageVisibilityStatus)
-        ->setPerPageAccepted($perPageAccepted)
-        ->setPerPage($perPage)
-        ->setPage($page, $this->getComputedPageName());
+            ->setPerPageVisibilityStatus($perPageVisibilityStatus)
+            ->setPerPageAccepted($perPageAccepted)
+            ->setPerPage($perPage)
+            ->setPage($page, $this->getComputedPageName());
     }
-
-
 }

@@ -16,8 +16,7 @@ trait HasSearchInput
     /**
      * Undocumented function
      *
-     * @param array<mixed> $attributes
-     * @return self
+     * @param  array<mixed>  $attributes
      */
     protected function setSearchFieldAttributes(array $attributes = []): self
     {
@@ -56,7 +55,7 @@ trait HasSearchInput
     {
         return $this->searchPlaceholder !== null;
     }
-    
+
     /**
      * Undocumented function
      *
@@ -72,7 +71,7 @@ trait HasSearchInput
                 'searchIcon' => $this->getSearchIcon(),
                 'otherAttributes' => $this->getSearchIconOtherAttributes(),
             ],
-            'searchFieldAttributes' => $this->getSearchFieldAttributes(),           
+            'searchFieldAttributes' => $this->getSearchFieldAttributes(),
             'searchOptions' => $this->getSearchOptions(),
             'searchPlaceholder' => $this->getSearchPlaceholder(),
         ];

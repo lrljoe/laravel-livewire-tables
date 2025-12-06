@@ -2,7 +2,6 @@
 
 namespace Rappasoft\LaravelLivewireTables\Features\Filters\Views\Traits;
 
-
 trait HasOptions
 {
     /**
@@ -14,16 +13,11 @@ trait HasOptions
 
     /**
      * Defines the First Option for a Filter with Options
-     *
-     * @var string
      */
     protected string $firstOption = '';
 
     /**
      * Sets the First Option for a Filter with Options
-     *
-     * @param string $firstOption
-     * @return self
      */
     public function setFirstOption(string $firstOption): self
     {
@@ -34,8 +28,6 @@ trait HasOptions
 
     /**
      * Gets the First Option for a Filter with Options
-     *
-     * @return string
      */
     public function getFirstOption(): string
     {
@@ -45,8 +37,7 @@ trait HasOptions
     /**
      * Sets the list of Options for a Filter
      *
-     * @param array<mixed> $options
-     * @return self
+     * @param  array<mixed>  $options
      */
     public function options(array $options = []): self
     {
@@ -74,6 +65,7 @@ trait HasOptions
     {
         /** @var \Illuminate\Support\Collection<int|string,string> $result */
         $result = collect($this->getOptions());
+
         return $result
             ->keys()
             ->map(fn ($value) => (string) $value)

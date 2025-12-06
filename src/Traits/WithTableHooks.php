@@ -9,9 +9,7 @@ trait WithTableHooks
     /**
      * Undocumented function
      *
-     * @param string $name
-     * @param array<mixed> $params
-     * @return void
+     * @param  array<mixed>  $params
      */
     public function callHook(string $name, array $params = []): void
     {
@@ -23,9 +21,7 @@ trait WithTableHooks
     /**
      * Undocumented function
      *
-     * @param string $name
-     * @param array<mixed> $params
-     * @return void
+     * @param  array<mixed>  $params
      */
     public function callTraitHook(string $name, array $params = []): void
     {

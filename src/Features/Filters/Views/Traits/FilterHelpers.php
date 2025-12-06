@@ -8,20 +8,16 @@ trait FilterHelpers
 {
     /**
      * Get the filter name
-     *
-     * @return string
      */
-     public function getName(): string
+    public function getName(): string
     {
         return $this->name;
     }
 
     /**
      * Get the filter key
-     *
-     * @return string
      */
-     public function getKey(): string
+    public function getKey(): string
     {
         return $this->key;
     }
@@ -38,9 +34,6 @@ trait FilterHelpers
 
     /**
      * Configures the Filter function
-     *
-     * @param callable $callback
-     * @return Filter
      */
     public function filter(callable $callback): Filter
     {
@@ -51,8 +44,6 @@ trait FilterHelpers
 
     /**
      * Determines if a Filter function has been set
-     *
-     * @return boolean
      */
     public function hasFilterCallback(): bool
     {
@@ -61,8 +52,6 @@ trait FilterHelpers
 
     /**
      * Retrieves the Filter function
-     *
-     * @return callable
      */
     public function getFilterCallback(): callable
     {
@@ -71,11 +60,6 @@ trait FilterHelpers
 
     /**
      * Generates a unique wire:key
-     *
-     * @param string $tableName
-     * @param string $filterType
-     * @param string $extraData
-     * @return string
      */
     public function generateWireKey(string $tableName, string $filterType, string $extraData = ''): string
     {
@@ -104,8 +88,6 @@ trait FilterHelpers
 
     /**
      * Renders the Filter
-     *
-     * @return string|\Illuminate\Contracts\Foundation\Application|\Illuminate\View\View|\Illuminate\View\Factory
      */
     public function render(): string|\Illuminate\Contracts\Foundation\Application|\Illuminate\View\View|\Illuminate\View\Factory
     {
@@ -114,7 +96,7 @@ trait FilterHelpers
             ->with([
                 'filterInputAttributes' => $this->getInputAttributesBag(),
                 'filterLabelAttributes' => $this->getFilterLabelAttributes(),
-                'customLabelAttributes' => $this->getLabelAttributes()
+                'customLabelAttributes' => $this->getLabelAttributes(),
             ]);
     }
 }

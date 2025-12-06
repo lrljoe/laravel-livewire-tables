@@ -23,7 +23,6 @@ class ConvertCommand extends Command implements PromptsForMissingInput
 {
     protected ComponentParser $parser;
 
-
     /**
      * The name and signature of the console command.
      *
@@ -43,28 +42,25 @@ class ConvertCommand extends Command implements PromptsForMissingInput
      */
     public function handle(): void
     {
-        $this->line("Running Conversions");
-        foreach($this->getProvisionedLocalisations() as $provisionedLocale)
-        {
-            $this->line("Provisioned Locale: ".$provisionedLocale);
+        $this->line('Running Conversions');
+        foreach ($this->getProvisionedLocalisations() as $provisionedLocale) {
+            $this->line('Provisioned Locale: '.$provisionedLocale);
             $data = $this->getPhpLocaleString($provisionedLocale);
 
             $items = [];
-            foreach($data as $lineItem => $text)
-            {
+            foreach ($data as $lineItem => $text) {
                 $items['livewire-tables::'.$lineItem] = $text;
             }
-            $this->line("LineItems: ".json_encode($items, 1));
+            $this->line('LineItems: '.json_encode($items, 1));
             $baseDir = __DIR__.'/../../resources/lang/json/';
 
-            $contents = File::put($baseDir.$provisionedLocale.'.json', json_encode($items,1));
+            $contents = File::put($baseDir.$provisionedLocale.'.json', json_encode($items, 1));
         }
     }
 
     /**
      * Undocumented function
      *
-     * @param string $locale
      * @return array<mixed>
      */
     public function getJsonLocalisedStrings(string $locale): array
@@ -77,11 +73,9 @@ class ConvertCommand extends Command implements PromptsForMissingInput
         return $items;
     }
 
-
     /**
      * Undocumented function
      *
-     * @param string $locale
      * @return array<mixed>
      */
     public function getPhpLocaleString(string $locale): array
@@ -125,5 +119,4 @@ class ConvertCommand extends Command implements PromptsForMissingInput
             'uk',
         ];
     }
-
 }

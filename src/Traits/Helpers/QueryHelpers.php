@@ -68,8 +68,6 @@ trait QueryHelpers
 
     /**
      * Undocumented function
-     *
-     * @return boolean
      */
     public function hasExtraWithCounts(): bool
     {
@@ -88,8 +86,6 @@ trait QueryHelpers
 
     /**
      * Undocumented function
-     *
-     * @return boolean
      */
     public function hasExtraWithSums(): bool
     {
@@ -108,8 +104,6 @@ trait QueryHelpers
 
     /**
      * Undocumented function
-     *
-     * @return boolean
      */
     public function hasExtraWithAvgs(): bool
     {
@@ -128,8 +122,6 @@ trait QueryHelpers
 
     /**
      * Undocumented function
-     *
-     * @return boolean
      */
     public function getEagerLoadAllRelationsStatus(): bool
     {
@@ -138,8 +130,6 @@ trait QueryHelpers
 
     /**
      * Undocumented function
-     *
-     * @return boolean
      */
     public function eagerLoadAllRelationsIsEnabled(): bool
     {
@@ -148,8 +138,6 @@ trait QueryHelpers
 
     /**
      * Undocumented function
-     *
-     * @return boolean
      */
     public function eagerLoadAllRelationsIsDisabled(): bool
     {
@@ -159,11 +147,10 @@ trait QueryHelpers
     protected function includePrimaryKeyInQuery(): void
     {
         $builder = $this->getBuilder();
-        
-        $pkField = $builder->getModel()->getTable().".".$this->getPrimaryKey(). ' as '.$this->getPrimaryKey();
 
-        if(!in_array($pkField, $builder->getQuery()->columns ?? []))
-        {
+        $pkField = $builder->getModel()->getTable().'.'.$this->getPrimaryKey().' as '.$this->getPrimaryKey();
+
+        if (! in_array($pkField, $builder->getQuery()->columns ?? [])) {
             $this->setBuilder($builder->addSelect($pkField));
         }
     }

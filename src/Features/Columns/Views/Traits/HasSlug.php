@@ -12,10 +12,10 @@ trait HasSlug
 
     public function setDefaultSlug(): self
     {
-        if(!isset($this->slug))
-        {
+        if (! isset($this->slug)) {
             $this->slug = Str::slug($this->hasCustomSlug() ? $this->getCustomSlug() : $this->getTitle());
         }
+
         return $this;
     }
 

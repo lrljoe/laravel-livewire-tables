@@ -3,11 +3,11 @@
 namespace Rappasoft\LaravelLivewireTables\Tests\Unit\Traits\Helpers;
 
 use Rappasoft\LaravelLivewireTables\Exceptions\NoColumnsException;
+use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\TextFilter;
 use Rappasoft\LaravelLivewireTables\Tests\Http\Livewire\PetsTable;
 use Rappasoft\LaravelLivewireTables\Tests\Models\Pet;
 use Rappasoft\LaravelLivewireTables\Tests\TestCase;
-use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
-use Rappasoft\LaravelLivewireTables\Features\Filters\Views\TextFilter;
 
 final class ColumnHelpersTest extends TestCase
 {
@@ -79,7 +79,7 @@ final class ColumnHelpersTest extends TestCase
 
         ksort($selectable);
 
-        $default = ['name','breed.name'];
+        $default = ['name', 'breed.name'];
         ksort($default);
 
         $this->assertSame(array_values($default), array_values($selectable));

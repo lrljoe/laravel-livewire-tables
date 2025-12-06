@@ -191,6 +191,7 @@ final class BulkActionsVisualsTest extends TestCase
             {
                 $this->setDataTableFingerprint('tabletest123');
             }
+
             public function configure(): void
             {
                 $this->setPrimaryKey('id')
@@ -238,7 +239,7 @@ final class BulkActionsVisualsTest extends TestCase
                 return $items;
             }
         };
-        
+
         $fingerprint = $class->getDataTableFingerprint();
         Livewire::test($class)->assertSee('Bulk Actions')
             ->assertSeeHtmlInOrder([
@@ -280,14 +281,14 @@ final class BulkActionsVisualsTest extends TestCase
                 return $items;
             }
         };
-        
+
         $fingerprint = $class->getDataTableFingerprint();
         Livewire::test($class)->assertSee('Bulk Actions')
             ->assertSeeHtmlInOrder([
                 'scope="col"',
                 'class="table-cell px-3 py-2 md:px-6 md:py-3 text-center md:text-left laravel-livewire-tables-reorderingMinimised bg-yellow-500 dark:bg-yellow-800"',
                 'wire:key="'.$fingerprint.'-thead-bulk-actions"',
-        ]);
+            ]);
     }
 
     public function test_bulk_dropdown_can_have_customised_classes_with_default_colors(): void
@@ -318,11 +319,11 @@ final class BulkActionsVisualsTest extends TestCase
         $fingerprint = $class->getDataTableFingerprint();
 
         Livewire::test($class)->assertSee('Bulk Actions')
-        ->assertSeeHtmlInOrder([
-            'scope="col"',
-            'class="bg-gray-50 dark:bg-gray-800 text-lg"',
-            'wire:key="'.$fingerprint.'-thead-bulk-actions"',
-        ]);
+            ->assertSeeHtmlInOrder([
+                'scope="col"',
+                'class="bg-gray-50 dark:bg-gray-800 text-lg"',
+                'wire:key="'.$fingerprint.'-thead-bulk-actions"',
+            ]);
     }
 
     public function test_bulk_dropdown_can_have_customised_classes_with_defaults(): void
@@ -358,12 +359,12 @@ final class BulkActionsVisualsTest extends TestCase
         };
 
         $fingerprint = $class->getDataTableFingerprint();
-        
+
         Livewire::test($class)->assertSee('Bulk Actions')
-        ->assertSeeHtmlInOrder([
+            ->assertSeeHtmlInOrder([
                 'scope="col"',
                 'class="table-cell px-3 py-2 md:px-6 md:py-3 text-center md:text-left laravel-livewire-tables-reorderingMinimised bg-gray-50 dark:bg-gray-800 text-lg"',
                 'wire:key="'.$fingerprint.'-thead-bulk-actions"',
-        ]);
+            ]);
     }
 }

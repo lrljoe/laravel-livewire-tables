@@ -21,9 +21,7 @@ trait WithCustomisations
     /**
      * Undocumented function
      *
-     * @param \Illuminate\View\View $view
-     * @param array<mixed> $data
-     * @return void
+     * @param  array<mixed>  $data
      */
     public function renderingWithCustomisations(\Illuminate\View\View $view, array $data = []): void
     {

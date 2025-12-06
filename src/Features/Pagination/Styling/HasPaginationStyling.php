@@ -49,8 +49,7 @@ trait HasPaginationStyling
     /**
      * Undocumented function
      *
-     * @param array<mixed> $attributes
-     * @return self
+     * @param  array<mixed>  $attributes
      */
     public function setPerPageFieldAttributes(array $attributes = []): self
     {
@@ -62,8 +61,7 @@ trait HasPaginationStyling
     /**
      * Undocumented function
      *
-     * @param array<mixed> $paginationWrapperAttributes
-     * @return self
+     * @param  array<mixed>  $paginationWrapperAttributes
      */
     public function setPaginationWrapperAttributes(array $paginationWrapperAttributes): self
     {

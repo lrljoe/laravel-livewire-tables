@@ -14,23 +14,16 @@ trait HandlesSearchStatus
         return $this->searchStatus;
     }
 
-    
-    
     /**
      * Undocumented function
-     * 
-     * @return boolean
      */
     public function showSearchField(): bool
     {
         return $this->searchIsEnabled() && $this->searchVisibilityIsEnabled();
     }
 
-    
     /**
      * Undocumented function
-     * 
-     * @return boolean
      */
     public function searchIsEnabled(): bool
     {

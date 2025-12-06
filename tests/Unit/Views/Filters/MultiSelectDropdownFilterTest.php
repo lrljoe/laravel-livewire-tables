@@ -5,8 +5,8 @@ namespace Rappasoft\LaravelLivewireTables\Tests\Unit\Views\Filters;
 use Illuminate\Database\Eloquent\Builder;
 use PHPUnit\Framework\Attributes\Depends;
 use PHPUnit\Framework\Attributes\Group;
-use Rappasoft\LaravelLivewireTables\Tests\TestCase;
 use Rappasoft\LaravelLivewireTables\Features\Filters\Views\MultiSelectDropdownFilter;
+use Rappasoft\LaravelLivewireTables\Tests\TestCase;
 
 #[Group('Filters')]
 final class MultiSelectDropdownFilterTest extends FilterTestCase

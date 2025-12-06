@@ -7,11 +7,8 @@ use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
 
 trait HandlesColumnSelectStatus
 {
-
     /**
      * Determines if Column Select should be in use
-     *
-     * @var boolean
      */
     protected bool $columnSelectStatus = true;
 
@@ -29,13 +26,11 @@ trait HandlesColumnSelectStatus
 
     protected function setColumnSelectDisabled(): self
     {
-       return $this->setColumnSelectStatus(false);
+        return $this->setColumnSelectStatus(false);
     }
 
     /**
      * Undocumented function
-     *
-     * @return boolean
      */
     public function getColumnSelectStatus(): bool
     {
@@ -44,8 +39,6 @@ trait HandlesColumnSelectStatus
 
     /**
      * Undocumented function
-     *
-     * @return boolean
      */
     #[Computed]
     public function columnSelectIsEnabled(): bool
@@ -55,12 +48,9 @@ trait HandlesColumnSelectStatus
 
     /**
      * Undocumented function
-     *
-     * @return boolean
      */
     public function columnSelectIsDisabled(): bool
     {
         return $this->getColumnSelectStatus() === false;
     }
-
 }

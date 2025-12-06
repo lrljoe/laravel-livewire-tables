@@ -6,15 +6,11 @@ trait WithDebugging
 {
     /**
      * Dump table properties for debugging
-     *
-     * @var boolean
      */
     protected bool $debugStatus = false;
 
     /**
      * Get Debug Status
-     *
-     * @return boolean
      */
     public function getDebugStatus(): bool
     {
@@ -23,8 +19,6 @@ trait WithDebugging
 
     /**
      * Check if Debug Is Enabled
-     *
-     * @return boolean
      */
     public function debugIsEnabled(): bool
     {
@@ -33,8 +27,6 @@ trait WithDebugging
 
     /**
      * Check if Debug Is Disabled
-     *
-     * @return boolean
      */
     public function debugIsDisabled(): bool
     {
@@ -43,9 +35,6 @@ trait WithDebugging
 
     /**
      * Set Debug Mode Status for the Table
-     *
-     * @param boolean $debugStatus
-     * @return self
      */
     public function setDebugStatus(bool $debugStatus): self
     {
@@ -56,8 +45,6 @@ trait WithDebugging
 
     /**
      * Enable Debug Mode for the Table
-     *
-     * @return self
      */
     public function setDebugEnabled(): self
     {
@@ -66,8 +53,6 @@ trait WithDebugging
 
     /**
      * Disable Debug Mode for the Table
-     *
-     * @return self
      */
     public function setDebugDisabled(): self
     {

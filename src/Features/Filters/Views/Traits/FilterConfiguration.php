@@ -7,8 +7,7 @@ trait FilterConfiguration
     /**
      * Sets Generic Filter Data
      *
-     * @param array<mixed> $genericDisplayData
-     * @return self
+     * @param  array<mixed>  $genericDisplayData
      */
     public function setGenericDisplayData(array $genericDisplayData = []): self
     {

@@ -2,17 +2,15 @@
 
 namespace Rappasoft\LaravelLivewireTables\Features\ColumnSelect\Configuration;
 
-use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
 use Rappasoft\LaravelLivewireTables\Collections\ColumnCollection;
+use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
 
 trait ColumnSelectConfiguration
 {
-
-
     public function setExcludeDeselectedColumnsFromQuery(bool $status): self
     {
         $this->columnSelectConfig['excludeDeselectedColumnsFromQuery'] = $status;
-        
+
         return $this;
     }
 

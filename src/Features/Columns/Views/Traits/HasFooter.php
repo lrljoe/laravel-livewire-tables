@@ -66,9 +66,7 @@ trait HasFooter
     /**
      * Undocumented function
      *
-     * @param mixed $rows
-     * @param array<mixed> $filterGenericData
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\View\Factory|\Illuminate\View\View|string|HtmlString
+     * @param  array<mixed>  $filterGenericData
      */
     public function getFooterContents(mixed $rows, array $filterGenericData): \Illuminate\Contracts\Foundation\Application|\Illuminate\View\Factory|\Illuminate\View\View|string|HtmlString
     {
@@ -119,9 +117,7 @@ trait HasFooter
     /**
      * Undocumented function
      *
-     * @param Filter|null $filter
-     * @param array<mixed> $filterGenericData
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\View\Factory|\Illuminate\View\View|string
+     * @param  array<mixed>  $filterGenericData
      */
     public function getFooterFilter(?Filter $filter, array $filterGenericData): \Illuminate\Contracts\Foundation\Application|\Illuminate\View\Factory|\Illuminate\View\View|string
     {

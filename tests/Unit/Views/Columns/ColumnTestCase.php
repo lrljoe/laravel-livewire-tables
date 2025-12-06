@@ -54,5 +54,4 @@ abstract class ColumnTestCase extends TestCase
         $this->assertSame('1-2', self::$columnInstance->getSortingPillDirection($this->basicTable, 'asc'));
         $this->assertSame('2-1', self::$columnInstance->getSortingPillDirection($this->basicTable, 'desc'));
     }
-
 }

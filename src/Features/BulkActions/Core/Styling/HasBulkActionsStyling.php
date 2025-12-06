@@ -35,14 +35,12 @@ trait HasBulkActionsStyling
      */
     protected ?array $bulkActionsMenuTransitionAttributes;
 
-
     /**
      * Attributes for the Bulk Actions Button
      *
      * @var array<mixed>
      */
     protected array $bulkActionsButtonAttributes = ['default-colors' => true, 'default-styling' => true];
-
 
     /**
      * Used to get attributes for the Bulk Actions Button
@@ -58,8 +56,6 @@ trait HasBulkActionsStyling
 
     /**
      * Used to get attributes for the Bulk Actions Button
-     *
-     * @return ComponentAttributeBag
      */
     #[Computed]
     public function getBulkActionsButtonAttributesBag(): ComponentAttributeBag
@@ -85,13 +81,12 @@ trait HasBulkActionsStyling
      */
     protected function getBulkActionsMenuTransitionAttributes(): array
     {
-        if($this->isTailwind() || $this->isTailwind4())
-        {
+        if ($this->isTailwind() || $this->isTailwind4()) {
             return isset($this->bulkActionsMenuTransitionAttributes) ? $this->bulkActionsMenuTransitionAttributes : $this->getCoreTransitionAttributes();
         }
+
         return [];
     }
-
 
     /**
      * Used to get attributes for the items in the Bulk Actions Menu (Dropdown)
@@ -105,14 +100,12 @@ trait HasBulkActionsStyling
 
     }
 
-
     /**
      * Used to set attributes for the Bulk Actions Menu Button
      *
-     * @param array<mixed> $bulkActionsButtonAttributes
-     * @return self
+     * @param  array<mixed>  $bulkActionsButtonAttributes
      */
-     public function setBulkActionsButtonAttributes(array $bulkActionsButtonAttributes): self
+    public function setBulkActionsButtonAttributes(array $bulkActionsButtonAttributes): self
     {
         return $this->setCustomAttributes('bulkActionsButtonAttributes', $bulkActionsButtonAttributes);
     }
@@ -120,10 +113,9 @@ trait HasBulkActionsStyling
     /**
      * Used to set attributes for the Bulk Actions Menu
      *
-     * @param array<mixed> $bulkActionsMenuAttributes
-     * @return self
+     * @param  array<mixed>  $bulkActionsMenuAttributes
      */
-     public function setBulkActionsMenuAttributes(array $bulkActionsMenuAttributes): self
+    public function setBulkActionsMenuAttributes(array $bulkActionsMenuAttributes): self
     {
         return $this->setCustomAttributes('bulkActionsMenuAttributes', $bulkActionsMenuAttributes);
     }
@@ -131,12 +123,10 @@ trait HasBulkActionsStyling
     /**
      * Used to set attributes for the Bulk Actions Menu Items
      *
-     * @param array<mixed> $bulkActionsMenuItemAttributes
-     * @return self
+     * @param  array<mixed>  $bulkActionsMenuItemAttributes
      */
     public function setBulkActionsMenuItemAttributes(array $bulkActionsMenuItemAttributes): self
     {
         return $this->setCustomAttributes('bulkActionsMenuItemAttributes', $bulkActionsMenuItemAttributes);
     }
-
 }

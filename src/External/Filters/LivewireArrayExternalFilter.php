@@ -26,14 +26,16 @@ abstract class LivewireArrayExternalFilter extends Component
      *
      * @var array<mixed>
      */
-     #[Locked]
+    #[Locked]
     public array $optionsAvailable = [];
+
     /**
      * Undocumented variable
      *
      * @var array<mixed>
      */
     public array $optionsSelected = [];
+
     /**
      * Undocumented variable
      *

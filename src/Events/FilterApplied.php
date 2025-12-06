@@ -12,9 +12,7 @@ class FilterApplied extends LaravelLivewireTablesEvent
     /**
      * Undocumented function
      *
-     * @param string $tableName
-     * @param string $key
-     * @param string|array<mixed>|null|null $value
+     * @param  string|array<mixed>|null|null  $value
      */
     public function __construct(string $tableName, string $key, string|array|null $value = null)
     {

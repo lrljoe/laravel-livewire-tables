@@ -6,17 +6,15 @@ trait IsArrayFilter
 {
     /**
      * The separator used for the Filter Pills values for this filter
-     *
-     * @var string
      */
     public string $pillsSeparator = ', ';
 
     /**
      * Get the filter default options.
      *
-     * @return array<mixed> 
+     * @return array<mixed>
      */
-     public function getDefaultValue(): array
+    public function getDefaultValue(): array
     {
         return [];
     }
@@ -24,18 +22,15 @@ trait IsArrayFilter
     /**
      * Gets the Default Value for this Filter via the Component
      *
-     * @return array<mixed> 
+     * @return array<mixed>
      */
-     public function getFilterDefaultValue(): array
+    public function getFilterDefaultValue(): array
     {
         return $this->filterDefaultValue ?? [];
     }
 
     /**
      * Checks if the Filter Value is empty
-     *
-     * @param mixed $value
-     * @return boolean
      */
     public function isEmpty(mixed $value): bool
     {
@@ -48,8 +43,6 @@ trait IsArrayFilter
 
     /**
      * Retrieves the separator string for the Filter Pills for this filter
-     *
-     * @return string
      */
     public function getPillsSeparator(): string
     {
@@ -58,9 +51,6 @@ trait IsArrayFilter
 
     /**
      * Sets the separator string for the Filter Pills for this filter
-     *
-     * @param string $pillsSeparator
-     * @return self
      */
     public function setPillsSeparator(string $pillsSeparator): self
     {

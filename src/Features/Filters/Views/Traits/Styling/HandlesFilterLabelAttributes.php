@@ -4,7 +4,6 @@ namespace Rappasoft\LaravelLivewireTables\Features\Filters\Views\Traits\Styling;
 
 use Illuminate\View\ComponentAttributeBag;
 
-
 trait HandlesFilterLabelAttributes
 {
     /**
@@ -29,8 +28,6 @@ trait HandlesFilterLabelAttributes
 
     /**
      * Undocumented function
-     *
-     * @return boolean
      */
     public function hasFilterLabelAttributes(): bool
     {
@@ -40,8 +37,7 @@ trait HandlesFilterLabelAttributes
     /**
      * Undocumented function
      *
-     * @param array<mixed> $filterLabelAttributes
-     * @return self
+     * @param  array<mixed>  $filterLabelAttributes
      */
     public function setFilterLabelAttributes(array $filterLabelAttributes): self
     {

@@ -6,16 +6,13 @@ use Rappasoft\LaravelLivewireTables\Events\ColumnsSelected;
 
 trait HandlesColumnSelectDropdown
 {
-
     /**
      * Select All Columns
-     *
-     * @return void
      */
     public function selectAllColumns(): void
     {
         $this->selectedColumns = $this->columnSelectConfig['selected'] = $this->columnSelectConfig['selectableColumns'] = [];
-        
+
         foreach ($this->getSelectableColumns() as $column) {
             $this->columnSelectConfig['selected'][] = $this->selectedColumns[] = $column->getSlug();
             $this->columnSelectConfig['selectableColumns'][$column->getSlug()] = in_array($column->getSlug(), $this->selectedColumns, true);
@@ -30,8 +27,6 @@ trait HandlesColumnSelectDropdown
 
     /**
      * Deselect All Columns
-     *
-     * @return void
      */
     public function deselectAllColumns(): void
     {
@@ -51,19 +46,13 @@ trait HandlesColumnSelectDropdown
 
     /**
      * Toggle Columns Between All and None
-     *
-     * @return void
      */
     public function toggleAllColumns(): void
     {
-        if ($this->getSelectableSelectedColumns()->count() == $this->getSelectableColumns()->count())
-        {
+        if ($this->getSelectableSelectedColumns()->count() == $this->getSelectableColumns()->count()) {
             $this->deselectAllColumns();
-        }
-        else
-        {
+        } else {
             $this->selectAllColumns();
         }
     }
-
 }

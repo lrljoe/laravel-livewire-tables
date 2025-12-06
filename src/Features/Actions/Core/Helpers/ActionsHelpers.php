@@ -3,15 +3,13 @@
 namespace Rappasoft\LaravelLivewireTables\Features\Actions\Core\Helpers;
 
 use Livewire\Attributes\Computed;
-use Rappasoft\LaravelLivewireTables\Features\Actions\Views\Action;
 use Rappasoft\LaravelLivewireTables\Collections\ActionCollection;
+use Rappasoft\LaravelLivewireTables\Features\Actions\Views\Action;
 
 trait ActionsHelpers
 {
     /**
      * Undocumented function
-     *
-     * @return boolean
      */
     #[Computed]
     public function showActionsInToolbarLeft(): bool
@@ -21,8 +19,6 @@ trait ActionsHelpers
 
     /**
      * Undocumented function
-     *
-     * @return boolean
      */
     #[Computed]
     public function showActionsInToolbarRight(): bool
@@ -32,8 +28,6 @@ trait ActionsHelpers
 
     /**
      * Determines whether to display the Actions in the Toolbar
-     *
-     * @return boolean
      */
     #[Computed]
     public function showActionsInToolbar(): bool
@@ -43,18 +37,15 @@ trait ActionsHelpers
 
     /**
      * Determines whether to display the Actions in a Dropdown in the Toolbar by default
-     *
-     * @return boolean
      */
     #[Computed]
     public function showActionsAsDropdown(): bool
     {
         return $this->displayActionsAsDropdown ?? false;
     }
+
     /**
      * Retrieves the position of the Actions (e.g. left/right)
-     *
-     * @return string
      */
     #[Computed]
     public function getActionsPosition(): string
@@ -64,8 +55,6 @@ trait ActionsHelpers
 
     /**
      * Returns whether there are any valid actions
-     *
-     * @return boolean
      */
     #[Computed]
     public function hasActions(): bool
@@ -86,9 +75,9 @@ trait ActionsHelpers
     public function getActions(): ActionCollection
     {
         return (new ActionCollection($this->actions()))
-                ->each(function (Action $action, int $key) {
-                    $action->setTheme($this->getTheme());
-                });
+            ->each(function (Action $action, int $key) {
+                $action->setTheme($this->getTheme());
+            });
 
     }
 }

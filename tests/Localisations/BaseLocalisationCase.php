@@ -2,11 +2,11 @@
 
 namespace Rappasoft\LaravelLivewireTables\Tests\Localisations;
 
+use Generator;
+use Illuminate\Support\Facades\File;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Rappasoft\LaravelLivewireTables\Tests\Models\Pet;
 use Rappasoft\LaravelLivewireTables\Tests\TestCase;
-use Illuminate\Support\Facades\File;
-use Generator;
 
 class BaseLocalisationCase extends TestCase
 {
@@ -27,7 +27,6 @@ class BaseLocalisationCase extends TestCase
 
         return $items[$key] ?? null;
     }
-
 
     public static function getLocaleStrings($locale): array
     {
@@ -131,21 +130,22 @@ class BaseLocalisationCase extends TestCase
         return $localisations;
     }
 
-    public static function localisationProviderList() 
+    public static function localisationProviderList()
     {
         $locales = [];
-        $locales[] = ['locale' => 'en', 'keys' =>array_keys(self::getEnLocaleStrings())];
+        $locales[] = ['locale' => 'en', 'keys' => array_keys(self::getEnLocaleStrings())];
+
         return $locales;
     }
 
-    public static function localisationKeyList() 
+    public static function localisationKeyList()
     {
         $tem = self::getEnLocaleStrings();
         $keys = [];
-        foreach($tem as $key => $val)
-        {
+        foreach ($tem as $key => $val) {
             $keys[] = $key;
         }
+
         return $keys;
     }
 
@@ -163,7 +163,6 @@ class BaseLocalisationCase extends TestCase
             'es',
         ];
         // return $availableLocales;
-
 
         return $localisations;
     }
@@ -211,6 +210,4 @@ class BaseLocalisationCase extends TestCase
 
         return $localisations;
     }
-
-
 }

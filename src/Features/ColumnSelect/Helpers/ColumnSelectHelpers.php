@@ -3,35 +3,26 @@
 namespace Rappasoft\LaravelLivewireTables\Features\ColumnSelect\Helpers;
 
 use Livewire\Attributes\Computed;
-use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
 use Rappasoft\LaravelLivewireTables\Collections\ColumnCollection;
+use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
 
 trait ColumnSelectHelpers
 {
-
     /**
      * Undocumented function
-     *
-     * @param string|Column $column
-     * @return boolean
      */
     public function columnSelectIsEnabledForColumn(string|Column $column): bool
     {
-        return !empty($this->selectedColumns) && in_array($column instanceof Column ? $column->getSlug() : $column, $this->selectedColumns, true);
+        return ! empty($this->selectedColumns) && in_array($column instanceof Column ? $column->getSlug() : $column, $this->selectedColumns, true);
     }
-
-
 
     /**
      * Undocumented function
-     *
-     * @return boolean
      */
     public function getExcludeDeselectedColumnsFromQuery(): bool
     {
         return $this->columnSelectConfig['excludeDeselectedColumnsFromQuery'];
     }
-
 
     /**
      * Generate the Column Selectable Array
@@ -41,13 +32,12 @@ trait ColumnSelectHelpers
     public function generateColumnSelect(): array
     {
         $items = [];
-        foreach($this->getSelectableColumns() as $col)
-        {
-           $items[strval($col->getSlug())] = in_array(strval($col->getSlug()), $this->selectedColumns ?? []);
+        foreach ($this->getSelectableColumns() as $col) {
+            $items[strval($col->getSlug())] = in_array(strval($col->getSlug()), $this->selectedColumns ?? []);
         }
+
         return $items;
     }
-
 
     /**
      * Generate the Column Select Options
@@ -57,15 +47,14 @@ trait ColumnSelectHelpers
     public function generateColumnSelectItems(): array
     {
         $items = [];
-        foreach($this->getSelectableColumns() as $col)
-        {
+        foreach ($this->getSelectableColumns() as $col) {
             $stringSlug = strval($col->getSlug());
 
             $items[$stringSlug] = ['selected' => in_array($stringSlug, $this->selectedColumns ?? []), 'slug' => $stringSlug, 'title' => $col->getColumnSelectTitle()];
         }
+
         return $items;
     }
-    
 
     /**
      * Undocumented function
@@ -88,11 +77,11 @@ trait ColumnSelectHelpers
      */
     public function getSelectableSelectedColumns(): ColumnCollection
     {
-        
+
         return $this->getColumns()
             ->visible()
             ->selectable()
-            ->reject(fn (Column $column) => !in_array($column->getSlug(), $this->selectedColumns ?? []))
+            ->reject(fn (Column $column) => ! in_array($column->getSlug(), $this->selectedColumns ?? []))
             ->rejectInvisibleWhileReordering($this->currentlyReorderingIsEnabled())
             ->values();
     }
@@ -117,8 +106,7 @@ trait ColumnSelectHelpers
      * @return array<mixed>
      */
     public function getSelectedColumns(): array
-    {       
-
+    {
 
         return $this->selectedColumns ?? [];
     }
@@ -149,7 +137,7 @@ trait ColumnSelectHelpers
         return $this->getColumns()
             ->visible()
             ->selectable()
-            ->reject(fn (Column $column) => !$column->isSelectable() || ! $this->columnSelectIsEnabledForColumn($column))
+            ->reject(fn (Column $column) => ! $column->isSelectable() || ! $this->columnSelectIsEnabledForColumn($column))
             ->rejectInvisibleWhileReordering($this->currentlyReorderingIsEnabled())
             ->keyBy(function (Column $column, int $key) {
                 return $column->getSlug();
@@ -174,7 +162,7 @@ trait ColumnSelectHelpers
         return $this->getColumns()
             ->visible()
             ->reject(fn (Column $column) => $column->isSelectable() && ! $column->isSelected())
-            ->reject(fn (Column $column) => !$column->isSelectable())
+            ->reject(fn (Column $column) => ! $column->isSelectable())
             ->rejectInvisibleWhileReordering($this->currentlyReorderingIsEnabled())
             ->map(fn ($column) => $column->getSlug())
             ->values()
@@ -183,8 +171,6 @@ trait ColumnSelectHelpers
 
     /**
      * Undocumented function
-     *
-     * @return boolean
      */
     public function getAllColumnsAreSelected(): bool
     {
@@ -220,9 +206,9 @@ trait ColumnSelectHelpers
             ->reject(fn (Column $column) => ($column->isSelectable() && ! $this->columnSelectIsEnabledForColumn($column)))
             ->rejectInvisibleWhileReordering($this->currentlyReorderingIsEnabled())
             ->values()
-            ->select(['slug','hash'])
+            ->select(['slug', 'hash'])
             ->toArray();
-        
+
     }
 
     public function selectedVisibleColumnsData(): array
@@ -230,20 +216,19 @@ trait ColumnSelectHelpers
         $default = ['hasTextAlign' => false, 'textAlign' => $this->getDefaultBodyTextAlign(), 'hasTdAttributesCallback' => isset($this->tdAttributesCallback)];
 
         $stuff = [];
-        foreach($this->getColumns()
+        foreach ($this->getColumns()
             ->visible()
             ->reject(fn (Column $column) => ($column->isSelectable() && ! $this->columnSelectIsEnabledForColumn($column)))
             ->rejectInvisibleWhileReordering($this->currentlyReorderingIsEnabled())
-            ->values() as $col)
-            {
-                $stuff[$col->getHash()] = array_merge($default, $col->getTdArray());
-            }
+            ->values() as $col) {
+            $stuff[$col->getHash()] = array_merge($default, $col->getTdArray());
+        }
+
         return $stuff;
     }
+
     /**
      * Undocumented function
-     *
-     * @return boolean
      */
     public function allVisibleColumnsAreSelected(): bool
     {
@@ -252,8 +237,6 @@ trait ColumnSelectHelpers
 
     /**
      * Undocumented function
-     *
-     * @return boolean
      */
     public function allSelectedColumnsAreVisibleByDefault(): bool
     {
@@ -262,8 +245,6 @@ trait ColumnSelectHelpers
 
     /**
      * Undocumented function
-     *
-     * @return void
      */
     public function setupColumnSelect(): void
     {
@@ -294,7 +275,7 @@ trait ColumnSelectHelpers
                 $selectedColumns[] = $column->getSlug();
             }
         }*/
-        //$this->selectedColumns = $selectedColumns;
+        // $this->selectedColumns = $selectedColumns;
         // $this->storeColumnSelectValues();
     }
 
@@ -320,8 +301,6 @@ trait ColumnSelectHelpers
 
     /**
      * Undocumented function
-     *
-     * @return void
      */
     protected function setupFirstColumnSelectRun(): void
     {
@@ -339,21 +318,16 @@ trait ColumnSelectHelpers
 
     /**
      * Determines if a Column Is Selected - used in ColumnConfiguration to add Array/Aggregate withs
-     *
-     * @param Column $column
-     * @return boolean
      */
     public function columnIsSelected(Column $column): bool
     {
-        if($this->columnSelectIsDisabled() || !$column->isSelectable())
-        {
+        if ($this->columnSelectIsDisabled() || ! $column->isSelectable()) {
             return true;
         }
-        if ((empty($this->selectedColumns) && $column->isSelected()) || in_array($column->getSlug(), $this->selectedColumns))
-        {
+        if ((empty($this->selectedColumns) && $column->isSelected()) || in_array($column->getSlug(), $this->selectedColumns)) {
             return true;
         }
+
         return false;
     }
-
 }

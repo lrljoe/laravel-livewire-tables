@@ -2,7 +2,6 @@
 
 namespace Rappasoft\LaravelLivewireTables\Views\Traits\Core;
 
-
 trait HasWireables
 {
     protected function checkWireMethod(string $wireMethod): string

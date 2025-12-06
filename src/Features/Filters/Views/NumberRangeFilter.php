@@ -4,7 +4,6 @@ namespace Rappasoft\LaravelLivewireTables\Features\Filters\Views;
 
 use Rappasoft\LaravelLivewireTables\Features\Filters\Views\Traits\{HasOptions, HasWireables};
 
-
 class NumberRangeFilter extends Filter
 {
     use HasOptions;
@@ -12,30 +11,23 @@ class NumberRangeFilter extends Filter
 
     /**
      * Undocumented variable
-     *
-     * @var string
      */
     public string $wireMethod = 'blur';
 
     /**
      * The path to the view for this filter
-     *
-     * @var string
      */
     protected string $view = 'livewire-tables::components.tools.filters.number-range';
 
     /**
      * Undocumented variable
-     *
-     * @var string
      */
     protected string $configPath = 'livewire-tables.numberRange.defaultConfig';
 
     /**
      * Undocumented function
      *
-     * @param array<mixed> $options
-     * @return NumberRangeFilter
+     * @param  array<mixed>  $options
      */
     public function options(array $options = []): NumberRangeFilter
     {
@@ -57,8 +49,7 @@ class NumberRangeFilter extends Filter
     /**
      * Undocumented function
      *
-     * @param array<mixed> $config
-     * @return NumberRangeFilter
+     * @param  array<mixed>  $config
      */
     public function config(array $config = []): NumberRangeFilter
     {
@@ -80,8 +71,8 @@ class NumberRangeFilter extends Filter
     /**
      * Validates that the value received by the Filter is valid
      *
-     * @param array<mixed> $values
-     * @return array<mixed>|boolean
+     * @param  array<mixed>  $values
+     * @return array<mixed>|bool
      */
     public function validate(array $values): array|bool
     {
@@ -109,8 +100,7 @@ class NumberRangeFilter extends Filter
     /**
      * Checks if the Filter Value is empty
      *
-     * @param array<mixed>|string $value
-     * @return boolean
+     * @param  array<mixed>|string  $value
      */
     public function isEmpty(array|string $value): bool
     {
@@ -142,8 +132,8 @@ class NumberRangeFilter extends Filter
     /**
      * Retrieves the Filter Value for use in the Filter Pills area
      *
-     * @param mixed $values
-     * @return array<mixed>|string|boolean|null
+     * @param  mixed  $values
+     * @return array<mixed>|string|bool|null
      */
     public function getFilterPillValue($values): array|string|bool|null
     {
@@ -158,5 +148,4 @@ class NumberRangeFilter extends Filter
     {
         $this->config(config($this->configPath));
     }
-
 }

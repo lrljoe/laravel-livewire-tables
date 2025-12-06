@@ -4,7 +4,6 @@ namespace Rappasoft\LaravelLivewireTables\Tests\Unit\Views\Columns\Concerns;
 
 trait ProvidesTestsForColumnTextAlignment
 {
-
     public function test_can_validate_text_align_presence(): void
     {
         $test = self::$columnInstance;
@@ -22,7 +21,7 @@ trait ProvidesTestsForColumnTextAlignment
         $this->assertFalse($test->hasTextAlign());
         $test->setTextAlignLeft();
         $this->assertTrue($test->hasTextAlign());
-        $this->assertSame('left',$test->getTextAlign());
+        $this->assertSame('left', $test->getTextAlign());
 
     }
 
@@ -32,7 +31,7 @@ trait ProvidesTestsForColumnTextAlignment
         $this->assertFalse($test->hasTextAlign());
         $test->setTextAlignCenter();
         $this->assertTrue($test->hasTextAlign());
-        $this->assertSame('center',$test->getTextAlign());
+        $this->assertSame('center', $test->getTextAlign());
 
     }
 
@@ -42,7 +41,7 @@ trait ProvidesTestsForColumnTextAlignment
         $this->assertFalse($test->hasTextAlign());
         $test->setTextAlignRight();
         $this->assertTrue($test->hasTextAlign());
-        $this->assertSame('right',$test->getTextAlign());
+        $this->assertSame('right', $test->getTextAlign());
     }
 
     public function test_can_not_set_invalid_text_align(): void
@@ -60,7 +59,6 @@ trait ProvidesTestsForColumnTextAlignment
         $this->assertFalse($test->hasTextAlign());
         $test->setTextAlign('random');
         $this->assertFalse($test->hasTextAlign());
-        $this->assertSame('random',$test->getTextAlign());
+        $this->assertSame('random', $test->getTextAlign());
     }
-
 }

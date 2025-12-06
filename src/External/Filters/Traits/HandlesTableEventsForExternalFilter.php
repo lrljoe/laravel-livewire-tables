@@ -6,20 +6,15 @@ use Livewire\Attributes\{On,Renderless};
 
 trait HandlesTableEventsForExternalFilter
 {
-    
     /**
      * Undocumented function
      *
-     * @param string $tableName
-     * @param string $filterKey
-     * @param string|array<mixed>|null $value
-     * @return void
+     * @param  string|array<mixed>|null  $value
      */
-    //#[On('filter-was-set')]
+    // #[On('filter-was-set')]
     public function Values(string $tableName, string $filterKey, string|array|null $value = []): void
     {
-        if(!is_array($value))
-        {
+        if (! is_array($value)) {
             $value = [$value];
         }
         if ($tableName == $this->tableName && $filterKey == $this->filterKey && $this->optionsSelected != $value) {
@@ -27,13 +22,10 @@ trait HandlesTableEventsForExternalFilter
         }
     }
 
-    
     /**
      * Undocumented function
      *
-     * @param \Illuminate\View\View $view
-     * @param array<mixed> $data
-     * @return void
+     * @param  array<mixed>  $data
      */
     #[Renderless]
     public function renderingHandlesTableEventsForExternalFilter(\Illuminate\View\View $view, array $data = []): void
@@ -46,5 +38,4 @@ trait HandlesTableEventsForExternalFilter
             $this->newOptionsAvailable = [];
         }
     }
-}            
-
+}

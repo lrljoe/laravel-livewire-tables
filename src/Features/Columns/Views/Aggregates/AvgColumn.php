@@ -10,16 +10,11 @@ class AvgColumn extends AggregateColumn
 
     /**
      * Undocumented variable
-     *
-     * @var string
      */
     public string $aggregateMethod = 'avg';
 
     /**
      * Undocumented function
-     *
-     * @param string $title
-     * @param string|null $from
      */
     public function __construct(string $title, ?string $from = null)
     {

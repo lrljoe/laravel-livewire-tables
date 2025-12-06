@@ -10,19 +10,15 @@ trait HasFilterLabel
 
     /**
      * Custom Label for the Filter
-     *
-     * @var string|null
      */
     protected ?string $filterCustomLabel = null;
 
     protected bool $showLabelInHeader = true;
+
     protected bool $showLabelInFooter = true;
 
     /**
      * Set a Custom Label for the Filter
-     *
-     * @param string $filterCustomLabel
-     * @return self
      */
     public function setCustomFilterLabel(string $filterCustomLabel): self
     {
@@ -49,9 +45,6 @@ trait HasFilterLabel
 
     /**
      * Show Filter Label in Secondary Header
-     *
-     * @param bool $status
-     * @return self
      */
     public function setShowLabelInHeader(bool $status): self
     {
@@ -62,9 +55,6 @@ trait HasFilterLabel
 
     /**
      * Show Filter Label in Footer
-     *
-     * @param bool $status
-     * @return self
      */
     public function setShowLabelInFooter(bool $status): self
     {
@@ -77,10 +67,9 @@ trait HasFilterLabel
     {
         return $this->showLabelInHeader ?? true;
     }
-    
+
     public function getShowLabelInFooter(): bool
     {
         return $this->showLabelInFooter ?? true;
     }
-
 }

@@ -4,7 +4,6 @@ namespace Rappasoft\LaravelLivewireTables\Features\Filters\Views\Traits\Styling;
 
 use Illuminate\View\ComponentAttributeBag;
 
-
 trait HandlesFilterInputAttributes
 {
     /**
@@ -16,8 +15,6 @@ trait HandlesFilterInputAttributes
 
     /**
      * Undocumented function
-     *
-     * @return ComponentAttributeBag
      */
     public function getInputAttributesBag(): ComponentAttributeBag
     {
@@ -54,8 +51,7 @@ trait HandlesFilterInputAttributes
     /**
      * Undocumented function
      *
-     * @param array<string,mixed> $filterInputAttributes
-     * @return self
+     * @param  array<string,mixed>  $filterInputAttributes
      */
     public function setInputAttributes(array $filterInputAttributes): self
     {
@@ -94,14 +90,14 @@ trait HandlesFilterInputAttributes
     /**
      * Undocumented function
      *
-     * @param array<string,mixed> $customAttributes
+     * @param  array<string,mixed>  $customAttributes
      * @return array<string,mixed>
      */
     protected function mergeCoreInputAttributes(array $customAttributes = []): array
     {
         $attributes = array_merge($this->getDefaultInputAttributes(), $customAttributes, $this->getFilterInputAttributes());
         ksort($attributes);
+
         return $attributes;
     }
-
 }
