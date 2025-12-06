@@ -8,14 +8,19 @@ trait ToolBarHelpers
 {
     /**
      * Undocumented function
+     *
+     * @return boolean
      */
     public function getToolBarStatus(): bool
     {
         return $this->toolBarStatus;
     }
 
+
     /**
      * Undocumented function
+     *
+     * @return boolean
      */
     #[Computed]
     public function shouldShowToolBar(): bool
@@ -45,6 +50,8 @@ trait ToolBarHelpers
 
     /**
      * Undocumented function
+     *
+     * @return boolean
      */
     #[Computed]
     public function displayToolbarPagination(): bool
@@ -54,19 +61,23 @@ trait ToolBarHelpers
 
     /**
      * Undocumented function
+     *
+     * @return boolean
      */
     #[Computed]
     public function displayToolbarSearch(): bool
     {
-        if (method_exists($this, 'searchIsEnabled') && method_exists($this, 'searchVisibilityIsEnabled')) {
+        if (method_exists($this, 'searchIsEnabled') && method_exists($this, 'searchVisibilityIsEnabled'))
+        {
             return $this->searchIsEnabled() && $this->searchVisibilityIsEnabled();
         }
-
         return false;
     }
 
     /**
      * Undocumented function
+     *
+     * @return boolean
      */
     #[Computed]
     public function displayToolbarFilters(): bool
@@ -76,6 +87,8 @@ trait ToolBarHelpers
 
     /**
      * Undocumented function
+     *
+     * @return boolean
      */
     protected function hasToolbarColumnSelect(): bool
     {
@@ -84,6 +97,8 @@ trait ToolBarHelpers
 
     /**
      * Undocumented function
+     *
+     * @return boolean
      */
     protected function hasToolbarReorder(): bool
     {
@@ -92,6 +107,8 @@ trait ToolBarHelpers
 
     /**
      * Undocumented function
+     *
+     * @return boolean
      */
     protected function hasToolbarConfigurableAreas(): bool
     {
@@ -100,6 +117,8 @@ trait ToolBarHelpers
 
     /**
      * Undocumented function
+     *
+     * @return boolean
      */
     protected function hasToolbarActions(): bool
     {
@@ -108,31 +127,48 @@ trait ToolBarHelpers
 
     /**
      * Undocumented function
+     *
+     * @param string $section
+     * @return boolean
      */
     public function showToolbarSection(string $section): bool
     {
-        if ($section == 'search') {
-            if (! method_exists($this, 'showSearchField')) {
+        if ($section == 'search')
+        {
+            if(!method_exists($this,'showSearchField'))
+            {
                 return false;
-            } else {
+            }
+            else
+            {
                 return $this->showSearchField();
             }
-        } elseif ($section == 'reorder') {
-            if (! method_exists($this, 'showReorderButton')) {
+        }
+        elseif ($section == 'reorder')
+        {
+            if(!method_exists($this,'showReorderButton'))
+            {
                 return false;
-            } else {
+            }
+            else
+            {
                 return $this->showReorderButton();
             }
-        } elseif ($section == 'filters') {
-            if (! method_exists($this, 'showFiltersButton')) {
+        }
+        elseif ($section == 'filters')
+        {
+            if(!method_exists($this,'showFiltersButton'))
+            {
                 return false;
-            } else {
+            }
+            else
+            {
                 return $this->showFiltersButton();
             }
         }
-
         return false;
     }
+
 
     /**
      * Undocumented function
@@ -143,15 +179,18 @@ trait ToolBarHelpers
     {
         $items = $startItems = $endItems = [];
 
-        if ($this->hasConfigurableAreaFor('toolbar-left-start')) {
+        if($this->hasConfigurableAreaFor('toolbar-left-start'))
+        {
             $startItems[] = 'toolbar-left-start';
         }
 
-        if ($this->hasConfigurableAreaFor('toolbar-left-end')) {
+        if($this->hasConfigurableAreaFor('toolbar-left-end'))
+        {
             $endItems[] = 'toolbar-left-end';
         }
 
-        if ($this->showActionsInToolbarLeft()) {
+        if($this->showActionsInToolbarLeft())
+        {
             $endItems[] = 'actions';
         }
 
@@ -167,20 +206,24 @@ trait ToolBarHelpers
     {
         $items = $startItems = $endItems = [];
 
-        if ($this->hasConfigurableAreaFor('toolbar-right-start')) {
+        if($this->hasConfigurableAreaFor('toolbar-right-start'))
+        {
             $startItems[] = 'toolbar-right-start';
         }
 
-        if ($this->hasConfigurableAreaFor('toolbar-right-end')) {
+        if($this->hasConfigurableAreaFor('toolbar-right-end'))
+        {
             $endItems[] = 'toolbar-right-end';
         }
 
-        if ($this->showActionsInToolbarRight()) {
+        if($this->showActionsInToolbarRight())
+        {
             $startItems[] = 'actions';
         }
 
         return [...$startItems, ...$this->toolbarItemsRight(), ...$endItems];
     }
+
 
     /**
      * Undocumented function
@@ -191,13 +234,15 @@ trait ToolBarHelpers
     {
         $items = [];
 
-        foreach ($this->getToolbarItemsLeft() as $key => $val) {
+        foreach($this->getToolbarItemsLeft() as $key => $val)
+        {
             $item = $this->getToolbarItemFor($val);
-            if (! empty($item)) {
+            if(!empty($item))
+            {
                 $items[] = $item;
             }
         }
-
+        
         return $items;
     }
 
@@ -210,9 +255,11 @@ trait ToolBarHelpers
     {
         $items = [];
 
-        foreach ($this->getToolbarItemsRight() as $key => $val) {
+        foreach($this->getToolbarItemsRight() as $key => $val)
+        {
             $item = $this->getToolbarItemFor($val);
-            if (! empty($item)) {
+            if(!empty($item))
+            {
                 $items[] = $item;
             }
         }
@@ -222,6 +269,8 @@ trait ToolBarHelpers
 
     /**
      * Undocumented function
+     *
+     * @return void
      */
     protected function setupToolbarItems(): void
     {

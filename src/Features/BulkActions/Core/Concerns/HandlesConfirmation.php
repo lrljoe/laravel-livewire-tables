@@ -2,8 +2,10 @@
 
 namespace Rappasoft\LaravelLivewireTables\Features\BulkActions\Core\Concerns;
 
+
 trait HandlesConfirmation
 {
+    
     /**
      * Undocumented function
      *
@@ -16,12 +18,15 @@ trait HandlesConfirmation
 
     /**
      * Undocumented function
+     *
+     * @param string $bulkAction
+     * @return boolean
      */
     public function hasConfirmationMessage(string $bulkAction): bool
     {
         return isset($this->bulkActionConfirms[$bulkAction]);
     }
-
+    
     public function hasBulkActionConfirmMessage(string $bulkAction): bool
     {
         return isset($this->bulkActionConfirms[$bulkAction]);
@@ -29,6 +34,9 @@ trait HandlesConfirmation
 
     /**
      * Undocumented function
+     *
+     * @param string $bulkAction
+     * @return string
      */
     public function getBulkActionConfirmMessage(string $bulkAction): string
     {
@@ -37,20 +45,23 @@ trait HandlesConfirmation
 
     /**
      * Undocumented function
+     *
+     * @return string
      */
     public function getBulkActionDefaultConfirmationMessage(): string
     {
-        if (isset($this->bulkActionConfig['bulkActionConfirmDefaultMessage'])) {
+        if(isset($this->bulkActionConfig['bulkActionConfirmDefaultMessage']))
+        {
             return $this->bulkActionConfig['bulkActionConfirmDefaultMessage'];
         }
-
-        return __($this->getLocalisationPath().'Bulk Actions Confirm');
+        return  __($this->getLocalisationPath().'Bulk Actions Confirm');
     }
 
     /**
      * Undocumented function
      *
-     * @param  array<mixed>  $bulkActionConfirms
+     * @param array<mixed> $bulkActionConfirms
+     * @return self
      */
     public function setBulkActionConfirms(array $bulkActionConfirms): self
     {
@@ -65,6 +76,10 @@ trait HandlesConfirmation
 
     /**
      * Undocumented function
+     *
+     * @param string $action
+     * @param string $confirmationMessage
+     * @return self
      */
     public function setBulkActionConfirmMessage(string $action, string $confirmationMessage): self
     {
@@ -76,7 +91,8 @@ trait HandlesConfirmation
     /**
      * Undocumented function
      *
-     * @param  array<mixed>  $bulkActionMessages
+     * @param array<mixed> $bulkActionMessages
+     * @return self
      */
     public function setBulkActionConfirmMessages(array $bulkActionMessages): self
     {
@@ -89,6 +105,9 @@ trait HandlesConfirmation
 
     /**
      * Undocumented function
+     *
+     * @param string $defaultConfirmationMessage
+     * @return self
      */
     public function setBulkActionDefaultConfirmationMessage(string $defaultConfirmationMessage): self
     {

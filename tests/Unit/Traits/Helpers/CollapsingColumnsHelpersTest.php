@@ -3,11 +3,11 @@
 namespace Rappasoft\LaravelLivewireTables\Tests\Unit\Traits\Helpers;
 
 use Rappasoft\LaravelLivewireTables\Exceptions\NoColumnsException;
-use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
-use Rappasoft\LaravelLivewireTables\Features\Filters\Views\TextFilter;
 use Rappasoft\LaravelLivewireTables\Tests\Http\Livewire\PetsTable;
 use Rappasoft\LaravelLivewireTables\Tests\Models\Pet;
 use Rappasoft\LaravelLivewireTables\Tests\TestCase;
+use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\TextFilter;
 
 final class CollapsingColumnsHelpersTest extends TestCase
 {
@@ -31,7 +31,7 @@ final class CollapsingColumnsHelpersTest extends TestCase
         $this->assertFalse($this->basicTable->shouldCollapseOnMobile());
 
         $this->basicTable->getColumnBySelectName('id')->collapseOnMobile();
-
+        
         $this->basicTable->unsetCollapsedStatuses();
         $this->assertTrue($this->basicTable->shouldCollapseOnMobile());
 
@@ -57,6 +57,7 @@ final class CollapsingColumnsHelpersTest extends TestCase
 
         $this->basicTable->getColumnBySelectName('id')->collapseOnMobile();
         $this->basicTable->getColumnBySelectName('name')->collapseOnMobile();
+
 
         $this->basicTable->unsetCollapsedStatuses();
 

@@ -8,11 +8,15 @@ trait HandlesUpdateStatusForExternalFilter
 {
     /**
      * Undocumented variable
+     *
+     * @var boolean
      */
     public bool $skipUpdate = false;
 
     /**
      * Undocumented variable
+     *
+     * @var boolean
      */
     protected bool $needsUpdating = false;
 }

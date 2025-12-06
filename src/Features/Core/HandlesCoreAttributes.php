@@ -9,34 +9,40 @@ trait HandlesCoreAttributes
     /**
      * checkItemAttributeArrays
      *
-     * @param  array<mixed>  $attributeArray
+     * @param array<mixed> $attributeArray
      * @return array<mixed>
      */
     protected function checkItemAttributeArrays($attributeArray): array
     {
-        foreach ($attributeArray as $index => $arrayItem) {
-            if (is_array($arrayItem)) {
+        foreach($attributeArray as $index => $arrayItem)
+        {
+            if(is_array($arrayItem))
+            {
                 $attributeArray[$index] = null;
             }
         }
-
         return $attributeArray;
     }
 
     /**
      * setInternalAttribute
      *
-     * @param  array<mixed>  $attributeArray
+     * @param string $propertyName
+     * @param array<mixed> $attributeArray
+     * @return self
      */
     protected function setInternalAttribute(string $propertyName, array $attributeArray): self
     {
         $this->{$propertyName} = [...$this->{$propertyName}, ...$this->checkItemAttributeArrays($attributeArray)];
-
+        
         return $this;
     }
 
     /**
      * Undocumented function
+     *
+     * @param string $propertyName
+     * @return boolean
      */
     public function hasCustomAttributes(string $propertyName): bool
     {
@@ -46,6 +52,9 @@ trait HandlesCoreAttributes
     /**
      * Undocumented function
      *
+     * @param string $propertyName
+     * @param boolean $default
+     * @param boolean $classicMode
      * @return array<mixed>
      */
     public function getCustomAttributes(string $propertyName, bool $default = false, bool $classicMode = true): array
@@ -74,6 +83,9 @@ trait HandlesCoreAttributes
 
     /**
      * Undocumented function
+     *
+     * @param string $propertyName
+     * @return ComponentAttributeBag
      */
     public function getCustomAttributesBag(string $propertyName): ComponentAttributeBag
     {
@@ -83,7 +95,9 @@ trait HandlesCoreAttributes
     /**
      * Undocumented function
      *
-     * @param  array<mixed>  $customAttributes
+     * @param string $propertyName
+     * @param array<mixed> $customAttributes
+     * @return self
      */
     protected function setCustomAttributes(string $propertyName, array $customAttributes): self
     {
@@ -96,7 +110,9 @@ trait HandlesCoreAttributes
     /**
      * Undocumented function
      *
-     * @param  array<mixed>  $customAttributes
+     * @param string $propertyName
+     * @param array<mixed> $customAttributes
+     * @return self
      */
     protected function mergeCustomAttributes(string $propertyName, array $customAttributes): self
     {
@@ -111,7 +127,9 @@ trait HandlesCoreAttributes
     /**
      * Undocumented function
      *
-     * @param  array<mixed>  $customAttributes
+     * @param string $propertyName
+     * @param array<mixed> $customAttributes
+     * @return self
      */
     protected function mergeCustomAttributesClassic(string $propertyName, array $customAttributes): self
     {
@@ -124,7 +142,9 @@ trait HandlesCoreAttributes
     /**
      * Undocumented function
      *
-     * @param  array<mixed>  $customAttributes
+     * @param string $propertyName
+     * @param array<mixed> $customAttributes
+     * @return self
      */
     protected function mergeCustomAttributesModern(string $propertyName, array $customAttributes): self
     {
@@ -137,7 +157,8 @@ trait HandlesCoreAttributes
     /**
      * Undocumented function
      *
-     * @param  array<mixed>  $attributesArray
+     * @param array<mixed> $attributesArray
+     * @return ComponentAttributeBag
      */
     public function getCustomAttributesBagFromArray(array $attributesArray): ComponentAttributeBag
     {
@@ -147,6 +168,9 @@ trait HandlesCoreAttributes
     /**
      * Undocumented function
      *
+     * @param string $propertyName
+     * @param boolean $default
+     * @param boolean $classicMode
      * @return array<mixed>
      */
     public function getCustomAttributesNew(string $propertyName, bool $default = false, bool $classicMode = true): array
@@ -194,7 +218,11 @@ trait HandlesCoreAttributes
     /**
      * Undocumented function
      *
-     * @param  array<mixed>  $customAttributes
+     * @param string $propertyName
+     * @param array<mixed> $customAttributes
+     * @param boolean $default
+     * @param boolean $classicMode
+     * @return self
      */
     protected function setCustomAttributesDefaults(string $propertyName, array $customAttributes, bool $default = false, bool $classicMode = true): self
     {
@@ -203,4 +231,5 @@ trait HandlesCoreAttributes
 
         return $this;
     }
+
 }

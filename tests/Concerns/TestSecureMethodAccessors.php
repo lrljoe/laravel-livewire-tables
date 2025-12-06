@@ -13,4 +13,6 @@ trait TestSecureMethodAccessors
     {
         return $this->{$methodName}();
     }
+
+
 }

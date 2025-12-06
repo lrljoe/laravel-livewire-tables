@@ -13,10 +13,12 @@ trait HasActionAttributes
      */
     protected array $actionAttributes = ['class' => '', 'default-styling' => true, 'default-colors' => true];
 
+    
     /**
      * Undocumented function
      *
-     * @param  array<mixed>  $actionAttributes
+     * @param array<mixed> $actionAttributes
+     * @return self
      */
     public function setActionAttributes(array $actionAttributes): self
     {
@@ -39,10 +41,12 @@ trait HasActionAttributes
         } else {
             $actionAttributes['href'] = '#';
             $actionAttributes[$this->getWireAction()] = $this->getWireActionParams();
-            if ($this->getWireNavigateEnabled()) {
+            if($this->getWireNavigateEnabled())
+            {
                 $actionAttributes['wire:navigate'] = '';
             }
         }
+        
 
         return $actionAttributes;
     }
@@ -51,4 +55,5 @@ trait HasActionAttributes
     {
         return new ComponentAttributeBag($this->getActionAttributes());
     }
+
 }

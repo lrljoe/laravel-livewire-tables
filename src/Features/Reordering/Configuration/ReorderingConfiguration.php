@@ -6,6 +6,9 @@ trait ReorderingConfiguration
 {
     /**
      * Undocumented function
+     *
+     * @param boolean $status
+     * @return self
      */
     public function setReorderStatus(bool $status): self
     {
@@ -16,6 +19,8 @@ trait ReorderingConfiguration
 
     /**
      * Undocumented function
+     *
+     * @return self
      */
     public function setReorderEnabled(): self
     {
@@ -24,6 +29,8 @@ trait ReorderingConfiguration
 
     /**
      * Undocumented function
+     *
+     * @return self
      */
     public function setReorderDisabled(): self
     {
@@ -32,6 +39,9 @@ trait ReorderingConfiguration
 
     /**
      * Undocumented function
+     *
+     * @param boolean $status
+     * @return self
      */
     public function setCurrentlyReorderingStatus(bool $status): self
     {
@@ -42,6 +52,8 @@ trait ReorderingConfiguration
 
     /**
      * Undocumented function
+     *
+     * @return self
      */
     public function setCurrentlyReorderingEnabled(): self
     {
@@ -50,6 +62,8 @@ trait ReorderingConfiguration
 
     /**
      * Undocumented function
+     *
+     * @return self
      */
     public function setCurrentlyReorderingDisabled(): self
     {
@@ -58,6 +72,9 @@ trait ReorderingConfiguration
 
     /**
      * Undocumented function
+     *
+     * @param boolean $status
+     * @return self
      */
     public function setHideReorderColumnUnlessReorderingStatus(bool $status): self
     {
@@ -68,6 +85,8 @@ trait ReorderingConfiguration
 
     /**
      * Undocumented function
+     *
+     * @return self
      */
     public function setHideReorderColumnUnlessReorderingEnabled(): self
     {
@@ -76,6 +95,8 @@ trait ReorderingConfiguration
 
     /**
      * Undocumented function
+     *
+     * @return self
      */
     public function setHideReorderColumnUnlessReorderingDisabled(): self
     {
@@ -84,6 +105,9 @@ trait ReorderingConfiguration
 
     /**
      * Undocumented function
+     *
+     * @param string $method
+     * @return self
      */
     public function setReorderMethod(string $method): self
     {
@@ -94,6 +118,10 @@ trait ReorderingConfiguration
 
     /**
      * Undocumented function
+     *
+     * @param string $field
+     * @param string $direction
+     * @return self
      */
     public function setDefaultReorderSort(string $field, string $direction = 'asc'): self
     {
@@ -105,6 +133,8 @@ trait ReorderingConfiguration
 
     /**
      * Undocumented function
+     *
+     * @return void
      */
     public function setupReordering(): void
     {
@@ -122,6 +152,8 @@ trait ReorderingConfiguration
 
     /**
      * Undocumented function
+     *
+     * @return void
      */
     private function resetReorderFields(): void
     {
@@ -144,6 +176,8 @@ trait ReorderingConfiguration
 
     /**
      * Undocumented function
+     *
+     * @return void
      */
     private function setReorderingBackup(): void
     {
@@ -152,4 +186,6 @@ trait ReorderingConfiguration
         }
         session([$this->getReorderingBackupSessionKey() => $this->getTableStateToArray()]);
     }
+
+
 }

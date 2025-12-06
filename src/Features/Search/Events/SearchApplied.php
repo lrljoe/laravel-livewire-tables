@@ -12,6 +12,9 @@ class SearchApplied extends LaravelLivewireTablesEvent
 
     /**
      * Undocumented function
+     *
+     * @param string $tableName
+     * @param string $value
      */
     public function __construct(string $tableName, string $value)
     {

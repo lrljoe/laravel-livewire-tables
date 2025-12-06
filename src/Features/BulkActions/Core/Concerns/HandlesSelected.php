@@ -2,8 +2,11 @@
 
 namespace Rappasoft\LaravelLivewireTables\Features\BulkActions\Core\Concerns;
 
+
 trait HandlesSelected
 {
+
+
     /**
      * Undocumented variable
      *
@@ -30,14 +33,18 @@ trait HandlesSelected
 
     /**
      * Undocumented function
+     *
+     * @return boolean
      */
     public function hasSelected(): bool
     {
         return $this->getSelectedCount() > 0;
     }
-
+    
     /**
      * Undocumented function
+     *
+     * @return integer
      */
     public function getSelectedCount(): int
     {
@@ -53,6 +60,7 @@ trait HandlesSelected
         $this->setSelected([]);
     }
 
+
     /**
      * Disable select all when the selected array is updated - if DelaySelectAll is not enabled
      */
@@ -63,6 +71,7 @@ trait HandlesSelected
             $this->setSelectAllDisabled();
         }
     }
+
 
     /**
      * Set select all and get all ids for selected

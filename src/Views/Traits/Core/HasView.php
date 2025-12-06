@@ -6,13 +6,17 @@ use Rappasoft\LaravelLivewireTables\Exceptions\DataTableConfigurationException;
 
 trait HasView
 {
+
     protected function bootedHasView(): void
     {
         try {
-            if ($this->getView() == null) {
+            if($this->getView() == null)
+            {
                 throw new DataTableConfigurationException('No View Defined');
             }
-        } catch (\Exception $e) {
+        }
+        catch (\Exception $e)
+        {
             throw new DataTableConfigurationException('No View Defined');
         }
     }

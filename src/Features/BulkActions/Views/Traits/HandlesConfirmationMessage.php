@@ -6,15 +6,16 @@ trait HandlesConfirmationMessage
 {
     public ?string $confirmationMessage;
 
-    public function setConfirmationMessage(string $confirmationMessage): self
+    public function setConfirmationMessage(string $confirmationMessage) :self
     {
         $this->confirmationMessage = $confirmationMessage;
 
         return $this;
     }
 
-    public function hasConfirmationMessage(): bool
+    public function hasConfirmationMessage() :bool
     {
         return isset($this->confirmationMessage);
     }
+
 }

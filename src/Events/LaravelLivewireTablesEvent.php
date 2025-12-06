@@ -12,11 +12,15 @@ class LaravelLivewireTablesEvent
 
     /**
      * Undocumented variable
+     *
+     * @var string
      */
     public string $tableName;
 
     /**
      * Undocumented variable
+     *
+     * @var string|null
      */
     public ?string $key;
 
@@ -29,11 +33,16 @@ class LaravelLivewireTablesEvent
 
     /**
      * Undocumented variable
+     *
+     * @var Authenticatable|null
      */
     public ?Authenticatable $user;
 
     /**
      * Undocumented function
+     *
+     * @param string $key
+     * @return self
      */
     public function setKeyForEvent(string $key): self
     {
@@ -45,7 +54,8 @@ class LaravelLivewireTablesEvent
     /**
      * Undocumented function
      *
-     * @param  string|array<mixed>  $value
+     * @param string|array<mixed> $value
+     * @return self
      */
     public function setValueForEvent(string|array $value): self
     {
@@ -57,6 +67,9 @@ class LaravelLivewireTablesEvent
 
     /**
      * Undocumented function
+     *
+     * @param string $tableName
+     * @return self
      */
     public function setTableForEvent(string $tableName): self
     {
@@ -67,6 +80,8 @@ class LaravelLivewireTablesEvent
 
     /**
      * Undocumented function
+     *
+     * @return self
      */
     public function setUserForEvent(): self
     {

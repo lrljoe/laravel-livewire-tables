@@ -68,8 +68,10 @@ trait IsSelectable
         return $this;
     }
 
+
     public function getColumnSelectTitle(): string
     {
         return $this->hasColumnSelectTitle() ? $this->columnSelectTitle : $this->getTitle();
     }
+
 }

@@ -4,8 +4,8 @@ namespace Rappasoft\LaravelLivewireTables\Tests\Visuals\Filters;
 
 use Livewire\Livewire;
 use PHPUnit\Framework\Attributes\Group;
-use Rappasoft\LaravelLivewireTables\Features\Filters\Views\NumberFilter;
 use Rappasoft\LaravelLivewireTables\Tests\Http\Livewire\BreedsTable;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\NumberFilter;
 
 #[Group('Visuals')]
 #[Group('Filters')]

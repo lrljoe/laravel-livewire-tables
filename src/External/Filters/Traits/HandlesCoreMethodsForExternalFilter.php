@@ -6,6 +6,8 @@ trait HandlesCoreMethodsForExternalFilter
 {
     /**
      * Undocumented function
+     *
+     * @return void
      */
     public function mountHandlesCoreMethodsForExternalFilter(): void
     {
@@ -14,6 +16,8 @@ trait HandlesCoreMethodsForExternalFilter
 
     /**
      * Undocumented function
+     *
+     * @return void
      */
     protected function setupFilter(): void {}
 }

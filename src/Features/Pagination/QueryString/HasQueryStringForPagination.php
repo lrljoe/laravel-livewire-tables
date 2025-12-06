@@ -11,7 +11,7 @@ trait HasQueryStringForPagination
      */
     protected function queryStringHasQueryStringForPagination(): array
     {
-        return ($this->queryStringForPaginationEnabled()) ?
+        return ($this->queryStringForPaginationEnabled()) ? 
         ['perPage' => ['except' => null, 'history' => false, 'keep' => false, 'as' => $this->hasQueryStringAliasForPagination()]] : [];
 
     }

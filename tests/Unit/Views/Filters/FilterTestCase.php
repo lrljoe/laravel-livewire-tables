@@ -20,7 +20,7 @@ abstract class FilterTestCase extends TestCase
         parent::setUp();
         self::$testGenericData = [
             'filterLayout' => 'tailwind',
-            'dataTableFingerprint' => 'fingerprint-'.rand(10000, 99999),
+            'dataTableFingerprint' => 'fingerprint-'.rand(10000,99999),
             'tableName' => 'test123',
             'isTailwind' => true,
             'isBootstrap' => false,

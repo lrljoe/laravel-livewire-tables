@@ -42,7 +42,7 @@ trait WithRappasoftTableStyles
     /**
      * Undocumented function
      *
-     * @param  array<mixed>  $options
+     * @param array<mixed> $options
      * @return array<mixed>|string|null
      */
     public static function tableStyles(array $options = []): array|string|null
@@ -65,7 +65,8 @@ trait WithRappasoftTableStyles
     /**
      * Undocumented function
      *
-     * @param  array<mixed>  $options
+     * @param array<mixed> $options
+     * @return string|null
      */
     public static function tableCss(array $options = []): ?string
     {

@@ -25,9 +25,12 @@ trait HasToolBarStyling
         return $this->getCustomAttributes(propertyName: 'toolBarAttributes', default: false, classicMode: false);
     }
 
+    
     /**
      * Undocumented function
      *     #[Computed]
+
+     * @return ComponentAttributeBag
      */
     #[Computed]
     public function getToolBarAttributesBag(): ComponentAttributeBag
@@ -39,7 +42,8 @@ trait HasToolBarStyling
     /**
      * Undocumented function
      *
-     * @param  array<mixed>  $toolBarAttributes
+     * @param array<mixed> $toolBarAttributes
+     * @return self
      */
     public function setToolBarAttributes(array $toolBarAttributes = []): self
     {

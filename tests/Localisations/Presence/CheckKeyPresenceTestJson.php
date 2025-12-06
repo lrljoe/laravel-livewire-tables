@@ -7,6 +7,7 @@ use Rappasoft\LaravelLivewireTables\Tests\Localisations\BaseLocalisationCase;
 
 final class CheckKeyPresenceTestJson extends BaseLocalisationCase
 {
+
     #[DataProvider('localisationProviderJson')]
     public function test_can_check_presence_of_json_keys(string $locale): void
     {
@@ -16,4 +17,5 @@ final class CheckKeyPresenceTestJson extends BaseLocalisationCase
             $this->assertNotNull($localisedStrings[$key]);
         }
     }
+
 }

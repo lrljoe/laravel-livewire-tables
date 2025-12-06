@@ -20,8 +20,10 @@ trait WithSearch
         HasSearchInput;
 
     /**
-     * Undocumented variable
-     */
+    * Undocumented variable
+    *
+    * @var string
+    */
     public string $search = '';
 
     /**
@@ -60,11 +62,15 @@ trait WithSearch
 
     /**
      * Undocumented function
+     *
+     * @param string|null $value
+     * @return void
      */
-    public function updatedSearch(?string $value): void
+    public function updatedSearch(string|null $value): void
     {
 
-        if (! $this->reloading) {
+        if(!$this->reloading)
+        {
             if ($this->shouldTrimSearchString() && $this->search != trim($value)) {
                 $this->search = $value = trim($value);
             }
@@ -83,11 +89,12 @@ trait WithSearch
         }
     }
 
+    
     /**
      * hasSearch
      *
-     * @return bool
-     *              #[Computed]
+     * @return boolean
+     *     #[Computed]
      */
     public function hasSearch(): bool
     {
@@ -97,6 +104,7 @@ trait WithSearch
     /**
      * getSearch
      *  #[Computed]
+     * @return string
      */
     public function getSearch(): string
     {
@@ -109,14 +117,19 @@ trait WithSearch
 
     /**
      * Search the search query from the table array
+     *
+     * @return void
      */
-    public function clearSearch(): void
+     public function clearSearch(): void
     {
         $this->search = '';
     }
 
     /**
      * Undocumented function
+     *
+     * @param string $query
+     * @return self
      */
     public function setSearch(string $query): self
     {

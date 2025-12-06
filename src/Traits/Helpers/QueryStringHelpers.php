@@ -39,6 +39,7 @@ trait QueryStringHelpers
     /**
      * Undocumented function
      *
+     * @param string $type
      * @return array<mixed>
      */
     protected function getQueryStringConfig(string $type): array

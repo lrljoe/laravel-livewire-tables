@@ -55,6 +55,7 @@ class DataTableComponentTest extends TestCase
         $this->assertNotSame($this->basicTable->getDataTableFingerprint(), $mockTable->getDataTableFingerprint());
     }
 
+    
     public function test_default_fingerprint_will_be_url_friendy(): void
     {
         $mocks = [];

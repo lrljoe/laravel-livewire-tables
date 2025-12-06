@@ -165,7 +165,7 @@ final class BulkActionsHelpersTest extends TestCase
 
         $this->assertTrue($this->basicTable->selectAllIsEnabled());
 
-        $this->assertSame([4, 1, 5, 3, 2], $this->basicTable->getSelected());
+        $this->assertSame([4,1,5,3,2], $this->basicTable->getSelected());
     }
 
     public function test_can_get_bulk_action_confirms(): void

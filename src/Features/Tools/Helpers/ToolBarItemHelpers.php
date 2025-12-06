@@ -2,39 +2,61 @@
 
 namespace Rappasoft\LaravelLivewireTables\Features\Tools\Helpers;
 
+
 trait ToolBarItemHelpers
 {
     /**
      * Undocumented function
      *
+     * @param string $item
      * @return array<mixed>
      */
     protected function getToolbarItemFor(string $item): array
     {
-        if ($item == 'reorder') {
+        if ($item == 'reorder')
+        {
             return $this->getToolbarItemForReorder();
-        } elseif ($item == 'filters') {
+        }
+        elseif ($item == 'filters')
+        {
             return $this->getToolbarItemForFilters();
-        } elseif ($item == 'search') {
+        }
+        elseif ($item == 'search')
+        {
             return $this->getToolbarItemForSearch();
-        } elseif ($item == 'actions') {
+        }
+        elseif ($item == 'actions')
+        {
             return $this->getToolbarItemForActions();
-        } elseif ($item == 'column-select') {
+        }
+        elseif($item == 'column-select')
+        {
             return $this->getToolbarItemForColumnSelect();
-        } elseif ($item == 'pagination-dropdown') {
+        }
+        elseif($item == 'pagination-dropdown')
+        {
             return $this->getToolbarItemForPaginationDropdown();
-        } elseif ($item == 'bulk-actions') {
+        }
+        elseif($item == 'bulk-actions')
+        {
             return $this->getToolbarItemForBulkActions();
-        } elseif ($item == 'toolbar-left-start') {
+        }
+        elseif($item == 'toolbar-left-start')
+        {
             return $this->getToolbarItemConfigurableArea('toolbar-left-start');
-        } elseif ($item == 'toolbar-left-end') {
+        }
+        elseif($item == 'toolbar-left-end')
+        {
             return $this->getToolbarItemConfigurableArea('toolbar-left-end');
-        } elseif ($item == 'toolbar-right-start') {
+        }
+        elseif($item == 'toolbar-right-start')
+        {
             return $this->getToolbarItemConfigurableArea('toolbar-right-start');
-        } elseif ($item == 'toolbar-right-end') {
+        }
+        elseif($item == 'toolbar-right-end')
+        {
             return $this->getToolbarItemConfigurableArea('toolbar-right-end');
         }
-
         return [];
 
     }
@@ -42,14 +64,15 @@ trait ToolBarItemHelpers
     /**
      * Undocumented function
      *
+     * @param string $area
      * @return array<mixed>
      */
     protected function getToolbarItemConfigurableArea(string $area): array
     {
-        if ($this->hasConfigurableAreaFor($area)) {
+        if($this->hasConfigurableAreaFor($area))
+        {
             return ['view' => $this->getConfigurableAreaFor($area), 'attributes' => $this->getParametersForConfigurableArea($area)];
         }
-
         return [];
     }
 
@@ -60,7 +83,8 @@ trait ToolBarItemHelpers
      */
     protected function getToolbarItemForReorder(): array
     {
-        if ($this->showToolbarSection('reorder')) {
+        if($this->showToolbarSection('reorder'))
+        {
             $allReorderButtonAttributes = $this->getAllReorderButtonAttributes();
 
             return ['view' => 'livewire-tables::includes.toolbar.items.reorder-buttons', 'attributes' => [
@@ -70,7 +94,6 @@ trait ToolBarItemHelpers
                 'reorderButtonCancelAttributes' => $allReorderButtonAttributes['cancel'],
             ]];
         }
-
         return [];
     }
 
@@ -81,10 +104,10 @@ trait ToolBarItemHelpers
      */
     protected function getToolbarItemForSearch(): array
     {
-        if ($this->showToolbarSection('search')) {
+        if($this->showToolbarSection('search'))
+        {
             return ['view' => 'livewire-tables::includes.toolbar.items.search', 'attributes' => $this->getSearchViewAttributes()];
         }
-
         return [];
     }
 
@@ -95,7 +118,8 @@ trait ToolBarItemHelpers
      */
     protected function getToolbarItemForFilters(): array
     {
-        if ($this->showToolbarSection('filters')) {
+        if($this->showToolbarSection('filters'))
+        {
             return ['view' => 'livewire-tables::includes.toolbar.items.filter-button', 'attributes' => [
                 'filterBadgeCount' => $this->getFilterBadgeCount(),
                 'isFilterLayoutPopover' => $this->isFilterLayoutPopover(),
@@ -103,7 +127,6 @@ trait ToolBarItemHelpers
                 'searchIsEnabled' => $this->searchIsEnabled(),
             ]];
         }
-
         return [];
     }
 
@@ -115,12 +138,12 @@ trait ToolBarItemHelpers
     public function getToolbarActionAttributes(): array
     {
         return [
-            'actionWrapperAttributes' => $this->getActionWrapperAttributes(),
-            'actionButtonAttributes' => $this->getActionsButtonAttributes(),
-            'actionsMenuAttributes' => $this->getActionsMenuAttributes(),
-            'actionsPosition' => $this->getActionsPosition(),
-            'showActionsAsDropdown' => $this->showActionsAsDropdown(),
-            'showActionsInToolbar' => $this->showActionsInToolbar(),
+                'actionWrapperAttributes' => $this->getActionWrapperAttributes(),
+                'actionButtonAttributes' => $this->getActionsButtonAttributes(),
+                'actionsMenuAttributes' => $this->getActionsMenuAttributes(),
+                'actionsPosition' => $this->getActionsPosition(),
+                'showActionsAsDropdown' => $this->showActionsAsDropdown(),
+                'showActionsInToolbar' => $this->showActionsInToolbar(),
         ];
     }
 
@@ -132,12 +155,12 @@ trait ToolBarItemHelpers
     protected function getToolbarItemForActions(): array
     {
         return ['view' => 'livewire-tables::includes.toolbar.items.actions',  'attributes' => [
-            'actionWrapperAttributes' => $this->getActionWrapperAttributes(),
-            'actionButtonAttributes' => $this->getActionsButtonAttributes(),
-            'actionsMenuAttributes' => $this->getActionsMenuAttributes(),
-            'actionsPosition' => $this->getActionsPosition(),
-            'showActionsAsDropdown' => $this->showActionsAsDropdown(),
-            'showActionsInToolbar' => $this->showActionsInToolbar(),
+                'actionWrapperAttributes' => $this->getActionWrapperAttributes(),
+                'actionButtonAttributes' => $this->getActionsButtonAttributes(),
+                'actionsMenuAttributes' => $this->getActionsMenuAttributes(),
+                'actionsPosition' => $this->getActionsPosition(),
+                'showActionsAsDropdown' => $this->showActionsAsDropdown(),
+                'showActionsInToolbar' => $this->showActionsInToolbar(),
         ]];
     }
 
@@ -148,7 +171,8 @@ trait ToolBarItemHelpers
      */
     protected function getToolbarItemForColumnSelect(): array
     {
-        if ($this->columnSelectIsEnabled()) {
+        if($this->columnSelectIsEnabled())
+        {
             if (empty($this->columnSelectConfig['selectableColumns'])) {
                 $this->columnSelectConfig['selectableColumns'] = $this->getColumnsForColumnSelect();
             }
@@ -162,7 +186,6 @@ trait ToolBarItemHelpers
                 'jsoned' => json_encode(array_keys($this->columnSelectConfig['selectableColumns'])),
             ]];
         }
-
         return [];
     }
 
@@ -173,12 +196,12 @@ trait ToolBarItemHelpers
      */
     protected function getToolbarItemForPaginationDropdown(): array
     {
-        if ($this->showPaginationDropdown()) {
+        if($this->showPaginationDropdown())
+        {
             return ['view' => 'livewire-tables::includes.toolbar.items.pagination-dropdown', 'attributes' => [
                 'perPageFieldAttributes' => $this->getPerPageFieldAttributes(),
             ]];
         }
-
         return [];
     }
 
@@ -189,14 +212,15 @@ trait ToolBarItemHelpers
      */
     protected function getToolbarItemForBulkActions(): array
     {
-        if ($this->showBulkActionsDropdownAlpine() && $this->shouldAlwaysHideBulkActionsDropdownOption() != true) {
+        if ($this->showBulkActionsDropdownAlpine() && $this->shouldAlwaysHideBulkActionsDropdownOption() != true)
+        {
             return ['view' => 'livewire-tables::includes.toolbar.items.bulk-actions', 'attributes' => [
                 'bulkActionsButtonAttributes' => $this->getBulkActionsButtonAttributes(),
                 'bulkActionsMenuAttributes' => $this->getBulkActionsMenuAttributes(),
 
             ]];
         }
-
         return [];
     }
+
 }

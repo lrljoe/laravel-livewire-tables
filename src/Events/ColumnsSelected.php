@@ -19,7 +19,9 @@ class ColumnsSelected extends LaravelLivewireTablesEvent
     /**
      * Undocumented function
      *
-     * @param  array<mixed>  $columns
+     * @param string $tableName
+     * @param string $key
+     * @param array<mixed> $columns
      */
     public function __construct(string $tableName, string $key, array $columns = [])
     {

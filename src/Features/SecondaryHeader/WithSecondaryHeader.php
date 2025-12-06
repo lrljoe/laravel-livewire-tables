@@ -2,9 +2,9 @@
 
 namespace Rappasoft\LaravelLivewireTables\Features\SecondaryHeader;
 
+use Rappasoft\LaravelLivewireTables\Features\SecondaryHeader\Styling\HasSecondaryHeaderStyling;
 use Livewire\Attributes\Computed;
 use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
-use Rappasoft\LaravelLivewireTables\Features\SecondaryHeader\Styling\HasSecondaryHeaderStyling;
 
 trait WithSecondaryHeader
 {
@@ -12,31 +12,39 @@ trait WithSecondaryHeader
 
     /**
      * Undocumented variable
+     *
+     * @var boolean
      */
     protected bool $secondaryHeaderStatus = true;
 
     /**
      * Undocumented variable
+     *
+     * @var boolean
      */
     protected bool $columnsWithSecondaryHeader = false;
 
     /**
      * Undocumented function
+     *
+     * @return boolean
      */
     public function shouldShowSecondaryHeader(): bool
     {
-        if ($this->secondaryHeaderIsDisabled()) {
+        if($this->secondaryHeaderIsDisabled())
+        {
             return false;
         }
-
         return $this->columns
-            ->reject(fn (Column $column) => $column->isHidden() || ($column->isSelectable() && ! $this->columnSelectIsEnabledForColumn($column)) || ! $column->hasSecondaryHeader())
-            ->reject(fn (Column $column) => $this->currentlyReorderingIsEnabled() && ! $column->isVisibleOnReorder())
+            ->reject(fn (Column $column) => $column->isHidden() || ($column->isSelectable() && ! $this->columnSelectIsEnabledForColumn($column)) || !$column->hasSecondaryHeader())
+            ->reject(fn (Column $column) => $this->currentlyReorderingIsEnabled() && !$column->isVisibleOnReorder())
             ->count() > 0;
     }
 
     /**
      * Undocumented function
+     *
+     * @return boolean
      */
     public function hasColumnsWithSecondaryHeader(): bool
     {
@@ -45,6 +53,8 @@ trait WithSecondaryHeader
 
     /**
      * Undocumented function
+     *
+     * @return boolean
      */
     public function getSecondaryHeaderStatus(): bool
     {
@@ -53,6 +63,8 @@ trait WithSecondaryHeader
 
     /**
      * Undocumented function
+     *
+     * @return boolean
      */
     public function secondaryHeaderIsEnabled(): bool
     {
@@ -61,6 +73,8 @@ trait WithSecondaryHeader
 
     /**
      * Undocumented function
+     *
+     * @return boolean
      */
     public function secondaryHeaderIsDisabled(): bool
     {
@@ -69,6 +83,9 @@ trait WithSecondaryHeader
 
     /**
      * Undocumented function
+     *
+     * @param boolean $status
+     * @return self
      */
     public function setSecondaryHeaderStatus(bool $status): self
     {
@@ -79,6 +96,8 @@ trait WithSecondaryHeader
 
     /**
      * Undocumented function
+     *
+     * @return self
      */
     public function setSecondaryHeaderEnabled(): self
     {
@@ -87,6 +106,8 @@ trait WithSecondaryHeader
 
     /**
      * Undocumented function
+     *
+     * @return self
      */
     public function setSecondaryHeaderDisabled(): self
     {

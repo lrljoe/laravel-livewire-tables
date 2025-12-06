@@ -6,6 +6,9 @@ trait HasColumnSelectSessionStorage
 {
     /**
      * Configures Storage of Column Select in Session
+     *
+     * @param boolean $status
+     * @return self
      */
     public function storeColumnSelectInSessionStatus(bool $status): self
     {
@@ -16,6 +19,8 @@ trait HasColumnSelectSessionStorage
 
     /**
      * Enables Storage of Column Select in Session
+     *
+     * @return self
      */
     public function storeColumnSelectInSessionEnabled(): self
     {
@@ -24,6 +29,8 @@ trait HasColumnSelectSessionStorage
 
     /**
      * Disables Storage of Column Select in Session
+     *
+     * @return self
      */
     public function storeColumnSelectInSessionDisabled(): self
     {

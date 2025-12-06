@@ -10,6 +10,8 @@ trait HasColumnView
 
     /**
      * Undocumented function
+     *
+     * @return \Illuminate\View\View
      */
     public function getColumnView(): \Illuminate\View\View
     {
@@ -18,11 +20,13 @@ trait HasColumnView
 
     /**
      * Undocumented function
+     *
+     * @return \Illuminate\View\View
      */
     public function getColumnViewWithDefaults(): \Illuminate\View\View
     {
         return $this->getColumnView()
-            ->with($this->addColumnViewDefaults());
+        ->with($this->addColumnViewDefaults());
 
     }
 
@@ -41,4 +45,5 @@ trait HasColumnView
         ];
 
     }
+
 }

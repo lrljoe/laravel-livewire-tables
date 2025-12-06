@@ -6,6 +6,9 @@ trait HasFiltersStatus
 {
     /**
      * Undocumented function
+     *
+     * @param boolean $status
+     * @return self
      */
     public function setFiltersStatus(bool $status): self
     {
@@ -16,6 +19,8 @@ trait HasFiltersStatus
 
     /**
      * Undocumented function
+     *
+     * @return self
      */
     public function setFiltersEnabled(): self
     {
@@ -24,6 +29,8 @@ trait HasFiltersStatus
 
     /**
      * Undocumented function
+     *
+     * @return self
      */
     public function setFiltersDisabled(): self
     {
@@ -32,14 +39,18 @@ trait HasFiltersStatus
 
     /**
      * Undocumented function
+     *
+     * @return boolean
      */
     public function getFiltersStatus(): bool
     {
         return $this->filterConfiguration['filtersStatus'];
-    }
+    } 
 
     /**
      * Undocumented function
+     * 
+     * @return boolean
      */
     public function filtersAreEnabled(): bool
     {
@@ -48,6 +59,8 @@ trait HasFiltersStatus
 
     /**
      * Undocumented function
+     *
+     * @return boolean
      */
     public function filtersAreDisabled(): bool
     {

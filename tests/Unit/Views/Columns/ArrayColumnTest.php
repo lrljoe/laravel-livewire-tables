@@ -85,32 +85,33 @@ final class ArrayColumnTest extends ColumnTestCase
     {
         self::$columnInstance
             ->data(fn ($value, $row) => ($row->pets))
-            ->outputFormat(fn ($index, $value) => '<a href="'.$value->id.'">'.$value->name.'</a>')
+            ->outputFormat(fn ($index, $value) => '<a href="'.$value->id.'">'.$value->name."</a>")
             ->flexCol();
 
         $contents = self::$columnInstance->getContents(Veterinary::find(1));
-        $this->assertSame('<div class="flex flex-col"><a href="1">Cartman</a><a href="2">Tux</a></div>', $contents->toHtml());
+        $this->assertSame('<div class="flex flex-col"><a href="1">Cartman</a><a href="2">Tux</a></div>',$contents->toHtml());
     }
 
     public function test_can_use_flexcol_with_attributes(): void
     {
         self::$columnInstance
             ->data(fn ($value, $row) => ($row->pets))
-            ->outputFormat(fn ($index, $value) => '<a href="'.$value->id.'">'.$value->name.'</a>')
+            ->outputFormat(fn ($index, $value) => '<a href="'.$value->id.'">'.$value->name."</a>")
             ->flexCol(['class' => 'bg-red-500']);
 
         $contents = self::$columnInstance->getContents(Veterinary::find(1));
-        $this->assertSame('<div class="bg-red-500 flex flex-col"><a href="1">Cartman</a><a href="2">Tux</a></div>', $contents->toHtml());
+        $this->assertSame('<div class="bg-red-500 flex flex-col"><a href="1">Cartman</a><a href="2">Tux</a></div>',$contents->toHtml());
     }
 
     public function test_can_use_flexrow(): void
     {
         self::$columnInstance
             ->data(fn ($value, $row) => ($row->pets))
-            ->outputFormat(fn ($index, $value) => '<a href="'.$value->id.'">'.$value->name.'</a>')
+            ->outputFormat(fn ($index, $value) => '<a href="'.$value->id.'">'.$value->name."</a>")
             ->flexRow(['class' => 'bg-blue-500']);
 
         $contents = self::$columnInstance->getContents(Veterinary::find(1));
-        $this->assertSame('<div class="bg-blue-500 flex flex-row"><a href="1">Cartman</a><a href="2">Tux</a></div>', $contents->toHtml());
+        $this->assertSame('<div class="bg-blue-500 flex flex-row"><a href="1">Cartman</a><a href="2">Tux</a></div>',$contents->toHtml());
     }
+
 }

@@ -41,7 +41,7 @@ trait HasFilterPills
      */
     public array $internalFilterPillsVals = ['name' => null];
 
-    // .. public array $externalFilterPillsLength = [];
+   //.. public array $externalFilterPillsLength = [];
 
-    // public array $internalFilterPillsLength = [];
+   // public array $internalFilterPillsLength = [];
 }

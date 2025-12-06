@@ -17,6 +17,8 @@ trait HasQueryStringForSort
 
     /**
      * Undocumented function
+     *
+     * @return void
      */
     protected function setupQueryStringStatusForSort(): void
     {
@@ -27,6 +29,8 @@ trait HasQueryStringForSort
 
     /**
      * Undocumented function
+     *
+     * @return boolean
      */
     public function hasQueryStringStatusForSort(): bool
     {
@@ -35,6 +39,8 @@ trait HasQueryStringForSort
 
     /**
      * Undocumented function
+     *
+     * @return boolean
      */
     public function getQueryStringStatusForSort(): bool
     {
@@ -43,6 +49,8 @@ trait HasQueryStringForSort
 
     /**
      * Undocumented function
+     *
+     * @return boolean
      */
     public function queryStringForSortEnabled(): bool
     {
@@ -53,6 +61,9 @@ trait HasQueryStringForSort
 
     /**
      * Undocumented function
+     *
+     * @param boolean $status
+     * @return self
      */
     public function setQueryStringStatusForSort(bool $status): self
     {
@@ -61,6 +72,8 @@ trait HasQueryStringForSort
 
     /**
      * Undocumented function
+     *
+     * @return self
      */
     public function setQueryStringForSortEnabled(): self
     {
@@ -69,6 +82,8 @@ trait HasQueryStringForSort
 
     /**
      * Undocumented function
+     *
+     * @return self
      */
     public function setQueryStringForSortDisabled(): self
     {
@@ -77,6 +92,8 @@ trait HasQueryStringForSort
 
     /**
      * Undocumented function
+     *
+     * @return boolean
      */
     public function hasQueryStringAliasForSort(): bool
     {
@@ -85,6 +102,8 @@ trait HasQueryStringForSort
 
     /**
      * Undocumented function
+     *
+     * @return string
      */
     public function getQueryStringAliasForSort(): string
     {
@@ -93,6 +112,9 @@ trait HasQueryStringForSort
 
     /**
      * Undocumented function
+     *
+     * @param string $alias
+     * @return self
      */
     public function setQueryStringAliasForSort(string $alias): self
     {

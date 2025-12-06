@@ -2,4 +2,7 @@
 
 namespace Rappasoft\LaravelLivewireTables\Features\Columns;
 
-class ViewComponLinkColumnentColumn extends \Rappasoft\LaravelLivewireTables\Features\Columns\Views\LinkColumn {}
+class ViewComponLinkColumnentColumn extends \Rappasoft\LaravelLivewireTables\Features\Columns\Views\LinkColumn
+{
+
+} 

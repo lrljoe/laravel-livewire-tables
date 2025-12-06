@@ -25,16 +25,18 @@ trait ComponentUtilities
      * @var array<mixed>
      */
     public array $table = [];
-
+    
     /**
      * Model Type
      *
      * @var \Illuminate\Database\Eloquent\Model|null
      */
-    protected $model;
+     protected $model;
 
     /**
      * Undocumented variable
+     *
+     * @var boolean
      */
     protected bool $hasRunConfigure = false;
 
@@ -47,6 +49,8 @@ trait ComponentUtilities
 
     /**
      * Sets the Theme if not set on first mount
+     *
+     * @return void
      */
     public function mountComponentUtilities(): void
     {
@@ -59,6 +63,8 @@ trait ComponentUtilities
 
     /**
      * Runs configure() with Lifecycle Hooks on each Lifecycle
+     *
+     * @return void
      */
     public function bootedComponentUtilities(): void
     {
@@ -74,6 +80,8 @@ trait ComponentUtilities
 
     /**
      * Calls the hooks for configuring/configured pre/post configure()
+     *
+     * @return void
      */
     protected function runCoreConfiguration(): void
     {
@@ -95,8 +103,10 @@ trait ComponentUtilities
     }
 
     /**
-     * After the sorting method is hit we need to tell the table to go back into reordering mode
-     */
+    * After the sorting method is hit we need to tell the table to go back into reordering mode
+    *
+    * @return void
+    */ 
     public function hydrate(): void
     {
         $this->restartReorderingIfNecessary();

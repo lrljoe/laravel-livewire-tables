@@ -47,7 +47,8 @@ trait WithRappasoftTableThirdPartyScripts
     /**
      * Undocumented function
      *
-     * @param  array<mixed>  $options
+     * @param array<mixed> $options
+     * @return string|null
      */
     public static function tableThirdPartyScripts(array $options = []): ?string
     {
@@ -68,7 +69,8 @@ trait WithRappasoftTableThirdPartyScripts
     /**
      * Undocumented function
      *
-     * @param  array<mixed>  $options
+     * @param array<mixed> $options
+     * @return string
      */
     public static function tableThirdpartyJs(array $options = []): string
     {

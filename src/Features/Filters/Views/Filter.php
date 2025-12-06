@@ -3,9 +3,9 @@
 namespace Rappasoft\LaravelLivewireTables\Features\Filters\Views;
 
 use Illuminate\Support\Str;
-use Rappasoft\LaravelLivewireTables\Features\Filters\Views\Traits\{FilterConfiguration, FilterHelpers, HandlesClearButton, HandlesDefaultValue, HasConfig, HasCustomPosition, HasFilterLabel, HasFilterPills, HasVisibility, Styling\HandlesFilterInputAttributes};
 use Rappasoft\LaravelLivewireTables\Traits\Core\HasLocalisations;
 use Rappasoft\LaravelLivewireTables\Views\Traits\Core\{HasLabelAttributes, HasView};
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\Traits\{FilterConfiguration,FilterHelpers, HasConfig, HasCustomPosition, HandlesClearButton, HandlesDefaultValue,HasFilterPills,HasFilterLabel, HasVisibility, Styling\HandlesFilterInputAttributes};
 
 abstract class Filter
 {
@@ -25,16 +25,22 @@ abstract class Filter
 
     /**
      * Filter Name
+     *
+     * @var string
      */
     protected string $name;
 
     /**
      * Filter Key
+     *
+     * @var string
      */
     protected string $key;
 
     /**
      * Filter Callback Method
+     *
+     * @var mixed
      */
     protected mixed $filterCallback = null;
 
@@ -47,11 +53,16 @@ abstract class Filter
 
     /**
      * Define the view for a Filter
+     *
+     * @var string
      */
     protected string $view = '';
 
     /**
      * Construct a Filter
+     *
+     * @param string $name
+     * @param string|null $key
      */
     public function __construct(string $name, ?string $key = null)
     {
@@ -68,6 +79,8 @@ abstract class Filter
     /**
      * Define a Filter
      *
+     * @param string $name
+     * @param string|null $key
      * @return static
      */
     public static function make(string $name, ?string $key = null): Filter

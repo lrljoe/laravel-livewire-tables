@@ -15,9 +15,11 @@ trait WithTableAttributes
 
     /**
      * Undocumented variable
+     *
+     * @var boolean
      */
     public bool $shouldBeDisplayed = true;
-
+    
     /**
      * Undocumented variable
      *
@@ -55,36 +57,50 @@ trait WithTableAttributes
 
     /**
      * Undocumented variable
+     *
+     * @var Closure|null
      */
     protected ?Closure $thAttributesCallback;
 
     /**
      * Undocumented variable
+     *
+     * @var Closure|null
      */
     protected ?Closure $thSortButtonAttributesCallback;
 
     /**
      * Undocumented variable
+     *
+     * @var Closure|null
      */
     protected ?Closure $thSortIconAttributesCallback;
 
     /**
      * Undocumented variable
+     *
+     * @var Closure|null
      */
     protected ?Closure $trAttributesCallback;
 
     /**
      * Undocumented variable
+     *
+     * @var Closure|null
      */
     protected ?Closure $tdAttributesCallback;
 
     /**
      * Undocumented variable
+     *
+     * @var Closure|null
      */
     protected ?Closure $trUrlCallback;
 
     /**
      * Undocumented variable
+     *
+     * @var Closure|null
      */
     protected ?Closure $trUrlTargetCallback;
 
@@ -93,7 +109,9 @@ trait WithTableAttributes
     /**
      * Undocumented function
      *
-     * @param  array<mixed>  $data
+     * @param \Illuminate\View\View $view
+     * @param array<mixed> $data
+     * @return void
      */
     public function renderingWithTableAttributes(\Illuminate\View\View $view, array $data = []): void
     {

@@ -20,11 +20,16 @@ class ButtonGroupColumn extends Column
 
     /**
      * Undocumented variable
+     *
+     * @var string
      */
     protected string $view = 'livewire-tables::includes.columns.button-group';
 
     /**
      * Undocumented function
+     *
+     * @param string $title
+     * @param string|null $from
      */
     public function __construct(string $title, ?string $from = null)
     {
@@ -35,6 +40,9 @@ class ButtonGroupColumn extends Column
 
     /**
      * Undocumented function
+     *
+     * @param Model $row
+     * @return null|string|\Illuminate\Support\HtmlString|\Rappasoft\LaravelLivewireTables\Exceptions\DataTableConfigurationException|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function getContents(Model $row): null|string|\Illuminate\Support\HtmlString|\Rappasoft\LaravelLivewireTables\Exceptions\DataTableConfigurationException|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
     {

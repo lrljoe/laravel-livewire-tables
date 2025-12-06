@@ -86,6 +86,7 @@ trait IsSortable
     {
         return isset($this->sortingPillDirectionAsc) && isset($this->sortingPillDirectionDesc);
     }
+    
 
     public function getCustomSortingPillDirections(string $direction, ?string $defaultLabelAsc = 'A-Z', ?string $defaultLabelDesc = 'Z-A'): string
     {
@@ -136,7 +137,7 @@ trait IsSortable
      */
     public function getColumnSortKey(): string
     {
-
+        
         return $this->getSlug();
     }
 }

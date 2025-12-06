@@ -3,8 +3,8 @@
 namespace Rappasoft\LaravelLivewireTables\Features\Columns\Views;
 
 use Illuminate\Support\Str;
-use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Traits\{Configuration\ColumnConfiguration, HasClickable, HasColumnLabelStatus, HasColumnView, HasDataTableComponent, HasFooter, HasLabelFormat, HasRelations, HasSecondaryHeader, HasSlug, HasTextAlign, HasVisibility, Helpers\ColumnHelpers, IsCollapsible, IsReorderColumn, IsSearchable, IsSelectable, IsSortable};
 use Rappasoft\LaravelLivewireTables\Traits\Core\HasLocalisations;
+use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Traits\{HasDataTableComponent,IsReorderColumn,HasColumnLabelStatus,HasRelations,HasLabelFormat,HasClickable,HasSlug,IsCollapsible,IsSearchable,IsSelectable,IsSortable,HasColumnView,HasFooter,HasSecondaryHeader,HasVisibility, HasTextAlign, Configuration\ColumnConfiguration, Helpers\ColumnHelpers};
 use Rappasoft\LaravelLivewireTables\Views\Traits\Core\{HasAttributes, HasLabelAttributes, HasTheme};
 
 class Column
@@ -55,14 +55,19 @@ class Column
     protected ?int $columnIndex;
 
     protected ?int $rowIndex;
-
+    
     /**
      * Undocumented variable
+     *
+     * @var string
      */
     protected string $view = '';
 
     /**
      * Construct a Column
+     *
+     * @param string $title
+     * @param string|null $from
      */
     public function __construct(string $title, ?string $from = null)
     {
@@ -88,6 +93,8 @@ class Column
     /**
      * Make a Column
      *
+     * @param string $title
+     * @param string|null $from
      * @return static
      */
     public static function make(string $title, ?string $from = null): Column

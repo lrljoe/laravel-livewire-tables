@@ -3,18 +3,22 @@
 namespace Rappasoft\LaravelLivewireTables\Features\ColumnsCollapsing\Concerns;
 
 use Livewire\Attributes\Computed;
-use Rappasoft\LaravelLivewireTables\Collections\ColumnCollection;
 use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
+use Rappasoft\LaravelLivewireTables\Collections\ColumnCollection;
 
 trait HandlesColumnCollapsingStatus
 {
     /**
      * Determines if any Columns have Collapse Behaviour
+     *
+     * @var boolean
      */
     protected bool $collapsingColumnsStatus = true;
 
     /**
      * Set Collapsing Column Function Status
+     *
+     * @return self
      */
     protected function setCollapsingColumnsStatus(bool $status): self
     {
@@ -25,6 +29,8 @@ trait HandlesColumnCollapsingStatus
 
     /**
      * Enable Collapsing Column Function
+     *
+     * @return self
      */
     protected function setCollapsingColumnsEnabled(): self
     {
@@ -35,6 +41,8 @@ trait HandlesColumnCollapsingStatus
 
     /**
      * Disable Collapsing Column Function
+     *
+     * @return self
      */
     protected function setCollapsingColumnsDisabled(): self
     {
@@ -45,6 +53,8 @@ trait HandlesColumnCollapsingStatus
 
     /**
      * Determines if Collapsing Columns Status Is True
+     *
+     * @return boolean
      */
     public function getCollapsingColumnsStatus(): bool
     {
@@ -53,6 +63,8 @@ trait HandlesColumnCollapsingStatus
 
     /**
      * Determines that Current Table has any Collapsing Columns
+     *
+     * @return boolean
      */
     #[Computed]
     public function collapsingColumnsAreEnabled(): bool
@@ -62,6 +74,8 @@ trait HandlesColumnCollapsingStatus
 
     /**
      * Determines that Current Table does not have any Collapsing Columns
+     *
+     * @return boolean
      */
     #[Computed]
     public function collapsingColumnsAreDisabled(): bool

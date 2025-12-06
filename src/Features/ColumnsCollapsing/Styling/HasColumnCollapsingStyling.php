@@ -47,7 +47,6 @@ trait HasColumnCollapsingStyling
     /**
      * Retrieves attributes for the Collapsed Column Collapse Button
      *     #[Computed]
-     *
      * @return array<mixed>
      */
     public function getCollapsingColumnButtonCollapseAttributes(): array
@@ -59,7 +58,6 @@ trait HasColumnCollapsingStyling
      * Retrieves attributes for the Collapsed Column Expand Button
      *     #[Computed]
 
-     *
      * @return array<mixed>
      */
     public function getCollapsingColumnButtonExpandAttributes(): array
@@ -67,21 +65,28 @@ trait HasColumnCollapsingStyling
         return [...['default-styling' => true, 'default-colors' => true], ...$this->collapsingColumnButtonExpandAttributes];
     }
 
-    /**
-     * Undocumented function
-     *
-     * @param  array<mixed>  $buttonAttributes
-     */
+    
+/**
+ * Undocumented function
+ *
+ * @param array<mixed> $buttonAttributes
+ * @return self
+ */
     public function setCollapsingColumnButtonAttributes(array $buttonAttributes): self
     {
-        if (array_key_exists('collapse', $buttonAttributes) || array_key_exists('expand', $buttonAttributes)) {
-            if (array_key_exists('collapse', $buttonAttributes)) {
+        if(array_key_exists('collapse', $buttonAttributes) || array_key_exists('expand', $buttonAttributes))
+        {
+            if(array_key_exists('collapse', $buttonAttributes))
+            {
                 $this->setCollapsingColumnButtonCollapseAttributes($buttonAttributes['collapse']);
             }
-            if (array_key_exists('expand', $buttonAttributes)) {
+            if(array_key_exists('expand', $buttonAttributes))
+            {
                 $this->setCollapsingColumnButtonExpandAttributes($buttonAttributes['expand']);
             }
-        } else {
+        }
+        else
+        {
             $this->setCollapsingColumnButtonCollapseAttributes($buttonAttributes[0]);
             $this->setCollapsingColumnButtonExpandAttributes($buttonAttributes[0]);
         }
@@ -111,7 +116,7 @@ trait HasColumnCollapsingStyling
                     $classes = 'hidden lg:table-cell';
                 }
 
-            } elseif ($this->isTailwind4()) {
+            } elseif($this->isTailwind4()) {
                 if ($col->shouldCollapseAlways()) {
                     $classes = 'hidden';
                 }
@@ -139,4 +144,5 @@ trait HasColumnCollapsingStyling
 
         return $extras;
     }
+
 }

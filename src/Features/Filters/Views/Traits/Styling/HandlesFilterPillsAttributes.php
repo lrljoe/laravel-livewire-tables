@@ -4,6 +4,7 @@ namespace Rappasoft\LaravelLivewireTables\Features\Filters\Views\Traits\Styling;
 
 use Illuminate\View\ComponentAttributeBag;
 
+
 trait HandlesFilterPillsAttributes
 {
     /**
@@ -24,6 +25,8 @@ trait HandlesFilterPillsAttributes
 
     /**
      * Undocumented function
+     *
+     * @return ComponentAttributeBag
      */
     public function getPillAttributesBag(): ComponentAttributeBag
     {
@@ -32,6 +35,8 @@ trait HandlesFilterPillsAttributes
 
     /**
      * Undocumented function
+     *
+     * @return boolean
      */
     public function hasPillAttributes(): bool
     {
@@ -54,7 +59,8 @@ trait HandlesFilterPillsAttributes
     /**
      * Undocumented function
      *
-     * @param  array<mixed>  $pillAttributes
+     * @param array<mixed> $pillAttributes
+     * @return self
      */
     public function setPillAttributes(array $pillAttributes): self
     {
@@ -69,7 +75,8 @@ trait HandlesFilterPillsAttributes
     /**
      * Undocumented function
      *
-     * @param  array<mixed>  $attributes
+     * @param array<mixed> $attributes
+     * @return self
      */
     public function setPillResetButtonAttributes(array $attributes = []): self
     {
@@ -108,6 +115,9 @@ trait HandlesFilterPillsAttributes
 
     /**
      * Undocumented function
+     *
+     * @param boolean $pillTitleAsHtml
+     * @return self
      */
     public function setFilterPillTitleAsHtml(bool $pillTitleAsHtml): self
     {
@@ -118,6 +128,8 @@ trait HandlesFilterPillsAttributes
 
     /**
      * Undocumented function
+     *
+     * @return boolean
      */
     public function getFilterPillTitleAsHtml(): bool
     {

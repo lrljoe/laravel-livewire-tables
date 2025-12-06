@@ -12,4 +12,5 @@ trait HandlesLivewireComponentFilters
     {
         return $this->hasExternalFilters;
     }
+
 }

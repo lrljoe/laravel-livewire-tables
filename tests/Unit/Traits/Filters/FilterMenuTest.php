@@ -5,10 +5,10 @@ namespace Rappasoft\LaravelLivewireTables\Tests\Unit\Traits\Filters;
 use Illuminate\Database\Eloquent\Builder;
 use PHPUnit\Framework\Attributes\Group;
 use Rappasoft\LaravelLivewireTables\Exceptions\DataTableConfigurationException;
-use Rappasoft\LaravelLivewireTables\Features\Filters\Views\MultiSelectFilter;
 use Rappasoft\LaravelLivewireTables\Tests\Http\Livewire\PetsTable;
 use Rappasoft\LaravelLivewireTables\Tests\Models\Breed;
 use Rappasoft\LaravelLivewireTables\Tests\TestCase;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\MultiSelectFilter;
 
 #[Group('Filters')]
 final class FilterMenuTest extends TestCase

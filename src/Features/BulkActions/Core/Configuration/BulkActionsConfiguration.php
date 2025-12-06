@@ -35,6 +35,7 @@ trait BulkActionsConfiguration
         return $this;
     }
 
+
     public function setHideBulkActionsWhenEmptyStatus(bool $status): self
     {
         $this->setBulkActionConfig('hideBulkActionsWhenEmpty', $status);
@@ -55,6 +56,7 @@ trait BulkActionsConfiguration
 
         return $this;
     }
+
 
     public function setShouldAlwaysHideBulkActionsDropdownOption(bool $status = false): self
     {

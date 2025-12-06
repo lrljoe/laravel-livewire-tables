@@ -30,6 +30,8 @@ trait HasColumnSelectStyling
 
     /**
      * Use the New Column Select Design
+     *
+     * @var boolean
      */
     protected bool $useModernColumnSelect = false;
 
@@ -43,7 +45,7 @@ trait HasColumnSelectStyling
     {
         return $this->columnSelectButtonAttributes;
     }
-
+    
     /**
      * Undocumented function
      *
@@ -63,9 +65,12 @@ trait HasColumnSelectStyling
     #[Computed]
     public function getColumnSelectMenuOptionCheckboxAttributes(): array
     {
-        if ($this->modernColumnSelect()) {
+        if($this->modernColumnSelect())
+        {
             return $this->columnSelectMenuOptionCheckboxAttributes;
-        } else {
+        }
+        else
+        {
             return [...['wire:model.live' => 'selectedColumns'], ...$this->columnSelectMenuOptionCheckboxAttributes];
         }
 
@@ -74,7 +79,8 @@ trait HasColumnSelectStyling
     /**
      * Set Column Select Menu Attributes
      *
-     * @param  array<mixed>  $attributes
+     * @param array<mixed> $attributes
+     * @return self
      */
     public function setColumnSelectMenuAttributes(array $attributes = []): self
     {
@@ -87,7 +93,8 @@ trait HasColumnSelectStyling
     /**
      * Undocumented function
      *
-     * @param  array<mixed>  $attributes
+     * @param array<mixed> $attributes
+     * @return self
      */
     public function setColumnSelectButtonAttributes(array $attributes = []): self
     {
@@ -99,7 +106,8 @@ trait HasColumnSelectStyling
     /**
      * Undocumented function
      *
-     * @param  array<mixed>  $attributes
+     * @param array<mixed> $attributes
+     * @return self
      */
     public function setColumnSelectMenuOptionCheckboxAttributes(array $attributes = []): self
     {
@@ -107,6 +115,7 @@ trait HasColumnSelectStyling
 
         return $this;
     }
+
 
     #[Computed]
     public function modernColumnSelect(): bool
@@ -116,6 +125,9 @@ trait HasColumnSelectStyling
 
     /**
      * Set using modern column select
+     *
+     * @param boolean $status
+     * @return self
      */
     protected function setModernColumnSelectStatus(bool $status): self
     {
@@ -123,9 +135,11 @@ trait HasColumnSelectStyling
 
         return $this;
     }
-
+    
     /**
      * Set using modern column select enabled
+     *
+     * @return self
      */
     protected function setModernColumnSelectEnabled(): self
     {
@@ -134,6 +148,8 @@ trait HasColumnSelectStyling
 
     /**
      * Set using modern column select disabled
+     *
+     * @return self
      */
     protected function setModernColumnSelectDisabled(): self
     {

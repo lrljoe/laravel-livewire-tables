@@ -2,10 +2,10 @@
 
 namespace Rappasoft\LaravelLivewireTables\Features\Columns\Core\Configuration;
 
-use Rappasoft\LaravelLivewireTables\Collections\ColumnCollection;
-use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Aggregates\AggregateColumn;
-use Rappasoft\LaravelLivewireTables\Features\Columns\Views\ArrayColumn;
 use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
+use Rappasoft\LaravelLivewireTables\Features\Columns\Views\ArrayColumn;
+use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Aggregates\AggregateColumn;
+use Rappasoft\LaravelLivewireTables\Collections\ColumnCollection;
 
 trait ColumnConfiguration
 {
@@ -16,7 +16,7 @@ trait ColumnConfiguration
     {
         $this->columns = $this->mergeColumns();
     }
-
+    
     protected function mergeColumns(): ColumnCollection
     {
         return new ColumnCollection($this->getPrependedColumns())->concat($this->columns())->concat(new ColumnCollection($this->getAppendedColumns()));
@@ -45,7 +45,8 @@ trait ColumnConfiguration
                     } elseif ($column->getAggregateMethod() == 'avg' && $column->hasDataSource() && $column->hasForeignColumn()) {
                         $this->addExtraWithAvg($column->getDataSource(), $column->getForeignColumn());
                     }
-                } elseif ($column instanceof ArrayColumn && $column->hasRelationship() && $this->columnIsSelected($column)) {
+                }
+                elseif ($column instanceof ArrayColumn && $column->hasRelationship() && $this->columnIsSelected($column)) {
                     $this->addExtraWith($column->getRelationship());
                 }
 
@@ -57,6 +58,9 @@ trait ColumnConfiguration
                     }
                 }
 
+
+
+
                 return $column;
             });
         $this->hasRunColumnSetup = true;
@@ -65,7 +69,8 @@ trait ColumnConfiguration
     /**
      * Undocumented function
      *
-     * @param  array<mixed>  $prependedColumns
+     * @param array<mixed> $prependedColumns
+     * @return void
      */
     public function setPrependedColumns(array $prependedColumns): void
     {
@@ -76,7 +81,8 @@ trait ColumnConfiguration
     /**
      * Undocumented function
      *
-     * @param  array<mixed>  $appendedColumns
+     * @param array<mixed> $appendedColumns
+     * @return void
      */
     public function setAppendedColumns(array $appendedColumns): void
     {

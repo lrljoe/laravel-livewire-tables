@@ -5,8 +5,8 @@ namespace Rappasoft\LaravelLivewireTables\Features\Sorting;
 use Rappasoft\LaravelLivewireTables\Collections\ColumnCollection;
 use Rappasoft\LaravelLivewireTables\Features\Sorting\Concerns\HandlesSortingPills;
 use Rappasoft\LaravelLivewireTables\Features\Sorting\Configuration\SortingConfiguration;
-use Rappasoft\LaravelLivewireTables\Features\Sorting\Helpers\SortingHelpers;
 use Rappasoft\LaravelLivewireTables\Features\Sorting\QueryString\HasQueryStringForSort;
+use Rappasoft\LaravelLivewireTables\Features\Sorting\Helpers\SortingHelpers;
 use Rappasoft\LaravelLivewireTables\Features\Sorting\Styling\HasSortingPillsStyling;
 
 trait WithSorting
@@ -48,6 +48,8 @@ trait WithSorting
 
     /**
      * Undocumented function
+     *
+     * @return void
      */
     public function mountWithSorting(): void
     {
@@ -60,13 +62,16 @@ trait WithSorting
             'sortingIsEnabled' => $this->sortingIsEnabled(),
             'columnSortConfig' => [],
         ];
-        if ($this->sortingIsEnabled()) {
+        if($this->sortingIsEnabled())
+        {
             $columnSortConfig = [];
-            foreach ($this->columns as $column) {
+            foreach($this->columns as $column)
+            {
                 $columnSortConfig[$column->getHash()] = $this->getAllThAttributes($column);
             }
             $data['columnSortConfig'] = $columnSortConfig;
         }
         $view->with($data);
     }
+
 }

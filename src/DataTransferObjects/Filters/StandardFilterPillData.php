@@ -6,11 +6,22 @@ class StandardFilterPillData
 {
     /**
      * Undocumented function
+     *
+     * @param string $filterPillTitle
+     * @param string $filterSelectName
+     * @param string $filterPillValue
+     * @param boolean $renderPillsAsHtml
      */
     public function __construct(protected string $filterPillTitle, protected string $filterSelectName, protected string $filterPillValue, protected bool $renderPillsAsHtml) {}
 
     /**
      * Undocumented function
+     *
+     * @param string $filterPillTitle
+     * @param string $filterSelectName
+     * @param string $filterPillValue
+     * @param boolean $renderPillsAsHtml
+     * @return StandardFilterPillData
      */
     public static function make(string $filterPillTitle, string $filterSelectName, string $filterPillValue, bool $renderPillsAsHtml = false): StandardFilterPillData
     {
@@ -19,6 +30,8 @@ class StandardFilterPillData
 
     /**
      * Undocumented function
+     *
+     * @return string
      */
     public function getTitle(): string
     {
@@ -27,6 +40,8 @@ class StandardFilterPillData
 
     /**
      * Undocumented function
+     *
+     * @return string
      */
     public function getSelectName(): string
     {
@@ -35,6 +50,8 @@ class StandardFilterPillData
 
     /**
      * Undocumented function
+     *
+     * @return string
      */
     public function getPillValue(): string
     {
@@ -43,6 +60,8 @@ class StandardFilterPillData
 
     /**
      * Undocumented function
+     *
+     * @return boolean
      */
     public function shouldUsePillsAsHtml(): bool
     {

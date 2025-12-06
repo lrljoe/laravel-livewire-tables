@@ -6,7 +6,7 @@ trait ArrayColumnHelpers
 {
     public function hasSeparator(): bool
     {
-        return $this->separator !== '';
+        return $this->separator !== "";
     }
 
     public function getSeparator(): string
@@ -39,9 +39,10 @@ trait ArrayColumnHelpers
         return $this->outputFormat;
     }
 
+    
     public function hasOutputWrapperStart(): bool
     {
-        return isset($this->outputWrapperStart) && $this->outputWrapperStart !== '';
+        return isset($this->outputWrapperStart) && $this->outputWrapperStart !== "";
     }
 
     public function getOutputWrapperStart(): string
@@ -51,14 +52,14 @@ trait ArrayColumnHelpers
 
     public function hasOutputWrapperEnd(): bool
     {
-        return isset($this->outputWrapperEnd) && $this->outputWrapperEnd !== '';
+        return isset($this->outputWrapperEnd) && $this->outputWrapperEnd !== "";
     }
 
     public function getOutputWrapperEnd(): string
     {
         return $this->outputWrapperEnd;
     }
-
+    
     public function hasRelationship(): bool
     {
         return isset($this->relationship);

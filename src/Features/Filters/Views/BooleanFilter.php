@@ -10,24 +10,35 @@ class BooleanFilter extends Filter
 
     /**
      * Undocumented variable
+     *
+     * @var string
      */
     public string $wireMethod = 'live';
 
     /**
      * The path to the view for this filter
+     *
+     * @var string
      */
     protected string $view = 'livewire-tables::components.tools.filters.boolean';
 
     /**
      * Undocumented function
+     *
+     * @param string $name
+     * @param string|null $key
      */
     public function __construct(string $name, ?string $key = null)
     {
-        parent::__construct($name, $key);
+        parent::__construct($name,$key);
     }
+
 
     /**
      * Validate the input from the Boolean Filter - ensuring that it is an acceptable boolean
+     *
+     * @param boolean|integer|string|null $value
+     * @return integer|boolean
      */
     public function validate(bool|int|string|null $value): int|bool
     {
@@ -54,8 +65,8 @@ class BooleanFilter extends Filter
     /**
      * Retrieves the Filter Value for use in the Filter Pills area
      *
-     * @param  mixed  $value
-     * @return array<mixed>|string|bool|null
+     * @param mixed $value
+     * @return array<mixed>|string|boolean|null
      */
     public function getFilterPillValue($value): array|string|bool|null
     {
@@ -67,16 +78,20 @@ class BooleanFilter extends Filter
      *
      * @return array<mixed>
      */
-    public function getCustomFilterPillValues(): array
+     public function getCustomFilterPillValues(): array
     {
-        return ! empty($this->filterPillValues) ? $this->filterPillValues : [
+        return !empty($this->filterPillValues) ? $this->filterPillValues : [
             true => __('livewire-tables::core.Enabled'),
             false => __('livewire-tables::core.Disabled'),
         ];
     }
 
+
     /**
      * Checks if the Filter Value is empty
+     *
+     * @param boolean|integer|string|null $value
+     * @return boolean
      */
     public function isEmpty(bool|int|string|null $value): bool
     {
@@ -114,6 +129,8 @@ class BooleanFilter extends Filter
 
     /**
      * Gets the Default Value for this Filter via the Component
+     *
+     * @return boolean|null
      */
     public function getFilterDefaultValue(): ?bool
     {

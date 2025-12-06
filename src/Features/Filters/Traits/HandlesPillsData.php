@@ -16,26 +16,35 @@ trait HandlesPillsData
         $filters = [];
 
         foreach ($this->getAppliedFiltersWithValuesForPills() as $filterKey => $value) {
-            if (! is_null($filter = $this->getFilterByKey($filterKey))) {
-                if (! method_exists($filter, 'isAnExternalLivewireFilter') || ! $filter->isAnExternalLivewireFilter()) {
+            if (! is_null($filter = $this->getFilterByKey($filterKey)))
+            {
+                if(!method_exists($filter, 'isAnExternalLivewireFilter') || !$filter->isAnExternalLivewireFilter())
+                {
                     $value = $filter->validate($value);
                 }
 
-                if (! $filter->isEmpty($value)) {
-                    if ((method_exists($filter, 'isAnExternalLivewireFilter') && $filter->isAnExternalLivewireFilter())) {
+                if (!$filter->isEmpty($value))
+                {
+                    if((method_exists($filter, 'isAnExternalLivewireFilter') && $filter->isAnExternalLivewireFilter()))
+                    {
                         $filterPillsValues = $this->externalFilterPillsValues[$filterKey] ?? [];
 
-                        if (! empty($filterPillsValues)) {
+                        if(!empty($filterPillsValues))
+                        {
                             $filter->options($filterPillsValues);
                         }
-                    } else {
+                    }
+                    else
+                    {
                         $filterPillsValues = $filter->getFilterPillValue($value);
                     }
 
-                    if (! empty($filterPillsValues)) {
+                    if(!empty($filterPillsValues))
+                    {
                         $sep = method_exists($filter, 'getPillsSeparator') ? $filter->getPillsSeparator() : ', ';
-                        if (is_array($filterPillsValues)) {
-                            $filterPillsValues = implode($sep, $filterPillsValues);
+                        if(is_array($filterPillsValues))
+                        {
+                        $filterPillsValues = implode($sep, $filterPillsValues);
                         }
 
                     }

@@ -9,7 +9,8 @@ trait QueryConfiguration
     /**
      * Undocumented function
      *
-     * @param  Builder<\Illuminate\Database\Eloquent\Model>  $builder
+     * @param Builder<\Illuminate\Database\Eloquent\Model> $builder
+     * @return void
      */
     public function setBuilder(Builder $builder): void
     {
@@ -26,7 +27,8 @@ trait QueryConfiguration
     /**
      * Allows adding a single set of additional selects to the query
      *
-     * @param  string|array<mixed>  $selects
+     * @param string|array<mixed> $selects
+     * @return self
      */
     public function setAdditionalSelects(string|array $selects): self
     {
@@ -45,9 +47,10 @@ trait QueryConfiguration
     /**
      * Undocumented function
      *
-     * @param  string|array<mixed>  $selects
+     * @param string|array<mixed> $selects
+     * @return self
      */
-    public function addAdditionalSelects(string|array $selects): self
+     public function addAdditionalSelects(string|array $selects): self
     {
         if (! is_array($selects)) {
             $selects = [$selects];
@@ -60,7 +63,8 @@ trait QueryConfiguration
     /**
      * Undocumented function
      *
-     * @param  array<mixed>  $extraWiths
+     * @param array<mixed> $extraWiths
+     * @return self
      */
     public function setExtraWiths(array $extraWiths): self
     {
@@ -79,7 +83,8 @@ trait QueryConfiguration
     /**
      * Undocumented function
      *
-     * @param  array<mixed>  $extraWiths
+     * @param array<mixed> $extraWiths
+     * @return self
      */
     public function addExtraWiths(array $extraWiths): self
     {
@@ -91,7 +96,8 @@ trait QueryConfiguration
     /**
      * Undocumented function
      *
-     * @param  array<mixed>  $extraWithCounts
+     * @param array<mixed> $extraWithCounts
+     * @return self
      */
     public function setExtraWithCounts(array $extraWithCounts): self
     {
@@ -110,7 +116,8 @@ trait QueryConfiguration
     /**
      * Undocumented function
      *
-     * @param  array<mixed>  $extraWithCounts
+     * @param array<mixed> $extraWithCounts
+     * @return self
      */
     public function addExtraWithCounts(array $extraWithCounts): self
     {

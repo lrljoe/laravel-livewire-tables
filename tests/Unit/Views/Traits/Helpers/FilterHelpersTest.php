@@ -4,11 +4,11 @@ namespace Rappasoft\LaravelLivewireTables\Tests\Unit\Views\Traits\Helpers;
 
 use Illuminate\Database\Eloquent\Builder;
 use PHPUnit\Framework\Attributes\Group;
+use Rappasoft\LaravelLivewireTables\Tests\TestCase;
 use Rappasoft\LaravelLivewireTables\Features\Filters\Views\MultiSelectDropdownFilter;
 use Rappasoft\LaravelLivewireTables\Features\Filters\Views\MultiSelectFilter;
 use Rappasoft\LaravelLivewireTables\Features\Filters\Views\SelectFilter;
 use Rappasoft\LaravelLivewireTables\Features\Filters\Views\TextFilter;
-use Rappasoft\LaravelLivewireTables\Tests\TestCase;
 
 #[Group('Filters')]
 final class FilterHelpersTest extends TestCase
@@ -327,7 +327,7 @@ final class FilterHelpersTest extends TestCase
         $this->assertTrue($filter->hasCustomPillBlade());
         $this->assertSame('foo', $filter->getCustomPillBlade());
     }
-
+    
     public function test_can_get_filter_label_attributes_basic(): void
     {
         $filter1 = TextFilter::make('Filter1');
@@ -396,7 +396,7 @@ final class FilterHelpersTest extends TestCase
         $filter3 = TextFilter::make('Filter3')->setFilterLabelAttributes(
             ['class' => 'text-2xl']
         );
-
+        
         $this->assertFalse($filter1->hasFilterLabelAttributes());
         $this->assertTrue($filter2->hasFilterLabelAttributes());
         $this->assertTrue($filter3->hasFilterLabelAttributes());
@@ -441,7 +441,7 @@ final class FilterHelpersTest extends TestCase
     {
         $filter1 = TextFilter::make('Filter1');
 
-        $dataTableFingerprint = 'fingerprint-'.rand(10000, 99999);
+        $dataTableFingerprint = 'fingerprint-'.rand(10000,99999);
 
         $testGenericData = [
             'filterLayout' => 'tailwind',

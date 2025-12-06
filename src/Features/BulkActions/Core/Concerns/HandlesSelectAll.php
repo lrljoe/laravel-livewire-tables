@@ -2,10 +2,14 @@
 
 namespace Rappasoft\LaravelLivewireTables\Features\BulkActions\Core\Concerns;
 
+
 trait HandlesSelectAll
 {
+
     /**
      * Undocumented function
+     *
+     * @return boolean
      */
     public function getSelectAllStatus(): bool
     {
@@ -14,6 +18,8 @@ trait HandlesSelectAll
 
     /**
      * Undocumented function
+     *
+     * @return boolean
      */
     public function selectAllIsEnabled(): bool
     {
@@ -22,6 +28,8 @@ trait HandlesSelectAll
 
     /**
      * Undocumented function
+     *
+     * @return boolean
      */
     public function selectAllIsDisabled(): bool
     {
@@ -30,6 +38,8 @@ trait HandlesSelectAll
 
     /**
      * Undocumented function
+     *
+     * @return boolean
      */
     public function getDelaySelectAllStatus(): bool
     {
@@ -38,10 +48,13 @@ trait HandlesSelectAll
 
     /**
      * Undocumented function
+     *
+     * @param boolean $status
+     * @return self
      */
     public function setSelectAllStatus(bool $status): self
     {
-        // $this->selectAll = $status;
+        //$this->selectAll = $status;
         $this->setBulkActionConfig('selectAll', $status);
 
         return $this;
@@ -49,6 +62,8 @@ trait HandlesSelectAll
 
     /**
      * Undocumented function
+     *
+     * @return self
      */
     public function setSelectAllEnabled(): self
     {
@@ -59,6 +74,8 @@ trait HandlesSelectAll
 
     /**
      * Undocumented function
+     *
+     * @return self
      */
     public function setSelectAllDisabled(): self
     {
@@ -69,6 +86,9 @@ trait HandlesSelectAll
 
     /**
      * Undocumented function
+     *
+     * @param boolean $status
+     * @return self
      */
     public function setDelaySelectAllStatus(bool $status): self
     {
@@ -77,6 +97,8 @@ trait HandlesSelectAll
 
     /**
      * Undocumented function
+     *
+     * @return self
      */
     public function setDelaySelectAllEnabled(): self
     {
@@ -85,9 +107,12 @@ trait HandlesSelectAll
 
     /**
      * Undocumented function
+     *
+     * @return self
      */
     public function setDelaySelectAllDisabled(): self
     {
-        return $this->setDelaySelectAllStatus(false);
+       return $this->setDelaySelectAllStatus(false);
     }
+
 }

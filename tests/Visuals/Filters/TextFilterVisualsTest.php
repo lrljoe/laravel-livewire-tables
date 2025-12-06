@@ -4,9 +4,9 @@ namespace Rappasoft\LaravelLivewireTables\Tests\Visuals\Filters;
 
 use Livewire\Livewire;
 use PHPUnit\Framework\Attributes\Group;
-use Rappasoft\LaravelLivewireTables\Features\Filters\Views\TextFilter;
 use Rappasoft\LaravelLivewireTables\Tests\Http\Livewire\BreedsTable;
 use Rappasoft\LaravelLivewireTables\Tests\TestCase;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\TextFilter;
 
 #[Group('Visuals')]
 #[Group('Filters')]

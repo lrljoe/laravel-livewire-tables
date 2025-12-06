@@ -9,7 +9,6 @@ trait ProvidesEnhancementDefaults
     protected function setEnhancedDefaults(bool $status): self
     {
         $this->enhancedDefaults = $status;
-
         return $this;
     }
 
@@ -31,12 +30,13 @@ trait ProvidesEnhancementDefaults
 
     protected function setupEnhancedDefaults(): self
     {
-        if ($this->getEnhancedDefaultsStatus()) {
+        if($this->getEnhancedDefaultsStatus())
+        {
             $this->setModernColumnSelectEnabled()
                 ->setActionsInToolbarEnabled()
                 ->setExcludeDeselectedColumnsFromQueryEnabled();
         }
-
         return $this;
     }
+
 }

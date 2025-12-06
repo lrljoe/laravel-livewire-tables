@@ -13,10 +13,10 @@ trait HasToolsStyling
      * @var array<mixed>
      */
     protected array $toolsAttributes = ['class' => '', 'default-colors' => true, 'default-styling' => true];
-
+    
     /**
      * Undocumented function
-     *
+     * 
      * @return array<mixed>
      */
     #[Computed]
@@ -27,6 +27,8 @@ trait HasToolsStyling
 
     /**
      * Undocumented function
+     * 
+     * @return ComponentAttributeBag
      */
     #[Computed]
     public function getToolsAttributesBag(): ComponentAttributeBag
@@ -37,7 +39,8 @@ trait HasToolsStyling
     /**
      * Undocumented function
      *
-     * @param  array<mixed>  $toolsAttributes
+     * @param array<mixed> $toolsAttributes
+     * @return self
      */
     public function setToolsAttributes(array $toolsAttributes = []): self
     {
@@ -45,4 +48,5 @@ trait HasToolsStyling
 
         return $this;
     }
+
 }

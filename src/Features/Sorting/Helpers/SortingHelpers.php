@@ -9,6 +9,8 @@ trait SortingHelpers
 {
     /**
      * Undocumented function
+     *
+     * @return boolean
      */
     public function getSortingStatus(): bool
     {
@@ -17,14 +19,19 @@ trait SortingHelpers
 
     /**
      * Undocumented function
+     *
+     * @return boolean
      */
     public function getSingleSortingStatus(): bool
     {
         return $this->sortingConfig['singleColumnSortingStatus'] ?? true;
     }
 
+
     /**
      * Undocumented function
+     *
+     * @return string|null
      */
     public function getDefaultSortColumn(): ?string
     {
@@ -33,10 +40,12 @@ trait SortingHelpers
 
     /**
      * Undocumented function
+     *
+     * @return string
      */
     public function getDefaultSortDirection(): string
     {
-        return $this->sortingConfig['defaultSortDirection'] ?? 'asc';
+        return $this->sortingConfig['defaultSortDirection']  ?? 'asc';
     }
 
     /**
@@ -60,7 +69,7 @@ trait SortingHelpers
     }
 
     /**
-     * @param  array<mixed>  $sorts
+     * @param  array<mixed> $sorts
      * @return array<mixed>
      */
     public function setSorts(array $sorts = []): array
@@ -73,6 +82,9 @@ trait SortingHelpers
 
     /**
      * Undocumented function
+     *
+     * @param string $field
+     * @return string|null
      */
     public function getSort(string $field): ?string
     {
@@ -81,6 +93,10 @@ trait SortingHelpers
 
     /**
      * Undocumented function
+     *
+     * @param string $field
+     * @param string $direction
+     * @return string
      */
     #[On('setSort')]
     #[On('set-sort')]
@@ -91,6 +107,8 @@ trait SortingHelpers
 
     /**
      * Undocumented function
+     *
+     * @return boolean
      */
     public function hasSorts(): bool
     {
@@ -99,6 +117,9 @@ trait SortingHelpers
 
     /**
      * Undocumented function
+     *
+     * @param string $field
+     * @return boolean
      */
     public function hasSort(string $field): bool
     {
@@ -107,6 +128,8 @@ trait SortingHelpers
 
     /**
      * Clear the sorts array
+     *
+     * @return void
      */
     #[On('clearSorts')]
     #[On('clearsorts')]
@@ -117,6 +140,9 @@ trait SortingHelpers
 
     /**
      * Clear an individual sort
+     *
+     * @param string $field
+     * @return void
      */
     public function clearSort(string $field): void
     {
@@ -125,6 +151,9 @@ trait SortingHelpers
 
     /**
      * Undocumented function
+     *
+     * @param string $field
+     * @return string
      */
     public function setSortAsc(string $field): string
     {
@@ -133,6 +162,9 @@ trait SortingHelpers
 
     /**
      * Undocumented function
+     *
+     * @param string $field
+     * @return string
      */
     public function setSortDesc(string $field): string
     {
@@ -141,6 +173,9 @@ trait SortingHelpers
 
     /**
      * Undocumented function
+     *
+     * @param string $field
+     * @return boolean
      */
     public function isSortAsc(string $field): bool
     {
@@ -149,6 +184,9 @@ trait SortingHelpers
 
     /**
      * Undocumented function
+     *
+     * @param string $field
+     * @return boolean
      */
     public function isSortDesc(string $field): bool
     {
@@ -157,6 +195,8 @@ trait SortingHelpers
 
     /**
      * Undocumented function
+     *
+     * @return boolean
      */
     public function sortingIsEnabled(): bool
     {
@@ -165,6 +205,8 @@ trait SortingHelpers
 
     /**
      * Undocumented function
+     *
+     * @return boolean
      */
     public function sortingIsDisabled(): bool
     {
@@ -173,6 +215,8 @@ trait SortingHelpers
 
     /**
      * Undocumented function
+     *
+     * @return boolean
      */
     public function singleSortingIsEnabled(): bool
     {
@@ -181,6 +225,8 @@ trait SortingHelpers
 
     /**
      * Undocumented function
+     *
+     * @return boolean
      */
     public function singleSortingIsDisabled(): bool
     {
@@ -189,14 +235,20 @@ trait SortingHelpers
 
     /**
      * Undocumented function
+     *
+     * @return boolean
      */
     public function hasDefaultSort(): bool
     {
         return $this->getDefaultSortColumn() !== null;
     }
 
-    /**
+
+/**
      * Undocumented function
+     *
+     * @param string $columnSelectName
+     * @return string|null
      */
     public function sortBy(string $columnSelectName): ?string
     {
@@ -241,19 +293,22 @@ trait SortingHelpers
         $allCols = $this->getColumns()
             ->visibleSortableColumnsKeyed(array_keys($this->sorts));
 
+
         $sorts = $this->getSorts();
 
-        foreach ($allCols as $columnSelectName => $column) {
+        foreach($allCols as $columnSelectName => $column)
+        {
 
             $direction = $sorts[$columnSelectName];
             if (! in_array($direction, ['asc', 'desc'])) {
                 $direction = 'asc';
             }
 
-            if (! $column->isSortable() && ! $column->hasSortCallback()) {
+            if (! $column->isSortable() && !$column->hasSortCallback()) {
                 continue;
             }
 
+            
             // TODO: Test
             if ($column->hasSortCallback()) {
                 $this->setBuilder(call_user_func($column->getSortCallback(), $this->getBuilder(), $direction));
@@ -262,12 +317,12 @@ trait SortingHelpers
             } else {
                 $value = $this->getBuilder()->getGrammar()->wrap($column->getColumn().' as '.$column->getColumnSelectName());
                 $segments = preg_split('/\s+as\s+/i', $value);
-                if (array_key_exists(1, $segments)) {
+                if(array_key_exists(1,$segments))
+                {
                     $this->setBuilder($this->getBuilder()->orderByRaw($segments[1].' '.$direction));
                 }
             }
         }
-
         return $this->getBuilder();
     }
 }

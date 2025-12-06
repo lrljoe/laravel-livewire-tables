@@ -7,7 +7,7 @@ use Illuminate\View\ComponentAttributeBag;
 trait HasIcon
 {
     public ?string $icon;
-
+    
     /**
      * Undocumented variable
      *
@@ -37,7 +37,8 @@ trait HasIcon
     /**
      * Undocumented function
      *
-     * @param  array<mixed>  $iconAttributes
+     * @param array<mixed> $iconAttributes
+     * @return self
      */
     public function setIconAttributes(array $iconAttributes): self
     {
@@ -58,6 +59,8 @@ trait HasIcon
 
     /**
      * Undocumented function
+     *
+     * @return ComponentAttributeBag
      */
     public function getIconAttributes(): ComponentAttributeBag
     {
@@ -66,11 +69,14 @@ trait HasIcon
 
     /**
      * Undocumented function
+     *
+     * @return ComponentAttributeBag
      */
     public function getIconAttributesBag(): ComponentAttributeBag
     {
         return new ComponentAttributeBag([...['class' => '', 'default-styling' => true], ...$this->iconAttributes]);
     }
+
 
     public function getIconRight(): bool
     {

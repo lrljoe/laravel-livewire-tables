@@ -2,8 +2,8 @@
 
 namespace Rappasoft\LaravelLivewireTables\Features\Filters\Traits;
 
-use Rappasoft\LaravelLivewireTables\Collections\FilterCollection;
 use Rappasoft\LaravelLivewireTables\Features\Filters\Views\Filter;
+use Rappasoft\LaravelLivewireTables\Collections\FilterCollection;
 
 trait WithFilters
 {
@@ -20,9 +20,9 @@ trait WithFilters
 
     /**
      * Undocumented variable
-     *
+     * 
      * Set in JS
-     *
+     * 
      * @var array<mixed>
      */
     public array $appliedFilters = [];
@@ -36,13 +36,13 @@ trait WithFilters
 
     /**
      * Filter Configuration
-     *
+     * 
      * Set in JS
-     *
+     * 
      * @var array<mixed>
      */
     public array $filterConfiguration = ['filterCount' => null, 'filterLayout' => 'popover', 'filterPillsStatus' => true, 'filterSlideDownDefaultVisible' => false, 'filtersStatus' => true, 'visibilityStatus' => true];
-
+    
     /**
      * Undocumented variable
      *
@@ -82,14 +82,14 @@ trait WithFilters
     public function renderingWithFilters(\Illuminate\View\View $view, array $data = [])
     {
         $view->with(['appliedFilters' => $this->appliedFilters]);
-
+        
     }*/
-    /* public function updatedAvailableFilters2($val, $key)
-     {
-         $temp = Arr::undot([$key => $val]);
-         $temp = Arr::first($temp);
-         dd($temp);
-         $this->appliedFilters = array_merge($this->appliedFilters, $temp);
-         dd($this->appliedFilters);
-     }*/
+   /* public function updatedAvailableFilters2($val, $key)
+    {
+        $temp = Arr::undot([$key => $val]);
+        $temp = Arr::first($temp);
+        dd($temp);
+        $this->appliedFilters = array_merge($this->appliedFilters, $temp);
+        dd($this->appliedFilters);
+    }*/
 }

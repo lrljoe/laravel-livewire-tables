@@ -16,17 +16,20 @@ trait HandlesBulkActionAttributes
     /**
      * Undocumented function
      *
-     * @param  array<mixed>  $buttonAttributes
+     * @param array<mixed> $buttonAttributes
+     * @return self
      */
     public function setButtonAttributes(array $buttonAttributes): self
     {
         $this->buttonAttributes = [...$this->buttonAttributes, ...$buttonAttributes];
-
+        
         return $this;
     }
-
+    
     /**
      * Undocumented function
+     *
+     * @return boolean
      */
     public function hasButtonAttributes(): bool
     {
@@ -41,17 +44,19 @@ trait HandlesBulkActionAttributes
     public function getButtonAttributes(): array
     {
         $default = ['class' => '', 'default-styling' => true, 'default-colors' => true,  'role' => 'menuitem', 'type' => 'button', 'wire:click' => $this->action];
-        if ($this->hasConfirmationMessage()) {
+        if($this->hasConfirmationMessage())
+        {
             $default['wire:confirm'] = $this->confirmationMessage;
         }
         $merged = [...$default, ...$this->buttonAttributes];
         ksort($merged);
-
         return $merged;
     }
 
     /**
      * Undocumented function
+     *
+     * @return ComponentAttributeBag
      */
     public function getButtonAttributesBag(): ComponentAttributeBag
     {

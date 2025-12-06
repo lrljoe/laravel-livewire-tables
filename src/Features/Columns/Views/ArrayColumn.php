@@ -15,31 +15,43 @@ class ArrayColumn extends Column
 
     /**
      * Undocumented variable
+     *
+     * @var string
      */
     public string $separator = '<br />';
 
     /**
      * Undocumented variable
+     *
+     * @var string
      */
     public string $emptyValue = '';
 
     /**
      * Undocumented variable
+     *
+     * @var mixed
      */
     protected mixed $dataCallback = null;
 
     /**
      * Undocumented variable
+     *
+     * @var mixed
      */
     protected mixed $outputFormat = null;
 
     /**
      * Undocumented variable
+     *
+     * @var string|null
      */
     public ?string $outputWrapperStart;
 
     /**
      * Undocumented variable
+     *
+     * @var string|null
      */
     public ?string $outputWrapperEnd;
 
@@ -47,6 +59,9 @@ class ArrayColumn extends Column
 
     /**
      * Undocumented function
+     *
+     * @param string $title
+     * @param string|null $from
      */
     public function __construct(string $title, ?string $from = null)
     {
@@ -58,6 +73,9 @@ class ArrayColumn extends Column
 
     /**
      * Undocumented function
+     *
+     * @param Model $row
+     * @return null|string|\BackedEnum|HtmlString|DataTableConfigurationException|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function getContents(Model $row): null|string|\BackedEnum|HtmlString|DataTableConfigurationException|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
     {
@@ -76,13 +94,13 @@ class ArrayColumn extends Column
             $outputValues[] = call_user_func($this->getOutputFormatCallback(), $i, $v);
         }
         asort($outputValues);
-
+        
         $returnedValue = (! empty($outputValues) ? implode($this->getSeparator(), $outputValues) : $this->getEmptyValue());
 
-        if ($this->hasOutputWrapperStart() && $this->hasOutputWrapperEnd()) {
-            $returnedValue = $this->getOutputWrapperStart().$returnedValue.$this->getOutputWrapperEnd();
+        if ($this->hasOutputWrapperStart() && $this->hasOutputWrapperEnd())
+        {
+            $returnedValue = $this->getOutputWrapperStart() . $returnedValue . $this->getOutputWrapperEnd();
         }
-
         return new HtmlString($returnedValue);
     }
 }

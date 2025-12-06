@@ -4,6 +4,7 @@ namespace Rappasoft\LaravelLivewireTables\Traits\Configuration;
 
 trait QueryStringConfiguration
 {
+    
     public function setupQueryStringStatus(): void
     {
         if (! $this->hasQueryStringStatus()) {
@@ -45,7 +46,9 @@ trait QueryStringConfiguration
     /**
      * Undocumented function
      *
-     * @param  array<mixed>  $config
+     * @param string $type
+     * @param array<mixed> $config
+     * @return self
      */
     protected function setQueryStringConfig(string $type, array $config): self
     {

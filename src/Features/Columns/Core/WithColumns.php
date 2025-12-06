@@ -2,10 +2,10 @@
 
 namespace Rappasoft\LaravelLivewireTables\Features\Columns\Core;
 
-use Rappasoft\LaravelLivewireTables\Collections\ColumnCollection;
 use Rappasoft\LaravelLivewireTables\Exceptions\NoColumnsException;
 use Rappasoft\LaravelLivewireTables\Features\Columns\Core\Configuration\ColumnConfiguration;
 use Rappasoft\LaravelLivewireTables\Features\Columns\Core\Helpers\ColumnHelpers;
+use Rappasoft\LaravelLivewireTables\Collections\ColumnCollection;
 
 trait WithColumns
 {
@@ -35,15 +35,19 @@ trait WithColumns
 
     /**
      * Undocumented variable
+     *
+     * @var boolean
      */
     protected bool $hasRunColumnSetup = false;
 
     /**
      * Sets up Columns
+     *
+     * @return void
      */
     public function bootedWithColumns(): void
     {
-        $this->columns = new ColumnCollection;
+        $this->columns = new ColumnCollection();
 
         // Sets Columns
         // Fire Lifecycle Hooks for settingColumns
@@ -63,6 +67,7 @@ trait WithColumns
 
     }
 
+
     /**
      * The array defining the columns of the table.
      *
@@ -73,9 +78,11 @@ trait WithColumns
     /**
      * Add Columns to View
      *
-     * @param  array<mixed>  $data
+     * @param \Illuminate\View\View $view
+     * @param array<mixed> $data
+     * @return void
      */
-    public function renderingWithColumns(\Illuminate\View\View $view, array $data = []): void
+     public function renderingWithColumns(\Illuminate\View\View $view, array $data = []): void
     {
 
         if (! $this->getComputedPropertiesStatus()) {

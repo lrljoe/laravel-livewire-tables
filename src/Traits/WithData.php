@@ -14,6 +14,8 @@ trait WithData
 {
     /**
      * Retrieves the rows for the executed query
+     *
+     * @return Collection|CursorPaginator|Paginator|LengthAwarePaginator
      */
     #[Computed]
     public function getRows(): Collection|CursorPaginator|Paginator|LengthAwarePaginator
@@ -46,18 +48,21 @@ trait WithData
         $this->setBuilder($this->builder());
 
         $this->includePrimaryKeyInQuery();
-
-        if (method_exists($this, 'hasSearch') && $this->searchIsEnabled() && $this->hasSearch()) {
+        
+        if(method_exists($this, 'hasSearch') && $this->searchIsEnabled() && $this->hasSearch())
+        {
             $includeRelations = true;
             $this->setBuilder($this->applySearch());
         }
-
-        if (method_exists($this, 'applyFilters') && $this->filtersAreEnabled() && $this->hasFilters() && $this->hasAppliedFiltersWithValues()) {
+        
+        if(method_exists($this, 'applyFilters') && $this->filtersAreEnabled() && $this->hasFilters() && $this->hasAppliedFiltersWithValues())
+        {
             $includeRelations = true;
             $this->setBuilder($this->applyFilters());
         }
 
-        if ($includeRelations) {
+        if($includeRelations)
+        {
             $this->setBuilder($this->joinRelations());
         }
 
@@ -77,13 +82,16 @@ trait WithData
 
         $this->setBuilder($this->joinRelations());
 
-        if (method_exists($this, 'applySearch') && $this->searchIsEnabled() && $this->hasSearch()) {
+        if(method_exists($this, 'applySearch') && $this->searchIsEnabled() && $this->hasSearch())
+        {
             $this->setBuilder($this->applySearch());
         }
-
-        if (method_exists($this, 'applyFilters') && $this->filtersAreEnabled() && $this->hasFilters() && $this->hasAppliedFiltersWithValues()) {
+        
+        if(method_exists($this, 'applyFilters') && $this->filtersAreEnabled() && $this->hasFilters() && $this->hasAppliedFiltersWithValues())
+        {
             $this->setBuilder($this->applyFilters());
         }
+
 
         $builder = $this->getBuilder();
 
@@ -114,6 +122,8 @@ trait WithData
 
     /**
      * Undocumented function
+     *
+     * @return Collection|CursorPaginator|Paginator|LengthAwarePaginator
      */
     protected function executeQuery(): Collection|CursorPaginator|Paginator|LengthAwarePaginator
     {
@@ -121,7 +131,7 @@ trait WithData
         $this->setBuilder($this->selectFields());
 
         $this->includePrimaryKeyInQuery();
-
+        
         if ($this->currentlyReorderingIsEnabled()) {
             $this->setBuilder($this->getBuilder()->orderBy($this->getDefaultReorderColumn(), $this->getDefaultReorderDirection()));
         } else {
@@ -189,6 +199,7 @@ trait WithData
     /**
      * Undocumented function
      *
+     * @param Column $column
      * @return Builder<\Illuminate\Database\Eloquent\Model>
      */
     protected function joinRelation(Column $column): Builder
@@ -244,6 +255,10 @@ trait WithData
     /**
      * Undocumented function
      *
+     * @param string $table
+     * @param string $foreign
+     * @param string $other
+     * @param string $type
      * @return Builder<\Illuminate\Database\Eloquent\Model>
      */
     protected function performJoin(string $table, string $foreign, string $other, string $type = 'left'): Builder
@@ -277,20 +292,27 @@ trait WithData
 
         if ($this->getExcludeDeselectedColumnsFromQuery()) {
             foreach ($this->getSelectedColumnsForQuery() as $column) {
-                if ($column->isBaseColumn()) {
+                if($column->isBaseColumn())
+                {
                     $this->setBuilder($this->getBuilder()->addSelect($column->getColumnForQuery($table).' as '.$column->getColumnSelectName()));
-                } else {
+                }
+                else
+                {
                     $this->setBuilder($this->getBuilder()->addSelect($column->getColumnForQuery().' as '.$column->getColumnSelectName()));
                 }
 
             }
         } else {
             foreach ($this->getColumns()->reject(fn (Column $column) => $column->isLabel()) as $column) {
-                if ($column->isBaseColumn()) {
+                if($column->isBaseColumn())
+                {
                     $this->setBuilder($this->getBuilder()->addSelect($column->getColumnForQuery($table).' as '.$column->getColumnSelectName()));
-                } else {
+                }
+                else
+                {
                     $this->setBuilder($this->getBuilder()->addSelect($column->getColumnForQuery().' as '.$column->getColumnSelectName()));
                 }
+                
 
             }
         }
@@ -300,6 +322,9 @@ trait WithData
 
     /**
      * Gets the table for a given Column
+     *
+     * @param Column $column
+     * @return string|null
      */
     protected function getTableForColumn(Column $column): ?string
     {
@@ -321,6 +346,10 @@ trait WithData
 
     /**
      * Retrieves table aliases
+     *
+     * @param string|null $currentTableAlias
+     * @param string $relationPart
+     * @return string
      */
     protected function getTableAlias(?string $currentTableAlias, string $relationPart): string
     {
@@ -350,7 +379,9 @@ trait WithData
     /**
      * Add Rows And Generic Data to View
      *
-     * @param  array<mixed>  $data
+     * @param \Illuminate\View\View $view
+     * @param array<mixed> $data
+     * @return void
      */
     public function renderingWithData(\Illuminate\View\View $view, array $data = []): void
     {

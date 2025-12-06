@@ -6,11 +6,16 @@ trait HandlesFieldName
 {
     /**
      * The Field Name for a Filter
+     *
+     * @var string|null
      */
     protected ?string $fieldName;
 
     /**
      * Sets the Field Name for a Filter
+     *
+     * @param string $fieldName
+     * @return self
      */
     public function setFieldName(string $fieldName): self
     {
@@ -21,6 +26,8 @@ trait HandlesFieldName
 
     /**
      * Determines if a Filter has a Field Name configured
+     *
+     * @return boolean
      */
     public function hasFieldName(): bool
     {
@@ -30,6 +37,8 @@ trait HandlesFieldName
 
     /**
      * Retrieves the Field Name for a Filter
+     *
+     * @return string
      */
     public function getFieldName(): string
     {

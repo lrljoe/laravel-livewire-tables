@@ -3,11 +3,12 @@
 namespace Rappasoft\LaravelLivewireTables\Traits;
 
 use Illuminate\Support\Str;
-use Livewire\Attributes\Locked;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
+use Livewire\Attributes\Locked;
 
 trait WithFeatureDetection
 {
+
     /**
      * Undocumented variable
      *
@@ -19,8 +20,8 @@ trait WithFeatureDetection
     /**
      * Undocumented function
      *
-     * @param  mixed  $class
-     * @param  bool  $autoload
+     * @param mixed $class
+     * @param boolean $autoload
      * @return array<mixed>
      */
     protected static function class_uses_deep($class, $autoload = true): array
@@ -34,11 +35,11 @@ trait WithFeatureDetection
 
         // Get traits of all parent traits
         $traitsToSearch = $traits;
-        while (! empty($traitsToSearch)) {
+        while (!empty($traitsToSearch)) {
             $newTraits = class_uses(array_pop($traitsToSearch), $autoload);
             $traits = array_merge($newTraits, $traits);
             $traitsToSearch = array_merge($newTraits, $traitsToSearch);
-        }
+        };
 
         foreach ($traits as $trait => $same) {
             $traits = array_merge(class_uses($trait, $autoload), $traits);
@@ -47,8 +48,11 @@ trait WithFeatureDetection
         return array_unique($traits);
     }
 
+
     /**
      * Undocumented function
+     *
+     * @return void
      */
     public function mountWithFeatureDetection(): void
     {
@@ -86,22 +90,22 @@ trait WithFeatureDetection
             'Rappasoft\LaravelLivewireTables\Views\Traits\Core\HasTheme' => false,
 
         ];*/
-        /* $loadedFeatures = [
-             'Rappasoft\LaravelLivewireTables\Features\Filters\Traits\WithFilters' => false,
-             'Rappasoft\LaravelLivewireTables\Features\ColumnsCollapsing\WithColumnsCollapsing' => false,
-             'Rappasoft\LaravelLivewireTables\Features\ColumnSelect\WithColumnSelect' => false,
-             'Rappasoft\LaravelLivewireTables\Features\Search\WithSearch' => false,
-             'Rappasoft\LaravelLivewireTables\Features\Reordering\WithReordering' => false,
-             'Rappasoft\LaravelLivewireTables\Features\Sorting\WithSorting' => false,
-             'App\Domains\AdvancedTables\WithSavingTableState' => false,
+       /* $loadedFeatures = [
+            'Rappasoft\LaravelLivewireTables\Features\Filters\Traits\WithFilters' => false,
+            'Rappasoft\LaravelLivewireTables\Features\ColumnsCollapsing\WithColumnsCollapsing' => false,
+            'Rappasoft\LaravelLivewireTables\Features\ColumnSelect\WithColumnSelect' => false,
+            'Rappasoft\LaravelLivewireTables\Features\Search\WithSearch' => false,
+            'Rappasoft\LaravelLivewireTables\Features\Reordering\WithReordering' => false,
+            'Rappasoft\LaravelLivewireTables\Features\Sorting\WithSorting' => false,
+            'App\Domains\AdvancedTables\WithSavingTableState' => false,
 
-         ];
-         $loadedTraits = class_uses_recursive($this);
-         foreach($loadedFeatures as $featureName => $status)
-         {
-             $loadedFeatures[$featureName] = in_array($featureName,$loadedTraits);
-         }
-         dd($loadedFeatures);*/
+        ];
+        $loadedTraits = class_uses_recursive($this);
+        foreach($loadedFeatures as $featureName => $status)
+        {
+            $loadedFeatures[$featureName] = in_array($featureName,$loadedTraits);
+        }
+        dd($loadedFeatures);*/
 
         /*
         $loadedFeatures = [
@@ -130,9 +134,13 @@ trait WithFeatureDetection
 
     /**
      * Undocumented function
+     *
+     * @param string $feature
+     * @return boolean
      */
     protected function optionalFeatureIsLoaded(string $feature): bool
     {
         return in_array($feature, $this->loadedOptionalFeatures) ? $this->loadedOptionalFeatures[$feature] : false;
     }
+
 }

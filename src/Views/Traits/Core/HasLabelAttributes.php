@@ -18,6 +18,8 @@ trait HasLabelAttributes
 
     /**
      * Undocumented function
+     *
+     * @return boolean
      */
     public function hasLabelAttributes(): bool
     {
@@ -36,6 +38,8 @@ trait HasLabelAttributes
 
     /**
      * Undocumented function
+     *
+     * @return ComponentAttributeBag
      */
     public function getLabelAttributesBag(): ComponentAttributeBag
     {
@@ -44,8 +48,8 @@ trait HasLabelAttributes
 
     /**
      * Set a list of attributes to override on the th label
-     *
-     * @param  array<mixed>  $labelAttributes
+     * @param array<mixed> $labelAttributes
+     * @return self
      */
     public function setLabelAttributes(array $labelAttributes): self
     {
@@ -56,8 +60,8 @@ trait HasLabelAttributes
 
     /**
      * Set a list of attributes to override on the th label
-     *
-     * @param  array<mixed>  $labelAttributes
+     * @param array<mixed> $labelAttributes
+     * @return self
      */
     public function labelAttributes(array $labelAttributes): self
     {

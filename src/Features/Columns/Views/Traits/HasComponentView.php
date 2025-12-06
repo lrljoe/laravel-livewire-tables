@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\View;
 trait HasComponentView
 {
     protected string $componentView;
-
+    
     protected ?string $customComponentView;
 
     public function component(string $component): self

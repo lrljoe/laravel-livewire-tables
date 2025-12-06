@@ -13,23 +13,30 @@ class DateFilter extends Filter
 
     /**
      * Undocumented variable
+     *
+     * @var string
      */
     public string $wireMethod = 'live';
 
     /**
      * The path to the view for this filter
+     *
+     * @var string
      */
     protected string $view = 'livewire-tables::components.tools.filters.date';
 
     /**
      * Undocumented variable
+     *
+     * @var string
      */
     protected string $configPath = 'livewire-tables.dateFilter.defaultConfig';
 
     /**
      * Validates that the value received by the Filter is valid
      *
-     * @param  mixed  $value
+     * @param mixed $value
+     * @return string|boolean
      */
     public function validate($value): string|bool
     {
@@ -45,7 +52,8 @@ class DateFilter extends Filter
     /**
      * Retrieves the Filter Value for use in the Filter Pills area
      *
-     * @param  mixed  $value
+     * @param mixed $value
+     * @return string|null
      */
     public function getFilterPillValue($value): ?string
     {
@@ -78,4 +86,5 @@ class DateFilter extends Filter
     {
         $this->config(config($this->configPath));
     }
+
 }

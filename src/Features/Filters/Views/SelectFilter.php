@@ -13,16 +13,22 @@ class SelectFilter extends Filter
 
     /**
      * Undocumented variable
+     *
+     * @var string
      */
     public string $wireMethod = 'live';
 
     /**
      * The path to the view for this filter
+     *
+     * @var string
      */
     protected string $view = 'livewire-tables::components.tools.filters.select';
 
     /**
      * Undocumented variable
+     *
+     * @var string
      */
     protected string $configPath = 'livewire-tables.selectFilter.defaultConfig';
 
@@ -47,7 +53,8 @@ class SelectFilter extends Filter
     /**
      * Validates that the value received by the Filter is valid
      *
-     * @return array<mixed>|string|bool
+     * @param string $value
+     * @return array<mixed>|string|boolean
      */
     public function validate(string $value): array|string|bool
     {
@@ -61,8 +68,8 @@ class SelectFilter extends Filter
     /**
      * Retrieves the Filter Value for use in the Filter Pills area
      *
-     * @param  mixed  $value
-     * @return array<mixed>|string|bool|null
+     * @param mixed $value
+     * @return array<mixed>|string|boolean|null
      */
     public function getFilterPillValue($value): array|string|bool|null
     {

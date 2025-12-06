@@ -19,28 +19,33 @@ trait WithPagination
 
     /**
      * Undocumented variable
+     *
+     * @var string|null
      */
     public ?string $pageName = null;
 
     /**
      * Undocumented variable
+     *
+     * @var integer|null
      */
     public ?int $perPage;
 
-    // #[Locked]
-    // public int $defaultPerPage = 10;
+   // #[Locked]
+    //public int $defaultPerPage = 10;
 
-    // #[Locked]
-    // public array $perPageAccepted = [10, 25, 50];
+   // #[Locked]
+    //public array $perPageAccepted = [10, 25, 50];
 
-    // #[Locked]
-    // public bool $paginationStatus = true;
 
-    // #[Locked]
-    // public bool $paginationVisibilityStatus = true;
+    //#[Locked]
+    //public bool $paginationStatus = true;
 
-    // #[Locked]
-    // public bool $perPageVisibilityStatus = true;
+    //#[Locked]
+    //public bool $paginationVisibilityStatus = true;
+
+    //#[Locked]
+    //public bool $perPageVisibilityStatus = true;
 
     /**
      * Undocumented variable
@@ -61,11 +66,11 @@ trait WithPagination
         'shouldRetrieveTotalItemCount' => true,
     ];
 
-    // public array $paginationCurrentItems = [];
+    //public array $paginationCurrentItems = [];
 
-    // public int $paginationCurrentCount = 0;
+    //public int $paginationCurrentCount = 0;
 
-    // public ?int $paginationTotalItemCount = null;
+   // public ?int $paginationTotalItemCount = null;
 
     /**
      * Undocumented variable
@@ -76,17 +81,21 @@ trait WithPagination
 
     /**
      * Pagination Method
-     *
+     * 
      * standard, simple, cursor
+     *
+     * @var string
      */
     protected string $paginationMethod = 'standard';
 
-    // protected bool $shouldShowPaginationDetails = true;
+    //protected bool $shouldShowPaginationDetails = true;
 
-    // protected bool $shouldRetrieveTotalItemCount = true;
+    //protected bool $shouldRetrieveTotalItemCount = true;
 
     /**
      * Undocumented function
+     *
+     * @return void
      */
     public function mountWithPagination(): void
     {
@@ -99,12 +108,16 @@ trait WithPagination
 
     /**
      * Undocumented function
+     *
+     * @param integer|string $value
+     * @return void
      */
     public function updatedPerPage(int|string $value): void
     {
-        \Illuminate\Support\Facades\Log::error('updatedPerPage');
+                \Illuminate\Support\Facades\Log::error("updatedPerPage");
 
-        if (! $this->reloading) {
+        if(!$this->reloading)
+        {
             if (! in_array((int) $value, $this->getPerPageAccepted(), false)) {
                 $value = $this->getDefaultPerPage();
             }
@@ -119,10 +132,13 @@ trait WithPagination
 
         }
 
+
     }
 
     /**
      * Undocumented function
+     *
+     * @return void
      */
     public function renderingWithPagination(): void
     {

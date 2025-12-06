@@ -95,7 +95,8 @@ trait HasLoadingPlaceholderStyling
     /**
      * Undocumented function
      *
-     * @param  array<mixed>  $attributes
+     * @param array<mixed> $attributes
+     * @return self
      */
     public function setLoadingPlaceHolderAttributes(array $attributes): self
     {
@@ -107,7 +108,8 @@ trait HasLoadingPlaceholderStyling
     /**
      * Undocumented function
      *
-     * @param  array<mixed>  $attributes
+     * @param array<mixed> $attributes
+     * @return self
      */
     public function setLoadingPlaceHolderIconAttributes(array $attributes): self
     {
@@ -119,7 +121,8 @@ trait HasLoadingPlaceholderStyling
     /**
      * Undocumented function
      *
-     * @param  array<mixed>  $attributes
+     * @param array<mixed> $attributes
+     * @return self
      */
     public function setLoadingPlaceHolderRowAttributes(array $attributes): self
     {
@@ -131,7 +134,8 @@ trait HasLoadingPlaceholderStyling
     /**
      * Undocumented function
      *
-     * @param  array<mixed>  $attributes
+     * @param array<mixed> $attributes
+     * @return self
      */
     public function setLoadingPlaceHolderWrapperAttributes(array $attributes): self
     {
@@ -152,7 +156,7 @@ trait HasLoadingPlaceholderStyling
             'loaderCell' => $this->getLoadingPlaceHolderCellAttributes(),
             'loaderIcon' => $this->getLoadingPlaceHolderIconAttributes(),
             'hasLoadingPlaceholderBlade' => $this->hasLoadingPlaceholderBlade(),
-            'loadingPlaceHolderBlade' => $this->getLoadingPlaceHolderBlade() ?? '',
+            'loadingPlaceHolderBlade' => $this->getLoadingPlaceHolderBlade() ?? '' ,
             'loadingPlaceholderContent' => $this->getLoadingPlaceholderContent(),
         ];
     }

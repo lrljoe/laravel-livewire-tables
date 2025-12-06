@@ -5,25 +5,32 @@ namespace Rappasoft\LaravelLivewireTables\Features\Filters\Traits\Configuration;
 use Illuminate\Database\Eloquent\Builder;
 use Livewire\Attributes\On;
 use Rappasoft\LaravelLivewireTables\Events\FilterApplied;
-use Rappasoft\LaravelLivewireTables\Features\Filters\Views\{BooleanFilter,MultiSelectDropdownFilter, MultiSelectFilter};
 use Rappasoft\LaravelLivewireTables\Features\Filters\Views\Filter;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\{BooleanFilter,MultiSelectDropdownFilter, MultiSelectFilter};
 
 trait FilterConfiguration
 {
     /**
      * Undocumented function
+     *
+     * @param string $filterKey
+     * @param mixed $value
+     * @return void
      */
     #[On('setFilter')]
     #[On('set-filter')]
     public function setFilter(string $filterKey, mixed $value): void
     {
-        if (is_array($value) && empty($value)) {
+        if(is_array($value) && empty($value))
+        {
             $this->appliedFilters[$filterKey] = [];
             $this->availableFilters[$filterKey] = [];
             $this->dispatch('filter-was-set', tableName: $this->getTableName(), dataTableFingerprint: $this->getDataTableFingerprint(), filterKey: $filterKey, value: $value);
-
-        } elseif ((is_array($value) && ! empty($value)) || ! is_array($value)) {
-            $this->appliedFilters[$filterKey] = $value;
+            
+        }
+        elseif((is_array($value) && !empty($value)) || !is_array($value))
+        {
+            $this->appliedFilters[$filterKey] =  $value;
             $this->callHook('filterSet', ['filter' => $filterKey, 'value' => $value]);
             $this->callTraitHook('filterSet', ['filter' => $filterKey, 'value' => $value]);
             if ($this->getEventStatusFilterApplied() && $filterKey != null && $value != null) {
@@ -32,13 +39,14 @@ trait FilterConfiguration
             $this->dispatch('filter-was-set', tableName: $this->getTableName(), dataTableFingerprint: $this->getDataTableFingerprint(), filterKey: $filterKey, value: $value);
             $this->storeFilterValues();
         }
+        
 
     }
-
     #[On('externalFilterPillsData')]
     public function checkExternalFilterPillsData(array $returnValues, string $tableName, string $dataTableFingerprint, string $filterKey, array $values = [])
     {
-        if ($tableName == $this->getTableName() || $dataTableFingerprint == $this->getDataTableFingerprint()) {
+        if($tableName == $this->getTableName() || $dataTableFingerprint == $this->getDataTableFingerprint())
+        {
             $this->externalFilterPills[$filterKey] = $returnValues;
         }
     }
@@ -46,23 +54,30 @@ trait FilterConfiguration
     /**
      * Undocumented function
      *
-     * @param  array<mixed>  $values
-     * @param  array<mixed>  $optionsAvailable
+     * @param mixed $returnValues
+     * @param string $tableName
+     * @param string $dataTableFingerprint
+     * @param string $filterKey
+     * @param array<mixed> $values
+     * @param array<mixed> $optionsAvailable
      * @return void
      */
     #[On('livewireExternalArrayFilterUpdate')]
     public function setLivewireExternalArrayFilterValues(mixed $returnValues, string $tableName, string $dataTableFingerprint, string $filterKey, array $values = [], array $optionsAvailable = [])
     {
 
-        if ($tableName == $this->getTableName() || $dataTableFingerprint == $this->getDataTableFingerprint()) {
+        if($tableName == $this->getTableName() || $dataTableFingerprint == $this->getDataTableFingerprint())
+        {
             $filter = $this->getFilterByKey($filterKey);
             $filter->options($values);
             $this->appliedFilters[$filterKey] = $values;
-            if (! empty($optionsAvailable)) {
+            if(!empty($optionsAvailable))
+            {
                 $this->externalFilterPillsOptions[$filterKey] = array_merge($this->externalFilterPillsOptions[$filterKey] ?? [], $optionsAvailable);
             }
 
-            if (isset($returnValues)) {
+            if(isset($returnValues))
+            {
                 $this->externalFilterPillsValues[$filterKey] = $returnValues;
             }
         }
@@ -72,15 +87,19 @@ trait FilterConfiguration
     public function setLivewireExternalArrayFilterOptions(string $dataTableFingerprint, string $filterKey, array $values = [])
     {
         $this->skipRender();
-        if ($dataTableFingerprint == $this->getDataTableFingerprint()) {
+        if($dataTableFingerprint == $this->getDataTableFingerprint())
+        {
             $filter = $this->getFilterByKey($filterKey);
-            if ($filter && ! empty($values)) {
+            if($filter && !empty($values))
+            {
                 $this->externalFilterPillsOptions[$filterKey] = array_merge($this->externalFilterPillsOptions[$filterKey] ?? [], $values);
             }
+
 
         }
 
     }
+
 
     #[On('clearFilters')]
     #[On('clear-filters')]
@@ -105,7 +124,8 @@ trait FilterConfiguration
         $this->callHook('filterReset', ['filter' => $filter->getKey()]);
         $this->callTraitHook('filterReset', ['filter' => $filter->getKey()]);
         $this->setFilter($filter->getKey(), $filter->getDefaultValue());
-        if (array_key_exists($filter->getKey(), $this->availableFilters)) {
+        if(array_key_exists($filter->getKey(), $this->availableFilters))
+        {
             $this->availableFilters[$filter->getKey()] = [];
         }
 
@@ -140,7 +160,8 @@ trait FilterConfiguration
 
             foreach ($this->getFilters() as $filter) {
                 $filterKey = $filter->getKey();
-                if (array_key_exists($filterKey, $appliedFilters) && ! is_null($appliedFilters[$filterKey]) && $filter->hasFilterCallback()) {
+                if(array_key_exists($filterKey, $appliedFilters) && !is_null($appliedFilters[$filterKey]) && $filter->hasFilterCallback())
+                {
                     $value = method_exists($filter, 'validate') ? $filter->validate($appliedFilters[$filterKey]) : $appliedFilters[$filterKey];
 
                     // If validate returns false, and it is not a BooleanFilter - do not apply the filter.
@@ -158,17 +179,20 @@ trait FilterConfiguration
             $this->storeFilterValues();
         }
 
+
         return $this->getBuilder();
     }
 
     /**
      * Undocumented function
      *
-     * @param  string|array<mixed>|null  $value
+     * @param string|array<mixed>|null $value
+     * @param string $filterName
+     * @return void
      */
     public function updatedAppliedFilters(string|array|null $value, string $filterName): void
     {
-        \Illuminate\Support\Facades\Log::error('updatedAppliedFilters');
+                \Illuminate\Support\Facades\Log::error("updatedAppliedFilters");
 
         // Clear bulk actions on filter - if enabled
         if ($this->getClearSelectedOnFilter()) {
@@ -180,11 +204,14 @@ trait FilterConfiguration
     /**
      * Undocumented function
      *
-     * @param  string|array<mixed>|null  $value
+     * @param string|array<mixed>|null $value
+     * @param string $filterName
+     * @return void
      */
     public function updatedTestAppliedFilters(string|array|null $value, string $filterName): void
     {
-        \Illuminate\Support\Facades\Log::error('updatedTestAppliedFilters');
+                \Illuminate\Support\Facades\Log::error("updatedTestAppliedFilters");
+
 
         $this->resetComputedPage();
 

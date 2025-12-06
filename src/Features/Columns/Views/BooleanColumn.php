@@ -17,31 +17,44 @@ class BooleanColumn extends Column
 
     /**
      * Undocumented variable
+     *
+     * @var string
      */
     protected string $type = 'icons';
 
     /**
      * Undocumented variable
+     *
+     * @var boolean
      */
     public bool $successValue = true;
 
     /**
      * Undocumented variable
+     *
+     * @var string
      */
     protected string $view = 'livewire-tables::includes.columns.boolean';
 
     /**
      * Undocumented variable
+     *
+     * @var boolean
      */
     protected bool $isToggleable = false;
 
     /**
      * Undocumented variable
+     *
+     * @var string|null
      */
     protected ?string $toggleMethod;
 
     /**
      * Undocumented function
+     *
+     * @param Model $row
+     * @return null|string|\Illuminate\Support\HtmlString|DataTableConfigurationException|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function getContents(Model $row): null|string|\Illuminate\Support\HtmlString|DataTableConfigurationException|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
     {

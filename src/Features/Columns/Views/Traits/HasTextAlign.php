@@ -5,9 +5,10 @@ namespace Rappasoft\LaravelLivewireTables\Features\Columns\Views\Traits;
 trait HasTextAlign
 {
     protected ?string $textAlign;
-
     /**
      * Undocumented function
+     *
+     * @return boolean
      */
     public function hasTextAlign(): bool
     {
@@ -16,19 +17,20 @@ trait HasTextAlign
 
     public function getTextAlign(): string
     {
-        if (! $this->hasTextAlign()) {
+        if(!$this->hasTextAlign())
+        {
             throw new \Rappasoft\LaravelLivewireTables\Exceptions\MissingProperties\TextAlignMissing('Text Align Is Not Set');
         }
-
         return $this->textAlign;
     }
 
     public function setTextAlign(string $textAlign): self
     {
-        if ($textAlign == 'left' || $textAlign == 'center' || $textAlign == 'right') {
+        if($textAlign == 'left' || $textAlign == 'center' || $textAlign == 'right')
+        {
             $this->textAlign = $textAlign;
         }
-
+        
         return $this;
     }
 
@@ -46,4 +48,5 @@ trait HasTextAlign
     {
         return $this->setTextAlign('right');
     }
+
 }

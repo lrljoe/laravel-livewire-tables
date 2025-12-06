@@ -33,7 +33,7 @@ final class ColumnSelectHelpersTest extends TestCase
         $this->basicTable->maMethodAccessor('setRememberColumnSelectionEnabled');
 
         $this->assertTrue($this->basicTable->shouldStoreColumnSelectInSession());
-
+        
         $this->basicTable->maMethodAccessor('storeColumnSelectInSessionDisabled');
 
         $this->assertFalse($this->basicTable->shouldStoreColumnSelectInSession());
@@ -127,7 +127,7 @@ final class ColumnSelectHelpersTest extends TestCase
         $testTable->disableColumnSelectEvent()->storeColumnSelect();
         Event::assertNotDispatched(ColumnsSelected::class);
 
-        $testTable->selectedColumns = ['id', 'name', 'age', 'breed', 'other', 'link', 'rowimg'];
+        $testTable->selectedColumns = ['id','name', 'age', 'breed', 'other', 'link', 'rowimg'];
         $this->assertSame(['id', 'name', 'age', 'breed', 'other', 'link', 'rowimg'], $testTable->selectedColumns);
         $testTable->enableColumnSelectEvent()->storeColumnSelect();
         Event::assertDispatched(ColumnsSelected::class);
@@ -172,7 +172,7 @@ final class ColumnSelectHelpersTest extends TestCase
         $testTable->bootAll();
 
         $this->assertSame(['id', 'name', 'age', 'breed', 'other', 'link', 'rowimg'], $testTable->selectedColumns);
-        $testTable->selectedColumns = ['id', 'name', 'age', 'breed', 'other', 'rowimg'];
+        $testTable->selectedColumns = ['id','name', 'age', 'breed', 'other', 'rowimg'];
         $this->assertSame(['id', 'name', 'age', 'breed', 'other', 'rowimg'], $testTable->selectedColumns);
         $testTable->updatedSelectedColumns();
         Event::assertNotDispatched(ColumnsSelected::class);

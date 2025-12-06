@@ -15,16 +15,22 @@ trait WithActions
 
     /**
      * Undocumented variable
+     *
+     * @var boolean
      */
     protected bool $displayActionsInToolbar = false;
 
     /**
      * Undocumented variable
+     *
+     * @var boolean
      */
     protected bool $displayActionsAsDropdown = false;
 
     /**
      * Undocumented variable
+     *
+     * @var string
      */
     protected string $actionsPosition = 'right';
 

@@ -123,7 +123,7 @@ final class ColumnTest extends ColumnTestCase
 
     public function test_custom_sorting_pills_defaults_correctly(): void
     {
-        // $column = Column::make('Name', 'name');
+        //$column = Column::make('Name', 'name');
         $defaultString = __($this->basicTable->getLocalisationPath().'not_applicable');
 
         $this->assertSame('A-Z', self::$columnInstance->getCustomSortingPillDirections('asc'));

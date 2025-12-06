@@ -3,8 +3,8 @@
 namespace Rappasoft\LaravelLivewireTables\Features\Filters\Traits\Helpers;
 
 use Livewire\Attributes\Computed;
-use Rappasoft\LaravelLivewireTables\Features\Filters\Views\BooleanFilter;
 use Rappasoft\LaravelLivewireTables\Features\Filters\Views\Filter;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\BooleanFilter;
 
 trait FilterPillsHelpers
 {

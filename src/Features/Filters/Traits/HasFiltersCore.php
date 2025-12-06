@@ -4,8 +4,8 @@ namespace Rappasoft\LaravelLivewireTables\Features\Filters\Traits;
 
 use Rappasoft\LaravelLivewireTables\Features\Filters\Traits\Configuration\FilterConfiguration;
 use Rappasoft\LaravelLivewireTables\Features\Filters\Traits\Helpers\FilterHelpers;
-use Rappasoft\LaravelLivewireTables\Features\Filters\Views\DateRangeFilter;
 use Rappasoft\LaravelLivewireTables\Features\Filters\Views\LivewireComponentArrayFilter;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\DateRangeFilter;
 
 trait HasFiltersCore
 {
@@ -39,7 +39,8 @@ trait HasFiltersCore
         foreach ($this->getFilters() as $filter) {
             $filterKey = $filter->getKey();
 
-            if ($filter instanceof LivewireComponentArrayFilter && ! array_key_exists($filterKey, $this->availableFilters)) {
+            if($filter instanceof LivewireComponentArrayFilter && !array_key_exists($filterKey,$this->availableFilters))
+            {
                 $this->availableFilters[$filterKey] = $this->appliedFilters[$filterKey] ?? [];
             }
         }

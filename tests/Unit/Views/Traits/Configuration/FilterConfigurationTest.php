@@ -3,8 +3,8 @@
 namespace Rappasoft\LaravelLivewireTables\Tests\Unit\Views\Traits\Configuration;
 
 use PHPUnit\Framework\Attributes\Group;
-use Rappasoft\LaravelLivewireTables\Features\Filters\Views\SelectFilter;
 use Rappasoft\LaravelLivewireTables\Tests\TestCase;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\SelectFilter;
 
 #[Group('Filters')]
 final class FilterConfigurationTest extends TestCase

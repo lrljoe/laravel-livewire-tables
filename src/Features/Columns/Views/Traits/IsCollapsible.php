@@ -6,26 +6,36 @@ trait IsCollapsible
 {
     /**
      * Collapse On Mobile Setting
+     *
+     * @var boolean
      */
     protected bool $collapseOnMobile = false;
 
     /**
      * Collapse On Tablet Setting
+     *
+     * @var boolean
      */
     protected bool $collapseOnTablet = false;
 
     /**
      * Collapse Always Setting
+     *
+     * @var boolean
      */
     protected bool $collapseAlways = false;
 
     /**
      * Collapse Sometimes Setting
+     *
+     * @var boolean
      */
     protected bool $collapseSometimes = false;
 
     /**
      * Column Should Collapse On Mobile
+     *
+     * @return self
      */
     public function collapseOnMobile(): self
     {
@@ -37,6 +47,8 @@ trait IsCollapsible
 
     /**
      * Column Should Collapse On Tablet
+     *
+     * @return self
      */
     public function collapseOnTablet(): self
     {
@@ -48,6 +60,8 @@ trait IsCollapsible
 
     /**
      * Column Should Collapse Always
+     *
+     * @return self
      */
     public function collapseAlways(): self
     {

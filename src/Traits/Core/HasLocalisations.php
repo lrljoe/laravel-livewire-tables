@@ -8,11 +8,15 @@ trait HasLocalisations
 {
     /**
      * Undocumented variable
+     *
+     * @var string
      */
     public string $localisationPathString = 'livewire-tables::core.';
 
     /**
      * Undocumented function
+     *
+     * @return string
      */
     #[Computed]
     public function getLocalisationPath(): string
@@ -22,6 +26,8 @@ trait HasLocalisations
 
     /**
      * Undocumented function
+     *
+     * @return string
      */
     public function generateLocalisationPath(): string
     {

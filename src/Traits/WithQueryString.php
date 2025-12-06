@@ -11,6 +11,7 @@ trait WithQueryString
     use QueryStringConfiguration,
         QueryStringHelpers;
 
+    
     /**
      * Undocumented variable
      *
@@ -35,7 +36,6 @@ trait WithQueryString
     {
         $this->queryStringAlias = $this->getTableName();
     }
-
     /**
      * Set the custom query string array for this specific table
      *

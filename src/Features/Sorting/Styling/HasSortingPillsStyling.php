@@ -27,10 +27,10 @@ trait HasSortingPillsStyling
      */
     protected array $sortingPillsClearAllButtonAttributes = ['default-styling' => true, 'default-colors' => true, 'class' => ''];
 
+    
     /**
      * Undocumented function
      * #[Computed]
-     *
      * @return array<mixed>
      */
     #[Computed]
@@ -41,7 +41,7 @@ trait HasSortingPillsStyling
 
     /**
      * Undocumented function
-     *
+     *     
      * @return array<mixed>
      */
     #[Computed]
@@ -50,10 +50,10 @@ trait HasSortingPillsStyling
         return $this->sortingPillsClearSortButtonAttributes;
     }
 
+    
     /**
      * Undocumented function
      * #[Computed]
-     *
      * @return array<mixed>
      */
     #[Computed]
@@ -65,7 +65,8 @@ trait HasSortingPillsStyling
     /**
      * Undocumented function
      *
-     * @param  array<mixed>  $attributes
+     * @param array<mixed> $attributes
+     * @return self
      */
     public function setSortingPillsItemAttributes(array $attributes = []): self
     {
@@ -77,7 +78,8 @@ trait HasSortingPillsStyling
     /**
      * Undocumented function
      *
-     * @param  array<mixed>  $attributes
+     * @param array<mixed> $attributes
+     * @return self
      */
     public function setSortingPillsClearSortButtonAttributes(array $attributes = []): self
     {
@@ -89,7 +91,8 @@ trait HasSortingPillsStyling
     /**
      * Undocumented function
      *
-     * @param  array<mixed>  $attributes
+     * @param array<mixed> $attributes
+     * @return self
      */
     public function setSortingPillsClearAllButtonAttributes(array $attributes = []): self
     {

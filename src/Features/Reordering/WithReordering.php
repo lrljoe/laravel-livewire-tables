@@ -14,48 +14,48 @@ trait WithReordering
 
     /**
      * Undocumented variable
-     *
+     * 
      * Entangled in JS
      *
-     * @var bool
+     * @var boolean
      */
-    // public bool $reorderStatus = false;
+    //public bool $reorderStatus = false;
 
     /**
      * Undocumented variable
-     *
+     * 
      * Entangled in JS
      *
-     * @var bool
+     * @var boolean
      */
-    // public bool $currentlyReorderingStatus = false;
+    //public bool $currentlyReorderingStatus = false;
 
     /**
      * Undocumented variable
-     *
+     * 
      * Entangled in JS
      *
-     * @var bool
+     * @var boolean
      */
-    // public bool $hideReorderColumnUnlessReorderingStatus = false;
+    //public bool $hideReorderColumnUnlessReorderingStatus = false;
 
     /**
      * Undocumented variable
-     *
+     * 
      * Entangled in JS
      *
-     * @var bool
+     * @var boolean
      */
-    // public bool $reorderDisplayColumn = false;
+    //public bool $reorderDisplayColumn = false;
 
     /**
      * Undocumented variable
-     *
+     * 
      * Retrieved in JS
      *
      * @var string
      */
-    // public string $defaultReorderColumn = 'sort';
+    //public string $defaultReorderColumn = 'sort';
 
     /**
      * Undocumented variable
@@ -66,11 +66,15 @@ trait WithReordering
 
     /**
      * Undocumented variable
+     *
+     * @var string
      */
-    // protected string $reorderMethod = 'reorder';
+    //protected string $reorderMethod = 'reorder';
 
     /**
      * Undocumented variable
+     *
+     * @var string
      */
     protected string $defaultReorderDirection = 'asc';
 
@@ -104,11 +108,17 @@ trait WithReordering
 
     /**
      * Undocumented function
+     *
+     * @return void
      */
     public function enablePaginatedReordering(): void {}
 
+
+
     /**
      * Undocumented function
+     *
+     * @return void
      */
     public function renderingWithReordering(): void
     {

@@ -7,8 +7,8 @@ use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
 
 /**
  * Collection of Columns
- *
- * @extends \Illuminate\Support\Collection<int|string,Column>
+ * 
+ * @extends \Illuminate\Support\Collection<int|string,Column> 
  */
 class ColumnCollection extends Collection
 {
@@ -19,10 +19,10 @@ class ColumnCollection extends Collection
 
     public function selectable(): self
     {
-        return $this->reject(fn (Column $column) => ! $column->isSelectable());
+        return $this->reject(fn (Column $column) => !$column->isSelectable());
     }
 
-    public function unselectable(): self
+    public function unselectable(): self 
     {
         return $this->reject(fn (Column $column) => $column->isSelectable());
     }
@@ -32,12 +32,12 @@ class ColumnCollection extends Collection
         return $this->reject(fn (Column $column) => $column->isSelectable() && ! $column->isSelected());
     }
 
-    public function sortable(): self
+    public function sortable(): self 
     {
-        return $this->reject(fn (Column $column) => ! $column->isSortable() && ! $column->hasSortCallback());
+        return $this->reject(fn (Column $column) => !$column->isSortable() && !$column->hasSortCallback());
     }
 
-    public function visibleSortableColumns(): self
+    public function visibleSortableColumns(): self 
     {
         return $this
             ->visible()
@@ -48,9 +48,10 @@ class ColumnCollection extends Collection
     /**
      * Undocumented function
      *
-     * @param  array<mixed>  $sortKeys
+     * @param array<mixed> $sortKeys
+     * @return self
      */
-    public function visibleSortableColumnsKeyed(array $sortKeys = []): self
+    public function visibleSortableColumnsKeyed(array $sortKeys = []): self 
     {
         return $this
             ->visible()
@@ -63,58 +64,72 @@ class ColumnCollection extends Collection
     /**
      * Undocumented function
      *
-     * @param  array<mixed>  $selectedColumns
+     * @param array<mixed> $selectedColumns
+     * @return self
      */
-    public function selectedInTable(array $selectedColumns): self
+    public function selectedInTable(array $selectedColumns): self 
     {
         return $this->reject(function (Column $column) use ($selectedColumns) {
-            return ! empty($selectedColumns) && in_array($column->getSlug(), $selectedColumns, true);
+            return !empty($selectedColumns) && in_array($column->getSlug(), $selectedColumns, true);
+        });
+    }
+
+
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $selectedColumns
+     * @return self
+     */
+    public function rejectUnselectedColumns(array $selectedColumns): self 
+    {
+        return $this->reject(function (Column $column) use ($selectedColumns) {
+            return $column->isSelectable() && !empty($selectedColumns) && in_array($column->getSlug(), $selectedColumns, true);
+        });
+    }
+
+
+    /**
+     * Undocumented function
+     *
+     * @return self
+     */
+    public function visibleOnReorder(): self
+    {
+        return $this->reject(fn (Column $column) => !$column->isVisibleOnReorder());
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param boolean $currentlyReordering
+     * @return self
+     */
+    public function rejectInvisibleWhileReordering(bool $currentlyReordering = false): self
+    {
+        return $this->reject(function (Column $column) use ($currentlyReordering) {
+            return $currentlyReordering && !$column->isVisibleOnReorder();
         });
     }
 
     /**
      * Undocumented function
      *
-     * @param  array<mixed>  $selectedColumns
+     * @return self
      */
-    public function rejectUnselectedColumns(array $selectedColumns): self
+    public function reorder(): self 
     {
-        return $this->reject(function (Column $column) use ($selectedColumns) {
-            return $column->isSelectable() && ! empty($selectedColumns) && in_array($column->getSlug(), $selectedColumns, true);
-        });
+        return $this->reject(fn (Column $column) => !$column->isVisibleOnReorder());
     }
 
     /**
      * Undocumented function
+     *
+     * @return self
      */
-    public function visibleOnReorder(): self
-    {
-        return $this->reject(fn (Column $column) => ! $column->isVisibleOnReorder());
-    }
-
-    /**
-     * Undocumented function
-     */
-    public function rejectInvisibleWhileReordering(bool $currentlyReordering = false): self
-    {
-        return $this->reject(function (Column $column) use ($currentlyReordering) {
-            return $currentlyReordering && ! $column->isVisibleOnReorder();
-        });
-    }
-
-    /**
-     * Undocumented function
-     */
-    public function reorder(): self
-    {
-        return $this->reject(fn (Column $column) => ! $column->isVisibleOnReorder());
-    }
-
-    /**
-     * Undocumented function
-     */
-    public function visibleSelectable(): self
+    public function visibleSelectable(): self 
     {
         return $this->visible()->selectable();
     }
+
 }

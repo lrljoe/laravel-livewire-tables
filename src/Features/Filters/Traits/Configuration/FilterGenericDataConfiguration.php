@@ -19,7 +19,8 @@ trait FilterGenericDataConfiguration
     /**
      * Undocumented function
      *
-     * @param  array<mixed>  $filterGenericData
+     * @param array<mixed> $filterGenericData
+     * @return void
      */
     public function setFilterGenericData(array $filterGenericData = []): void
     {

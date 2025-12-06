@@ -11,11 +11,12 @@ trait HasConfig
      */
     public array $config = [];
 
-    /**
-     * Undocumented function
-     *
-     * @param  array<mixed>  $config
-     */
+     /**
+      * Undocumented function
+      *
+     * @param array<mixed> $config
+      * @return self
+      */
     public function config(array $config = []): self
     {
         $this->config = [...$this->config, ...$config];
@@ -45,6 +46,8 @@ trait HasConfig
 
     /**
      * Undocumented function
+     *
+     * @return boolean
      */
     public function hasConfigs(): bool
     {
@@ -53,11 +56,16 @@ trait HasConfig
 
     /**
      * Undocumented function
+     *
+     * @param string $key
+     * @return boolean
      */
     public function hasConfig(string $key): bool
     {
         return array_key_exists($key, $this->getConfigs()) && $this->getConfig($key) !== null;
     }
 
-    protected function initialiseConfig(): void {}
+    protected function initialiseConfig(): void
+    {}
+
 }

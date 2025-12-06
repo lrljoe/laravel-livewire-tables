@@ -4,11 +4,11 @@ namespace Rappasoft\LaravelLivewireTables\Tests\Http\Livewire\FailingTables;
 
 use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
-use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
-use Rappasoft\LaravelLivewireTables\Features\Filters\Views\{DateFilter,DateTimeFilter,MultiSelectDropdownFilter,MultiSelectFilter,NumberFilter,SelectFilter,TextFilter};
 use Rappasoft\LaravelLivewireTables\Tests\Http\Livewire\BaseTable;
 use Rappasoft\LaravelLivewireTables\Tests\Models\{Breed,Pet,Species};
+use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
 use Rappasoft\LaravelLivewireTables\Views\Columns\{ImageColumn,LinkColumn};
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\{DateFilter,DateTimeFilter,MultiSelectDropdownFilter,MultiSelectFilter,NumberFilter,SelectFilter,TextFilter};
 
 class BrokenSecondaryHeaderTable extends BaseTable
 {

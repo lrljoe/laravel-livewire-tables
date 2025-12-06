@@ -7,7 +7,7 @@ trait FilterVisibilityConfiguration
     public function setFiltersVisibilityStatus(bool $status): self
     {
         $this->filterConfiguration['visibilityStatus'] = $status;
-
+        
         return $this;
     }
 
