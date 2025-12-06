@@ -31,6 +31,11 @@ return [
     'enable_blade_directives' => false,
 
     /**
+     * Use JSON Translations instead of PHP Array
+     */
+    'use_json_translations' => false,
+
+    /**
      * Customise Script & Styles Paths
      */
     'script_base_path' => '/rappasoft/laravel-livewire-tables',
@@ -112,6 +117,16 @@ return [
     'multiSelectDropdownFilter' => [
         'defaultOptions' => [],
         'defaultConfig' => [],
+    ],
+
+    /**
+     * Configuration options for Events
+     */
+    'events' => [
+        /**
+         * Enable or disable passing the user from Laravel's Auth service to events
+         */
+        'enableUserForEvent' => true,
     ],
 
 ];

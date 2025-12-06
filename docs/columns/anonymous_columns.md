@@ -34,7 +34,7 @@ namespace App\Livewire;
 
 use App\Models\User;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
-use Rappasoft\LaravelLivewireTables\Views\Column;
+use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
 
 class UserTable extends DataTableComponent
 {
@@ -77,7 +77,7 @@ namespace App\Livewire;
 
 use App\Models\User;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
-use Rappasoft\LaravelLivewireTables\Views\Column;
+use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
 
 class UserTable extends DataTableComponent
 {

@@ -6,7 +6,7 @@ weight: 5
 DateTime filters are HTML datetime-local elements and act the same as date filters.
 
 ```php
-use Rappasoft\LaravelLivewireTables\Views\Filters\DateTimeFilter;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\DateTimeFilter;
 
 public function filters(): array
 {
@@ -68,3 +68,10 @@ public function filters(): array
 }
 ```
 
+
+## Additional Information
+Ensure you check out:
+- [Applying Filters](../filters/applying-filters) documentation for Applying Filters to your query cleanly
+- [Available Filter Methods](../filters/available-filter-methods) documentation for more Filter Features
+- [Filter Pills](../filters/filter-pills) documentation for help with configuring the pills for a filter
+- [Available Component Methods](../filters/available-component-methods) documentation for Table Wide configuration

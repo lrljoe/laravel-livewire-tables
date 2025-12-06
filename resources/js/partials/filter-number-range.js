@@ -1,7 +1,7 @@
 /*jshint esversion: 6 */
 export function nrf() {
     Alpine.data('numberRangeFilter', (wire, filterKey, parentElementPath, filterConfig, childElementRoot) => ({
-        allFilters: wire.entangle('filterComponents', false),
+        allFilters: wire.entangle('appliedFilters', false),
         originalMin: 0,
         originalMax: 100,
         filterMin: 0,
@@ -9,7 +9,7 @@ export function nrf() {
         currentMin: 0,
         currentMax: 100,
         hasUpdate: false,
-        wireValues: wire.entangle('filterComponents.' + filterKey, false),
+        wireValues: wire.entangle('appliedFilters.' + filterKey, false),
         defaultMin: filterConfig['minRange'],
         defaultMax: filterConfig['maxRange'],
         restrictUpdates: false,
@@ -60,7 +60,7 @@ export function nrf() {
             if (this.hasUpdate) {
                 this.hasUpdate = false;
                 this.wireValues = { 'min': this.filterMin, 'max': this.filterMax };
-                wire.set('filterComponents.' + filterKey, this.wireValues);
+                wire.set('appliedFilters.' + filterKey, this.wireValues);
             }
         },
         init() {

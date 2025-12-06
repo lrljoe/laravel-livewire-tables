@@ -3,27 +3,44 @@ title: Column Selection
 weight: 5
 ---
 
-Column select is on by default. All columns are selected by default and saved in the users session.
+Column select is on by default for each Column, with default behaviours.
 
-## Excluding from Column Select
+To customise the Column Select behaviours globally, see [Column Select](../column-select/about).
 
-If you don't want a column to be able to be turned off from the column select box, you may exclude it:
+To customise specific Column's "Column Select" behaviour, see the below:
+
+## Configuring a Custom Column Select String
+
+By default, the Column Select dropdown will utilise the Column's "Title" as the displayed text for the option.  You can use this method to specify a custom string to be used instead:
+
+```php
+Column::make('Address', 'address.address')
+    ->setColumnSelectTitle("The User's Address"),
+```
+
+## Column Select Visibility
+
+By default, all Columns are included in the Column Select dropdown.  You can change this behaviour using the following methods:
+
+### Excluding from Column Select
+
+If you don't want a column to be able to be turned on/off from the column select box, you may exclude it.  This will remove the option to enable/disable this Column from the dropdown:
 
 ```php
 Column::make('Address', 'address.address')
     ->excludeFromColumnSelect(),
 ```
 
-## Deselected by default
+### Deselected by default
 
-If you would like a column to be included in the column select but deselected by default, you can specify:
+If you would like a column to be included in the Column Select but deselected by default, you can specify:
 
 ```php
 Column::make('Address', 'address.address')
     ->deselected(),
 ```
 
-## DeselectedIf
+### DeselectedIf
 
 If you would like a column to be included in the column select but deselected based on an external parameter/callback, you may use this approach.
 
@@ -41,7 +58,7 @@ Column::make('Address', 'address.address')
     ->deselectedIf(!Auth::user()),
 ```
 
-## SelectedIf
+### SelectedIf
 
 If you would like a column to be included in the column select and selected based on an external parameter/callback, you may use this approach.
 
@@ -56,170 +73,4 @@ or
 ```php
 Column::make('Address', 'address.address')
     ->selectedIf(Auth::user()),
-```
-
-## Available Methods
-
-### setColumnSelectStatus
-
-**Enabled by default**, enable/disable column select for the component.
-
-```php
-public function configure(): void
-{
-    $this->setColumnSelectStatus(true);
-    $this->setColumnSelectStatus(false);
-}
-```
-
-### setColumnSelectEnabled
-
-Enable column select on the component.
-
-```php
-public function configure(): void
-{
-    // Shorthand for $this->setColumnSelectStatus(true)
-    $this->setColumnSelectEnabled();
-}
-```
-
-### setColumnSelectDisabled
-
-Disable column select on the component.
-
-```php
-public function configure(): void
-{
-    // Shorthand for $this->setColumnSelectStatus(false)
-    $this->setColumnSelectDisabled();
-}
-```
-
-### setColumnSelectHiddenOnTablet
-
-Hide column select menu when on tablet or mobile
-
-```php
-public function configure(): void
-{
-    $this->setColumnSelectHiddenOnTablet();
-}
-```
-
-### setColumnSelectHiddenOnMobile
-
-Hide column select menu when on mobile.
-
-```php
-public function configure(): void
-{
-    $this->setColumnSelectHiddenOnMobile();
-}
-```
-
-
-### setRememberColumnSelectionStatus
-
-**Enabled by default**, whether or not to remember the users column select choices.
-
-```php
-public function configure(): void
-{
-    $this->setRememberColumnSelectionStatus(true);
-    $this->setRememberColumnSelectionStatus(false);
-}
-```
-
-### setRememberColumnSelectionEnabled
-
-Remember the users column select choices.
-
-```php
-public function configure(): void
-{
-    // Shorthand for $this->setRememberColumnSelectionStatus(true)
-    $this->setRememberColumnSelectionEnabled();
-}
-```
-
-### setRememberColumnSelectionDisabled
-
-Forget the users column select choices.
-
-```php
-public function configure(): void
-{
-    // Shorthand for $this->setRememberColumnSelectionStatus(false)
-    $this->setRememberColumnSelectionDisabled();
-}
-```
-
-### setDataTableFingerprint
-
-In order to idenfify each table and prevent conflicts on column selection, each table is given a unique fingerprint.
-This fingerprint is generated using the static::class name of the component. If you are reusing
-the same component in different parts of your application, you may need to set your own custom fingerprint.
-
-```php
-public function configure(): void
-{
-    // Default fingerprint is output of protected method dataTableFingerprint()
-    // Below will prepend the current route name
-    $this->setDataTableFingerprint(route()->getName() . '-' . $this->dataTableFingerprint());
-}
-```
-
-## Events
-
-### ColumnsSelected
-
-If using column selection, an event is triggered when a user is changing selection. This can for example be used to store the selected columns in database for the user. When the user is accessing same page with the table, read som database and set the session key to initialize selected columns.
-
-#### Here is an example
-
-```php
-use Rappasoft\LaravelLivewireTables\Events\ColumnsSelected;
-
-class EventServiceProvider extends ServiceProvider
-{
-    /**
-     * The event listener mappings for the application.
-     *
-     * @var array
-     */
-    protected $listen = [
-        ColumnsSelected::class => [
-            DataTableColumnsSelectedListener::class
-        ]
-    ]
-}
-```
-
-```php
-
-class DataTableColumnsSelectedListener 
-{
-    /**
-     * Create the event listener.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    /**
-     * Handle the event.
-     *
-     * @param  object  $event
-     * @return void
-     */
-    public function handle($event)
-    {   
-        Setting::setCurrentUserTableColumns($event->key, $event->columns);     
-    }
-
-}
 ```

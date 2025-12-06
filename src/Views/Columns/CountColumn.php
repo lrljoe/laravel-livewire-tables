@@ -2,17 +2,7 @@
 
 namespace Rappasoft\LaravelLivewireTables\Views\Columns;
 
-use Rappasoft\LaravelLivewireTables\Views\Traits\IsAggregateColumn;
-
-class CountColumn extends AggregateColumn
+class CountColumn extends \Rappasoft\LaravelLivewireTables\Features\Columns\Views\Aggregates\CountColumn
 {
-    use IsAggregateColumn;
 
-    public string $aggregateMethod = 'count';
-
-    public function __construct(string $title, ?string $from = null)
-    {
-        parent::__construct($title, $from);
-        $this->label(fn () => null);
-    }
-}
+} 

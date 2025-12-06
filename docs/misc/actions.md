@@ -21,6 +21,61 @@ This is used to set attributes for the "div" that wraps all defined Action Butto
     }
 ```
 
+### setActionsInToolbarEnabled
+
+Displays the Actions within the Toolbar.  Default is displaying above the Toolbar.
+
+```php
+    public function configure(): void
+    {
+        $this->setActionsInToolbarEnabled();
+    }
+```
+
+### setActionsInToolbarDisabled
+
+Displays the Actions above the Toolbar, default behaviour
+```php
+    public function configure(): void
+    {
+        $this->setActionsInToolbarDisabled();
+    }
+```
+
+
+### setActionsLeft
+
+Displays the Actions justified to the left
+
+```php
+    public function configure(): void
+    {
+        $this->setActionsLeft();
+    }
+```
+
+### setActionsCenter
+
+Displays the Actions justified to the center
+
+```php
+    public function configure(): void
+    {
+        $this->setActionsCenter();
+    }
+```
+
+### setActionsRight
+
+Displays the Actions justified to the right
+
+```php
+    public function configure(): void
+    {
+        $this->setActionsRight();
+    }
+```
+
 ### actions()
 
 Define your actions using the actions() method:
@@ -36,6 +91,21 @@ public function actions(): array
 ```
 
 ## Button Available Methods
+
+### setLabelAttributes
+Set custom attributes for an Action Label.  At present it is recommended to only use this for "class" and "style" attributes to avoid conflicts.
+
+By default, this replaces the default classes on the Action Label, if you would like to keep them, set the default flag to true.
+
+```php
+Action::make('Dashboard')
+    ->setRoute('dashboard')
+    ->wireNavigate()
+    ->setLabelAttributes([
+        'class' => 'text-xl', 
+        'default' => true,
+    ]),
+```
 
 ### setActionAttributes
 
@@ -197,6 +267,7 @@ public function actions(): array
 }
 ```
 
+
 ## Extending
 
 You can extend the Base Action class which can be a useful timesaver, when you wish to re-use the same look/feel of an Action, but wish to set a different route (for example).
@@ -229,3 +300,4 @@ You may define a Custom View to be used via either the setView method, or by def
     protected string $view = 'buttons.edit-action';
 ```
 
+        $this->setActionsInToolbarEnabled()->setActionsAsDropdownEnabled()->setActionsRight();

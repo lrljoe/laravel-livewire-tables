@@ -1,0 +1,58 @@
+<?php
+
+namespace Rappasoft\LaravelLivewireTables\Features\Columns\Views\Traits;
+
+use Rappasoft\LaravelLivewireTables\Traits\Core\HasLocalisations;
+use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Traits\Configuration\ColumnConfiguration;
+use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Traits\Helpers\{ColumnHelpers};
+use Rappasoft\LaravelLivewireTables\Views\Traits\Core\{HasAttributes, HasLabelAttributes, HasTheme};
+use Livewire\Attributes\Locked;
+
+trait IsColumn
+{
+    use HasLocalisations,
+        HasDataTableComponent,
+        IsReorderColumn,
+        HasColumnLabelStatus,
+        HasRelations,
+        HasLabelFormat,
+        HasClickable,
+        HasSlug,
+        ColumnConfiguration,
+        ColumnHelpers,
+        IsCollapsible,
+        IsSearchable,
+        IsSelectable,
+        IsSortable,
+        HasAttributes,
+        HasColumnView,
+        HasFooter,
+        HasLabelAttributes,
+        HasSecondaryHeader,
+        HasTheme,
+        HasVisibility;
+
+    // What displays in the columns header
+    protected string $title;
+
+    // Act as a unique identifier for the column
+    #[Locked]
+    public string $hash;
+
+    // The columns or relationship location: i.e. name, or address.group.name
+    protected ?string $from = null;
+
+    // The underlying columns name: i.e. name
+    protected ?string $field = null;
+
+    // The table of the columns or relationship
+    public ?string $table = null;
+
+    protected bool $html = false;
+
+    protected bool $whitespaceWrap = false;
+
+    protected ?int $columnIndex;
+
+    protected ?int $rowIndex;
+}

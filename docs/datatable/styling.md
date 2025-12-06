@@ -1,9 +1,30 @@
 ---
 title: Styling
-weight: 5
+weight: 6
 ---
 
 The package offers significant opportunities to customise the look & feel of the core table, as well as other elements (which are documented in the relevant sections).
+
+## Keeping Defaults
+To allow simpler customisation on a per-table basis, there are numerous methods available to over-ride the default CSS classes.
+Historically, this was provided by a simple toggleable "default" flag.  However - in many cases, the original "default" has been expanded to include:
+
+### Keep Default Colors And Default Styles
+- set default flag to true
+or
+- set default-colors flag to true
+- set default-styling flag to true
+
+### Keep Default Colors Only
+- set default flag to false
+- set default-colors flag to true
+- set default-styling flag to false
+
+### Keep Default Styling Only
+- set default flag to false
+- set default-colors flag to false
+- set default-styling flag to true
+
 
 ## Attributes
 
@@ -129,8 +150,10 @@ public function configure(): void
 
 Set a list of attributes to override on the th elements.  
 
-Note: If you are using Bulk Actions, then the th for Bulk Actions is [styled separately](../bulk-actions/customisations).
-Note: If you are using Reorder, then the th for Reorder is [styled separately](../reordering/available-methods).
+If your Column does not have a field (e.g. a label column), then you may use the following, which will utilise the first parameter in Column::make()
+```php
+  $column->getTitle()
+```
 
 ```php
 public function configure(): void
@@ -148,8 +171,7 @@ public function configure(): void
 }
 ```
 
-By default, this replaces the default classes on the th, if you would like to keep them, set the default flag to true.
-
+#### Keeping Default Colors and Default Styling
 ```php
 public function configure(): void
 {
@@ -165,6 +187,72 @@ public function configure(): void
   });
 }
 ```
+
+#### Keeping Default Styling Only For the "Name" Column
+```php
+public function configure(): void
+{
+  $this->setThAttributes(function(Column $column) {
+    if ($column->isField('name')) {
+      return [
+        'default' => false,
+        'default-styling' => true,
+        'class' => 'text-black bg-green-500 dark:text-white dark:bg-green-900',
+      ];
+    }
+
+    return ['default' => true];
+  });
+}
+```
+
+#### Reorder Column
+Note: If you are using Reorder, then the th for Reorder can be [styled separately](../reordering/available-methods).  However this is now replaced with the following to ensure consistent behaviour.  The separate method will be supported until at least v3.6
+
+You can also use the "title" of the Column, which will be "reorder" for the "reorder" Column:
+```php
+public function configure(): void
+{
+  $this->setThAttributes(function(Column $column) {
+      if ($column->getTitle() == 'reorder')
+      {
+          return [
+              'class' => 'bg-green-500 dark:bg-green-800',
+              'default' => false,
+              'default-colors' => false,
+          ];
+  
+      }
+
+    return ['default' => true];
+  });
+}
+```
+#### Bulk Actions Column
+Note: If you are using Bulk Actions, then the th for Bulk Actions can be [styled separately](../bulk-actions/customisations).  However this is now replaced with the following to ensure consistent behaviour.  The separate method will be supported until at least v3.6
+
+You can also use the "title" of the Column, which will be "bulkactions" for the "Bulk Actions" Column:
+```php
+public function configure(): void
+{
+  $this->setThAttributes(function(Column $column) {
+      if ($column->getTitle() == 'bulkactions')
+      {
+          return [
+              'class' => 'bg-yellow-500 dark:bg-yellow-800',
+              'default' => false,
+              'default-colors' => false,
+          ];
+  
+      }
+
+    return ['default' => true];
+  });
+}
+```
+
+
+
 
 ### setThSortButtonAttributes
 
@@ -227,6 +315,11 @@ public function configure(): void
 ### setTdAttributes
 
 Set a list of attributes to override on the td elements
+
+If your Column does not have a field (e.g. a label column), then you may use the following, which will utilise the first parameter in Column::make()
+```php
+  $column->getTitle()
+```
 
 ```php
 public function configure(): void
@@ -386,3 +479,38 @@ public function configure(): void
   ]);
 }
 ```
+
+### Vertical Scrolling Example
+Should you wish to implement a table with a responsive height, and vertical scrolling for additional rows, a basic example is below that demonstrates the approach, noting that you will likely wish to adjust the break-points!
+
+```php
+public function configure(): void
+{
+
+    $this->setTableWrapperAttributes([
+        'class' => 'max-h-56 md:max-h-72 lg:max-h-96 overflow-y-scroll',
+        ]);
+    $this->setTheadAttributes([
+        'class' => 'sticky top-0 '
+    ]);
+}
+```
+
+Keep in mind that you must only call methods from configure() once to avoid overriding or conflicting results.
+
+
+### Default TD Content Alignment
+
+Should you wish to default the text alignment for each td element, you may use one of the following methods:
+
+```php
+public function configure(): void
+{
+  $this->setDefaultBodyTextAlignLeft(); // Sets Default To Left
+  $this->setDefaultBodyTextAlignCenter(); // Sets Default To Center
+  $this->setDefaultBodyTextAlignRight(); // Sets Default To Right
+}
+```
+When not set, this will adhere to the parent element text alignment.
+
+You can customise this on a per-Column basis.

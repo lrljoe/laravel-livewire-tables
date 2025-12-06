@@ -18,6 +18,13 @@ trait WithCustomisations
 
     protected ?string $section = null;
 
+    /**
+     * Undocumented function
+     *
+     * @param \Illuminate\View\View $view
+     * @param array<mixed> $data
+     * @return void
+     */
     public function renderingWithCustomisations(\Illuminate\View\View $view, array $data = []): void
     {
         if ($this->hasLayout()) {

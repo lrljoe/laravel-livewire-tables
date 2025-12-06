@@ -11,9 +11,9 @@ namespace App\Livewire;
 use App\Models\{Tag,User};
 use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
-use Rappasoft\LaravelLivewireTables\Views\Column;
+use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
 use Rappasoft\LaravelLivewireTables\Views\Columns\{BooleanColumn, ImageColumn};
-use Rappasoft\LaravelLivewireTables\Views\Filters\{DateFilter, MultiSelectFilter, SelectFilter};
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\{DateFilter, MultiSelectFilter, SelectFilter};
 
 class UsersTable extends DataTableComponent
 {

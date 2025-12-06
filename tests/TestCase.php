@@ -9,13 +9,14 @@ use Illuminate\Support\Facades\DB;
 use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 use Rappasoft\LaravelLivewireTables\LaravelLivewireTablesServiceProvider;
-use Rappasoft\LaravelLivewireTables\Tests\Http\Livewire\{BreedsTable,PetsTable,PetsTableUnpaginated,PetsTableWithOwner,SpeciesTable};
+use Rappasoft\LaravelLivewireTables\Tests\Http\Livewire\{BreedsTable,PetsTable,PetsTableEvents,PetsTableUnpaginated,PetsTableWithOwner,SpeciesTable};
 use Rappasoft\LaravelLivewireTables\Tests\Http\TestComponent;
 use Rappasoft\LaravelLivewireTables\Tests\Models\Breed;
 use Rappasoft\LaravelLivewireTables\Tests\Models\Owner;
 use Rappasoft\LaravelLivewireTables\Tests\Models\Pet;
 use Rappasoft\LaravelLivewireTables\Tests\Models\Species;
 use Rappasoft\LaravelLivewireTables\Tests\Models\Veterinary;
+use Rappasoft\LaravelLivewireTables\Tests\TestServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -96,60 +97,35 @@ class TestCase extends Orchestra
     {
         $view = view('livewire-tables::datatable');
         $this->basicTable = new PetsTable;
-        $this->basicTable->boot();
-        $this->basicTable->bootedComponentUtilities();
-        $this->basicTable->bootedWithData();
-        $this->basicTable->bootedWithColumns();
-        $this->basicTable->bootedWithColumnSelect();
-        $this->basicTable->bootedWithSecondaryHeader();
-        $this->basicTable->booted();
-        $this->basicTable->renderingWithPagination($view, []);
-        $this->basicTable->render();
+        $this->basicTable->bootAll();
+    }
+
+    protected function setupEventsTable()
+    {
+        $view = view('livewire-tables::datatable');
+        $this->eventsTable = new PetsTableEvents;
+        $this->eventsTable->bootAll();
     }
 
     protected function setupBreedsTable()
     {
         $view = view('livewire-tables::datatable');
         $this->breedsTable = new BreedsTable;
-        $this->breedsTable->boot();
-        $this->breedsTable->bootedComponentUtilities();
-        $this->breedsTable->bootedWithData();
-        $this->breedsTable->bootedWithColumns();
-        $this->breedsTable->bootedWithColumnSelect();
-        $this->breedsTable->bootedWithSecondaryHeader();
-        $this->breedsTable->booted();
-        $this->breedsTable->renderingWithPagination($view, []);
-        $this->breedsTable->render();
+        $this->breedsTable->bootAll();
     }
 
     protected function setupPetOwnerTable()
     {
         $view = view('livewire-tables::datatable');
         $this->petOwnerTable = new PetsTableWithOwner;
-        $this->petOwnerTable->boot();
-        $this->petOwnerTable->bootedComponentUtilities();
-        $this->petOwnerTable->bootedWithData();
-        $this->petOwnerTable->bootedWithColumns();
-        $this->petOwnerTable->bootedWithColumnSelect();
-        $this->petOwnerTable->bootedWithSecondaryHeader();
-        $this->petOwnerTable->booted();
-        $this->petOwnerTable->renderingWithPagination($view, []);
-        $this->petOwnerTable->render();
+        $this->petOwnerTable->bootAll();
     }
 
     protected function setupSpeciesTable()
     {
         $view = view('livewire-tables::datatable');
         $this->speciesTable = new SpeciesTable;
-        $this->speciesTable->boot();
-        $this->speciesTable->bootedComponentUtilities();
-        $this->speciesTable->bootedWithData();
-        $this->speciesTable->bootedWithColumns();
-        $this->speciesTable->bootedWithColumnSelect();
-        $this->speciesTable->bootedWithSecondaryHeader();
-        $this->speciesTable->booted();
-        $this->speciesTable->renderingWithPagination($view, []);
-        $this->speciesTable->render();
+        $this->speciesTable->bootAll();
     }
 
     protected function setupUnpaginatedTable()
@@ -157,21 +133,14 @@ class TestCase extends Orchestra
 
         $view = view('livewire-tables::datatable');
         $this->unpaginatedTable = new PetsTableUnpaginated;
-        $this->unpaginatedTable->boot();
-        $this->unpaginatedTable->bootedComponentUtilities();
-        $this->unpaginatedTable->bootedWithData();
-        $this->unpaginatedTable->bootedWithColumns();
-        $this->unpaginatedTable->bootedWithColumnSelect();
-        $this->unpaginatedTable->bootedWithSecondaryHeader();
-        $this->unpaginatedTable->booted();
-        $this->unpaginatedTable->renderingWithPagination($view, []);
-        $this->unpaginatedTable->render();
+        $this->unpaginatedTable->bootAll();
 
     }
 
     protected function getPackageProviders($app): array
     {
         return [
+            TestServiceProvider::class,
             LivewireServiceProvider::class,
             LaravelLivewireTablesServiceProvider::class,
             BladeIconsServiceProvider::class,
@@ -186,17 +155,23 @@ class TestCase extends Orchestra
         config()->set('cache.default', 'array');
         config()->set('view.cache', false);
         config()->set('view.compiled', realpath(storage_path('framework/views')).'/'.rand(0, 100));
+        //      config()->set('livewire-tables.use_json_translations', true);
+        $app['config']->set('view.paths', [
+            __DIR__.'/views',
+            resource_path('views'),
+        ]);
 
         $app['config']->set('app.env', 'testing');
         $app['config']->set('database.default', 'sqlite');
         $app['config']->set('cache.default', 'array');
         $app['config']->set('view.cache', false);
         $app['config']->set('view.compiled', realpath(storage_path('framework/views')).'/'.rand(0, 100));
+        //        $app['config']->set('livewire-tables.use_json_translations', true);
 
-        if (file_exists(__DIR__.'/../database/sqlite.database')) {
+        if (file_exists(__DIR__.'/../database/database.sqlite')) {
             $app['config']->set('database.connections.sqlite', [
                 'driver' => 'sqlite',
-                'database' => __DIR__.'/../database/sqlite.database',
+                'database' => __DIR__.'/../database/database.sqlite',
                 'prefix' => '',
             ]);
         } else {
@@ -212,7 +187,6 @@ class TestCase extends Orchestra
     {
         $className = str_split($className);
         $crc32 = sprintf('%u', crc32(serialize($className)));
-
-        return base_convert($crc32, 10, 36);
+        return 'table_'.base_convert($crc32, 10, 36);
     }
 }

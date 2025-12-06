@@ -6,7 +6,7 @@ weight: 10
 Select filters are a simple dropdown list. The user selects one choice from the list.
 
 ```php
-use Rappasoft\LaravelLivewireTables\Views\Filters\SelectFilter;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\SelectFilter;
 
 public function filters(): array
 {
@@ -30,7 +30,7 @@ You should supply the first option as the default value. I.e. nothing selected, 
 To use `<optgroup>` elements, pass a nested array of options to the select filter.
 
 ```php
-use Rappasoft\LaravelLivewireTables\Views\Filters\SelectFilter;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\SelectFilter;
 
 public function filters(): array
 {
@@ -57,3 +57,10 @@ To set a default "All" option at the start of the dropdown, you can do so by uti
 ```php
 ->setFirstOption('NAME')
 ```
+
+## Additional Information
+Ensure you check out:
+- [Applying Filters](../filters/applying-filters) documentation for Applying Filters to your query cleanly
+- [Available Filter Methods](../filters/available-filter-methods) documentation for more Filter Features
+- [Filter Pills](../filters/filter-pills) documentation for help with configuring the pills for a filter
+- [Available Component Methods](../filters/available-component-methods) documentation for Table Wide configuration

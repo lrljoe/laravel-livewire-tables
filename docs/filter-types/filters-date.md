@@ -6,7 +6,7 @@ weight: 3
 Date filters are HTML date elements.
 
 ```php
-use Rappasoft\LaravelLivewireTables\Views\Filters\DateFilter;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\DateFilter;
 
 public function filters(): array
 {
@@ -67,3 +67,51 @@ public function filters(): array
 }
 ```
 
+## Example
+This example would return models with a "created_at" prior to the date specified in the Filter, with a maximum date of "today"
+```php
+public function filters(): array
+{
+    return [
+            DateFilter::make('Item Created Before')
+            ->config([
+                'min' => '2020-01-01',
+                'max' => \Carbon\Carbon::now()->format('Y-m-d'),
+                'pillFormat' => 'd M Y',
+            ])
+            ->filter(function (Builder $builder, string $value) {
+                return $builder->whereDate('created_at', '<=', $value);
+            }),
+    ];
+}
+```
+
+The default wire behaviour is "live", to ensure quick response, but you are able to swap it to any wire method that you wish, for example, setting it to debounce with a 1000ms delay would look like:
+
+```php
+public function filters(): array
+{
+    return [
+            DateFilter::make('Item Created Before')
+            ->config([
+                'min' => '2020-01-01',
+                'max' => \Carbon\Carbon::now()->format('Y-m-d'),
+                'pillFormat' => 'd M Y',
+            ])
+            ->filter(function (Builder $builder, string $value) {
+                return $builder->whereDate('created_at', '<=', $value);
+            })
+            ->setWireDebounce(1000),
+    ];
+}
+```
+See the below "[Available Filter Methods](../filters/available-filter-methods)" for more wire options
+
+
+
+## Additional Information
+Ensure you check out:
+- [Applying Filters](../filters/applying-filters) documentation for Applying Filters to your query cleanly
+- [Available Filter Methods](../filters/available-filter-methods) documentation for more Filter Features
+- [Filter Pills](../filters/filter-pills) documentation for help with configuring the pills for a filter
+- [Available Component Methods](../filters/available-component-methods) documentation for Table Wide configuration

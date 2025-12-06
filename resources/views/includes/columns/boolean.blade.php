@@ -1,61 +1,36 @@
-@if ($isTailwind)
-    @if ($status)
-        @if ($type === 'icons')
-            @if ($successValue === true)
-                <x-heroicon-o-check-circle class="inline-block h-5 w-5 text-green-500" />
-            @else
-                <x-heroicon-o-check-circle class="inline-block h-5 w-5 text-red-500" />
-            @endif
-        @elseif ($type === 'yes-no')
-            @if ($successValue === true)
-                <span>Yes</span>
-            @else
-                <span>No</span>
-            @endif
+@aware(['localisationPath'])
+
+@if($isToggleable && $toggleMethod !== '')
+<button wire:click="{{ $toggleMethod }}('{{ $rowPrimaryKey }}')" @if($hasConfirmMessage) wire:confirm="{{ $confirmMessage }}" @endif>
+@endif
+    @if ($type === 'icons')
+        @if ($isSuccessful)
+            <x-heroicon-o-check-circle
+                @class(
+                    [
+                        'inline-block h-5 w-5 text-green-500' => $isTailwind,
+                        'tw4ph inline-block h-5 w-5 text-green-500' => $isTailwind4,
+                        'd-inline-block text-success laravel-livewire-tables-btn-small' => $isBootstrap
+                    ]
+                )
+            />
+        @else
+            <x-heroicon-o-x-circle @class(
+                    [
+                        'inline-block h-5 w-5 text-red-500' => $isTailwind,
+                        'tw4ph inline-block h-5 w-5 text-red-500' => $isTailwind4,
+                        'd-inline-block text-danger laravel-livewire-tables-btn-small' => $isBootstrap
+                    ]
+                )
+            />
         @endif
-    @else
-        @if ($type === 'icons')
-            @if ($successValue === false)
-                <x-heroicon-o-x-circle class="inline-block h-5 w-5 text-green-500" />
-            @else
-                <x-heroicon-o-x-circle class="inline-block h-5 w-5 text-red-500" />
-            @endif
-        @elseif ($type === 'yes-no')
-            @if ($successValue === false)
-                <span>Yes</span>
-            @else
-                <span>No</span>
-            @endif
-        @endif
-    @endif
-@elseif ($isBootstrap)
-    @if ($status)
-        @if ($type === 'icons')
-            @if ($successValue === true)
-                <x-heroicon-o-check-circle  class="d-inline-block text-success laravel-livewire-tables-btn-small" />
-            @else
-                <x-heroicon-o-check-circle class="d-inline-block text-danger laravel-livewire-tables-btn-small" />
-            @endif
-        @elseif ($type === 'yes-no')
-            @if ($successValue === true)
-                <span>Yes</span>
-            @else
-                <span>No</span>
-            @endif
-        @endif
-    @else
-        @if ($type === 'icons')
-            @if ($successValue === false)
-                <x-heroicon-o-x-circle class="d-inline-block text-success laravel-livewire-tables-btn-small" />
-            @else
-                <x-heroicon-o-x-circle class="d-inline-block text-danger laravel-livewire-tables-btn-small" />
-            @endif
-        @elseif ($type === 'yes-no')
-            @if ($successValue === false)
-                <span>Yes</span>
-            @else
-                <span>No</span>
-            @endif
+    @elseif ($type === 'yes-no')
+        @if ($isSuccessful)
+            <span>{{ __($localisationPath.'Yes') }}</span>
+        @else
+            <span>{{ __($localisationPath.'No') }}</span>
         @endif
     @endif
+@if($isToggleable && $toggleMethod !== '')
+</button>
 @endif

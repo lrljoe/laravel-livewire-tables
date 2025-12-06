@@ -11,8 +11,19 @@ trait WithRappasoftTableScripts
 
     public mixed $rappasoftTableScriptRoute;
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     public array $rappasoftTableScriptTagAttributes = [];
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $attributes
+     * @return void
+     */
     public function useRappasoftTableScriptTagAttributes(array $attributes): void
     {
         $this->rappasoftTableScriptTagAttributes = [...$this->rappasoftTableScriptTagAttributes, ...$attributes];
@@ -41,6 +52,12 @@ trait WithRappasoftTableScripts
         return '{!! \Rappasoft\LaravelLivewireTables\Mechanisms\RappasoftFrontendAssets::tableScripts('.$expression.') !!}';
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $options
+     * @return string|null
+     */
     public static function tableScripts(array $options = []): ?string
     {
         app(static::class)->hasRenderedRappsoftTableScripts = true;
@@ -57,6 +74,12 @@ trait WithRappasoftTableScripts
         return implode("\n", $html);
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $options
+     * @return string
+     */
     public static function tableJs(array $options = []): string
     {
         // Use the default endpoint...

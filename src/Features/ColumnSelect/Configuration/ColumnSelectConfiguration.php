@@ -1,0 +1,53 @@
+<?php
+
+namespace Rappasoft\LaravelLivewireTables\Features\ColumnSelect\Configuration;
+
+use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
+use Rappasoft\LaravelLivewireTables\Collections\ColumnCollection;
+
+trait ColumnSelectConfiguration
+{
+
+
+    public function setExcludeDeselectedColumnsFromQuery(bool $status): self
+    {
+        $this->columnSelectConfig['excludeDeselectedColumnsFromQuery'] = $status;
+        
+        return $this;
+    }
+
+    public function setExcludeDeselectedColumnsFromQueryEnabled(): self
+    {
+        return $this->setExcludeDeselectedColumnsFromQuery(true);
+    }
+
+    public function setExcludeDeselectedColumnsFromQueryDisabled(): self
+    {
+        return $this->setExcludeDeselectedColumnsFromQuery(false);
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
+    protected function setDefaultDeselectedColumns(): array
+    {
+        return new ColumnCollection($this->getColumns()
+            ->reject(fn (Column $column) => ! $column->isSelectable())
+            ->reject(fn (Column $column) => $column->isSelectable() && $column->isSelected())
+        )
+            ->keyBy(function (Column $column, int $key) {
+                return $column->getSlug();
+            })
+            ->map(fn ($column) => $column->getTitle())
+            ->toArray();
+    }
+
+    protected function setColumnSelectDelay(int $delay): self
+    {
+        $this->columnSelectConfig['columnSelectDelay'] = $delay;
+
+        return $this;
+    }
+}

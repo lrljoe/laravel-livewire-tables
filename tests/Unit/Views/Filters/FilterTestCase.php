@@ -1,0 +1,249 @@
+<?php
+
+namespace Rappasoft\LaravelLivewireTables\Tests\Unit\Views\Filters;
+
+use Illuminate\View\ComponentAttributeBag;
+use PHPUnit\Framework\Attributes\Group;
+use Rappasoft\LaravelLivewireTables\Tests\TestCase;
+
+#[Group('Filters')]
+abstract class FilterTestCase extends TestCase
+{
+    protected static $filterInstance;
+
+    protected static $testGenericData;
+
+    protected static $extraFilterInputAttributes;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+        self::$testGenericData = [
+            'filterLayout' => 'tailwind',
+            'dataTableFingerprint' => 'fingerprint-'.rand(10000,99999),
+            'tableName' => 'test123',
+            'isTailwind' => true,
+            'isBootstrap' => false,
+            'isBootstrap4' => false,
+            'isBootstrap5' => false,
+            'localisationPath' => 'livewire-tables::core.',
+        ];
+    }
+
+    public static function tearDownAfterClass(): void
+    {
+        self::$extraFilterInputAttributes = null;
+    }
+
+    public function test_can_get_filter_name(): void
+    {
+        $this->assertSame('Active', self::$filterInstance->getName());
+    }
+
+    public function test_can_get_filter_key(): void
+    {
+        $this->assertSame('active', self::$filterInstance->getKey());
+    }
+
+    public function test_get_a_single_filter_config(): void
+    {
+        self::$filterInstance->config(['foo' => 'bar']);
+
+        $this->assertSame('bar', self::$filterInstance->getConfig('foo'));
+    }
+
+    public function test_can_get_filter_default_value(): void
+    {
+        $this->assertNull(self::$filterInstance->getDefaultValue());
+    }
+
+    public function test_can_get_filter_pill_title(): void
+    {
+        $this->assertSame('Active', self::$filterInstance->getFilterPillTitle());
+
+        self::$filterInstance->setFilterPillTitle('User Date');
+
+        $this->assertSame('User Date', self::$filterInstance->getFilterPillTitle());
+    }
+
+    public function test_can_check_filter_config_by_name(): void
+    {
+        self::$filterInstance->config(['foo' => 'bar']);
+
+        $this->assertTrue(self::$filterInstance->hasConfig('foo'));
+        $this->assertFalse(self::$filterInstance->hasConfig('bar'));
+    }
+
+    public function test_can_check_if_filter_is_hidden_from_menus(): void
+    {
+        $this->assertFalse(self::$filterInstance->isHiddenFromMenus());
+        $this->assertTrue(self::$filterInstance->isVisibleInMenus());
+
+        self::$filterInstance->hiddenFromMenus();
+
+        $this->assertTrue(self::$filterInstance->isHiddenFromMenus());
+        $this->assertFalse(self::$filterInstance->isVisibleInMenus());
+    }
+
+    public function test_can_check_if_filter_is_hidden_from_pills(): void
+    {
+        $this->assertFalse(self::$filterInstance->isHiddenFromPills());
+        $this->assertTrue(self::$filterInstance->isVisibleInPills());
+
+        self::$filterInstance->hiddenFromPills();
+
+        $this->assertTrue(self::$filterInstance->isHiddenFromPills());
+        $this->assertFalse(self::$filterInstance->isVisibleInPills());
+    }
+
+    public function test_can_check_if_filter_is_hidden_from_count(): void
+    {
+        $this->assertFalse(self::$filterInstance->isHiddenFromFilterCount());
+        $this->assertTrue(self::$filterInstance->isVisibleInFilterCount());
+
+        self::$filterInstance->hiddenFromFilterCount();
+
+        $this->assertTrue(self::$filterInstance->isHiddenFromFilterCount());
+        $this->assertFalse(self::$filterInstance->isVisibleInFilterCount());
+    }
+
+    public function test_can_check_if_filter_is_reset_by_clear_button(): void
+    {
+        $this->assertTrue(self::$filterInstance->isResetByClearButton());
+
+        self::$filterInstance->notResetByClearButton();
+
+        $this->assertFalse(self::$filterInstance->isResetByClearButton());
+    }
+
+    public function test_can_set_custom_input_attributes(): void
+    {
+        $filter = self::$filterInstance;
+
+        $filter->setGenericDisplayData(self::$testGenericData);
+        $baseAttributes = $filter->getInputAttributesBag();
+
+        $this->assertTrue($baseAttributes['default-styling']);
+        $this->assertTrue($baseAttributes['default-colors']);
+
+        $filter->setInputAttributes([
+            'class' => 'bg-red-500',
+        ]);
+
+        $this->assertTrue($filter->getInputAttributesBag()['default-styling']);
+        $this->assertTrue($filter->getInputAttributesBag()['default-colors']);
+        $this->assertSame('bg-red-500', $filter->getInputAttributesBag()['class']);
+        $filter->setInputAttributes([
+            'class' => 'bg-red-500 dark:bg-red-500',
+            'default-styling' => false,
+        ]);
+        $currentAttributeBag = $filter->getInputAttributesBag()->getAttributes();
+        ksort($currentAttributeBag);
+
+        $this->assertFalse($currentAttributeBag['default-styling']);
+        $this->assertTrue($currentAttributeBag['default-colors']);
+        $this->assertSame('bg-red-500 dark:bg-red-500', $currentAttributeBag['class']);
+
+        $standardAttributes = [
+            'class' => 'bg-red-500 dark:bg-red-500',
+            'default-colors' => true,
+            'default-styling' => false,
+            'id' => $baseAttributes['id'],
+        ];
+        if (isset(self::$extraFilterInputAttributes)) {
+            $standardAttributes = array_merge($standardAttributes, self::$extraFilterInputAttributes);
+            ksort($standardAttributes);
+        }
+
+        $this->assertSame($standardAttributes, $currentAttributeBag);
+    }
+
+    public function test_can_get_custom_pill_attributes(): void
+    {
+        $filter = self::$filterInstance;
+
+        $attributes = array_merge(['default-colors' => true, 'default-styling' => true], []);
+        ksort($attributes);
+
+        $this->assertSame($attributes, $filter->getPillAttributes());
+
+    }
+
+    public function test_can_set_custom_pill_attributes(): void
+    {
+        $filter = self::$filterInstance;
+
+        $attributes = array_merge(['default-colors' => true, 'default-styling' => true], []);
+        ksort($attributes);
+
+        $this->assertSame($attributes, $filter->getPillAttributes());
+
+        $attributes = array_merge(['class' => 'bg-red-500', 'default-colors' => true, 'default-styling' => true], []);
+        ksort($attributes);
+
+        $filter->setPillAttributes(['class' => 'bg-red-500']);
+
+        $this->assertSame($attributes, $filter->getPillAttributes());
+
+    }
+
+    public function test_can_set_custom_pill_attributes_bag(): void
+    {
+        $attributes = array_merge(['class' => 'bg-red-500', 'default-colors' => true, 'default-styling' => true], []);
+        ksort($attributes);
+        $filter = self::$filterInstance;
+        $filter->setPillAttributes(['class' => 'bg-red-500']);
+        $bag = new ComponentAttributeBag($attributes);
+
+        $this->assertSame($bag->getAttributes(), $filter->getPillAttributesBag()->getAttributes());
+
+    }
+
+    public function test_can_get_default_reset_attributes(): void
+    {
+        $filter = self::$filterInstance;
+
+        $this->assertSame($filter->getPillResetButtonAttributes(), []);
+    }
+
+    public function test_can_get_default_reset_attributes_merged(): void
+    {
+        $filter = self::$filterInstance;
+
+        $this->assertSame($filter->getFilterPillResetButtonAttributesMerged([]), [
+            'x-on:click.prevent' => "resetSpecificFilter('".$filter->getKey()."')",
+            'type' => 'button',
+        ]);
+    }
+
+    public function test_can_set_custom_reset_attributes(): void
+    {
+        $filter = self::$filterInstance;
+        $filter->setPillResetButtonAttributes(['class' => 'bg-red-500']);
+        $this->assertSame($filter->getPillResetButtonAttributes(), ['class' => 'bg-red-500']);
+    }
+
+    public function test_can_get_reset_attributes_merged(): void
+    {
+        $filter = self::$filterInstance;
+
+        $this->assertSame($filter->getFilterPillResetButtonAttributesMerged(['class' => 'bg-red-500']), [
+            'x-on:click.prevent' => "resetSpecificFilter('".$filter->getKey()."')",
+            'type' => 'button',
+            'class' => 'bg-red-500',
+        ]);
+    }
+
+    public function test_can_set_reset_attributes_merged(): void
+    {
+        $filter = self::$filterInstance;
+
+        $filter->setPillResetButtonAttributes(['class' => 'bg-blue-500']);
+
+        $this->assertSame($filter->getFilterPillResetButtonAttributesMerged($filter->getPillResetButtonAttributes()), [
+            'x-on:click.prevent' => "resetSpecificFilter('".$filter->getKey()."')",
+            'type' => 'button',
+            'class' => 'bg-blue-500',
+        ]);
+    }
+}

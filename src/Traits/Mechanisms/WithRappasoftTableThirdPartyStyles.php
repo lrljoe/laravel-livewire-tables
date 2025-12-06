@@ -9,6 +9,11 @@ trait WithRappasoftTableThirdPartyStyles
 
     public mixed $rappasoftTableThirdPartyStyleRoute;
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     public array $rappasoftTableThirdPartyStyleTagAttributes = [];
 
     /**
@@ -34,6 +39,12 @@ trait WithRappasoftTableThirdPartyStyles
         return '{!! \Rappasoft\LaravelLivewireTables\Mechanisms\RappasoftFrontendAssets::tableThirdPartyStyles('.$expression.') !!}';
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $options
+     * @return array<mixed>|string|null
+     */
     public static function tableThirdPartyStyles(array $options = []): array|string|null
     {
         app(static::class)->hasRenderedRappsoftTableThirdPartyStyles = true;
@@ -51,6 +62,12 @@ trait WithRappasoftTableThirdPartyStyles
 
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $options
+     * @return string|null
+     */
     public static function tableThirdPartyCss(array $options = []): ?string
     {
         $styleUrl = app(static::class)->rappasoftTableThirdPartyStyleRoute->uri;

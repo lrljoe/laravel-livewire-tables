@@ -9,6 +9,11 @@ trait WithRappasoftTableStyles
 
     public mixed $rappasoftTableStylesRoute;
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     public array $rappasoftTableStyleTagAttributes = [];
 
     /**
@@ -34,6 +39,12 @@ trait WithRappasoftTableStyles
         return '{!! \Rappasoft\LaravelLivewireTables\Mechanisms\RappasoftFrontendAssets::tableStyles('.$expression.') !!}';
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $options
+     * @return array<mixed>|string|null
+     */
     public static function tableStyles(array $options = []): array|string|null
     {
         app(static::class)->hasRenderedRappsoftTableStyles = true;
@@ -51,6 +62,12 @@ trait WithRappasoftTableStyles
 
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $options
+     * @return string|null
+     */
     public static function tableCss(array $options = []): ?string
     {
         $styleUrl = app(static::class)->rappasoftTableStylesRoute->uri;

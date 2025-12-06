@@ -2,26 +2,7 @@
 
 namespace Rappasoft\LaravelLivewireTables\Views\Filters;
 
-use Rappasoft\LaravelLivewireTables\Views\Filter;
-use Rappasoft\LaravelLivewireTables\Views\Traits\Core\HasWireables;
-use Rappasoft\LaravelLivewireTables\Views\Traits\Filters\{HandlesWildcardStrings, IsStringFilter};
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\TextFilter as BaseTextFilter;
 
-class TextFilter extends Filter
-{
-    use IsStringFilter;
-    use HasWireables;
-    use HandlesWildcardStrings;
-
-    public string $wireMethod = 'blur';
-
-    protected string $view = 'livewire-tables::components.tools.filters.text-field';
-
-    public function validate(string $value): string|bool
-    {
-        if ($this->hasConfig('maxlength')) {
-            return strlen($value) <= $this->getConfig('maxlength') ? $value : false;
-        }
-
-        return strlen($value) ? $value : false;
-    }
-}
+class TextFilter extends BaseTextFilter
+{}

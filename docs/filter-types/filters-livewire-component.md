@@ -11,7 +11,7 @@ This allows you to use a child/nested Livewire Component in place of the existin
 
 To use a LivewireComponentFilter, you must include it in your namespace:
 ```php
-use Rappasoft\LaravelLivewireTables\Views\Filters\LivewireComponentFilter;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\LivewireComponentFilter;
 ```
 
 When creating a filter:
@@ -98,3 +98,11 @@ An example "my-test-external-filter.blade.php" is given below:
 
 ### Important Notes For The livewire-component-filter.blade.php
 - It is **strongly** recommmended not to publish, nor update this file, while this feature is in beta, as it is subject to change at short notice, which may lead to breaking changes.
+
+
+## Additional Information
+Ensure you check out:
+- [Applying Filters](../filters/applying-filters) documentation for Applying Filters to your query cleanly
+- [Available Filter Methods](../filters/available-filter-methods) documentation for more Filter Features
+- [Filter Pills](../filters/filter-pills) documentation for help with configuring the pills for a filter
+- [Available Component Methods](../filters/available-component-methods) documentation for Table Wide configuration

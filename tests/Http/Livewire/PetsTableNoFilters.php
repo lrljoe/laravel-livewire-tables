@@ -4,17 +4,10 @@ namespace Rappasoft\LaravelLivewireTables\Tests\Http\Livewire;
 
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Tests\Models\Pet;
-use Rappasoft\LaravelLivewireTables\Views\Column;
+use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
 
-class PetsTableNoFilters extends DataTableComponent
+class PetsTableNoFilters extends PetsTable
 {
-    public $model = Pet::class;
-
-    public function configure(): void
-    {
-        $this->setPrimaryKey('id');
-    }
-
     public function columns(): array
     {
         return [
@@ -34,6 +27,12 @@ class PetsTableNoFilters extends DataTableComponent
                 ->label(function ($row, Column $column) {
                     return 'Other';
                 }),
+        ];
+    }
+
+    public function filters(): array
+    {
+        return [
         ];
     }
 }

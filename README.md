@@ -5,7 +5,7 @@
 [![Tests](https://github.com/rappasoft/laravel-livewire-tables/actions/workflows/run-tests.yml/badge.svg)](https://github.com/rappasoft/laravel-livewire-tables/actions/workflows/run-tests.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/rappasoft/laravel-livewire-tables.svg?style=flat-square)](https://packagist.org/packages/rappasoft/laravel-livewire-tables)
 [![codecov](https://codecov.io/gh/rappasoft/laravel-livewire-tables/graph/badge.svg?token=1B9VKO9KWG)](https://codecov.io/gh/rappasoft/laravel-livewire-tables)
-![PHP Stan Level 5](https://img.shields.io/badge/PHPStan-level%205-brightgreen.svg?style=flat)
+![PHP Stan Level 6](https://img.shields.io/badge/PHPStan-level%206-brightgreen.svg?style=flat)
 
 ### Enjoying this package? [Buy me a beer 🍺](https://www.buymeacoffee.com/rappasoft)
 
@@ -41,7 +41,7 @@ namespace App\Http\Livewire\Admin\User;
 use App\Domains\Auth\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
-use Rappasoft\LaravelLivewireTables\Views\Column;
+use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
 
 class UsersTable extends DataTableComponent
 {

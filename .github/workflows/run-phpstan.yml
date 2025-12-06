@@ -1,16 +1,13 @@
 name: run-phpstan
 
 on:
-  pull_request:
-    branches:
-      - 'master'
-      - 'development'
   push:
     branches:
       - '*'         # matches every branch that doesn't contain a '/'
       - '*/*'       # matches every branch containing a single '/'
       - '**'        # matches every branch
       - '!master'
+      - '!development'
 
 jobs:
   test:
@@ -19,14 +16,14 @@ jobs:
       fail-fast: true
       matrix:
         os: [ubuntu-latest]
-        php: [8.3]
-        laravel: [10]
+        php: [8.4]
+        laravel: [12]
         stability: [prefer-dist]
 
     name: PHPStan - P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }} - ${{ matrix.os }}
     env:
-      extensionKey: phpextensions
-      extensions: dom, curl, libxml, mbstring, zip, pcntl, pcov, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick, fileinfo
+      extensionKey: phpextensions-${{ matrix.os }}-P${{ matrix.php }}
+      extensions: dom, curl, libxml, mbstring, zip, pcntl, pcov, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, exif, iconv, fileinfo
 
     steps:
       - name: Checkout code
@@ -53,7 +50,7 @@ jobs:
           php-version: ${{ matrix.php }}
           extensions: ${{ env.extensions }}
           coverage: pcov
-          tools: phpunit:9.5
+          tools: phpunit:11.4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -68,12 +65,14 @@ jobs:
       - uses: actions/cache@v4
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-PHPStan-P${{ matrix.php }}-L${{ matrix.laravel }}-composer-${{ hashFiles('**/composer.json') }}
-          restore-keys: ${{ runner.os }}-PHPStan-P${{ matrix.php }}-L${{ matrix.laravel }}-composer-
+          key: phpstan-${{ matrix.os }}-PHP${{ matrix.php }}-L${{ matrix.laravel }}-composer-${{ hashFiles('**/composer.json') }}
+          restore-keys: phpstan-${{ matrix.os }}-PHP${{ matrix.php }}-L${{ matrix.laravel }}-composer-
 
       - name: Add token
+        env: 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
         run: |
-          composer config github-oauth.github.com ${{ secrets.GITHUB_TOKEN }}
+          composer config github-oauth.github.com $GITHUB_TOKEN
           
       - name: Install dependencies
         if: steps.composer-cache.outputs.cache-hit != 'true'
@@ -81,10 +80,15 @@ jobs:
 
       - name: Update dependencies
         if: steps.composer-cache.outputs.cache-hit != 'true'
-        run: composer update --${{ matrix.stability }} --no-interaction
+        run: composer update --${{ matrix.stability }} --no-interaction -W
 
       - name: Install PHPStan
-        run: composer require larastan/larastan:^2.0 --dev --no-interaction
+        run: composer require larastan/larastan:^3.0 --dev --no-interaction -W
+
+      - uses: actions/cache@v4
+        with:
+          path: ./build/phpstan
+          key: phpstan-${{ matrix.os }}-P${{ matrix.php }}-L${{ matrix.laravel }}
 
       - name: Run PHPStan Tests
         run: ./vendor/bin/phpstan analyse

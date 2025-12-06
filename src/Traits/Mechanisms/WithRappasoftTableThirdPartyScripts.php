@@ -11,6 +11,11 @@ trait WithRappasoftTableThirdPartyScripts
 
     public mixed $rappasoftTableScriptThirdPartyRoute;
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
     public array $rappasoftTableScriptThirdPartyTagAttributes = [];
 
     /**
@@ -39,6 +44,12 @@ trait WithRappasoftTableThirdPartyScripts
         return '{!! \Rappasoft\LaravelLivewireTables\Mechanisms\RappasoftFrontendAssets::tableThirdPartyScripts('.$expression.') !!}';
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $options
+     * @return string|null
+     */
     public static function tableThirdPartyScripts(array $options = []): ?string
     {
         app(static::class)->hasRenderedRappsoftTableThirdPartyScripts = true;
@@ -55,6 +66,12 @@ trait WithRappasoftTableThirdPartyScripts
         return implode("\n", $html);
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $options
+     * @return string
+     */
     public static function tableThirdpartyJs(array $options = []): string
     {
         // Use the default endpoint...

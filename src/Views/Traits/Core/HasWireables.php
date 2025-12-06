@@ -2,6 +2,7 @@
 
 namespace Rappasoft\LaravelLivewireTables\Views\Traits\Core;
 
+
 trait HasWireables
 {
     protected function checkWireMethod(string $wireMethod): string
@@ -76,10 +77,10 @@ trait HasWireables
     {
 
         if ($wireMethod != 'defer') {
-            return 'wire:model.'.$wireMethod.'='.$wireableElement;
+            return 'wire:model.'.$wireMethod.'="'.$wireableElement.'"';
         }
 
-        return 'wire:model='.$wireableElement;
+        return 'wire:model="'.$wireableElement.'"';
 
     }
 }

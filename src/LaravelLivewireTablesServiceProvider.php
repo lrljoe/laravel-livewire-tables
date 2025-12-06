@@ -3,9 +3,10 @@
 namespace Rappasoft\LaravelLivewireTables;
 
 use Illuminate\Foundation\Console\AboutCommand;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Livewire\ComponentHookRegistry;
-use Rappasoft\LaravelLivewireTables\Commands\MakeCommand;
+use Rappasoft\LaravelLivewireTables\Commands\{ConvertCommand,MakeCommand};
 use Rappasoft\LaravelLivewireTables\Features\AutoInjectRappasoftAssets;
 use Rappasoft\LaravelLivewireTables\Mechanisms\RappasoftFrontendAssets;
 
@@ -25,16 +26,24 @@ class LaravelLivewireTablesServiceProvider extends ServiceProvider
         );
 
         // Load Default Translations
-        $this->loadJsonTranslationsFrom(
-            __DIR__.'/../resources/lang'
-        );
+        if (config('livewire-tables.use_json_translations', false)) {
+            // Load Default Translations
+            $this->loadJsonTranslationsFrom(
+                __DIR__.'/../resources/lang/json'
+            );
 
-        // Override if Published
-        $this->loadJsonTranslationsFrom(
-            $this->app->langPath('vendor/livewire-tables')
-        );
+            // Override if Published
+            $this->loadJsonTranslationsFrom(
+                $this->app->langPath('vendor/livewire-tables')
+            );
+
+        } else {
+            $this->loadTranslationsFrom(__DIR__.'/../resources/lang/php', 'livewire-tables');
+        }
+        $this->addBladeLoopDirective();
 
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'livewire-tables');
+        Blade::componentNamespace('Rappasoft\\LaravelLivewireTables\\View\\Components', 'livewire-tables');
 
         $this->consoleCommands();
 
@@ -49,8 +58,12 @@ class LaravelLivewireTablesServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
 
             $this->publishes([
-                __DIR__.'/../resources/lang' => $this->app->langPath('vendor/livewire-tables'),
+                __DIR__.'/../resources/lang/php' => $this->app->langPath('vendor/livewire-tables'),
             ], 'livewire-tables-translations');
+
+            $this->publishes([
+                __DIR__.'/../resources/lang/json' => $this->app->langPath('vendor/livewire-tables'),
+            ], 'livewire-tables-translations-json');
 
             $this->publishes([
                 __DIR__.'/../config/livewire-tables.php' => config_path('livewire-tables.php'),
@@ -66,9 +79,22 @@ class LaravelLivewireTablesServiceProvider extends ServiceProvider
             ], 'livewire-tables-public');
 
             $this->commands([
+                ConvertCommand::class,
                 MakeCommand::class,
             ]);
         }
+    }
+
+    public function addBladeLoopDirective(): void
+    {
+        Blade::directive('tableloop', function ($expression) {
+            return "<?php foreach ($expression): ?>";
+        });
+
+        Blade::directive('endtableloop', function ($expression) {
+            return '<?php endforeach; ?>';
+        });
+
     }
 
     public function register(): void
@@ -80,5 +106,8 @@ class LaravelLivewireTablesServiceProvider extends ServiceProvider
             (new RappasoftFrontendAssets)->register();
             ComponentHookRegistry::register(AutoInjectRappasoftAssets::class);
         }
+
+        \Livewire\Livewire::component('laravel-livewire-tables.filter-pills', \Rappasoft\LaravelLivewireTables\Features\Pills\FilterPills\PillsWidget::class);
+
     }
 }

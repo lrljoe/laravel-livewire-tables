@@ -3,12 +3,10 @@ name: run-tests-pcov-pull
 on:
   push:
     branches:
-      - 'develop'
       - 'development'
       - 'master'
   pull_request:
     branches:
-      - 'develop'
       - 'development'
       - 'master'
 
@@ -18,15 +16,15 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest]
+        os: [ubuntu-24.04]
         php: [8.3]
-        laravel: [10]
+        laravel: [11]
         stability: [prefer-dist]
 
     name: PCOV - ${{ matrix.os }} - P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }}
     env:
       extensionKey: phpextensions-${{ matrix.os }}-P${{ matrix.php }}-withpcov
-      extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pcov,pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick, fileinfo
+      extensions: dom, curl, libxml, mbstring, zip, pdo, sqlite, pcov,pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, fileinfo
 
     steps:
       - name: Checkout code
@@ -39,7 +37,14 @@ jobs:
           php-version: ${{ matrix.php }}
           extensions: ${{ env.extensions }}
           key: ${{ env.extensionKey }}
-          
+
+      - name: Cache extensions
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.extcache.outputs.dir }}
+          key: ${{ steps.extcache.outputs.key }}
+          restore-keys: ${{ steps.extcache.outputs.key }}
+
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
@@ -50,13 +55,6 @@ jobs:
           coverage: pcov
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Cache extensions
-        uses: actions/cache@v4
-        with:
-          path: ${{ steps.extcache.outputs.dir }}
-          key: ${{ steps.extcache.outputs.key }}
-          restore-keys: ${{ steps.extcache.outputs.key }}
 
       - name: Setup problem matchers for PHP
         run: echo "::add-matcher::${{ runner.tool_cache }}/php.json"
@@ -69,12 +67,14 @@ jobs:
       - uses: actions/cache@v4
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-PCOV-PULL-PHP${{ matrix.php }}-Laravel${{ matrix.laravel }}-composer-${{ hashFiles('**/composer.json') }}
-          restore-keys: ${{ runner.os }}-PCOV-PULL-PHP${{ matrix.php }}-Laravel${{ matrix.laravel }}-composer-
+          key: ${{ matrix.os }}-PHP${{ matrix.php }}-L${{ matrix.laravel }}-composer-${{ hashFiles('**/composer.json') }}
+          restore-keys: ${{ matrix.os }}-PHP${{ matrix.php }}-L${{ matrix.laravel }}-composer-
 
       - name: Add token
+        env: 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
         run: |
-          composer config github-oauth.github.com ${{ secrets.GITHUB_TOKEN }}
+          composer config github-oauth.github.com $GITHUB_TOKEN
           
       - name: Install dependencies
         if: steps.composer-cache.outputs.cache-hit != 'true'
@@ -88,14 +88,14 @@ jobs:
         run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
 
       - name: Run Unit Tests
-        run: php ./vendor/bin/paratest --cache-directory=".phpunit.cache/code-coverage" --strict-coverage --coverage-clover ./coverage.xml --processes=4
+        run: php ./vendor/bin/phpunit --cache-directory=".phpunit.cache/code-coverage" --strict-coverage --coverage-clover ./coverage.xml --testsuite "Laravel Livewire Tables Unit Test Suite","Laravel Livewire Tables Visuals Test Suite"
 
       - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v5
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         with:
-          token: ${{ secrets.CODE_COV_TOKEN }}
+          token: $CODECOV_TOKEN
           files: ./coverage.xml
           verbose: true
 

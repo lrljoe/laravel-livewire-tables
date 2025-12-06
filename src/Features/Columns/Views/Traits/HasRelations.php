@@ -1,0 +1,60 @@
+<?php
+
+namespace Rappasoft\LaravelLivewireTables\Features\Columns\Views\Traits;
+
+use Illuminate\Support\Collection;
+
+trait HasRelations
+{
+    // An array of relationships: i.e. address.group.name => ['address', 'group']
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
+    protected array $relations = [];
+
+    protected bool $eagerLoadRelations = false;
+
+    public function isBaseColumn(): bool
+    {
+        return ! $this->hasRelations() && $this->hasField();
+    }
+
+    public function hasRelations(): bool
+    {
+        return $this->getRelations()->count() > 0;
+    }
+
+
+    /**
+     * Undocumented function
+     *
+     * @return Collection<string,string>
+     */
+    public function getRelations(): Collection
+    {
+        return collect($this->relations);
+    }
+
+    public function getRelationString(): ?string
+    {
+        if ($this->hasRelations()) {
+            return $this->getRelations()->implode('.');
+        }
+
+        return null;
+    }
+
+    public function eagerLoadRelations(): self
+    {
+        $this->eagerLoadRelations = true;
+
+        return $this;
+    }
+
+    public function eagerLoadRelationsIsEnabled(): bool
+    {
+        return $this->eagerLoadRelations === true;
+    }
+}

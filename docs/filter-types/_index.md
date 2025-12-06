@@ -1,4 +1,4 @@
 ---
 title: Filter Types
-weight: 12
+weight: 13
 ---

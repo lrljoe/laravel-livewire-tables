@@ -1,0 +1,13 @@
+<?php
+
+namespace Rappasoft\LaravelLivewireTables\Features\Filters\Views\Traits;
+
+use Livewire\Attributes\Modelable;
+
+trait IsExternalFilter
+{
+    #[Modelable]
+    public $value = '';
+
+    public $filterKey = '';
+}

@@ -1,26 +1,33 @@
-@aware(['component', 'rowIndex', 'rowID','isTailwind','isBootstrap'])
-@props(['column' => null, 'customAttributes' => [], 'displayMinimisedOnReorder' => false, 'hideUntilReorder' => false])
+@aware([ 'rowIndex', 'rowID','isTailwind','isTailwind4','isBootstrap', 'collapsingColumnInfo'])
+@props(['column' => null, 'isHtml' => false, 'wrapText' => false, 'isClickable' => false, 'colIndex' => null, 'customAttributes' => [], 'displayMinimisedOnReorder' => false, 'hideUntilReorder' => false])
 
-@if ($isTailwind)
-    <td x-cloak {{ $attributes
-        ->merge($customAttributes)
-        ->class(['px-6 py-4 whitespace-nowrap text-sm font-medium dark:text-white' => $customAttributes['default'] ?? true])
-        ->class(['hidden' => $column && $column->shouldCollapseAlways()])
-        ->class(['hidden md:table-cell' => $column && $column->shouldCollapseOnMobile()])
-        ->class(['hidden lg:table-cell' => $column && $column->shouldCollapseOnTablet()])
-        ->except('default')
-    }} @if($hideUntilReorder) x-show="reorderDisplayColumn" @endif >
-        {{ $slot }}
-    </td>
-@elseif ($isBootstrap)
-    <td {{ $attributes
-        ->merge($customAttributes)
-        ->class(['' => $customAttributes['default'] ?? true])
-        ->class(['d-none' => $column && $column->shouldCollapseAlways()])
-        ->class(['d-none d-md-table-cell' => $column && $column->shouldCollapseOnMobile()])
-        ->class(['d-none d-lg-table-cell' => $column && $column->shouldCollapseOnTablet()])
-        ->except('default')
-    }}>
-        {{ $slot }}
-    </td>
-@endif
+<td  {{ $attributes
+    ->merge($customAttributes)
+    ->merge([
+        'x-cloak' => $isTailwind || $isTailwind4
+    ])
+    ->class([
+        'whitespace-wrap' => $wrapText && $isTailwind,
+    ])
+    ->class($isTailwind ? [
+        'whitespace-wrap' => (!$wrapText && $isHtml) && ($customAttributes['default-styling'] ?? true),
+        'whitespace-nowrap' => (!$wrapText && !$isHtml) && ($customAttributes['default-styling'] ?? true),
+        'px-6 py-4 text-sm font-medium' => ($customAttributes['default-styling'] ?? true),
+        'dark:text-white' => ($customAttributes['default-colors'] ?? true),
+        'cursor-pointer' => ($isClickable && ($tableRowDetails['url'] !== null && ($tableRowDetails['attributes']['default'] ?? true))),
+    ] : [])
+    ->class($isTailwind4 ? [
+        'whitespace-wrap' => (!$wrapText && $isHtml) && ($customAttributes['default-styling'] ?? true),
+        'whitespace-nowrap' => (!$wrapText && !$isHtml) && ($customAttributes['default-styling'] ?? true),
+        'px-6 py-4 text-sm font-medium' => ($customAttributes['default-styling'] ?? true),
+        'dark:text-white' => ($customAttributes['default-colors'] ?? true),
+        'cursor-pointer' => ($isClickable && ($tableRowDetails['url'] !== null && ($tableRowDetails['attributes']['default'] ?? true))),
+    ] : [])
+    ->class($isBootstrap ? [
+        '' => ($customAttributes['default'] ?? true),
+    ] : [])
+    ->class($collapsingColumnInfo['collapsingColumnClasses'][$colIndex] ?? '')
+    ->except(['default','default-styling','default-colors'])
+}} @if($hideUntilReorder) x-show="reorderDisplayColumn" @endif >
+    {{ $slot }}
+</td>

@@ -3,13 +3,17 @@
 namespace Rappasoft\LaravelLivewireTables\Views\Traits\Core;
 
 use Illuminate\View\ComponentAttributeBag;
-use Livewire\Attributes\Computed;
 
 trait HasIcon
 {
     public ?string $icon;
-
-    public array $iconAttributes = ['default-styling' => true];
+    
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
+    public array $iconAttributes = ['class' => '', 'default-styling' => true];
 
     public bool $iconRight = true;
 
@@ -30,17 +34,49 @@ trait HasIcon
         return $this->icon;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $iconAttributes
+     * @return self
+     */
     public function setIconAttributes(array $iconAttributes): self
     {
-        $this->iconAttributes = [...['default-styling' => true], ...$iconAttributes];
+        $this->iconAttributes = [...$this->iconAttributes, ...$iconAttributes];
 
         return $this;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
+    public function getIconAttributesArray(): array
+    {
+        return [...['class' => '', 'default-styling' => true], ...$this->iconAttributes];
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @return ComponentAttributeBag
+     */
     public function getIconAttributes(): ComponentAttributeBag
     {
-        return new ComponentAttributeBag([...['default-styling' => true], ...$this->iconAttributes]);
+        return new ComponentAttributeBag([...['class' => '', 'default-styling' => true], ...$this->iconAttributes]);
     }
+
+    /**
+     * Undocumented function
+     *
+     * @return ComponentAttributeBag
+     */
+    public function getIconAttributesBag(): ComponentAttributeBag
+    {
+        return new ComponentAttributeBag([...['class' => '', 'default-styling' => true], ...$this->iconAttributes]);
+    }
+
 
     public function getIconRight(): bool
     {

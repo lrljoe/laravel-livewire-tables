@@ -3,45 +3,32 @@
 namespace Rappasoft\LaravelLivewireTables\Tests\Http\Livewire;
 
 use Illuminate\Database\Eloquent\Builder;
-use Rappasoft\LaravelLivewireTables\DataTableComponent;
+use Illuminate\Support\Facades\App;
+use Livewire\Attributes\On;
 use Rappasoft\LaravelLivewireTables\Tests\Models\Breed;
 use Rappasoft\LaravelLivewireTables\Tests\Models\Pet;
 use Rappasoft\LaravelLivewireTables\Tests\Models\Species;
-use Rappasoft\LaravelLivewireTables\Views\Column;
+use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
 use Rappasoft\LaravelLivewireTables\Views\Columns\ImageColumn;
 use Rappasoft\LaravelLivewireTables\Views\Columns\LinkColumn;
-use Rappasoft\LaravelLivewireTables\Views\Filters\DateFilter;
-use Rappasoft\LaravelLivewireTables\Views\Filters\DateTimeFilter;
-use Rappasoft\LaravelLivewireTables\Views\Filters\MultiSelectDropdownFilter;
-use Rappasoft\LaravelLivewireTables\Views\Filters\MultiSelectFilter;
-use Rappasoft\LaravelLivewireTables\Views\Filters\NumberFilter;
-use Rappasoft\LaravelLivewireTables\Views\Filters\SelectFilter;
-use Rappasoft\LaravelLivewireTables\Views\Filters\TextFilter;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\DateFilter;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\DateTimeFilter;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\MultiSelectDropdownFilter;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\MultiSelectFilter;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\NumberFilter;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\SelectFilter;
+use Rappasoft\LaravelLivewireTables\Features\Filters\Views\TextFilter;
+use Rappasoft\LaravelLivewireTables\Tests\Concerns\TestSecureMethodAccessors;
 
-class PetsTable extends DataTableComponent
+class PetsTable extends BaseTable
 {
+    use TestSecureMethodAccessors;
+    
     public $model = Pet::class;
 
-    public string $paginationTest = 'standard';
-
-    public function enableDetailedPagination(string $type = 'standard')
+    public function changeLocale(string $locale)
     {
-        $this->setPerPageAccepted([1, 3, 5, 10, 15, 25, 50])->setPerPage(3);
-        $this->setPaginationMethod($type);
-        $this->setDisplayPaginationDetailsEnabled();
-
-    }
-
-    public function disableDetailedPagination(string $type = 'standard')
-    {
-        $this->setPerPageAccepted([1, 3, 5, 10, 15, 25, 50])->setPerPage(3);
-        $this->setPaginationMethod($type);
-        $this->setDisplayPaginationDetailsDisabled();
-    }
-
-    public function setPaginationTest(string $type)
-    {
-        $this->paginationTest = $type;
+        App::setLocale($locale);
     }
 
     public function configure(): void

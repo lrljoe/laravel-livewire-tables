@@ -1,7 +1,7 @@
 document.addEventListener('alpine:init', () => {
-    Alpine.data('booleanFilter', (wire,filterKey,tableName,defaultValue) => ({
+    Alpine.data('booleanFilter', (wire,filterKey,dataTableFingerprint,defaultValue) => ({
         switchOn: false, 
-        value: wire.entangle('filterComponents.'+filterKey).live, 
+        value: wire.entangle('appliedFilters.'+filterKey).live, 
         init() { 
             this.switchOn = false; 
             if (typeof this.value !== 'undefined') { 
@@ -9,7 +9,7 @@ document.addEventListener('alpine:init', () => {
             }
             this.listeners.push(
                 Livewire.on('filter-was-set', (detail) => {
-                    if(detail.tableName == tableName && detail.filterKey == filterKey) { 
+                    if(detail.dataTableFingerprint == dataTableFingerprint && detail.filterKey == filterKey) { 
                         this.switchOn = detail.value ?? defaultValue; 
                     }
                 })
