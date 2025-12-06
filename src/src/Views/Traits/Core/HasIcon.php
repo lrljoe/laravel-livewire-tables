@@ -1,0 +1,99 @@
+<?php
+
+namespace Rappasoft\LaravelLivewireTables\Views\Traits\Core;
+
+use Illuminate\View\ComponentAttributeBag;
+
+trait HasIcon
+{
+    public ?string $icon;
+    
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
+    public array $iconAttributes = ['class' => '', 'default-styling' => true];
+
+    public bool $iconRight = true;
+
+    public function setIcon(string $icon): self
+    {
+        $this->icon = $icon;
+
+        return $this;
+    }
+
+    public function hasIcon(): bool
+    {
+        return isset($this->icon);
+    }
+
+    public function getIcon(): string
+    {
+        return $this->icon;
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $iconAttributes
+     * @return self
+     */
+    public function setIconAttributes(array $iconAttributes): self
+    {
+        $this->iconAttributes = [...$this->iconAttributes, ...$iconAttributes];
+
+        return $this;
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @return array<mixed>
+     */
+    public function getIconAttributesArray(): array
+    {
+        return [...['class' => '', 'default-styling' => true], ...$this->iconAttributes];
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @return ComponentAttributeBag
+     */
+    public function getIconAttributes(): ComponentAttributeBag
+    {
+        return new ComponentAttributeBag([...['class' => '', 'default-styling' => true], ...$this->iconAttributes]);
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @return ComponentAttributeBag
+     */
+    public function getIconAttributesBag(): ComponentAttributeBag
+    {
+        return new ComponentAttributeBag([...['class' => '', 'default-styling' => true], ...$this->iconAttributes]);
+    }
+
+
+    public function getIconRight(): bool
+    {
+        return $this->iconRight ?? true;
+    }
+
+    public function setIconLeft(): self
+    {
+        $this->iconRight = false;
+
+        return $this;
+    }
+
+    public function setIconRight(): self
+    {
+        $this->iconRight = true;
+
+        return $this;
+    }
+}

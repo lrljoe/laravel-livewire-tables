@@ -1,0 +1,109 @@
+<?php
+
+namespace Rappasoft\LaravelLivewireTables\Features\Search\Styling;
+
+use Livewire\Attributes\Computed;
+
+
+trait HasSearchIcon
+{
+    protected bool $searchIconSet = false;
+
+    protected ?string $searchIcon = null;
+
+    /**
+     * Undocumented variable
+     *
+     * @var array<mixed>
+     */
+    protected array $searchIconAttributes = ['class' => 'h-4 w-4', 'style' => 'color: #000000'];
+
+    
+    /**
+     * Undocumented function
+     * 
+     * @return boolean
+     */
+    public function hasSearchIcon(): bool
+    {
+        return $this->searchIconSet;
+    }
+
+    /**
+     * Undocumented function
+     * 
+     * @return string
+     */
+    public function getSearchIcon(): string
+    {
+        return $this->hasSearchIcon() ? $this->searchIcon : 'heroicon-m-magnifying-glass';
+    }
+
+    /**
+     * Undocumented function
+     * 
+     * @return string
+     */
+    public function getSearchIconClasses(): string
+    {
+        return $this->getSearchIconAttributes()['class'];
+
+    }
+
+    /**
+     * Undocumented function
+     * 
+     * @return array<mixed>
+     */
+    public function getSearchIconAttributes(): array
+    {
+        return $this->searchIconAttributes;
+    }
+
+    /**
+     * Undocumented function
+     * 
+     * @return array<mixed>
+     */
+    public function getSearchIconOtherAttributes(): array
+    {
+        return collect($this->getSearchIconAttributes())->except('class')->toArray();
+    }
+
+    protected function setSearchIconStatus(bool $searchIconStatus): self
+    {
+        $this->searchIconSet = $searchIconStatus;
+
+        return $this;
+    }
+
+    protected function searchIconEnabled(): self
+    {
+        return $this->setSearchIconStatus(true);
+    }
+
+    protected function searchIconDisabled(): self
+    {
+        return $this->setSearchIconStatus(false);
+    }
+
+    protected function setSearchIcon(string $searchIcon): self
+    {
+        $this->searchIcon = $searchIcon;
+
+        return $this->searchIconEnabled();
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param array<mixed> $searchIconAttributes
+     * @return self
+     */
+    protected function setSearchIconAttributes(array $searchIconAttributes): self
+    {
+        $this->searchIconAttributes = array_merge($this->searchIconAttributes, $searchIconAttributes);
+
+        return $this->searchIconEnabled();
+    }
+}

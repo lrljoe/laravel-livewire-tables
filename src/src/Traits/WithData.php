@@ -1,0 +1,395 @@
+<?php
+
+namespace Rappasoft\LaravelLivewireTables\Traits;
+
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\{BelongsTo, HasOne, MorphOne};
+use Illuminate\Pagination\{CursorPaginator, LengthAwarePaginator, Paginator};
+use Illuminate\Support\Collection;
+use Livewire\Attributes\Computed;
+use Rappasoft\LaravelLivewireTables\Exceptions\DataTableConfigurationException;
+use Rappasoft\LaravelLivewireTables\Features\Columns\Views\Column;
+
+trait WithData
+{
+    /**
+     * Retrieves the rows for the executed query
+     *
+     * @return Collection|CursorPaginator|Paginator|LengthAwarePaginator
+     */
+    #[Computed]
+    public function getRows(): Collection|CursorPaginator|Paginator|LengthAwarePaginator
+    {
+
+        // Setup the Base Query
+        $this->baseQuery();
+
+        // Execute the Query
+        $executedQuery = $this->executeQuery();
+
+        // Get All Currently Paginated Items Primary Keys
+        $this->paginationConfig['paginationCurrentItems'] = $executedQuery->pluck($this->getPrimaryKey())->toArray() ?? [];
+
+        // Get Count of Items in Current Page
+        $this->paginationConfig['paginationCurrentCount'] = $executedQuery->count();
+
+        // Fire hook for rowsRetrieved
+        $this->callHook('rowsRetrieved', [$executedQuery]);
+        $this->callTraitHook('rowsRetrieved', [$executedQuery]);
+
+        return $executedQuery;
+    }
+
+    protected function selectAllQuery(): Builder
+    {
+
+        $includeRelations = false;
+
+        $this->setBuilder($this->builder());
+
+        $this->includePrimaryKeyInQuery();
+        
+        if(method_exists($this, 'hasSearch') && $this->searchIsEnabled() && $this->hasSearch())
+        {
+            $includeRelations = true;
+            $this->setBuilder($this->applySearch());
+        }
+        
+        if(method_exists($this, 'applyFilters') && $this->filtersAreEnabled() && $this->hasFilters() && $this->hasAppliedFiltersWithValues())
+        {
+            $includeRelations = true;
+            $this->setBuilder($this->applyFilters());
+        }
+
+        if($includeRelations)
+        {
+            $this->setBuilder($this->joinRelations());
+        }
+
+        return $this->getBuilder();
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @return Builder<\Illuminate\Database\Eloquent\Model>
+     */
+    protected function baseQuery(): Builder
+    {
+        $this->setBuilder($this->builder());
+
+        $builder = $this->getBuilder();
+
+        $this->setBuilder($this->joinRelations());
+
+        if(method_exists($this, 'applySearch') && $this->searchIsEnabled() && $this->hasSearch())
+        {
+            $this->setBuilder($this->applySearch());
+        }
+        
+        if(method_exists($this, 'applyFilters') && $this->filtersAreEnabled() && $this->hasFilters() && $this->hasAppliedFiltersWithValues())
+        {
+            $this->setBuilder($this->applyFilters());
+        }
+
+
+        $builder = $this->getBuilder();
+
+        if ($this->hasExtraWiths()) {
+            $builder->with($this->getExtraWiths());
+        }
+
+        if ($this->hasExtraWithSums()) {
+            foreach ($this->getExtraWithSums() as $extraSum) {
+                $builder->withSum($extraSum['table'], $extraSum['field']);
+            }
+        }
+        if ($this->hasExtraWithAvgs()) {
+            foreach ($this->getExtraWithAvgs() as $extraAvg) {
+                $builder->withAvg($extraAvg['table'], $extraAvg['field']);
+            }
+        }
+
+        if ($this->hasExtraWithCounts()) {
+            $builder->withCount($this->getExtraWithCounts());
+        }
+
+        $this->setBuilder($builder);
+
+        return $this->getBuilder();
+
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @return Collection|CursorPaginator|Paginator|LengthAwarePaginator
+     */
+    protected function executeQuery(): Collection|CursorPaginator|Paginator|LengthAwarePaginator
+    {
+        // Moved these from baseQuery to here to avoid pulling all fields when cloning baseQuery.
+        $this->setBuilder($this->selectFields());
+
+        $this->includePrimaryKeyInQuery();
+        
+        if ($this->currentlyReorderingIsEnabled()) {
+            $this->setBuilder($this->getBuilder()->orderBy($this->getDefaultReorderColumn(), $this->getDefaultReorderDirection()));
+        } else {
+            $this->applySorting();
+        }
+
+        if ($this->paginationIsEnabled()) {
+            if ($this->isPaginationMethod('standard')) {
+                $paginatedResults = $this->getBuilder()->paginate($this->getPerPage() === -1 ? $this->getBuilder()->count() : $this->getPerPage(), ['*'], $this->getComputedPageName());
+
+                // Get the total number of items available
+                $this->paginationConfig['paginationTotalItemCount'] = $paginatedResults->total() ?? 0;
+
+                return $paginatedResults;
+            } elseif ($this->isPaginationMethod('simple')) {
+
+                if ($this->getShouldRetrieveTotalItemCount()) {
+                    $this->paginationConfig['paginationTotalItemCount'] = $this->getBuilder()->count();
+
+                    return $this->getBuilder()->simplePaginate($this->getPerPage() === -1 ? $this->paginationConfig['paginationTotalItemCount'] : $this->getPerPage(), ['*'], $this->getComputedPageName());
+                } else {
+                    $this->paginationConfig['paginationTotalItemCount'] = -1;
+
+                    return $this->getBuilder()->simplePaginate($this->getPerPage() === -1 ? 10 : $this->getPerPage(), ['*'], $this->getComputedPageName());
+                }
+
+            } elseif ($this->isPaginationMethod('cursor')) {
+
+                $this->paginationConfig['paginationTotalItemCount'] = $this->getBuilder()->count();
+
+                return $this->getBuilder()->cursorPaginate($this->getPerPage() === -1 ? $this->paginationConfig['paginationTotalItemCount'] : $this->getPerPage(), ['*'], $this->getComputedPageName());
+            } else {
+                throw new DataTableConfigurationException('Pagination method must be either simple, standard or cursor');
+            }
+        }
+
+        return $this->getBuilder()->get();
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @return Builder<\Illuminate\Database\Eloquent\Model>
+     */
+    protected function joinRelations(): Builder
+    {
+        if ($this->getExcludeDeselectedColumnsFromQuery()) {
+            foreach ($this->getSelectedColumnsForQuery() as $column) {
+                if ($column->hasRelations()) {
+                    $this->setBuilder($this->joinRelation($column));
+                }
+            }
+
+        } else {
+            foreach ($this->getColumns()->reject(fn (Column $column) => $column->isLabel()) as $column) {
+                if ($column->hasRelations()) {
+                    $this->setBuilder($this->joinRelation($column));
+                }
+            }
+        }
+
+        return $this->getBuilder();
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param Column $column
+     * @return Builder<\Illuminate\Database\Eloquent\Model>
+     */
+    protected function joinRelation(Column $column): Builder
+    {
+        if ($column->eagerLoadRelationsIsEnabled() || $this->eagerLoadAllRelationsIsEnabled()) {
+            $this->setBuilder($this->getBuilder()->with($column->getRelationString()));
+        }
+
+        $table = false;
+        $tableAlias = false;
+        $foreign = false;
+        $other = false;
+        $lastAlias = false;
+        $lastQuery = clone $this->getBuilder();
+
+        foreach ($column->getRelations() as $i => $relationPart) {
+            $model = $lastQuery->getRelation($relationPart);
+            $tableAlias = $this->getTableAlias($tableAlias, $relationPart);
+
+            switch (true) {
+                case $model instanceof MorphOne:
+                case $model instanceof HasOne:
+                    $table = "{$model->getRelated()->getTable()} AS $tableAlias";
+                    $foreign = "$tableAlias.{$model->getForeignKeyName()}";
+                    $other = $i === 0
+                        ? $model->getQualifiedParentKeyName()
+                        : $lastAlias.'.'.$model->getLocalKeyName();
+
+                    break;
+
+                case $model instanceof BelongsTo:
+                    $table = "{$model->getRelated()->getTable()} AS $tableAlias";
+                    $foreign = $i === 0
+                        ? $model->getQualifiedForeignKeyName()
+                        : $lastAlias.'.'.$model->getForeignKeyName();
+
+                    $other = "$tableAlias.{$model->getOwnerKeyName()}";
+
+                    break;
+            }
+
+            if ($table) {
+                $this->setBuilder($this->performJoin($table, $foreign, $other));
+            }
+
+            $lastAlias = $tableAlias;
+            $lastQuery = $model->getQuery();
+        }
+
+        return $this->getBuilder();
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param string $table
+     * @param string $foreign
+     * @param string $other
+     * @param string $type
+     * @return Builder<\Illuminate\Database\Eloquent\Model>
+     */
+    protected function performJoin(string $table, string $foreign, string $other, string $type = 'left'): Builder
+    {
+        $joins = [];
+
+        foreach ($this->getBuilder()->getQuery()->joins ?? [] as $join) {
+            $joins[] = $join->table;
+        }
+
+        if (! in_array($table, $joins, true)) {
+            $this->setBuilder($this->getBuilder()->join($table, $foreign, '=', $other, $type));
+        }
+
+        return $this->getBuilder();
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @return Builder<\Illuminate\Database\Eloquent\Model>
+     */
+    protected function selectFields(): Builder
+    {
+        $table = $this->getBuilder()->getModel()->getTable();
+
+        // Load any additional selects that were not already columns
+        foreach ($this->getAdditionalSelects() as $select) {
+            $this->setBuilder($this->getBuilder()->addSelect($select));
+        }
+
+        if ($this->getExcludeDeselectedColumnsFromQuery()) {
+            foreach ($this->getSelectedColumnsForQuery() as $column) {
+                if($column->isBaseColumn())
+                {
+                    $this->setBuilder($this->getBuilder()->addSelect($column->getColumnForQuery($table).' as '.$column->getColumnSelectName()));
+                }
+                else
+                {
+                    $this->setBuilder($this->getBuilder()->addSelect($column->getColumnForQuery().' as '.$column->getColumnSelectName()));
+                }
+
+            }
+        } else {
+            foreach ($this->getColumns()->reject(fn (Column $column) => $column->isLabel()) as $column) {
+                if($column->isBaseColumn())
+                {
+                    $this->setBuilder($this->getBuilder()->addSelect($column->getColumnForQuery($table).' as '.$column->getColumnSelectName()));
+                }
+                else
+                {
+                    $this->setBuilder($this->getBuilder()->addSelect($column->getColumnForQuery().' as '.$column->getColumnSelectName()));
+                }
+                
+
+            }
+        }
+
+        return $this->getBuilder();
+    }
+
+    /**
+     * Gets the table for a given Column
+     *
+     * @param Column $column
+     * @return string|null
+     */
+    protected function getTableForColumn(Column $column): ?string
+    {
+        $table = null;
+        $lastQuery = clone $this->getBuilder();
+
+        foreach ($column->getRelations() as $relationPart) {
+            $model = $lastQuery->getRelation($relationPart);
+
+            if ($model instanceof HasOne || $model instanceof BelongsTo || $model instanceof MorphOne) {
+                $table = $this->getTableAlias($table, $relationPart);
+            }
+
+            $lastQuery = $model->getQuery();
+        }
+
+        return $table;
+    }
+
+    /**
+     * Retrieves table aliases
+     *
+     * @param string|null $currentTableAlias
+     * @param string $relationPart
+     * @return string
+     */
+    protected function getTableAlias(?string $currentTableAlias, string $relationPart): string
+    {
+        if (! $currentTableAlias) {
+            return $relationPart;
+        }
+
+        return $currentTableAlias.'_'.$relationPart;
+    }
+
+    /**
+     * The base query - typically overridden in child components
+     *
+     * @return Builder<\Illuminate\Database\Eloquent\Model>
+     */
+    public function builder(): Builder
+    {
+        if ($this->hasModel()) {
+            return $this->getModel()::query()
+                ->with($this->getRelationships());
+        }
+
+        // If model does not exist
+        throw new DataTableConfigurationException('You must either specify a model or implement the builder method.');
+    }
+
+    /**
+     * Add Rows And Generic Data to View
+     *
+     * @param \Illuminate\View\View $view
+     * @param array<mixed> $data
+     * @return void
+     */
+    public function renderingWithData(\Illuminate\View\View $view, array $data = []): void
+    {
+        if (! $this->getComputedPropertiesStatus()) {
+            $view->with([
+                'filterGenericData' => $this->getFilterGenericData(),
+                'rows' => $this->getRows(),
+            ]);
+        }
+    }
+}
